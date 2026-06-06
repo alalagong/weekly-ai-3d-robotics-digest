@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-05-21 至 2026-05-28：GLUEMAP、TriSplat 与 WorldEngine</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #18202a;
+      --muted: #5e6a78;
+      --line: #d9e1ea;
+      --soft: #f5f7fa;
+      --accent: #0f766e;
+      --accent-2: #7c2d12;
+      --bg: #ffffff;
+      --code: #eef6f4;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.62;
+    }
+    header {
+      padding: 40px 7vw 26px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #f8fbfd 0%, #fff 100%);
+    }
+    main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 28px 7vw 56px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.16;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 34px 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--line);
+      font-size: 24px;
+    }
+    h3 { margin: 22px 0 8px; font-size: 19px; }
+    p { margin: 8px 0; }
+    a {
+      color: #075985;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    .meta { color: var(--muted); font-size: 14px; }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .tile {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px 16px;
+      background: #fff;
+    }
+    .tile strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent);
+    }
+    .note {
+      margin: 16px 0;
+      padding: 10px 14px;
+      border-left: 4px solid var(--accent);
+      background: #eefaf7;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 22px;
+      table-layout: fixed;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px 11px;
+      vertical-align: top;
+      word-break: break-word;
+    }
+    th {
+      background: var(--soft);
+      text-align: left;
+      font-weight: 700;
+    }
+    .tag {
+      display: inline-block;
+      margin: 2px 4px 2px 0;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--code);
+      color: #0f514d;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .score {
+      color: var(--accent-2);
+      font-weight: 700;
+    }
+    ul { padding-left: 22px; }
+    li { margin: 5px 0; }
+    .small { font-size: 13px; color: var(--muted); }
+    @media (max-width: 760px) {
+      header { padding: 30px 5vw 20px; }
+      main { padding: 22px 5vw 42px; }
+      table { display: block; overflow-x: auto; table-layout: auto; }
+      th, td { min-width: 190px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>每周进展：GLUEMAP、TriSplat 与 WorldEngine</h1>
+    <p class="meta">覆盖时间：2026-05-21 至 2026-05-28（Asia/Shanghai） · 立即执行版 · 关注：SLAM / VIO / SfM / FeedForward 3DR / 具身智能 / 世界模型 / 机器人</p>
+    <div class="summary-grid">
+      <div class="tile"><strong>论文入选</strong>6 篇：3D 重建/SfM 2 篇，VIO 1 篇，具身智能/世界模型 3 篇。</div>
+      <div class="tile"><strong>代码入选</strong>5 个仓库：GLUEMAP、TriSplat、four-pixel-vio、RISE、WorldEngine/minWM。</div>
+      <div class="tile"><strong>本周信号</strong>视觉几何正在和大规模 feed-forward 3D、可交互仿真、世界模型基础设施合流。</div>
+      <div class="tile"><strong>置信度说明</strong>论文条目来自 arXiv/GitHub 项目页；GitHub stars/forks 为抓取时页面显示值，后续会变化。</div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Executive Summary</h2>
+      <p>本周最值得关注的是 <strong>GLUEMAP</strong>：它把传统 SfM 的相机位姿和点云，与 MASt3R / VGGT / DUSt3R 这类 feed-forward 3D 模型输出的全局坐标点图粘合起来，目标是同时获得 SfM 的精确几何约束和神经 3D 的强先验。这个方向对大场景重建、低纹理场景、弱匹配场景都有直接价值。</p>
+      <p><strong>TriSplat</strong>沿着可交互 3DGS 场景仿真推进，强调三平面组合场和跨数据集可泛化性；和机器人/具身智能的连接点在于：如果 3DGS 场景能被稳定编辑与仿真，后续可成为导航、操作、数据生成的轻量环境表示。</p>
+      <p><strong>WorldEngine / RISE / minWM / stable-worldmodel</strong>说明世界模型正在从论文概念转向工程化 repo：有的偏自动驾驶生成式仿真，有的偏 VLA/操作任务，有的偏最小可复现训练框架。建议后续跟踪它们是否真正开放训练代码、数据处理链路和评测脚本。</p>
+    </section>
+
+    <section>
+      <h2>Top Papers</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>论文</th>
+            <th>问题</th>
+            <th>核心方法 / Insight</th>
+            <th>实验与效果</th>
+            <th>代码</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2605.26103">GLUEMAP: Globally Aligned Pointmaps for Robust 3D Reconstruction</a><br><span class="small">arXiv:2605.26103 · 2026-05-27 UTC</span></td>
+            <td>SfM 依赖特征匹配和三角化，feed-forward 3D 模型有强先验但全局一致性和精确位姿仍弱；目标是把两者的优势结合。</td>
+            <td>把神经模型预测的全局对齐 pointmaps 注入 SfM/3D 重建流程，作为更稳定的几何锚点；insight 是“点图先验”可以补传统匹配/三角化在弱纹理和大基线下的短板。</td>
+            <td>论文摘要宣称在多样场景上提升鲁棒性与重建质量；需在正式版中重点核对相机位姿误差、点云完整度、COLMAP/DUSt3R/MASt3R/VGGT 等基线对比。</td>
+            <td><a href="https://github.com/colmap/gluemap">colmap/gluemap</a> · 页面显示 Apache-2.0，约 269 stars / 3 forks。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2605.26115">TriSplat: Generalizable Tri-plane Network for Scene Generation and Simulation from Sparse-view 3D Gaussians</a><br><span class="small">arXiv:2605.26115 · 2026-05-27 UTC</span></td>
+            <td>稀疏视角 3DGS 场景难以泛化生成和交互式仿真，尤其是动态/可编辑场景。</td>
+            <td>用三平面网络表示稀疏视角 3D Gaussians，让场景生成与仿真共享可学习的空间表征；insight 是三平面比直接操作大量高斯更适合学习全局结构与交互变化。</td>
+            <td>在 RealEstate10K、ACID、DL3DV-10K 等数据集上评估稀疏视角重建/生成；项目页显示目标是 scene generation and simulation，量化表需继续跟踪论文 PDF/代码释放。</td>
+            <td><a href="https://github.com/ziplab/TriSplat">ziplab/TriSplat</a> · 页面显示约 30 stars / 2 forks。</td>
+          </tr>
+          <tr>
+            <td><a href="https://huggingface.co/papers/2605.19990">Minimalist Visual-Inertial Odometry for Agile Robots</a><br><span class="small">arXiv:2605.19990 · 2026-05-25 UTC</span></td>
+            <td>敏捷机器人上的 VIO 需要更低算力、更低传感器复杂度和足够稳的状态估计。</td>
+            <td>把视觉输入压到极简配置，项目名 four-pixel-vio 暗示使用极低维视觉观测配合 IMU；insight 是在强运动先验/惯性约束下，VIO 未必需要高分辨率视觉。</td>
+            <td>项目仍需核对论文完整数据；建议重点看高速飞行/敏捷平台、ATE/RPE、算力和相机分辨率消融。如果成立，价值在极端轻量化 VIO。</td>
+            <td><a href="https://github.com/pastifra/four-pixel-vio">pastifra/four-pixel-vio</a> · 页面显示约 24 stars / 1 fork。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2605.21800">Learning Stable World Models via Discrete Denoising Diffusion</a><br><span class="small">arXiv:2605.21800 · 2026-05-20 UTC / 2026-05-21 Asia/Shanghai</span></td>
+            <td>世界模型 rollout 容易随时间积累误差，长期预测稳定性不足。</td>
+            <td>使用离散去噪扩散来学习更稳定的 latent dynamics；insight 是把预测过程做成逐步去噪，可缓解一步自回归误差扩散。</td>
+            <td>摘要强调长期 rollout 稳定性；建议后续核对视频预测/控制任务指标、rollout horizon、与 Dreamer/Genie 类模型对比。</td>
+            <td><a href="https://github.com/galilai-group/stable-worldmodel">galilai-group/stable-worldmodel</a> · 页面显示约 98 stars / 2 forks。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2605.27351">PartFlow: Perceiving Part Motion for Interactive Object Understanding</a><br><span class="small">arXiv:2605.27351 · 2026-05-28 UTC</span></td>
+            <td>具身智能需要理解 articulated objects 的部件运动，而不只是静态几何或语义。</td>
+            <td>关注部件级运动感知，可能结合视觉、几何和交互信号学习可操作对象结构；insight 是“部件运动”是操作规划里的关键中间表示。</td>
+            <td>需重点关注是否包含真实机器人交互、模拟平台、part segmentation/motion prediction 指标，以及对下游 manipulation success 的提升。</td>
+            <td>暂未确认官方代码。</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/OpenDriveLab/RISE">RISE: A Foundation Model for Simulating the Physical World</a><br><span class="small">GitHub 项目页，论文链接由仓库维护</span></td>
+            <td>自动驾驶和机器人需要可控、可扩展、物理一致的世界仿真模型。</td>
+            <td>把生成式世界模型用于物理世界仿真，面向 driving/robotics 的闭环评估与数据生成；insight 是世界模型 repo 正在走向“评测和仿真平台”而非单一视频生成。</td>
+            <td>项目页展示 foundation model for simulating the physical world；后续需检查 benchmark、闭环 driving 指标、开放权重和生成质量指标。</td>
+            <td><a href="https://github.com/OpenDriveLab/RISE">OpenDriveLab/RISE</a> · 页面显示 Apache-2.0，约 639 stars / 21 forks。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Open-source Code</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Repo</th>
+            <th>相关性</th>
+            <th>能力与路线</th>
+            <th>热度 / 成熟度</th>
+            <th>跟进建议</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://github.com/colmap/gluemap">colmap/gluemap</a><br><span class="tag">SfM</span><span class="tag">FeedForward 3D</span></td>
+            <td class="score">高</td>
+            <td>COLMAP 生态下的全局点图融合重建，适合评估神经 3D 模型与传统 SfM 的结合路线。</td>
+            <td>约 269 stars / 3 forks；Apache-2.0；仓库名在 colmap org 下，工程可信度较高。</td>
+            <td>优先复现：小场景、弱纹理、大基线；和 COLMAP、VGGT、MASt3R 输出作对比。</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/ziplab/TriSplat">ziplab/TriSplat</a><br><span class="tag">3DGS</span><span class="tag">Simulation</span></td>
+            <td class="score">高</td>
+            <td>稀疏视角 3DGS + triplane 网络，用于场景生成与仿真，和机器人数据生成/交互式环境表示相关。</td>
+            <td>约 30 stars / 2 forks；仍偏早期，需观察代码、数据和预训练模型是否完整。</td>
+            <td>关注是否支持动态对象、编辑操作、物理交互，以及能否导入机器人仿真流程。</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/pastifra/four-pixel-vio">pastifra/four-pixel-vio</a><br><span class="tag">VIO</span><span class="tag">Agile Robots</span></td>
+            <td class="score">中高</td>
+            <td>极简视觉输入的 VIO 探索，适合关注传感器最小化和边缘计算。</td>
+            <td>约 24 stars / 1 fork；早期项目，复现实验和数据集完整性需检查。</td>
+            <td>优先看 IMU 标定、延迟、光照鲁棒性和敏捷运动下的失败模式。</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/OpenDriveLab/RISE">OpenDriveLab/RISE</a><br><span class="tag">World Model</span><span class="tag">Embodied AI</span></td>
+            <td class="score">中高</td>
+            <td>物理世界仿真 foundation model，偏自动驾驶/具身智能场景生成和评估。</td>
+            <td>约 639 stars / 21 forks；Apache-2.0；热度最高，适合持续观察。</td>
+            <td>核查是否开放训练、推理 demo、评测脚本；重点关注闭环仿真指标。</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/OpenDriveLab/WorldEngine">OpenDriveLab/WorldEngine</a> / <a href="https://github.com/shengshu-ai/minWM">shengshu-ai/minWM</a><br><span class="tag">World Model Infra</span></td>
+            <td class="score">中</td>
+            <td>WorldEngine 偏自动驾驶世界模型平台；minWM 偏最小化世界模型训练框架。</td>
+            <td>WorldEngine 页面显示约 159 stars / 21 forks；minWM 页面显示 Apache-2.0，约 756 stars / 47 forks。</td>
+            <td>用作工程参考：数据格式、训练 loop、评测组织方式；不直接等价于 SLAM，但对仿真和下游 embodied pipeline 有用。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Quantitative Experiment Highlights</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>方向</th>
+            <th>平台 / 数据</th>
+            <th>方法</th>
+            <th>本周可确认的结果线索</th>
+            <th>待补数据</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SfM + neural pointmaps</td>
+            <td>多视图 3D 重建数据；论文应覆盖室内/室外多场景。</td>
+            <td>GLUEMAP 融合全局 pointmaps 与 SfM 优化。</td>
+            <td>摘要称提升 robust 3D reconstruction；仓库已经开放。</td>
+            <td>ATE/RPE、registration recall、point cloud completeness、runtime、失败案例。</td>
+          </tr>
+          <tr>
+            <td>Sparse-view 3DGS simulation</td>
+            <td>RealEstate10K、ACID、DL3DV-10K。</td>
+            <td>TriSplat 三平面网络学习稀疏视角高斯场景。</td>
+            <td>项目页明确用于 scene generation and simulation。</td>
+            <td>PSNR/SSIM/LPIPS、跨数据集泛化、交互编辑稳定性、渲染速度。</td>
+          </tr>
+          <tr>
+            <td>Minimal VIO</td>
+            <td>敏捷机器人/飞行平台，视觉 + IMU。</td>
+            <td>four-pixel-vio 极简视觉观测 + 惯性约束。</td>
+            <td>论文/项目聚焦 agile robots，方向新颖。</td>
+            <td>轨迹误差、刷新率、CPU/GPU 占用、极端光照与高速机动表现。</td>
+          </tr>
+          <tr>
+            <td>World models</td>
+            <td>视频预测、自动驾驶仿真、机器人操作环境。</td>
+            <td>离散去噪扩散、生成式仿真、最小训练框架。</td>
+            <td>stable-worldmodel、RISE、WorldEngine/minWM 均有公开仓库或项目页。</td>
+            <td>rollout horizon、closed-loop success、collision/off-road rate、task success、数据规模。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Trends & Insights</h2>
+      <ul>
+        <li><strong>几何先验回流：</strong>Feed-forward 3D 模型不再只是端到端输出漂亮点云，而是开始被塞回 SfM 管线里参与全局一致性与优化。</li>
+        <li><strong>3DGS 从重建走向仿真：</strong>TriSplat 代表的路线说明高斯场景如果能被泛化生成和编辑，就可能成为机器人仿真与数据生成资产。</li>
+        <li><strong>VIO 极限简化仍有探索价值：</strong>four-pixel-vio 这类工作值得看失败边界，尤其适合低功耗、微型无人机或事件相机替代路线的比较。</li>
+        <li><strong>世界模型工程化：</strong>RISE、WorldEngine、minWM 把重点放在 repo、平台和可运行框架上；近期价值可能更多在 infrastructure，而不是单点 SOTA。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Worth Following</h2>
+      <ul>
+        <li>复现 GLUEMAP：先用 COLMAP 标准 demo 和一个弱纹理自采数据集，对比纯 COLMAP、MASt3R/VGGT 输出、GLUEMAP 融合结果。</li>
+        <li>跟踪 TriSplat 是否开放预训练模型和定量表格；如果开放，测试能否把重建场景导入现有机器人仿真/导航 pipeline。</li>
+        <li>把 stable-worldmodel/minWM 当作世界模型训练框架样板，拆解数据加载、tokenizer/latent 表示和 rollout 评估。</li>
+        <li>下一次自动报告建议加入 GitHub GraphQL 或已登录 Chrome 的 starred/following 数据，以便覆盖“followed 的人 star repo”。本次未使用个人登录态。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Raw Links</h2>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2605.26103">https://arxiv.org/abs/2605.26103</a></li>
+        <li><a href="https://github.com/colmap/gluemap">https://github.com/colmap/gluemap</a></li>
+        <li><a href="https://arxiv.org/abs/2605.26115">https://arxiv.org/abs/2605.26115</a></li>
+        <li><a href="https://github.com/ziplab/TriSplat">https://github.com/ziplab/TriSplat</a></li>
+        <li><a href="https://huggingface.co/papers/2605.19990">https://huggingface.co/papers/2605.19990</a></li>
+        <li><a href="https://github.com/pastifra/four-pixel-vio">https://github.com/pastifra/four-pixel-vio</a></li>
+        <li><a href="https://arxiv.org/abs/2605.21800">https://arxiv.org/abs/2605.21800</a></li>
+        <li><a href="https://github.com/galilai-group/stable-worldmodel">https://github.com/galilai-group/stable-worldmodel</a></li>
+        <li><a href="https://arxiv.org/abs/2605.27351">https://arxiv.org/abs/2605.27351</a></li>
+        <li><a href="https://github.com/OpenDriveLab/RISE">https://github.com/OpenDriveLab/RISE</a></li>
+        <li><a href="https://github.com/OpenDriveLab/WorldEngine">https://github.com/OpenDriveLab/WorldEngine</a></li>
+        <li><a href="https://github.com/shengshu-ai/minWM">https://github.com/shengshu-ai/minWM</a></li>
+      </ul>
+      <p class="small">生成时间：2026-05-28。GitHub star/fork 数量为抓取页面时的近似显示值；arXiv 的 UTC 日期已按本地周范围做边界解释。</p>
+    </section>
+  </main>
+</body>
+</html>

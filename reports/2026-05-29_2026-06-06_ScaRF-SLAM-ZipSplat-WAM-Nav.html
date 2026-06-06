@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-05-29 至 2026-06-06：ScaRF-SLAM、ZipSplat 与 WAM-Nav</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #18202a;
+      --muted: #5e6a78;
+      --line: #d9e1ea;
+      --soft: #f5f7fa;
+      --accent: #0f766e;
+      --accent-2: #7c2d12;
+      --bg: #ffffff;
+      --code: #eef6f4;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.62;
+    }
+    header {
+      padding: 40px 7vw 26px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #f8fbfd 0%, #fff 100%);
+    }
+    main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 28px 7vw 56px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.16;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 34px 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--line);
+      font-size: 24px;
+    }
+    h3 { margin: 22px 0 8px; font-size: 19px; }
+    p { margin: 8px 0; }
+    a {
+      color: #075985;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    .meta { color: var(--muted); font-size: 14px; }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .tile {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px 16px;
+      background: #fff;
+    }
+    .tile strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent);
+    }
+    .note {
+      margin: 16px 0;
+      padding: 10px 14px;
+      border-left: 4px solid var(--accent);
+      background: #eefaf7;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 22px;
+      font-size: 14px;
+    }
+    th, td {
+      vertical-align: top;
+      text-align: left;
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+    }
+    th {
+      background: var(--soft);
+      font-weight: 700;
+    }
+    tr:nth-child(even) td { background: #fcfdfe; }
+    .tag {
+      display: inline-block;
+      margin: 2px 4px 2px 0;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: var(--code);
+      color: #115e59;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .small { color: var(--muted); font-size: 12px; }
+    .score { font-weight: 700; color: var(--accent-2); }
+    ul { padding-left: 22px; }
+    li { margin: 7px 0; }
+    .links {
+      columns: 2 360px;
+      column-gap: 36px;
+    }
+    .links li { break-inside: avoid; }
+    @media (max-width: 760px) {
+      header { padding: 30px 5vw 20px; }
+      main { padding: 22px 5vw 42px; }
+      table { display: block; overflow-x: auto; white-space: normal; }
+      th, td { min-width: 180px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="meta">每周行业进展报告</p>
+    <h1>ScaRF-SLAM、ZipSplat 与 WAM-Nav：几何基础模型进入 SLAM/导航闭环</h1>
+    <p class="meta">覆盖时间：2026-05-29 至 2026-06-06（Asia/Shanghai）。上次本地报告生成于 2026-05-28 23:49；部分 arXiv UTC 2026-05-28 深夜条目折算为北京时间 2026-05-29，故纳入本期。</p>
+    <div class="summary-grid">
+      <div class="tile"><strong>论文入选</strong>16 篇；Top Papers 12 篇，补充跟踪 4 篇。</div>
+      <div class="tile"><strong>代码/项目入选</strong>9 个 GitHub 仓库或项目页；公开 API 元数据与页面交叉核验。</div>
+      <div class="tile"><strong>核心关键词</strong>SLAM、VIO、feed-forward 3D、3DGS、世界模型、VLA、导航。</div>
+      <div class="tile"><strong>可复现优先级</strong>ZipSplat、minWM、WAM-Flow、SpatialVID、MoVieS 更完整；QVGGT/GAVIS/WAM-Nav 仍偏早期。</div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Executive Summary</h2>
+      <p><strong>本周最明确的技术主线是“经典几何系统不被替代，而是吸收 feed-forward 3D 模型作为测量或建图先验”。</strong>ScaRF-SLAM 用传统特征 SLAM 负责低延迟跟踪，把几何基础模型限制在 mapping；CoMo3R-SLAM 用 learned pointmap 做跨智能体匹配和 Sim(3) 同步；Anchor3R 把长序列重建改写为当前坐标系下的相对测量。这三类设计都在回避一个风险：直接让大模型输出全局位姿会把尺度和漂移误差传进闭环。</p>
+      <p><strong>3DGS/mesh 表示继续往机器人可用性靠近。</strong>Triangle Splatting SLAM 用可微三角形替代高斯作为在线地图，使碰撞检测、mesh 编辑、仿真接口更自然；GAVIS 把可见性和不确定性显式化，用于 active mapping；ZipSplat 则把高斯数量从像素网格中解耦，为前馈 3DGS 提供更可控的质量/效率旋钮。</p>
+      <p><strong>世界模型方向开始强调闭环评估和实体导航，而不是只做视频生成。</strong>WAM-Nav、WorldFly、PiL-World、WLA 都把未来视觉想象、动作生成、策略评估或语言分解放到一个系统里。值得注意的是，PiL-World 把真实 rollout 成功率估计误差从 63.2% 降到 12.0%，这是世界模型能否替代部分机器人评测成本的关键指标。</p>
+      <div class="note">GitHub 公共 Search API 在未登录状态下触发 rate limit；未使用已登录 Chrome 抓取 followed stars。本期代码热度以公开 GitHub 页面、Search API 返回片段和项目页为准，可能漏掉小众但高质量的私域 star 信号。</div>
+    </section>
+
+    <section>
+      <h2>Top Papers</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>论文</th>
+            <th>问题</th>
+            <th>核心方法 / Insight</th>
+            <th>实验、基线、指标与量化结果</th>
+            <th>新颖点与效果判断</th>
+            <th>代码</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2606.00307">ScaRF-SLAM</a><br><span class="small">arXiv:2606.00307 · cs.RO · 2026-05-29 UTC</span></td>
+            <td>几何基础模型直接参与 tracking 时，对预测误差和尺度不确定性敏感，容易污染位姿估计。</td>
+            <td>经典 feature-based SLAM 做低延迟跟踪；feed-forward GFM 只用于建图。通过 keyframe submap、frame/submap scale optimization、投影式点云融合保持尺度一致。</td>
+            <td>自建 loop-rich building-scale indoor dataset，含高精度轨迹和 LiDAR GT；另测大尺度 outdoor。指标含轨迹精度和重建误差。摘要给出重建 precision 提升 10%-20%，室内约 2 cm / 10 m chunk，室外约 10 cm / 30 m chunk。</td>
+            <td>把“模型先验”和“闭环位姿估计”解耦，工程判断正确；适合后续接入 ORB-SLAM/COLMAP/VGGT/MASt3R 类系统验证。</td>
+            <td>未确认官方代码。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2605.31419">Triangle Splatting SLAM</a><br><span class="small">arXiv:2605.31419 · cs.CV/cs.RO · 2026-05-29 UTC</span></td>
+            <td>3DGS 地图适合渲染，但碰撞、编辑、仿真和传统图形管线更偏 mesh/triangle。</td>
+            <td>首个用 differentiable triangle soup 做 tracking 和 mapping 的 dense RGB-D SLAM；在线 restricted Delaunay triangulation 转成 connected mesh。</td>
+            <td>Replica 与 TUM-RGBD；对比 SLAM / 3DGS 类基线；摘要称 3D geometry 优于 baselines，camera tracking accuracy 持平，并支持在线 mesh editing。</td>
+            <td>地图表示从“漂亮渲染”转向“下游可操作几何”。对机器人仿真、碰撞检测、数字孪生比纯 3DGS 更直接。</td>
+            <td>未确认论文官方代码；相关老项目 <a href="https://github.com/trianglesplatting/triangle-splatting">trianglesplatting/triangle-splatting</a> 是 radiance field rendering，不是本 SLAM 系统。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2605.30488">CoMo3R-SLAM</a><br><span class="small">arXiv:2605.30488 · cs.RO · 2026-05-28 UTC / 2026-05-29 CST</span></td>
+            <td>户外多机器人 dense SLAM 依赖深度传感器；纯 monocular RGB 存在尺度、低重叠和重复结构匹配问题。</td>
+            <td>每个 agent 运行 prior-guided 前端做实时 tracking 和 local dense fusion；协调器做 dense pointmap matching、Sim(3) gauge synchronization、GPU global BA 和 segment-level depth optimization。</td>
+            <td>Tanks and Temples 与 Waymo；ATE、online speed。摘要称 Tanks and Temples 4 个场景中 3 个 ATE 最佳，Waymo 精度有竞争力，达到 online 8 FPS。</td>
+            <td>把 feed-forward 3D prior 放到跨 agent 验证和尺度同步，直击多机 monocular dense map 的痛点。</td>
+            <td><a href="https://github.com/como3r-slam/como3r-slam.github.io">como3r-slam/como3r-slam.github.io</a> 为项目页仓库，暂未确认实现代码。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2606.05035">Anchor3R</a><br><span class="small">arXiv:2606.05035 · cs.CV · 2026-06-03 UTC</span></td>
+            <td>长序列在线重建若固定在首帧或持久 memory 坐标系，容易出现 train-test mismatch、早期 anchor bias 与累积漂移。</td>
+            <td>把 feed-forward reconstruction 视为 current-centric local measurement prediction：每步输出当前帧坐标系下的 window-relative poses 和 local pointmap，再由 loop closure reinsertion 与 motion averaging 融合到全局。</td>
+            <td>室内、户外、driving、RGB-D benchmarks；指标为 long-horizon pose accuracy 和 dense reconstruction quality。摘要未给具体数值，但强调 bounded-memory online inference 优于 streaming baselines。</td>
+            <td>关键 insight 是“前馈模型输出局部测量，而非永久全局 gauge”。和 ScaRF-SLAM 形成相同工程趋势。</td>
+            <td>未确认官方代码。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2606.05102">ZipSplat</a><br><span class="small">arXiv:2606.05102 · cs.CV · 2026-06-03 UTC</span></td>
+            <td>前馈 3DGS 常按输入像素生成高斯，表示预算受分辨率而非场景复杂度控制。</td>
+            <td>多视图 backbone 提取 dense tokens，用 k-means 压成 scene tokens，再用 attention + MLP 解码为 unconstrained 3D Gaussians；推理时可调 compression。</td>
+            <td>DL3DV、RealEstate10K、Mip-NeRF360、ScanNet++；PSNR/SSIM/LPIPS。摘要称约 6x 更少 Gaussians；比最佳 pose-free baseline 高 2.1 dB / 1.2 dB PSNR。README 给出 RE10K 26.20 PSNR vs YoNoSplat 24.99。</td>
+            <td>把“高斯数量”变成显式效率旋钮，且无 GT poses/intrinsics；可复现性强。</td>
+            <td><a href="https://github.com/cvg/ZipSplat">cvg/ZipSplat</a> · Apache-2.0 · 约 49 stars / 1 fork；含 inference、evaluation、training code、pretrained weights。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2605.31124">QVGGT</a><br><span class="small">arXiv:2605.31124 · cs.CV · CVPR 2026</span></td>
+            <td>VGGT 1.2B 参数限制 UAV、移动 AR 等边缘平台部署。</td>
+            <td>面向几何任务的 PTQ：per-block quantization sensitivity、selective mixed precision、camera/register token filtering + PCA compensation、task-aware scale search。</td>
+            <td>多 geometry perception benchmarks；camera pose、depth、point map。W4A16 接近无损，3-4.9x memory reduction，最高 2.8x real hardware speedup over FP32。</td>
+            <td>不是通用压缩技巧，而是处理 VGGT 的相机 token / register token outlier，适合直接服务边缘 3D 感知。</td>
+            <td><a href="https://github.com/DDsacu/QVGGT">DDsacu/QVGGT</a> · Python · 约 3 stars / 0 forks；license 未确认，早期仓库。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2606.00709">BEVIO</a><br><span class="small">arXiv:2606.00709 · cs.RO · ICRA 2026</span></td>
+            <td>月球车等平台算力/能耗受限，VIO 不能依赖高频图像更新；夜间自照明还会破坏特征匹配。</td>
+            <td>Bird's-Eye-View 图像匹配，在更大 inter-frame motion 与外观变化下保持可靠关联；稀疏视觉更新与 IMU 融合。</td>
+            <td>高保真 photorealistic lunar 实验 + Plaster City 半尺度 lunar rover 长期昼夜部署。关键结果：visual update rate 低至 0.25 Hz 仍能可靠 day/night traverse。</td>
+            <td>对低帧率 VIO 直接有工程价值，尤其是资源受限行星车、夜间机器人和长周期户外平台。</td>
+            <td>未确认官方代码。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2606.04907">WAM-Nav</a><br><span class="small">arXiv:2606.04907 · cs.RO · 2026-06-03 UTC</span></td>
+            <td>视觉导航 reactive policy 缺乏前瞻；模块化 world prediction + policy 容易误差累积、推理慢。</td>
+            <td>Latent World-Action Model；shared Diffusion Transformer 做 asymmetric joint diffusion，同时生成长视距动作和短视距 visual foresight；统一支持 Image-Goal、Point-Goal、No-Goal。</td>
+            <td>ClutterScenes、InternScenes 与 real-world deployment。Image-Goal success +15.7%，Point-Goal +3.3%；真实室内/室外 zero-shot sim-to-real 平均 85% success。</td>
+            <td>把视觉想象压缩到 latent 并和动作联合生成，结果比“先预测画面再规划”更符合实时导航。</td>
+            <td><a href="https://github.com/CoRL-2026-WAM-Nav/WAM-Nav">CoRL-2026-WAM-Nav/WAM-Nav</a> · JavaScript · 项目页/早期仓库，约 0 stars / 0 forks。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2606.05773">PiL-World</a><br><span class="small">arXiv:2606.05773 · cs.RO · 2026-06-04 UTC</span></td>
+            <td>多数机器人 world model 只做 open-loop 轨迹预测，无法评估 VLA policy 的闭环 action chunk 执行效果。</td>
+            <td>Chunk-wise world model；在 VLA 输出动作后生成 multi-view future observations，再把想象 observation 回喂给 policy，形成 policy-in-the-loop evaluation。</td>
+            <td>3 个真实双臂操作任务；比较 world-model 估计成功率与真实 rollout 成功率。误差从 baseline 63.2% 降到 12.0%。</td>
+            <td>最值得关注的是评测目标：减少真实机器人 rollout 成本，而非只追求视频质量。</td>
+            <td>未确认官方代码。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2605.30342">GAVIS</a><br><span class="small">arXiv:2605.30342 · cs.CV/cs.RO · CVPR 2026</span></td>
+            <td>3DGS 对未观测区域的预测不可靠，但标准渲染表示缺少可直接查询的不确定性。</td>
+            <td>Gaussian Splatting Anisotropic Visibility Field：用 spherical harmonics 表示每个粒子相对训练视角的各向异性可见性，并接入 Bayesian Network-based uncertainty-aware rasterizer；active mapping 最大化信息增益。</td>
+            <td>多环境 active mapping；摘要给出 synthesized view uncertainty quantification 200 FPS，accuracy 与 efficiency 均优于 prior approaches。</td>
+            <td>把 visibility 显式加入 3DGS，是机器人主动感知比纯 NVS 更需要的表示。</td>
+            <td><a href="https://github.com/xsj01/gavis">xsj01/gavis</a> · Python · 约 0 stars / 0 forks；license 未确认，2026-06-05 新仓库。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2606.06312">Meridian</a><br><span class="small">arXiv:2606.06312 · cs.RO · 2026-06-04 UTC</span></td>
+            <td>GNSS-denied 全局定位在自然地形中难，既缺少城市结构又有重复/低纹理区域。</td>
+            <td>跨 aerial image 与 ground RGB-D 的 metric-semantic primitives matching；用一致性 metric 估计 submap pose distribution，并在 robust pose graph optimization 中剔除 outliers。</td>
+            <td>自动驾驶数据、park/campus、wilderness camp；19 km ground traversal 上平均 optimized trajectory error 2.4 m。</td>
+            <td>不依赖场地特定训练或 fine-tuning，适合户外机器人长期任务的 global localization 模块。</td>
+            <td>未确认官方代码。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2606.05979">World-Language-Action Model</a><br><span class="small">arXiv:2606.05979 · cs.RO/cs.AI · 2026-06-04 UTC</span></td>
+            <td>VLA 有语言和动作能力，WAM 有世界建模能力，但长期任务需要二者统一。</td>
+            <td>WLA 用 AR Transformer 同时预测 textual subtasks、subgoal images 与 robot actions；World Expert 监督 physical dynamics，Action Expert 利用状态-动作相关性，world prediction 可在推理时关闭或用于 test-time scaling。</td>
+            <td>模拟与真实环境；WLA-0 为 2B active params，在 RTX 5090 上 40 ms/inference；RoboTwin2.0 Clean success 92.94%，RMBench 56.5%。</td>
+            <td>如果代码和数据开放，可能成为“世界模型 + VLA”统一框架的重要 baseline。</td>
+            <td>未确认官方代码。</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>补充跟踪论文</h3>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2605.31577">SurGe</a>：提出 point map normal metric、point gradient matching loss 与 Neighborhood Attention Decoder；8 个 zero-shot monocular geometry benchmarks 上平均 rank 最好，补足前馈 3D 的局部表面几何评估。</li>
+        <li><a href="https://arxiv.org/abs/2605.31535">RayDer</a>：自监督、统一 feed-forward transformer 做 camera estimation、scene reconstruction、rendering；从真实视频规模化学习静态 NVS，并报告 power-law scaling。</li>
+        <li><a href="https://arxiv.org/abs/2605.30215">Déjà View</a>：用单个 looped transformer block 迭代替代大规模独立层参数，K 作为推理时 compute knob；强调多视图 3D 重建里“显式迭代”可能比堆参数更有效。</li>
+        <li><a href="https://arxiv.org/abs/2606.05491">Unpaired RGB-Thermal Gaussian-Splatting</a>：用 VGGT 分别估计 RGB/thermal pose，再经 Procrustes 与 cross-modal matcher 对齐，处理未配准 RGB-thermal NVS，面向鲁棒导航和开放环境理解。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Open-source Code</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Repo</th>
+            <th>目标与能力</th>
+            <th>技术路线 / 关系</th>
+            <th>Stars / Forks / 更新</th>
+            <th>语言 / License</th>
+            <th>安装运行成熟度</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://github.com/cvg/ZipSplat">cvg/ZipSplat</a><br><span class="tag">Feed-forward 3DGS</span></td>
+            <td>从 1-24+ 张未标定图像或视频片段前馈生成 3D Gaussians，可导出 PLY、渲染 novel view、用 compression slider 控制高斯数量。</td>
+            <td>scene token + attention decoder；和本周 ZipSplat 论文一致，是 feed-forward 3DR 高价值复现实验对象。</td>
+            <td>约 49 stars / 1 fork；页面显示 2 commits；2026-06-03 新出现。</td>
+            <td>Python；Apache-2.0。</td>
+            <td class="score">较成熟</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/shengshu-ai/minWM">shengshu-ai/minWM</a><br><span class="tag">World Model Infra</span></td>
+            <td>实时交互式视频世界模型全栈框架，覆盖 data、training、inference、checkpoints 与 quick start。</td>
+            <td>把 bidirectional T2V foundation model 蒸馏成 action-conditioned video world model；支持 HY/Wan 等 backbone、4-step DMD inference。</td>
+            <td>约 543 stars / 7 forks；技术报告 2026-05-29 发布。</td>
+            <td>Python 97.7%；Apache-2.0。</td>
+            <td class="score">中高</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/fudan-generative-vision/WAM-Flow">fudan-generative-vision/WAM-Flow</a><br><span class="tag">VLA Driving</span></td>
+            <td>自动驾驶 Vision-Language-Action 轨迹生成：输入前视图、自然语言导航命令和 ego states，输出 4 秒 8-waypoint 轨迹。</td>
+            <td>离散 flow matching + simulator-guided GRPO；和世界模型/闭环 driving policy 强相关。</td>
+            <td>约 335 stars / 53 forks；页面显示 code、pretrained models、evaluation code、SFT data 已发布，RL code TBD。</td>
+            <td>Python 85.7%；Apache-2.0。</td>
+            <td class="score">较成熟</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/InternRobotics/InternNav">InternRobotics/InternNav</a><br><span class="tag">Embodied Navigation</span></td>
+            <td>通用导航基础模型开放平台，含 vision-language navigation、Go2/G1 部署教程和挑战赛方案。</td>
+            <td>与本期 WAM-Nav/WorldFly 的 embodied navigation 主线相关，可作为导航 foundation model 工程 baseline。</td>
+            <td>约 886 stars / 116 forks；5 个 release，最新 InternNav v0.3.1 为 2026-02-11。</td>
+            <td>Jupyter Notebook 66.1%、Python 33.6%；license 未在页面片段中确认。</td>
+            <td class="score">中高</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/NJU-3DV/SpatialVID">NJU-3DV/SpatialVID</a><br><span class="tag">Spatial Dataset</span></td>
+            <td>大规模带空间标注视频数据集：camera poses、depth、dynamic masks、structured captions、motion instructions。</td>
+            <td>为 spatial intelligence、video world models、4D/3D generation 提供训练数据。</td>
+            <td>约 564 stars / 19 forks；183 commits；README 显示数据可从 HuggingFace/ModelScope 获取。</td>
+            <td>代码 Apache-2.0；数据 CC-BY-NC-SA-4.0。</td>
+            <td class="score">中高</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/chenguolin/MoVieS">chenguolin/MoVieS</a><br><span class="tag">4D View Synthesis</span></td>
+            <td>从 monocular video 一秒级重建 appearance、geometry、motion，支持 dynamic novel view synthesis。</td>
+            <td>feed-forward 4D dynamic scene perception；对机器人视频建图、动态场景理解和仿真数据生成有参考价值。</td>
+            <td>约 451 stars / 14 forks；18 commits；2026-02-26 已发布 inference/training code 与 checkpoint。</td>
+            <td>MIT；主要为 Python/CUDA 扩展代码。</td>
+            <td class="score">中</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/DDsacu/QVGGT">DDsacu/QVGGT</a><br><span class="tag">VGGT Quantization</span></td>
+            <td>QVGGT 论文对应的 VGGT post-training quantization 仓库。</td>
+            <td>服务边缘 feed-forward 3D perception；适合验证 W4A16、token compensation 和 task-aware scale search。</td>
+            <td>约 3 stars / 0 forks；2026-06-05 更新。</td>
+            <td>Python；license 未确认。</td>
+            <td class="score">早期</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/xsj01/gavis">xsj01/gavis</a><br><span class="tag">3DGS Active Mapping</span></td>
+            <td>GAVIS：3DGS anisotropic visibility field 与 active mapping。</td>
+            <td>给 3DGS 增加不确定性和可见性建模，和机器人主动建图直接相关。</td>
+            <td>约 0 stars / 0 forks；2026-06-05 创建。</td>
+            <td>Python；license 未确认。</td>
+            <td class="score">很早期</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/CoRL-2026-WAM-Nav/WAM-Nav">CoRL-2026-WAM-Nav/WAM-Nav</a><br><span class="tag">Project Page</span></td>
+            <td>WAM-Nav 项目页仓库，跟踪 latent world-action navigation。</td>
+            <td>与本期 embodied visual navigation 世界模型主线高度相关，但目前看更像网页资产。</td>
+            <td>约 0 stars / 0 forks；2026-05-29 创建，2026-06-06 更新。</td>
+            <td>JavaScript；license 未确认。</td>
+            <td class="score">待放码</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Quantitative Experiment Highlights</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>方向</th>
+            <th>论文 / 项目</th>
+            <th>平台 / 数据集</th>
+            <th>指标</th>
+            <th>关键数值</th>
+            <th>判断</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SLAM + GFM</td>
+            <td>ScaRF-SLAM</td>
+            <td>Building-scale indoor dataset + outdoor LiDAR GT models</td>
+            <td>Trajectory accuracy、reconstruction precision/error</td>
+            <td>Precision +10%-20%；室内约 2 cm / 10 m chunk；室外约 10 cm / 30 m chunk。</td>
+            <td>强信号：经典跟踪 + GFM 建图比端到端 GFM tracking 更稳。</td>
+          </tr>
+          <tr>
+            <td>Multi-agent SLAM</td>
+            <td>CoMo3R-SLAM</td>
+            <td>Tanks and Temples、Waymo</td>
+            <td>ATE、online FPS</td>
+            <td>Tanks and Temples 3/4 scenes ATE 最佳；online 8 FPS。</td>
+            <td>RGB-only 多机 dense SLAM 进入可用帧率区间。</td>
+          </tr>
+          <tr>
+            <td>Feed-forward 3DGS</td>
+            <td>ZipSplat</td>
+            <td>DL3DV、RE10K、Mip-NeRF360、ScanNet++</td>
+            <td>PSNR / SSIM / LPIPS、Gaussians 数量</td>
+            <td>约 6x 更少 Gaussians；DL3DV +2.1 dB、RE10K +1.2 dB PSNR vs best pose-free baseline；README: RE10K 26.20 PSNR vs YoNoSplat 24.99。</td>
+            <td>效率与质量同时提升，且代码可跑，优先复现。</td>
+          </tr>
+          <tr>
+            <td>3D 模型压缩</td>
+            <td>QVGGT</td>
+            <td>多几何感知 benchmark</td>
+            <td>Memory、latency、camera/depth/point-map accuracy</td>
+            <td>W4A16 接近无损；memory 下降 3-4.9x；真实硬件最高 2.8x speedup。</td>
+            <td>适合边缘 VIO/SLAM 前端几何模型部署。</td>
+          </tr>
+          <tr>
+            <td>VIO</td>
+            <td>BEVIO</td>
+            <td>Lunar photorealistic sim + Plaster City half-scale rover</td>
+            <td>Visual update rate、day/night traversal reliability</td>
+            <td>低至 0.25 Hz visual update 仍可可靠导航。</td>
+            <td>低帧率视觉更新对行星车和低功耗机器人很实用。</td>
+          </tr>
+          <tr>
+            <td>3DGS Active Mapping</td>
+            <td>GAVIS</td>
+            <td>多环境 active mapping</td>
+            <td>Uncertainty quantification FPS、accuracy/efficiency</td>
+            <td>uncertainty-aware rasterizer 约 200 FPS。</td>
+            <td>active perception 需要这种可实时查询的不确定性。</td>
+          </tr>
+          <tr>
+            <td>Visual Navigation</td>
+            <td>WAM-Nav</td>
+            <td>ClutterScenes、InternScenes、真实室内/室外</td>
+            <td>Success rate</td>
+            <td>Image-Goal +15.7%；Point-Goal +3.3%；真实部署平均 85% task success。</td>
+            <td>latent visual foresight 对复杂导航有明显收益。</td>
+          </tr>
+          <tr>
+            <td>Policy Evaluation</td>
+            <td>PiL-World</td>
+            <td>3 个真实双臂操作任务</td>
+            <td>VLA success rate estimation error</td>
+            <td>估计误差从 63.2% 降至 12.0%。</td>
+            <td>世界模型用于“少跑真机评测”的价值开始可量化。</td>
+          </tr>
+          <tr>
+            <td>Geo-localization</td>
+            <td>Meridian</td>
+            <td>Driving、park/campus、wilderness camp</td>
+            <td>Optimized trajectory error</td>
+            <td>19 km traversal 平均 2.4 m。</td>
+            <td>不依赖场地特定训练，适合 GNSS-denied outdoor robots。</td>
+          </tr>
+          <tr>
+            <td>WLA</td>
+            <td>World-Language-Action Model</td>
+            <td>RoboTwin2.0 Clean、RMBench、真实机器人</td>
+            <td>Success rate、latency</td>
+            <td>92.94% / 56.5%；2B active params；RTX 5090 上 40 ms/inference。</td>
+            <td>若开源，将是统一 world modeling + language reasoning + action synthesis 的强 baseline。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Trends & Insights</h2>
+      <ul>
+        <li><strong>GFM/3R 模型在 SLAM 里最稳的位置是“测量与建图先验”，不是直接替代后端。</strong>ScaRF-SLAM、Anchor3R、CoMo3R-SLAM 都把大模型输出包进传统估计结构，说明可控 gauge、尺度和闭环一致性仍是核心工程边界。</li>
+        <li><strong>3DGS 正在补机器人短板：不确定性、mesh、可编辑性、压缩。</strong>Triangle Splatting SLAM 和 GAVIS 说明 photorealistic map 之后，下一步是把地图变成可查询、可碰撞、可主动采样的状态表示。</li>
+        <li><strong>前馈 3D 从“能重建”进入“可部署”。</strong>QVGGT 压缩 VGGT，ZipSplat 控制高斯数量，SurGe 增强局部几何，Déjà View 用循环块降低参数量，方向都指向边缘部署和长序列使用。</li>
+        <li><strong>世界模型的评测指标更像机器人系统指标了。</strong>WAM-Nav 报告导航 success，PiL-World 报告真实 success 估计误差，WLA 报告控制 latency 和任务成功率；这比单纯 FVD/视频质量更有实际意义。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>值得跟进事项</h2>
+      <ul>
+        <li>优先复现 ZipSplat：用自采视频/多图测试 1、6、12、24 views，记录 Gaussians 数、PSNR/LPIPS、viewer 交互速度和导出 PLY 兼容性。</li>
+        <li>等待 ScaRF-SLAM、Triangle Splatting SLAM、CoMo3R-SLAM 放码；一旦开放，统一用 TUM-RGBD、Replica、Tanks and Temples、Waymo 小样本做 ATE/RPE、重建误差和 FPS 对比。</li>
+        <li>跟踪 QVGGT 是否支持官方 VGGT 最新 training/inference 代码；重点验证 W4A16 在长序列、多相机、室外场景上的 geometry consistency。</li>
+        <li>关注 PiL-World 的 closed-loop evaluation 协议：若代码开放，可用于减少 VLA policy 迭代中的真机 rollout 次数。</li>
+        <li>把 GAVIS 的 visibility field 思路迁移到 active SLAM：比较 uncertainty-driven view planning 与 frontier/coverage/entropy baselines。</li>
+        <li>补充 GitHub 登录态来源：下次若需要更完整的“followed starred repositories”，需使用已登录 Chrome 或 GitHub token，避免公共 Search API rate limit。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Raw Links</h2>
+      <h3>arXiv / Paper Pages</h3>
+      <ul class="links">
+        <li><a href="https://arxiv.org/abs/2606.00307">ScaRF-SLAM: Scale-Consistent Reconstruction with Feed-Forward Models and Classical Visual SLAM</a></li>
+        <li><a href="https://arxiv.org/abs/2605.31419">Triangle Splatting SLAM</a></li>
+        <li><a href="https://arxiv.org/abs/2605.30488">CoMo3R-SLAM</a></li>
+        <li><a href="https://arxiv.org/abs/2606.05035">Anchor3R</a></li>
+        <li><a href="https://arxiv.org/abs/2606.05102">ZipSplat</a></li>
+        <li><a href="https://arxiv.org/abs/2605.31124">QVGGT</a></li>
+        <li><a href="https://arxiv.org/abs/2606.00709">BEVIO</a></li>
+        <li><a href="https://arxiv.org/abs/2606.04907">WAM-Nav</a></li>
+        <li><a href="https://arxiv.org/abs/2606.05773">PiL-World</a></li>
+        <li><a href="https://arxiv.org/abs/2605.30342">GAVIS</a></li>
+        <li><a href="https://arxiv.org/abs/2606.06312">Meridian</a></li>
+        <li><a href="https://arxiv.org/abs/2606.05979">World-Language-Action Model</a></li>
+        <li><a href="https://arxiv.org/abs/2605.31577">SurGe</a></li>
+        <li><a href="https://arxiv.org/abs/2605.31535">RayDer</a></li>
+        <li><a href="https://arxiv.org/abs/2605.30215">Déjà View</a></li>
+        <li><a href="https://arxiv.org/abs/2606.05491">Unpaired RGB-Thermal Gaussian-Splatting</a></li>
+      </ul>
+      <h3>GitHub / Project Pages</h3>
+      <ul class="links">
+        <li><a href="https://github.com/cvg/ZipSplat">cvg/ZipSplat</a></li>
+        <li><a href="https://veichta.com/zipsplat">ZipSplat project page</a></li>
+        <li><a href="https://github.com/shengshu-ai/minWM">shengshu-ai/minWM</a></li>
+        <li><a href="https://github.com/fudan-generative-vision/WAM-Flow">fudan-generative-vision/WAM-Flow</a></li>
+        <li><a href="https://github.com/InternRobotics/InternNav">InternRobotics/InternNav</a></li>
+        <li><a href="https://github.com/NJU-3DV/SpatialVID">NJU-3DV/SpatialVID</a></li>
+        <li><a href="https://github.com/chenguolin/MoVieS">chenguolin/MoVieS</a></li>
+        <li><a href="https://github.com/DDsacu/QVGGT">DDsacu/QVGGT</a></li>
+        <li><a href="https://github.com/xsj01/gavis">xsj01/gavis</a></li>
+        <li><a href="https://gatech-rl2.github.io/GAVIS/">GAVIS project page</a></li>
+        <li><a href="https://github.com/CoRL-2026-WAM-Nav/WAM-Nav">CoRL-2026-WAM-Nav/WAM-Nav</a></li>
+        <li><a href="https://github.com/como3r-slam/como3r-slam.github.io">CoMo3R-SLAM project page repo</a></li>
+        <li><a href="https://research.nvidia.com/labs/dvl/projects/dvlt">Déjà View project page</a></li>
+        <li><a href="https://vision.rwth-aachen.de/surge">SurGe project page</a></li>
+        <li><a href="https://compvis.github.io/rayder">RayDer project page</a></li>
+        <li><a href="https://citymesh3r.github.io/">City-Mesh3R project page</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

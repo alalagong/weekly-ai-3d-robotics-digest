@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-05-28 周报：SfM 遇见 FeedForward 3D 与 VIO 初始化</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17212b;
+      --muted: #5b6673;
+      --line: #d8dee6;
+      --soft: #f4f7fa;
+      --accent: #0f766e;
+      --accent-2: #7c3aed;
+      --warn: #a16207;
+      --bg: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.62;
+    }
+    header {
+      padding: 42px 7vw 28px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #f8fbfd 0%, #fff 100%);
+    }
+    main { padding: 28px 7vw 56px; max-width: 1280px; margin: 0 auto; }
+    h1 { margin: 0 0 12px; font-size: clamp(28px, 4vw, 46px); line-height: 1.15; letter-spacing: 0; }
+    h2 { margin: 34px 0 14px; font-size: 25px; border-bottom: 2px solid var(--line); padding-bottom: 8px; }
+    h3 { margin: 22px 0 8px; font-size: 19px; }
+    p { margin: 8px 0; }
+    a { color: #075985; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    .meta { color: var(--muted); font-size: 14px; }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .tile {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px 16px;
+      background: #fff;
+    }
+    .tile strong { display: block; margin-bottom: 6px; color: var(--accent); }
+    .note {
+      border-left: 4px solid var(--accent);
+      padding: 10px 14px;
+      background: #eefaf7;
+      margin: 18px 0;
+    }
+    .warn {
+      border-left-color: var(--warn);
+      background: #fff8e6;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 22px;
+      table-layout: fixed;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px 11px;
+      vertical-align: top;
+      word-break: break-word;
+    }
+    th {
+      background: var(--soft);
+      text-align: left;
+      font-weight: 700;
+    }
+    .tag {
+      display: inline-block;
+      border: 1px solid #b6c5d6;
+      border-radius: 999px;
+      padding: 1px 8px;
+      margin: 2px 4px 2px 0;
+      font-size: 12px;
+      color: #334155;
+      background: #f8fafc;
+      white-space: nowrap;
+    }
+    .priority-high { color: #b91c1c; font-weight: 700; }
+    .priority-med { color: var(--accent-2); font-weight: 700; }
+    .repo { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
+    footer {
+      padding: 26px 7vw;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>2026-05-28 周报：SfM 遇见 FeedForward 3D 与 VIO 初始化</h1>
+    <p class="meta">采集窗口：2026-05-20 至 2026-05-28（北京时间）。重点方向：SLAM、Visual-Inertial Odometry、SfM、FeedForward 3D Reconstruction；兼顾 AI、具身智能、世界模型、机器人开源。</p>
+    <div class="summary">
+      <div class="tile"><strong>本周主线</strong>Feed-forward 3D 不再只是“端到端重建 demo”，而是在向传统 SfM/VIO/仿真管线补位：补局部几何、补初始化、补可用 mesh。</div>
+      <div class="tile"><strong>最值得读</strong>GLUEMAP、TriSplat、FusionCore、SubTGraph、X-DiffVLA。前两篇对 3D 重建路线判断尤其关键。</div>
+      <div class="tile"><strong>开源信号</strong>COLMAP 生态出现 GLUEMAP；FusionCore 有 240 stars/18 forks；Unitree 的世界模型动作架构已有约 1k stars。</div>
+      <div class="tile"><strong>风险提示</strong>部分项目刚开源，stars 还低；许多 feed-forward 3D 结果依赖大模型 checkpoint 和 GPU 环境，复现实用性要单独评估。</div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>总体判断</h2>
+      <div class="note">
+        <p><strong>一句话：</strong>本周 SLAM/SfM 相关进展的关键不是某个单点指标，而是“学习式 3D 先验”开始被嵌入经典几何系统，承担低纹理、弱重叠、尺度/初始化、mesh 可用性这些老问题。</p>
+      </div>
+      <p>传统 SfM 的优势仍是全局一致性、可扩展性、bundle adjustment 后的精度；feed-forward 3D 的优势是局部难例鲁棒性和无需长时间特征跟踪的快速几何预测。本周的 GLUEMAP 和 FF-VIO-Init 都在把两者合起来：前者把 feed-forward local reconstruction 放进 global SfM，后者用 feed-forward point cloud 缩短 VINS 初始化。</p>
+      <p>另一个值得注意的方向是“可交互/可仿真的 3D 输出”。TriSplat 把表示从 Gaussian primitives 推向 triangle primitives，目标是绕开高成本 mesh extraction，让重建结果能直接进入物理仿真、碰撞检测、机器人交互。</p>
+    </section>
+
+    <section>
+      <h2>论文进展</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:18%">论文</th>
+            <th style="width:13%">方向 / 优先级</th>
+            <th>要解决的问题</th>
+            <th>核心方法与 insight</th>
+            <th>实验与效果</th>
+            <th style="width:15%">代码</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2605.26103">Global Structure-from-Motion Meets Feedforward Reconstruction</a><br><span class="meta">Pan, Schönberger, Pollefeys · 2026-05-25</span></td>
+            <td><span class="priority-high">高</span><br><span class="tag">SfM</span><span class="tag">FeedForward 3D</span></td>
+            <td>经典 SfM 在低纹理、有限重叠、对称/重复结构下容易失败；feed-forward 3D 在困难局部更强，但规模、精度、全局一致性不如传统 SfM。</td>
+            <td>把 feed-forward reconstruction backbone 嵌入 global SfM：图像检索建邻接图，两视图可见性/重复结构消歧，多视图局部 star inference 估计局部姿态和几何，再做 rotation/intrinsics/similarity averaging 和 BA。insight 是让学习模型负责“难局部”，让经典优化负责“全局一致”。</td>
+            <td>论文称跨多个数据集达到 SOTA 或强结果。仓库 README 强调输出 COLMAP sparse reconstruction，支持 Pi3、VGGT、MapAnything 等 backbone，说明作者想把它做成可插拔 SfM 框架，而不是单模型 demo。</td>
+            <td><a class="repo" href="https://github.com/colmap/gluemap">colmap/gluemap</a><br><span class="meta">约 94 stars / 1 fork（采集时）</span></td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2605.26115">TriSplat: Simulation-Ready Feed-Forward 3D Scene Reconstruction</a><br><span class="meta">Wang et al. · 2026-05-25</span></td>
+            <td><span class="priority-high">高</span><br><span class="tag">FeedForward 3D</span><span class="tag">Simulation</span></td>
+            <td>Gaussian-based feed-forward reconstruction 渲染好，但表面是间接的；要进入物理仿真/碰撞检测/机器人交互，通常还得昂贵后处理成 mesh。</td>
+            <td>直接预测 oriented triangle primitives，同时估计局部 3D point maps、相机姿态、intrinsics 和 triangle 属性。用 point-map normals 与 image-conditioned normal head 构造稳定局部 frame，再通过 bootstrap、opacity/blur schedule 让 triangle 表示可训练、可导出。</td>
+            <td>在 RealEstate10K 和 DL3DV 上相比 Gaussian feed-forward baseline 几何更忠实，同时保持有竞争力的新视角渲染。项目页称 mesh 导出可低于 1.3 秒，而 Gaussian-to-mesh baseline 往往需要几十到几百秒。</td>
+            <td><a class="repo" href="https://github.com/ziplab/trisplat">ziplab/trisplat</a><br><a href="https://huggingface.co/lhmd/TriSplat">HF model card</a> · <a href="https://lhmd.top/trisplat/">project page</a></td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2605.25239">FusionCore: A 23-State UKF for IMU, Wheel Encoder, GPS, and Visual SLAM Fusion in ROS 2</a><br><span class="meta">Kharwar · 2026-05-24</span></td>
+            <td><span class="priority-med">中高</span><br><span class="tag">Sensor Fusion</span><span class="tag">Visual SLAM</span><span class="tag">ROS 2</span></td>
+            <td>移动机器人实际落地中，IMU、轮速、GPS、VSLAM 的融合经常需要大量手工调参；GPS blackout、VSLAM 重定位、编码器 yaw bias 会让里程计漂移。</td>
+            <td>23-state UKF，把 encoder yaw-rate systematic bias 作为第 23 个在线状态，用 GPS heading cross-covariance 识别；原生 ECEF 处理 GPS、Mahalanobis gating、innovation 自适应噪声，并融合 VSLAM pose 支持 GPS-denied。</td>
+            <td>在 NCLT 12 条 55-92 分钟序列上，10/12 ATE 优于 robot_localization，胜出序列提升 1.2x 到 22.2x；论文称 robot_localization UKF 在 12 条序列均数值发散。</td>
+            <td><a class="repo" href="https://github.com/manankharwar/fusioncore">manankharwar/fusioncore</a><br><span class="meta">约 240 stars / 18 forks；v0.2.4 于 2026-05-19 发布</span></td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2605.20917">SubTGraph: Large-Scale Subterranean Environment Synthesis...</a><br><span class="meta">Labra Caso et al. · 2026-05-20</span></td>
+            <td><span class="priority-med">中高</span><br><span class="tag">Robotics</span><span class="tag">LIO SLAM</span><span class="tag">Benchmark</span></td>
+            <td>地下矿井、洞穴、熔岩管等 SubT 场景难以大规模采集，导致 autonomy stack 很难做统计意义上的压力测试。</td>
+            <td>用可控拓扑约束和 DARPA World Generator topometric tiles 程序化生成多层地下世界；核心 insight 是先把拓扑、多样性、纹理等作为可控变量，再批量评估语义分割、路径规划、LIO SLAM。</td>
+            <td>论文展示三个 case study：结构语义分割、multi-agent path planning、LIO SLAM stress test，并开源 world creation code 和 150 个高变化地下世界数据库。</td>
+            <td><a class="repo" href="https://github.com/LTU-RAI/SubTGraph">LTU-RAI/SubTGraph</a></td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2605.25044">X-DiffVLA: X-Embodied Diffusion Action Heads for VLA Models</a><br><span class="meta">Li et al. · 2026-05-24</span></td>
+            <td><span class="priority-med">中</span><br><span class="tag">Embodied AI</span><span class="tag">VLA</span><span class="tag">Robotics</span></td>
+            <td>VLA 模型跨 embodiment 泛化弱，常要针对不同末端执行器 fine-tune；不同 gripper/hand 的动作空间差异让数据复用困难。</td>
+            <td>提出统一 cross-embodied diffusion action head；Embodiment Forcing 用 classifier-free guidance 隐式引导到特定 embodiment，Morphological Tree Diffusion 建模不同末端执行器之间的行为相关性。</td>
+            <td>在 RoboCasa 和 Isaac Gym 中报告 SOTA，分别提升 15.3% 和 12.5%；并做 real-world evaluation。对机器人 foundation policy 路线有参考价值。</td>
+            <td>未在摘要中确认代码。</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note warn">
+        <p><strong>边界但值得补读：</strong><a href="https://arxiv.org/abs/2605.17327">Efficient Feature-Free Initialization for Monocular Visual-Inertial Systems Using a Feed-Forward 3D Model</a>（2026-05-17）略早于本采集窗口，但与 VIO + FeedForward 3D 的主线高度相关。它用 feed-forward 3D model 预测 up-to-scale point cloud，替代特征跟踪初始化；公共数据集成功率超过 90%，初始化数据时长通常低于 1.2s；代码 <a href="https://github.com/Yuantai-Z/FF-VIO-Init">Yuantai-Z/FF-VIO-Init</a> 已开源。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>GitHub / 开源动态</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:21%">仓库</th>
+            <th style="width:14%">热度 / 状态</th>
+            <th>为什么相关</th>
+            <th>建议动作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a class="repo" href="https://github.com/colmap/gluemap">colmap/gluemap</a></td>
+            <td>约 94 stars / 1 fork；5 commits；新开源</td>
+            <td>COLMAP 生态下的 feed-forward + global SfM 管线，工程上更可能被 SfM 社区快速试用。README 暴露了 retrieval、Doppelgangers++、Pi3/VGGT/MapAnything、BA/refinement 等关键模块。</td>
+            <td>优先 clone 试跑 small image collection；关注 checkpoint 依赖、CUDA/编译 Ceres pybind 的安装成本。</td>
+          </tr>
+          <tr>
+            <td><a class="repo" href="https://github.com/ziplab/trisplat">ziplab/trisplat</a> / <a href="https://huggingface.co/lhmd/TriSplat">HF</a></td>
+            <td>代码与模型卡已可见；项目页 2026-05-26 左右上线</td>
+            <td>如果你关心 FeedForward 3DR 和 embodied/simulation 接口，TriSplat 的 triangle-native 表示比 Gaussian 更贴近机器人仿真需求。</td>
+            <td>重点看 mesh export 质量、collision mesh 简化流程、ScanNet/室内真实场景泛化。</td>
+          </tr>
+          <tr>
+            <td><a class="repo" href="https://github.com/manankharwar/fusioncore">manankharwar/fusioncore</a></td>
+            <td>约 240 stars / 18 forks；v0.2.4 最新 release 2026-05-19</td>
+            <td>不是前沿 learning 方法，但很贴近真实机器人定位融合痛点；能和 VSLAM/VO 作为工程组合使用。</td>
+            <td>如果做 ROS 2 机器人，可把它作为 robot_localization 的替代候选；重点验证 NCLT 外的数据集和实时负载。</td>
+          </tr>
+          <tr>
+            <td><a class="repo" href="https://github.com/unitreerobotics/unifolm-world-model-action">unitreerobotics/unifolm-world-model-action</a></td>
+            <td>Unitree 组织页显示约 1k stars / 127 forks；2026-05 仍活跃</td>
+            <td>世界模型 + 动作架构从论文概念走向机器人厂商开源栈。和你关注的 embodied AI、world model、机器人方向相关。</td>
+            <td>作为趋势观察项：重点看是否有真实机器人数据闭环、训练 recipe、跨机器人 embodiment 迁移。</td>
+          </tr>
+          <tr>
+            <td><a class="repo" href="https://github.com/unitreerobotics/unitree_lerobot">unitreerobotics/unitree_lerobot</a></td>
+            <td>约 665 stars / 111 forks；2026-05-25 更新</td>
+            <td>把 Unitree 数据采集、LeRobot policy training/inference、真实部署串起来，是具身数据闭环工程化的重要信号。</td>
+            <td>关注数据格式与 LeRobot 兼容层，后续可和 VLA / world model policy 结合。</td>
+          </tr>
+          <tr>
+            <td><a class="repo" href="https://github.com/topics/slam?l=python&o=desc&s=updated">GitHub topic: SLAM / Python 最近更新</a></td>
+            <td>GitHub topic 显示 2026-05-27 有多个 SLAM 相关更新</td>
+            <td>包括 lidar_slam_2d_cuda、TTT3R、PX4-ROS2-SLAM-Control、Embodied-AI-Daily 等。相关性参差不齐，但适合作为“新项目发现池”。</td>
+            <td>不要只按更新时间筛；下一步应按 stars/forks、README 完整度、是否有 paper/demo、是否真含 SLAM 核心算法过滤。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>技术脉络拆解</h2>
+      <h3>1. Feed-forward 3D 正在补传统 SLAM/SfM 的薄弱环节</h3>
+      <p>GLUEMAP 和 FF-VIO-Init 的共同点是：不把 learning model 当作全系统替代，而是作为几何先验。前者补 SfM 的局部难例，后者补 VIO 初始化阶段的特征依赖。这个方向比“纯端到端 SLAM”更可能短期进入工程系统。</p>
+
+      <h3>2. 表示从“可渲染”走向“可使用”</h3>
+      <p>TriSplat 代表一个很明确的需求变化：重建结果不能只看 novel view synthesis，也要能直接进 simulation、physics、collision、robot interaction。对于 embodied AI，mesh-ready 或 physics-ready 的场景表示会越来越重要。</p>
+
+      <h3>3. 工程落地仍然重视融合和 benchmark</h3>
+      <p>FusionCore 和 SubTGraph 提醒我们：机器人系统的瓶颈常常不是单模型指标，而是长时序稳定、GPS-denied 恢复、仿真覆盖率、极端环境压力测试。新模型如果不能接入这些评估，很难证明真实价值。</p>
+    </section>
+
+    <section>
+      <h2>建议跟进清单</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:18%">优先级</th>
+            <th>跟进事项</th>
+            <th>判断标准</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="priority-high">P0</span></td>
+            <td>试跑 GLUEMAP：小型室内/室外 image collection，和 COLMAP baseline 比较。</td>
+            <td>安装复杂度、GPU 显存、低纹理/弱重叠是否明显更稳、COLMAP sparse output 是否可直接进入现有流程。</td>
+          </tr>
+          <tr>
+            <td><span class="priority-high">P0</span></td>
+            <td>追踪 TriSplat code/model 完整度。</td>
+            <td>mesh 是否可直接进 MuJoCo/Isaac/Genesis；碰撞 mesh 简化后是否仍保留可导航几何；真实场景泛化。</td>
+          </tr>
+          <tr>
+            <td><span class="priority-med">P1</span></td>
+            <td>评估 FF-VIO-Init 的 initialization 思路。</td>
+            <td>是否能接入 OpenVINS/VINS-Fusion；快速运动、低纹理、动态物体下成功率；是否依赖特定 feed-forward 模型。</td>
+          </tr>
+          <tr>
+            <td><span class="priority-med">P1</span></td>
+            <td>把 FusionCore 放入 ROS 2 机器人定位候选。</td>
+            <td>和 robot_localization、Nav2、VSLAM 输出的接口兼容；GPS blackout 和 VSLAM reset 场景表现。</td>
+          </tr>
+          <tr>
+            <td>P2</td>
+            <td>观察 Unitree world-model-action / LeRobot 栈。</td>
+            <td>是否出现可复现实验、开放数据集、跨机器人迁移结果；是否能和 VLA/diffusion policy 对齐。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>来源</h2>
+      <ul>
+        <li><a href="https://arxiv.org/abs/2605.26103">arXiv: Global Structure-from-Motion Meets Feedforward Reconstruction</a></li>
+        <li><a href="https://github.com/colmap/gluemap">GitHub: colmap/gluemap</a></li>
+        <li><a href="https://arxiv.org/abs/2605.26115">arXiv: TriSplat</a>, <a href="https://lhmd.top/trisplat/">project page</a>, <a href="https://huggingface.co/lhmd/TriSplat">Hugging Face model card</a></li>
+        <li><a href="https://arxiv.org/abs/2605.25239">arXiv: FusionCore</a>, <a href="https://github.com/manankharwar/fusioncore">GitHub: fusioncore</a></li>
+        <li><a href="https://arxiv.org/abs/2605.20917">arXiv: SubTGraph</a>, <a href="https://github.com/LTU-RAI/SubTGraph">GitHub: SubTGraph</a></li>
+        <li><a href="https://arxiv.org/abs/2605.25044">arXiv: X-DiffVLA</a></li>
+        <li><a href="https://arxiv.org/abs/2605.17327">arXiv: FF-VIO-Init</a>, <a href="https://github.com/Yuantai-Z/FF-VIO-Init">GitHub: FF-VIO-Init</a></li>
+        <li><a href="https://github.com/unitreerobotics">GitHub: Unitree Robotics organization</a></li>
+        <li><a href="https://github.com/topics/slam?l=python&o=desc&s=updated">GitHub Topics: SLAM, Python, recently updated</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    生成时间：2026-05-28。说明：stars/forks 为采集时网页可见值，GitHub 数据会快速变化；“近一周”按北京时间 2026-05-20 至 2026-05-28 处理，未找到上一次本地报告作为精确起点。
+  </footer>
+</body>
+</html>
