@@ -106,24 +106,6 @@
     }
     .small { color: var(--muted); font-size: 12px; }
     .score { font-weight: 700; color: var(--accent-2); }
-    .paper-figure {
-      margin: 18px 0 24px;
-      padding: 12px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #fff;
-    }
-    .paper-figure img {
-      display: block;
-      width: min(100%, 820px);
-      height: auto;
-      margin: 0 auto;
-    }
-    .paper-figure figcaption {
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 13px;
-    }
     ul { padding-left: 22px; }
     li { margin: 7px 0; }
     .links {
@@ -290,14 +272,6 @@
         <li><a href="https://arxiv.org/abs/2605.30215">Déjà View</a>：用单个 looped transformer block 迭代替代大规模独立层参数，K 作为推理时 compute knob；强调多视图 3D 重建里“显式迭代”可能比堆参数更有效。</li>
         <li><a href="https://arxiv.org/abs/2606.05491">Unpaired RGB-Thermal Gaussian-Splatting</a>：用 VGGT 分别估计 RGB/thermal pose，再经 Procrustes 与 cross-modal matcher 对齐，处理未配准 RGB-thermal NVS，面向鲁棒导航和开放环境理解。</li>
       </ul>
-    </section>
-
-    <section>
-      <h2>System Figures</h2>
-      <figure class="paper-figure">
-        <img src="./assets/2026-05-29_2026-06-06_breaking-time_fig1.png" alt="Breaking Time / G-solver continuous-time trajectory mean and covariance concept figure">
-        <figcaption><strong>Breaking Time / G-solver Fig. 1.</strong> 论文没有单独的端到端 pipeline 图；Fig. 1 是最接近系统概念框图的图，展示 GP-based continuous-time trajectory 如何同时查询均值轨迹和后验协方差。蓝色不确定性区域在观测稀疏处扩张、在测量可用处收缩，对应报告中“连续时间后端用于异步传感器融合”的判断。</figcaption>
-      </figure>
     </section>
 
     <section>
@@ -542,9 +516,9 @@
         <tbody>
           <tr>
             <td>Breaking Time / G-solver</td>
-            <td>arXiv 摘要页、PDF 第 1 页 Fig. 1、cs.RO recent 条目、GitHub 仓库页面、README 中的 features、project structure、build、experiments、API quick start、license 与 stars/forks。Fig. 1 已从本地下载 PDF 裁剪为 <code>reports/assets/2026-05-29_2026-06-06_breaking-time_fig1.png</code>。</td>
+            <td>arXiv 摘要页、PDF 文本检索、cs.RO recent 条目、GitHub 仓库页面、README 中的 features、project structure、build、experiments、API quick start、license 与 stars/forks。按 <code>system overview</code>、<code>framework overview</code>、<code>system pipeline</code>、<code>pipeline</code> 等关键词检查后，没有加入系统框图。</td>
             <td class="score">中低</td>
-            <td>已能通过沙箱外 curl 下载 PDF 并截取 Fig. 1；但未浅克隆、编译或逐文件检查源码。该图是概念框图，不是完整 pipeline。代码结论仍降级为“重点补充但未充分验证”。</td>
+            <td>已能通过沙箱外 curl 下载 PDF；但未浅克隆、编译或逐文件检查源码。PDF 中的 Fig. 1/Fig. 2 更偏概念和因子图示意，不作为典型 system overview 收录。代码结论仍降级为“重点补充但未充分验证”。</td>
           </tr>
           <tr>
             <td>上一期既有 Top Papers</td>
