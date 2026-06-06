@@ -1,5 +1,7 @@
 # Weekly AI 3D Robotics Digest
 
+每周 AI 总结机器人行业进展。
+
 这个仓库用于保存每周自动/半自动整理的行业进展报告，重点覆盖 SLAM、visual-inertial odometry、SfM、feed-forward 3D reconstruction、3D generation、具身智能、世界模型和机器人导航等方向。
 
 ## 内容结构
@@ -24,4 +26,3 @@ YYYY-MM-DD_YYYY-MM-DD_关键词1-关键词2.html
 ## 数据来源
 
 报告优先引用可验证来源，包括 arXiv、GitHub、官方项目页、论文项目页和公开文档。若某些来源需要登录或触发访问限制，会在报告中注明。
-
