@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>2026-05-29 至 2026-06-06：ScaRF-SLAM、ZipSplat 与 WAM-Nav</title>
+  <title>2026-05-29 至 2026-06-06：ScaRF-SLAM、ZipSplat、WAM-Nav 与 G-solver</title>
   <style>
     :root {
       color-scheme: light;
@@ -124,13 +124,13 @@
 <body>
   <header>
     <p class="meta">每周行业进展报告</p>
-    <h1>ScaRF-SLAM、ZipSplat 与 WAM-Nav：几何基础模型进入 SLAM/导航闭环</h1>
-    <p class="meta">覆盖时间：2026-05-29 至 2026-06-06（Asia/Shanghai）。上次本地报告生成于 2026-05-28 23:49；部分 arXiv UTC 2026-05-28 深夜条目折算为北京时间 2026-05-29，故纳入本期。</p>
+    <h1>ScaRF-SLAM、ZipSplat、WAM-Nav 与 G-solver：几何基础模型进入 SLAM/导航闭环</h1>
+    <p class="meta">覆盖时间：2026-05-29 至 2026-06-06（Asia/Shanghai）。上次本地报告生成于 2026-05-28 23:49；部分 arXiv UTC 2026-05-28 深夜条目折算为北京时间 2026-05-29，故纳入本期。2026-06-07 补充版：补入漏选的连续时间/分布式 SLAM 论文与开源 G-solver，并补充阅读覆盖说明。</p>
     <div class="summary-grid">
-      <div class="tile"><strong>论文入选</strong>16 篇；Top Papers 12 篇，补充跟踪 4 篇。</div>
-      <div class="tile"><strong>代码/项目入选</strong>9 个 GitHub 仓库或项目页；公开 API 元数据与页面交叉核验。</div>
+      <div class="tile"><strong>论文入选</strong>17 篇；Top Papers 13 篇，补充跟踪 4 篇。</div>
+      <div class="tile"><strong>代码/项目入选</strong>10 个 GitHub 仓库或项目页；公开页面与可访问元数据交叉核验。</div>
       <div class="tile"><strong>核心关键词</strong>SLAM、VIO、feed-forward 3D、3DGS、世界模型、VLA、导航。</div>
-      <div class="tile"><strong>可复现优先级</strong>ZipSplat、minWM、WAM-Flow、SpatialVID、MoVieS 更完整；QVGGT/GAVIS/WAM-Nav 仍偏早期。</div>
+      <div class="tile"><strong>可复现优先级</strong>ZipSplat、G-solver、minWM、WAM-Flow、SpatialVID、MoVieS 更完整；QVGGT/GAVIS/WAM-Nav 仍偏早期。</div>
     </div>
   </header>
 
@@ -138,6 +138,7 @@
     <section>
       <h2>Executive Summary</h2>
       <p><strong>本周最明确的技术主线是“经典几何系统不被替代，而是吸收 feed-forward 3D 模型作为测量或建图先验”。</strong>ScaRF-SLAM 用传统特征 SLAM 负责低延迟跟踪，把几何基础模型限制在 mapping；CoMo3R-SLAM 用 learned pointmap 做跨智能体匹配和 Sim(3) 同步；Anchor3R 把长序列重建改写为当前坐标系下的相对测量。这三类设计都在回避一个风险：直接让大模型输出全局位姿会把尺度和漂移误差传进闭环。</p>
+      <p><strong>补充观察：连续时间 SLAM 的“老问题”仍在被重新工程化。</strong>Breaking Time / G-solver 不走视觉基础模型路线，而是把 Gaussian Process 运动先验和 Gaussian Belief Propagation 组合成可分布式的连续时间后端。它的重要性在于异步、多相机、rolling-shutter、LiDAR/radar/event 等传感器融合仍需要平滑轨迹和可插值状态，不会因为 feed-forward 3D 热度上升而消失。</p>
       <p><strong>3DGS/mesh 表示继续往机器人可用性靠近。</strong>Triangle Splatting SLAM 用可微三角形替代高斯作为在线地图，使碰撞检测、mesh 编辑、仿真接口更自然；GAVIS 把可见性和不确定性显式化，用于 active mapping；ZipSplat 则把高斯数量从像素网格中解耦，为前馈 3DGS 提供更可控的质量/效率旋钮。</p>
       <p><strong>世界模型方向开始强调闭环评估和实体导航，而不是只做视频生成。</strong>WAM-Nav、WorldFly、PiL-World、WLA 都把未来视觉想象、动作生成、策略评估或语言分解放到一个系统里。值得注意的是，PiL-World 把真实 rollout 成功率估计误差从 63.2% 降到 12.0%，这是世界模型能否替代部分机器人评测成本的关键指标。</p>
       <div class="note">GitHub 公共 Search API 在未登录状态下触发 rate limit；未使用已登录 Chrome 抓取 followed stars。本期代码热度以公开 GitHub 页面、Search API 返回片段和项目页为准，可能漏掉小众但高质量的私域 star 信号。</div>
@@ -157,6 +158,14 @@
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2606.06250">Breaking Time</a><br><span class="small">arXiv:2606.06250 · cs.RO · 2026-06-04 UTC</span></td>
+            <td>连续时间 SLAM 能自然处理 rolling shutter、LiDAR/radar sweep、event camera 和多相机异步流，但传统连续时间后端常依赖集中式优化，分布式/去中心化扩展不直接。</td>
+            <td>G-solver：把 Gaussian Process 运动先验放入连续时间轨迹估计，用 Gaussian Belief Propagation 在因子图上做消息传递。核心取舍是把轨迹、速度、测量约束都保持在高斯近似内，换取可插值、可并行、可分布式的求解结构。</td>
+            <td>arXiv 页面说明评估覆盖 synthetic 与 real data，包括 rolling shutter 和 distributed multi-camera optimization；报告为 RA-L 录用并开放实现。当前本地 PDF 下载失败，未能核对正文实验表格中的精确数值，因此量化结论只保留为“运行时间与现有连续时间方法可比、估计稳定准确”的作者报告级证据。</td>
+            <td>和本期 feed-forward 3D 主线形成互补：前者改进感知/建图先验，G-solver 改进异步传感器后端。对 VIO/视觉-LiDAR/事件相机 SLAM 更像基础设施，而非单一 benchmark 技巧。</td>
+            <td><a href="https://github.com/rvp-group/gsolver">rvp-group/gsolver</a> · BSD-3-Clause · C++/Python · 约 4 stars / 0 forks。</td>
+          </tr>
           <tr>
             <td><a href="https://arxiv.org/abs/2606.00307">ScaRF-SLAM</a><br><span class="small">arXiv:2606.00307 · cs.RO · 2026-05-29 UTC</span></td>
             <td>几何基础模型直接参与 tracking 时，对预测误差和尺度不确定性敏感，容易污染位姿估计。</td>
@@ -280,6 +289,14 @@
         </thead>
         <tbody>
           <tr>
+            <td><a href="https://github.com/rvp-group/gsolver">rvp-group/gsolver</a><br><span class="tag">Continuous-time SLAM</span></td>
+            <td>Breaking Time 论文对应实现：Gaussian Belief Propagation + Gaussian Process motion prior，用于连续时间、分布式 SLAM、SE(3) 位姿优化、bundle adjustment、incremental SLAM 与 Rerun 可视化。</td>
+            <td>核心目录按 README 分为 <code>gsolver/include/gsolver/core</code>、<code>graph</code>、<code>maths</code> 与 <code>src</code>；Python 绑定在 <code>python/</code>，示例在 <code>examples/cpp</code>、<code>examples/python</code>、<code>examples/config</code>、<code>examples/data</code>。由于本地 TLS 问题无法拉 raw 文件/浅克隆，源码级验证不足。</td>
+            <td>约 4 stars / 0 forks；GitHub 页面显示 2 commits；README 称论文 2026-05-24 被 RA-L 接收。</td>
+            <td>C++ 91.6%、CMake 7.7%；BSD-3-Clause。</td>
+            <td class="score">中：构建/示例路径完整，但缺少 releases，README 标注 unit tests not yet provided；本期未能编译验证。</td>
+          </tr>
+          <tr>
             <td><a href="https://github.com/cvg/ZipSplat">cvg/ZipSplat</a><br><span class="tag">Feed-forward 3DGS</span></td>
             <td>从 1-24+ 张未标定图像或视频片段前馈生成 3D Gaussians，可导出 PLY、渲染 novel view、用 compression slider 控制高斯数量。</td>
             <td>scene token + attention decoder；和本周 ZipSplat 论文一致，是 feed-forward 3DR 高价值复现实验对象。</td>
@@ -370,6 +387,14 @@
         </thead>
         <tbody>
           <tr>
+            <td>Continuous-time SLAM</td>
+            <td>Breaking Time / G-solver</td>
+            <td>Synthetic、real data、rolling shutter、distributed multi-camera optimization</td>
+            <td>Trajectory estimation stability、runtime vs continuous-time methods</td>
+            <td>作者报告为 accurate/stable，runtime comparable；本期无法访问 PDF 表格，未摘录精确数值。</td>
+            <td>补入价值在系统结构：异步传感器融合后端仍是 VIO/多相机/事件相机 SLAM 的关键底座。</td>
+          </tr>
+          <tr>
             <td>SLAM + GFM</td>
             <td>ScaRF-SLAM</td>
             <td>Building-scale indoor dataset + outdoor LiDAR GT models</td>
@@ -456,6 +481,7 @@
     <section>
       <h2>Trends & Insights</h2>
       <ul>
+        <li><strong>连续时间/分布式后端与 feed-forward 3D 是互补关系。</strong>Breaking Time 提醒本周主线不应只看 learned reconstruction：多传感器异步读出、rolling shutter、multi-camera 和 event/LiDAR/radar 融合仍需要可插值的连续时间轨迹表示和可扩展后端。</li>
         <li><strong>GFM/3R 模型在 SLAM 里最稳的位置是“测量与建图先验”，不是直接替代后端。</strong>ScaRF-SLAM、Anchor3R、CoMo3R-SLAM 都把大模型输出包进传统估计结构，说明可控 gauge、尺度和闭环一致性仍是核心工程边界。</li>
         <li><strong>3DGS 正在补机器人短板：不确定性、mesh、可编辑性、压缩。</strong>Triangle Splatting SLAM 和 GAVIS 说明 photorealistic map 之后，下一步是把地图变成可查询、可碰撞、可主动采样的状态表示。</li>
         <li><strong>前馈 3D 从“能重建”进入“可部署”。</strong>QVGGT 压缩 VGGT，ZipSplat 控制高斯数量，SurGe 增强局部几何，Déjà View 用循环块降低参数量，方向都指向边缘部署和长序列使用。</li>
@@ -466,13 +492,48 @@
     <section>
       <h2>值得跟进事项</h2>
       <ul>
+        <li>补测 G-solver：在 Ubuntu 环境安装 <code>yaml-cpp</code>、OpenMP、nanobind 后跑 <code>pgo_experiment</code>、<code>prior_experiment</code> 和 Charuco BA/iSLAM 示例，记录收敛轮数、runtime、Rerun 可视化是否稳定，并与 GTSAM/STEAM 类连续时间基线对比。</li>
         <li>优先复现 ZipSplat：用自采视频/多图测试 1、6、12、24 views，记录 Gaussians 数、PSNR/LPIPS、viewer 交互速度和导出 PLY 兼容性。</li>
         <li>等待 ScaRF-SLAM、Triangle Splatting SLAM、CoMo3R-SLAM 放码；一旦开放，统一用 TUM-RGBD、Replica、Tanks and Temples、Waymo 小样本做 ATE/RPE、重建误差和 FPS 对比。</li>
         <li>跟踪 QVGGT 是否支持官方 VGGT 最新 training/inference 代码；重点验证 W4A16 在长序列、多相机、室外场景上的 geometry consistency。</li>
         <li>关注 PiL-World 的 closed-loop evaluation 协议：若代码开放，可用于减少 VLA policy 迭代中的真机 rollout 次数。</li>
         <li>把 GAVIS 的 visibility field 思路迁移到 active SLAM：比较 uncertainty-driven view planning 与 frontier/coverage/entropy baselines。</li>
-        <li>补充 GitHub 登录态来源：下次若需要更完整的“followed starred repositories”，需使用已登录 Chrome 或 GitHub token，避免公共 Search API rate limit。</li>
+        <li>补充 GitHub 登录态来源：下次若需要更完整的“followed starred repositories”，需使用已登录 Chrome 或 GitHub token，避免公共 Search API rate limit；同时优先在可用 Linux/WSL 环境中浅克隆重点 repo，避免只停留在 README。</li>
       </ul>
+    </section>
+
+    <section>
+      <h2>Evidence & Reading Coverage</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>条目</th>
+            <th>本期实际阅读/检查范围</th>
+            <th>证据等级</th>
+            <th>限制</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Breaking Time / G-solver</td>
+            <td>arXiv 摘要页、cs.RO recent 条目、GitHub 仓库页面、README 中的 features、project structure、build、experiments、API quick start、license 与 stars/forks。</td>
+            <td class="score">中低</td>
+            <td>本地 PowerShell/curl 访问 arXiv PDF 与 GitHub raw 均失败，错误为 TLS/Schannel 凭证或接收失败；未能下载 PDF、浅克隆、编译或逐文件检查源码。结论降级为“重点补充但未充分验证”。</td>
+          </tr>
+          <tr>
+            <td>上一期既有 Top Papers</td>
+            <td>保留上一期已写入的论文/项目证据；本次只做补漏与边界说明，没有重新深读全部 16 篇。</td>
+            <td class="score">沿用上一期</td>
+            <td>本次补充不改变 ScaRF-SLAM、ZipSplat、WAM-Nav 等条目的原始证据等级；若需要更严格版本，应逐篇重下 PDF 并补页码。</td>
+          </tr>
+          <tr>
+            <td>GitHub 热度与 followed stars</td>
+            <td>使用公开 GitHub 页面和 arXiv/GitHub 链接；未使用登录态 Chrome 抓 followed stars。</td>
+            <td class="score">中低</td>
+            <td>公共 API/未登录抓取可能漏掉小众 repo 的增长信号；stars/forks 为访问时页面近似值。</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
     <section>
@@ -490,6 +551,7 @@
         <li><a href="https://arxiv.org/abs/2606.05773">PiL-World</a></li>
         <li><a href="https://arxiv.org/abs/2605.30342">GAVIS</a></li>
         <li><a href="https://arxiv.org/abs/2606.06312">Meridian</a></li>
+        <li><a href="https://arxiv.org/abs/2606.06250">Breaking Time: A Fully Gaussian Framework for Distributed and Continuous-Time SLAM</a></li>
         <li><a href="https://arxiv.org/abs/2606.05979">World-Language-Action Model</a></li>
         <li><a href="https://arxiv.org/abs/2605.31577">SurGe</a></li>
         <li><a href="https://arxiv.org/abs/2605.31535">RayDer</a></li>
@@ -509,6 +571,7 @@
         <li><a href="https://github.com/xsj01/gavis">xsj01/gavis</a></li>
         <li><a href="https://gatech-rl2.github.io/GAVIS/">GAVIS project page</a></li>
         <li><a href="https://github.com/CoRL-2026-WAM-Nav/WAM-Nav">CoRL-2026-WAM-Nav/WAM-Nav</a></li>
+        <li><a href="https://github.com/rvp-group/gsolver">rvp-group/gsolver</a></li>
         <li><a href="https://github.com/como3r-slam/como3r-slam.github.io">CoMo3R-SLAM project page repo</a></li>
         <li><a href="https://research.nvidia.com/labs/dvl/projects/dvlt">Déjà View project page</a></li>
         <li><a href="https://vision.rwth-aachen.de/surge">SurGe project page</a></li>
