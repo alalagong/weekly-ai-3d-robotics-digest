@@ -106,36 +106,27 @@
     }
     .small { color: var(--muted); font-size: 12px; }
     .score { font-weight: 700; color: var(--accent-2); }
-    .figure-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 14px;
-      margin: 14px 0 26px;
-    }
-    .paper-figure {
-      margin: 0;
-      padding: 10px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #fff;
-    }
-    .paper-figure a {
+    .paper-thumb {
       display: block;
+      width: 170px;
+      max-width: 100%;
       color: inherit;
       cursor: zoom-in;
     }
-    .paper-figure img {
+    .paper-thumb img {
       display: block;
       width: 100%;
       height: auto;
       border: 1px solid #eef2f7;
+      border-radius: 6px;
       background: #fff;
     }
-    .paper-figure figcaption {
-      margin-top: 8px;
+    .paper-thumb span {
+      display: block;
+      margin-top: 6px;
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.45;
+      font-size: 12px;
+      line-height: 1.35;
     }
     ul { padding-left: 22px; }
     li { margin: 7px 0; }
@@ -186,6 +177,7 @@
             <th>实验、基线、指标与量化结果</th>
             <th>新颖点与效果判断</th>
             <th>代码</th>
+            <th>系统/框架图</th>
           </tr>
         </thead>
         <tbody>
@@ -196,6 +188,7 @@
             <td>arXiv 页面说明评估覆盖 synthetic 与 real data，包括 rolling shutter 和 distributed multi-camera optimization；报告为 RA-L 录用并开放实现。当前本地 PDF 下载失败，未能核对正文实验表格中的精确数值，因此量化结论只保留为“运行时间与现有连续时间方法可比、估计稳定准确”的作者报告级证据。</td>
             <td>和本期 feed-forward 3D 主线形成互补：前者改进感知/建图先验，G-solver 改进异步传感器后端。对 VIO/视觉-LiDAR/事件相机 SLAM 更像基础设施，而非单一 benchmark 技巧。</td>
             <td><a href="https://github.com/rvp-group/gsolver">rvp-group/gsolver</a> · BSD-3-Clause · C++/Python · 约 4 stars / 0 forks。</td>
+            <td><span class="small">不收录：Fig. 1/Fig. 2 更偏概念与因子图示意。</span></td>
           </tr>
           <tr>
             <td><a href="https://arxiv.org/abs/2606.00307">ScaRF-SLAM</a><br><span class="small">arXiv:2606.00307 · cs.RO · 2026-05-29 UTC</span></td>
@@ -204,6 +197,7 @@
             <td>自建 loop-rich building-scale indoor dataset，含高精度轨迹和 LiDAR GT；另测大尺度 outdoor。指标含轨迹精度和重建误差。摘要给出重建 precision 提升 10%-20%，室内约 2 cm / 10 m chunk，室外约 10 cm / 30 m chunk。</td>
             <td>把“模型先验”和“闭环位姿估计”解耦，工程判断正确；适合后续接入 ORB-SLAM/COLMAP/VGGT/MASt3R 类系统验证。</td>
             <td>未确认官方代码。</td>
+            <td><a class="paper-thumb" href="assets/2026-05-29_2026-06-06_2606.00307_scarf_slam_fig1_pipeline.png" target="_blank" rel="noopener"><img src="assets/2026-05-29_2026-06-06_2606.00307_scarf_slam_fig1_pipeline.png" alt="ScaRF-SLAM Fig. 1 reconstruction pipeline"><span>Fig. 1 reconstruction pipeline；PDF p.1。</span></a></td>
           </tr>
           <tr>
             <td><a href="https://arxiv.org/abs/2605.31419">Triangle Splatting SLAM</a><br><span class="small">arXiv:2605.31419 · cs.CV/cs.RO · 2026-05-29 UTC</span></td>
@@ -212,6 +206,7 @@
             <td>Replica 与 TUM-RGBD；对比 SLAM / 3DGS 类基线；摘要称 3D geometry 优于 baselines，camera tracking accuracy 持平，并支持在线 mesh editing。</td>
             <td>地图表示从“漂亮渲染”转向“下游可操作几何”。对机器人仿真、碰撞检测、数字孪生比纯 3DGS 更直接。</td>
             <td>未确认论文官方代码；相关老项目 <a href="https://github.com/trianglesplatting/triangle-splatting">trianglesplatting/triangle-splatting</a> 是 radiance field rendering，不是本 SLAM 系统。</td>
+            <td><a class="paper-thumb" href="assets/2026-05-29_2026-06-06_2605.31419_triangle_splatting_slam_fig2_overview.png" target="_blank" rel="noopener"><img src="assets/2026-05-29_2026-06-06_2605.31419_triangle_splatting_slam_fig2_overview.png" alt="Triangle Splatting SLAM Fig. 2 system overview"><span>Fig. 2 SLAM System Overview；PDF p.6。</span></a></td>
           </tr>
           <tr>
             <td><a href="https://arxiv.org/abs/2605.30488">CoMo3R-SLAM</a><br><span class="small">arXiv:2605.30488 · cs.RO · 2026-05-28 UTC / 2026-05-29 CST</span></td>
@@ -220,6 +215,7 @@
             <td>Tanks and Temples 与 Waymo；ATE、online speed。摘要称 Tanks and Temples 4 个场景中 3 个 ATE 最佳，Waymo 精度有竞争力，达到 online 8 FPS。</td>
             <td>把 feed-forward 3D prior 放到跨 agent 验证和尺度同步，直击多机 monocular dense map 的痛点。</td>
             <td><a href="https://github.com/como3r-slam/como3r-slam.github.io">como3r-slam/como3r-slam.github.io</a> 为项目页仓库，暂未确认实现代码。</td>
+            <td><a class="paper-thumb" href="assets/2026-05-29_2026-06-06_2605.30488_como3r_slam_fig2_overview.png" target="_blank" rel="noopener"><img src="assets/2026-05-29_2026-06-06_2605.30488_como3r_slam_fig2_overview.png" alt="CoMo3R-SLAM Fig. 2 overview"><span>Fig. 2 Overview of CoMo3R-SLAM；PDF p.4。</span></a></td>
           </tr>
           <tr>
             <td><a href="https://arxiv.org/abs/2606.05035">Anchor3R</a><br><span class="small">arXiv:2606.05035 · cs.CV · 2026-06-03 UTC</span></td>
@@ -228,6 +224,7 @@
             <td>室内、户外、driving、RGB-D benchmarks；指标为 long-horizon pose accuracy 和 dense reconstruction quality。摘要未给具体数值，但强调 bounded-memory online inference 优于 streaming baselines。</td>
             <td>关键 insight 是“前馈模型输出局部测量，而非永久全局 gauge”。和 ScaRF-SLAM 形成相同工程趋势。</td>
             <td>未确认官方代码。</td>
+            <td><a class="paper-thumb" href="assets/2026-05-29_2026-06-06_2606.05035_anchor3r_fig2_overview.png" target="_blank" rel="noopener"><img src="assets/2026-05-29_2026-06-06_2606.05035_anchor3r_fig2_overview.png" alt="Anchor3R Fig. 2 overview"><span>Fig. 2 Overview of Anchor3R；PDF p.4。</span></a></td>
           </tr>
           <tr>
             <td><a href="https://arxiv.org/abs/2606.05102">ZipSplat</a><br><span class="small">arXiv:2606.05102 · cs.CV · 2026-06-03 UTC</span></td>
@@ -236,6 +233,7 @@
             <td>DL3DV、RealEstate10K、Mip-NeRF360、ScanNet++；PSNR/SSIM/LPIPS。摘要称约 6x 更少 Gaussians；比最佳 pose-free baseline 高 2.1 dB / 1.2 dB PSNR。README 给出 RE10K 26.20 PSNR vs YoNoSplat 24.99。</td>
             <td>把“高斯数量”变成显式效率旋钮，且无 GT poses/intrinsics；可复现性强。</td>
             <td><a href="https://github.com/cvg/ZipSplat">cvg/ZipSplat</a> · Apache-2.0 · 约 49 stars / 1 fork；含 inference、evaluation、training code、pretrained weights。</td>
+            <td><a class="paper-thumb" href="assets/2026-05-29_2026-06-06_2606.05102_zipsplat_fig2_overview.png" target="_blank" rel="noopener"><img src="assets/2026-05-29_2026-06-06_2606.05102_zipsplat_fig2_overview.png" alt="ZipSplat Fig. 2 overview"><span>Fig. 2 Overview of ZipSplat；PDF p.4。</span></a></td>
           </tr>
           <tr>
             <td><a href="https://arxiv.org/abs/2605.31124">QVGGT</a><br><span class="small">arXiv:2605.31124 · cs.CV · CVPR 2026</span></td>
@@ -244,6 +242,7 @@
             <td>多 geometry perception benchmarks；camera pose、depth、point map。W4A16 接近无损，3-4.9x memory reduction，最高 2.8x real hardware speedup over FP32。</td>
             <td>不是通用压缩技巧，而是处理 VGGT 的相机 token / register token outlier，适合直接服务边缘 3D 感知。</td>
             <td><a href="https://github.com/DDsacu/QVGGT">DDsacu/QVGGT</a> · Python · 约 3 stars / 0 forks；license 未确认，早期仓库。</td>
+            <td><a class="paper-thumb" href="assets/2026-05-29_2026-06-06_2605.31124_qvggt_fig2_overview.png" target="_blank" rel="noopener"><img src="assets/2026-05-29_2026-06-06_2605.31124_qvggt_fig2_overview.png" alt="QVGGT Fig. 2 overview"><span>Fig. 2 Overview of QVGGT；PDF p.3。</span></a></td>
           </tr>
           <tr>
             <td><a href="https://arxiv.org/abs/2606.00709">BEVIO</a><br><span class="small">arXiv:2606.00709 · cs.RO · ICRA 2026</span></td>
@@ -252,6 +251,7 @@
             <td>高保真 photorealistic lunar 实验 + Plaster City 半尺度 lunar rover 长期昼夜部署。关键结果：visual update rate 低至 0.25 Hz 仍能可靠 day/night traverse。</td>
             <td>对低帧率 VIO 直接有工程价值，尤其是资源受限行星车、夜间机器人和长周期户外平台。</td>
             <td>未确认官方代码。</td>
+            <td><span class="small">未发现合格 system/framework/pipeline 图；候选更偏实验/定性 VIO 可视化。</span></td>
           </tr>
           <tr>
             <td><a href="https://arxiv.org/abs/2606.04907">WAM-Nav</a><br><span class="small">arXiv:2606.04907 · cs.RO · 2026-06-03 UTC</span></td>
@@ -260,6 +260,7 @@
             <td>ClutterScenes、InternScenes 与 real-world deployment。Image-Goal success +15.7%，Point-Goal +3.3%；真实室内/室外 zero-shot sim-to-real 平均 85% success。</td>
             <td>把视觉想象压缩到 latent 并和动作联合生成，结果比“先预测画面再规划”更符合实时导航。</td>
             <td><a href="https://github.com/CoRL-2026-WAM-Nav/WAM-Nav">CoRL-2026-WAM-Nav/WAM-Nav</a> · JavaScript · 项目页/早期仓库，约 0 stars / 0 forks。</td>
+            <td><a class="paper-thumb" href="assets/2026-05-29_2026-06-06_2606.04907_wam_nav_fig2_architecture.png" target="_blank" rel="noopener"><img src="assets/2026-05-29_2026-06-06_2606.04907_wam_nav_fig2_architecture.png" alt="WAM-Nav Fig. 2 architecture overview"><span>Fig. 2 architecture overview；PDF p.4。</span></a></td>
           </tr>
           <tr>
             <td><a href="https://arxiv.org/abs/2606.05773">PiL-World</a><br><span class="small">arXiv:2606.05773 · cs.RO · 2026-06-04 UTC</span></td>
@@ -268,6 +269,7 @@
             <td>3 个真实双臂操作任务；比较 world-model 估计成功率与真实 rollout 成功率。误差从 baseline 63.2% 降到 12.0%。</td>
             <td>最值得关注的是评测目标：减少真实机器人 rollout 成本，而非只追求视频质量。</td>
             <td>未确认官方代码。</td>
+            <td><a class="paper-thumb" href="assets/2026-05-29_2026-06-06_2606.05773_pil_world_fig2_overview.png" target="_blank" rel="noopener"><img src="assets/2026-05-29_2026-06-06_2606.05773_pil_world_fig2_overview.png" alt="PiL-World Fig. 2 overview"><span>Fig. 2 Overview of PiL-World；PDF p.4。</span></a></td>
           </tr>
           <tr>
             <td><a href="https://arxiv.org/abs/2605.30342">GAVIS</a><br><span class="small">arXiv:2605.30342 · cs.CV/cs.RO · CVPR 2026</span></td>
@@ -276,6 +278,7 @@
             <td>多环境 active mapping；摘要给出 synthesized view uncertainty quantification 200 FPS，accuracy 与 efficiency 均优于 prior approaches。</td>
             <td>把 visibility 显式加入 3DGS，是机器人主动感知比纯 NVS 更需要的表示。</td>
             <td><a href="https://github.com/xsj01/gavis">xsj01/gavis</a> · Python · 约 0 stars / 0 forks；license 未确认，2026-06-05 新仓库。</td>
+            <td><a class="paper-thumb" href="assets/2026-05-29_2026-06-06_2605.30342_gavis_fig2_framework.png" target="_blank" rel="noopener"><img src="assets/2026-05-29_2026-06-06_2605.30342_gavis_fig2_framework.png" alt="GAVIS Fig. 2 framework"><span>Fig. 2 GAVIS framework；仅保留框架/流程部分；PDF p.2。</span></a></td>
           </tr>
           <tr>
             <td><a href="https://arxiv.org/abs/2606.06312">Meridian</a><br><span class="small">arXiv:2606.06312 · cs.RO · 2026-06-04 UTC</span></td>
@@ -284,6 +287,7 @@
             <td>自动驾驶数据、park/campus、wilderness camp；19 km ground traversal 上平均 optimized trajectory error 2.4 m。</td>
             <td>不依赖场地特定训练或 fine-tuning，适合户外机器人长期任务的 global localization 模块。</td>
             <td>未确认官方代码。</td>
+            <td><a class="paper-thumb" href="assets/2026-05-29_2026-06-06_2606.06312_meridian_fig2_pipeline.png" target="_blank" rel="noopener"><img src="assets/2026-05-29_2026-06-06_2606.06312_meridian_fig2_pipeline.png" alt="Meridian Fig. 2 cross-view localization pipeline"><span>Fig. 2 cross-view localization pipeline；PDF p.2。</span></a></td>
           </tr>
           <tr>
             <td><a href="https://arxiv.org/abs/2606.05979">World-Language-Action Model</a><br><span class="small">arXiv:2606.05979 · cs.RO/cs.AI · 2026-06-04 UTC</span></td>
@@ -292,80 +296,10 @@
             <td>模拟与真实环境；WLA-0 为 2B active params，在 RTX 5090 上 40 ms/inference；RoboTwin2.0 Clean success 92.94%，RMBench 56.5%。</td>
             <td>如果代码和数据开放，可能成为“世界模型 + VLA”统一框架的重要 baseline。</td>
             <td>未确认官方代码。</td>
+            <td><a class="paper-thumb" href="assets/2026-05-29_2026-06-06_2606.05979_wla_model_fig1_architecture.png" target="_blank" rel="noopener"><img src="assets/2026-05-29_2026-06-06_2606.05979_wla_model_fig1_architecture.png" alt="World-Language-Action Model Fig. 1 architecture"><span>Fig. 1 VLA/WAM/WLA architecture；裁剪剔除结果面板；PDF p.2。</span></a></td>
           </tr>
         </tbody>
       </table>
-
-      <h3>Top Papers 系统 / 框架图（逐页 caption 检查）</h3>
-      <p class="small">仅嵌入 Top Papers 中 caption 或相邻 section 明确指向 system overview、framework overview、system pipeline、pipeline、architecture、overview 的系统/框架/流程图；概念图、因子图、实验可视化未收录。点击图片可打开原始 PNG 预览。</p>
-      <div class="figure-grid">
-        <figure class="paper-figure">
-          <a href="assets/2026-05-29_2026-06-06_2606.00307_scarf_slam_fig1_pipeline.png" target="_blank" rel="noopener">
-            <img src="assets/2026-05-29_2026-06-06_2606.00307_scarf_slam_fig1_pipeline.png" alt="ScaRF-SLAM Fig. 1 reconstruction pipeline">
-          </a>
-          <figcaption>ScaRF-SLAM Fig. 1：caption 标注 reconstruction pipeline；PDF p.1。</figcaption>
-        </figure>
-        <figure class="paper-figure">
-          <a href="assets/2026-05-29_2026-06-06_2605.31419_triangle_splatting_slam_fig2_overview.png" target="_blank" rel="noopener">
-            <img src="assets/2026-05-29_2026-06-06_2605.31419_triangle_splatting_slam_fig2_overview.png" alt="Triangle Splatting SLAM Fig. 2 system overview">
-          </a>
-          <figcaption>Triangle Splatting SLAM Fig. 2：caption 标注 SLAM System Overview；PDF p.6。</figcaption>
-        </figure>
-        <figure class="paper-figure">
-          <a href="assets/2026-05-29_2026-06-06_2605.30488_como3r_slam_fig2_overview.png" target="_blank" rel="noopener">
-            <img src="assets/2026-05-29_2026-06-06_2605.30488_como3r_slam_fig2_overview.png" alt="CoMo3R-SLAM Fig. 2 overview">
-          </a>
-          <figcaption>CoMo3R-SLAM Fig. 2：caption 标注 Overview of CoMo3R-SLAM；PDF p.4。</figcaption>
-        </figure>
-        <figure class="paper-figure">
-          <a href="assets/2026-05-29_2026-06-06_2606.05035_anchor3r_fig2_overview.png" target="_blank" rel="noopener">
-            <img src="assets/2026-05-29_2026-06-06_2606.05035_anchor3r_fig2_overview.png" alt="Anchor3R Fig. 2 overview">
-          </a>
-          <figcaption>Anchor3R Fig. 2：caption 标注 Overview of Anchor3R；PDF p.4。</figcaption>
-        </figure>
-        <figure class="paper-figure">
-          <a href="assets/2026-05-29_2026-06-06_2606.05102_zipsplat_fig2_overview.png" target="_blank" rel="noopener">
-            <img src="assets/2026-05-29_2026-06-06_2606.05102_zipsplat_fig2_overview.png" alt="ZipSplat Fig. 2 overview">
-          </a>
-          <figcaption>ZipSplat Fig. 2：caption 标注 Overview of ZipSplat；PDF p.4。</figcaption>
-        </figure>
-        <figure class="paper-figure">
-          <a href="assets/2026-05-29_2026-06-06_2605.31124_qvggt_fig2_overview.png" target="_blank" rel="noopener">
-            <img src="assets/2026-05-29_2026-06-06_2605.31124_qvggt_fig2_overview.png" alt="QVGGT Fig. 2 overview">
-          </a>
-          <figcaption>QVGGT Fig. 2：caption 标注 Overview of QVGGT；PDF p.3。</figcaption>
-        </figure>
-        <figure class="paper-figure">
-          <a href="assets/2026-05-29_2026-06-06_2606.04907_wam_nav_fig2_architecture.png" target="_blank" rel="noopener">
-            <img src="assets/2026-05-29_2026-06-06_2606.04907_wam_nav_fig2_architecture.png" alt="WAM-Nav Fig. 2 architecture overview">
-          </a>
-          <figcaption>WAM-Nav Fig. 2：caption 标注 Architecture overview of the WAM-Nav framework；PDF p.4。</figcaption>
-        </figure>
-        <figure class="paper-figure">
-          <a href="assets/2026-05-29_2026-06-06_2606.05773_pil_world_fig2_overview.png" target="_blank" rel="noopener">
-            <img src="assets/2026-05-29_2026-06-06_2606.05773_pil_world_fig2_overview.png" alt="PiL-World Fig. 2 overview">
-          </a>
-          <figcaption>PiL-World Fig. 2：caption 标注 Overview of PiL-World；PDF p.4。</figcaption>
-        </figure>
-        <figure class="paper-figure">
-          <a href="assets/2026-05-29_2026-06-06_2605.30342_gavis_fig2_framework.png" target="_blank" rel="noopener">
-            <img src="assets/2026-05-29_2026-06-06_2605.30342_gavis_fig2_framework.png" alt="GAVIS Fig. 2 framework">
-          </a>
-          <figcaption>GAVIS Fig. 2：caption 标注 GAVIS framework；裁剪只保留框架/流程部分，剔除右侧实验雷达图；PDF p.2。</figcaption>
-        </figure>
-        <figure class="paper-figure">
-          <a href="assets/2026-05-29_2026-06-06_2606.06312_meridian_fig2_pipeline.png" target="_blank" rel="noopener">
-            <img src="assets/2026-05-29_2026-06-06_2606.06312_meridian_fig2_pipeline.png" alt="Meridian Fig. 2 cross-view localization pipeline">
-          </a>
-          <figcaption>Meridian Fig. 2：caption 标注 cross-view localization pipeline；PDF p.2。</figcaption>
-        </figure>
-        <figure class="paper-figure">
-          <a href="assets/2026-05-29_2026-06-06_2606.05979_wla_model_fig1_architecture.png" target="_blank" rel="noopener">
-            <img src="assets/2026-05-29_2026-06-06_2606.05979_wla_model_fig1_architecture.png" alt="World-Language-Action Model Fig. 1 architecture">
-          </a>
-          <figcaption>World-Language-Action Model Fig. 1：caption 标注 VLA/WAM/WLA architecture；裁剪剔除右侧结果面板；PDF p.2。</figcaption>
-        </figure>
-      </div>
 
       <h3>补充跟踪论文</h3>
       <ul>
@@ -618,7 +552,7 @@
         <tbody>
           <tr>
             <td>17 篇论文系统/框架图补检</td>
-            <td>使用 PyMuPDF 对 17 篇 PDF 逐页检查 caption 与相邻 section，关键词包括 <code>system overview</code>、<code>framework overview</code>、<code>system pipeline</code>、<code>pipeline</code>、<code>architecture</code>、<code>overview</code>。人工确认后，本报告只嵌入 Top Papers 中的 11 篇合格系统/框架/流程图：ScaRF-SLAM、Triangle Splatting SLAM、CoMo3R-SLAM、Anchor3R、ZipSplat、QVGGT、WAM-Nav、PiL-World、GAVIS、Meridian、World-Language-Action Model。裁剪图保存于 <code>reports/assets/</code>，并放在 Top Papers 表格附近；图片可点击打开原始 PNG 预览。</td>
+            <td>使用 PyMuPDF 对 17 篇 PDF 逐页检查 caption 与相邻 section，关键词包括 <code>system overview</code>、<code>framework overview</code>、<code>system pipeline</code>、<code>pipeline</code>、<code>architecture</code>、<code>overview</code>。人工确认后，本报告只嵌入 Top Papers 中的 11 篇合格系统/框架/流程图：ScaRF-SLAM、Triangle Splatting SLAM、CoMo3R-SLAM、Anchor3R、ZipSplat、QVGGT、WAM-Nav、PiL-World、GAVIS、Meridian、World-Language-Action Model。裁剪图保存于 <code>reports/assets/</code>，并放入 Top Papers 表格的“系统/框架图”列；图片可点击打开原始 PNG 预览。</td>
             <td class="score">中</td>
             <td>Breaking Time/G-solver 的 Fig. 1/Fig. 2 更偏概念与因子图示意，不作为系统/框架/流程图收录；BEVIO 未发现合格 system/framework/pipeline 图，相关候选更偏实验/定性 VIO 可视化。SurGe、RayDer、Deja View、Unpaired RGB-Thermal Gaussian-Splatting 虽有合格 overview/flowchart，但属于补充跟踪论文，本版不嵌入其图片。GAVIS 与 World-Language-Action Model 原图含实验结果面板，已只裁剪架构/流程部分。</td>
           </tr>
