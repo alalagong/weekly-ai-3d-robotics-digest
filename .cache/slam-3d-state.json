@@ -1,6 +1,6 @@
 {
-  "run_at": "2026-06-21T22:06:01.4631047+08:00",
-  "coverage_start": "2026-06-14T00:34:09.4796063+08:00",
-  "coverage_end": "2026-06-21T22:06:01.4631047+08:00",
-  "report_path": "reports/2026-06-14_2026-06-21_MMD-SLAM-SGM-SLAM-MoonSplat.html"
+  "run_at": "2026-06-27T16:34:55.8613171+08:00",
+  "coverage_start": "2026-06-21T22:06:01.4631047+08:00",
+  "coverage_end": "2026-06-27T16:34:55.8613171+08:00",
+  "report_path": "reports/2026-06-21_2026-06-27_RoboAtlas-SA-LIVO-Pocket-SLAM.html"
 }
