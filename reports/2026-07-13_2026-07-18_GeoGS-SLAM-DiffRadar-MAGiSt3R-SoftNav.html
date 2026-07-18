@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-07-13 至 2026-07-18：GeoGS-SLAM、DiffRadar、MAGiSt3R 与 SoftNav</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17202a;
+      --muted: #5b6675;
+      --line: #d9e2ea;
+      --soft: #f5f8fb;
+      --accent: #0f766e;
+      --accent-2: #7c2d12;
+      --code: #eef7f4;
+      --warn: #fff7ed;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.62;
+    }
+    header {
+      padding: 38px 7vw 26px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #f8fbfd 0%, #fff 100%);
+    }
+    main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 28px 7vw 60px;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(28px, 4vw, 43px);
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 34px 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--line);
+      font-size: 24px;
+    }
+    h3 { margin: 22px 0 8px; font-size: 18px; }
+    p { margin: 8px 0; }
+    a {
+      color: #075985;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+    th, td {
+      vertical-align: top;
+      text-align: left;
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+    }
+    th { background: var(--soft); }
+    tr:nth-child(even) td { background: #fcfdfe; }
+    code {
+      padding: 1px 5px;
+      border-radius: 4px;
+      background: var(--code);
+      font-size: 90%;
+    }
+    ul { padding-left: 22px; }
+    li { margin: 7px 0; }
+    .meta { color: var(--muted); font-size: 14px; }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .tile {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px 16px;
+      background: #fff;
+    }
+    .tile strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent);
+    }
+    .note {
+      margin: 16px 0;
+      padding: 11px 14px;
+      border-left: 4px solid var(--accent);
+      background: #eefaf7;
+    }
+    .warn {
+      border-left-color: var(--accent-2);
+      background: var(--warn);
+    }
+    .tag {
+      display: inline-block;
+      margin: 2px 4px 2px 0;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: var(--code);
+      color: #115e59;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .small { color: var(--muted); font-size: 12px; }
+    .score { font-weight: 700; color: var(--accent-2); }
+    .paper-thumb {
+      display: block;
+      width: 220px;
+      max-width: 100%;
+      text-decoration: none;
+    }
+    .paper-thumb img {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .paper-thumb span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .links { columns: 2; }
+    @media (max-width: 820px) {
+      header { padding: 28px 5vw 20px; }
+      main { padding: 20px 5vw 44px; }
+      table { display: block; overflow-x: auto; }
+      .links { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="meta">每周 SLAM / VIO / SfM / FeedForward 3D 进展报告</p>
+    <h1>2026-07-13 至 2026-07-18：GeoGS-SLAM、DiffRadar、MAGiSt3R 与 SoftNav</h1>
+    <p class="meta">覆盖时间：2026-07-13T01:38:55.2887459+08:00 至 2026-07-18T17:04:49.2626391+08:00（Asia/Shanghai）。本期按 <code>.cache/slam-3d-state.json</code> 上次覆盖结束时间继续推进，未截断为最近 7 天。</p>
+    <div class="summary-grid">
+      <div class="tile"><strong>全文深读论文</strong>6 篇：GeoGS-SLAM、DiffRadar、MAGiSt3R、SoftNav、CERPE、Immediate 3DGS。均阅读 arXiv HTML 全文的 Introduction、Method、Experiments、Ablation/Limitations/Conclusion，并检查系统图。</div>
+      <div class="tile"><strong>摘要/元数据级跟踪</strong>16 个条目：SalientGS、Instant NuRec、COLMAR、PixelLoop、Desc++、LiDAR map consistency、ABot-3DWorld、Xiaomi-U0、FlowWAM、GigaWorld-Policy、M4World、AeroAct、SceneBind、G2SR、3DGS 压缩、VPR Auditing。</div>
+      <div class="tile"><strong>Repo 深读</strong>4 个仓库：GeoGS_SLAM_code、i3dgs、instant-nurec、pixelloop。检查 README、目录树、入口脚本/配置、核心模块与近期 commit；未 clone、未编译、未运行。</div>
+      <div class="tile"><strong>访问限制</strong>GitHub raw 域名连接失败，改用 GitHub Contents API；未登录 GitHub/HuggingFace/项目数据站；未下载 checkpoint、训练数据或大规模 benchmark。</div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Executive Summary</h2>
+      <p><strong>本期最值得工程跟进的是“几何先验进入在线地图优化”。</strong>GeoGS-SLAM 把 VGGT 类 feed-forward 几何先验接进 3DGS SLAM 的 map expansion、pose/map joint optimization 与在线 loop closure；i3dgs 则从相反方向出发，把 VPR、covisibility graph、local BA、loop closure 与 Gaussian relocation 接入 unordered 3DGS capture。二者共同信号是：3DGS 不再只是后处理渲染层，而在更接近 SLAM/SfM 的前后端闭环里承担状态表示。</p>
+      <p><strong>非视觉与多机器人方向在从“感知可用”转向“通信/信号域可优化”。</strong>DiffRadar 直接在 RA/DA 雷达测量空间做 differentiable rendering 和 joint pose-map optimization，报告 Radarize translational ATE 从 0.606m 降到 0.103m，并以 70 FPS 运行；CERPE 不训练新模型，而是用 SALAD descriptor gate、VGGT、Metric3Dv2 与 SE(3) propagation 来减少原始图像交换，在小团队相对位姿中维持 100% 成功率。它们的共同点是把传统“模块输出”改成可被约束和调度的中间状态。</p>
+      <p><strong>FeedForward 3D 正在扩展到多 agent 与 embodied navigation，但证据边界要分清。</strong>MAGiSt3R 已经在 multi-agent monocular RGB 视频上给出接近 10 FPS 的重建/跟踪结果，SoftNav 显示把 3D scene token 直接注入 VLM 比文本序列化更有效；但 MAGiSt3R 公开仓库目前主要是项目页，SoftNav/CERPE 未发现公开代码，本期不能把论文结果写成本地可复现实绩。</p>
+      <div class="note warn">证据边界：本期深读依赖 arXiv HTML 全文与公开 GitHub API/Contents API；没有本地复现实验、没有下载模型权重或数据集、没有使用需登录来源。Supplemental 条目只读摘要/API 元数据，除明确说明外不作为深度结论来源。</div>
+    </section>
+
+    <section>
+      <h2>Deep-read Papers</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>论文</th>
+            <th>系统/框架图</th>
+            <th>解决的问题</th>
+            <th>方法 / 结构</th>
+            <th>Insight 与数学知识</th>
+            <th>实验与效果</th>
+            <th>复现与启发</th>
+            <th>阅读证据</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.11184">GeoGS-SLAM: Online Monocular Reconstruction Using Gaussian Splatting with Geometric Priors</a><br><span class="tag">Monocular SLAM</span><span class="tag">3DGS</span><span class="tag">VGGT prior</span></td>
+            <td><a class="paper-thumb" href="assets/2026-07-13_2026-07-18_2607.11184_geogs_slam_fig2_overview.png"><img src="assets/2026-07-13_2026-07-18_2607.11184_geogs_slam_fig2_overview.png" alt="GeoGS-SLAM overview"><span>Fig.2 GeoGS-SLAM overview</span></a></td>
+            <td>现有 3DGS-SLAM 往往需要深度传感器或已知相机参数；纯 feed-forward 几何先验能实时给 point map / pose，但如果优化阶段丢掉原始 RGB，渲染质量与地图一致性会受限。论文目标是用未标定 RGB 输入同时做在线跟踪、dense reconstruction 和 photorealistic mapping。</td>
+            <td>系统分四段：keyframe selection 后调用预训练 visual geometry model 预测 camera priors 与 scene priors；map expansion 从 RGB 与几何先验直接采样 Gaussian primitives；coarse-to-fine joint optimization 同时最小化 photometric loss 和 depth/geometric loss；在线 loop closure 用 descriptor 检索历史窗口，再做 pose graph optimization 和全局 map adjustment。</td>
+            <td>关键数学点是把 3DGS rasterization 的 photometric residual 和 feed-forward depth/scene prior 的 geometric residual 统一进同一个窗口优化。scale alignment 用相邻帧 3D point map 的范数比估计尺度；primitive sampling 由 Difference-of-Gaussian 显著性和几何尺度控制，避免把 Gaussian 均匀撒在低信息区。</td>
+            <td>Replica/TUM RGB-D/Waymo 上，GeoGS-SLAM 报告 PSNR 为 37.56/24.02/28.91，优于 Splat-SLAM 的 31.86/20.87/25.10；ATE 为 0.024/0.035/0.861m。单 keyframe 平均处理 582.1ms，其中 joint optimization 占 480.6ms。消融中去掉 camera priors 后 Replica ATE 从 0.024m 退化到 0.922m。</td>
+            <td>开源仓库可见，但运行依赖 PyTorch 2.7.1/CUDA、VGGT、diff-gaussian-rasterization 等；本期未 clone/编译。工程启发是：把 foundation geometry 当作可优化先验比“先预测再显示”更适合 SLAM，尤其是 loop closure 后还要移动 Gaussian map。</td>
+            <td>arXiv HTML 全文深读：Intro、Related Work、Geometric Prior Prediction、Map Expansion、Joint Optimization、Online Loop Closure、Experiments、Ablation；系统图已下载并视觉确认；GitHub README/tree/entry/config 检查。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.12265">DiffRadar: Differentiable Physics-Aware Radar SLAM with Gaussian Fields</a><br><span class="tag">Radar SLAM</span><span class="tag">Gaussian field</span><span class="tag">Differentiable rendering</span></td>
+            <td><a class="paper-thumb" href="assets/2026-07-13_2026-07-18_2607.12265_diffradar_fig2_pipeline.png"><img src="assets/2026-07-13_2026-07-18_2607.12265_diffradar_fig2_pipeline.png" alt="DiffRadar pipeline"><span>Fig.2 DiffRadar pipeline</span></a></td>
+            <td>mmWave radar 适合低光、烟雾、隐私敏感场景，但传统 radar SLAM 通常在离散 RA/DA heatmap 上做 scan matching，几何连续性和雷达物理属性被切断，在长 corridor、动态干扰、motion transition 下容易累计漂移。</td>
+            <td>DiffRadar 把场景表示为 physics-aware anisotropic Gaussian primitives；forward model 将 Gaussian scene 渲染到 range-azimuth 与 Doppler-azimuth 测量空间；后端用 rendered 与 observed RA/DA residual 联合优化轨迹和 Gaussian scene map。论文还构造 RDST stress-test 覆盖 corridor degeneracy、speed transition、dynamic clutter 和长 loop closure。</td>
+            <td>核心 insight 是“直接在雷达信号域闭环”：不是先把雷达离散成地图再匹配，而是保留散射体方向性、Doppler 响应和 Gaussian anisotropy，让 pose 和 map 互相解释。数学上更接近 differentiable sensor model + fixed-lag optimization。</td>
+            <td>Radarize benchmark 上，translational ATE 从 Radarize 的 0.606m 降到 0.103m，约 6x；RDST zig-zag cart ATE 从 0.830m 到 0.039m，handheld 从 0.536m 到 0.085m；动态行人从 0 到 4 个时 ATE 仅从 0.085m 到 0.103m，map consistency 约 94%，Radarize 为 40-47%。稳态运行 70 FPS，map 40MB，Radarize 为 55 FPS/162MB。</td>
+            <td>本期未找到公开代码仓库。若后续复现，应先确认雷达硬件、RA/DA preprocessing 与 RDST 数据是否可获得；工程上适合用来启发“信号域 residual + map primitive”设计，而不是直接替代 LiDAR/VIO。</td>
+            <td>arXiv HTML 全文深读：Abstract、Introduction、Radar Gaussian primitive、Differentiable renderer、Joint optimization、Radarize benchmark、RDST stress tests、runtime/ablation；系统图已下载并视觉确认。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.15211">MAGiSt3R: Multi-Agent Feed-forward 3D Reconstruction from Monocular RGB Videos</a><br><span class="tag">FeedForward 3D</span><span class="tag">Multi-agent</span><span class="tag">Point map merging</span></td>
+            <td><a class="paper-thumb" href="assets/2026-07-13_2026-07-18_2607.15211_magist3r_fig2_overview.png"><img src="assets/2026-07-13_2026-07-18_2607.15211_magist3r_fig2_overview.png" alt="MAGiSt3R overview"><span>Fig.2 MAGiSt3R overview</span></a></td>
+            <td>3R/VGGT 类模型可以从 RGB 视频直接预测局部 point map 和相机，但多 agent 场景需要把各 agent 的局部地图放到统一坐标；传统 multi-agent NeRF/3DGS 依赖 per-scene optimization，速度难满足在线需求。</td>
+            <td>每个 agent 用 VGGT 类 feed-forward backbone 预测 local point map 和 pose；MAGMA merge model 在 intra-agent 和 inter-agent 层面把 local submap 合并进 global point map；server 检测 agent 间 loop 后再用 MAGMA 融合，最后用 pose graph optimization 减少累计漂移。</td>
+            <td>关键数学/结构是把几何 token、visual token、spatial token、camera token 聚合到 merge transformer：MAGMA 不是 ICP/RANSAC 的后处理，而是学习 local-to-global map registration。PGO 仍是必要补偿，因为 feed-forward 链路会累计 pose drift。</td>
+            <td>ReplicaMultiagent 上，MAGiSt3R multi-agent 平均 reconstruction Acc./Comp. 为 5.37/3.36，RMSE 3.87；去掉 PGO 后 RMSE 退到 5.65。multi-agent tracking 平均 RMSE 3.87/3.88，低于 VGGT-SLAM 7.15 和 MA-MASt3R-SLAM 可比均值 4.43。AriaMultiagent multi-agent 平均 RMSE 3.52；runtime 为 9 FPS。</td>
+            <td>公开 GitHub 只发现 <a href="https://github.com/ZoranGong/magist3r_page">magist3r_page</a>，主要是项目网页、图像和视频资源，不是可运行代码。启发是：多 agent F3R 的短板不是单帧几何预测，而是跨 agent 坐标融合、loop detection 与 drift 管理。</td>
+            <td>arXiv HTML 全文深读：Intro、MAGMA architecture、loss、pose graph optimization、ReplicaMultiagent/AriaMultiagent experiments、runtime、limitations；系统图已下载并视觉确认；项目页 repo 仅 README/tree 级检查。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.14586">SoftNav: Injecting 3D Scene Tokens into VLMs for Embodied Navigation</a><br><span class="tag">Embodied navigation</span><span class="tag">3D scene tokens</span><span class="tag">VLM</span></td>
+            <td><a class="paper-thumb" href="assets/2026-07-13_2026-07-18_2607.14586_softnav_fig2_overview.png"><img src="assets/2026-07-13_2026-07-18_2607.14586_softnav_fig2_overview.png" alt="SoftNav overview"><span>Fig.2 SoftNav overview</span></a></td>
+            <td>目标导向导航要求同时理解 3D scene 和语言目标。把 object/frontier 信息序列化成文本会损失连续空间表示，VLM 可能知道“是什么”，但不知道“在哪里、怎么走”。</td>
+            <td>SoftNav 冻结 3D encoder 与 VLM，仅训练约 17M 参数的 projector/adapters。PQ3D 从 streaming RGB-D 中抽 object/frontier query embeddings，projector 将 768-d 3D token 映射到 VLM hidden space，VLM 同时看 visual memory、3D soft tokens 与文本指令，输出 frontier waypoint。</td>
+            <td>核心 insight 是 embedding-level transfer 优于 text serialization。数学上不是新 SLAM 后端，而是 interface 设计：把连续 3D scene state 保留为 soft token，让 VLM 在 self-attention 里处理空间语义，而不是先离散成坐标文本。</td>
+            <td>HM3D-OVON 三个 split 的 SR 为 74.2%/68.3%/66.7%，SPL 为 33.9%/28.6%/25.7%，相对 prior best 的 SR 增益为 +19.2/+23.3/+25.9 pp。zero-shot 到 GOAT-Bench 的 SR 为 67.2%/64.2%，SG3D 为 47.2% s-SR 和 16.6% t-SR。软 token 对 Text-Hint 的 val_seen SPL 从 24.7% 提到 33.9%，p&lt;0.0001。</td>
+            <td>本期未找到代码仓库；真实部署示例使用 Unitree Go2，但无法验证。对工程的启发是：把 3D map/frontier 表示接入 VLM 时，先考虑 token interface 和 spatial embedding，再考虑把地图转成冗长文本。</td>
+            <td>arXiv HTML 全文深读：Intro、representation gap、Soft-token injection、inference pipeline、HM3D-OVON/GOAT/SG3D/real-world experiments、ablation、conclusion；系统图已下载并视觉确认。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.14539">CERPE: Communication-Efficient Relative Pose Estimation with Vision Foundation Models for Ephemeral Collaborative Perception</a><br><span class="tag">Relative pose</span><span class="tag">Multi-robot</span><span class="tag">VFM orchestration</span></td>
+            <td><a class="paper-thumb" href="assets/2026-07-13_2026-07-18_2607.14539_cerpe_fig2_method.jpeg"><img src="assets/2026-07-13_2026-07-18_2607.14539_cerpe_fig2_method.jpeg" alt="CERPE method"><span>Fig.2 CERPE method overview</span></a></td>
+            <td>多机器人/车路协同短时相遇时，不一定有 GPS、全局地图或持续视野重叠；直接共享 raw images 或高维视觉特征会消耗通信带宽，而传统 feature matching 在低重叠/大视角变化下失败。</td>
+            <td>每个 robot 连续广播本地 pose 和固定大小 descriptor；descriptor similarity 只负责 gating 原始观测请求。ego-motion 由 VGGT + bounded keyframe memory 估计，Metric3Dv2 校准 monocular scale；重叠时做 cross-robot VGGT 直接相对位姿估计，不重叠时从最近 direct anchor 用两侧 SE(3) ego-motion 传播。</td>
+            <td>关键 insight 是把“是否值得通信”和“怎样估位姿”解耦：descriptor 是低带宽触发器，不直接当 pose 证据；direct relative pose 是稀疏 anchor，ego-motion propagation 桥接 non-overlap intervals。数学对象主要是 SE(3) chain composition 和 quaternion geodesic rotation error。</td>
+            <td>CAD simulation 中 CERPE 100% 成功率，rotation 0.089rad，但 full EM 的 translation 8.66m 不如 w/o EM 的 5.03m，作者解释为高重叠时 propagation 会引入 drift。Real-world CAD 中 CERPE predicted-scale translation 8.26m，GT-scale 2.94m，rotation 0.063rad，100% 成功率。physical robot team 中 CERPE rotation 0.086rad，100% 成功率；2/3 robot 运行分别 438ms/780ms，descriptor message 16.9KB，触发 image exchange 平均 26KB。</td>
+            <td>本期未发现代码。工程启发是：短时协同感知不应假设每帧重建全局图，先做通信策略与 direct-anchor/propagation 的边界管理。局限也明确：scale quality、shared-compute prototype、小团队、无后端 factor graph refinement。</td>
+            <td>arXiv HTML 全文深读：Intro、problem formulation、method、CAD simulation、real-world CAD、physical robot experiments、runtime、limitations/conclusion；系统图已下载并视觉确认。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.14481">Immediate 3D Gaussian Splat Reconstruction of Unordered Input with Global Consistency</a><br><span class="tag">SfM/3DGS</span><span class="tag">Unordered input</span><span class="tag">Loop closure</span></td>
+            <td><a class="paper-thumb" href="assets/2026-07-13_2026-07-18_2607.14481_i3dgs_fig1_overview.png"><img src="assets/2026-07-13_2026-07-18_2607.14481_i3dgs_fig1_overview.png" alt="i3dgs overview"><span>Fig.1 unordered capture overview</span></a></td>
+            <td>3DGS capture 常见输入是用户无序拍摄的图片，离线 SfM 能处理但要等全部数据且计算重；增量/SLAM 风格方法能即时反馈，但通常假设 sequential input，遇到 out-of-order shots 和 loop closure 时难保持全局一致。</td>
+            <td>方法由 two-level matching、covisibility graph、local BA、cluster-based loop closure 和 progressive Gaussian hierarchy 组成。VPR 先快速筛候选，再用 LightGlue/RANSAC 做几何验证；loop closure 通过 distinct cluster detection 和 welding window BA 触发，再把 Sim(3) correction 沿 graph backbone 传播到 poses 与 Gaussians。</td>
+            <td>关键数学是把 SfM/SLAM 的 graph connectivity 用于 3DGS capture：不是按时间找前序帧，而是按 covisibility 选择 well-connected keyframes；Gaussian relocation 用 Sim(3) 插值传播 loop closure 校正，hierarchy 控制可训练 Gaussian 和显存。</td>
+            <td>小/中场景 TUM/MipNeRF360/StaticHikes 中，作者方法在 MipNeRF360 达 26.29 PSNR、0.839 SSIM、0.241 LPIPS，用时 1:17；GLOMAP+T3DGS 达 27.52 PSNR 但用时 8:50。Large CityWalk 中作者为 22.03 PSNR、0.772 SSIM、0.336 LPIPS、29:38，Octree-GS 为 17.33/0.638/0.520、3:11:40。BA 10 iterations 为 15.9ms，g2o 为 461.4ms，CudaBA 为 78.1ms。</td>
+            <td>官方 repo <a href="https://github.com/graphdeco-inria/i3dgs">graphdeco-inria/i3dgs</a> 已公开，含 pose、scene、hierarchy、viewer、rasterizer 子模块；本期未 clone/运行。局限：pure rotation 无法 triangulate，动态元素未处理；作者也承认相比更慢的 global BA，部分前景 pose/quality 可能较低。</td>
+            <td>arXiv HTML 全文深读：Intro、matching、BA、loop closure、hierarchy、main/appendix experiments、ablation、limitations；Fig.8 pipeline PNG 在 arXiv 下载后不可读，改用 Fig.1 总览图并视觉确认；GitHub README/tree/core files 检查。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Repo Deep Dives</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Repo</th>
+            <th>目标与能力</th>
+            <th>代码结构证据</th>
+            <th>依赖 / 硬件</th>
+            <th>成熟度判断</th>
+            <th>领域关系</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://github.com/rlgao/GeoGS_SLAM_code">rlgao/GeoGS_SLAM_code</a><br><span class="small">stars 6 / forks 1；created 2026-04-02；pushed 2026-04-18；GitHub search updated 2026-07-14</span></td>
+            <td>GeoGS-SLAM 论文配套仓库，目标是 uncalibrated monocular RGB 输入下的在线 3DGS SLAM 和 on-the-fly NVS。</td>
+            <td>README 给 conda 环境和 Replica/TUM/Waymo 命令；<code>run.py</code> 调用 <code>vggt_slam.solver</code>、<code>VGGT</code>、<code>SceneModel</code>、viewer；目录含 <code>config/replica</code>、<code>config/tum</code>、<code>config/waymo</code>、<code>dataloaders/</code>、<code>scene/</code>、<code>eval/</code>、<code>scripts/download_datasets.py</code>、<code>submodules/diff-gaussian-rasterization</code>。</td>
+            <td>README 指定 Python 3.12、PyTorch 2.7.1/cu118、cupy-cuda11x；仓库含 CUDA rasterizer 子模块，明显需要 NVIDIA GPU/CUDA。</td>
+            <td>代码结构较完整，有配置和 eval scripts；但 commit 集中在 2026-04，未本地运行，不确认论文所有表格是否可复现。</td>
+            <td>直接对应本期 GeoGS-SLAM 深读，是“feed-forward geometry prior + 3DGS SLAM”路线的可检查实现。</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/graphdeco-inria/i3dgs">graphdeco-inria/i3dgs</a><br><span class="small">stars 38 / forks 5；created 2026-07-05；pushed 2026-07-13；license NOASSERTION</span></td>
+            <td>Immediate 3DGS 论文官方实现，目标是 unordered images 下即时 pose-free 3DGS reconstruction 和 global consistency。</td>
+            <td>README 涵盖 setup、data guidelines、optimization、evaluation、viewers；tree 含 <code>args.py</code>、<code>dataloaders/</code>、<code>poses/feature_detector.py</code>、<code>poses/lighterglue_matcher.py</code>、<code>poses/mini_ba.py</code>、<code>scene/hierarchy.py</code>、<code>scene/scene_model_loop_closure.py</code>、<code>scene/vpr_model.py</code>、<code>gaussianviewer.py</code> 和 rasterizer 子模块。</td>
+            <td>Python + CUDA rasterizer；README 指向 project/paper，代码中使用 Depth Anything 3、LightGlue 风格匹配、BA CUDA kernels。</td>
+            <td>官方初始代码已公开且结构完整；只有一个 initial commit，未本地编译/运行，许可为非商业研究评估边界需检查。</td>
+            <td>连接 SfM/SLAM 与 3DGS capture，重点不是机器人导航，而是 unordered capture 的即时反馈和 loop closure 后 Gaussian relocation。</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/NVIDIA/instant-nurec">NVIDIA/instant-nurec</a><br><span class="small">stars 46 / forks 5；created 2026-05-22；pushed 2026-07-17；Apache-2.0</span></td>
+            <td>Instant NuRec 官方仓库，目标是从 AV driving log 一次前向生成 3D Gaussian scene，可导出 PLY 并接入 NuRec/AlpaSim。</td>
+            <td>README 明确“ncorev4 ingest → frame batch prep → forward pass → 3D-Gaussian PLY export”；tree 含 <code>instant_nurec/model/</code>、<code>datasets/</code>、<code>predict/export_ply.py</code>、<code>predict/primitive_merge.py</code>、<code>utils/gaussians/</code>、<code>run_inference.py</code>。<code>cli.py</code> 提供 <code>--ncore-path</code>、<code>--output-dir</code>、<code>--merge</code>、<code>--n-gaussians</code>、<code>--camera-id</code> 等参数。</td>
+            <td>需要 NVIDIA 生态、NCore 数据、HuggingFace 模型/数据；README 提到默认 2,000,000 Gaussians merge 目标。未下载模型或数据。</td>
+            <td>比论文页更像可运行工程包，近期 commit 包括“replace traced artifact with public source”。但未执行，不能确认权重、数据许可和推理环境。</td>
+            <td>Feed-forward 3DGS driving simulation 路线，与 SLAM 关系是用短时多相机 log 快速生成可仿真 3DGS 世界，适合关注 autonomous driving world model / sim pipeline。</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/sarthakchittawar/pixelloop">sarthakchittawar/pixelloop</a><br><span class="small">stars 0 / forks 0；created 2026-07-10；pushed 2026-07-18</span></td>
+            <td>PixelLoop 的公开仓库占位，论文主题是 pixel-level loop closures for shortcut topological navigation。</td>
+            <td>当前 tree 只有 <code>README.md</code>；README 写明 IROS 2026 accepted，并声明 code release planned for Aug 2026。</td>
+            <td>未看到环境、依赖、运行脚本或数据说明。</td>
+            <td>只能算 README/元数据级 repo 跟踪，不是代码深读。列入是因为仓库在覆盖期内更新且方向直接相关。</td>
+            <td>补足本期 embodied/topological navigation：从 metric pose graph loop closure 转向 pixel topology shortcut，用于 any-point-to-any-point navigation。</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="note warn">Repo 访问边界：<code>raw.githubusercontent.com</code> 连接失败，关键文件改用 GitHub Contents API；没有 clone、没有编译、没有运行 demo；未登录 GitHub/HuggingFace，因此 stars/forks 与文件树是公开 API 快照。</div>
+    </section>
+
+    <section>
+      <h2>Quantitative Experiment Highlights</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>来源</th>
+            <th>数据集 / 场景</th>
+            <th>指标</th>
+            <th>结果</th>
+            <th>解释边界</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GeoGS-SLAM</td>
+            <td>Replica、TUM RGB-D、Waymo</td>
+            <td>PSNR/SSIM/LPIPS、ATE、per-keyframe runtime</td>
+            <td>PSNR 37.56/24.02/28.91；ATE 0.024/0.035/0.861m；单 keyframe 582.1ms，joint optimization 480.6ms。</td>
+            <td>作者表格结果；未本地运行。camera prior 消融显示 ATE 从 0.024m 退到 0.922m，说明几何先验是核心依赖。</td>
+          </tr>
+          <tr>
+            <td>DiffRadar</td>
+            <td>Radarize benchmark + RDST stress tests</td>
+            <td>ATE、map consistency、FPS、map memory</td>
+            <td>Radarize translational ATE 0.606m → 0.103m；RDST map consistency 43% → 95%；70 FPS，map 40MB。</td>
+            <td>雷达-only 特定硬件/预处理设置；短期 relative translation error 并非每项都优于 Radarize，主要优势在长期 drift 和 map consistency。</td>
+          </tr>
+          <tr>
+            <td>MAGiSt3R</td>
+            <td>ReplicaMultiagent、AriaMultiagent</td>
+            <td>Acc./Comp./RMSE、FPS</td>
+            <td>ReplicaMultiagent multi-agent RMSE 3.87/3.88；AriaMultiagent multi-agent Avg. 3.52；runtime 9 FPS。</td>
+            <td>公开代码尚非算法实现，仅项目页；论文结果不能视作本地可复现。</td>
+          </tr>
+          <tr>
+            <td>SoftNav</td>
+            <td>HM3D-OVON、GOAT-Bench、SG3D</td>
+            <td>SR、SPL、bootstrap significance</td>
+            <td>HM3D-OVON SR 74.2/68.3/66.7%，SPL 33.9/28.6/25.7%；GOAT SR 67.2/64.2%；SG3D s-SR 47.2%、t-SR 16.6%。Soft token 对 Text-Hint 的 val_seen SPL +9.2pp，p&lt;0.0001。</td>
+            <td>导航策略训练于 OVON，zero-shot 结果仍依赖 PQ3D benchmark-specific stage-2 weights；未验证真实机器人部署。</td>
+          </tr>
+          <tr>
+            <td>CERPE</td>
+            <td>CAD simulation、real-world CAD、Agilex Limo indoor robots</td>
+            <td>position/rotation error、success、runtime、message size</td>
+            <td>三类场景均 100% success；real-world CAD rotation 0.063rad，predicted-scale translation 8.26m，GT-scale 2.94m；physical robots rotation 0.086rad；2/3 robots 推理 438/780ms。</td>
+            <td>translation 并非所有场景最优；EM propagation 在高重叠场景可能引入 drift，作者明确把它定位为 non-overlap continuity 机制。</td>
+          </tr>
+          <tr>
+            <td>Immediate 3DGS</td>
+            <td>TUM、MipNeRF360、StaticHikes、SmallCity、Wayve、CityWalk</td>
+            <td>PSNR/SSIM/LPIPS、time、BA runtime、GPU memory</td>
+            <td>MipNeRF360 26.29 PSNR/1:17；CityWalk 22.03 PSNR/29:38，Octree-GS 为 17.33/3:11:40；BA 15.9ms vs CudaBA 78.1ms；CityWalk hierarchy 3.7M Gaussians/12.8GB，without hierarchy OOM &gt;24GB。</td>
+            <td>GLOMAP+T3DGS 在部分数据集质量更高但离线更慢；该论文目标是即时反馈，不是绝对最高质量。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Supplemental Tracking Papers</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>论文</th>
+            <th>方向关系</th>
+            <th>解决的问题</th>
+            <th>方法 / 结构</th>
+            <th>Insight 与数学知识</th>
+            <th>实验</th>
+            <th>证据级别与后续动作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.11285">SalientGS</a></td>
+            <td>SfM-to-3DGS / unordered reconstruction</td>
+            <td>昂贵 SfM preprocessing 和 frozen pose interface 限制 3DGS 重建。</td>
+            <td>importance-guided MCMC Gaussian allocation，把 multi-view residual 聚合为 underfit/redundancy 信号，指导 birth/relocation。</td>
+            <td>把 Gaussian capacity allocation 写成 smooth importance-weighted sampling，而非硬阈值 densification。</td>
+            <td>摘要称 end-to-end reconstruction 15 分钟，并提供 supplementary failure cases。</td>
+            <td>摘要级，未深读全文；后续读代码 <a href="https://github.com/Six-Bit-TX/SalientGS">Six-Bit-TX/SalientGS</a> 和 failure cases。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.14203">Instant NuRec</a></td>
+            <td>Feed-forward 3DGS / driving simulation</td>
+            <td>自动驾驶 neural simulation 需要快速从驾驶日志生成可仿真 3DGS 世界。</td>
+            <td>多相机短窗口输入，预测 static/dynamic 3DGS layers、sky cubemap、ISP corrections，并支持 non-pinhole camera via 3DGUT。</td>
+            <td>将 reconstruction 从 per-scene optimization 转成 calibrated rig 上的一次前向生成。</td>
+            <td>摘要称 10-20s 多相机场景约 1.5s 重建，Waymo PSNR 比最强 baseline 高 2.01dB。</td>
+            <td>摘要级 + repo README/tree 级；后续需下载 HF 模型/NCore 数据验证 CLI。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.13524">COLMAR</a></td>
+            <td>Multi-agent active 3D reconstruction</td>
+            <td>多 agent 主动重建中视角冗余、聚集和碰撞会降低几何覆盖。</td>
+            <td>shared policy optimization over map-centric observations，PPO 训练，部署时独立选 viewpoint，再用 3DGS 做 photometric evaluation。</td>
+            <td>把 exploration reward 和 downstream reconstruction quality 对齐，而不是只最大化可见面积。</td>
+            <td>摘要称 GLEAM/Replica 上最高 +54% reconstruction accuracy、+49% coverage。</td>
+            <td>摘要级，未深读全文；后续看是否有 multi-agent planner/env 代码。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.13516">Information-Aware Odometry and Retroactive Loop Closure</a></td>
+            <td>Graph-based LiDAR SLAM</td>
+            <td>低 trajectory error 不保证 revisit map consistency，missed loop closures 会留下局部错位。</td>
+            <td>估计 geometry-dependent ICP information matrices；hierarchical loop closure 解耦 place recognition 和 registration；retroactive loop closure 从优化后的 pose graph 找回漏闭环。</td>
+            <td>把 map consistency 作为独立评估协议，而非只看 ATE。</td>
+            <td>摘要称多数据集 trajectory accuracy 持平或更好，并改善 revisit local map consistency。</td>
+            <td>摘要级，未深读全文；后续优先检查 map consistency metric 和开源实现。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.11099">Desc++</a></td>
+            <td>Visual SLAM data association</td>
+            <td>手工 descriptor 在光照/视角变化下降级，学习前端替换成本高。</td>
+            <td>轻量 descriptor enhancement，联合 keypoint geometry 与 order-agnostic global attention / geometry-aware sequential modeling。</td>
+            <td>保持原 descriptor 维度和匹配接口，便于接入已有 V-SLAM。</td>
+            <td>摘要称在 descriptor matching、correspondence 和四个 V-SLAM system-level benchmark 上改善稳定性。</td>
+            <td>摘要级，未深读全文；后续看对 ORB-SLAM 类 pipeline 的具体延迟。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.12811">PixelLoop</a></td>
+            <td>Topological navigation / loop closure</td>
+            <td>纯拓扑地图中的 loop closure 不应只对齐 metric pose，还会改变 navigation connectivity。</td>
+            <td>在 pixel-level relative 3D geometry topology 中加入 dense topological shortcuts，用于 any-point-to-any-point navigation。</td>
+            <td>loop closure 的作用从坐标校正转为 cost propagation 和 shortcut planning。</td>
+            <td>摘要称 simulated experiments 中 SR 和 SPL 绝对提升超过 35pp，并有 real-world mobile robot validation。</td>
+            <td>摘要级 + README 元数据级；仓库写明 2026-08 计划开源代码。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.11673">ABot-3DWorld 0</a></td>
+            <td>3D world model / 3DGS world generation</td>
+            <td>从 text/image/video 到可探索 3D world 的低门槛生成。</td>
+            <td>Spatial Generative Primitive：panorama + point cloud；再生成 3D-consistent panoramic video 并重建成 3DGS world。</td>
+            <td>把 world model 输出约束为可进入 reconstruction engine 的空间 primitive。</td>
+            <td>摘要称 rich multimodal inputs 下强于 Marble，并可锚定地理 POI。</td>
+            <td>摘要级，未深读全文；后续检查 open-source model 和 geographic anchoring 证据。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.11643">Xiaomi-Robotics-U0</a></td>
+            <td>Embodied synthesis / world foundation model</td>
+            <td>通用图像/视频生成模型缺少 embodied multi-view consistency 与 robot constraints。</td>
+            <td>38B multimodal autoregressive model，统一 text-to-image、editing、embodied scene/video generation 和 embodied transfer。</td>
+            <td>把 embodied generation 视作 foundation world model 的受控扩展，而非单独训练小 robot model。</td>
+            <td>摘要称 pi_0.5 OOD success 36.9% → 63.2%，并在 World Arena 排第一。</td>
+            <td>摘要级，未深读全文；后续需看 robotics.xiaomi.com 页面、checkpoint 和评测协议。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.13017">FlowWAM</a></td>
+            <td>World Action Model / embodied control</td>
+            <td>数值 action 与 video generator 表示不对齐，视觉 action 表示又缺少时序 motion structure。</td>
+            <td>用 optical flow video 作为统一 action representation，双流 diffusion 同时支持 policy mode 和 world-model mode。</td>
+            <td>flow 既是动作又是视频原生条件，可从无 action label 视频中预训练。</td>
+            <td>摘要称 RoboTwin success 92.94%/92.14%，WorldArena EWMScore 63.71。</td>
+            <td>摘要级，未深读全文；后续看 flow action 到真实机器人控制接口。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.13960">GigaWorld-Policy-0.5</a></td>
+            <td>WAM / robot policy latency</td>
+            <td>显式未来视频生成让 WAM 难实时闭环。</td>
+            <td>action-centered WAM，训练时利用 future dynamics，推理时 action-only；Mixture-of-Transformers 分离 visual dynamics 和 action generation。</td>
+            <td>未来视觉监督可训练，推理不必生成视频。</td>
+            <td>摘要称 RTX 4090 本地推理 85ms。</td>
+            <td>摘要级，未深读全文；后续看 AutoResearch 搜参是否可复现。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.14005">M4World</a></td>
+            <td>Driving world model / multi-view LiDAR-video</td>
+            <td>自动驾驶 world generation 缺少 object-level controllability 和 minute-long stability。</td>
+            <td>多视角多模态生成 surround-view videos 和同步 LiDAR scans，支持 object manipulation 与四步 denoising online causal generation。</td>
+            <td>将 object layout/appearance control 与长时 streaming 统一到 driving simulator 数据引擎。</td>
+            <td>摘要称 condition adherence、cross-view consistency 和长尾增强有效。</td>
+            <td>摘要级，未深读全文；后续看 VLM judge 是否可靠。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.14997">AeroAct</a></td>
+            <td>Aerial WAM / language-conditioned flight</td>
+            <td>quadrotor VLA 常用离散动作或 waypoint，缺少未来观测约束下的动态可执行 action。</td>
+            <td>action-centered WAM，把 pretrained video diffusion Transformer 改造成从 egocentric history/proprioception/language 到 trajectory-action chunks。</td>
+            <td>未来第一视角视频只作为训练 consequence supervision，部署直接解码 action。</td>
+            <td>摘要称 closed-loop simulation 与真实 quadrotor 上 target tracking/object search 提升。</td>
+            <td>摘要级，未深读全文；后续看 real-world flight safety 与 3DGS renderer 数据生成细节。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.15265">SceneBind</a></td>
+            <td>Scene representation / 3D spatial grounding</td>
+            <td>omni-modal encoder 有语义但缺显式空间结构。</td>
+            <td>global semantic embedding + object-centric semantic-spatial slots；SceneBind Matching 做 global scene similarity 与 object alignment。</td>
+            <td>把“what”和“where”绑定为 scene-level entity 表示。</td>
+            <td>摘要称 scene/spatial retrieval SOTA，支持 audio-visual localization zero-shot transfer。</td>
+            <td>摘要级，未深读全文；后续看数据集标注和 spatial uncertainty 表示。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.14470">G2SR</a></td>
+            <td>Fast Gaussian surface reconstruction</td>
+            <td>few-view 3DGS 容易产生 floater，Transformer 端到端方法重且泛化有限。</td>
+            <td>轻量 neural frontend 检测/跟踪 2D Gaussian splats，analytic backend 用 multi-view geometry 三角化 metric-scale 3D splats。</td>
+            <td>把可解析几何问题从大模型回收给 analytic backend。</td>
+            <td>摘要称 ScanNet/Replica/DTU 上 69-89 reconstructions/s，203MB GPU memory。</td>
+            <td>摘要级，未深读全文；后续可与 mobile robot online surface reconstruction 对比。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.14513">Compression of 3D Gaussian Splatting Data Using GPU-friendly Graphics Texture Coding</a></td>
+            <td>3DGS deployment / compression</td>
+            <td>SH coefficients 让 3DGS primitive 内存大，现有压缩未充分利用 GPU texture decoder。</td>
+            <td>将 primitives 局部分组/重排序，用 BC1/BC7 texture compression 压 SH color coefficients，并保持 random access。</td>
+            <td>3DGS 压缩要对 GPU parallel decoding 友好，而不只是文件体积小。</td>
+            <td>摘要称视觉降质可忽略，并保持渲染性能。</td>
+            <td>摘要级，未深读全文；后续看 large-scene 3DGS streaming 是否可直接受益。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.12818">Breaking Déjà Vu</a></td>
+            <td>Visual place recognition / SLAM loop closure auditing</td>
+            <td>VPR threshold 在环境变化下不可靠，false loop closure 会破坏 SLAM map。</td>
+            <td>用 VLM 对 query/candidate image 做 instance-level post-retrieval verification，不依赖 architecture-specific confidence。</td>
+            <td>把 VPR 结果从“相似度阈值”升级到独立视觉-语言审计。</td>
+            <td>摘要称 6 个 benchmark、5 个 VPR 方法、4 个 VLM；recall@1 平均 +13.6%，false acceptance 降至 12%，precision &gt;95%。</td>
+            <td>摘要级，未深读全文；后续重点查延迟、false negative 和是否适合在线 loop closure。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Trends & Insights</h2>
+      <h3>1. 3DGS-SLAM 的核心正在从“地图长什么样”转为“地图怎样参与状态估计”</h3>
+      <p>GeoGS-SLAM、DiffRadar、Immediate 3DGS 都把 Gaussian/field representation 放进 pose-map 闭环：GeoGS-SLAM 用几何先验约束 Gaussian map 和 camera poses；DiffRadar 把 radar Gaussian field 渲染回测量空间；i3dgs 在 loop closure 后迁移 Gaussians。这个趋势比单纯追求渲染 PSNR 更接近机器人系统需求。</p>
+      <h3>2. Feed-forward 3D 正在补齐 long-horizon 和 multi-agent 短板</h3>
+      <p>MAGiSt3R 用 MAGMA 处理 intra/inter-agent submap merge，SoftNav 处理 3D token 到 VLM 的 interface，Instant NuRec 用一次前向支撑 driving simulation。它们的共同挑战不是“是否能预测 3D”，而是如何把预测结果接进地图融合、导航决策、仿真闭环和可复现工程。</p>
+      <h3>3. 通信与传感器物理约束成为新系统变量</h3>
+      <p>CERPE 把 descriptor-only broadcast 和 event-triggered raw image exchange 分开；DiffRadar 把雷达 RA/DA 物理测量直接作为优化对象。对多机器人/低能见度应用，这比单纯换 backbone 更重要，因为瓶颈在带宽、尺度、重叠视野和传感器退化。</p>
+      <h3>4. 热闹但证据不足的方向</h3>
+      <p>本期 world model/WAM/VLA 论文很多，尤其是 RoboTTT、AeroAct、FlowWAM、GigaWorld、Xiaomi-U0、M4World。但除 SoftNav/CERPE 与 3D scene/relative pose 直接相关外，其余多为摘要级跟踪，尚未深读训练数据、评测协议、失败模式和代码可用性，不纳入本期核心工程判断。</p>
+    </section>
+
+    <section>
+      <h2>Evidence & Reading Coverage</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>对象</th>
+            <th>实际阅读/检查范围</th>
+            <th>证据等级</th>
+            <th>不足</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GeoGS-SLAM、DiffRadar、MAGiSt3R、SoftNav、CERPE、Immediate 3DGS</td>
+            <td>arXiv HTML 全文：Intro/Related Work、Method、Experiments、Ablation/Analysis、Limitations/Conclusion；表格和关键实验段落抽取；overview/framework/pipeline 图下载并视觉确认。</td>
+            <td>全文深读级</td>
+            <td>未运行代码，未下载 PDF source、权重或数据集；部分数学符号在 HTML 中需结合上下文解释。</td>
+          </tr>
+          <tr>
+            <td>Supplemental 16 篇</td>
+            <td>arXiv API 元数据、标题、分类、提交时间、摘要；对 Instant NuRec / PixelLoop 补充 GitHub README/tree 元数据。</td>
+            <td>摘要级 / 元数据级，未深读全文</td>
+            <td>不能作为深度定量结论来源；可能漏掉正文限制、消融失败或代码不可用问题。</td>
+          </tr>
+          <tr>
+            <td>GeoGS_SLAM_code、i3dgs、instant-nurec、pixelloop、magist3r_page</td>
+            <td>GitHub API repo metadata、README、目录树、近期 commit；关键文件通过 Contents API 读取，包括 GeoGS <code>run.py</code>/<code>config/base.yaml</code>、i3dgs <code>args.py</code>/<code>scene_model_loop_closure.py</code>、Instant NuRec <code>run_inference.py</code>/<code>cli.py</code>。</td>
+            <td>README/API 级 repo 深读</td>
+            <td>未 clone、未编译、未运行；GitHub raw 域名连接失败；SoftNav/CERPE/DiffRadar 未发现公开代码。</td>
+          </tr>
+          <tr>
+            <td>系统图资产</td>
+            <td>下载 6 张 arXiv HTML 系统/框架图；使用本地图像查看确认 GeoGS、DiffRadar、MAGiSt3R、SoftNav、CERPE、i3dgs Fig.1 可读。</td>
+            <td>视觉确认级</td>
+            <td>i3dgs Fig.8 pipeline PNG 下载后不可读，未在报告中使用；未做裁剪增强。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>值得跟进事项</h2>
+      <ul>
+        <li>优先本地尝试 <a href="https://github.com/graphdeco-inria/i3dgs">i3dgs</a> 或 <a href="https://github.com/rlgao/GeoGS_SLAM_code">GeoGS_SLAM_code</a> 的小样本 demo：两者代码结构最完整，且都直接涉及 3DGS 与 SLAM/SfM 闭环。</li>
+        <li>Instant NuRec 值得作为 driving simulation 方向跟进，但先确认 HuggingFace 模型、NCore 数据许可和单 GPU 显存需求；不应只看 1.5s 摘要数字。</li>
+        <li>SoftNav 后续重点查代码是否开放和 PQ3D/3D encoder 可替换性；如果要接自己的地图系统，token interface 比 prompt 文本格式更关键。</li>
+        <li>DiffRadar 若开源，应优先复核 RA/DA preprocessing、RDST stress-test 构造和 70 FPS 测试硬件；它的 signal-domain residual 思路可迁移到 sonar/radar-like mapping。</li>
+        <li>Supplemental 中优先补读 PixelLoop、Desc++、COLMAR、SalientGS：分别覆盖 topological navigation、V-SLAM data association、多 agent active reconstruction、SfM-to-3DGS capacity allocation。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>原始链接列表</h2>
+      <ul class="links">
+        <li><a href="https://arxiv.org/abs/2607.11184">GeoGS-SLAM arXiv</a></li>
+        <li><a href="https://rlgao.github.io/geogs_slam/">GeoGS-SLAM project</a></li>
+        <li><a href="https://github.com/rlgao/GeoGS_SLAM_code">GeoGS_SLAM_code GitHub</a></li>
+        <li><a href="https://arxiv.org/abs/2607.12265">DiffRadar arXiv</a></li>
+        <li><a href="https://arxiv.org/abs/2607.15211">MAGiSt3R arXiv</a></li>
+        <li><a href="https://zorangong.github.io/magist3r_page/">MAGiSt3R project</a></li>
+        <li><a href="https://github.com/ZoranGong/magist3r_page">MAGiSt3R page GitHub</a></li>
+        <li><a href="https://arxiv.org/abs/2607.14586">SoftNav arXiv</a></li>
+        <li><a href="https://arxiv.org/abs/2607.14539">CERPE arXiv</a></li>
+        <li><a href="https://rokeeeto-li.github.io/cerpe.github.io/">CERPE project</a></li>
+        <li><a href="https://arxiv.org/abs/2607.14481">Immediate 3DGS arXiv</a></li>
+        <li><a href="https://repo-sam.inria.fr/nerphys/i3dgs/">Immediate 3DGS project</a></li>
+        <li><a href="https://github.com/graphdeco-inria/i3dgs">i3dgs GitHub</a></li>
+        <li><a href="https://arxiv.org/abs/2607.11285">SalientGS arXiv</a></li>
+        <li><a href="https://github.com/Six-Bit-TX/SalientGS">SalientGS GitHub</a></li>
+        <li><a href="https://arxiv.org/abs/2607.14203">Instant NuRec arXiv</a></li>
+        <li><a href="https://github.com/NVIDIA/instant-nurec">Instant NuRec GitHub</a></li>
+        <li><a href="https://research.nvidia.com/labs/sil/projects/instant-nurec/">Instant NuRec project</a></li>
+        <li><a href="https://arxiv.org/abs/2607.13524">COLMAR arXiv</a></li>
+        <li><a href="https://arxiv.org/abs/2607.13516">LiDAR map consistency arXiv</a></li>
+        <li><a href="https://arxiv.org/abs/2607.11099">Desc++ arXiv</a></li>
+        <li><a href="https://arxiv.org/abs/2607.12811">PixelLoop arXiv</a></li>
+        <li><a href="https://pixelloop-nav.github.io/">PixelLoop project</a></li>
+        <li><a href="https://github.com/sarthakchittawar/pixelloop">PixelLoop GitHub</a></li>
+        <li><a href="https://arxiv.org/abs/2607.11673">ABot-3DWorld 0 arXiv</a></li>
+        <li><a href="https://arxiv.org/abs/2607.11643">Xiaomi-Robotics-U0 arXiv</a></li>
+        <li><a href="https://robotics.xiaomi.com/xiaomi-robotics-u0.html">Xiaomi-Robotics-U0 project</a></li>
+        <li><a href="https://arxiv.org/abs/2607.13017">FlowWAM arXiv</a></li>
+        <li><a href="https://flow-wam.github.io/">FlowWAM project</a></li>
+        <li><a href="https://arxiv.org/abs/2607.13960">GigaWorld-Policy-0.5 arXiv</a></li>
+        <li><a href="https://arxiv.org/abs/2607.14005">M4World arXiv</a></li>
+        <li><a href="https://arxiv.org/abs/2607.14997">AeroAct arXiv</a></li>
+        <li><a href="https://arxiv.org/abs/2607.15265">SceneBind arXiv</a></li>
+        <li><a href="https://arxiv.org/abs/2607.14470">G2SR arXiv</a></li>
+        <li><a href="https://arxiv.org/abs/2607.14513">3DGS texture compression arXiv</a></li>
+        <li><a href="https://arxiv.org/abs/2607.12818">Breaking Déjà Vu arXiv</a></li>
+        <li><a href="https://export.arxiv.org/api/query">arXiv API search endpoint used for candidate discovery</a></li>
+        <li><a href="https://api.github.com/">GitHub REST API used for repo metadata/tree/contents</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
