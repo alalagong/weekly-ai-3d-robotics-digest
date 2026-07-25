@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-07-18 至 2026-07-25：VIDAR、GLidE-SLAM、VLM-IE3D</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17202a;
+      --muted: #5b6675;
+      --line: #d9e2ea;
+      --soft: #f5f8fb;
+      --accent: #0f766e;
+      --accent-2: #7c2d12;
+      --code: #eef7f4;
+      --warn: #fff7ed;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.62;
+    }
+    header {
+      padding: 38px 7vw 26px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #f8fbfd 0%, #fff 100%);
+    }
+    main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 28px 7vw 60px;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(28px, 4vw, 43px);
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 34px 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--line);
+      font-size: 24px;
+    }
+    h3 { margin: 22px 0 8px; font-size: 18px; }
+    p { margin: 8px 0; }
+    a {
+      color: #075985;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 24px;
+      font-size: 14px;
+    }
+    th, td {
+      vertical-align: top;
+      text-align: left;
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+    }
+    th { background: var(--soft); }
+    tr:nth-child(even) td { background: #fcfdfe; }
+    code {
+      padding: 1px 5px;
+      border-radius: 4px;
+      background: var(--code);
+      font-size: 90%;
+    }
+    ul { padding-left: 22px; }
+    li { margin: 7px 0; }
+    .meta { color: var(--muted); font-size: 14px; }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .tile {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px 16px;
+      background: #fff;
+    }
+    .tile strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent);
+    }
+    .note {
+      margin: 16px 0;
+      padding: 11px 14px;
+      border-left: 4px solid var(--accent);
+      background: #eefaf7;
+    }
+    .warn {
+      border-left-color: var(--accent-2);
+      background: var(--warn);
+    }
+    .tag {
+      display: inline-block;
+      margin: 2px 4px 2px 0;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: var(--code);
+      color: #115e59;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .small { color: var(--muted); font-size: 12px; }
+    .score { font-weight: 700; color: var(--accent-2); }
+    .paper-thumb {
+      display: block;
+      width: 220px;
+      max-width: 100%;
+      text-decoration: none;
+    }
+    .paper-thumb img {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .paper-thumb span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .links { columns: 2; }
+    @media (max-width: 820px) {
+      header { padding: 28px 5vw 20px; }
+      main { padding: 20px 5vw 44px; }
+      table { display: block; overflow-x: auto; }
+      .links { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="meta">每周 SLAM / VIO / SfM / FeedForward 3D 进展报告</p>
+    <h1>2026-07-18 至 2026-07-25：VIDAR、GLidE-SLAM、VLM-IE3D</h1>
+    <p class="meta">覆盖时间：2026-07-18T17:04:49.2626391+08:00 至 2026-07-25T22:02:55.7925233+08:00（Asia/Shanghai）。本期按 <code>.cache/slam-3d-state.json</code> 上次覆盖结束时间继续推进，未截断为最近 7 天。</p>
+    <div class="summary-grid">
+      <div class="tile"><strong>全文深读论文</strong>10 篇：NeoSLAM、SemCom 3D、Event3R、GLidE-SLAM、VIDAR、Robust VIO、VLM-IE3D、WorldWeaver、Sequential EQA、GS-Agent。均阅读 arXiv HTML 全文，重点覆盖 Intro、Method、Experiments、Analysis/Limitations/Conclusion，并检查系统图。</div>
+      <div class="tile"><strong>摘要/元数据跟踪</strong>33 个条目：围绕 SLAM、3D 重建、3DGS、导航、具身记忆与世界模型；每条至少读摘要或元数据，明确标注未深读全文。</div>
+      <div class="tile"><strong>Repo 深读</strong>4 个仓库：VLM-IE3D、sequential-eqa、RobustDepth/UAMTD、AXIS-V1。检查 README、目录树、配置、脚本或模块；未 clone、未运行训练/推理。</div>
+      <div class="tile"><strong>访问限制</strong>arXiv API 与 Advanced Search 在本机请求中 rate limit/连接不稳，改用 arXivDaily、网页检索和直连 arXiv HTML；GitHub 只做公开仓库静态检查，未下载数据集、权重或登录私有资源。</div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Executive Summary</h2>
+      <p><strong>几何基础模型正在进入 SLAM/VIO 系统，但可靠性来自“学习候选 + 显式几何约束”的混合结构。</strong>VIDAR 用 SVO+IMU 提供度量位姿和尺度，再接 Depth Anything 3 生成稠密几何；Robust VIO 让 SEA-RAFT 只负责密集立体候选与不确定性，后端仍用时序跟踪、几何验证和因子优化；VLM-IE3D 把 2D VLM token 与隐式/显式 3D 几何 token 拼接，而不是直接把 RGB 语义当作空间判断。</p>
+      <p><strong>嵌入式、通信受限和事件相机场景继续推动“系统工程型”贡献。</strong>GLidE-SLAM 的贡献点是 OpenGL ES 3.1 compute shader 上的混合 indirect-direct tracking；SemCom 3D 把通信置信度传入 RANSAC/BA；NeoSLAM 用 ROS2/C++/htm.core 重写 RatSLAM 系系统，把原实现的吞吐和模块耦合问题显式拆开。这些工作更像可部署系统设计，不是单纯排行榜改进。</p>
+      <p><strong>World model 与 embodied navigation 的共同趋势是显式持久状态。</strong>WorldWeaver 使用 world state registers 在多 agent 视频片段间传递状态；Sequential EQA 把同一场景连续问答作为评估协议，显示 2D occupancy memory 和 VLA hidden state 的瓶颈；GS-Agent 让 Manager/Entity/Render agents 在物理引擎循环中创建 4D 世界。但这一线的代码可验证性参差不齐，GS-Agent 仓库当前仅占位。</p>
+      <div class="note warn">证据边界：Executive Summary 只压缩后文已列证据。没有本地复现实验，未下载权重/数据集，未把论文自报指标改写为独立验证结果。部分 arXiv v1 时间为 2026-07-17 UTC，但在本期覆盖窗口由跟踪源浮出且未见上一期报告覆盖，故以“本期发现/更新纳入”标记。</div>
+    </section>
+
+    <section>
+      <h2>Deep-read Papers</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>论文</th>
+            <th>系统/框架图</th>
+            <th>解决的问题</th>
+            <th>方法 / 结构</th>
+            <th>Insight 与数学知识</th>
+            <th>实验与效果</th>
+            <th>复现与启发</th>
+            <th>阅读证据</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.16143">2607.16143</a><br><strong>A New Implementation of NeoSLAM and Comparative Evaluation with RatSLAM</strong><br><span class="tag">SLAM</span><span class="tag">ROS2</span><span class="tag">bio-inspired mapping</span></td>
+            <td><a class="paper-thumb" href="https://arxiv.org/html/2607.16143v1/figs/neoslam_arch.png"><img src="assets/2026-07-18_2026-07-25_2607.16143_neoslam_fig2_architecture.png" alt="NeoSLAM architecture"><span>Fig.2 NeoSLAM ROS2 architecture，已视觉确认。</span></a></td>
+            <td>原 NeoSLAM/RatSLAM 系统依赖 ROS1、Python 2.7、旧 NuPIC，模块耦合且高输入帧率下丢帧严重，难以在现代机器人栈中复用。</td>
+            <td>以 ROS2 节点重写 Local View Cell、Pose Cell、Visual Template、Experience Map 等模块，C++ 与 <code>htm.core</code> 降低瓶颈；用明确 topic/service 拆分模块，保留 RatSLAM/NeoSLAM 的生物启发拓扑建图路线。</td>
+            <td>核心不是新损失函数，而是系统吞吐约束：串行单体的有效频率受最慢步骤支配，ROS2 分布式 pipeline 可通过并行节点把建图、识别、拓扑更新拆开。论文的吞吐示例说明输入频率、处理延迟与丢帧率的关系。</td>
+            <td>在 Robotarium、iRat Australia、FIU MMC Lake 等序列上与 RatSLAM 做比较；论文报告新实现能实时处理并减少输入 discard。注意：吞吐演示中的 <code>tau=700ms</code> 是架构示例，不应当当作所有数据集的固定 benchmark 数字。</td>
+            <td>适合工程侧关注：ROS2 node graph、topic 接口和 modern dependency migration 比单个算法模块更有复用价值。后续应检查仓库是否公开、bag 格式和 launch files。</td>
+            <td>arXiv HTML 全文级；已读 Abstract、Intro、Architecture/Implementation、Experiments、Conclusion；系统图已下载并视觉确认。未找到/运行代码。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.16128">2607.16128</a><br><strong>Toward Semantic Communication for Real-time Mobile 3D Reconstruction</strong><br><span class="tag">3D reconstruction</span><span class="tag">SemCom</span><span class="tag">BA/RANSAC</span></td>
+            <td><a class="paper-thumb" href="https://arxiv.org/html/2607.16128v1/3d-main.png"><img src="assets/2026-07-18_2026-07-25_2607.16128_semcom_3d_fig1_overview.png" alt="Semantic communication 3D reconstruction overview"><span>Fig.1 mobile 3D SemCom overview，已视觉确认。</span></a></td>
+            <td>移动端实时 3D 重建经常受无线信道压缩、噪声和带宽影响，传统图像传输后再 SfM/BA 的链路没有把通信不确定性传给几何估计。</td>
+            <td>语义通信 transceiver 输出重建图像与像素置信度；几何端把置信度用于特征匹配筛选、confidence-guided RANSAC 与 bundle adjustment，让传输质量成为后端权重的一部分。</td>
+            <td>有价值的数学连接是把通信端的不确定性变成几何优化权重：低置信区域不只影响视觉质量，还应降低匹配和重投影残差的可信度。它把 SemCom 从“看起来像原图”推向“对几何任务有用”。</td>
+            <td>论文在模拟 noisy channel/mobile reconstruction 场景中比较 SemCom 与传统 source-channel coding 链路，报告 pose accuracy 与 3D structural consistency 更稳；HTML 表格未可靠抽取完整数值，本报告不复述未确认表格数字。</td>
+            <td>对无线机器人/多机重建有启发：通信模块应输出 uncertainty map，而不是只输出压缩影像。复现重点是信道模型、置信度校准、BA 权重设计。</td>
+            <td>arXiv HTML 全文级；已读 Method、confidence-guided geometry、Experiments、Conclusion；系统图已下载并视觉确认。未运行代码，未验证数值。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.15727">2607.15727</a><br><strong>Event3R: Event-based 3D Reconstruction with Pretrained Models</strong><br><span class="tag">event camera</span><span class="tag">feed-forward 3D</span><span class="tag">DUSt3R style</span></td>
+            <td><a class="paper-thumb" href="https://arxiv.org/html/2607.15727v1/x1.png"><img src="assets/2026-07-18_2026-07-25_2607.15727_event3r_fig2_overview.png" alt="Event3R overview"><span>Fig.2 Event3R framework，已视觉确认。</span></a></td>
+            <td>事件相机异步、高动态范围但稀疏，直接复用 RGB 预训练 3D 模型会遇到时序编码和表示 gap；传统事件 3D 方法又难借助大模型先验。</td>
+            <td>把 event stream 转成 spatio-temporal voxel，经 temporal attention/encoder 输入 DUSt3R 风格 backbone；用 Masked Bin Modeling 预训练，并配合 contrastive alignment 与 consistency loss 让事件表示对齐到 3D 重建空间。</td>
+            <td>核心 insight 是“事件数据要先做可学习时序 token 化，再借用预训练 3D backbone”。数学上主要涉及 masked reconstruction、跨模态 contrastive alignment 和一致性约束，而不是改变 bundle adjustment。</td>
+            <td>论文在 TartanAir、MVSEC、PEOD 等数据集报告深度、位姿与 3D reconstruction 效果优于既有 event-based baseline。HTML 中部分表格未稳定抽取，故只作为论文自报方向性结论。</td>
+            <td>可复现关键在 event voxel 参数、预训练任务和 DUSt3R backbone 适配；值得跟进代码发布、event simulator 与真实事件数据差距。</td>
+            <td>arXiv HTML 全文级；已读 Intro、Method、Pretraining、Experiments、Conclusion；系统图已下载并视觉确认。未运行代码。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.16897">2607.16897</a><br><strong>GLidE-SLAM: GPU-accelerated Indirect-Direct Monocular SLAM for Embedded System</strong><br><span class="tag">monocular SLAM</span><span class="tag">embedded GPU</span><span class="tag">OpenGL ES</span></td>
+            <td><a class="paper-thumb" href="https://arxiv.org/html/2607.16897v1/Pictures/SystemOverview.png"><img src="assets/2026-07-18_2026-07-25_2607.16897_glide_slam_fig2_pipeline.png" alt="GLidE-SLAM pipeline"><span>Fig.2 tracking pipeline，已视觉确认。</span></a></td>
+            <td>嵌入式平台上 monocular SLAM 的 CPU-only front-end 很容易成为瓶颈；CUDA 方案又绑定平台。</td>
+            <td>关键帧走 indirect pipeline 做地图、回环和稳定估计；中间帧走 direct tracking，并把 dense/per-pixel 计算移到 OpenGL ES 3.1 compute shader。设计目标是手机/嵌入式 GPU 的 vendor-agnostic 加速。</td>
+            <td>结构 insight 是把低频稳定性和高频跟踪分开：关键帧保留特征/地图可解释性，中间帧用 direct alignment 吃掉帧率压力。数学上仍是光度误差、位姿优化和 keyframe map 管理的组合。</td>
+            <td>论文报告在目标嵌入式平台相比 CPU-only baseline 有最高约 <span class="score">9x</span> frame-rate 提升，同时保持轨迹精度。此处为论文自报指标，未本地复测。</td>
+            <td>工程意义明显：若项目受 CUDA/Jetson 绑定约束，OpenGL ES compute shader front-end 是值得拆读的实现路线。公开仓库目前仅 “Coming soon”，不能验证实现。</td>
+            <td>arXiv HTML 全文级；已读 System、GPU implementation、Experiments、Conclusion；系统图已下载并视觉确认。GitHub 仓库仅 README 占位。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.17171">2607.17171</a><br><strong>VIDAR: Visual-Inertial Dense AR</strong><br><span class="tag">VIO</span><span class="tag">dense reconstruction</span><span class="tag">Depth Anything 3</span></td>
+            <td><a class="paper-thumb" href="https://arxiv.org/html/2607.17171v1/figures/fig_01_vidar_overview.jpg"><img src="assets/2026-07-18_2026-07-25_2607.17171_vidar_fig1_overview.jpg" alt="VIDAR overview"><span>Fig.1 VIDAR overview，已视觉确认。</span></a></td>
+            <td>单目 foundation depth/3D 模型缺少稳定 metric scale 和世界坐标系；传统 VIO 有尺度和轨迹但几何稀疏，难满足 AR 的稠密视觉需求。</td>
+            <td>把 SVO+IMU 输出的 metric pose、gravity/world frame 和 scale 作为锚点，接 Depth Anything 3 的 dense local geometry；在 decoupled hybrid setting 下用 VIO 约束 DA3 输出。</td>
+            <td>重要 insight 是尺度不必完全让 foundation model 学出来；可以由 VIO/IMU 提供物理锚定，再让几何 foundation model 补充稠密性。数学上是状态估计提供 SE(3)/scale 先验，深度模型负责局部 surface。</td>
+            <td>在 EuRoC 与 TUM 系列上评估。论文报告 pose injection 可把 scale error 降至约 <span class="score">1%</span>，并达到 mean F@0.10 <span class="score">0.463</span>；decoupled hybrid 设置进一步报告 mean F@0.10 <span class="score">0.676</span>。未本地复测。</td>
+            <td>对 AR/机器人建图的启发是 foundation depth 应与 VIO 形成接口契约：输入 pose/scale/frame，输出 dense geometry 与不确定性。后续要看实时性、在线漂移恢复和失败检测。</td>
+            <td>arXiv HTML 全文级；已读 Overview、Method、Experiments、Ablation/Analysis、Conclusion；系统图已下载并视觉确认。未检查代码。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.17956">2607.17956</a><br><strong>Does Robust VIO Need More Learning?</strong><br><span class="tag">VIO</span><span class="tag">stereo</span><span class="tag">uncertainty</span></td>
+            <td><a class="paper-thumb" href="https://arxiv.org/html/2607.17956v1/fig/system.png"><img src="assets/2026-07-18_2026-07-25_2607.17956_robust_vio_fig2_system.png" alt="Robust VIO hybrid pipeline"><span>Fig.2 hybrid learned-geometric VIO，已视觉确认。</span></a></td>
+            <td>在动态、模糊、强光照变化和分布外场景中，纯学习 VIO 或传统 VIO 都容易失效；问题是应当学习更多模块，还是学习少数可靠候选。</td>
+            <td>使用 SEA-RAFT 生成 dense stereo correspondence 和 uncertainty；后续仍由 temporal tracking、geometric verification、uncertainty-weighted reprojection factors 和显式状态估计完成 VIO；不确定性还传给 anisotropic 3D Gaussian mapping。</td>
+            <td>论文论点是“learning correspondence, not everything”：学习模块提供观测候选与置信度，后端通过几何一致性裁剪错误。数学上关注重投影残差加权、协方差传播和几何验证。</td>
+            <td>在 EuRoC、VIODE、4Seasons 等数据集和 blur/dynamics/illumination/distribution shift 场景评估；论文报告 robust gains 主要来自 learned correspondence + verification + uncertainty weighting，而非端到端替换 VIO。</td>
+            <td>非常值得工程跟进，因为它给出可迁移架构边界：学习前端、保守后端。代码/配置承诺 acceptance 后开源，当前未能验证。</td>
+            <td>arXiv HTML 全文级；已读 Method、Experiments、Ablation/Analysis、Conclusion；系统图已下载并视觉确认。未获得代码。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.21595">2607.21595</a><br><strong>VLM-IE3D: Implicit-Explicit 3D Representation Distillation for Spatial-aware VLMs</strong><br><span class="tag">3D VLM</span><span class="tag">spatial reasoning</span><span class="tag">3D token</span></td>
+            <td><a class="paper-thumb" href="https://arxiv.org/html/2607.21595v1/x2.png"><img src="assets/2026-07-18_2026-07-25_2607.21595_vlm_ie3d_fig2_overview.png" alt="VLM-IE3D framework"><span>Fig.2 VLM-IE3D framework，已视觉确认。</span></a></td>
+            <td>普通 2D VLM 在 embodied/spatial tasks 中缺少 metric/relational 3D 表示；直接把多视图图像输入 VLM，空间关系与 3D grounding 仍不稳。</td>
+            <td>蒸馏 implicit geometry token 与 explicit geometry token，再通过 adapter 与 2D visual token 融合到 VLM；目标是在不把完整 3D pipeline 暴露给语言模型的情况下增强 spatial reasoning。</td>
+            <td>关键是同时使用 implicit feature geometry 与 explicit spatial cue：implicit token 捕获可泛化形状先验，explicit token 给出坐标/深度/布局约束。数学上涉及 representation distillation、token fusion 与 grounding loss。</td>
+            <td>论文报告 Scan2Cap 上 C@0.5 为 <span class="score">80.4</span>，M@0.5 在 2D-visual-input 方法中为 <span class="score">28.8</span>；相对 Qwen2.5-VL-3B 的 Acc@0.25 提升 <span class="score">9.2</span>，相对 VG LLM 提升 <span class="score">6.8</span>；VSI-Bench relative distance 比 VG LLM 高 <span class="score">3.1</span>。</td>
+            <td>仓库已公开且目录含 model/config/eval 结构，但未运行。适合关注“3D 表示如何作为 VLM adapter 输入”，而不是仅看 VQA 分数。</td>
+            <td>arXiv HTML 全文级；已读 Intro、Method、Experiments、Ablation/Analysis、Conclusion；系统图已下载并视觉确认；仓库做 README/tree 级检查。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.21594">2607.21594</a><br><strong>WorldWeaver: Streaming Multi-Agent Autoregressive Diffusion Model with World State Registers</strong><br><span class="tag">world model</span><span class="tag">multi-agent video</span><span class="tag">persistent state</span></td>
+            <td><a class="paper-thumb" href="https://arxiv.org/html/2607.21594v1/x2.png"><img src="assets/2026-07-18_2026-07-25_2607.21594_worldweaver_fig2_pipeline.png" alt="WorldWeaver pipeline"><span>Fig.2 WorldWeaver pipeline，已视觉确认。</span></a></td>
+            <td>多 agent 长视频生成/预测需要跨时间片保留世界状态；单纯拼接历史帧会出现记忆衰减、主体身份错乱和可控性不足。</td>
+            <td>引入 K 个 learnable world state registers，在 chunk 间持续更新；用 agent stats、BEV maps、scene text 监督状态；训练分三阶段：bidirectional pretraining、causal WSR rollout、self-forcing 长程生成。</td>
+            <td>WSR 把隐式视频上下文显式化为可传递 latent state，类似把 SLAM 的 map/state 思想引入 diffusion world model。数学上是 autoregressive latent state update 与多源状态监督。</td>
+            <td>论文报告在多 agent 视频生成质量、状态一致性和可控性指标上优于相关 baseline。Limitations 明确依赖额外 state supervision，且真实世界状态更复杂、不可直接获得。</td>
+            <td>对 embodied simulation 的启发是 world model 不应只记画面，还要维护对象/agent/地图状态。复现重点是状态标注成本和 rollout 稳定性。</td>
+            <td>arXiv HTML 全文级；已读 Abstract、Method、Training、Experiments、Limitations/Conclusion；系统图已下载并视觉确认。未检查代码。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.21571">2607.21571</a><br><strong>Beyond Episodic Evaluation: Memory Architectural Bottlenecks in Sequential Embodied QA</strong><br><span class="tag">embodied QA</span><span class="tag">memory</span><span class="tag">navigation</span></td>
+            <td><span class="small">未嵌入系统框架图。论文含 sequential vs episodic protocol/metric 图，但不是算法 pipeline；本期未作为系统图收录。</span></td>
+            <td>OpenEQA/HM3D 式 episodic evaluation 每题重置，掩盖智能体在同一环境连续问答时的记忆瓶颈。</td>
+            <td>构建 sequential EQA 协议，把同一场景内多问题串成序列；比较 ExploreEQA、MemoryEQA、3D-Mem、UniNavid 等不同 memory 架构，并定义 SR、SR_mem、MA、PL、PL_mem 等指标。</td>
+            <td>核心 insight 是记忆结构决定长期任务效率：2D occupancy memory 只知道“走过哪里”，缺视觉语义证据；VLA hidden state 难处理跨问题时间错配；显式 3D spatial memory 更能复用探索收益。</td>
+            <td>仓库 README 标注 benchmark 含 50 个 HM3D scene sequences、498 个问题；论文报告 structured 3D memory 在 accuracy-efficiency tradeoff 上优于 occupancy-only 和 hidden-state memory，并含 real-robot validation。</td>
+            <td>对 VLN/embodied navigation 的启发是评估协议要从单 episode 成败转向跨问题 memory reuse；工程可先复用其 adapters 和 metrics 做内部 agent 评测。</td>
+            <td>arXiv HTML 全文级；已读 Abstract、Benchmark、Methods compared、Experiments、Analysis、Conclusion；GitHub 仓库做 README/tree 级检查。未运行评测。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.21522">2607.21522</a><br><strong>GS-Agent: Creating 4D Physical Worlds With Generative Simulation</strong><br><span class="tag">4D world</span><span class="tag">3DGS</span><span class="tag">physics simulation</span></td>
+            <td><a class="paper-thumb" href="https://arxiv.org/html/2607.21522v1/x2.png"><img src="assets/2026-07-18_2026-07-25_2607.21522_gs_agent_fig2_overview.png" alt="GS-Agent overview"><span>Fig.2 GS-Agent overview，已视觉确认。</span></a></td>
+            <td>从文本创建可交互、物理合理、可渲染的 4D 世界，需要同时处理场景生成、物理参数、相机控制和视觉反馈；单一视频生成模型不显式建模物理状态。</td>
+            <td>多 agent 结构：Manager 分解任务，Entity agent 创建和编辑物体/属性，Render agent 调用 Genesis physics engine 与渲染反馈；通过代码/工具接口迭代生成 4D physical world。</td>
+            <td>把 generative simulation 拆成“任务规划 + 物理状态 + 渲染闭环”，比直接生成视频更可检查。数学/工程重点在物理引擎约束、状态参数和渲染反馈，而不是新的 3DGS 优化公式。</td>
+            <td>论文报告在 24 个 NewtonGen scenes、12 类 physical laws、30 个复杂场景上评估 Video-PIS、State-PIS、Alignment、Aesthetic，并有 15 名参与者共 270 个有效偏好反馈；自报物理合理性、相机可控性和内容对齐优于若干 baseline，但 aesthetics 不一定领先闭源视频模型。</td>
+            <td>值得跟进，但当前公开仓库几乎为空，无法验证 agent tool chain、Genesis 场景脚本或渲染配置。不要把论文演示等同于可复用代码。</td>
+            <td>arXiv HTML 全文级；已读 Method、Experiments、User Study、Conclusion；系统图已下载并视觉确认；GitHub 仅元数据/空 README 级。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Repo Deep Dives</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Repo</th>
+            <th>目标与能力</th>
+            <th>代码结构证据</th>
+            <th>依赖 / 硬件</th>
+            <th>成熟度判断</th>
+            <th>领域关系</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://github.com/Vegetebird/VLM-IE3D">Vegetebird/VLM-IE3D</a><br><span class="small">stars 9 / forks 1；created 2026-07-22，pushed 2026-07-24。</span></td>
+            <td>ECCV 2026 VLM-IE3D 官方实现，目标是把 implicit/explicit 3D geometry representation 蒸馏到 spatial-aware VLM。</td>
+            <td>检查到 README、DATASETS.md，以及 <code>model/anysplat/</code> 下 config、dataset、loss、src、evaluation、<code>eval_nvs.py</code>、<code>eval_pose.py</code> 等结构。说明仓库不只是项目页，已放出模型/数据/评估骨架。</td>
+            <td>未安装依赖，未下载 checkpoint/datasets。目录结构暗示需要 PyTorch/多视图数据和 3D/VLM 评测资源；硬件需求未本地验证。</td>
+            <td>早期但可读：README 和模块树具备复现入口，stars 很少，发布日期新。能力属于“代码结构可验证，性能未本地验证”。</td>
+            <td>直接连接 embodied 3D reasoning、VLM spatial grounding 与 feed-forward 3D 表示蒸馏。</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/jangablox/sequential-eqa">jangablox/sequential-eqa</a><br><span class="small">stars 1 / forks 0；created 2026-07-22，pushed 2026-07-23。</span></td>
+            <td>Sequential Embodied QA benchmark 与评估工具，目标是从 episodic QA 转向同一场景连续问答和记忆复用评测。</td>
+            <td>检查到 <code>adapters/base.py</code>、<code>exploreeqa_adapter.py</code>、<code>memoryeqa_adapter.py</code>、<code>three_d_mem_adapter.py</code>、<code>uninavid_adapter.py</code>、<code>benchmark/build_sequences.py</code>、<code>evaluation/compute_metrics.py</code>、<code>evaluation/grade_answers.py</code>、configs、<code>scripts/run_episodic.sh</code>、<code>scripts/run_sequential.sh</code>、setup 脚本和 requirements。</td>
+            <td>未运行；README 指向 HM3D/OpenEQA 相关资源，可能需要仿真环境、场景数据和 LLM/VLM API 或本地模型。</td>
+            <td>基准工具可用性看起来强于普通论文占位仓库：有 adapter、benchmark construction 和 metrics。仍需实际跑通依赖后确认。</td>
+            <td>对 VLN、embodied QA、机器人长期记忆评估直接相关，可作为内部 agent memory benchmark 参考。</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/MICLAB-BUPT/RobustDepth">MICLAB-BUPT/RobustDepth</a><br><span class="small">stars 0 / forks 0；created 2026-07-19，pushed 2026-07-21。</span></td>
+            <td>README 标题为 UAMTD：面向自动驾驶全天气 self-supervised depth estimation 的 uncertainty-aware multi-teacher distillation，并结合雷达 fusion。</td>
+            <td>检查到 Dockerfile、train/eval YAML、nuScenes/RobotCar dataloader、<code>evaluate_depth.py</code>、losses、models、radiate/lite_mono 训练评估脚本和 RADIATE tools。README 含 nuScenes/RADIATE 表格与方法说明。</td>
+            <td>未构建 Docker，未下载 nuScenes/RADIATE/RobotCar 数据。依赖和硬件需求只能从深度估计训练常识与 repo 文件推断，未验证。</td>
+            <td>代码结构相对完整，但论文标题/README 元数据不够规范，stars 为 0。能力可信度为“源码结构级”，README 表格是作者声称结果。</td>
+            <td>不是 SLAM 主线，但 robust depth 与恶劣天气自动驾驶感知、定位/建图前端质量相关。</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/AxisAIOrg/AXIS-V1">AxisAIOrg/AXIS-V1</a><br><span class="small">stars 0 / forks 0；created 2026-06-25，pushed 2026-07-25。</span></td>
+            <td>AXIS 项目页/数据浏览器，面向 scalable robot manipulation 的 growable community-driven data engine。</td>
+            <td>检查到静态站点结构、<code>data/realtime-stats.json</code>、GitHub workflow、assets、generated overview/teaser images、data-browser task demo videos 等。未看到核心训练/策略/SLAM 算法代码。</td>
+            <td>README 建议本地 <code>python3 -m http.server 8000</code> 预览；主要是前端/数据展示资产。</td>
+            <td>作为项目主页和数据浏览器成熟度尚可；作为机器人算法仓库证据不足，不应计为方法可复现源码。</td>
+            <td>具身智能/机器人数据基础设施相关，和本期 world model/embodied navigation 趋势相邻，但不属于 SLAM/3D 重建核心算法。</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="note warn">Repo 访问缺口：<a href="https://github.com/capsMD/GLidE-SLAM">capsMD/GLidE-SLAM</a> 当前仅 README “Coming soon”；<a href="https://github.com/UMass-Embodied-AGI/gs-agent">UMass-Embodied-AGI/gs-agent</a> 当前 README 为空、仅占位；Robust VIO 论文称代码 acceptance 后公开，本期未找到可检查实现。这些不计入可验证 repo deep dive。</div>
+    </section>
+
+    <section>
+      <h2>Quantitative Experiment Highlights</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>来源</th>
+            <th>数据集 / 场景</th>
+            <th>指标</th>
+            <th>结果</th>
+            <th>解释边界</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>VLM-IE3D</td>
+            <td>Scan2Cap / 3D spatial grounding</td>
+            <td>C@0.5、M@0.5、Acc@0.25</td>
+            <td>C@0.5 <span class="score">80.4</span>；M@0.5 <span class="score">28.8</span>；Acc@0.25 相对 Qwen2.5-VL-3B +<span class="score">9.2</span>，相对 VG LLM +<span class="score">6.8</span>。</td>
+            <td>论文自报；本期未跑代码。可作为 2D VLM 加 3D token 的强信号，但不是独立复现。</td>
+          </tr>
+          <tr>
+            <td>VLM-IE3D</td>
+            <td>VSI-Bench relative distance</td>
+            <td>Relative distance score</td>
+            <td>相对 VG LLM 高 <span class="score">3.1</span>（本期从 HTML/摘要证据确认）。</td>
+            <td>只说明空间距离子任务改善；不能外推到所有 embodied navigation。</td>
+          </tr>
+          <tr>
+            <td>VIDAR</td>
+            <td>EuRoC / TUM dense AR reconstruction</td>
+            <td>Scale error、mean F@0.10</td>
+            <td>pose injection 报告 scale error 约 <span class="score">1%</span>；mean F@0.10 <span class="score">0.463</span>，decoupled hybrid setting <span class="score">0.676</span>。</td>
+            <td>论文自报；重点是 VIO 约束 foundation depth 的接口价值，非本地 benchmark。</td>
+          </tr>
+          <tr>
+            <td>GLidE-SLAM</td>
+            <td>嵌入式 monocular SLAM</td>
+            <td>Frame rate / trajectory accuracy</td>
+            <td>报告相比 CPU-only baseline 最高约 <span class="score">9x</span> frame-rate 提升，同时保持轨迹精度。</td>
+            <td>仓库未公开实现；需等代码验证 OpenGL ES shader 细节和平台条件。</td>
+          </tr>
+          <tr>
+            <td>Sequential EQA</td>
+            <td>HM3D sequential question sequences</td>
+            <td>Benchmark size；SR、SR_mem、MA、PL、PL_mem</td>
+            <td>README 标注 50 个 HM3D scene sequences、498 个问题；论文报告显式 3D memory 优于 occupancy-only 与 hidden-state memory 的 accuracy-efficiency tradeoff。</td>
+            <td>benchmark 规模来自 README；结论来自论文自报；本期未运行 adapters。</td>
+          </tr>
+          <tr>
+            <td>GS-Agent</td>
+            <td>NewtonGen / complex 4D scenes / user study</td>
+            <td>Video-PIS、State-PIS、Alignment、Aesthetic、preference</td>
+            <td>报告覆盖 24 个 NewtonGen scenes、12 类 physical laws、30 个复杂场景；15 名参与者、270 个有效偏好反馈。</td>
+            <td>仓库为空；只能作为全文阅读到的论文实验设计与自报结果，不作为可复现能力。</td>
+          </tr>
+          <tr>
+            <td>Robust VIO</td>
+            <td>EuRoC、VIODE、4Seasons；blur/dynamics/illumination/OOD</td>
+            <td>VIO trajectory robustness；3DGS mapping uncertainty</td>
+            <td>论文报告 learned stereo correspondence + geometric verification + uncertainty-weighted factors 是主要收益来源。</td>
+            <td>HTML 表格数值未可靠抽取；本期保留为结构性实验结论，不写具体提升百分比。</td>
+          </tr>
+          <tr>
+            <td>RobustDepth / UAMTD repo</td>
+            <td>nuScenes、RADIATE、RobotCar all-weather depth</td>
+            <td>Depth estimation tables in README</td>
+            <td>README 含 nuScenes/RADIATE 表格和 radar/depth distillation 组件说明。</td>
+            <td>README 级证据；未确认 arXiv 全文，也未跑 eval。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Supplemental Tracking Papers</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>论文</th>
+            <th>方向关系</th>
+            <th>解决的问题</th>
+            <th>方法 / 结构</th>
+            <th>Insight 与数学知识</th>
+            <th>实验</th>
+            <th>证据级别与后续动作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><a href="https://arxiv.org/abs/2607.16173">Vision-Language-Motion Maps</a></td><td>开放词汇 3D map / motion attribute</td><td>3D scene map 缺少可查询的真实运动属性。</td><td>把视觉、语言和 motion attribute 组织到 3D map 中，支持 open-vocabulary 查询。</td><td>运动语义可作为 map layer，而不是只做离线 caption。</td><td>摘要称可回答 3D motion queries。</td><td>摘要级，未深读全文；后续看 map representation 和 query benchmark。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.15828">SCAGE</a></td><td>autonomous exploration / anomaly-guided mapping</td><td>未知场景探索中，frontier-only 策略可能忽略异常或任务相关区域。</td><td>用 scene anomaly guidance 调整 exploration policy。</td><td>把语义异常当成探索价值函数的一部分。</td><td>摘要级实验信息。</td><td>摘要级，未深读全文；后续看 reward 定义与地图更新。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.15912">HETA++</a></td><td>global SfM / translation averaging</td><td>大规模 SfM 的相机平移平均对外点和尺度噪声敏感。</td><td>提出 hierarchical/efficient translation averaging 结构。</td><td>SfM 后端仍在追求鲁棒图优化与层次求解。</td><td>摘要级 benchmark，未读表格。</td><td>摘要级，未深读全文；后续看与 COLMAP/Theia 的比较。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.15542">ImprovedVBGS</a></td><td>real-time continual 3DGS</td><td>在线/持续 Gaussian Splatting 需要在质量、速度和内存之间平衡。</td><td>改进 variational Bayesian Gaussian Splatting 的实时更新策略。</td><td>把不确定性/分布更新引入在线 3DGS 可能优于固定启发式 pruning。</td><td>摘要称 real-time continual reconstruction。</td><td>摘要级，未深读全文；后续看 online update 与 memory policy。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.15600">Geometric Distillation from Rectified Stereo</a></td><td>stereo / foundation geometry distillation</td><td>从 rectified stereo 中蒸馏可泛化几何先验。</td><td>以 stereo 几何作为 teacher/source，把几何知识转移到模型。</td><td>和 VIDAR/VLM-IE3D 同属“显式几何监督进入基础模型”。</td><td>摘要级，未读完整实验。</td><td>摘要级，未深读全文；后续看是否支持 monocular transfer。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.15898">Orbis 2</a></td><td>driving world model</td><td>自动驾驶 world model 需要层次化、多尺度地预测道路动态。</td><td>hierarchical driving world model，组织场景状态和未来演化。</td><td>与 WorldWeaver 同向：显式状态结构比纯视频历史更关键。</td><td>摘要级，未读 benchmark。</td><td>摘要级，未深读全文；后续看是否有 BEV/occupancy 中间监督。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.15758">SkillNav</a></td><td>zero-shot object-goal navigation</td><td>object-goal navigation 需要无需训练地组合技能和语义目标。</td><td>用 skill abstraction / VLM guidance 做 zero-shot navigation。</td><td>导航系统从 end-to-end policy 转向技能库和语义规划。</td><td>摘要级导航实验。</td><td>摘要级，未深读全文；后续看失败恢复和地图记忆。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.15642">T-DRN</a></td><td>zero-shot object-goal visual navigation</td><td>视觉导航在未见类别/环境中泛化弱。</td><td>摘要显示围绕 target-driven reasoning/navigation 设计。</td><td>需要检查是否依赖 semantic map 或 VLM prompt。</td><td>摘要级结果。</td><td>摘要级，未深读全文；后续看 simulator 和 zero-shot split。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.15589">MemoGuard</a></td><td>navigation memory safety</td><td>记忆会把导航 agent 带入错误循环或陷阱。</td><td>提出 memory trap 识别/防护机制。</td><td>与 Sequential EQA 共同提示：记忆不仅要存，还要校验。</td><td>摘要级实验。</td><td>摘要级，未深读全文；后续看 trap 定义与 metrics。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.17058">DROID-ANCHOR</a></td><td>SLAM/VIO robustness</td><td>DROID 类视觉里程计在长程和漂移下需要锚定。</td><td>摘要显示 anchor 机制增强 tracking/mapping。</td><td>学习 VO 与显式锚点/地图约束结合。</td><td>摘要级结果。</td><td>摘要级，未深读全文；后续看是否开源和回环机制。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.16366">PRISM</a></td><td>terrain mapping / robotics</td><td>机器人需要可用于规划的地形建图，而不只是几何重建。</td><td>摘要显示面向 terrain mapping 的 perception/mapping pipeline。</td><td>把 traversability 或 terrain semantics 融入地图。</td><td>摘要级实验。</td><td>摘要级，未深读全文；后续看传感器组合和 outdoor 数据。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.16806">SPARK-VLN</a></td><td>VLN</td><td>VLN agent 需要更稳的语言-空间对齐和路径执行。</td><td>摘要级显示引入 SPARK-style reasoning/planning。</td><td>值得关注是否使用显式 map/memory。</td><td>摘要级 benchmark。</td><td>摘要级，未深读全文；后续看 R2R/RxR/REAL 数据。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.16956">G2-Nav</a></td><td>navigation / graph grounding</td><td>视觉导航需要把语言目标映射到空间图结构。</td><td>摘要显示 graph-guided navigation。</td><td>图结构是 VLN 与 SLAM map 结合的自然接口。</td><td>摘要级结果。</td><td>摘要级，未深读全文；后续看 graph construction。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.17767">VLN-AVP</a></td><td>VLN / active viewpoint</td><td>导航中视角选择影响语言 grounding 和后续路径。</td><td>摘要显示 active viewpoint planning 机制。</td><td>将 active perception 放入 VLN policy。</td><td>摘要级 benchmark。</td><td>摘要级，未深读全文；后续看 viewpoint cost 与地图表示。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.17852">Lifelong Localization</a></td><td>长期定位</td><td>定位系统需要在场景变化、季节/光照变化中长期维护。</td><td>摘要显示 lifelong localization 框架。</td><td>长期地图维护与 retrieval/update 策略是核心。</td><td>摘要级实验。</td><td>摘要级，未深读全文；后续看 map update policy。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.18016">Persistent 3D Object Tokens for Humanoid VLA</a></td><td>humanoid VLA / 3D object memory</td><td>VLA hidden state 难长期保留物体级空间状态。</td><td>引入 persistent 3D object tokens 做闭环 humanoid VLA。</td><td>和 WorldWeaver/Sequential EQA 同属显式持久状态趋势。</td><td>摘要级实验。</td><td>摘要级，未深读全文；后续看 token 更新和 real robot。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.16314">Depth-Regularized JEPA World Models</a></td><td>world model / depth prior</td><td>JEPA/world model 缺少几何约束时空间预测可能不稳定。</td><td>用 depth regularization 约束 representation。</td><td>深度作为自监督 world model 的低成本几何正则。</td><td>摘要级结果。</td><td>摘要级，未深读全文；后续看 depth source 和 rollout。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.16309">SaaF: 3D Language Fields</a></td><td>3D language field / scene understanding</td><td>3D 场景需要开放词汇语义场而非离散标签。</td><td>摘要显示构建 language-aligned 3D field。</td><td>和 open-vocabulary map/VLM-IE3D 方向相邻。</td><td>摘要级实验。</td><td>摘要级，未深读全文；后续看 field representation 与 query speed。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.16838">TopoGS</a></td><td>3DGS / topology</td><td>Gaussian Splatting 表示可能缺少拓扑约束。</td><td>摘要显示引入 topology-aware GS 机制。</td><td>拓扑约束可改善结构一致性，但需看计算成本。</td><td>摘要级结果。</td><td>摘要级，未深读全文；后续看是否适合 SLAM map update。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.18078">VGOcc</a></td><td>occupancy / 3D perception</td><td>自动驾驶/机器人需要高质量 occupancy 预测。</td><td>摘要显示 vision-guided occupancy pipeline。</td><td>occupancy 是 navigation/world model 的中间状态接口。</td><td>摘要级 benchmark。</td><td>摘要级，未深读全文；后续看是否有 temporal memory。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.19343">Masked Visual Actions for Unified World Modeling</a></td><td>world model / action-conditioned video</td><td>统一 world model 需要同时建模视觉和动作。</td><td>使用 masked visual actions 的训练/建模方式。</td><td>action token 是让 world model 接近 embodied control 的关键。</td><td>摘要级结果。</td><td>摘要级，未深读全文；后续看 action representation。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.19306">Real-Time SDF Mapping with Distance-Accelerated UAV Planning</a></td><td>SDF mapping / UAV planning</td><td>UAV 需要实时 SDF 地图并快速查询用于规划。</td><td>实时 SDF mapping 与 distance-accelerated planning 结合。</td><td>SDF 查询复杂度直接影响闭环规划频率。</td><td>摘要级结果。</td><td>摘要级，未深读全文；后续看地图更新频率和 collision check。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.19288">No Training, Better Flights</a></td><td>VLM UAV navigation</td><td>UAV navigation 想利用 test-time scaled VLM 而不重新训练。</td><td>test-time scaling / prompting VLM 做导航决策。</td><td>用推理时计算换策略泛化，但需要严格安全边界。</td><td>摘要级结果。</td><td>摘要级，未深读全文；后续看 real-flight 安全和 latency。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.18936">NGPS</a></td><td>GPS-denied geo-localization / aerial 3D</td><td>GPS-denied aerial navigation 需要定位和局部 2.5D 重建。</td><td>摘要显示 aerial geo-localization 与 2.5D reconstruction 结合。</td><td>把定位检索和地形几何恢复放在同一 pipeline。</td><td>摘要级实验。</td><td>摘要级，未深读全文；后续看地图先验和传感器假设。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.19120">Latent Riemannian Flow Matching</a></td><td>3D foundation model / geometry</td><td>3D 生成/重建模型需要尊重几何流形结构。</td><td>在 latent Riemannian space 做 flow matching。</td><td>把生成过程放到几何一致的 latent manifold 上。</td><td>摘要级结果。</td><td>摘要级，未深读全文；后续看输入输出形式与重建任务适配。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.19036">CoGoal3D</a></td><td>collaborative 3D perception</td><td>多 agent 3D object detection 需要协同目标推理。</td><td>摘要显示 collaborative goal-conditioned 3D detection。</td><td>多机地图/感知共享需要目标条件化压缩。</td><td>摘要级结果。</td><td>摘要级，未深读全文；后续看通信带宽和 fusion policy。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.18801">ZeroSplat</a></td><td>feed-forward 3DGS</td><td>从少量/单视图快速生成 Gaussian scene 表示。</td><td>zero-shot splat generation。</td><td>如果无需优化就能出 splats，可改变在线重建 latency。</td><td>摘要级结果。</td><td>摘要级，未深读全文；后续看几何一致性和 scale。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.18466">ECoNGS</a></td><td>3DGS / efficient representation</td><td>3DGS 需要更高效的压缩或表达。</td><td>摘要显示 efficient/compact neural Gaussian splatting。</td><td>压缩策略决定 3DGS 是否能用于长程地图。</td><td>摘要级结果。</td><td>摘要级，未深读全文；后续看是否支持在线更新。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.21400">VoLN</a></td><td>vision-only long-horizon navigation</td><td>长程导航想减少语言/地图之外的传感器依赖。</td><td>vision-only long-horizon navigation policy。</td><td>需要检查是否隐式学习地图和 memory。</td><td>摘要级实验。</td><td>摘要级，未深读全文；后续看真实机器人与失败恢复。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.21025">ZONDA</a></td><td>zero-shot object navigation</td><td>object navigation 在新类别/新环境中泛化。</td><td>zero-shot object navigation framework。</td><td>和 SkillNav/T-DRN 构成同周导航泛化热点。</td><td>摘要级结果。</td><td>摘要级，未深读全文；后续看 semantic map 与 VLM 依赖。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.19880">EA-Nav</a></td><td>safe visual navigation</td><td>视觉导航需要在效率之外处理安全约束。</td><td>摘要显示 safety-aware navigation strategy。</td><td>安全约束应成为 policy/规划目标的一部分。</td><td>摘要级实验。</td><td>摘要级，未深读全文；后续看 constraint formulation。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.21526">RobustDepth / UAMTD</a></td><td>all-weather depth / autonomous driving</td><td>恶劣天气下自监督深度估计鲁棒性不足。</td><td>uncertainty-aware multi-teacher distillation 与 radar fusion。</td><td>uncertainty 与跨传感器蒸馏可以作为定位/建图前端鲁棒性来源。</td><td>README 提供 nuScenes/RADIATE 表格。</td><td>README/元数据级，未确认完整论文；后续看 arXiv/PDF 与训练脚本。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.01043">DART-VLN</a> / <a href="https://arxiv.org/abs/2512.02473">WorldPack</a></td><td>VLN/world model version updates</td><td>已有稿件在覆盖期内更新版本。</td><td>版本更新，未做全文 diff。</td><td>只能提示关注，不作为新结论来源。</td><td>元数据级。</td><td>元数据级，未深读全文；后续若增量显著再纳入深读。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Trends & Insights</h2>
+      <h3>1. Foundation geometry 的工程接口比模型名更重要</h3>
+      <p>VIDAR、Robust VIO、VLM-IE3D、Event3R 的共同点是把学习模型输出包装成可被几何系统消费的接口：pose/scale、correspondence uncertainty、geometry tokens、event tokens。短期工程判断应优先看接口稳定性、误差传播和 failure detection，而不是只看单表 SOTA。</p>
+      <h3>2. 持久状态成为 world model 与 embodied navigation 的核心约束</h3>
+      <p>WorldWeaver 的 world state registers、Sequential EQA 的跨问题记忆评估、Persistent 3D Object Tokens 与 MemoGuard 都指向同一问题：智能体需要可更新、可审计、可遗忘的状态。隐式 hidden state 在长程任务中证据不足；显式 3D/对象/地图记忆更容易诊断。</p>
+      <h3>3. 3DGS 从渲染表示继续向在线地图和物理世界扩展</h3>
+      <p>本期 3DGS 条目覆盖 online continual splatting、topology-aware splats、zero-shot splats、compressed splats、GS-Agent 4D physical worlds。工程侧要把“能渲染”与“能定位、更新、规划、验证物理状态”区分开，尤其当仓库还未公开时。</p>
+      <h3>4. 热闹但证据不足的方向</h3>
+      <p>零样本 object navigation、VLM UAV navigation、开放词汇 3D map 和多 agent world model 都在升温，但多数本期只读到摘要级证据。它们适合作为 watchlist，不适合作为近期系统选型依据，除非后续能看到代码、评测协议和失败案例。</p>
+    </section>
+
+    <section>
+      <h2>Evidence & Reading Coverage</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>对象</th>
+            <th>实际阅读/检查覆盖</th>
+            <th>证据等级</th>
+            <th>不足</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>10 篇 Deep-read papers</td><td>arXiv HTML 全文；覆盖 Abstract、Intro、Method、Experiments、Analysis/Ablation 或 Limitations/Conclusion；9 张系统/框架图下载到本地 assets 并视觉确认。</td><td>全文级</td><td>未运行代码；部分论文表格未稳定抽取，未写未确认数值。</td></tr>
+          <tr><td>30 条 Supplemental papers</td><td>至少阅读摘要/元数据和 arXivDaily/web snippets；按方向关系、问题、方法、insight、实验压缩。</td><td>摘要级/元数据级</td><td>未深读全文；不能作为 Executive Summary 的深度结论来源。</td></tr>
+          <tr><td>VLM-IE3D repo</td><td>检查 README、DATASETS、model/config/dataset/loss/evaluation/eval 脚本树。</td><td>README + 目录树级</td><td>未 clone、未装依赖、未下载模型或数据。</td></tr>
+          <tr><td>sequential-eqa repo</td><td>检查 adapters、benchmark、evaluation、configs、scripts、requirements。</td><td>README + 目录树级</td><td>未跑 HM3D/OpenEQA 评估；可能需要额外数据和模型服务。</td></tr>
+          <tr><td>RobustDepth repo</td><td>检查 Dockerfile、YAML、dataloader、models、losses、radiate/lite_mono scripts、README 表格。</td><td>源码结构 + README 级</td><td>未确认完整论文；README 声称结果未本地复现。</td></tr>
+          <tr><td>AXIS-V1 repo</td><td>检查静态站点、data browser、realtime-stats、assets、workflow。</td><td>项目页/数据浏览器级</td><td>未看到核心机器人算法代码；只作为具身数据基础设施跟踪。</td></tr>
+          <tr><td>检索链路</td><td>先尝试 arXiv API/Advanced Search；因 rate limit/连接不稳改用 arXivDaily、网页搜索、直连 arXiv HTML 与 GitHub 公开页面。</td><td>多源检索级</td><td>arXiv API 未稳定返回全量结果，可能漏掉无关键词或分类异常的稿件。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>值得跟进事项</h2>
+      <ul>
+        <li>等待 GLidE-SLAM 仓库公开：重点检查 OpenGL ES compute shader、tracking loop、关键帧切换策略和移动端 profiling。</li>
+        <li>跟进 Robust VIO 代码发布：验证 SEA-RAFT correspondence uncertainty 如何进入 VIO factors，以及 3DGS mapping covariance 的实现。</li>
+        <li>对 VLM-IE3D 做轻量复现：先跑 README 中 eval_pose/eval_nvs 或最小 demo，确认 3D token adapter 的输入输出契约。</li>
+        <li>把 sequential-eqa 作为 embodied memory regression test 候选：优先跑 scripts/run_sequential.sh，记录依赖和数据准备成本。</li>
+        <li>对 WorldWeaver/GS-Agent 保持证据保守：先等代码或可交互 demo，再判断能否进入工程 pipeline。</li>
+        <li>下一期检索时补齐 2026-07-17 UTC v1 但在 7 月 20 日后浮出的边界条目，避免重复计入。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>原始链接列表</h2>
+      <ul class="links">
+        <li><a href="https://arxiv.org/abs/2607.16143">2607.16143 NeoSLAM implementation</a></li>
+        <li><a href="https://arxiv.org/abs/2607.16128">2607.16128 Semantic communication for mobile 3D reconstruction</a></li>
+        <li><a href="https://arxiv.org/abs/2607.15727">2607.15727 Event3R</a></li>
+        <li><a href="https://arxiv.org/abs/2607.16897">2607.16897 GLidE-SLAM</a></li>
+        <li><a href="https://arxiv.org/abs/2607.17171">2607.17171 VIDAR</a></li>
+        <li><a href="https://arxiv.org/abs/2607.17956">2607.17956 Does Robust VIO Need More Learning?</a></li>
+        <li><a href="https://arxiv.org/abs/2607.21595">2607.21595 VLM-IE3D</a></li>
+        <li><a href="https://arxiv.org/abs/2607.21594">2607.21594 WorldWeaver</a></li>
+        <li><a href="https://arxiv.org/abs/2607.21571">2607.21571 Sequential Embodied QA</a></li>
+        <li><a href="https://arxiv.org/abs/2607.21522">2607.21522 GS-Agent</a></li>
+        <li><a href="https://github.com/Vegetebird/VLM-IE3D">GitHub: Vegetebird/VLM-IE3D</a></li>
+        <li><a href="https://github.com/jangablox/sequential-eqa">GitHub: jangablox/sequential-eqa</a></li>
+        <li><a href="https://github.com/MICLAB-BUPT/RobustDepth">GitHub: MICLAB-BUPT/RobustDepth</a></li>
+        <li><a href="https://github.com/AxisAIOrg/AXIS-V1">GitHub: AxisAIOrg/AXIS-V1</a></li>
+        <li><a href="https://github.com/capsMD/GLidE-SLAM">GitHub: capsMD/GLidE-SLAM placeholder</a></li>
+        <li><a href="https://github.com/UMass-Embodied-AGI/gs-agent">GitHub: UMass-Embodied-AGI/gs-agent placeholder</a></li>
+        <li><a href="https://arxiv.org/abs/2607.16173">2607.16173 Vision-Language-Motion Maps</a></li>
+        <li><a href="https://arxiv.org/abs/2607.15828">2607.15828 SCAGE</a></li>
+        <li><a href="https://arxiv.org/abs/2607.15912">2607.15912 HETA++</a></li>
+        <li><a href="https://arxiv.org/abs/2607.15542">2607.15542 ImprovedVBGS</a></li>
+        <li><a href="https://arxiv.org/abs/2607.15600">2607.15600 Geometric Distillation from Rectified Stereo</a></li>
+        <li><a href="https://arxiv.org/abs/2607.15898">2607.15898 Orbis 2</a></li>
+        <li><a href="https://arxiv.org/abs/2607.15758">2607.15758 SkillNav</a></li>
+        <li><a href="https://arxiv.org/abs/2607.15642">2607.15642 T-DRN</a></li>
+        <li><a href="https://arxiv.org/abs/2607.15589">2607.15589 MemoGuard</a></li>
+        <li><a href="https://arxiv.org/abs/2607.17058">2607.17058 DROID-ANCHOR</a></li>
+        <li><a href="https://arxiv.org/abs/2607.16366">2607.16366 PRISM</a></li>
+        <li><a href="https://arxiv.org/abs/2607.16806">2607.16806 SPARK-VLN</a></li>
+        <li><a href="https://arxiv.org/abs/2607.16956">2607.16956 G2-Nav</a></li>
+        <li><a href="https://arxiv.org/abs/2607.17767">2607.17767 VLN-AVP</a></li>
+        <li><a href="https://arxiv.org/abs/2607.17852">2607.17852 Lifelong Localization</a></li>
+        <li><a href="https://arxiv.org/abs/2607.18016">2607.18016 Persistent 3D Object Tokens for Humanoid VLA</a></li>
+        <li><a href="https://arxiv.org/abs/2607.16314">2607.16314 Depth-Regularized JEPA World Models</a></li>
+        <li><a href="https://arxiv.org/abs/2607.16309">2607.16309 SaaF</a></li>
+        <li><a href="https://arxiv.org/abs/2607.16838">2607.16838 TopoGS</a></li>
+        <li><a href="https://arxiv.org/abs/2607.18078">2607.18078 VGOcc</a></li>
+        <li><a href="https://arxiv.org/abs/2607.19343">2607.19343 Masked Visual Actions</a></li>
+        <li><a href="https://arxiv.org/abs/2607.19306">2607.19306 Real-Time SDF Mapping</a></li>
+        <li><a href="https://arxiv.org/abs/2607.19288">2607.19288 No Training, Better Flights</a></li>
+        <li><a href="https://arxiv.org/abs/2607.18936">2607.18936 NGPS</a></li>
+        <li><a href="https://arxiv.org/abs/2607.19120">2607.19120 Latent Riemannian Flow Matching</a></li>
+        <li><a href="https://arxiv.org/abs/2607.19036">2607.19036 CoGoal3D</a></li>
+        <li><a href="https://arxiv.org/abs/2607.18801">2607.18801 ZeroSplat</a></li>
+        <li><a href="https://arxiv.org/abs/2607.18466">2607.18466 ECoNGS</a></li>
+        <li><a href="https://arxiv.org/abs/2607.21400">2607.21400 VoLN</a></li>
+        <li><a href="https://arxiv.org/abs/2607.21025">2607.21025 ZONDA</a></li>
+        <li><a href="https://arxiv.org/abs/2607.19880">2607.19880 EA-Nav</a></li>
+        <li><a href="https://arxiv.org/abs/2607.21526">2607.21526 RobustDepth / UAMTD</a></li>
+        <li><a href="https://arxiv.org/abs/2607.01043">2607.01043 DART-VLN version update</a></li>
+        <li><a href="https://arxiv.org/abs/2512.02473">2512.02473 WorldPack version update</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
