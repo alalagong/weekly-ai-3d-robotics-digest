@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-07-25 至 2026-08-01：VidMap、NSL-SLAM、PhiZero</title>
+  <style>
+    :root { color-scheme: light; --ink:#17202a; --muted:#5b6675; --line:#d9e2ea; --soft:#f5f8fb; --accent:#0f766e; --accent-2:#7c2d12; --code:#eef7f4; --warn:#fff7ed; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif; color:var(--ink); background:#fff; line-height:1.62; }
+    header { padding:38px 7vw 26px; border-bottom:1px solid var(--line); background:linear-gradient(180deg,#f8fbfd 0%,#fff 100%); }
+    main { max-width:1280px; margin:0 auto; padding:28px 7vw 60px; }
+    h1 { margin:0 0 12px; font-size:clamp(28px,4vw,43px); line-height:1.15; }
+    h2 { margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--line); font-size:24px; }
+    h3 { margin:22px 0 8px; font-size:18px; }
+    p { margin:8px 0; }
+    a { color:#075985; text-decoration-thickness:1px; text-underline-offset:2px; }
+    table { width:100%; border-collapse:collapse; margin:14px 0 24px; font-size:14px; }
+    th,td { vertical-align:top; text-align:left; border:1px solid var(--line); padding:10px 12px; }
+    th { background:var(--soft); }
+    tr:nth-child(even) td { background:#fcfdfe; }
+    code { padding:1px 5px; border-radius:4px; background:var(--code); font-size:90%; }
+    ul { padding-left:22px; } li { margin:7px 0; }
+    .meta { color:var(--muted); font-size:14px; }
+    .summary-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin-top:18px; }
+    .tile { border:1px solid var(--line); border-radius:8px; padding:14px 16px; background:#fff; }
+    .tile strong { display:block; margin-bottom:6px; color:var(--accent); }
+    .note { margin:16px 0; padding:11px 14px; border-left:4px solid var(--accent); background:#eefaf7; }
+    .warn { border-left-color:var(--accent-2); background:var(--warn); }
+    .tag { display:inline-block; margin:2px 4px 2px 0; padding:2px 7px; border-radius:999px; background:var(--code); color:#115e59; font-size:12px; white-space:nowrap; }
+    .small { color:var(--muted); font-size:12px; } .score { font-weight:700; color:var(--accent-2); }
+    .paper-thumb { display:block; width:220px; max-width:100%; text-decoration:none; }
+    .paper-thumb img { width:100%; border:1px solid var(--line); border-radius:8px; background:#fff; }
+    .paper-thumb span { display:block; margin-top:4px; color:var(--muted); font-size:12px; line-height:1.35; }
+    .links { columns:2; }
+    @media (max-width:820px) { header{padding:28px 5vw 20px} main{padding:20px 5vw 44px} table{display:block;overflow-x:auto} .links{columns:1} }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="meta">每周 SLAM / VIO / SfM / FeedForward 3D 进展报告</p>
+    <h1>几何约束重新进入主干：VidMap、NSL-SLAM 与离散物理语言</h1>
+    <p class="meta">覆盖时间：2026-07-25 22:02:55 至 2026-08-01 16:17:54（Asia/Shanghai）。本期按 <code>.cache/slam-3d-state.json</code> 上次覆盖结束时间继续推进，实际覆盖约 6 天 18 小时，未机械截断为“最近 7 天”。</p>
+    <div class="summary-grid">
+      <div class="tile"><strong>全文深读论文</strong>6 篇：VidMap、NSL-SLAM、Semantic Semi-Incremental Object SLAM、HiFi-UMI、PhiZero、ACE-Data-0。逐篇覆盖 Intro、Method、Experiments、Analysis/Ablation 与 Limitations/Conclusion。</div>
+      <div class="tile"><strong>摘要/元数据跟踪</strong>20 篇：JEPADepth、MonoVoc、FeelWorld、BioVLN、MemVLN、X-NavDP、ROAD 等。全部至少读取摘要，未把摘要改写成全文结论。</div>
+      <div class="tile"><strong>Repo 深读</strong>4 个仓库：VidMap、BioVLN、JEPADepth、ROAD。检查 README、目录树、配置、训练/推理入口与依赖；均未下载权重或本地运行。</div>
+      <div class="tile"><strong>访问限制</strong>arXiv API 与 GitHub API 间歇限流；以 arXiv HTML/摘要页和 GitHub 公共网页补足。PhiZero、TEA-AgriVLN、QUARTZ 等仓库仍是占位或发布不完整，无法验证声称能力。</div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Executive Summary</h2>
+      <p><strong>本期最可靠的工程信号，是“学习先验 + 显式几何/鲁棒优化”而非单一端到端替代。</strong> VidMap 把视频时序来源带入 SfM 的匹配、关键帧、track 和鲁棒核；NSL-SLAM 则让单目特征改善结构光深度，再以 GICP、稀疏视觉约束、Gaussian map 与窗口 BA 闭环。两者的消融都显示：深度、视觉约束和全局/窗口优化是互补项。</p>
+      <p><strong>世界模型与具身数据的瓶颈正在从“多收视频”转向“中间表示和可回放质量”。</strong> PhiZero 用离散物理语言压缩相邻状态转移，HiFi-UMI 把采集、轨迹重建、回放与质检做成数据引擎，ACE-Data-0 则把多视角、动捕、触觉与物体 6DoF 放进同一坐标和时间系统。三者都把可用监督的结构放在规模之前。</p>
+      <p><strong>开源成熟度与论文热度明显脱钩。</strong> VidMap 已给出较完整的配置、入口、数据准备和 benchmark 复现路径；BioVLN、JEPADepth、ROAD 有实质代码但环境或外部资产较重；PhiZero 等若干热门项目只有 README/预告，当前不能视为可复现实现。</p>
+      <div class="note warn">证据边界：Deep-read 结论来自 arXiv HTML 全文与论文表格；Supplemental 仅为摘要级，所有数字均按摘要原述保留适用场景。仓库判断来自公开 README、目录树和文件页面，没有下载大模型、数据集或执行训练/推理。ACE 与 Semantic SLAM 的总览 caption 可确认，但 arXiv HTML 没有独立可下载的总览图资源，因此未嵌图。</div>
+    </section>
+
+    <section>
+      <h2>Deep-read Papers</h2>
+      <table>
+        <thead><tr><th>论文</th><th>系统/框架图</th><th>解决的问题</th><th>方法 / 结构</th><th>Insight 与数学知识</th><th>实验与效果</th><th>复现与启发</th><th>阅读证据</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.27194"><strong>VidMap: Exploiting Temporal Structure for Video-Based SfM</strong></a><br><span class="tag">SfM</span><span class="tag">video</span><span class="tag">mapping</span><br><span class="small">arXiv:2607.27194；2026-07-29</span></td>
+            <td><a class="paper-thumb" href="https://arxiv.org/html/2607.27194v1/x2.png"><img src="assets/2026-08-01_vidmap_fig2.png" alt="VidMap system overview"><span>Fig.2：video extraction 与 provenance-aware mapping；已核对 caption 和图像内容。</span></a></td>
+            <td>通用 SfM 把视频当无序图像集，忽略顺序、运动连续性与闭环的不同误差来源；密集逐对匹配又会产生冗余和错误闭环。</td>
+            <td>离线两段式：RoMa 风格密集匹配与基于运动的关键帧抽取；多流候选合成长 track，并维护不确定性；mapping 中区分 sequential edge 与 loop closure，分别用 Huber/Cauchy 鲁棒核。全局定位同时优化相机旋转/中心、3D 点和逐图 metric-depth scale，并做 view-graph calibration。</td>
+            <td>把“边来自哪里”当成优化变量的先验，而非只看残差大小。track 候选按协方差迹最小选择并做一致性阈值；独立流的不确定性近似相加。深度约束消除单目尺度漂移，但仍允许逐图尺度吸收预测偏差。</td>
+            <td>LaMAR full 的 weighted AUC：未标定 <span class="score">88.5</span>、标定 <span class="score">89.7</span>，对比 ViPE 76.6/78.8；10m short 为 91.9/93.2。跨 LaMAR/CroCoDL 的表格显示总体领先，但结论只适用于论文设定与其预训练特征。</td>
+            <td>官方 repo 可运行链路较完整。值得把“顺序边/闭环边采用不同核与门限”抽成现有 SLAM 后端的低风险改造。限制：前向运动关键帧策略、弱几何叠加视觉混淆、模糊/遮挡/低纹理会使 tracking 失效；无闭环时仍有长程漂移，学习先验存在 OOD 风险。</td>
+            <td><strong>全文级。</strong>已读 Abstract、Intro、Related Work、Method、Experiments、Ablations/Analysis、Limitations/Conclusion；核对 Fig.2 和主要表格。未本地复现实验。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.24495"><strong>NSL-SLAM: High-Fidelity Neural Structured-Light Depth for Visual SLAM</strong></a><br><span class="tag">RGB-D SLAM</span><span class="tag">3DGS</span><br><span class="small">arXiv:2607.24495；2026-07-27</span></td>
+            <td><a class="paper-thumb" href="https://arxiv.org/html/2607.24495v1/x2.png"><img src="assets/2026-08-01_nsl-slam_fig2.png" alt="NSL-SLAM pipeline"><span>Fig.2：structured-light depth → visual-guided GICP → online GS → windowed BA。</span></a></td>
+            <td>消费级结构光在反光、弱纹理、边界和远距离处深度噪声大；单纯依赖深度配准会在几何退化时丢失姿态，同时噪声会污染在线 Gaussian map。</td>
+            <td>冻结 Depth Anything V2 特征，细化结构光双目视差；跟踪以 visual-guided GICP 为主，在退化时加入稀疏视觉对应；在线维护 3D Gaussian map，窗口 BA 联合校正关键帧与地图，并以 soft feedback 更新前端。</td>
+            <td>深度方程 <code>z=fB/d</code> 说明视差小误差会随距离放大；视觉语义特征不是直接替代几何，而是提升视差和点到面约束的可辨识性。soft feedback 比 hard overwrite 更能避免后端局部修正破坏前端连续性。</td>
+            <td>Replica-SL depth RMSE 0.045，对比原 NSL 0.069（约低 35%）。8 场景平均 ATE 消融：LibSGM+Gaussian 1.5460m；换深度 0.1529；+视觉 0.0280；+BA 0.0188；hard feedback 0.0265；完整 soft feedback <span class="score">0.0155m</span>。RTX 4090、848×480 下深度 27.5 FPS，整系统 20.9 FPS。</td>
+            <td>优先复核深度模块在自有相机的标定/曝光条件，而非直接迁移整套 GS。限制：薄结构和边界会被平滑；后端校正盆有限；真实 8 序列用 T265 参考而非真值，真实重建无定量 GT；论文未逐一做故障因果分解。未发现公开代码。</td>
+            <td><strong>全文级。</strong>已读 Intro、Method、Experiments、Ablation、Runtime、Conclusion/Limitations；核对 Fig.2、深度表和 SLAM 消融表。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.23384"><strong>Semantic Semi-Incremental Data-Association-Free Object SLAM</strong></a><br><span class="tag">object SLAM</span><span class="tag">data association</span><br><span class="small">arXiv:2607.23384；2026-07-25 22:31 UTC</span></td>
+            <td><span class="small">Fig.2 caption 明确为 processing schemes，但 arXiv HTML 中是转换后的绘图结构、无独立 raster/SVG 资源；未嵌图。</span></td>
+            <td>物体级 SLAM 的关联、位姿、地标位置和语义通常分阶段求解，早期关联错误会固化；未知地标数又使批量组合搜索代价高。</td>
+            <td>把关联、轨迹、地标坐标和语义残差放进同一目标；以 <code>f*<sub>SLAM</sub>(K)+βK</code> 对地标数 K 做复杂度惩罚；skill-SLAM 半增量策略在局部批次中调整 K，再做全局求解，并与 kSLAM、ikSLAM、iskSLAM 比较。</td>
+            <td>模型选择本质是拟合误差下降与新增地标惩罚的权衡；语义项把类别/嵌入的高斯残差与空间残差组合。半增量不是纯在线贪心：它保留批处理纠错能力，同时缩小每次组合空间。</td>
+            <td>合成 2D/3D grid 上以 Sim(3) 对齐后 ATE 比较 raw odometry、Oracle 与 kSLAM 系列；论文表格显示语义半增量方法在误检存在时更稳。真实泳池 BlueROV2 + Oculus m1200d sonar + 单目/DINO 只做定性地图，因无 GT 不支持定量优越结论。</td>
+            <td>适合验证“地标数惩罚 + 语义软残差”能否替代启发式 track management。限制：连续误检可能合并为假地标；对漏检和语义错标假设较强；真实实验无真值。未找到公开代码链接。</td>
+            <td><strong>全文级。</strong>已读模型、优化条件、算法流程、合成/真实实验和结论；真实场景证据仅定性。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.25895"><strong>HiFi-UMI: High-Fidelity Universal Manipulation Interface</strong></a><br><span class="tag">robot data</span><span class="tag">embodied</span><br><span class="small">arXiv:2607.25895；2026-07-28</span></td>
+            <td><a class="paper-thumb" href="https://arxiv.org/html/2607.25895v1/x1.png"><img src="assets/2026-08-01_hifi-umi_fig1.png" alt="HiFi-UMI overview"><span>Fig.1：采集硬件、数据引擎、无机器人后训练与部署总览。</span></a></td>
+            <td>传统 UMI 的漂移、同步误差、视角遮挡和数据质检不足，会让大规模人类示范难以稳定转换为机器人监督；teleoperation 又昂贵且难扩展。</td>
+            <td>头戴式双手 stereo-inertial SLAM，直接估计双夹爪相对位姿；GPIO 微秒级同步、每手双鱼眼；离线数据引擎做轨迹重建、回放、质量控制、标注和筛选，再供 VLA/WAM 预训练或 post-training。</td>
+            <td>相对位姿比两条独立世界轨迹更能抵消共同漂移；“可回放成功率”是比原始小时数更接近训练可用性的质量指标。离线计算换取高精度，适合数据工厂而非在线控制。</td>
+            <td>设备声称局部末端精度 3mm、同步 40μs；20k+ 小时原始数据、480+ 场景，发布 2000h，轨迹重建与回放各 &gt;98%（组合通过率不能直接相乘外推全部数据）。UMI-only 相对 teleop：StarVLA -2.5pp、OpenPI +3.1pp、LingBot -0.6pp；最强 remote insertion 85%。4000h 预训练使 10 个未见任务 action error 低 41%，StarVLA 真实成功率 +18.1pp。</td>
+            <td>工程上应优先复刻“重建—回放—质检”指标体系。限制：仅 4 个桌面双臂任务、3 个 backbone；每个 task-policy 40 次 rollout，单次成功对应 2.5pp；缺少 fidelity 组件消融；UMI post-train demo 量约为 teleop 的 10 倍。数据仓库可见 parquet/video/meta 结构，未下载数据。</td>
+            <td><strong>全文级 + 数据 README。</strong>已读系统、硬件、数据引擎、策略实验、scaling 与 limitations；核对 Fig.1 和主要表格；额外检查 Hugging Face 数据目录说明。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.28624"><strong>PhiZero: A World Model Built Around Physical Language</strong></a><br><span class="tag">world model</span><span class="tag">video</span><br><span class="small">arXiv:2607.28624；2026-07-30</span></td>
+            <td><a class="paper-thumb" href="https://arxiv.org/html/2607.28624v1/x2.png"><img src="assets/2026-08-01_phizero_fig2.png" alt="PhiZero pipeline"><span>Fig.2：Physical Language Tokenizer 与 Reasoner 的 reason-then-render 流程。</span></a></td>
+            <td>像素空间世界模型既要推理物理变化又要渲染外观，容量被视觉细节消耗，长程动作条件也难保持一致。</td>
+            <td>分解 <code>p(V,z|I₀,c)=pθ(z|I₀,c)pψ(V|I₀,z)</code>：transition-level Q-Former 编码相邻 latent state，FSQ 离散成 25K 词表、33 帧约 256 个符号；首帧作为外观锚，Wan2.2-5B diffusion decoder 渲染；Qwen3-VL-4B 自回归预测物理语言。数据从 50k 小时筛到 10k 小时 tokenizer 预训练、5M 四秒片段及 1M motion-rich SFT。</td>
+            <td>显式中间变量 z 把“状态转移推理”与“视频外观生成”解耦；FSQ 让连续动态变成有限符号序列，但这些符号是经验性码本，不等价于可解释物理量。首帧纯净、其余帧加噪的训练策略强制外观锚定。</td>
+            <td>Physics-IQ Verified：IQ score <span class="score">41.2</span>，Cosmos3-Super 39.5、Grok 34.8；S-IoU 58.2、ST 36.8、WS 27.6，不能据总分声称所有子项领先。tokenizer 消融完整模型 PSNR/SSIM/LPIPS 28.9/0.903/0.087；去 diffusion decoder 为 26.6/0.875/0.119；去 transition Q-Former 为 28.2/0.896/0.089。</td>
+            <td>可借鉴“离散转移 token + 独立渲染器”做机器人 rollout 诊断，而非直接依赖视频作控制状态。限制：符号不可解释；视觉观察覆盖不了触觉/微观状态；模型和数据规模仍有限。官方 repo 目前仅预告 code/checkpoint coming soon。</td>
+            <td><strong>全文级。</strong>已读架构、数据、训练、四组 benchmark、tokenizer/训练消融与 Limitations；核对 Fig.2。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2607.28625"><strong>ACE-Data-0: A Dataset for Ambient Intelligence and Embodied AI</strong></a><br><span class="tag">multimodal data</span><span class="tag">embodied</span><br><span class="small">arXiv:2607.28625；2026-07-30</span></td>
+            <td><span class="small">Fig.1 caption 是 ACE 两尺度采集总览，但 arXiv HTML 未包含对应图像节点；未用 floor-plan 图替代系统总览。</span></td>
+            <td>居家长时程具身数据通常缺少统一同步、多视角几何、物体真值、手部/人体与触觉，导致接触、遮挡和跨视角任务难以公平评估。</td>
+            <td>Ambient Capture Engine 分 table-scale 与 room-scale：前者近距相机 + 光学动捕 + 触觉手套，后者整套公寓多相机。头显含 4 路 1088×1280@20fps 鱼眼和 IMU，外部为 8 GoPro 或 8 ZED One 1920×1080@30fps；借 ArUco/OptiTrack 完成无共视相机的公共坐标配准。标注物体类别/框/逐帧 6DoF trail、人体、手、接触、音频与语言。</td>
+            <td>价值不只在多模态，而在同一时空基准下的可组合监督；跨相机无共视时用独立测量系统桥接，避免仅靠 SfM 闭环。benchmark 反映的是当前方法在接触/遮挡/长时程下的退化，不是 ACE 本身的模型改进。</td>
+            <td>150h、75k episodes、17M frames、200 类、50 人、2 个环境。人体 benchmark 中单目时序方法示例最优 PA-MPJPE 55.7mm、MPJPE 58.8mm；多视角与 ego 条件仍有明显误差，具体排名依任务协议而定。</td>
+            <td>适合做多传感器标定、遮挡恢复与长期对象状态跟踪的统一试验场。限制：仅两个站点；动捕真值只覆盖 instrumented objects，未覆盖关节物体、液体和可变形状态；服装、手套、头显与 marker 可能形成数据集特有线索。未下载数据。</td>
+            <td><strong>全文级。</strong>已读采集系统、标定/同步、标注、benchmark、数据统计、limitations/conclusion；Fig.1 仅 caption 可用。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Repo Deep Dives</h2>
+      <table>
+        <thead><tr><th>Repo</th><th>目标与能力</th><th>代码结构证据</th><th>依赖 / 硬件</th><th>成熟度判断</th><th>领域关系</th></tr></thead>
+        <tbody>
+          <tr><td><a href="https://github.com/cvg/vidmap"><strong>cvg/vidmap</strong></a><br>113 stars / 2 forks（检查时网页值）</td><td>论文官方实现；从视频做 feature/matching、关键帧、track、global mapping 与 LaMAR/CroCoDL benchmark。</td><td>顶层 <code>vidmap/</code>、<code>extensions/</code>、<code>third_party/</code>、<code>pyproject.toml</code>；核心含 <code>frontend/</code>、<code>mapper/</code>、<code>datasets/</code>、<code>benchmark/</code>、<code>configs/</code>，入口 <code>run.py</code>、<code>map.py</code>、<code>run_for_benchmark.py</code>、<code>evaluate_results.py</code>。</td><td>Linux x86-64、Python 3.10、Torch 2.7.1、COLMAP/PyCOLMAP 4.1 源码、xformers；NVIDIA GPU。README 估计 checkpoint 约 9GB，LaMAR 等数据还需数十 GB。</td><td><strong>研究代码中等偏高。</strong>有示例命令、预期输出、benchmark 与配置；依赖和数据体量大，未做本地安装/运行，数值复现未验证。</td><td>本期最直接的 video SfM / mapping 工程参考。</td></tr>
+          <tr><td><a href="https://github.com/ActiveButterflies/BioVLN"><strong>ActiveButterflies/BioVLN</strong></a><br>4 stars / 0 forks；8 commits</td><td>构建生物安全实验室 VLN 场景、episode 与几何安全规划基线。</td><td><code>pipeline/</code> 含 lab builder、semantic/navmesh/episode 生成、VLFM 运行与 viewer；另有 <code>configs/</code>、<code>platform/</code>、<code>scripts/</code>、<code>training/</code>、<code>vlm_servers/</code>。训练目录含 trajectory、PyTorch Dataset、Gym/BC/RL 路径。</td><td>Python 3.9+、Habitat-Sim 0.2.5、Blender 5.1.2、PyTorch 2.x；README 给出 RTX 4090 24GB 测试环境，SB3 可选。</td><td><strong>早期但有实质代码。</strong>场景/episode/训练链路可见，仓库规模和提交量仍小；Blender/Habitat 版本耦合强，未本地运行。</td><td>VLN 从成功率扩展到安全约束与多有效目标位姿。</td></tr>
+          <tr><td><a href="https://github.com/ionut-grigore99/JEPADepth"><strong>ionut-grigore99/JEPADepth</strong></a><br>3 stars / 0 forks；24 commits</td><td>在自监督单目深度训练中加入 JEPA masked representation loss，推理时丢弃 predictor。</td><td><code>src/</code>、<code>data/</code>、<code>notebooks/</code>、<code>assets/</code>；<code>src/config/config.yaml</code> 控制 <code>use_jepa_training</code>，训练入口 <code>python -m src.train.trainer</code>，另有 Make3D evaluation 入口和 experiment comparison。</td><td>Python package 由 <code>pyproject.toml</code>/<code>setup.py</code> 管理；依赖 DINOv3 与训练数据。公开页面未给出已验证的最低 GPU/显存配置。</td><td><strong>可读的研究原型。</strong>训练/评估入口与开关齐全，但 stars 少、硬件与 checkpoint 说明有限；未运行。</td><td>把 representation learning 辅助项接到 SfM/photometric depth，而不增加推理路径。</td></tr>
+          <tr><td><a href="https://github.com/H-EmbodVis/ROAD"><strong>H-EmbodVis/ROAD</strong></a><br>11 stars / 0 forks；11 commits</td><td>把 3D foundation encoder 的语义对齐信号迁移到 3D diffusion generator，教师仅训练期使用。</td><td><code>configs/</code>、<code>training/</code>、<code>evaluation/</code>、<code>scripts/</code>、<code>step1x3d_geometry/</code>、<code>pretrained/</code>、<code>tools/</code>；<code>train.py</code>；baseline 与 <code>uni3d_repa.yaml</code> 给出 10k alignment points、权重 0.5/0.1、token alignment 从 epoch 3 开启；脚本支持 Uni3D/ULIP 评估。</td><td>Python 3.10、Torch 2.5.1、CUDA 11.8、flash-attn 2.8.3；需要外部 Step1X-3D/encoder 权重和数据。</td><td><strong>早期研究代码。</strong>配置、训练、评估文件真实存在，demo data 可见；外部权重/数据依赖重，论文性能仅摘要级核对，未运行。</td><td>FeedForward 3D / 生成式 3D 的语义结构对齐。</td></tr>
+        </tbody>
+      </table>
+      <div class="note warn">Repo 访问缺口：GitHub API 在检查中触发限流，stars/forks 以公开网页检查时数值为准，可能随时间变化。PhiZero（30 stars/0 forks）明确写 code/checkpoints coming soon；TEA-AgriVLN 只有 README/assets 并称仍在打包代码；QUARTZ 归档仅 README；X-NavDP 当前项目仓库主要是静态网页。以上未计入 repo 深读数，也不能据 README 声称其结果可复现。</div>
+    </section>
+
+    <section>
+      <h2>Quantitative Experiment Highlights</h2>
+      <table>
+        <thead><tr><th>来源</th><th>数据集 / 场景</th><th>指标</th><th>结果</th><th>解释边界</th></tr></thead>
+        <tbody>
+          <tr><td>VidMap</td><td>LaMAR full</td><td>weighted AUC，未标定/标定</td><td><strong>88.5 / 89.7</strong>；ViPE 76.6 / 78.8</td><td>来自论文表格；依赖其特征、匹配与评测协议。</td></tr>
+          <tr><td>NSL-SLAM</td><td>Replica-SL</td><td>depth RMSE</td><td><strong>0.045</strong>，原 NSL 0.069</td><td>合成结构光数据，不能直接外推真实传感器。</td></tr>
+          <tr><td>NSL-SLAM</td><td>8 个 Replica-SL 场景平均</td><td>ATE 消融</td><td>1.5460m → 0.1529 → 0.0280 → 0.0188 → <strong>0.0155m</strong></td><td>依次加入 neural depth、visual、BA 与 soft feedback；是同论文内部消融。</td></tr>
+          <tr><td>NSL-SLAM</td><td>RTX 4090，848×480</td><td>速度</td><td>depth 27.5 FPS；full system <strong>20.9 FPS</strong></td><td>特定硬件/TensorRT 配置。</td></tr>
+          <tr><td>HiFi-UMI</td><td>4 个真实双臂任务，3 backbone</td><td>UMI-only 对 teleop 成功率差</td><td>StarVLA -2.5pp；OpenPI +3.1pp；LingBot -0.6pp</td><td>每 task-policy 40 rollouts，单次成功即 2.5pp；UMI demo 量更多。</td></tr>
+          <tr><td>HiFi-UMI</td><td>4000h 预训练，10 个未见任务</td><td>action error / 真实成功率</td><td>error -41%；StarVLA <strong>+18.1pp</strong></td><td>来自论文设定；不等价于所有 robot embodiment。</td></tr>
+          <tr><td>PhiZero</td><td>Physics-IQ Verified</td><td>IQ score</td><td><strong>41.2</strong>；Cosmos3-Super 39.5</td><td>总分领先，但 WS 子项 27.6 并非全面领先。</td></tr>
+          <tr><td>PhiZero</td><td>tokenizer ablation</td><td>PSNR / SSIM / LPIPS</td><td>full <strong>28.9 / .903 / .087</strong>；no decoder 26.6 / .875 / .119</td><td>重建质量消融，不直接证明 planning 能力。</td></tr>
+          <tr><td>ACE-Data-0</td><td>采集数据</td><td>规模</td><td>150h、75k episodes、17M frames、200 类、50 人、2 环境</td><td>规模统计；两个站点限制多样性。</td></tr>
+          <tr><td>MemVLN（摘要）</td><td>R2R / RxR</td><td>SR，相对 Qwen3-VL-4B</td><td>+5.8% / +9.7%；14 FPS，latency 约 7× faster</td><td>摘要级原述，尚未核对全文协议与方差。</td></tr>
+          <tr><td>X-NavDP（摘要）</td><td>模拟/真实困难样例</td><td>成功率</td><td>模拟 61.20% → <strong>84.28%</strong>；真实 10% → <strong>65%</strong></td><td>摘要级；需核对任务数、seed 与硬件。</td></tr>
+          <tr><td>FeelWorld（摘要）</td><td>多步触觉预测/规划</td><td>LPIPS / success</td><td>10-step 0.084 → 0.058；80-step 误差低 61%；规划 81.7%</td><td>摘要级；未核对 baseline、置信区间和真实部署规模。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Supplemental Tracking Papers</h2>
+      <table>
+        <thead><tr><th>论文</th><th>方向关系</th><th>解决的问题</th><th>方法 / 结构</th><th>Insight 与数学知识</th><th>实验</th><th>证据级别与后续动作</th></tr></thead>
+        <tbody>
+          <tr><td><a href="https://arxiv.org/abs/2607.26600">JEPADepth</a></td><td>单目深度 / SfM</td><td>photometric 自监督在遮挡、动态和弱纹理下监督不稳。</td><td>在 DINOv3 编码器上加入 JEPA masked representation loss；predictor 仅训练期使用。</td><td>像素重投影与特征可预测性形成互补目标，不增加推理开销。</td><td>摘要称 KITTI 及 Make3D/Cityscapes zero-shot 达到 best/near-best。</td><td><strong>摘要级，未深读全文。</strong>已深查 repo；后续核对损失权重、速度和动态 mask 消融。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.25215">Leveraging Semantic Maps for City-Scale Cross-View Localization</a></td><td>跨视角定位</td><td>卫星/街景与机器人视角差异大，城市级检索成本高。</td><td>VLM 提取地标和可行对应，蒸馏轻量 matcher；似然进入 Bayes filter。</td><td>把语义匹配分数解释为观测概率，随轨迹累积而非单帧决策。</td><td>摘要覆盖最高 628km²、11 个环境，含雪夜 Boston；单一晴天城市训练可泛化。</td><td><strong>摘要级，未深读全文。</strong>需核对地图更新率、定位误差分位数与 VLM 成本。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.28300">MonoVoc</a></td><td>语义 3DGS / monocular video</td><td>开放词汇语义场内存大，几何与语义联合优化相互干扰。</td><td>training-free 单目视频管线，解耦几何与语义，存 object-level embedding。</td><td>对象级稀疏表示以语义分段换取内存，而非为每个 Gaussian 存高维特征。</td><td>摘要称 Replica 上内存降低一个数量级，分割/渲染竞争性。</td><td><strong>摘要级，未深读全文。</strong>需核对对象错分对重建的传播和实际 MB/场景。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.24403">GenSplatCodec</a></td><td>3DGS 压缩</td><td>Gaussian 几何与外观的冗余使流媒体码率高。</td><td>紧凑结构 Gaussian + 外观双流；geometry-guided one-step diffusion；三阶段优化。</td><td>结构码作为生成式外观先验，把码率分配从逐属性重构转向条件生成。</td><td>摘要称多数据集 rate-distortion 优于现有方法，未给统一数字。</td><td><strong>摘要级，未深读全文。</strong>需核对解码延迟和端侧显存。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.24267">FeelWorld</a></td><td>触觉 world model</td><td>只预测视觉无法建模接触、滑移和长程操作反馈。</td><td>联合视觉 latent、接触、3D tactile latent 与 slip；contact-gated asymmetric attention、AR rollout/noise、CEM planning。</td><td>接触门控让触觉仅在物理交互时影响视觉状态；CEM 在模型预测上搜索动作。</td><td>摘要：10-step LPIPS 0.084→0.058，80-step 低 61%，zero-shot planning 81.7%。</td><td><strong>摘要级，未深读全文。</strong>需核对真实机器人数量、触觉传感器与误差累积。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.26452">CG-World</a></td><td>world-model 数据</td><td>互联网视频缺少物理状态、事件和反事实分支真值。</td><td>从 CG production pipeline 记录结构状态、事件、render pass 及 branch/counterfactual lineage。</td><td>同一初态的可控分支为因果/反事实预测提供配对监督。</td><td>摘要：850k 个 1–5 秒对齐片段；评估生成、动作理解和 VLA transfer。</td><td><strong>摘要级，未深读全文。</strong>需检查 license、domain gap 与真实数据混训。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.25569">CORF-GS</a></td><td>光学/RF 3DGS</td><td>无线场重建采样慢，单独优化忽略视觉几何先验。</td><td>光学与 RF 共享几何；optical-guided sampling 和 coupled optimization。</td><td>跨模态共同几何可减少 RF 查询点，同时保留各自辐射属性。</td><td>摘要称仿真重建时间降低 6.4×。</td><td><strong>摘要级，未深读全文。</strong>需核对 RF 频段、真实场景和精度代价。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.26914">BioVLN</a></td><td>VLN / 安全导航</td><td>实验室仪器周围存在危险区，单一目标点不能表示可安全操作区域。</td><td>每个仪器定义 3 个功能区域；几何探索与多个有效终点。</td><td>将成功条件从点命中改为安全可达集合，评价同时包含风险约束。</td><td>摘要：47 scenes/1667 episodes；几何探索 74.4–87.5%，多终点 83.3–92.5%，且 unsafe 更少。</td><td><strong>摘要级，未深读全文。</strong>repo 已查；需核对 danger-zone 定义和 sim-to-real。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.28049">TSOG</a></td><td>4DGS 存储</td><td>4D Gaussian 序列缺少轻量、可随机访问的交换格式。</td><td>时间线 + index-aligned image 的封装格式。</td><td>利用跨时刻对应与图像编码器，避免每帧重复存完整 Gaussian 属性。</td><td>摘要：文件体积减少 &gt;90%，PSNR 差 -0.42 至 +0.85。</td><td><strong>摘要级，未深读全文。</strong>需核对解码时间、seek 粒度和动态拓扑。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.24436">MSVS-VAE</a></td><td>FeedForward 3D latent</td><td>set VAE 解码慢，voxel latent 又浪费空空间。</td><td>hierarchical anchored VecSet、point-shuffle、AVS-Conv 多尺度局部建模。</td><td>锚点层级提供稀疏空间索引，局部卷积减少全局集合注意力成本。</td><td>摘要称 Objaverse/ABO 上解码约 10× 快于 set VAE、比 voxel 紧凑约 10×。</td><td><strong>摘要级，未深读全文。</strong>需核对 mesh quality、吞吐口径和 latent bitrate。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.25219">SONG</a></td><td>3DGS / embodied simulation</td><td>生成具身训练场景时，静态环境、人物运动和语言任务难协同。</td><td>3DGS scene/avatar、LLM trajectory 与 motion generator 组合，并设计 benchmark 指标。</td><td>将语言任务分解为轨迹与人体动作，再落到可渲染的 Gaussian 场景。</td><td>摘要称微调可提升真实成功率，但未给可比数字。</td><td><strong>摘要级，未深读全文。</strong>需核对生成失败率、真实迁移协议和人形碰撞。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.26578">3DGBGS</a></td><td>3DGS 压缩</td><td>SfM 初始化点和最终 Gaussian 存储仍冗余。</td><td>以可聚合 granular balls 表示并适配 SfM，设置初始/最终 anchor。</td><td>局部聚合把连续空间相近属性合并，压缩与优化联动。</td><td>摘要：初始/最终 anchors -37.1%/-10%，平均存储 -9.8%，质量相当。</td><td><strong>摘要级，未深读全文。</strong>需核对训练时间、场景分布与最差画质。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.25389">HOME</a></td><td>几何定位</td><td>线特征匹配与姿态求解在纹理弱场景成本高。</td><td>Hough space 中由全局线产生 1D extrema；radial descriptor 具旋转/平移不变性。</td><td>将 2D 线集合压缩到径向一维统计，并给出 homography 条件下证明。</td><td>摘要称快于 line-based 方法；完整 3D 扩展仍是未来工作。</td><td><strong>摘要级，未深读全文。</strong>当前更接近 2D homography；需核对定位适用边界。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.28474">TEA-AgriVLN</a></td><td>农业 VLN</td><td>只追求到达会忽略作物、设备等不可穿越/高风险区域。</td><td>增加 traversability alarm，约束 agent 的路径决策。</td><td>安全信号作为导航过程的显式 guardrail，而非事后碰撞指标。</td><td>摘要：A2A SR 0.47→0.54，NE 2.91→2.70。</td><td><strong>摘要级，未深读全文。</strong>repo 尚在打包；需核对 alarm 的召回率与误报。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.23901">SHARE</a></td><td>协作 AR SLAM</td><td>多用户共享地图需要在延迟、特征冗余与体验之间取舍。</td><td>边缘侧优先级调度与 feature redundancy 抑制。</td><td>只传高价值观测，以网络队列和几何新颖度共同分配带宽。</td><td>摘要：平均 13.22ms、延迟低 43.3%、sub-2cm tracking，并含用户研究。</td><td><strong>摘要级，未深读全文。</strong>需核对网络拓扑、并发人数和 2cm 定义。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.24233">Quality-Adaptive Multi-UAV 3D Reconstruction</a></td><td>多机器人建图</td><td>固定巡航无法把飞行预算集中到 TSDF 低置信区域。</td><td>TSDF confidence 目标 + 局部离散度，按阈值触发全局聚类和任务分配。</td><td>把重建不确定性转成主动规划收益，局部修补与全局重分配分层运行。</td><td>摘要称仿真路径效率和重建 fidelity 更优，未给统一数值。</td><td><strong>摘要级，未深读全文。</strong>代码仓库仅占位；需查通信/碰撞与真实飞行。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.23504">MemVLN</a></td><td>VLN / 长程记忆</td><td>VLM 导航逐帧推理慢，历史视觉冗余且动作不可复用。</td><td>pyramidal episodic memory + atomic procedural actions。</td><td>多尺度记忆压缩历史，程序化原子动作减少高层模型调用频率。</td><td>摘要：14 FPS；相对 Qwen3-VL-4B，R2R/RxR SR +5.8%/+9.7%，latency 约 7× faster。</td><td><strong>摘要级，未深读全文。</strong>需核对 memory budget、失败恢复与端到端硬件。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.26889">StructureGS</a></td><td>动态/关节 3DGS</td><td>逐 Gaussian 优化缺少对象部件结构，关节运动易断裂。</td><td>OBB 结构先验与 spatial coherence/connectivity losses。</td><td>用部件级盒约束局部高斯的相对关系，把拓扑连续性写入损失。</td><td>摘要称 articulated scene 上定性/定量优于现有方法，未列数字。</td><td><strong>摘要级，未深读全文。</strong>需核对 OBB 获取方式和新姿态外推。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.28560">X-NavDP</a></td><td>VLN / diffusion policy</td><td>离线模仿难覆盖分布外导航失败，直接 RL 又不稳定。</td><td>self-bootstrapped behavior perturbation；group-Q reweighted score matching；异构 embodiment 分布式采样。</td><td>用 Q 值对 diffusion score matching 样本加权，把策略改进写回生成分布。</td><td>摘要：模拟 SR 61.20%→84.28%，真实困难样例 10%→65%。</td><td><strong>摘要级，未深读全文。</strong>项目 repo 主要为网页；需核对真实试验样本数与 reward hacking。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.28581">ROAD</a></td><td>FeedForward / 生成式 3D</td><td>3D diffusion 的生成表示缺少 foundation encoder 的判别语义。</td><td>Holistic Semantic Condensing + Structural Optimal Alignment；后者以 bipartite/Hungarian matching 对齐 token，教师只在训练期使用。</td><td>全局语义和局部结构分别蒸馏，避免仅用 pooled feature 丢失部件对应。</td><td>摘要称以 Step1X-3D 为基线，用 1.5% 训练数据获得竞争性结果。</td><td><strong>摘要级，未深读全文。</strong>repo 已深查；需读全文核对数据量口径与各对齐项消融。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Trends &amp; Insights</h2>
+      <h3>1. 显式几何没有消失，而是在学习特征之后重新成为“可信约束层”</h3>
+      <p>VidMap 用时序 provenance、track uncertainty、不同鲁棒核和 metric-depth scale 约束全局 SfM；NSL-SLAM 用单目特征改善视差，但最终仍依靠 GICP、视觉对应与 BA。两篇消融共同说明，学习模块最有价值的位置是提高观测质量和可辨识性，几何后端仍承担一致性与故障隔离。</p>
+      <h3>2. 具身数据的竞争点从原始规模转向可回放、可同步、可组合监督</h3>
+      <p>HiFi-UMI 把轨迹重建和 replay pass rate 作为质量门，ACE 通过动捕/ArUco 把无共视相机连到同一坐标，CG-World 则记录状态、事件和反事实分支。单纯“小时数”已不足以判断数据价值；可恢复的坐标、时间、接触和对象状态才决定下游训练的上限。</p>
+      <h3>3. World model 的中间表示开始分化：离散物理语言、触觉状态与结构事件</h3>
+      <p>PhiZero 的离散转移 token、FeelWorld 的 contact/tactile/slip latent、CG-World 的结构事件都在减少像素预测承担的推理负担。下一步关键不是再看一项视频指标，而是检验这些状态是否支持长程闭环控制、错误诊断和跨 embodiment 复用。</p>
+      <h3>4. 热闹但证据不足的方向</h3>
+      <p>本期多篇 3DGS 压缩、VLN policy 与世界模型只在摘要给出相对提升；部分项目仓库仅放项目页或“coming soon”。它们适合加入观察列表，不应据 stars、宣传图或单一摘要数字进入工程路线。尤其要等 code/checkpoint、数据协议和失败案例公开后再做成熟度判断。</p>
+    </section>
+
+    <section>
+      <h2>Evidence &amp; Reading Coverage</h2>
+      <table>
+        <thead><tr><th>对象</th><th>实际阅读/检查覆盖</th><th>证据等级</th><th>不足</th></tr></thead>
+        <tbody>
+          <tr><td>6 篇 Deep-read</td><td>arXiv HTML 全文：Intro、Method、Experiments、Ablation/Analysis、Conclusion/Limitations；核对公式、表格和 caption。</td><td><strong>全文级</strong></td><td>未执行作者代码；Semantic SLAM 真实实验无 GT；ACE 为数据集 benchmark，不是单一模型消融。</td></tr>
+          <tr><td>4 张系统图</td><td>确认 caption 含 overview/pipeline/framework 含义，下载本地资产并逐张视觉检查；缩略图链接回原图。</td><td><strong>图像级</strong></td><td>Semantic SLAM、ACE 的总览图在 arXiv HTML 中无独立图像资源，明确未嵌入。</td></tr>
+          <tr><td>20 篇 Supplemental</td><td>读取 arXiv 摘要/元数据，按方向、问题、方法、insight、数学和实验压缩。</td><td><strong>摘要级</strong></td><td>未读正文、附录与失败案例；摘要未给数字处不补写“显著提升”。</td></tr>
+          <tr><td>4 个 Repo</td><td>公开 README、目录树、文件/配置/入口、依赖与近期提交；记录 stars/forks。</td><td><strong>代码结构级</strong></td><td>未下载权重/大数据，未安装依赖或跑 demo；GitHub API 限流时用网页读取。</td></tr>
+          <tr><td>HiFi-UMI 数据</td><td>额外读取 Hugging Face README：parquet、视频模态目录、meta/modality.json 和 stats.json。</td><td><strong>README 级</strong></td><td>未下载 shard，未核验样本内容与许可的逐文件一致性。</td></tr>
+          <tr><td>无法充分验证来源</td><td>PhiZero、TEA-AgriVLN、QUARTZ、X-NavDP 等公开仓库/项目页。</td><td><strong>元数据/占位级</strong></td><td>代码未发布、仓库归档或仅静态页面；无登录受限来源进入核心结论。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>值得跟进事项</h2>
+      <ul>
+        <li><strong>最高优先级：</strong>在自有视频 SfM 管线上做 VidMap 的最小消融：只引入 sequential/loop-closure provenance 与不同鲁棒核，测 ATE、闭环误拒/误接和运行时，不先迁移全部网络。</li>
+        <li><strong>传感器验证：</strong>用自有结构光相机复现 NSL-SLAM 的“原深度 → neural depth → +visual → +BA”阶梯，单独记录薄结构、反光、远距和边界误差，避免只看整体 ATE。</li>
+        <li><strong>数据工程：</strong>把 HiFi-UMI 的 reconstruction pass、replay pass、可用 demonstration rate 引入现有机器人数据流水线；同时记录每次失败原因，而非只报累计小时。</li>
+        <li><strong>世界模型：</strong>等 PhiZero checkpoint 发布后，先检验离散 token 是否对接触、物体恒存和长时序漂移可诊断，再考虑用于规划；当前不做工程承诺。</li>
+        <li><strong>VLN：</strong>深读 X-NavDP 与 BioVLN 的全文/附录，重点核对真实试验样本数、安全指标和 reward/Q reweighting 的稳定性。</li>
+        <li><strong>代码成熟度监控：</strong>下期复查 PhiZero、TEA-AgriVLN、Quality-Adaptive Multi-UAV 与 X-NavDP 是否有实质代码、checkpoint 或可执行 demo。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>原始链接列表</h2>
+      <ul class="links">
+        <li><a href="https://arxiv.org/html/2607.27194v1">VidMap 全文 HTML</a> · <a href="https://github.com/cvg/vidmap">repo</a></li>
+        <li><a href="https://arxiv.org/html/2607.24495v1">NSL-SLAM 全文 HTML</a></li>
+        <li><a href="https://arxiv.org/html/2607.23384v1">Semantic Semi-Incremental Object SLAM 全文</a></li>
+        <li><a href="https://arxiv.org/html/2607.25895v1">HiFi-UMI 全文</a> · <a href="https://huggingface.co/datasets/HiFi-UMI/HiFi-UMI-Data">数据 README</a></li>
+        <li><a href="https://arxiv.org/html/2607.28624v1">PhiZero 全文</a> · <a href="https://github.com/yaoyao-jpg/PhiZero">占位 repo</a></li>
+        <li><a href="https://arxiv.org/html/2607.28625v1">ACE-Data-0 全文</a></li>
+        <li><a href="https://arxiv.org/abs/2607.26600">JEPADepth</a> · <a href="https://github.com/ionut-grigore99/JEPADepth">repo</a></li>
+        <li><a href="https://arxiv.org/abs/2607.25215">Semantic Maps for City-Scale Localization</a></li>
+        <li><a href="https://arxiv.org/abs/2607.28300">MonoVoc</a></li>
+        <li><a href="https://arxiv.org/abs/2607.24403">GenSplatCodec</a></li>
+        <li><a href="https://arxiv.org/abs/2607.24267">FeelWorld</a></li>
+        <li><a href="https://arxiv.org/abs/2607.26452">CG-World</a></li>
+        <li><a href="https://arxiv.org/abs/2607.25569">CORF-GS</a></li>
+        <li><a href="https://arxiv.org/abs/2607.26914">BioVLN</a> · <a href="https://github.com/ActiveButterflies/BioVLN">repo</a></li>
+        <li><a href="https://arxiv.org/abs/2607.28049">TSOG</a></li>
+        <li><a href="https://arxiv.org/abs/2607.24436">MSVS-VAE</a></li>
+        <li><a href="https://arxiv.org/abs/2607.25219">SONG</a></li>
+        <li><a href="https://arxiv.org/abs/2607.26578">3DGBGS</a></li>
+        <li><a href="https://arxiv.org/abs/2607.25389">HOME</a></li>
+        <li><a href="https://arxiv.org/abs/2607.28474">TEA-AgriVLN</a></li>
+        <li><a href="https://arxiv.org/abs/2607.23901">SHARE</a></li>
+        <li><a href="https://arxiv.org/abs/2607.24233">Quality-Adaptive Multi-UAV Reconstruction</a></li>
+        <li><a href="https://arxiv.org/abs/2607.23504">MemVLN</a></li>
+        <li><a href="https://arxiv.org/abs/2607.26889">StructureGS</a></li>
+        <li><a href="https://arxiv.org/abs/2607.28560">X-NavDP</a></li>
+        <li><a href="https://arxiv.org/abs/2607.28581">ROAD</a> · <a href="https://github.com/H-EmbodVis/ROAD">repo</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
