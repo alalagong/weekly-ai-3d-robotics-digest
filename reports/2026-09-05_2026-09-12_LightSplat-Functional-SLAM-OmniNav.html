@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-09-05 至 2026-09-12：LightSplat、Functional-SLAM 与 OmniNav</title>
+  <style>
+    :root { color-scheme: light; --ink:#17202a; --muted:#5b6675; --line:#d9e2ea; --soft:#f5f8fb; --accent:#0f766e; --accent-2:#7c2d12; --code:#eef7f4; --warn:#fff7ed; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif; color:var(--ink); background:#fff; line-height:1.62; }
+    header { padding:38px 7vw 26px; border-bottom:1px solid var(--line); background:linear-gradient(180deg,#f8fbfd 0%,#fff 100%); }
+    main { max-width:1280px; margin:0 auto; padding:28px 7vw 60px; }
+    h1 { margin:0 0 12px; font-size:clamp(28px,4vw,43px); line-height:1.15; }
+    h2 { margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--line); font-size:24px; }
+    h3 { margin:22px 0 8px; font-size:18px; }
+    p { margin:8px 0; } a { color:#075985; text-decoration-thickness:1px; text-underline-offset:2px; }
+    table { width:100%; border-collapse:collapse; margin:14px 0 24px; font-size:14px; }
+    th,td { vertical-align:top; text-align:left; border:1px solid var(--line); padding:10px 12px; }
+    th { background:var(--soft); } tr:nth-child(even) td { background:#fcfdfe; }
+    code { padding:1px 5px; border-radius:4px; background:var(--code); font-size:90%; }
+    ul { padding-left:22px; } li { margin:7px 0; }
+    .meta { color:var(--muted); font-size:14px; }
+    .summary-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin-top:18px; }
+    .tile { border:1px solid var(--line); border-radius:8px; padding:14px 16px; background:#fff; }
+    .tile strong { display:block; margin-bottom:6px; color:var(--accent); }
+    .note { margin:16px 0; padding:11px 14px; border-left:4px solid var(--accent); background:#eefaf7; }
+    .warn { border-left-color:var(--accent-2); background:var(--warn); }
+    .tag { display:inline-block; margin:2px 4px 2px 0; padding:2px 7px; border-radius:999px; background:var(--code); color:#115e59; font-size:12px; white-space:nowrap; }
+    .small { color:var(--muted); font-size:12px; } .score { font-weight:700; color:var(--accent-2); }
+    .paper-thumb { display:block; width:220px; max-width:100%; text-decoration:none; }
+    .paper-thumb img { width:100%; border:1px solid var(--line); border-radius:8px; background:#fff; }
+    .paper-thumb span { display:block; margin-top:4px; color:var(--muted); font-size:12px; line-height:1.35; }
+    .links { columns:2; }
+    @media (max-width:820px) { header{padding:28px 5vw 20px} main{padding:20px 5vw 44px} table{display:block;overflow-x:auto}.links{columns:1} }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="meta">每周 SLAM / VIO / SfM / FeedForward 3D 进展报告</p>
+    <h1>从“几何正确”走向“可行动”：LightSplat、Functional-SLAM 与 OmniNav</h1>
+    <p class="meta">覆盖时间：2026-09-05 16:17:17 至 2026-09-12 16:26:52（Asia/Shanghai）。本期按 <code>.cache/slam-3d-state.json</code> 上次覆盖结束时间连续推进，实际约 7.01 天。</p>
+    <div class="summary-grid">
+      <div class="tile"><strong>全文深读论文</strong>6 篇：LightSplat、Functional-SLAM、Occupancy World Models for Active Mapping、SAMV-DUSt3R、OmniNav、SHIFT。覆盖 Intro、Method、Experiments、Ablation/Analysis、Conclusion，并检查系统图。</div>
+      <div class="tile"><strong>摘要/元数据跟踪</strong>20 个条目：覆盖 SLAM/SfM、FeedForward 3D/3DGS、world model、VLN 与具身导航。AGC-VLN 为窗口内修订，其余为窗口内新稿。</div>
+      <div class="tile"><strong>Repo 深读</strong>3 个仓库：Functional-SLAM、Tri-DehazeGS、FIRE3D。检查 README、tree、配置、入口、核心模块、提交/发布/issue；均未下载权重或本地运行。</div>
+      <div class="tile"><strong>访问限制</strong>Functional-SLAM 依赖 gated SAM3 与 DeepSeek API；OmniNav、LightSplat、SAMV-DUSt3R、SHIFT 未找到可核验公开实现；O2C-Nav 仅 README。作者实验未被独立复现。</div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Executive Summary</h2>
+      <p><strong>SLAM 的竞争目标正在从轨迹误差扩展到“地图能否支撑后续决策”。</strong> LightSplat 用残差自适应回环把稀疏跟踪、Gaussian 子图和全局一致性接起来；Functional-SLAM 则直接把功能关系稳定性引入节点关联与回环候选。前者在 TUM RGB-D 平均 ATE 略优于 LoopSplat，但 ScanNet 平均 ATE 反而更差，说明速度/表征收益仍不能替代场景级鲁棒性。</p>
+      <p><strong>显式不确定性与失败反馈，开始成为导航世界模型的“一等公民”。</strong> Occupancy 诊断显示补全并非越多越好：假占用与漏占用对 active mapping 的影响非单调，按多次观测无支持来可逆过滤，在两个针对性起点分别带来 +0.163 与 +0.122 最终覆盖率；OmniNav 也用持续性后验和失败后的信念更新处理动态物体。</p>
+      <p><strong>FeedForward 3D 正在把“参考视图选择、传感器模型、下游可用性”纳入主干。</strong> SAMV-DUSt3R 用语义 mask 与图排序选参考视图；OmniPoint 解耦 ray/distance 适配多种相机；SHIFT 则说明结构化压缩能显著加速 TSDF，但端到端收益和几何误差必须单独核算。</p>
+      <div class="note warn">证据边界：6 篇主论文为 arXiv HTML 全文段落级阅读；20 篇补充条目至少为摘要级，少数补读实验段落。仓库结论来自 GitHub 文件级静态检查，不等于安装、训练、推理或复现实验。star/fork 为 2026-09-12 16:26（Asia/Shanghai）附近的易变快照。</div>
+    </section>
+
+    <section>
+      <h2>Deep-read Papers</h2>
+      <table>
+        <thead><tr><th>论文</th><th>系统/框架图</th><th>解决的问题</th><th>方法 / 结构</th><th>Insight 与数学知识</th><th>实验与效果</th><th>复现与启发</th><th>阅读证据</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2609.07274">LightSplat</a><br><span class="tag">3DGS-SLAM</span><span class="tag">回环</span></td>
+            <td><a class="paper-thumb" href="./assets/2026-09-05_2026-09-12_2609.07274_lightsplat_fig2_overview.jpg"><img src="./assets/2026-09-05_2026-09-12_2609.07274_lightsplat_fig2_overview.jpg" alt="LightSplat 系统概览图"><span>Fig.2：稀疏跟踪、Gaussian 子图、残差自适应回环与全局校正。</span></a></td>
+            <td>兼顾 RGB-D 3DGS-SLAM 的实时跟踪、稠密渲染和回环后的全局一致性。</td>
+            <td>SuperPoint/LightGlue + RANSAC/Huber 的稀疏前端；双线程 Gaussian 子图；NetVLAD 候选、PnP 几何验证、按联合残差决定是否跳过光度细化；加权旋转平均和位姿图后刚性更新 Gaussian 均值/协方差。</td>
+            <td>局部 BA 固定最老关键帧消除规范自由度；渲染损失联合颜色、深度与各向同性正则。核心 insight 是让回环计算量由当前残差决定，而非每次完整优化。</td>
+            <td>TUM RGB-D 平均 ATE <span class="score">3.33 cm</span>（LoopSplat 3.46）；ScanNet 平均 <span class="score">9.6 cm</span>（LoopSplat 7.7，未领先）。fr1/desk 完整系统 6.7 FPS、2.02 cm ATE，LoopSplat 0.7 FPS、2.26 cm。</td>
+            <td>RTX 4080；TUM/ScanNet/Replica/Habitat 与真机。值得迁移的是“残差触发的精修”；风险是子图配准开销、无全局 BA、受限视角 floaters 与内存增长。</td>
+            <td>全文：Intro、Method、Experiments、Ablation、Conclusion/Limitations；系统 Fig.2 已下载并目视核验。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2609.07497">Functional-SLAM</a><br><span class="tag">功能图</span><span class="tag">开放词汇</span></td>
+            <td><a class="paper-thumb" href="./assets/2026-09-05_2026-09-12_2609.07497_functional_slam_fig1_pipeline.png"><img src="./assets/2026-09-05_2026-09-12_2609.07497_functional_slam_fig1_pipeline.png" alt="Functional-SLAM 流程图"><span>Fig.1：在线功能图构建、时序稳定化与功能拓扑回环。</span></a></td>
+            <td>传统 SLAM 地图几何正确但缺少“物体能做什么、彼此如何关联”的任务语义。</td>
+            <td>MASt3R-SLAM 跟踪；RAM++/DeepSeek/SAM3 开放词汇感知；在线功能图 G<sub>t</sub>=(U,O,R)；anchor-keyframe 几何；节点匹配融合几何、语义、功能上下文；功能拓扑候选再做几何验证。</td>
+            <td>关系证据用时序后验累积，避免单帧 VLM 抖动；视角质量 Q<sub>view</sub> 采用字典序选择；回环同时使用图相似度 S<sub>G</sub> 与功能关系保持分数 S<sub>FT</sub>。</td>
+            <td>FunGraph3D 完整系统 ATE 16.5，node R@3/10 64.55/67.14，triplet R@5/10 41.10/43.84；去掉功能回环后 ATE 19.7、triplet 35.96/38.36。在线 0.38 FPS，离线对比方法 0.02–0.06 FPS。</td>
+            <td>公开代码但依赖 gated SAM3、DeepSeek API、多个权重与数据集。启发是把“关系一致性”作为回环和数据关联信号，而非仅作为可视化层。</td>
+            <td>全文五部分；Fig.1 已目视核验；另对公开 repo 做文件级深查。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2609.06820">Diagnosing and Dynamically Filtering Occupancy World Models for Active Mapping</a><br><span class="tag">world model</span><span class="tag">active mapping</span></td>
+            <td><span class="small">未收录：论文图为诊断示例/结果图，不符合“仅系统框架图”规则。</span></td>
+            <td>拆解 learned occupancy completion 中 false positive/false negative 对主动建图规划的真实作用，并寻找在线修正机制。</td>
+            <td>固定 MAGICIAN planner，仅替换 occupancy 条件：无补全、learned、移除 FP、补回 FN、GT；再以多次视锥曝光却无 RGB-D 表面支持为证据，K=2、ε=场景直径 0.03，动态且可逆地压制假占用。</td>
+            <td>规划器通过预测 occupancy 计算 expected coverage gain 和碰撞；最终覆盖 C<sub>T</sub>、归一化 coverage AUC、达到 70% 的 S70 共同刻画。关键结论是地图误差对规划器的影响是<strong>非单调</strong>的。</td>
+            <td>5 场景×5 起点×101 poses。pooled learned C<sub>T</sub>=.846、AUC=.644、S70=31.6；GT +.031/+ .086/−12.7。动态过滤在 Pantheon/2、Sestino/2 分别 +.163、+.122 最终覆盖。</td>
+            <td>过滤实验仅两个刻意挑选起点、每个 3 次，属于 preliminary。可优先验证“可逆负证据”是否能迁移到 occupancy/scene-memory 导航。</td>
+            <td>全文 Intro、diagnostic design、metrics、results、dynamic filter、limitations；无合格系统图。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2609.11279">SAMV-DUSt3R</a><br><span class="tag">FeedForward 3D</span><span class="tag">语义</span></td>
+            <td><a class="paper-thumb" href="./assets/2026-09-05_2026-09-12_2609.11279_samv_dust3r_fig1_overview.png"><img src="./assets/2026-09-05_2026-09-12_2609.11279_samv_dust3r_fig1_overview.png" alt="SAMV-DUSt3R 系统图"><span>Fig.1：SAM2 mask、Spatial RankGNN、Cross Flow Mask Block 与点图输出。</span></a></td>
+            <td>多视图前馈重建对参考视图敏感，且纯外观 token 难以保持跨视图对象结构。</td>
+            <td>MV-DUSt3R 主干叠加 SAM2 mask embedding；Spatial RankGNN 做参考视图排序；Cross Flow Mask Block 在跨视图特征中注入语义；输出 pointmap/confidence/mask，以 Masked Confidence Loss 训练。</td>
+            <td>RankGNN 的全局多头消息传递复杂度 O(LN²)；语义 mask 作为软结构先验。论文把“参考视图选择”从外部启发式变成可学习子任务。</td>
+            <td>排序准确率 73.5%。DTU 12 views：ND 6.2、DAc 6.8、CD 1.9、Acc 5.5、Comp 5.8；24 views：6.1/6.9/1.7/4.7/4.9（按论文表中缩放）。NVS 并非所有设置领先。</td>
+            <td>未找到可核验代码。NVS 仅以 target point cloud 初始化 3DGS，而评测图含背景，暴露几何指标与渲染指标的任务错位。</td>
+            <td>全文五部分与表格；Fig.1 已目视核验；代码可用性仅搜索级证据。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2609.08159">OmniNav</a><br><span class="tag">动态导航</span><span class="tag">移动操作</span></td>
+            <td><a class="paper-thumb" href="./assets/2026-09-05_2026-09-12_2609.08159_omninav_fig1_framework.png"><img src="./assets/2026-09-05_2026-09-12_2609.08159_omninav_fig1_framework.png" alt="OmniNav 框架图"><span>Fig.1：动态场景记忆、探索—利用、可达性操作与恢复。</span></a></td>
+            <td>在动态家庭场景中处理物体移动、未成功搜索、移动底盘对齐与抓取失败，而非一次性静态 ObjectNav。</td>
+            <td>3D voxel map + scene graph 的对象中心记忆；任务驱动探索—利用；搜索失败后更新信念；可达性约束的闭环操作与恢复。对象持续性是两状态 Markov/Bayesian 模型，观测分为支持、空、遮挡。</td>
+            <td>后验可写为 P(M,T,F|Y,Q) 的因子化；当实例 belief 低于阈值才删除。把“没看到”区分为可证伪的空观测与不可证伪的遮挡。</td>
+            <td>MP3D full SR .473/SPL .180；去 progress .412/.154，去动态感知恢复 .426/.155。60 次真机 pick-place 成功率 71.7%，改造 OK-Robot 53.3%；三级难度 85/75/55% 对 80/55/25%。</td>
+            <td>Unitree Go2 + ARX X5 + LiDAR/RGB-D，onboard RTX 3090，使用 GPT-4o API。仅 3 个动态场景、每场景 3 次；未找到匹配公开 repo。</td>
+            <td>全文 Intro、framework、belief update、sim/real experiments、ablation、limitations；Fig.1 已目视核验。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2609.06547">SHIFT</a><br><span class="tag">TSDF/ESDF</span><span class="tag">CPU</span></td>
+            <td><span class="small">未收录：Fig.1 为文内 TikZ/概念图，未得到可独立核验的原始系统图资产。</span></td>
+            <td>让有组织 RGB-D/LiDAR 的 TSDF/ESDF 更新在 CPU 上更快、更省内存，同时保留可用于规划的距离场。</td>
+            <td>range image 分 flat/edge/curved；共面像素聚合为 weighted super-rays；非投影 TSDF；flat voxel 在 W≥5 且有梯度时冻结，若新距离差 &lt;1 cm 跳过；紧凑 ESDF 布局，建立于 Voxfield。</td>
+            <td>super-ray 以残差权重投影到平面后求加权均值并累加权重；结构压缩减少重复 ray marching，但平面化会引入偏差。</td>
+            <td>4 个数据集，TSDF 加速 1.42–4.07×，内存最高降 28%。Newer College TSDF 1.76×，但端到端仅 1.12×（40 cm）。Flat mesh error 1.75→1.94 cm。</td>
+            <td>单线程 Ryzen 9700X、无 GPU。未设计 residual-motion unfreeze，动态物体可能被过早冻结；未找到公开代码。</td>
+            <td>全文五部分、公式/伪代码、4 数据集表、消融/限制；无合格可下载系统图。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Repo Deep Dives</h2>
+      <table>
+        <thead><tr><th>Repo</th><th>目标与能力</th><th>代码结构证据</th><th>依赖 / 硬件</th><th>成熟度判断</th><th>领域关系</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><a href="https://github.com/Hbelief1998/Functional-SLAM-CoRL_2026">Functional-SLAM-CoRL_2026</a><br><span class="small">34★ / 1 fork / 0 open issue；latest f0426fa；无 release</span></td>
+            <td>论文官方实现：MASt3R-SLAM + 在线开放词汇功能图 + 功能拓扑回环，输出轨迹、PLY 和在线功能图 JSON。</td>
+            <td><code>main.py</code>、<code>config/*.yaml</code>；<code>mast3r_slam/functional_graph/online_state.py</code>（10,678 行，关联/anchor/DBSCAN/posterior）、<code>graph_commit.py</code>（tentative/committed edge）、<code>node_track.py</code>、<code>local_posterior.py</code>、<code>remote_posterior.py</code>、<code>node_place_recognition.py</code>。检查了 README、完整 tree、98 行评测配置和最新提交。</td>
+            <td>Ubuntu、Python 3.11、PyTorch 2.5.1、CUDA 12.4、RTX 3090；SAM3 gated 权重/HF login、MASt3R/RAM++ 权重、Functional-SLAM 数据、DeepSeek API。</td>
+            <td>代码面广且含 vendored 第三方模块，复现门槛高；无 release，最新提交仅 README 链接修订。<strong>静态代码证据，不代表运行成功。</strong></td>
+            <td>核心 SLAM：语义/功能层直接进入数据关联与回环，而非离线后处理。</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/aptx46/Tri-DehazeGS">Tri-DehazeGS</a><br><span class="small">8★ / 2 forks / 0 open issue；latest a9ca200；无 release</span></td>
+            <td>将 clean Gaussian scene 与 view-shared triplane medium 分解；先联合分解，再冻结 medium 进行 MD-TGC。</td>
+            <td><code>train.py</code>（304 行，两阶段训练编排）、<code>scene/medium_renderer.py</code>（134 行，<code>ray_march_triplane_medium</code>）、<code>gaussian_renderer/</code>、<code>render_haze.py</code>、<code>run/{realx3d,fognerf,mipnerf360}.sh</code>、CUDA rasterizer 子模块。检查 README、tree、入口/核心函数和唯一初始提交。</td>
+            <td>需要 CUDA/PyTorch、COLMAP 相机、images/depths/clean refs；默认 15k iterations。未下载数据、权重或编译扩展。</td>
+            <td>实现已公开但仓库只有初始提交、无 release；结果产物定义清楚（clean/hazy render、transmittance、β、airlight、residual、metrics JSON）。</td>
+            <td>相邻 3DGS：重点不是定位，而是恶劣介质下可解释场景/介质分解。</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/xiahongchi/Fire3D">FIRE3D</a><br><span class="small">90★ / 6 forks / 0 open issue；latest 2368dd2；MIT；无 release</span></td>
+            <td>单 RGB 或随手视频生成 simulation-ready、按对象分解的 6DoF/OBB/纹理网格，面向仿真重建。</td>
+            <td><code>fire3d/cli.py</code>（307 行，download/infer/sample/render）、<code>runtime/model_loader.py</code>（276 行）、<code>models/scene_decoder_w_seg_voxelize.py</code>（1,101 行）、<code>tests/test_release_cli.py</code>（223 行）；另含训练、benchmark、data processing、TRELLIS2/o-voxel/CuMesh。检查 README、tree、核心入口、测试和近期提交。</td>
+            <td>Linux、Python 3.10、CUDA 12.8、PyTorch 2.7.1、Blender 4.5.1；README 标注在 96 GB GPU 验证。模型与数据需另行下载。</td>
+            <td>三者中代码/测试/协议最完整，但环境昂贵且仍无 release；论文“under a minute”是作者结论，未在本机验证。</td>
+            <td>FeedForward 3D 的下游化：输出从点图/高斯扩展为可交互仿真资产。</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="note warn">仓库访问缺口：Functional-SLAM 的 SAM3 权重需要 Hugging Face 授权登录，且 DeepSeek API 为外部依赖；三个仓库均未安装/运行。O2C-Nav-Code 与 ShapeGuidedGaussian 在检查时仅有 README，未计入深读。OmniNav 同名搜索结果存在歧义，因此未把非匹配仓库当作论文实现。</div>
+    </section>
+
+    <section>
+      <h2>Quantitative Experiment Highlights</h2>
+      <table>
+        <thead><tr><th>来源</th><th>数据集 / 场景</th><th>指标</th><th>结果</th><th>解释边界</th></tr></thead>
+        <tbody>
+          <tr><td>LightSplat</td><td>TUM RGB-D / ScanNet</td><td>平均 ATE</td><td>TUM 3.33 cm vs LoopSplat 3.46；ScanNet 9.6 cm vs 7.7</td><td>不是跨数据集统一领先；必须同时呈现反例。</td></tr>
+          <tr><td>LightSplat ablation</td><td>TUM fr1/desk</td><td>FPS / ATE / PSNR</td><td>pure VO 5.0 / 10.24 cm；+ sparse map 10.1 / 6.54；full 6.7 / 2.02 / 21.7 dB；LoopSplat 0.7 / 2.26 / 21.8</td><td>单序列消融；速度/轨迹改善明显，渲染质量近似。</td></tr>
+          <tr><td>Functional-SLAM</td><td>FunGraph3D</td><td>ATE / node recall / triplet recall</td><td>full 16.5 / 64.55–67.14 / 41.10–43.84；w/o functional loop 19.7 / 61.74–64.32 / 35.96–38.36</td><td>关系图和回环联动，但绝对量纲以原文设置为准。</td></tr>
+          <tr><td>Functional-SLAM</td><td>在线处理</td><td>FPS</td><td>0.38；OpenFunGraph 0.02、FunGraph 0.06、KeySG 0.05</td><td>仍远低于视频帧率；“online”指增量处理范式。</td></tr>
+          <tr><td>Occupancy diagnosis</td><td>5 scenes × 5 starts</td><td>C<sub>T</sub> / AUC / S70</td><td>learned .846/.644/31.6；GT 相对 +.031/+.086/−12.7</td><td>固定 planner，结论是模型—规划器耦合，不是纯 occupancy accuracy 排名。</td></tr>
+          <tr><td>Dynamic occupancy filter</td><td>Pantheon/2；Sestino/2</td><td>最终覆盖率</td><td>.309±.021→.472±.078；.836±.108→.958±.021</td><td>仅两个针对性起点、各 3 次；初步证据。</td></tr>
+          <tr><td>SAMV-DUSt3R</td><td>DTU 12 / 24 views</td><td>ND / DAc / CD / Acc / Comp</td><td>12：6.2/6.8/1.9/5.5/5.8；24：6.1/6.9/1.7/4.7/4.9</td><td>按论文表格缩放；不能跨表直接解释物理单位。</td></tr>
+          <tr><td>SHIFT</td><td>Flat / Cow&amp;Lady / TUM / Newer College</td><td>TSDF speed / memory / mesh error</td><td>1.42–4.07×；最高 −28% memory；Flat 1.75→1.94 cm</td><td>Newer College 端到端仅 1.12×；压缩有误差代价。</td></tr>
+          <tr><td>OmniNav</td><td>MP3D ObjectNav</td><td>SR / SPL</td><td>.473/.180；w/o progress .412/.154；w/o DA-RPA .426/.155</td><td>使用 VLM/API 与作者仿真栈。</td></tr>
+          <tr><td>OmniNav</td><td>60 次真机 pick-place</td><td>成功率</td><td>71.7% vs OK-Robot* 53.3%；L1/L2/L3=85/75/55% vs 80/55/25%</td><td>仅作者硬件与场景；未独立复现。</td></tr>
+          <tr><td>OVMAN</td><td>219 个 two-visit episodes</td><td>zero-shot / two-visit / oracle</td><td>11.4% / 45.2% / 99.5%；former-object 0.000，removed-object .025</td><td>说明变化定位/实例 grounding 是主要瓶颈。</td></tr>
+          <tr><td>RouteBridge</td><td>mip-NeRF360；DTU 3-view</td><td>PSNR / LPIPS</td><td>mip-NeRF360 30.33 dB、LPIPS .207；较 3DGS +1.56 dB；DTU 21.12 dB</td><td>来自摘要；需后续全文核对逐场景和训练成本。</td></tr>
+          <tr><td>AeroBelief</td><td>UAV-ON</td><td>SR / OSR / SPL</td><td>21.61 / 35.57 / 10.62</td><td>摘要数字；尚未核验方差和基线设置。</td></tr>
+          <tr><td>Programmable World Model</td><td>CombatStateBench</td><td>Count / State Accuracy</td><td>94% / 98%</td><td>程序状态 benchmark，不等于开放世界长期预测。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Supplemental Tracking Papers</h2>
+      <table>
+        <thead><tr><th>论文</th><th>方向关系</th><th>解决的问题</th><th>方法 / 结构</th><th>Insight 与数学知识</th><th>实验</th><th>证据级别与后续动作</th></tr></thead>
+        <tbody>
+          <tr><td><a href="https://arxiv.org/abs/2609.11766">Visual-SLAM for hidden tomatoes</a></td><td>核心 SLAM</td><td>温室遮挡下番茄串定位/量测。</td><td>ROS2 单目离线采集，HLoc 粗到细匹配 + GLOMAP SfM。</td><td>以重定位/SfM 处理高重复、遮挡农业场景。</td><td>真实番茄串与人工量测验证；摘要无数值。</td><td>摘要级；补读量测误差与失败例。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2609.08848">FIRE3D</a></td><td>FeedForward 3D</td><td>从单图/随手视频生成可仿真对象网格。</td><td>分对象的几何、6DoF/OBB、纹理与 PBR 流水线。</td><td>评价对象从视觉相似度转为 simulation-ready 资产。</td><td>作者称 under a minute、比优化式方案快数量级；摘要无精确表。</td><td>摘要 + repo 文件级深查；需跑公开协议。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2609.09507">RoMa-Ω</a></td><td>匹配 / FeedForward 3D</td><td>3D foundation feature 后层零样本匹配差。</td><td>分析线性/全量适配，构建 VGGT-Ω backbone 的 RoMa。</td><td>差的 raw matching 不代表特征不可线性解码。</td><td>WxBS mAA 比 RoMa v2 +8.1。</td><td>摘要级；补读跨模态/宽基线分项。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2609.09491">Learning Global Camera Poses from Noisy View-Graphs</a></td><td>SfM</td><td>从含噪相对位姿图恢复全局相机。</td><td>置换等变 edge-conditioned GNN，自监督相对一致性，再三角化 + robust BA。</td><td>以 view-graph 对称性约束学习式 pose averaging。</td><td>声称可扩展到 &gt;1000 图像且更快/有竞争力；摘要无数值。</td><td>摘要级；需核验 gauge 处理和 BA 成本。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2609.09394">OmniPoint</a></td><td>FeedForward 3D</td><td>统一针孔、鱼眼、等距柱状相机点图预测。</td><td>解耦 ray 与 distance，双向增强，可注入 intrinsics/稀疏深度。</td><td>把成像模型显式化，比隐式让网络适配更可控。</td><td>声称多相机零样本 SOTA；摘要无数值。</td><td>摘要级；补读跨相机泛化表。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2609.08493">AURORA</a></td><td>主动重建</td><td>CAD-free 物体位姿与 in-hand 重建。</td><td>Ray-GPIS 方向不确定性、uncertainty-novelty NBV、旋转与融合。</td><td>沿观测 ray 建模方向性不确定性，驱动下一视角。</td><td>声称优于对比方法；摘要无数字。</td><td>摘要级；补读 NBV 消融和机器人失败率。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2609.08332">EdMCGS</a></td><td>动态 3DGS</td><td>低帧率 RGB 下重建快速非刚体运动。</td><td>event 驱动 Markov chain motion、控制点与局部等距约束。</td><td>事件提供时间导数，Markov 传播填补 RGB 间隙。</td><td>声称实时且更少 Gaussians；摘要无数值。</td><td>摘要级；代码公开，后续核验吞吐与显存。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2609.06476">One MLLM, One Call (O2C-Nav)</a></td><td>VLN</td><td>降低 embodied nav 每步多次大模型调用。</td><td>单次 MLLM 输出 RGB 上结构化 waypoint marker，FMM 做低层规划。</td><td>把高层语义决策和确定性可行路径分层。</td><td>R2R-CE/RxR-CE 声称 SOTA；摘要无数值。</td><td>摘要级；公开 repo 仅 README，证据不足。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2609.06424">OVMAN</a></td><td>动态具身记忆</td><td>物体移走/移动后的 two-visit navigation。</td><td>219 episodes，分 former location、removed object、new location 等状态。</td><td>静态 ObjectNav 得分掩盖“变化 grounding”失效。</td><td>zero-shot 11.4%，two-visit ref 45.2%，oracle 99.5%。</td><td>摘要 + 实验段落；补读数据许可/评测脚本。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2609.09158">TANGO</a></td><td>人形导航</td><td>RGB+语言到 29DoF 全身动作。</td><td>仿真合成行为、全身 motion editing、RL tracking，零样本迁移 Unitree G1。</td><td>把导航与动作生成统一，而非 waypoint + controller 串接。</td><td>摘要无数字。</td><td>摘要级；补读 sim-to-real 与跌倒率。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2609.08442">AirAnchor</a></td><td>空中 VLN</td><td>长航程中维持局部锚点和持久对象记忆。</td><td>local anchors、persistent object memory、spatially informed agent。</td><td>稀疏可解释锚点可作为长时记忆索引。</td><td>AerialVLN 上更好；摘要无数字。</td><td>摘要级；需全文查轨迹长度分层。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2609.03483">Air-Ground Collaborative VLN（v3 修订）</a></td><td>多机器人 VLN</td><td>UAV/UGV 共享语义与可行性。</td><td>共享 BEV map，CARLA-Air Town10HD 联合规划。</td><td>空地视角互补能降低单平台观测盲区。</td><td>100 episodes：joint success 77%，UAV 50%，Travel UAV 53%。</td><td>窗口内修订，不算新稿；补读通信/同步假设。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2609.08164">AeroBelief</a></td><td>无人机 ObjectNav</td><td>大尺度搜索中的语义信念与证据冲突。</td><td>intuition/evidence 双层图、evidence gating、object-conditioned VLM、quadtree guidance。</td><td>先验直觉与观测证据分层，避免过早锁定。</td><td>UAV-ON SR 21.61、OSR 35.57、SPL 10.62。</td><td>摘要级；补读基线、置信区间。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2609.08292">EvoNav-Bench</a></td><td>lifelong nav</td><td>ProcTHOR 环境持续变化下的长期导航。</td><td>evolving benchmark；Frontier-Update、Fail-then-Update、Stage-Reset 启发式。</td><td>地图更新策略本身应成为评测变量。</td><td>摘要称现有方法 brittle；无数字。</td><td>摘要级；补读变化类型与 episode protocol。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2609.08711">DCLP++</a></td><td>低数据移动规划</td><td>传感器距离不等于足迹安全距离。</td><td>以 footprint clearance 替代 sensor distance 的 curriculum/奖励变体。</td><td>几何可通行性应对机器人外形建模。</td><td>100 固定任务：选定种子 200k steps 后 42%→70%；motion variants 混合。</td><td>摘要级；预备结果，需多种子统计。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2609.08583">Gaussian Context Distributions for VLM Traversability</a></td><td>可通行性</td><td>VLM prompt 不确定性难以进入稠密地图。</td><td>将语义 prompt 表示为 Gaussian context distribution，输出 traversability 与 uncertainty。</td><td>用分布而非点 prompt 传播语义歧义。</td><td>GOOSE 上不确定性与歧义相关；摘要无数字。</td><td>摘要级；补读校准指标。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2609.11223">Tri-DehazeGS</a></td><td>3DGS / 恶劣介质</td><td>分离干净场景与跨视图共享雾介质。</td><td>clean 3DGS + triplane medium；联合阶段后冻结介质并做 MD-TGC。</td><td>物理散射先验减少把雾烘焙进几何/颜色。</td><td>真实/合成 haze 均声称更好；摘要无数字。</td><td>摘要 + repo 深查；需跑公开数据。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2609.09606">RouteBridge</a></td><td>NeRF / 3DGS</td><td>按像素选择 NeRF 或 3DGS 的可靠预测。</td><td>per-ray reliability routing：NeRF→3DGS、3DGS→NeRF 或 abstain。</td><td>组合器需要学会拒绝，而非总做平均。</td><td>mip-NeRF360 30.33 dB、LPIPS .207；DTU 3-view 21.12 dB。</td><td>摘要级；补读 routing oracle 与额外成本。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2609.11499">Recursive Code World Models</a></td><td>world model</td><td>生成可编辑、可递归细化的 3D 场景程序。</td><td>global-local-global solver；VLM coding agent 比较 render/reference 并递归修正。</td><td>程序是显式中间状态，可执行且可局部诊断。</td><td>声称胜过基线、递归越深越好；摘要无数字。</td><td>摘要级；需全文查计算预算和失败模式。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2609.10540">Programmable World Model</a></td><td>world model</td><td>让视觉预测遵循可编辑规则与离散状态。</td><td>程序状态/转移规则；3D OBB 状态编译为 pixel-aligned conditioning。</td><td>显式状态机约束生成视频中的数量和属性一致性。</td><td>CombatStateBench Count 94%、State 98%。</td><td>摘要级；补读视觉质量与规则外泛化。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Trends &amp; Insights</h2>
+      <h3>1. 地图从“表征”变成“带后验的决策状态”</h3>
+      <p>Functional-SLAM 的关系后验、Occupancy Filter 的可逆负证据、OmniNav 的对象持续性 belief 都在回答同一问题：地图更新不能只追加观测，还要显式表示“当前相信什么、为什么改变、何时撤销”。对工程团队而言，比再叠一层语义标签更值得投入的是统一的证据生命周期。</p>
+      <h3>2. 回环与恢复机制开始吸收高层信号</h3>
+      <p>LightSplat 用联合残差决定回环精修成本，Functional-SLAM 用功能关系保持筛选候选，OmniNav 用失败触发探索/操作恢复。共同模式是：高层状态不是替代几何，而是决定何时、在哪里花昂贵的几何/模型计算。</p>
+      <h3>3. FeedForward 3D 的瓶颈从“能否预测”转向“如何被系统消费”</h3>
+      <p>SAMV-DUSt3R 关心参考视图，OmniPoint 关心相机模型，FIRE3D 关心可仿真网格，RouteBridge 关心逐 ray 路由。下一阶段的有效评测应加入相机域、内存/延迟、资产可编辑性和下游任务成功率，而不只点云/渲染指标。</p>
+      <h3>4. 热闹但证据不足的方向</h3>
+      <p>“单次大模型调用导航”“递归 coding-agent world model”“通用 simulation-ready 重建”概念吸引力强，但本期多数仅有摘要级数字、README 或高配环境说明；尚缺跨场景复现、成本曲线和失败分层。AGC-VLN 的 77% 联合成功率也来自单一仿真城市场景，应避免直接外推到真实空地协作。</p>
+    </section>
+
+    <section>
+      <h2>Evidence &amp; Reading Coverage</h2>
+      <table>
+        <thead><tr><th>对象</th><th>实际阅读/检查覆盖</th><th>证据等级</th><th>不足</th></tr></thead>
+        <tbody>
+          <tr><td>LightSplat</td><td>arXiv HTML：Intro、Method、公式、Experiments、Ablation、Conclusion/Limitations；Fig.2 原图目视核验。</td><td>全文深读</td><td>未运行；无核验到公开代码。</td></tr>
+          <tr><td>Functional-SLAM</td><td>论文全文 + Fig.1；官方 repo README/tree/config/入口/6 个功能图核心文件/近期提交。</td><td>全文 + 代码静态深读</td><td>SAM3 gated、API/权重/数据未获取，未运行。</td></tr>
+          <tr><td>Occupancy active mapping</td><td>论文全文、诊断条件、公式、全部关键表、动态过滤实验与限制。</td><td>全文深读</td><td>过滤仅 2 起点×3 repeats；未复现。</td></tr>
+          <tr><td>SAMV-DUSt3R</td><td>论文全文、Fig.1、DTU/NVS/排序实验与消融。</td><td>全文深读</td><td>未找到公开实现；表格缩放依原文。</td></tr>
+          <tr><td>OmniNav</td><td>论文全文、Fig.1、belief update、仿真/真机/消融/限制。</td><td>全文深读</td><td>未找到匹配 repo；GPT-4o API 依赖；真机样本有限。</td></tr>
+          <tr><td>SHIFT</td><td>论文全文、公式/伪代码、4 数据集与 ablation/limitations。</td><td>全文深读</td><td>未找到公开代码；未获得合格独立系统图。</td></tr>
+          <tr><td>Tri-DehazeGS / FIRE3D</td><td>摘要；GitHub README、完整 tree、配置/脚本、入口、核心模块、测试/近期提交；FIRE3D 模型页。</td><td>摘要 + 代码静态深读</td><td>未下载模型/数据，未编译或运行。</td></tr>
+          <tr><td>其余 18 个 supplemental 条目</td><td>arXiv 摘要和元数据；OVMAN/AGC-VLN 补读实验数字。</td><td>摘要级/局部段落</td><td>未系统读全文，结论仅作方向跟踪。</td></tr>
+          <tr><td>O2C-Nav-Code / ShapeGuidedGaussian / 同名 OmniNav 搜索</td><td>仓库元数据与 README/匹配性检查。</td><td>证据不足</td><td>前两者仅 README；OmniNav 同名结果非论文实现，未误计为代码证据。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>值得跟进事项</h2>
+      <ul>
+        <li><strong>优先复验 LightSplat 的跨数据集反差：</strong>同一硬件上同时报告 TUM/ScanNet ATE、回环触发比例、子图数量、显存与全局修正耗时。</li>
+        <li><strong>把可逆负证据接入现有 occupancy/scene-memory：</strong>先做小规模 A/B，记录 false free-space、碰撞、覆盖 AUC 与恢复次数，而非只看 IoU。</li>
+        <li><strong>审计 Functional-SLAM 的功能回环：</strong>在不调用 DeepSeek/SAM3 的 oracle-label 设置下隔离高层关系本身的收益，避免把感知模型能力混入 SLAM 结论。</li>
+        <li><strong>为 FeedForward 3D 增设系统指标：</strong>参考视图稳定性、非针孔相机零样本、下游 3DGS 初始化、资产碰撞/可编辑性和单位显存吞吐。</li>
+        <li><strong>暂缓把 FIRE3D/OmniNav 当即插即用方案：</strong>先确认 96 GB GPU、GPT-4o/API、Blender/CUDA 版本和数据/权重许可是否满足内部复现约束。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>原始链接列表</h2>
+      <ul class="links">
+        <li><a href="https://arxiv.org/abs/2609.07274">LightSplat</a></li><li><a href="https://arxiv.org/abs/2609.07497">Functional-SLAM</a></li>
+        <li><a href="https://arxiv.org/abs/2609.06820">Occupancy World Models for Active Mapping</a></li><li><a href="https://arxiv.org/abs/2609.11279">SAMV-DUSt3R</a></li>
+        <li><a href="https://arxiv.org/abs/2609.08159">OmniNav</a></li><li><a href="https://arxiv.org/abs/2609.06547">SHIFT</a></li>
+        <li><a href="https://arxiv.org/abs/2609.11766">Visual-SLAM for hidden tomatoes</a></li><li><a href="https://arxiv.org/abs/2609.08848">FIRE3D</a></li>
+        <li><a href="https://arxiv.org/abs/2609.09507">RoMa-Ω</a></li><li><a href="https://arxiv.org/abs/2609.09491">Learning Global Camera Poses</a></li>
+        <li><a href="https://arxiv.org/abs/2609.09394">OmniPoint</a></li><li><a href="https://arxiv.org/abs/2609.08493">AURORA</a></li>
+        <li><a href="https://arxiv.org/abs/2609.08332">EdMCGS</a></li><li><a href="https://arxiv.org/abs/2609.06476">O2C-Nav</a></li>
+        <li><a href="https://arxiv.org/abs/2609.06424">OVMAN</a></li><li><a href="https://arxiv.org/abs/2609.09158">TANGO</a></li>
+        <li><a href="https://arxiv.org/abs/2609.08442">AirAnchor</a></li><li><a href="https://arxiv.org/abs/2609.03483">Air-Ground Collaborative VLN</a></li>
+        <li><a href="https://arxiv.org/abs/2609.08164">AeroBelief</a></li><li><a href="https://arxiv.org/abs/2609.08292">EvoNav-Bench</a></li>
+        <li><a href="https://arxiv.org/abs/2609.08711">DCLP++</a></li><li><a href="https://arxiv.org/abs/2609.08583">Gaussian Context Distributions</a></li>
+        <li><a href="https://arxiv.org/abs/2609.11223">Tri-DehazeGS</a></li><li><a href="https://arxiv.org/abs/2609.09606">RouteBridge</a></li>
+        <li><a href="https://arxiv.org/abs/2609.11499">Recursive Code World Models</a></li><li><a href="https://arxiv.org/abs/2609.10540">Programmable World Model</a></li>
+        <li><a href="https://github.com/Hbelief1998/Functional-SLAM-CoRL_2026">Functional-SLAM repo</a></li><li><a href="https://github.com/aptx46/Tri-DehazeGS">Tri-DehazeGS repo</a></li>
+        <li><a href="https://github.com/xiahongchi/Fire3D">FIRE3D repo</a></li><li><a href="https://huggingface.co/xiahongchi/Fire3D">FIRE3D model page</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
