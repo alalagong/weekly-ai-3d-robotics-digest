@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-10-03 至 2026-10-18：F²SLAM、SMoRe 与 Anchor3DGS</title>
+  <style>
+    :root { color-scheme: light; --ink:#17202a; --muted:#5b6675; --line:#d9e2ea; --soft:#f5f8fb; --accent:#0f766e; --accent-2:#7c2d12; --code:#eef7f4; --warn:#fff7ed; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif; color:var(--ink); background:#fff; line-height:1.62; }
+    header { padding:38px 7vw 26px; border-bottom:1px solid var(--line); background:linear-gradient(180deg,#f8fbfd 0%,#fff 100%); }
+    main { max-width:1280px; margin:0 auto; padding:28px 7vw 60px; }
+    h1 { margin:0 0 12px; font-size:clamp(28px,4vw,43px); line-height:1.15; }
+    h2 { margin:34px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--line); font-size:24px; }
+    h3 { margin:22px 0 8px; font-size:18px; }
+    p { margin:8px 0; }
+    a { color:#075985; text-decoration-thickness:1px; text-underline-offset:2px; }
+    table { width:100%; border-collapse:collapse; margin:14px 0 24px; font-size:14px; }
+    th,td { vertical-align:top; text-align:left; border:1px solid var(--line); padding:10px 12px; }
+    th { background:var(--soft); }
+    tr:nth-child(even) td { background:#fcfdfe; }
+    code { padding:1px 5px; border-radius:4px; background:var(--code); font-size:90%; }
+    ul { padding-left:22px; } li { margin:7px 0; }
+    .meta { color:var(--muted); font-size:14px; }
+    .summary-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin-top:18px; }
+    .tile { border:1px solid var(--line); border-radius:8px; padding:14px 16px; background:#fff; }
+    .tile strong { display:block; margin-bottom:6px; color:var(--accent); }
+    .note { margin:16px 0; padding:11px 14px; border-left:4px solid var(--accent); background:#eefaf7; }
+    .warn { border-left-color:var(--accent-2); background:var(--warn); }
+    .tag { display:inline-block; margin:2px 4px 2px 0; padding:2px 7px; border-radius:999px; background:var(--code); color:#115e59; font-size:12px; white-space:nowrap; }
+    .small { color:var(--muted); font-size:12px; }
+    .score { font-weight:700; color:var(--accent-2); }
+    .paper-thumb { display:block; width:220px; max-width:100%; text-decoration:none; }
+    .paper-thumb img { width:100%; border:1px solid var(--line); border-radius:8px; background:#fff; }
+    .paper-thumb span { display:block; margin-top:4px; color:var(--muted); font-size:12px; line-height:1.35; }
+    .links { columns:2; }
+    @media (max-width:820px) { header{padding:28px 5vw 20px} main{padding:20px 5vw 44px} table{display:block;overflow-x:auto} .links{columns:1} }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="meta">每周 SLAM / VIO / SfM / FeedForward 3D 进展报告</p>
+    <h1>前馈几何进入“可修订记忆”，系统设计回到可观性与资源边界</h1>
+    <p class="meta">覆盖时间：2026-10-03 16:16:46 至 2026-10-18 21:52:39（Asia/Shanghai）。按 <code>.cache/slam-3d-state.json</code> 上次 <code>coverage_end</code> 连续推进，实际覆盖约 15.23 天，未截断为“最近 7 天”。</p>
+    <div class="summary-grid">
+      <div class="tile"><strong>全文深读论文</strong>8 篇：F²SLAM、FoundationVIO、SMoRe、Motion/Gravity-Aware 3D、Anchor3DGS、LIN-SLAM、Physical SLAM、FireNav。逐篇覆盖方法、实验、分析/消融与限制。</div>
+      <div class="tile"><strong>摘要级跟踪</strong>20 篇，覆盖核心 SLAM/VIO/SfM、流式 3D、3DGS、具身导航与 VLN；全部至少核对 arXiv 官方摘要，未以摘要替代深读结论。</div>
+      <div class="tile"><strong>Repo 深读</strong>2 个：RAGNAROK 与 RIPE++。检查仓库树、依赖、运行入口、核心估计/模型/损失代码和配置；未下载数据或权重，未本地运行。</div>
+      <div class="tile"><strong>访问与证据缺口</strong>FoundationVIO 论文给出的 GitHub 链接为 404；DGSfM 仓库仍为“代码即将发布”；多篇论文承诺录用后开源。公开 arXiv 与其余 GitHub 无登录要求。</div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Executive Summary</h2>
+      <p><strong>长期一致性的核心从“更大窗口”转向“可修订的外部状态”。</strong> F²SLAM 把高频局部跟踪与低频前馈刷新纳入同一稠密因子图；SMoRe 给冻结几何基础模型增加可检索、验证、修订的外部记忆；FoundationVIO 则用 IMU、批间尺度和点图重叠把 up-to-scale 前馈几何落到度量轨迹。三者共同表明，前馈模型的价值更像高信息量测量源，而不是端到端取代优化器。</p>
+      <p><strong>可观性与资源上限重新成为一等设计变量。</strong> Anchor3DGS 用固定 anchor budget 将 Gaussian 数量与像素/视图数解耦；LIN-SLAM 用异步几何前端与 CUDA 隐式后端守住嵌入式频率；Physical SLAM、Spectral GS-SLAM 与 under-ice 失败分析都直接暴露了表示或采集条件的不可观方向。</p>
+      <p><strong>导航系统开始同时优化“是否值得看”和“何时必须重看”。</strong> FireNav 用退化感知路由把重建分支限定到有收益的决策点；Slot3R/SMoRe 保留位置相同但状态不同的证据；LightVLN 与 X-Fly 分别压缩历史和减少重规划次数。工程判断应同时报告成功率、失败类型、更新频率、显存与恢复机制。</p>
+      <div class="note warn">证据边界：8 篇 Deep-read 来自 arXiv 全文 HTML、实验表、分析/消融与结论/限制；20 篇 Supplemental 仅为官方摘要级，未深读全文。Repo 结论来自 GitHub 文件级静态审计，未声称完成构建、下载 checkpoint 或复现实验。</div>
+    </section>
+
+    <section>
+      <h2>Deep-read Papers</h2>
+      <table>
+        <thead><tr><th>论文</th><th>系统/框架图</th><th>解决的问题</th><th>方法 / 结构</th><th>Insight 与数学知识</th><th>实验与效果</th><th>复现与启发</th><th>阅读证据</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2610.05207"><strong>F²SLAM</strong></a><br><span class="tag">FeedForward SLAM</span><span class="tag">Dense BA</span></td>
+            <td><a class="paper-thumb" href="https://arxiv.org/html/2610.05207"><img src="./assets/2026-10-03_2026-10-18_2610.05207_f2slam_fig2_pipeline.png" alt="F²SLAM pipeline"><span>Fig. 2：高频局部跟踪、低频前馈刷新与统一稠密因子图。</span></a></td>
+            <td>前馈 SLAM 的全局刷新准确但昂贵，局部跟踪快却会漂移；二者若各自维护状态，还会产生尺度与 gauge 不一致。</td>
+            <td>持久稠密因子图并行维护高频 local tracking 与低频 feed-forward refresh；两类 target-weight factor 进入同一 dense BA。刷新结果经过 gauge alignment 与 state-consistency gate，再更新活动图与地图。</td>
+            <td>核心不是简单多速率，而是让新旧估计共享优化变量；门控相当于对异步“强测量”做一致性检验。Gauge 对齐处理前馈解的相似变换自由度，避免刷新把当前状态整体跳变。</td>
+            <td>校准 TUM mean ATE 0.029 m，MASt3R-SLAM 0.030；未校准 Replica 平均 ATE 0.002 m，最强对比前馈基线 0.030。7-Scenes completion 0.015（SLAM-Former 0.030），Chamfer 0.019（0.027）。消融 full Replica ATE 0.0023，basic 0.0027。</td>
+            <td>优先复核刷新频率、gate 阈值与 gauge alignment 的交互，而不只看平均 ATE。论文实验支持统一图优化，但长时资源增长与更大场景调度仍需代码验证。</td>
+            <td><span class="score">全文级</span>：Intro、Method、Experiments、Ablation/Analysis、Conclusion；逐表核对数字。系统图 caption 与图像已视觉确认。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2610.14951"><strong>FoundationVIO</strong></a><br><span class="tag">VIO</span><span class="tag">Geometry Foundation Model</span></td>
+            <td><span class="small">论文 Fig. 2 caption 明确为组件图；本次未取得并视觉确认独立原图，因此不嵌图。</span></td>
+            <td>几何基础模型提供稳定 pointmap/相对姿态但缺少度量尺度与高频惯性约束；经典 VIO 又会在低纹理/大运动中失效。</td>
+            <td>每个图像 batch 由 GFM 输出 up-to-scale pose/pointmap；因子图加入 IMU preintegration、GFM pose factor、batch log-scale 与 scale-consistency factor。相邻 pointmap 以置信加权 Umeyama + IRLS 对齐，并支持回环。</td>
+            <td>把尺度写成 log 变量可将乘性漂移变成加性优化；IMU 提供度量尺度与重力方向，重叠 pointmap 则约束批间相似变换。此结构保留传统因子图的可解释残差。</td>
+            <td>DA3-N translation RPE：Aria 0.034、ScaRF-SLAM 0.037、Oxford Spires 0.041 m/m。经典 ORB-SLAM3 在成功序列上仍更准，但多序列失败。DA3-L 实时、DA3-N 接近实时；测试为 5 Hz、batch=10、i7+RTX 3500 12GB。</td>
+            <td>需要重点核对 batch 边界、尺度一致性在快速运动下的条件数，以及 ORB-SLAM3 的失败计入方式。论文给出的 <code>ori-drs/FoundationVIO</code> 链接本次访问为 404，无法代码审计。</td>
+            <td><span class="score">全文级</span>：Method、三数据集实验、资源设置、Conclusion；正文未找到独立 ablation 小节。代码不可访问。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2610.19674"><strong>Remember, Revisit, Revise（SMoRe）</strong></a><br><span class="tag">Revisable Memory</span><span class="tag">Streaming 3D</span></td>
+            <td><a class="paper-thumb" href="https://arxiv.org/html/2610.19674"><img src="./assets/2026-10-03_2026-10-18_2610.19674_smore_fig1_overview.png" alt="SMoRe overview"><span>Fig. 1：Store–Retrieve–Verify–Revise 的外部可修订记忆。</span></a></td>
+            <td>冻结的前馈几何模型遇到长序列时只能压缩或遗忘历史，一旦早期几何/位姿出错，后续难以回访并整体修正。</td>
+            <td>训练外置的 Store–Retrieve–Verify–Revise 流程：空间/视觉 scaffold 索引历史，DINOv2 描述子检索，几何验证拒绝错误回访，再用 Sim(3) progressive placement 修订旧状态。活动 GPU 集受控，持久记忆可在 CPU 增长。</td>
+            <td>“位置相近”只决定地址，不代表状态应立刻融合；修订需要先做身份验证。Sim(3) 传播将局部回访修正转成全局一致的尺度、旋转与平移更新。</td>
+            <td>Replica：VGGT overall error 9.15→2.49 cm，VGGT-Ω 7.50→2.00；ScanNet++：VGGT 24.95→6.05，VGGT-Ω 20.80→4.95。摘要报告 depth error 最高降低 58%、Chamfer 最高 43%、ATE 最低 2.9 cm。</td>
+            <td>消融显示 DINOv2 检索、约 32 帧窗口/50% overlap 与 progressive placement 各有贡献。CPU 持久存储仍随场景增长；代码/数据承诺论文正式发表后开放。</td>
+            <td><span class="score">全文级</span>：全文与附录，覆盖 8 backbone、5 类任务/数据、检索/窗口/放置消融和资源分析。Fig.1 已视觉确认。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2610.22177"><strong>Motion- and Gravity-Aware Feedforward 3D Reconstruction</strong></a><br><span class="tag">LUPI</span><span class="tag">FeedForward 3D</span></td>
+            <td><a class="paper-thumb" href="https://arxiv.org/html/2610.22177"><img src="./assets/2026-10-03_2026-10-18_2610.22177_motion_gravity_fig2_architecture.png" alt="Motion and gravity aware architecture"><span>Fig. 2：训练期残差光流/重力注入与测试期蒸馏。</span></a></td>
+            <td>无序多视图前馈模型缺少运动与重力先验，但推理期要求仍只输入 RGB，不能增加光流/IMU依赖。</td>
+            <td>采用 Learning Using Privileged Information：训练时注入 residual optical flow 与 gravity，先做特征对齐，再通过 cue dropout/蒸馏让 RGB 分支在推理时“内化”特权信息；不同 backbone 选择不同注入层。</td>
+            <td>残差光流比 full flow 更贴近“模型尚未解释的运动”，避免把相机运动重复编码；重力把旋转自由度中的 roll/pitch 变成可监督方向。蒸馏把额外传感器作为训练正则而非部署条件。</td>
+            <td>11 个训练数据集；ETH3D/TartanAirV2-WB。8 views 下 pi3 depth rel：residual 0.107、full 0.113、无注入 0.116；VGGT residual 0.114、full 0.124。位姿 AUC 并非所有设置一致提升，推理无额外开销。</td>
+            <td>应分别检查 flow 质量、帧序假设和 gravity 坐标约定；作者指出当前 set model 没有利用 rigid flow 的时序结构，streaming/time-ordered 仍是后续。</td>
+            <td><span class="score">全文级</span>：Method、数据、主实验、cue/注入位置消融、Limitation/Conclusion。Fig.2 已视觉确认。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2610.21634"><strong>Anchor3DGS</strong></a><br><span class="tag">Sparse-view 3DGS</span><span class="tag">Fixed Budget</span></td>
+            <td><a class="paper-thumb" href="https://arxiv.org/html/2610.21634"><img src="./assets/2026-10-03_2026-10-18_2610.21634_anchor3dgs_fig2_overview.png" alt="Anchor3DGS overview"><span>Fig. 2：VGGT scaffold、熵采样、跨视图聚合与 anchor-to-Gaussian 解码。</span></a></td>
+            <td>像素/视图级前馈 3DGS 的 Gaussian 数量随输入扩张，显存与存储迅速膨胀；稀疏视图又需要把有限容量放到不确定区域。</td>
+            <td>从 VGGT 几何 scaffold 固定采样 3D anchors；以熵引导空间分配，遮挡感知聚合多视图特征，再用 self-attention 建模 anchor 交互；每个 anchor 解码固定 K 个 Gaussian。</td>
+            <td>固定 anchor budget 把表示复杂度从 O(像素×视图) 改为 O(anchor×K)。熵采样近似把有限预算分配给高不确定/高信息区域，遮挡权重减少跨视图错误平均。</td>
+            <td>3-view：VR-NeRF 23.69 dB / 0.26M GS，AnySplat 21.31 / 0.49M；MipNeRF360 21.36 vs 15.65；DL3DV 21.22 vs 17.74。32-view H800：0.26M、35MB、2.9–3.1s；AnySplat 3.98–4.75M、653–779MB、2.8s。去熵采样在 3-view 降 1.53 dB。</td>
+            <td>压缩优势明确，但速度并未同比提升；上限受 VGGT 几何误差与固定 budget 限制，大场景可能需分块或动态 anchor。复现应同时报质量、数量、显存、时间。</td>
+            <td><span class="score">全文级</span>：Method、3/6/32-view 表、表示规模/时间/显存与组件消融、Limitations。Fig.2 已视觉确认。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2610.21199"><strong>LIN-SLAM</strong></a><br><span class="tag">LiDAR-Inertial</span><span class="tag">Neural Implicit Map</span></td>
+            <td><a class="paper-thumb" href="https://arxiv.org/html/2610.21199"><img src="./assets/2026-10-03_2026-10-18_2610.21199_linslam_fig1_pipeline.png" alt="LIN-SLAM pipeline"><span>Fig. 1：GICP-IESKF 前端与异步 neural implicit 后端。</span></a></td>
+            <td>隐式地图表达紧凑但训练/查询慢，直接放进跟踪闭环难在边缘平台维持传感器频率。</td>
+            <td>高频 GICP-IESKF 几何前端负责稳定位姿；异步 neural implicit 后端做 tracking refinement、mapping、pose graph 与固定 replay。C++/CUDA 优化神经查询，前后端以有限队列解耦。</td>
+            <td>系统把低延迟状态估计与高信息地图优化分到不同时间尺度；固定 replay 把训练成本约束为常数近似，异步后端只在可用预算内修正。</td>
+            <td>12 条公开序列：优化后端 mean 82.605 ms，tensor 版 246.278 ms（-66.5%），ATE 0.2835 vs 0.2918。Jetson Orin NX+Go2：1.47 km 走廊闭合 0.141 m、0.86 km 地下室 0.073 m；后端 84.875/88.401 ms，10 Hz。FAST-LIO2 两场都失败。</td>
+            <td>公开结果支持“可运行”，但工作站用 RTX 5090，公开序列与 onboard 条件不同；需核对队列积压、回环期间延迟和 neural map 长期遗忘。代码承诺录用后发布。</td>
+            <td><span class="score">全文级</span>：系统、实现、12 序列与实机、profile 表、结论；正文未给独立组件消融。Fig.1 已视觉确认。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2610.17260"><strong>Physical SLAM</strong></a><br><span class="tag">Dynamic 4DGS</span><span class="tag">Physics</span></td>
+            <td><a class="paper-thumb" href="https://arxiv.org/html/2610.17260"><img src="./assets/2026-10-03_2026-10-18_2610.17260_physical_slam_fig2_pipeline.png" alt="Physical SLAM pipeline"><span>Fig. 2：静态背景 SLAM、动态物体 GS 与 spring–mass 物理状态。</span></a></td>
+            <td>动态 4DGS 通常能重建已观测形变，却缺少可解释物理状态，难预测外力/动作作用后的未来几何。</td>
+            <td>RGB-D 流式 4DGS：静态背景单独用于位姿与地图；动态物体 Gaussian 绑定 spring–mass mesh。观测力驱动物理状态，逐步优化弹性参数，并以 surface alignment 约束 GS 与 mesh；支持 action-conditioned future prediction。</td>
+            <td>将可渲染状态与低维物理状态耦合，使未来预测受守恒/弹性结构约束；背景/前景分离避免动态像素污染相机跟踪。观测力相当于把视觉残差投影到物理系统的外力空间。</td>
+            <td>PhysTwin：重建 PSNR 31.140（PhysTwin 28.214）、SSIM .980（.945）；预测 PSNR 28.430（25.617）、SSIM .961（.941）。去 observation force 为 29.65/25.12 dB，去 surface alignment 为 30.353/25.965。TUM 相对 4DGS-SLAM tracking error -20.6%。</td>
+            <td>固定 spring–mass topology 限制材料/断裂类型；主动移动物体仅做人体测试。重建与预测指标不能直接等同机器人控制收益，需补 action error 与接触鲁棒性。</td>
+            <td><span class="score">全文级</span>：Method、PhysTwin/TUM、ablation、未来预测、Limitations/Conclusion。Fig.2 已视觉确认。</td>
+          </tr>
+          <tr>
+            <td><a href="https://arxiv.org/abs/2610.15595"><strong>FireNav</strong></a><br><span class="tag">VLN</span><span class="tag">Degraded Vision</span></td>
+            <td><span class="small">Fig. 2 caption 指向 overview，但下载资产本次未能通过视觉工具确认，故不嵌入报告。</span></td>
+            <td>烟雾/火灾退化会让 VLN 原生视觉分支失效；始终运行重建/增强又增加延迟、显存并可能在轻退化下伤害决策。</td>
+            <td>构建 FireVLN-Bench 的 clean/degraded 成对环境；冻结 native 与 reconstruction 两分支，训练 feature alignment/router。Decision utility calibration 判断何时启用慢分支，再做有界 residual fusion。</td>
+            <td>路由目标是“决策收益”而非图像质量；有界残差防止重建特征完全覆盖原生特征。fast/slow 路径类似受控的 mixture-of-experts，关键是校准而非分支本身。</td>
+            <td>PE SR/SPL 41.6/32.0，CE 56.1/45.5；较 RestoredRGB+Adapter，PE +4.3/+4.9、CE +5.3/+6.0。always-on 的 SPL 低 6.0/6.9 点；去 utility calibration 再低 4.0/4.9。P95 389.4 ms，native 359.2；3.19 Hz、19.16GB。</td>
+            <td>结果说明条件路由有效，但 19.16GB 与约 3Hz 仍偏工作站级；下一步应核查 smoke simulator 到真实烟雾的域差与路由误判的安全代价。</td>
+            <td><span class="score">全文级</span>：benchmark、architecture、主表、路由/融合消融、runtime 与局限。系统图未视觉确认。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Repo Deep Dives</h2>
+      <table>
+        <thead><tr><th>Repo</th><th>目标与能力</th><th>代码结构与模块协作</th><th>依赖 / 硬件</th><th>成熟度判断</th><th>领域关系</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><a href="https://github.com/hanjun815/RAGNAROK"><strong>hanjun815/RAGNAROK</strong></a><br>20★ / 2 forks / 1 open issue<br><span class="small">GitHub API 快照：2026-10-18；2026-09-16 创建，10-09 最近 push</span></td>
+            <td>论文对应 radar-visual-kinematic-inertial SLAM；README 提供 RVI/VKI 等运行模式、数据集与模型下载流程。</td>
+            <td><code>src/Proprioceptive</code> 是 GaRLILEO 连续时间后端：<code>estimator.cpp</code> 显式组装 IMU、gravity、radar、leg velocity、bias、extrinsic/time-offset 因子，并用 Ceres/Sophus/B-spline；<code>radar.cpp</code> 从多目标径向速度解三维速度。<code>launch/garlileo_RVI.launch.py</code> 连接 ROS2 bag、参数、RViz。<code>src/Exteroceptive</code> 基于 OKVIS2-X，含 CNN、相机配置、DBoW2 等；不是 README-only。</td>
+            <td>Linux x86_64、Ubuntu 22.04、ROS2 Humble、CUDA 12.1、LibTorch 2.4；README 以 RTX 4080 为验证硬件。Docker、<code>setup_env.sh</code> 与 <code>build_workspace.sh</code> 齐全；另需约 279MB MVS 模型。</td>
+            <td><strong>研究原型中等成熟。</strong> 代码规模与多模态因子完整，数据/模型入口和 launch 配置明确；但提交历史短、硬件/系统绑定重，本次未构建，论文定量结果也未独立复现。</td>
+            <td>与本期 FoundationVIO/传统 VIO 形成互补：RAGNAROK 更强调恶劣环境下雷达、腿运动学与在线标定，不是前馈 3D 路线。</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/fraunhoferhhi/RIPEpp"><strong>fraunhoferhhi/RIPEpp</strong></a><br>31★ / 0 forks / 1 open issue<br><span class="small">GitHub API 快照：2026-10-18；仓库 10-14 仍有关注更新</span></td>
+            <td>仅用 positive image pairs 学习局部 keypoint detector/descriptor，面向 image matching、SfM 与内窥镜等域；提供 default/Aachen/SCARED 权重。</td>
+            <td><code>ripepp/models/ripepp.py</code> 将 backbone、可替换 sampler、encoder hypercolumn 与 decoder descriptor 融合，<code>detectAndCompute</code> 输出点、描述子和分数；<code>losses/rl_loss.py</code> 用 RANSAC inlier 与几何 reward 对采样 log-prob 做策略梯度式优化。<code>demo.py</code> 完整走 checkpoint→MNN→fundamental RANSAC→可视化；<code>conf/</code> 覆盖数据、估计器、sampler、loss 和 scheduler。</td>
+            <td>Python 3.10–3.13、Torch ≥2.10、Kornia、Hydra、Lightning、PoseLib、OpenCV；uv 锁定 CPU/Windows 与 CUDA 12.8/Linux 索引。SCARED 数据需单独申请，Aachen 评测依赖外部 Glue Factory fork。</td>
+            <td><strong>可读可用的早期研究发布。</strong> 模型、损失、benchmark、训练配置、demo 与 checkpoint 自动下载路径齐全；但仅 4 次提交的早期快照，Aachen evaluation 标注 TBD，本次未运行权重。</td>
+            <td>直接服务 SfM/SLAM 前端匹配；其“正样本对 + 几何 reward”路线值得与 DGSfM 的 depth-consistency filtering 组合评估。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Quantitative Experiment Highlights</h2>
+      <table>
+        <thead><tr><th>工作</th><th>数据 / 设置</th><th>指标</th><th>关键结果</th><th>解释边界</th></tr></thead>
+        <tbody>
+          <tr><td>F²SLAM</td><td>TUM / Replica / 7-Scenes</td><td>ATE、completion、Chamfer</td><td>TUM 0.029 m；Replica 0.002 m；7-Scenes completion 0.015、Chamfer 0.019。</td><td>跨表设置含校准/未校准差异，不可直接横向混排。</td></tr>
+          <tr><td>FoundationVIO</td><td>Aria / ScaRF / Oxford，5Hz batch=10</td><td>translation RPE</td><td>DA3-N 分别 0.034 / 0.037 / 0.041 m/m。</td><td>经典 ORB-SLAM3 成功时更准，但有序列失败；代码 404。</td></tr>
+          <tr><td>SMoRe</td><td>Replica / ScanNet++</td><td>overall error</td><td>VGGT 9.15→2.49 cm、24.95→6.05；VGGT-Ω 7.50→2.00、20.80→4.95。</td><td>外挂记忆的 CPU 容量随场景增长，尚无公开代码复核。</td></tr>
+          <tr><td>Motion/Gravity-Aware</td><td>ETH3D/TartanAirV2-WB，8 views</td><td>depth relative error</td><td>pi3 residual/full/none：0.107/0.113/0.116；VGGT residual/full：0.114/0.124。</td><td>位姿 AUC 并非所有设置同向，不能概括为全面提升。</td></tr>
+          <tr><td>Anchor3DGS</td><td>32-view，H800</td><td>GS 数、存储、时间</td><td>0.26M / 35MB / 2.9–3.1s；AnySplat 3.98–4.75M / 653–779MB / 2.8s。</td><td>显著压缩表示，但推理时间相近。</td></tr>
+          <tr><td>LIN-SLAM</td><td>Jetson Orin NX + Go2</td><td>闭合误差 / backend latency</td><td>1.47km 走廊 0.141m、84.875ms；0.86km 地下室 0.073m、88.401ms。</td><td>两条 onboard 路线样本有限，需观察长期队列与热状态。</td></tr>
+          <tr><td>Physical SLAM</td><td>PhysTwin</td><td>reconstruction / prediction PSNR</td><td>31.140 / 28.430 dB；PhysTwin 28.214 / 25.617。</td><td>渲染指标不等同物理控制精度。</td></tr>
+          <tr><td>FireNav</td><td>FireVLN-Bench PE/CE</td><td>SR / SPL</td><td>41.6/32.0 与 56.1/45.5；3.19Hz、19.16GB。</td><td>模拟退化到真实火场的域差未闭合。</td></tr>
+          <tr><td>Slot3R</td><td>300–1000 sampled frames</td><td>Acc error / FPS / completion</td><td>7Scenes 降 57.1–63.1%，NeuralRGBD 降 64.0–72.0%；约 19FPS，600–1000 帧均完成。</td><td>摘要级，未核对正文协议。</td></tr>
+          <tr><td>X-Fly</td><td>OpenFly full-chunk</td><td>SR / inference per waypoint</td><td>seen/unseen 74.18/51.73%；195→42ms；BC 为 16.45/18.43%。</td><td>摘要级；需核对 RL 训练预算与 STOP 定义。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Supplemental Tracking Papers</h2>
+      <table>
+        <thead><tr><th>论文</th><th>方向关系</th><th>解决的问题</th><th>方法 / 结构</th><th>Insight 与数学知识</th><th>实验</th><th>证据级别与后续动作</th></tr></thead>
+        <tbody>
+          <tr><td><a href="https://arxiv.org/abs/2610.21586">AVALON</a></td><td>无全局地图的真实机器人导航</td><td>开放环境里预建全局图成本高，局部策略又缺少长程记忆。</td><td>人类种子拓扑记忆结合在线观测与局部控制，不要求完整度量地图。</td><td>将拓扑可达性与度量控制分层，减少全局建图依赖。</td><td>Unitree Go2：12.81m、46.4s、5/5；DimOS 78.5s、4/5；X-NavDP 0/5。</td><td><strong>摘要级，未深读全文。</strong> 核对人类 seed 成本、路线难度与失败恢复。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2610.21409">CLAD</a></td><td>线特征 SLAM / 数据关联</td><td>点特征在弱纹理与重复结构中不稳定，线段端点又缺乏跨视图一致性。</td><td>以全局 line correspondence、proximity vector 与 HOME 组合线关联。</td><td>线的无界几何与检测到的有限 segment 应分离建模。</td><td>TUM 与室外序列给出定量/定性改进；摘要未列具体数值。</td><td><strong>摘要级，未深读全文。</strong> 后续核对 line degeneracy 与运行时。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2610.20958">Line-Augmented cuVSLAM</a></td><td>点线融合 VSLAM</td><td>纹理弱场景仅用点特征易退化。</td><td>Plücker/4DoF 正交线表示、Cauchy 鲁棒点线残差、自适应权重。</td><td>以线的最小参数化避免过参数约束，并按残差可靠性调节信息矩阵。</td><td>TUM F3 mean ATE -38.5%，Replica -30.1%；median translation -38.9%、rotation -66.4%，零失败。</td><td><strong>摘要级，未深读全文。</strong> 核查 baseline 调参与 GPU 开销。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2610.19742">HyperLoop</a></td><td>高光谱 place recognition</td><td>RGB 在外观变化下回环不稳，高光谱又维度高且传感波段有限。</td><td>HSI BoSW/TF-IDF 与 PCAK-VLAD，和 RGB SIFT/NetVLAD 融合。</td><td>多光谱通道提供材质线索，但 descriptor 与光谱范围共同决定增益。</td><td>MMOTS 4 traverses/65.5m；最佳 HSI fusion ATE 5.04cm，SIFT-VLAD 4.95cm，NetVLAD 8.81cm。</td><td><strong>摘要级，未深读全文。</strong> 结果显示收益主要可能来自 SIFT；需核对消融。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2610.19044">RingNav</a></td><td>极轻量航向记忆</td><td>嵌入式导航需抵抗 turn/reversal，但 RNN/transformer 成本偏高。</td><td>10.6K 参数的圆周 S¹ memory，将历史航向状态按环拓扑更新。</td><td>航向是周期变量，S¹ 表示避免 ±π 边界不连续。</td><td>TartanAir turn error -27%、累积 heading -15%；Pi Zero 2W 27.3Hz、GAP8 33.4Hz。</td><td><strong>摘要级，未深读全文。</strong> 核查位置漂移与真实机器人闭环。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2610.18479">RTISSLAM</a></td><td>声纳-only 3D mapping</td><td>无光/浑浊环境中视觉与 LiDAR 不可用，成像声纳又非标准点云。</td><td>BatSLAM2 pose graph、keyframe anchored occupancy、beamforming/CFAR energyscape 与 acoustic odometry calibration。</td><td>先在声学测量域构造可配准表示，再进入图优化，而不是强行套 LiDAR scan。</td><td>模拟办公室 wheel odometry 8.2m→0.31m；lidar-style grid SLAM 失败。</td><td><strong>摘要级，未深读全文。</strong> 核查仿真到实测声学噪声域差。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2610.16570">Dense Endoluminal Mapping</a></td><td>单目医疗 SLAM</td><td>支气管镜定位通常依赖 CT/电磁 tracker，黏膜又缺少经典纹理。</td><td>DA3 微调输出 metric depth；DINOv3 cross-attention 对应；因子图融合视觉与对运行重建的 projective ICP。</td><td>稠密表面因子补足视觉因子弱可观方向，尺度完全由深度网络提供。</td><td>6 个 CT airway：ATE 26.1mm、surface F-score 77.5%；MASt3R-SLAM 经 GT scale fit 为 22.0mm；ORB-SLAM3 仅完成 2/6。</td><td><strong>摘要级，未深读全文。</strong> 核查真实镜体形变、尺度校准与训练合成域。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2610.16143">All-St3R SLAM</a></td><td>动态 RGB SLAM</td><td>对象级 mask 过度删除静止物体，稠密动态 SLAM 又慢。</td><td>DUSt3R ego-motion 预测像素运动，与 All-Tracker 点轨迹差异生成 pixel-wise dynamic mask。</td><td>动态性应由“观测运动 − 相机诱导运动”判定，而不是类别标签。</td><td>约 10FPS；在 30FPS 输入每 3 帧处理一次，摘要称高于 0.5–3FPS 的稠密动态基线。</td><td><strong>摘要级，未深读全文。</strong> 核查定量轨迹表与遮挡/非刚体失败。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2610.15157">RootSLAM</a></td><td>经典 VIO / square-root BA</td><td>资源受限平台需保留几何法的效率，同时支持多相机、回环与全局地图。</td><td>在 Basalt 上把 square-root BA 扩到多相机 VI-SLAM，并利用 pose graph 重写全局优化，使 single precision 可用。</td><td>QR/square-root 形式避免显式正规方程的数值放大；单精度收益依赖良好条件化。</td><td>摘要称精度具竞争力、速度最高 20×；包含贡献消融，未给逐数据集数值。</td><td><strong>摘要级，未深读全文。</strong> 等待开源后复核 float32 稳定性和 20×口径。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2606.21258">Spectral GS-SLAM v2</a></td><td>3DGS-SLAM 可观性</td><td>ICP 在几何退化场景病态，feature matching 在弱纹理场景失效。</td><td>按谱信息识别 under-constrained direction，用 feature constraint 自适应补偿；Gaussian covariance 提供 planarity 权重。</td><td>只在 Hessian 弱特征向量方向补信息，避免干扰已可观方向。</td><td>TUM RGB-D 挑战序列 40.14FPS，摘要称在结构/纹理退化时保持轨迹。</td><td><strong>摘要级，未深读全文。</strong> 本期跟踪 v2（10-10 修订）；核查阈值与失败统计。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2610.11531">RAGNAROK</a></td><td>腿式机器人多模态 SLAM</td><td>粗糙地形让腿里程计滑移，雷达速度仍缺 yaw 可观性。</td><td>slip/rolling-aware leg velocity、kinematics-aware radar factor、退化感知图像增强、B-spline proprioceptive backbone、自适应权重与在线外参。</td><td>不同模态只在各自可观方向贡献信息，自适应权重限制退化观测污染。</td><td>摘要称公开与自采数据优于 SOTA，未列具体数值；代码与数据已公开。</td><td><strong>摘要级 + repo 文件级静态。</strong> 未深读论文全文；仓库见上节，未运行。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2610.09857">AprilVINS / MILD</a></td><td>机器人示教定位</td><td>近距离遮挡下末端轨迹需毫米级且时间完整，导航 benchmark 不覆盖该问题。</td><td>MILD 含 86 条真实序列/15 任务；AprilVINS 联合鱼眼 VIO 与 sequence-local AprilTag geometry，并分离 prior admission 与 guarded export。</td><td>标记地图无需预先测量，可与轨迹共同优化；但输出资格要与内部先验接受分开。</td><td>AprilVINS(full) 在 Insta360 AprilTag4 达毫米级 TCP-relative APE RMSE 与高 completion；纯鱼眼 VIO 为厘米级。</td><td><strong>摘要级，未深读全文。</strong> 核查统一协议与 sequence-specific profile 的公平性。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2607.09507">DGSfM v2</a></td><td>全局 SfM / monocular depth</td><td>epipolar 相对姿态缺尺度，错误 view-graph 边会破坏全局定位。</td><td>depth-aware relative pose、view-graph filtering、depth-consistency correspondence pruning、global scale averaging 与 depth-guided BA 初始化。</td><td>深度先验只补尺度与过滤，不替代显式多视图优化。</td><td>摘要称 ETH3D/IMC2021 在 sparse/dense matcher 下均提升 pose accuracy，未给数值。</td><td><strong>摘要级，未深读全文。</strong> 项目仓库仅“code coming soon”，无法源码验证。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2610.19993">Under-Ice AUV Reconstruction Failure</a></td><td>采集可观性诊断</td><td>冰下视频重建失败究竟来自算法还是采集几何不充分。</td><td>同一视频比较 SfM、可微 splatting、depth fusion、pose-free foundation model，并以 baseline/depth ratio 统一解释失败。</td><td>小基线/大景深让视差低于稳定估计范围；健康 photometric metric 也不能证明几何正确。</td><td>四类方法分别出现几乎无注册、几何断裂、coverage artifact 与跨 chunk 尺度不稳；检测器将失败预警从小时缩短到分钟。</td><td><strong>摘要级，未深读全文。</strong> 后续核对预警阈值与对其他水下场景的泛化。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2610.12282">Slot3R</a></td><td>流式 3D 记忆</td><td>Point3R 把空间相近同时当作寻址与融合条件，会过早平均互补状态。</td><td>训练外 set-associative retrofit：同一地址保留多个 slot；稀疏有界 readout 解耦持久存储与每帧 decoder 访问。</td><td>location 决定 address，不决定 state identity；这是 SMoRe 之外另一种可修订记忆设计。</td><td>300–500 帧 Acc error：7Scenes -57.1–63.1%，NeuralRGBD -64.0–72.0%；600–1000 帧约 19FPS 并全部完成。</td><td><strong>摘要级，未深读全文。</strong> 核查 slot 增长、淘汰策略与 GPU/CPU footprint。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2610.13849">HorizonNav</a></td><td>视频 world model / 3D navigation</td><td>单图+文本生成的未来视频具外观连续性，但几何不一定可规划。</td><td>VLM 生成 prompt，video diffusion 预测未来视图；ORB-SLAM3 + Video Depth Anything 后以 triangulated landmarks 对齐 dense depth。</td><td>生成视频只是观测提案，需用多视图几何投影到一致尺度。</td><td>19 场景 planning-feasible 13/19→15/19；RRT 成功 62/90→75/90；67 次中 58 个可用重建、36 个支持下游规划。</td><td><strong>摘要级，未深读全文。</strong> 核查想象轨迹与真实可达性的闭环偏差。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2610.10421">AirGroundVLN</a></td><td>空地协同 VLN</td><td>空中视野广但局部粗，地面视野细但受限；历史观测还会随行动不可访问。</td><td>10,281 episodes/955 targets/19 UE 环境；AG-CoNAV 以时空锚定协同记忆和 aerial-guided region-to-local planning 参考实现。</td><td>异构平台的记忆需共同空间锚点，不宜仅拼接视觉 token。</td><td>摘要称 extensive experiments 支持框架，未给 SR/SPL 数值。</td><td><strong>摘要级，未深读全文。</strong> 核查 aerial visibility protocol 与通信假设。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2610.05024">LightVLN</a></td><td>轻量 aerial VLN</td><td>7B backbone 与 dense history 难部署到机载算力。</td><td>0.5B 语言 backbone；历史每帧压成 1 token，当前视图由 instruction/history 条件从 256 聚合到 32 token，总观察 token 最多 48。</td><td>历史压缩应重用策略已计算特征，并由当前任务条件选择空间细节。</td><td>OpenFly seen/unseen SR 50.93/36.14%；AerialVLN-S 25.83%；Jetson Orin NX 推理 14.61Hz、决策 11.13Hz。</td><td><strong>摘要级，未深读全文。</strong> 核查 0.5B/7B 比较的视觉 encoder 与训练数据公平性。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2610.21450">X-Fly</a></td><td>chunked aerial VLN</td><td>整段执行减少 VLM 查询，却把策略带到 expert 未覆盖状态并导致不会 STOP。</td><td>Recovery DAgger 标注 learner-visited states 与 STOP；Flow-GRPO 联合优化 chunk flow controller 与 Bernoulli STOP policy。</td><td>chunk 降低查询频率，但训练分布必须覆盖执行后的状态；STOP 是独立的到达概率决策。</td><td>8 controls/decision：seen/unseen SR 74.18/51.73%；full-chunk BC 16.45/18.43%，DreamFly 32.04/29.46%；每 waypoint 195→42ms。</td><td><strong>摘要级，未深读全文。</strong> 核查奖励、采样量与 no-stop failure 统计。</td></tr>
+          <tr><td><a href="https://arxiv.org/abs/2610.15854">Sharper Frames, Worse Rooms</a></td><td>FeedForward 3D 输入选择</td><td>固定 view budget 下按清晰度选帧会聚集在慢速、窄角度区间。</td><td>9 个手持房间扫描；2×2 factorial 独立操纵 viewpoint spread 与 sharpness，并检查模型一致性/VLM confidence。</td><td>覆盖率是采集几何变量，图像质量是观测噪声变量；小预算时前者主效应约为后者 3×。</td><td>最清晰 16/200 帧 room dimension error 48%，uniform sampling 3%；blurred but spread 在 8/9 captures 更好。</td><td><strong>摘要级，未深读全文。</strong> 核查仅 9 场景的统计稳定性与模型依赖性。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Trends &amp; Insights</h2>
+      <h3>1. 前馈模型正在被重新定义为“可异步调用的几何量测”</h3>
+      <p>F²SLAM、FoundationVIO、SMoRe 与 LIN-SLAM 都没有让大模型独占系统状态，而是用因子图、外部记忆、IMU 或几何前端承接长期一致性。可复现的关键因此从 backbone 名称转向量测频率、尺度/gauge、状态门控、内存淘汰和失败恢复。</p>
+      <h3>2. 同一空间位置需要容纳多个状态假设</h3>
+      <p>SMoRe 的“检索后验证再修订”和 Slot3R 的“同址多 slot”都拒绝用空间邻近直接触发融合。对于动态物体、遮挡、重复视角和早期错误，这比无条件平均更稳；代价是身份验证、存储增长与候选管理成为新瓶颈。</p>
+      <h3>3. 表示压缩的收益必须与时间和精度一起报告</h3>
+      <p>Anchor3DGS 把 32-view Gaussian 数压到约 0.26M、35MB，但推理仍约 3 秒，与 AnySplat 接近；LightVLN 的 token 压缩则实际转化为 Jetson 11.13Hz 决策。单看“参数/点数少”不足以判断部署价值。</p>
+      <h3>4. 采集几何比后端模型更早决定上限</h3>
+      <p>under-ice AUV 的四类方法共同失败，Sharper Frames 发现清晰选帧反而破坏覆盖，Motion/Gravity-Aware 说明训练期运动先验可修正表示。工程流程应在启动昂贵重建前先计算基线/深度比、角覆盖和视差可观性。</p>
+      <h3>5. 导航里的 world model 正从“生成未来”转向“验证未来”</h3>
+      <p>HorizonNav 用几何对齐约束生成视频，FireNav 用决策收益选择是否启用重建，X-Fly 用 learner-state 数据与 STOP 监督纠正 chunk 执行。生成能力本身不是闭环保证；可规划性、碰撞约束与终止校准才是系统指标。</p>
+    </section>
+
+    <section>
+      <h2>Evidence &amp; Reading Coverage</h2>
+      <table>
+        <thead><tr><th>对象</th><th>实际阅读 / 检查覆盖</th><th>证据等级</th><th>不足</th></tr></thead>
+        <tbody>
+          <tr><td>8 篇 Deep-read Papers</td><td>arXiv HTML 全文：Intro、Method、Experiments、Ablation/Analysis（如有）、Conclusion/Limitations 与必要附录；逐表核对本文引用数字。</td><td><strong>全文级</strong></td><td>未本地复现实验；FoundationVIO/LIN-SLAM 等正文无独立完整消融或代码尚未发布。</td></tr>
+          <tr><td>6 张系统/框架图</td><td>只选 caption/section 明确为 pipeline、overview、architecture 的图；下载本地后逐张视觉确认。</td><td><strong>图像级</strong></td><td>FoundationVIO 未提取原图；FireNav 下载图未通过视觉工具确认，二者均未嵌入。</td></tr>
+          <tr><td>20 篇 Supplemental Papers</td><td>arXiv 官方页面的标题、提交/修订日期与完整摘要；按问题、结构、数学 insight、实验与后续动作压缩。</td><td><strong>摘要级</strong></td><td>未读正文/附录；摘要未给数值时明确保留，不据此做最终优劣判断。</td></tr>
+          <tr><td>RAGNAROK / RIPE++</td><td>GitHub API metadata、递归 tree/目录、README、依赖、配置、入口、核心估计器/模型/损失源码。</td><td><strong>文件级静态</strong></td><td>未 clone、安装、运行、下载权重或数据；stars/forks 为 2026-10-18 快照。</td></tr>
+          <tr><td>检索覆盖</td><td>arXiv advanced search 按 SLAM、3D reconstruction、feed-forward 3D、3DGS、robotics、navigation、mapping、localization、embodied AI、world model、VLN 搜索 2026-10-03 至 10-18；扩展项仅保留直接相关者。</td><td><strong>检索级</strong></td><td>可能漏掉标题/摘要未命中关键词的论文；arXiv 最新可见提交截至 10-15。GitHub 搜索曾超时，后改用官方仓库/API 与网页证据。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>值得跟进事项</h2>
+      <ul>
+        <li><strong>统一异步评测：</strong>在同一长序列上记录 F²SLAM/FoundationVIO 的前馈调用频率、batch 边界跳变、gate 拒绝率、ATE 与 GPU 峰值，验证“低频强量测”是否真正摊薄成本。</li>
+        <li><strong>记忆压力测试：</strong>对 SMoRe/Slot3R 设计重复房间、动态家具、错误早期尺度与 1k+ 帧序列，报告检索 precision、修订幅度、CPU/GPU 内存和错误传播。</li>
+        <li><strong>固定预算 3DGS：</strong>复现 Anchor3DGS 的 0.26M anchor/Gaussian 预算曲线，并将 PSNR、Chamfer、显存、序列化体积和 wall-clock 放在同一 Pareto 图。</li>
+        <li><strong>采集前诊断：</strong>把 baseline/depth、角覆盖与 sharpness 解耦指标接入数据采集工具，先预测不可观序列，再决定重采或切换传感器。</li>
+        <li><strong>机器人闭环：</strong>将 FireNav/HorizonNav 的重建分支用真实烟雾、碰撞和停止错误评估，报告 route success、near-miss、fallback 次数，而不只看离线 SR/SPL。</li>
+        <li><strong>代码追踪：</strong>持续检查 FoundationVIO 404 链接、DGSfM 占位仓库，以及 SMoRe、LIN-SLAM、Physical SLAM 的“录用后开源”承诺。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>原始链接列表</h2>
+      <ul class="links">
+        <li><a href="https://arxiv.org/abs/2610.05207">F²SLAM</a></li>
+        <li><a href="https://arxiv.org/abs/2610.14951">FoundationVIO</a> · <a href="https://github.com/ori-drs/FoundationVIO">paper code link（本次 404）</a></li>
+        <li><a href="https://arxiv.org/abs/2610.19674">Remember, Revisit, Revise / SMoRe</a></li>
+        <li><a href="https://arxiv.org/abs/2610.22177">Motion- and Gravity-Aware Feedforward 3D</a></li>
+        <li><a href="https://arxiv.org/abs/2610.21634">Anchor3DGS</a></li>
+        <li><a href="https://arxiv.org/abs/2610.21199">LIN-SLAM</a></li>
+        <li><a href="https://arxiv.org/abs/2610.17260">Physical SLAM</a></li>
+        <li><a href="https://arxiv.org/abs/2610.15595">FireNav</a></li>
+        <li><a href="https://arxiv.org/abs/2610.21586">AVALON</a></li>
+        <li><a href="https://arxiv.org/abs/2610.21409">CLAD</a></li>
+        <li><a href="https://arxiv.org/abs/2610.20958">Line-Augmented cuVSLAM</a></li>
+        <li><a href="https://arxiv.org/abs/2610.19742">HyperLoop</a></li>
+        <li><a href="https://arxiv.org/abs/2610.19044">RingNav</a></li>
+        <li><a href="https://arxiv.org/abs/2610.18479">RTISSLAM</a></li>
+        <li><a href="https://arxiv.org/abs/2610.16570">Dense Endoluminal Mapping</a></li>
+        <li><a href="https://arxiv.org/abs/2610.16143">All-St3R SLAM</a></li>
+        <li><a href="https://arxiv.org/abs/2610.15157">RootSLAM</a></li>
+        <li><a href="https://arxiv.org/abs/2606.21258">Spectral GS-SLAM</a></li>
+        <li><a href="https://arxiv.org/abs/2610.11531">RAGNAROK</a> · <a href="https://github.com/hanjun815/RAGNAROK">code</a></li>
+        <li><a href="https://arxiv.org/abs/2610.09857">AprilVINS / MILD</a></li>
+        <li><a href="https://arxiv.org/abs/2607.09507">DGSfM</a> · <a href="https://github.com/sithu31296/DGSfM">placeholder repo</a></li>
+        <li><a href="https://arxiv.org/abs/2610.19993">Under-Ice AUV Reconstruction Failure</a></li>
+        <li><a href="https://arxiv.org/abs/2610.12282">Slot3R</a></li>
+        <li><a href="https://arxiv.org/abs/2610.13849">HorizonNav</a></li>
+        <li><a href="https://arxiv.org/abs/2610.10421">AirGroundVLN</a></li>
+        <li><a href="https://arxiv.org/abs/2610.05024">LightVLN</a></li>
+        <li><a href="https://arxiv.org/abs/2610.21450">X-Fly</a></li>
+        <li><a href="https://arxiv.org/abs/2610.15854">Sharper Frames, Worse Rooms</a></li>
+        <li><a href="https://github.com/fraunhoferhhi/RIPEpp">RIPE++ code</a> · <a href="https://arxiv.org/abs/2608.19693">paper</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
