@@ -1,0 +1,85 @@
+{
+  "checked_at": "2026-10-19T17:11:00.959Z",
+  "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+  "sha256": "f10b910abd43172d976183026260e071343e780cc278b4ef193431a222edd5a9",
+  "candidate_count": 2629,
+  "disposition_counts": {
+    "excluded": 1201,
+    "revision_tracking": 249,
+    "supplemental": 1160,
+    "deep_read": 19,
+    "unresolved": 0
+  },
+  "included_count": 1428,
+  "window_counts": {
+    "revised": 249,
+    "historical_backfill": 22,
+    "new": 1157
+  },
+  "deep_read": 19,
+  "new_deep_read": 11,
+  "reused_deep_read": 8,
+  "repo_static_audits": 4,
+  "new_repo_audits": 2,
+  "reused_repo_audits": 2,
+  "system_figures": 17,
+  "checks": [
+    {
+      "name": "all 9 template sections, exact order",
+      "pass": true
+    },
+    {
+      "name": "no stale placeholders or invalid literal data",
+      "pass": true
+    },
+    {
+      "name": "candidate IDs unique and disposition sum closed",
+      "pass": true
+    },
+    {
+      "name": "all included IDs exactly one HTML paper row",
+      "pass": true
+    },
+    {
+      "name": "included reading and fields truthful, exclusions reasoned",
+      "pass": true
+    },
+    {
+      "name": "fixed exact UTC window and separate classifications",
+      "pass": true
+    },
+    {
+      "name": "known 29 omissions and 7 revisions included; boundary preserved",
+      "pass": true
+    },
+    {
+      "name": "17 system figures exist, only in deep-read section",
+      "pass": true
+    },
+    {
+      "name": "native image decode snapshot matches current file hashes",
+      "pass": true
+    },
+    {
+      "name": "independent rediscovery reconciled",
+      "pass": true
+    },
+    {
+      "name": "all official category-list IDs represented and closed",
+      "pass": true
+    },
+    {
+      "name": "failed paper-search records retain explicit recovery routes",
+      "pass": true
+    },
+    {
+      "name": "no unresolved and completion status agrees",
+      "pass": true
+    },
+    {
+      "name": "index and state agree with final report",
+      "pass": true
+    }
+  ],
+  "visual_verification": "Not performed: existing browser file:// safety refusal was not bypassed. HTML structure, source/data reconciliation and native image decode checks are separate, not visual page acceptance."
+}

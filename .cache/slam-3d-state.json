@@ -1,6 +1,23 @@
 {
-  "run_at": "2026-10-18T21:52:39.8263257+08:00",
+  "run_at": "2026-10-19T17:10:23.356Z",
   "coverage_start": "2026-10-03T16:16:46.3538283+08:00",
   "coverage_end": "2026-10-18T21:52:39.8263257+08:00",
-  "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+  "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+  "previous_run_at": "2026-10-18T21:52:39.8263257+08:00",
+  "coverage_status": "complete_with_known_limits",
+  "last_refresh_at": "2026-10-19T17:10:23.356Z",
+  "refresh_window": {
+    "coverage_start": "2026-10-03T16:16:46.3538283+08:00",
+    "coverage_end": "2026-10-18T21:52:39.8263257+08:00",
+    "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+  },
+  "ledger_path": "reports/2026-10-03_2026-10-18_paper-ledger.json",
+  "search_manifest_path": "reports/2026-10-03_2026-10-18_search-manifest.json",
+  "paper_history_path": "reports/paper-history.json",
+  "backlog": {
+    "unresolved_count": 0,
+    "ids": [],
+    "reason": "已发现候选全部核销；精确固定窗口未扩展到刷新运行时。全文/仓库未运行等证据边界见报告与manifest，非未处理候选。",
+    "independent_review_status": "independent rediscovery completed; all discovered IDs reconciled by main"
+  }
 }

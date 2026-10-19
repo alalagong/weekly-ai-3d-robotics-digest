@@ -1,0 +1,3496 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-19T17:10:23.356Z",
+  "coverage_start_utc": "2026-10-03T08:16:46.3538283Z",
+  "coverage_end_utc": "2026-10-18T13:52:39.8263257Z",
+  "coverage_status": "complete_with_known_limits",
+  "queries": [
+    {
+      "family": "main latest",
+      "term": "\"3D reconstruction\"",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date, includes revisions; final history checked separately",
+      "expected": 60,
+      "fetched": 60,
+      "pages": [
+        {
+          "start": 0,
+          "returned": 60,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%223D%20reconstruction%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0"
+        }
+      ],
+      "exhausted": true,
+      "failure": null,
+      "retrieved_at": "2026-10-19T00:30:43.7505332+08:00"
+    },
+    {
+      "family": "main latest",
+      "term": "\"Gaussian splatting\"",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date, includes revisions; final history checked separately",
+      "expected": 97,
+      "fetched": 97,
+      "pages": [
+        {
+          "start": 0,
+          "returned": 97,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22Gaussian%20splatting%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0"
+        }
+      ],
+      "exhausted": true,
+      "failure": null,
+      "retrieved_at": "2026-10-19T00:30:45.5867598+08:00"
+    },
+    {
+      "family": "main latest",
+      "term": "3DGS",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date, includes revisions; final history checked separately",
+      "expected": 64,
+      "fetched": 64,
+      "pages": [
+        {
+          "start": 0,
+          "returned": 64,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=3DGS&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0"
+        }
+      ],
+      "exhausted": true,
+      "failure": null,
+      "retrieved_at": "2026-10-19T00:30:48.1772536+08:00"
+    },
+    {
+      "family": "main latest",
+      "term": "\"feed-forward\"",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date, includes revisions; final history checked separately",
+      "expected": 121,
+      "fetched": 121,
+      "pages": [
+        {
+          "start": 0,
+          "returned": 121,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22feed-forward%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0"
+        }
+      ],
+      "exhausted": true,
+      "failure": null,
+      "retrieved_at": "2026-10-19T00:30:52.0453128+08:00"
+    },
+    {
+      "family": "main latest",
+      "term": "\"feedforward\"",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date, includes revisions; final history checked separately",
+      "expected": 52,
+      "fetched": 52,
+      "pages": [
+        {
+          "start": 0,
+          "returned": 52,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22feedforward%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0"
+        }
+      ],
+      "exhausted": true,
+      "failure": null,
+      "retrieved_at": "2026-10-19T00:30:54.6363311+08:00"
+    },
+    {
+      "family": "main latest",
+      "term": "\"visual geometry\"",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date, includes revisions; final history checked separately",
+      "expected": 16,
+      "fetched": 16,
+      "pages": [
+        {
+          "start": 0,
+          "returned": 16,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22visual%20geometry%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0"
+        }
+      ],
+      "exhausted": true,
+      "failure": null,
+      "retrieved_at": "2026-10-19T00:30:56.3560381+08:00"
+    },
+    {
+      "family": "main first fallback",
+      "term": "\"3D reconstruction\"",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date_first",
+      "expected": null,
+      "fetched": 0,
+      "pages": [],
+      "exhausted": false,
+      "failure": "Response status code does not indicate success: 429 (Unknown Error).",
+      "retrieved_at": "2026-10-19T00:31:46.9802857+08:00",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "原first-query429；已耗尽同短语latest-submission检索，并用Atom首次提交集交叉；latest结果含新发和修订，最终精确时间过滤。"
+      }
+    },
+    {
+      "family": "main first fallback",
+      "term": "\"Gaussian splatting\"",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date_first",
+      "expected": null,
+      "fetched": 0,
+      "pages": [],
+      "exhausted": false,
+      "failure": "Response status code does not indicate success: 429 (Unknown Error).",
+      "retrieved_at": "2026-10-19T00:31:48.0261363+08:00",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "原first-query429；已耗尽同短语latest-submission检索，并用Atom首次提交集交叉；latest结果含新发和修订，最终精确时间过滤。"
+      }
+    },
+    {
+      "family": "main first fallback",
+      "term": "3DGS",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date_first",
+      "expected": null,
+      "fetched": 0,
+      "pages": [],
+      "exhausted": false,
+      "failure": "Response status code does not indicate success: 429 (Unknown Error).",
+      "retrieved_at": "2026-10-19T00:31:50.6188821+08:00",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "原first-query429；已耗尽同短语latest-submission检索，并用Atom首次提交集交叉；latest结果含新发和修订，最终精确时间过滤。"
+      }
+    },
+    {
+      "family": "main first fallback",
+      "term": "\"feed-forward\"",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date_first",
+      "expected": null,
+      "fetched": 0,
+      "pages": [],
+      "exhausted": false,
+      "failure": "Response status code does not indicate success: 429 (Unknown Error).",
+      "retrieved_at": "2026-10-19T00:31:51.6756734+08:00",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "原first-query429；已耗尽同短语latest-submission检索，并用Atom首次提交集交叉；latest结果含新发和修订，最终精确时间过滤。"
+      }
+    },
+    {
+      "family": "main first fallback",
+      "term": "\"feedforward\"",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date_first",
+      "expected": null,
+      "fetched": 0,
+      "pages": [],
+      "exhausted": false,
+      "failure": "Response status code does not indicate success: 429 (Unknown Error).",
+      "retrieved_at": "2026-10-19T00:31:53.5056324+08:00",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "原first-query429；已耗尽同短语latest-submission检索，并用Atom首次提交集交叉；latest结果含新发和修订，最终精确时间过滤。"
+      }
+    },
+    {
+      "family": "main first fallback",
+      "term": "\"visual geometry\"",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date_first",
+      "expected": null,
+      "fetched": 0,
+      "pages": [],
+      "exhausted": false,
+      "failure": "Response status code does not indicate success: 429 (Unknown Error).",
+      "retrieved_at": "2026-10-19T00:31:54.1814837+08:00",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "原first-query429；已耗尽同短语latest-submission检索，并用Atom首次提交集交叉；latest结果含新发和修订，最终精确时间过滤。"
+      }
+    },
+    {
+      "family": "core advanced",
+      "query": "SLAM",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date_first",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:39:01.2797447Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=SLAM&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date_first&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 26,
+      "pages": 1,
+      "count": 26,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "SLAM",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:39:01.3287436Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=SLAM&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 37,
+      "pages": 1,
+      "count": 37,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "odometry",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date_first",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:39:01.3503972Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=odometry&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date_first&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 28,
+      "pages": 1,
+      "count": 28,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "odometry",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:39:01.3769097Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=odometry&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 35,
+      "pages": 1,
+      "count": 35,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "visual-inertial",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date_first",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:39:01.3894530Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=visual-inertial&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date_first&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 12,
+      "pages": 1,
+      "count": 12,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "visual-inertial",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:39:01.4043933Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=visual-inertial&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 15,
+      "pages": 1,
+      "count": 15,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "\"structure from motion\"",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date_first",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:39:01.4117490Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22structure%20from%20motion%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date_first&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 5,
+      "pages": 1,
+      "count": 5,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "\"structure from motion\"",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:39:01.4230780Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22structure%20from%20motion%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 10,
+      "pages": 1,
+      "count": 10,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "SfM",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date_first",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:39:01.4312078Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=SfM&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date_first&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 6,
+      "pages": 1,
+      "count": 6,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "SfM",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:39:01.4431686Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=SfM&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 11,
+      "pages": 1,
+      "count": 11,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "\"loop closure\"",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date_first",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:39:01.4515969Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22loop%20closure%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date_first&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 7,
+      "pages": 1,
+      "count": 7,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "\"loop closure\"",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:39:01.4617655Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22loop%20closure%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 9,
+      "pages": 1,
+      "count": 9,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "relocalization",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date_first",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:39:01.4806964Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=relocalization&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date_first&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 23,
+      "pages": 1,
+      "count": 23,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "relocalization",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:39:01.5063926Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=relocalization&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 34,
+      "pages": 1,
+      "count": 34,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "relocalisation",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date_first",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:40:13.5688113Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=relocalisation&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date_first&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": null,
+      "pages": 0,
+      "count": 0,
+      "exhausted": false,
+      "failure": "Response status code does not indicate success: 429 (Unknown Error).",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "UK拼写relocalisation由final core/VGGT latest重查（0结果）及美式relocalization双轮补充；registration-first由已耗尽的core Atom submittedDate查询补足。"
+      }
+    },
+    {
+      "family": "core advanced",
+      "query": "relocalisation",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:41:21.9207060Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=relocalisation&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": null,
+      "pages": 0,
+      "count": 0,
+      "exhausted": false,
+      "failure": "Response status code does not indicate success: 429 (Unknown Error).",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "UK拼写relocalisation由final core/VGGT latest重查（0结果）及美式relocalization双轮补充；registration-first由已耗尽的core Atom submittedDate查询补足。"
+      }
+    },
+    {
+      "family": "core advanced",
+      "query": "registration",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date_first",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:42:30.8385261Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=registration&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date_first&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": null,
+      "pages": 0,
+      "count": 0,
+      "exhausted": false,
+      "failure": "Response status code does not indicate success: 429 (Unknown Error).",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "UK拼写relocalisation由final core/VGGT latest重查（0结果）及美式relocalization双轮补充；registration-first由已耗尽的core Atom submittedDate查询补足。"
+      }
+    },
+    {
+      "family": "core advanced",
+      "query": "registration",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:42:47.5006687Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=registration&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 71,
+      "pages": 1,
+      "count": 71,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "\"bundle adjustment\"",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date_first",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:42:47.5141557Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22bundle%20adjustment%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date_first&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 7,
+      "pages": 1,
+      "count": 7,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "\"bundle adjustment\"",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:42:47.5248599Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22bundle%20adjustment%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 9,
+      "pages": 1,
+      "count": 9,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "\"pose graph\"",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date_first",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:42:47.5336477Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22pose%20graph%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date_first&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 7,
+      "pages": 1,
+      "count": 7,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "\"pose graph\"",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:42:47.5452628Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22pose%20graph%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 10,
+      "pages": 1,
+      "count": 10,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "LiDAR",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date_first",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:42:47.5907061Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=LiDAR&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date_first&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 61,
+      "pages": 1,
+      "count": 61,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "LiDAR",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:42:47.6489298Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=LiDAR&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 86,
+      "pages": 1,
+      "count": 86,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "radar",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date_first",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:42:47.6885368Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=radar&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date_first&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 55,
+      "pages": 1,
+      "count": 55,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "radar",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:42:53.4050840Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=radar&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 81,
+      "pages": 1,
+      "count": 81,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "\"multi-sensor fusion\"",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date_first",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:42:59.7803564Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22multi-sensor%20fusion%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date_first&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 1,
+      "pages": 1,
+      "count": 1,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "\"multi-sensor fusion\"",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:43:05.2952377Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22multi-sensor%20fusion%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 1,
+      "pages": 1,
+      "count": 1,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "\"RGB-D\"",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date_first",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:43:10.8198582Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22RGB-D%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date_first&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 36,
+      "pages": 1,
+      "count": 36,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "core advanced",
+      "query": "\"RGB-D\"",
+      "fields": "all (title/abstract/metadata)",
+      "date_type": "submitted_date",
+      "date_from": "2026-10-03",
+      "date_to": "2026-10-19",
+      "exact_window": "(2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "fetched_at": "2026-10-18T16:43:17.3283988Z",
+      "urls": [
+        "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22RGB-D%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-03&date-to_date=2026-10-19&date-date_type=submitted_date&abstracts=show&size=200&order=-announced_date_first&start=0"
+      ],
+      "total": 51,
+      "pages": 1,
+      "count": 51,
+      "exhausted": true,
+      "failure": null
+    },
+    {
+      "family": "VGGT API",
+      "name": "vggt-submittedDate",
+      "query": "(all:VGGT OR all:OmniVGGT OR all:\"visual geometry transformer\" OR all:\"geometry foundation\") AND submittedDate:[202610020000 TO 202610182359]",
+      "date_predicate": "submittedDate:[202610020000 TO 202610182359]",
+      "time_utc": "2026-10-18T16:31:15Z",
+      "pages": [
+        {
+          "url": "https://export.arxiv.org/api/query?search_query=%28all%3AVGGT+OR+all%3AOmniVGGT+OR+all%3A%22visual+geometry+transformer%22+OR+all%3A%22geometry+foundation%22%29+AND+submittedDate%3A%5B202610020000+TO+202610182359%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+          "start": 0,
+          "count": 22,
+          "local": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\.cache\\slam-refresh-vggt\\vggt-submittedDate-0.xml"
+        }
+      ],
+      "total": 22,
+      "fetched": 22,
+      "exhausted": true,
+      "failure": []
+    },
+    {
+      "family": "VGGT API",
+      "name": "vggt-lastUpdatedDate",
+      "query": "(all:VGGT OR all:OmniVGGT OR all:\"visual geometry transformer\" OR all:\"geometry foundation\") AND lastUpdatedDate:[202610020000 TO 202610182359]",
+      "date_predicate": "lastUpdatedDate:[202610020000 TO 202610182359]",
+      "time_utc": "2026-10-18T16:31:15Z",
+      "pages": [
+        {
+          "url": "https://export.arxiv.org/api/query?search_query=%28all%3AVGGT+OR+all%3AOmniVGGT+OR+all%3A%22visual+geometry+transformer%22+OR+all%3A%22geometry+foundation%22%29+AND+lastUpdatedDate%3A%5B202610020000+TO+202610182359%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+          "start": 0,
+          "count": 22,
+          "local": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\.cache\\slam-refresh-vggt\\vggt-lastUpdatedDate-0.xml"
+        }
+      ],
+      "total": 22,
+      "fetched": 22,
+      "exhausted": true,
+      "failure": []
+    },
+    {
+      "family": "VGGT API",
+      "name": "st3r-submittedDate",
+      "query": "(all:DUSt3R OR all:MASt3R OR all:pi3 OR all:\"π³\" OR all:\"Depth Anything\" OR all:DA3) AND submittedDate:[202610020000 TO 202610182359]",
+      "date_predicate": "submittedDate:[202610020000 TO 202610182359]",
+      "time_utc": "2026-10-18T16:31:15Z",
+      "pages": [
+        {
+          "url": "https://export.arxiv.org/api/query?search_query=%28all%3ADUSt3R+OR+all%3AMASt3R+OR+all%3Api3+OR+all%3A%22%CF%80%C2%B3%22+OR+all%3A%22Depth+Anything%22+OR+all%3ADA3%29+AND+submittedDate%3A%5B202610020000+TO+202610182359%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+          "start": 0,
+          "count": 197,
+          "local": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\.cache\\slam-refresh-vggt\\st3r-submittedDate-0.xml"
+        }
+      ],
+      "total": 197,
+      "fetched": 197,
+      "exhausted": true,
+      "failure": []
+    },
+    {
+      "family": "VGGT API",
+      "name": "st3r-lastUpdatedDate",
+      "query": "(all:DUSt3R OR all:MASt3R OR all:pi3 OR all:\"π³\" OR all:\"Depth Anything\" OR all:DA3) AND lastUpdatedDate:[202610020000 TO 202610182359]",
+      "date_predicate": "lastUpdatedDate:[202610020000 TO 202610182359]",
+      "time_utc": "2026-10-18T16:31:17Z",
+      "pages": [
+        {
+          "url": "https://export.arxiv.org/api/query?search_query=%28all%3ADUSt3R+OR+all%3AMASt3R+OR+all%3Api3+OR+all%3A%22%CF%80%C2%B3%22+OR+all%3A%22Depth+Anything%22+OR+all%3ADA3%29+AND+lastUpdatedDate%3A%5B202610020000+TO+202610182359%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+          "start": 0,
+          "count": 197,
+          "local": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\.cache\\slam-refresh-vggt\\st3r-lastUpdatedDate-0.xml"
+        }
+      ],
+      "total": 197,
+      "fetched": 197,
+      "exhausted": true,
+      "failure": []
+    },
+    {
+      "family": "VGGT API",
+      "name": "feedforward-submittedDate",
+      "query": "((all:\"feed-forward\" OR all:feedforward) AND (all:3D OR all:geometry OR all:reconstruction)) AND submittedDate:[202610020000 TO 202610182359]",
+      "date_predicate": "submittedDate:[202610020000 TO 202610182359]",
+      "time_utc": "2026-10-18T16:31:17Z",
+      "pages": [
+        {
+          "url": "https://export.arxiv.org/api/query?search_query=%28%28all%3A%22feed-forward%22+OR+all%3Afeedforward%29+AND+%28all%3A3D+OR+all%3Ageometry+OR+all%3Areconstruction%29%29+AND+submittedDate%3A%5B202610020000+TO+202610182359%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+          "start": 0,
+          "count": 57,
+          "local": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\.cache\\slam-refresh-vggt\\feedforward-submittedDate-0.xml"
+        }
+      ],
+      "total": 57,
+      "fetched": 57,
+      "exhausted": true,
+      "failure": []
+    },
+    {
+      "family": "VGGT API",
+      "name": "feedforward-lastUpdatedDate",
+      "query": "((all:\"feed-forward\" OR all:feedforward) AND (all:3D OR all:geometry OR all:reconstruction)) AND lastUpdatedDate:[202610020000 TO 202610182359]",
+      "date_predicate": "lastUpdatedDate:[202610020000 TO 202610182359]",
+      "time_utc": "2026-10-18T16:31:20Z",
+      "pages": [
+        {
+          "url": "https://export.arxiv.org/api/query?search_query=%28%28all%3A%22feed-forward%22+OR+all%3Afeedforward%29+AND+%28all%3A3D+OR+all%3Ageometry+OR+all%3Areconstruction%29%29+AND+lastUpdatedDate%3A%5B202610020000+TO+202610182359%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+          "start": 0,
+          "count": 57,
+          "local": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\.cache\\slam-refresh-vggt\\feedforward-lastUpdatedDate-0.xml"
+        }
+      ],
+      "total": 57,
+      "fetched": 57,
+      "exhausted": true,
+      "failure": []
+    },
+    {
+      "family": "VGGT API",
+      "name": "streaming-submittedDate",
+      "query": "((all:streaming OR all:online OR all:\"long-sequence\") AND (all:\"3D reconstruction\" OR all:pointmap OR all:\"scene reconstruction\")) AND submittedDate:[202610020000 TO 202610182359]",
+      "date_predicate": "submittedDate:[202610020000 TO 202610182359]",
+      "time_utc": "2026-10-18T16:31:21Z",
+      "pages": [
+        {
+          "url": "https://export.arxiv.org/api/query?search_query=%28%28all%3Astreaming+OR+all%3Aonline+OR+all%3A%22long-sequence%22%29+AND+%28all%3A%223D+reconstruction%22+OR+all%3Apointmap+OR+all%3A%22scene+reconstruction%22%29%29+AND+submittedDate%3A%5B202610020000+TO+202610182359%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+          "start": 0,
+          "count": 16,
+          "local": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\.cache\\slam-refresh-vggt\\streaming-submittedDate-0.xml"
+        }
+      ],
+      "total": 16,
+      "fetched": 16,
+      "exhausted": true,
+      "failure": []
+    },
+    {
+      "family": "VGGT API",
+      "name": "streaming-lastUpdatedDate",
+      "query": "((all:streaming OR all:online OR all:\"long-sequence\") AND (all:\"3D reconstruction\" OR all:pointmap OR all:\"scene reconstruction\")) AND lastUpdatedDate:[202610020000 TO 202610182359]",
+      "date_predicate": "lastUpdatedDate:[202610020000 TO 202610182359]",
+      "time_utc": "2026-10-18T16:31:22Z",
+      "pages": [
+        {
+          "url": "https://export.arxiv.org/api/query?search_query=%28%28all%3Astreaming+OR+all%3Aonline+OR+all%3A%22long-sequence%22%29+AND+%28all%3A%223D+reconstruction%22+OR+all%3Apointmap+OR+all%3A%22scene+reconstruction%22%29%29+AND+lastUpdatedDate%3A%5B202610020000+TO+202610182359%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+          "start": 0,
+          "count": 16,
+          "local": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\.cache\\slam-refresh-vggt\\streaming-lastUpdatedDate-0.xml"
+        }
+      ],
+      "total": 16,
+      "fetched": 16,
+      "exhausted": true,
+      "failure": []
+    },
+    {
+      "family": "VGGT API",
+      "name": "attention-submittedDate",
+      "query": "((all:attention OR all:uncertainty OR all:confidence OR all:memory OR all:scale) AND (all:VGGT OR all:DUSt3R OR all:MASt3R OR all:\"3D foundation\" OR all:pointmap)) AND submittedDate:[202610020000 TO 202610182359]",
+      "date_predicate": "submittedDate:[202610020000 TO 202610182359]",
+      "time_utc": "2026-10-18T16:31:23Z",
+      "pages": [
+        {
+          "url": "https://export.arxiv.org/api/query?search_query=%28%28all%3Aattention+OR+all%3Auncertainty+OR+all%3Aconfidence+OR+all%3Amemory+OR+all%3Ascale%29+AND+%28all%3AVGGT+OR+all%3ADUSt3R+OR+all%3AMASt3R+OR+all%3A%223D+foundation%22+OR+all%3Apointmap%29%29+AND+submittedDate%3A%5B202610020000+TO+202610182359%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+          "start": 0,
+          "count": 16,
+          "local": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\.cache\\slam-refresh-vggt\\attention-submittedDate-0.xml"
+        }
+      ],
+      "total": 16,
+      "fetched": 16,
+      "exhausted": true,
+      "failure": []
+    },
+    {
+      "family": "VGGT API",
+      "name": "attention-lastUpdatedDate",
+      "query": "((all:attention OR all:uncertainty OR all:confidence OR all:memory OR all:scale) AND (all:VGGT OR all:DUSt3R OR all:MASt3R OR all:\"3D foundation\" OR all:pointmap)) AND lastUpdatedDate:[202610020000 TO 202610182359]",
+      "date_predicate": "lastUpdatedDate:[202610020000 TO 202610182359]",
+      "time_utc": "2026-10-18T16:31:24Z",
+      "pages": [
+        {
+          "url": "https://export.arxiv.org/api/query?search_query=%28%28all%3Aattention+OR+all%3Auncertainty+OR+all%3Aconfidence+OR+all%3Amemory+OR+all%3Ascale%29+AND+%28all%3AVGGT+OR+all%3ADUSt3R+OR+all%3AMASt3R+OR+all%3A%223D+foundation%22+OR+all%3Apointmap%29%29+AND+lastUpdatedDate%3A%5B202610020000+TO+202610182359%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+          "start": 0,
+          "count": 16,
+          "local": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\.cache\\slam-refresh-vggt\\attention-lastUpdatedDate-0.xml"
+        }
+      ],
+      "total": 16,
+      "fetched": 16,
+      "exhausted": true,
+      "failure": []
+    },
+    {
+      "family": "VGGT API",
+      "name": "reconstruction-submittedDate",
+      "query": "(ti:\"3D reconstruction\" OR abs:\"3D reconstruction\" OR ti:pointmap OR abs:pointmap) AND submittedDate:[202610020000 TO 202610182359]",
+      "date_predicate": "submittedDate:[202610020000 TO 202610182359]",
+      "time_utc": "2026-10-18T16:31:24Z",
+      "pages": [
+        {
+          "url": "https://export.arxiv.org/api/query?search_query=%28ti%3A%223D+reconstruction%22+OR+abs%3A%223D+reconstruction%22+OR+ti%3Apointmap+OR+abs%3Apointmap%29+AND+submittedDate%3A%5B202610020000+TO+202610182359%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+          "start": 0,
+          "count": 45,
+          "local": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\.cache\\slam-refresh-vggt\\reconstruction-submittedDate-0.xml"
+        }
+      ],
+      "total": 45,
+      "fetched": 45,
+      "exhausted": true,
+      "failure": []
+    },
+    {
+      "family": "VGGT API",
+      "name": "reconstruction-lastUpdatedDate",
+      "query": "(ti:\"3D reconstruction\" OR abs:\"3D reconstruction\" OR ti:pointmap OR abs:pointmap) AND lastUpdatedDate:[202610020000 TO 202610182359]",
+      "date_predicate": "lastUpdatedDate:[202610020000 TO 202610182359]",
+      "time_utc": "2026-10-18T16:31:25Z",
+      "pages": [
+        {
+          "url": "https://export.arxiv.org/api/query?search_query=%28ti%3A%223D+reconstruction%22+OR+abs%3A%223D+reconstruction%22+OR+ti%3Apointmap+OR+abs%3Apointmap%29+AND+lastUpdatedDate%3A%5B202610020000+TO+202610182359%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+          "start": 0,
+          "count": 45,
+          "local": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\.cache\\slam-refresh-vggt\\reconstruction-lastUpdatedDate-0.xml"
+        }
+      ],
+      "total": 45,
+      "fetched": 45,
+      "exhausted": true,
+      "failure": []
+    },
+    {
+      "family": "VGGT independent audit",
+      "name": "audit-pointmaps-submittedDate",
+      "query": "(ti:geometry OR ti:geometric OR abs:pointmaps OR abs:\"point maps\") AND (cat:cs.CV OR cat:cs.RO) AND submittedDate:[202610020000 TO 202610182359]",
+      "date_predicate": "submittedDate:[202610020000 TO 202610182359]",
+      "time_utc": "2026-10-18T16:41:41Z",
+      "pages": [
+        {
+          "url": "https://export.arxiv.org/api/query?search_query=%28ti%3Ageometry+OR+ti%3Ageometric+OR+abs%3Apointmaps+OR+abs%3A%22point+maps%22%29+AND+%28cat%3Acs.CV+OR+cat%3Acs.RO%29+AND+submittedDate%3A%5B202610020000+TO+202610182359%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+          "start": 0,
+          "count": 94,
+          "local": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\.cache\\slam-refresh-vggt\\audit-pointmaps-submittedDate-0.xml"
+        }
+      ],
+      "total": 94,
+      "fetched": 94,
+      "exhausted": true,
+      "failure": []
+    },
+    {
+      "family": "VGGT independent audit",
+      "name": "audit-unposed-submittedDate",
+      "query": "(abs:\"multi-view\" OR abs:multiview) AND (abs:unposed OR abs:uncalibrated) AND submittedDate:[202610020000 TO 202610182359]",
+      "date_predicate": "submittedDate:[202610020000 TO 202610182359]",
+      "time_utc": "2026-10-18T16:41:46Z",
+      "pages": [
+        {
+          "url": "https://export.arxiv.org/api/query?search_query=%28abs%3A%22multi-view%22+OR+abs%3Amultiview%29+AND+%28abs%3Aunposed+OR+abs%3Auncalibrated%29+AND+submittedDate%3A%5B202610020000+TO+202610182359%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+          "start": 0,
+          "count": 5,
+          "local": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\.cache\\slam-refresh-vggt\\audit-unposed-submittedDate-0.xml"
+        }
+      ],
+      "total": 5,
+      "fetched": 5,
+      "exhausted": true,
+      "failure": []
+    },
+    {
+      "family": "VGGT independent audit",
+      "name": "audit-stream-state-submittedDate",
+      "query": "(ti:stream OR ti:streaming OR ti:online) AND (abs:geometry OR abs:reconstruction) AND submittedDate:[202610020000 TO 202610182359]",
+      "date_predicate": "submittedDate:[202610020000 TO 202610182359]",
+      "time_utc": "2026-10-18T16:41:50Z",
+      "pages": [
+        {
+          "url": "https://export.arxiv.org/api/query?search_query=%28ti%3Astream+OR+ti%3Astreaming+OR+ti%3Aonline%29+AND+%28abs%3Ageometry+OR+abs%3Areconstruction%29+AND+submittedDate%3A%5B202610020000+TO+202610182359%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+          "start": 0,
+          "count": 24,
+          "local": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\.cache\\slam-refresh-vggt\\audit-stream-state-submittedDate-0.xml"
+        }
+      ],
+      "total": 24,
+      "fetched": 24,
+      "exhausted": true,
+      "failure": []
+    },
+    {
+      "family": "VGGT independent audit",
+      "name": "audit-scale-cache-submittedDate",
+      "query": "(ti:\"metric scale\" OR abs:\"scale drift\" OR abs:\"KV cache\") AND (all:3D OR all:reconstruction) AND submittedDate:[202610020000 TO 202610182359]",
+      "date_predicate": "submittedDate:[202610020000 TO 202610182359]",
+      "time_utc": "2026-10-18T16:41:54Z",
+      "pages": [
+        {
+          "url": "https://export.arxiv.org/api/query?search_query=%28ti%3A%22metric+scale%22+OR+abs%3A%22scale+drift%22+OR+abs%3A%22KV+cache%22%29+AND+%28all%3A3D+OR+all%3Areconstruction%29+AND+submittedDate%3A%5B202610020000+TO+202610182359%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+          "start": 0,
+          "count": 14,
+          "local": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\.cache\\slam-refresh-vggt\\audit-scale-cache-submittedDate-0.xml"
+        }
+      ],
+      "total": 14,
+      "fetched": 14,
+      "exhausted": true,
+      "failure": []
+    },
+    {
+      "family": "VGGT independent audit",
+      "name": "audit-attention-tokens-submittedDate",
+      "query": "(abs:\"visual geometry\" OR abs:\"geometric foundation\") AND (abs:efficient OR abs:attention OR abs:tokens) AND submittedDate:[202610020000 TO 202610182359]",
+      "date_predicate": "submittedDate:[202610020000 TO 202610182359]",
+      "time_utc": "2026-10-18T16:41:59Z",
+      "pages": [
+        {
+          "url": "https://export.arxiv.org/api/query?search_query=%28abs%3A%22visual+geometry%22+OR+abs%3A%22geometric+foundation%22%29+AND+%28abs%3Aefficient+OR+abs%3Aattention+OR+abs%3Atokens%29+AND+submittedDate%3A%5B202610020000+TO+202610182359%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+          "start": 0,
+          "count": 5,
+          "local": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\.cache\\slam-refresh-vggt\\audit-attention-tokens-submittedDate-0.xml"
+        }
+      ],
+      "total": 5,
+      "fetched": 5,
+      "exhausted": true,
+      "failure": []
+    },
+    {
+      "family": "embodied Atom",
+      "key": "embodied-union-submittedDate",
+      "query": "((ti:\"world model\" OR abs:\"world model\" OR ti:\"world-action\" OR abs:\"world-action\" OR ti:\"world action\" OR abs:\"world action\") OR (ti:navigation OR abs:\"embodied navigation\" OR ti:VLN OR abs:\"vision-language navigation\" OR abs:\"vision language navigation\") OR (ti:\"active mapping\" OR abs:\"active mapping\" OR ti:\"open-vocabulary\" OR abs:\"open-vocabulary mapping\" OR ti:\"semantic mapping\" OR abs:\"semantic mapping\") OR ((abs:robot OR abs:robotic OR abs:robotics OR abs:navigation) AND (abs:\"Gaussian splatting\" OR abs:3DGS))) AND submittedDate:[202610020000 TO 202610182359]",
+      "field": "title+abstract",
+      "date_predicate": "submittedDate:[202610020000 TO202610182359]; final exactUTC history filter",
+      "pages": [
+        {
+          "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22world+model%22+OR+abs%3A%22world+model%22+OR+ti%3A%22world-action%22+OR+abs%3A%22world-action%22+OR+ti%3A%22world+action%22+OR+abs%3A%22world+action%22%29+OR+%28ti%3Anavigation+OR+abs%3A%22embodied+navigation%22+OR+ti%3AVLN+OR+abs%3A%22vision-language+navigation%22+OR+abs%3A%22vision+language+navigation%22%29+OR+%28ti%3A%22active+mapping%22+OR+abs%3A%22active+mapping%22+OR+ti%3A%22open-vocabulary%22+OR+abs%3A%22open-vocabulary+mapping%22+OR+ti%3A%22semantic+mapping%22+OR+abs%3A%22semantic+mapping%22%29+OR+%28%28abs%3Arobot+OR+abs%3Arobotic+OR+abs%3Arobotics+OR+abs%3Anavigation%29+AND+%28abs%3A%22Gaussian+splatting%22+OR+abs%3A3DGS%29%29%29+AND+submittedDate%3A%5B202610020000+TO+202610182359%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+          "start": 0,
+          "fetched": 200,
+          "cache": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\.cache\\slam-refresh-embodied\\atom-submittedDate-0.xml"
+        },
+        {
+          "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22world+model%22+OR+abs%3A%22world+model%22+OR+ti%3A%22world-action%22+OR+abs%3A%22world-action%22+OR+ti%3A%22world+action%22+OR+abs%3A%22world+action%22%29+OR+%28ti%3Anavigation+OR+abs%3A%22embodied+navigation%22+OR+ti%3AVLN+OR+abs%3A%22vision-language+navigation%22+OR+abs%3A%22vision+language+navigation%22%29+OR+%28ti%3A%22active+mapping%22+OR+abs%3A%22active+mapping%22+OR+ti%3A%22open-vocabulary%22+OR+abs%3A%22open-vocabulary+mapping%22+OR+ti%3A%22semantic+mapping%22+OR+abs%3A%22semantic+mapping%22%29+OR+%28%28abs%3Arobot+OR+abs%3Arobotic+OR+abs%3Arobotics+OR+abs%3Anavigation%29+AND+%28abs%3A%22Gaussian+splatting%22+OR+abs%3A3DGS%29%29%29+AND+submittedDate%3A%5B202610020000+TO+202610182359%5D&start=200&max_results=200&sortBy=submittedDate&sortOrder=descending",
+          "start": 200,
+          "fetched": 200,
+          "cache": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\.cache\\slam-refresh-embodied\\atom-submittedDate-200.xml"
+        },
+        {
+          "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22world+model%22+OR+abs%3A%22world+model%22+OR+ti%3A%22world-action%22+OR+abs%3A%22world-action%22+OR+ti%3A%22world+action%22+OR+abs%3A%22world+action%22%29+OR+%28ti%3Anavigation+OR+abs%3A%22embodied+navigation%22+OR+ti%3AVLN+OR+abs%3A%22vision-language+navigation%22+OR+abs%3A%22vision+language+navigation%22%29+OR+%28ti%3A%22active+mapping%22+OR+abs%3A%22active+mapping%22+OR+ti%3A%22open-vocabulary%22+OR+abs%3A%22open-vocabulary+mapping%22+OR+ti%3A%22semantic+mapping%22+OR+abs%3A%22semantic+mapping%22%29+OR+%28%28abs%3Arobot+OR+abs%3Arobotic+OR+abs%3Arobotics+OR+abs%3Anavigation%29+AND+%28abs%3A%22Gaussian+splatting%22+OR+abs%3A3DGS%29%29%29+AND+submittedDate%3A%5B202610020000+TO+202610182359%5D&start=400&max_results=200&sortBy=submittedDate&sortOrder=descending",
+          "start": 400,
+          "fetched": 67,
+          "cache": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\.cache\\slam-refresh-embodied\\atom-submittedDate-400.xml"
+        }
+      ],
+      "total": 467,
+      "fetched": 467,
+      "exhausted": true,
+      "failures": [],
+      "time_utc": "2026-10-18T16:46:44Z",
+      "equivalent_replacement_for": [
+        "world-model",
+        "world-action",
+        "embodied-nav",
+        "vln",
+        "vision-language-nav",
+        "active-mapping",
+        "openvocab-mapping",
+        "semantic-mapping",
+        "robot-gaussian"
+      ]
+    },
+    {
+      "family": "embodied Atom",
+      "key": "embodied-union-lastUpdatedDate",
+      "query": "((ti:\"world model\" OR abs:\"world model\" OR ti:\"world-action\" OR abs:\"world-action\" OR ti:\"world action\" OR abs:\"world action\") OR (ti:navigation OR abs:\"embodied navigation\" OR ti:VLN OR abs:\"vision-language navigation\" OR abs:\"vision language navigation\") OR (ti:\"active mapping\" OR abs:\"active mapping\" OR ti:\"open-vocabulary\" OR abs:\"open-vocabulary mapping\" OR ti:\"semantic mapping\" OR abs:\"semantic mapping\") OR ((abs:robot OR abs:robotic OR abs:robotics OR abs:navigation) AND (abs:\"Gaussian splatting\" OR abs:3DGS))) AND lastUpdatedDate:[202610020000 TO 202610182359]",
+      "field": "title+abstract",
+      "date_predicate": "lastUpdatedDate:[202610020000 TO202610182359]; final exactUTC history filter",
+      "pages": [
+        {
+          "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22world+model%22+OR+abs%3A%22world+model%22+OR+ti%3A%22world-action%22+OR+abs%3A%22world-action%22+OR+ti%3A%22world+action%22+OR+abs%3A%22world+action%22%29+OR+%28ti%3Anavigation+OR+abs%3A%22embodied+navigation%22+OR+ti%3AVLN+OR+abs%3A%22vision-language+navigation%22+OR+abs%3A%22vision+language+navigation%22%29+OR+%28ti%3A%22active+mapping%22+OR+abs%3A%22active+mapping%22+OR+ti%3A%22open-vocabulary%22+OR+abs%3A%22open-vocabulary+mapping%22+OR+ti%3A%22semantic+mapping%22+OR+abs%3A%22semantic+mapping%22%29+OR+%28%28abs%3Arobot+OR+abs%3Arobotic+OR+abs%3Arobotics+OR+abs%3Anavigation%29+AND+%28abs%3A%22Gaussian+splatting%22+OR+abs%3A3DGS%29%29%29+AND+lastUpdatedDate%3A%5B202610020000+TO+202610182359%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+          "start": 0,
+          "fetched": 200,
+          "cache": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\.cache\\slam-refresh-embodied\\atom-lastUpdatedDate-0.xml"
+        },
+        {
+          "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22world+model%22+OR+abs%3A%22world+model%22+OR+ti%3A%22world-action%22+OR+abs%3A%22world-action%22+OR+ti%3A%22world+action%22+OR+abs%3A%22world+action%22%29+OR+%28ti%3Anavigation+OR+abs%3A%22embodied+navigation%22+OR+ti%3AVLN+OR+abs%3A%22vision-language+navigation%22+OR+abs%3A%22vision+language+navigation%22%29+OR+%28ti%3A%22active+mapping%22+OR+abs%3A%22active+mapping%22+OR+ti%3A%22open-vocabulary%22+OR+abs%3A%22open-vocabulary+mapping%22+OR+ti%3A%22semantic+mapping%22+OR+abs%3A%22semantic+mapping%22%29+OR+%28%28abs%3Arobot+OR+abs%3Arobotic+OR+abs%3Arobotics+OR+abs%3Anavigation%29+AND+%28abs%3A%22Gaussian+splatting%22+OR+abs%3A3DGS%29%29%29+AND+lastUpdatedDate%3A%5B202610020000+TO+202610182359%5D&start=200&max_results=200&sortBy=submittedDate&sortOrder=descending",
+          "start": 200,
+          "fetched": 200,
+          "cache": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\.cache\\slam-refresh-embodied\\atom-lastUpdatedDate-200.xml"
+        },
+        {
+          "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22world+model%22+OR+abs%3A%22world+model%22+OR+ti%3A%22world-action%22+OR+abs%3A%22world-action%22+OR+ti%3A%22world+action%22+OR+abs%3A%22world+action%22%29+OR+%28ti%3Anavigation+OR+abs%3A%22embodied+navigation%22+OR+ti%3AVLN+OR+abs%3A%22vision-language+navigation%22+OR+abs%3A%22vision+language+navigation%22%29+OR+%28ti%3A%22active+mapping%22+OR+abs%3A%22active+mapping%22+OR+ti%3A%22open-vocabulary%22+OR+abs%3A%22open-vocabulary+mapping%22+OR+ti%3A%22semantic+mapping%22+OR+abs%3A%22semantic+mapping%22%29+OR+%28%28abs%3Arobot+OR+abs%3Arobotic+OR+abs%3Arobotics+OR+abs%3Anavigation%29+AND+%28abs%3A%22Gaussian+splatting%22+OR+abs%3A3DGS%29%29%29+AND+lastUpdatedDate%3A%5B202610020000+TO+202610182359%5D&start=400&max_results=200&sortBy=submittedDate&sortOrder=descending",
+          "start": 400,
+          "fetched": 67,
+          "cache": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\.cache\\slam-refresh-embodied\\atom-lastUpdatedDate-400.xml"
+        }
+      ],
+      "total": 467,
+      "fetched": 467,
+      "exhausted": true,
+      "failures": [],
+      "time_utc": "2026-10-18T16:47:01Z",
+      "equivalent_replacement_for": [
+        "world-model",
+        "world-action",
+        "embodied-nav",
+        "vln",
+        "vision-language-nav",
+        "active-mapping",
+        "openvocab-mapping",
+        "semantic-mapping",
+        "robot-gaussian"
+      ]
+    },
+    {
+      "family": "final latest-submission revisions cross-check",
+      "term": "\"world model\"",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date",
+      "expected": 346,
+      "fetched": 346,
+      "pages": [
+        {
+          "start": 0,
+          "returned": 200,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22world%20model%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0"
+        },
+        {
+          "start": 200,
+          "returned": 146,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22world%20model%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=200"
+        }
+      ],
+      "exhausted": true,
+      "failure": null,
+      "retrieved_at": "2026-10-19T01:13:30.1956958+08:00"
+    },
+    {
+      "family": "final latest-submission revisions cross-check",
+      "term": "\"world-action\"",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date",
+      "expected": 110,
+      "fetched": 110,
+      "pages": [
+        {
+          "start": 0,
+          "returned": 110,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22world-action%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0"
+        }
+      ],
+      "exhausted": true,
+      "failure": null,
+      "retrieved_at": "2026-10-19T01:13:42.9464839+08:00"
+    },
+    {
+      "family": "final latest-submission revisions cross-check",
+      "term": "navigation",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date",
+      "expected": 470,
+      "fetched": 470,
+      "pages": [
+        {
+          "start": 0,
+          "returned": 200,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=navigation&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0"
+        },
+        {
+          "start": 200,
+          "returned": 200,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=navigation&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=200"
+        },
+        {
+          "start": 400,
+          "returned": 70,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=navigation&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=400"
+        }
+      ],
+      "exhausted": true,
+      "failure": null,
+      "retrieved_at": "2026-10-19T01:14:19.0892694+08:00"
+    },
+    {
+      "family": "core Atom supplement",
+      "date_type": "submittedDate",
+      "count": 198,
+      "total": 198,
+      "query": "(ti:registration OR abs:registration OR ti:LiDAR OR abs:LiDAR OR ti:radar OR abs:radar OR all:\"bundle adjustment\" OR all:\"pose graph\" OR all:\"RGB-D\") AND submittedDate:[202610030000 TO 202610192359]",
+      "pages": 1,
+      "url": "https://arxiv.org/api/query?search_query=(ti:registration+OR+(abs:registration+OR+(ti:LiDAR+OR+(abs:LiDAR+OR+(ti:radar+OR+(abs:radar+OR+(all:%22bundle+adjustment%22+OR+(all:%22pose+graph%22+OR+all:%22RGB-D%22))))))))+AND+submittedDate:%22202610030000+TO+202610192359%22&start=0&max_results=200&id_list=",
+      "exhausted": true,
+      "failure": null,
+      "fields": "title/abstract plus exact all phrases",
+      "limitation": "Atom用于补充首次提交发现；不以lastUpdatedDate返回相同集合证明修订覆盖。最终按固定窗口精确时间筛选。",
+      "raw_path": "api-core-0.xml"
+    },
+    {
+      "family": "independent official category",
+      "query": "cs.RO October2026 monthly list",
+      "url": "https://arxiv.org/list/cs.RO/2026-10?skip=0&show=2000",
+      "date_predicate": "Monthly announced list; exact v1/update UTC checked separately. Does not establish all-category revised coverage.",
+      "expected": 1311,
+      "fetched": 1311,
+      "pages": 1,
+      "exhausted": true,
+      "triage": "初始标题筛选316；终轮将剩余806个此前未入ledger的ID全部补入，1311个列表ID均有最终处置。窗口内可能相关者实际读摘要；窗口外/明确无关者保留元数据级理由。不把元数据筛除计作摘要阅读。"
+    },
+    {
+      "family": "final core/VGGT closure",
+      "term": "VGGT",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date",
+      "expected": 20,
+      "fetched": 20,
+      "pages": [
+        {
+          "start": 0,
+          "returned": 20,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=VGGT&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0"
+        }
+      ],
+      "exhausted": true,
+      "failure": null,
+      "retrieved_at": "2026-10-19T01:27:45.7945465+08:00"
+    },
+    {
+      "family": "final core/VGGT closure",
+      "term": "relocalisation",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date",
+      "expected": null,
+      "fetched": 0,
+      "pages": [
+        {
+          "start": 0,
+          "returned": 0,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=relocalisation&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0"
+        }
+      ],
+      "exhausted": true,
+      "failure": null,
+      "retrieved_at": "2026-10-19T01:27:54.8427808+08:00"
+    },
+    {
+      "family": "final core/VGGT closure",
+      "term": "registration",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date",
+      "expected": 78,
+      "fetched": 78,
+      "pages": [
+        {
+          "start": 0,
+          "returned": 78,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=registration&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0"
+        }
+      ],
+      "exhausted": true,
+      "failure": null,
+      "retrieved_at": "2026-10-19T01:28:05.2035883+08:00"
+    },
+    {
+      "family": "final related-family revision closure",
+      "term": "\"world action\"",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date",
+      "expected": 110,
+      "fetched": 110,
+      "pages": [
+        {
+          "start": 0,
+          "returned": 110,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22world%20action%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0"
+        }
+      ],
+      "exhausted": true,
+      "failure": null,
+      "retrieved_at": "2026-10-19T01:36:32.2467228+08:00"
+    },
+    {
+      "family": "final related-family revision closure",
+      "term": "VLN",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date",
+      "expected": 21,
+      "fetched": 21,
+      "pages": [
+        {
+          "start": 0,
+          "returned": 21,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=VLN&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0"
+        }
+      ],
+      "exhausted": true,
+      "failure": null,
+      "retrieved_at": "2026-10-19T01:36:42.5308795+08:00"
+    },
+    {
+      "family": "final related-family revision closure",
+      "term": "\"active mapping\"",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date",
+      "expected": 8,
+      "fetched": 8,
+      "pages": [
+        {
+          "start": 0,
+          "returned": 8,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22active%20mapping%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0"
+        }
+      ],
+      "exhausted": true,
+      "failure": null,
+      "retrieved_at": "2026-10-19T01:36:56.8604374+08:00"
+    },
+    {
+      "family": "final related-family revision closure",
+      "term": "\"open-vocabulary mapping\"",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date",
+      "expected": null,
+      "fetched": 0,
+      "pages": [
+        {
+          "start": 0,
+          "returned": 0,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22open-vocabulary%20mapping%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0"
+        }
+      ],
+      "exhausted": true,
+      "failure": null,
+      "retrieved_at": "2026-10-19T01:37:07.7230068+08:00"
+    },
+    {
+      "family": "final related-family revision closure",
+      "term": "\"semantic mapping\"",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date",
+      "expected": 17,
+      "fetched": 17,
+      "pages": [
+        {
+          "start": 0,
+          "returned": 17,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22semantic%20mapping%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0"
+        }
+      ],
+      "exhausted": true,
+      "failure": null,
+      "retrieved_at": "2026-10-19T01:37:18.1337410+08:00"
+    },
+    {
+      "family": "final related-family revision closure",
+      "term": "DUSt3R",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date",
+      "expected": 1,
+      "fetched": 1,
+      "pages": [
+        {
+          "start": 0,
+          "returned": 1,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=DUSt3R&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0"
+        }
+      ],
+      "exhausted": true,
+      "failure": null,
+      "retrieved_at": "2026-10-19T01:37:27.5177278+08:00"
+    },
+    {
+      "family": "final related-family revision closure",
+      "term": "MASt3R",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date",
+      "expected": 5,
+      "fetched": 5,
+      "pages": [
+        {
+          "start": 0,
+          "returned": 5,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=MASt3R&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0"
+        }
+      ],
+      "exhausted": true,
+      "failure": null,
+      "retrieved_at": "2026-10-19T01:37:38.4964096+08:00"
+    },
+    {
+      "family": "final related-family revision closure",
+      "term": "DA3",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date",
+      "expected": null,
+      "fetched": 0,
+      "pages": [
+        {
+          "start": 0,
+          "returned": 0,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=DA3&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0"
+        }
+      ],
+      "exhausted": true,
+      "failure": null,
+      "retrieved_at": "2026-10-19T01:37:49.3608376+08:00"
+    },
+    {
+      "family": "final related-family revision closure",
+      "term": "\"geometry foundation\"",
+      "field": "all (quoted phrases where applicable)",
+      "date_from": "2026-10-02",
+      "date_to": "2026-10-18",
+      "date_type": "submitted_date",
+      "expected": 11,
+      "fetched": 11,
+      "pages": [
+        {
+          "start": 0,
+          "returned": 11,
+          "url": "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22geometry%20foundation%22&terms-0-field=all&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-02&date-to_date=2026-10-18&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0"
+        }
+      ],
+      "exhausted": true,
+      "failure": null,
+      "retrieved_at": "2026-10-19T01:38:02.2850627+08:00"
+    },
+    {
+      "family": "embodied original advanced",
+      "key": "world-model",
+      "query": "\"world model\" OR \"world models\"",
+      "field": "all",
+      "date_predicate": "submitted_date_first calendar dates 2026-10-02..2026-10-18 inclusive; final abs history UTC filter (2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "date_type": "submitted_date_first",
+      "time": "2026-10-18T16:31:55.036048+00:00",
+      "total": null,
+      "pages": [],
+      "fetched": 0,
+      "exhausted": false,
+      "failures": [
+        "HTTP Error 429: Unknown Error"
+      ],
+      "source_url": "https://arxiv.org/search/advanced",
+      "alternative": "official cs.RO October category list and web discovery; these do not close updated search coverage",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "以已耗尽的title/abstract Atom union首次提交集和final latest/family-closure的world model/world-action/world action/navigation/VLN/active mapping/open-vocabulary mapping/semantic mapping替代。"
+      }
+    },
+    {
+      "family": "embodied original advanced",
+      "key": "world-model",
+      "query": "\"world model\" OR \"world models\"",
+      "field": "all",
+      "date_predicate": "submitted_date calendar dates 2026-10-02..2026-10-18 inclusive; final abs history UTC filter (2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "date_type": "submitted_date",
+      "time": "2026-10-18T16:31:54.873848+00:00",
+      "total": null,
+      "pages": [],
+      "fetched": 0,
+      "exhausted": false,
+      "failures": [
+        "HTTP Error 429: Unknown Error"
+      ],
+      "source_url": "https://arxiv.org/search/advanced",
+      "alternative": "official cs.RO October category list and web discovery; these do not close updated search coverage",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "以已耗尽的title/abstract Atom union首次提交集和final latest/family-closure的world model/world-action/world action/navigation/VLN/active mapping/open-vocabulary mapping/semantic mapping替代。"
+      }
+    },
+    {
+      "family": "embodied original advanced",
+      "key": "world-action",
+      "query": "\"world-action\" OR \"world action\"",
+      "field": "all",
+      "date_predicate": "submitted_date_first calendar dates 2026-10-02..2026-10-18 inclusive; final abs history UTC filter (2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "date_type": "submitted_date_first",
+      "time": "2026-10-18T16:31:54.871292+00:00",
+      "total": null,
+      "pages": [],
+      "fetched": 0,
+      "exhausted": false,
+      "failures": [
+        "HTTP Error 429: Unknown Error"
+      ],
+      "source_url": "https://arxiv.org/search/advanced",
+      "alternative": "official cs.RO October category list and web discovery; these do not close updated search coverage",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "以已耗尽的title/abstract Atom union首次提交集和final latest/family-closure的world model/world-action/world action/navigation/VLN/active mapping/open-vocabulary mapping/semantic mapping替代。"
+      }
+    },
+    {
+      "family": "embodied original advanced",
+      "key": "world-action",
+      "query": "\"world-action\" OR \"world action\"",
+      "field": "all",
+      "date_predicate": "submitted_date calendar dates 2026-10-02..2026-10-18 inclusive; final abs history UTC filter (2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "date_type": "submitted_date",
+      "time": "2026-10-18T16:31:57.232478+00:00",
+      "total": null,
+      "pages": [],
+      "fetched": 0,
+      "exhausted": false,
+      "failures": [
+        "HTTP Error 429: Unknown Error"
+      ],
+      "source_url": "https://arxiv.org/search/advanced",
+      "alternative": "official cs.RO October category list and web discovery; these do not close updated search coverage",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "以已耗尽的title/abstract Atom union首次提交集和final latest/family-closure的world model/world-action/world action/navigation/VLN/active mapping/open-vocabulary mapping/semantic mapping替代。"
+      }
+    },
+    {
+      "family": "embodied original advanced",
+      "key": "embodied-nav",
+      "query": "\"embodied navigation\"",
+      "field": "all",
+      "date_predicate": "submitted_date_first calendar dates 2026-10-02..2026-10-18 inclusive; final abs history UTC filter (2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "date_type": "submitted_date_first",
+      "time": "2026-10-18T16:31:56.561207+00:00",
+      "total": null,
+      "pages": [],
+      "fetched": 0,
+      "exhausted": false,
+      "failures": [
+        "HTTP Error 429: Unknown Error"
+      ],
+      "source_url": "https://arxiv.org/search/advanced",
+      "alternative": "official cs.RO October category list and web discovery; these do not close updated search coverage",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "以已耗尽的title/abstract Atom union首次提交集和final latest/family-closure的world model/world-action/world action/navigation/VLN/active mapping/open-vocabulary mapping/semantic mapping替代。"
+      }
+    },
+    {
+      "family": "embodied original advanced",
+      "key": "embodied-nav",
+      "query": "\"embodied navigation\"",
+      "field": "all",
+      "date_predicate": "submitted_date calendar dates 2026-10-02..2026-10-18 inclusive; final abs history UTC filter (2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "date_type": "submitted_date",
+      "time": "2026-10-18T16:31:55.746450+00:00",
+      "total": null,
+      "pages": [],
+      "fetched": 0,
+      "exhausted": false,
+      "failures": [
+        "HTTP Error 429: Unknown Error"
+      ],
+      "source_url": "https://arxiv.org/search/advanced",
+      "alternative": "official cs.RO October category list and web discovery; these do not close updated search coverage",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "以已耗尽的title/abstract Atom union首次提交集和final latest/family-closure的world model/world-action/world action/navigation/VLN/active mapping/open-vocabulary mapping/semantic mapping替代。"
+      }
+    },
+    {
+      "family": "embodied original advanced",
+      "key": "vln",
+      "query": "VLN",
+      "field": "all",
+      "date_predicate": "submitted_date_first calendar dates 2026-10-02..2026-10-18 inclusive; final abs history UTC filter (2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "date_type": "submitted_date_first",
+      "time": "2026-10-18T16:31:56.455528+00:00",
+      "total": null,
+      "pages": [],
+      "fetched": 0,
+      "exhausted": false,
+      "failures": [
+        "HTTP Error 429: Unknown Error"
+      ],
+      "source_url": "https://arxiv.org/search/advanced",
+      "alternative": "official cs.RO October category list and web discovery; these do not close updated search coverage",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "以已耗尽的title/abstract Atom union首次提交集和final latest/family-closure的world model/world-action/world action/navigation/VLN/active mapping/open-vocabulary mapping/semantic mapping替代。"
+      }
+    },
+    {
+      "family": "embodied original advanced",
+      "key": "vln",
+      "query": "VLN",
+      "field": "all",
+      "date_predicate": "submitted_date calendar dates 2026-10-02..2026-10-18 inclusive; final abs history UTC filter (2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "date_type": "submitted_date",
+      "time": "2026-10-18T16:31:58.488822+00:00",
+      "total": null,
+      "pages": [],
+      "fetched": 0,
+      "exhausted": false,
+      "failures": [
+        "HTTP Error 429: Unknown Error"
+      ],
+      "source_url": "https://arxiv.org/search/advanced",
+      "alternative": "official cs.RO October category list and web discovery; these do not close updated search coverage",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "以已耗尽的title/abstract Atom union首次提交集和final latest/family-closure的world model/world-action/world action/navigation/VLN/active mapping/open-vocabulary mapping/semantic mapping替代。"
+      }
+    },
+    {
+      "family": "embodied original advanced",
+      "key": "vision-language-nav",
+      "query": "\"vision-language navigation\" OR \"vision language navigation\"",
+      "field": "all",
+      "date_predicate": "submitted_date_first calendar dates 2026-10-02..2026-10-18 inclusive; final abs history UTC filter (2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "date_type": "submitted_date_first",
+      "time": "2026-10-18T16:31:57.778278+00:00",
+      "total": null,
+      "pages": [],
+      "fetched": 0,
+      "exhausted": false,
+      "failures": [
+        "HTTP Error 429: Unknown Error"
+      ],
+      "source_url": "https://arxiv.org/search/advanced",
+      "alternative": "official cs.RO October category list and web discovery; these do not close updated search coverage",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "以已耗尽的title/abstract Atom union首次提交集和final latest/family-closure的world model/world-action/world action/navigation/VLN/active mapping/open-vocabulary mapping/semantic mapping替代。"
+      }
+    },
+    {
+      "family": "embodied original advanced",
+      "key": "vision-language-nav",
+      "query": "\"vision-language navigation\" OR \"vision language navigation\"",
+      "field": "all",
+      "date_predicate": "submitted_date calendar dates 2026-10-02..2026-10-18 inclusive; final abs history UTC filter (2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "date_type": "submitted_date",
+      "time": "2026-10-18T16:31:58.684698+00:00",
+      "total": null,
+      "pages": [],
+      "fetched": 0,
+      "exhausted": false,
+      "failures": [
+        "HTTP Error 429: Unknown Error"
+      ],
+      "source_url": "https://arxiv.org/search/advanced",
+      "alternative": "official cs.RO October category list and web discovery; these do not close updated search coverage",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "以已耗尽的title/abstract Atom union首次提交集和final latest/family-closure的world model/world-action/world action/navigation/VLN/active mapping/open-vocabulary mapping/semantic mapping替代。"
+      }
+    },
+    {
+      "family": "embodied original advanced",
+      "key": "active-mapping",
+      "query": "\"active mapping\" OR \"active reconstruction\"",
+      "field": "all",
+      "date_predicate": "submitted_date_first calendar dates 2026-10-02..2026-10-18 inclusive; final abs history UTC filter (2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "date_type": "submitted_date_first",
+      "time": "2026-10-18T16:31:58.770611+00:00",
+      "total": null,
+      "pages": [],
+      "fetched": 0,
+      "exhausted": false,
+      "failures": [
+        "HTTP Error 429: Unknown Error"
+      ],
+      "source_url": "https://arxiv.org/search/advanced",
+      "alternative": "official cs.RO October category list and web discovery; these do not close updated search coverage",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "以已耗尽的title/abstract Atom union首次提交集和final latest/family-closure的world model/world-action/world action/navigation/VLN/active mapping/open-vocabulary mapping/semantic mapping替代。"
+      }
+    },
+    {
+      "family": "embodied original advanced",
+      "key": "active-mapping",
+      "query": "\"active mapping\" OR \"active reconstruction\"",
+      "field": "all",
+      "date_predicate": "submitted_date calendar dates 2026-10-02..2026-10-18 inclusive; final abs history UTC filter (2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "date_type": "submitted_date",
+      "time": "2026-10-18T16:32:00.085644+00:00",
+      "total": null,
+      "pages": [],
+      "fetched": 0,
+      "exhausted": false,
+      "failures": [
+        "HTTP Error 429: Unknown Error"
+      ],
+      "source_url": "https://arxiv.org/search/advanced",
+      "alternative": "official cs.RO October category list and web discovery; these do not close updated search coverage",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "以已耗尽的title/abstract Atom union首次提交集和final latest/family-closure的world model/world-action/world action/navigation/VLN/active mapping/open-vocabulary mapping/semantic mapping替代。"
+      }
+    },
+    {
+      "family": "embodied original advanced",
+      "key": "openvocab-mapping",
+      "query": "\"open-vocabulary\" AND (mapping OR map OR navigation OR 3D)",
+      "field": "all",
+      "date_predicate": "submitted_date_first calendar dates 2026-10-02..2026-10-18 inclusive; final abs history UTC filter (2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "date_type": "submitted_date_first",
+      "time": "2026-10-18T16:31:59.368364+00:00",
+      "total": null,
+      "pages": [],
+      "fetched": 0,
+      "exhausted": false,
+      "failures": [
+        "HTTP Error 429: Unknown Error"
+      ],
+      "source_url": "https://arxiv.org/search/advanced",
+      "alternative": "official cs.RO October category list and web discovery; these do not close updated search coverage",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "以已耗尽的title/abstract Atom union首次提交集和final latest/family-closure的world model/world-action/world action/navigation/VLN/active mapping/open-vocabulary mapping/semantic mapping替代。"
+      }
+    },
+    {
+      "family": "embodied original advanced",
+      "key": "openvocab-mapping",
+      "query": "\"open-vocabulary\" AND (mapping OR map OR navigation OR 3D)",
+      "field": "all",
+      "date_predicate": "submitted_date calendar dates 2026-10-02..2026-10-18 inclusive; final abs history UTC filter (2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "date_type": "submitted_date",
+      "time": "2026-10-18T16:31:59.727893+00:00",
+      "total": null,
+      "pages": [],
+      "fetched": 0,
+      "exhausted": false,
+      "failures": [
+        "HTTP Error 429: Unknown Error"
+      ],
+      "source_url": "https://arxiv.org/search/advanced",
+      "alternative": "official cs.RO October category list and web discovery; these do not close updated search coverage",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "以已耗尽的title/abstract Atom union首次提交集和final latest/family-closure的world model/world-action/world action/navigation/VLN/active mapping/open-vocabulary mapping/semantic mapping替代。"
+      }
+    },
+    {
+      "family": "embodied original advanced",
+      "key": "semantic-mapping",
+      "query": "\"semantic mapping\"",
+      "field": "all",
+      "date_predicate": "submitted_date_first calendar dates 2026-10-02..2026-10-18 inclusive; final abs history UTC filter (2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "date_type": "submitted_date_first",
+      "time": "2026-10-18T16:32:01.159534+00:00",
+      "total": null,
+      "pages": [],
+      "fetched": 0,
+      "exhausted": false,
+      "failures": [
+        "HTTP Error 429: Unknown Error"
+      ],
+      "source_url": "https://arxiv.org/search/advanced",
+      "alternative": "official cs.RO October category list and web discovery; these do not close updated search coverage",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "以已耗尽的title/abstract Atom union首次提交集和final latest/family-closure的world model/world-action/world action/navigation/VLN/active mapping/open-vocabulary mapping/semantic mapping替代。"
+      }
+    },
+    {
+      "family": "embodied original advanced",
+      "key": "semantic-mapping",
+      "query": "\"semantic mapping\"",
+      "field": "all",
+      "date_predicate": "submitted_date calendar dates 2026-10-02..2026-10-18 inclusive; final abs history UTC filter (2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "date_type": "submitted_date",
+      "time": "2026-10-18T16:32:00.372957+00:00",
+      "total": null,
+      "pages": [],
+      "fetched": 0,
+      "exhausted": false,
+      "failures": [
+        "HTTP Error 429: Unknown Error"
+      ],
+      "source_url": "https://arxiv.org/search/advanced",
+      "alternative": "official cs.RO October category list and web discovery; these do not close updated search coverage",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "以已耗尽的title/abstract Atom union首次提交集和final latest/family-closure的world model/world-action/world action/navigation/VLN/active mapping/open-vocabulary mapping/semantic mapping替代。"
+      }
+    },
+    {
+      "family": "embodied original advanced",
+      "key": "robot-gaussian",
+      "query": "(robot OR robotic OR robotics OR navigation) AND (\"Gaussian splatting\" OR 3DGS)",
+      "field": "all",
+      "date_predicate": "submitted_date_first calendar dates 2026-10-02..2026-10-18 inclusive; final abs history UTC filter (2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "date_type": "submitted_date_first",
+      "time": "2026-10-18T16:32:00.806455+00:00",
+      "total": null,
+      "pages": [],
+      "fetched": 0,
+      "exhausted": false,
+      "failures": [
+        "HTTP Error 429: Unknown Error"
+      ],
+      "source_url": "https://arxiv.org/search/advanced",
+      "alternative": "official cs.RO October category list and web discovery; these do not close updated search coverage",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "以已耗尽的title/abstract Atom union首次提交集和final latest/family-closure的world model/world-action/world action/navigation/VLN/active mapping/open-vocabulary mapping/semantic mapping替代。"
+      }
+    },
+    {
+      "family": "embodied original advanced",
+      "key": "robot-gaussian",
+      "query": "(robot OR robotic OR robotics OR navigation) AND (\"Gaussian splatting\" OR 3DGS)",
+      "field": "all",
+      "date_predicate": "submitted_date calendar dates 2026-10-02..2026-10-18 inclusive; final abs history UTC filter (2026-10-03T08:16:46.3538283Z,2026-10-18T13:52:39.8263257Z]",
+      "date_type": "submitted_date",
+      "time": "2026-10-18T16:32:01.042543+00:00",
+      "total": null,
+      "pages": [],
+      "fetched": 0,
+      "exhausted": false,
+      "failures": [
+        "HTTP Error 429: Unknown Error"
+      ],
+      "source_url": "https://arxiv.org/search/advanced",
+      "alternative": "official cs.RO October category list and web discovery; these do not close updated search coverage",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "以已耗尽的title/abstract Atom union首次提交集和final latest/family-closure的world model/world-action/world action/navigation/VLN/active mapping/open-vocabulary mapping/semantic mapping替代。"
+      }
+    },
+    {
+      "family": "VGGT original advanced",
+      "name": "advanced-vggt-submitted_date",
+      "source_url": "https://arxiv.org/search/advanced?terms-0-term=VGGT&date-date_type=submitted_date&date-from_date=2026-10-02&date-to_date=2026-10-18",
+      "date_predicate": "submitted_date:2026-10-02..2026-10-18",
+      "total": null,
+      "pages": [],
+      "fetched": 0,
+      "exhausted": false,
+      "failure": [
+        "HTTP429"
+      ],
+      "alternative": "12 API paginated queries and parent Advanced Search complete most-recent queries; candidate abs histories verified",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "已耗尽final core/VGGT latest-submission VGGT（20条），交叉API首次提交与几何家族/DUSt3R/MASt3R/DA3/geometry foundation检索及官方abs历史。"
+      }
+    },
+    {
+      "family": "VGGT original advanced",
+      "name": "advanced-vggt-submitted_date_first",
+      "source_url": "https://arxiv.org/search/advanced?terms-0-term=VGGT&date-date_type=submitted_date_first&date-from_date=2026-10-02&date-to_date=2026-10-18",
+      "date_predicate": "submitted_date_first:2026-10-02..2026-10-18",
+      "total": null,
+      "pages": [],
+      "fetched": 0,
+      "exhausted": false,
+      "failure": [
+        "HTTP429"
+      ],
+      "alternative": "12 API paginated queries and parent Advanced Search complete most-recent queries; candidate abs histories verified",
+      "recovery": {
+        "status": "equivalent_family_fallback_completed",
+        "detail": "已耗尽final core/VGGT latest-submission VGGT（20条），交叉API首次提交与几何家族/DUSt3R/MASt3R/DA3/geometry foundation检索及官方abs历史。"
+      }
+    }
+  ],
+  "metadata_batches": [
+    {
+      "manifest_source": ".cache/slam-refresh-main/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2202.11481,2407.02242,2505.13142,2505.15737,2506.04619,2507.11230,2509.07552,2509.13793,2510.17719,2510.23087,2512.00724,2512.03683,2512.14967,2601.13155,2601.15431,2601.15906,2602.00865,2602.02331,2602.03538,2602.08784,2603.12064,2603.18104,2603.19864,2603.20428,2603.20714,2603.24950,2604.01581,2604.09045,2604.11142,2604.14025,2604.23675,2604.24586,2605.07604,2605.08733,2605.14315,2605.15492,2605.18599,2605.20482,2605.22342,2605.24114,2605.29997,2605.31577,2606.01458,2606.02014,2606.02826,2606.03877,2606.11326,2606.19156,2606.19729,2606.21258,2606.22197,2607.04603,2607.04770,2607.05543,2607.08508,2607.09507,2607.11183,2607.17790,2607.18630,2607.20653,2607.29237,2608.01530,2608.06912,2608.08132,2608.19693,2608.23850,2608.24049,2608.30585,2609.06017,2609.06079,2609.08848,2609.13065,2609.13504,2609.23961,2609.24068,2609.26743,2609.26793,2609.28312,2609.29963,2609.33253,2609.36545,2609.36875,2609.39960,2610.00731,2610.00970,2610.01024,2610.01229,2610.02322,2610.02851,2610.03162,2610.03192,2610.03196,2610.03203,2610.03228,2610.03273,2610.03308,2610.03332,2610.03522,2610.03599,2610.03605&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-main/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.03624,2610.03716,2610.04007,2610.04013,2610.04029,2610.04057,2610.04076,2610.04199,2610.04203,2610.04336,2610.04351,2610.04489,2610.04606,2610.04651,2610.04697,2610.05024,2610.05123,2610.05207,2610.05289,2610.05429,2610.05526,2610.05531,2610.05576,2610.05639,2610.05911,2610.05928,2610.06035,2610.06065,2610.06171,2610.06469,2610.06472,2610.06551,2610.06594,2610.06688,2610.06813,2610.07061,2610.07110,2610.07219,2610.07472,2610.07566,2610.07569,2610.07661,2610.07788,2610.07795,2610.07809,2610.07883,2610.07930,2610.07958,2610.08179,2610.08213,2610.08228,2610.08509,2610.08684,2610.08756,2610.08782,2610.08978,2610.09116,2610.09173,2610.09200,2610.09274,2610.09343,2610.09372,2610.09468,2610.09613,2610.09720,2610.09853,2610.09857,2610.09983,2610.10055,2610.10181,2610.10303,2610.10328,2610.10396,2610.10421,2610.10741,2610.10943,2610.10952,2610.11011,2610.11039,2610.11049,2610.11070,2610.11198,2610.11364,2610.11515,2610.11531,2610.11547,2610.11572,2610.11577,2610.11583,2610.11612,2610.11657,2610.11729,2610.11752,2610.11809,2610.11857,2610.12069,2610.12127,2610.12231,2610.12282,2610.12432&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-main/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.12461,2610.12474,2610.12568,2610.12727,2610.12743,2610.12786,2610.13088,2610.13143,2610.13177,2610.13309,2610.13316,2610.13409,2610.13498,2610.13503,2610.13541,2610.13643,2610.13681,2610.13757,2610.13781,2610.13849,2610.13860,2610.13945,2610.14042,2610.14077,2610.14090,2610.14315,2610.14385,2610.14663,2610.14685,2610.14698,2610.14734,2610.14844,2610.14951,2610.14963,2610.15112,2610.15157,2610.15296,2610.15357,2610.15392,2610.15582,2610.15595,2610.15854,2610.16103,2610.16143,2610.16146,2610.16147,2610.16160,2610.16177,2610.16272,2610.16292,2610.16330,2610.16368,2610.16470,2610.16489,2610.16558,2610.16570,2610.16645,2610.16692,2610.16737,2610.16945,2610.17260,2610.17283,2610.17355,2610.17513,2610.17521,2610.17591,2610.17605,2610.17929,2610.17936,2610.18018,2610.18049,2610.18136,2610.18168,2610.18225,2610.18264,2610.18307,2610.18425,2610.18479,2610.18725,2610.19044,2610.19097,2610.19120,2610.19232,2610.19277,2610.19502,2610.19538,2610.19541,2610.19623,2610.19674,2610.19681,2610.19742,2610.19756,2610.19847,2610.19927,2610.19993,2610.20337,2610.20341,2610.20397,2610.20399,2610.20484&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-main/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.20560,2610.20590,2610.20958,2610.21121,2610.21199,2610.21297,2610.21378,2610.21409,2610.21450,2610.21586,2610.21590,2610.21619,2610.21634,2610.21668,2610.21801,2610.22052,2610.22108,2610.22176,2610.22177,2610.22256,2610.22315,2610.22325,2610.22356,2610.22371&max_results=100",
+      "count": 24,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-all-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=1112.0610,2202.11481,2303.07308,2407.02242,2409.14204,2410.03017,2504.05727,2505.08854,2505.13142,2505.15737,2506.04619,2506.11804,2506.18177,2506.19957,2507.11230,2508.02773,2509.07552,2509.13793,2510.12132,2510.17719,2510.18996,2510.23087,2511.02673,2511.03192,2511.06020,2511.07106,2511.08328,2512.00724,2512.03683,2512.08281,2512.09447,2512.14967,2512.14979,2601.00978,2601.02759,2601.05032,2601.10758,2601.11110,2601.13155,2601.15431,2601.15906,2601.16834,2601.18956,2601.21132,2602.00865,2602.02331,2602.03538,2602.04692,2602.08784,2602.16356,2602.16705,2603.08433,2603.12064,2603.14701,2603.16273,2603.17133,2603.18104,2603.19864,2603.20428,2603.20714,2603.21565,2603.24950,2603.29245,2604.01581,2604.02706,2604.02892,2604.04690,2604.09045,2604.11142,2604.14025,2604.20594,2604.23675,2604.24586,2605.07496,2605.07604,2605.08733,2605.11840,2605.14315,2605.15492,2605.18599,2605.20482,2605.22342,2605.24114,2605.24777,2605.27952,2605.29997,2605.31111,2605.31577,2606.01458,2606.02014,2606.02826,2606.03163,2606.03240,2606.03877,2606.04257,2606.05501,2606.08105,2606.09422,2606.11326,2606.15896&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-all-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2606.16569,2606.17741,2606.19156,2606.19729,2606.21258,2606.22197,2606.23534,2606.26046,2607.03111,2607.04603,2607.04770,2607.05543,2607.08508,2607.09507,2607.09985,2607.11183,2607.11955,2607.17790,2607.18630,2607.20653,2607.23743,2607.28198,2607.29237,2608.01530,2608.05475,2608.06912,2608.08132,2608.09202,2608.15336,2608.15821,2608.18038,2608.19693,2608.23850,2608.24049,2608.24491,2608.25955,2608.28733,2608.30585,2609.01404,2609.01899,2609.06017,2609.06079,2609.08848,2609.11251,2609.12151,2609.13065,2609.13409,2609.13504,2609.19142,2609.23961,2609.24068,2609.24376,2609.25547,2609.25979,2609.26423,2609.26743,2609.26793,2609.28312,2609.29963,2609.32612,2609.33253,2609.35126,2609.35700,2609.36545,2609.36875,2609.38864,2609.38873,2609.39166,2609.39960,2609.40075,2610.00360,2610.00368,2610.00575,2610.00638,2610.00727,2610.00731,2610.00821,2610.00822,2610.00878,2610.00921,2610.00970,2610.01019,2610.01024,2610.01105,2610.01219,2610.01224,2610.01229,2610.01258,2610.01505,2610.01559,2610.01698,2610.01742,2610.01744,2610.01972,2610.02054,2610.02110,2610.02120,2610.02161,2610.02274,2610.02322&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-all-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.02323,2610.02368,2610.02398,2610.02508,2610.02601,2610.02660,2610.02661,2610.02691,2610.02697,2610.02728,2610.02750,2610.02765,2610.02786,2610.02806,2610.02825,2610.02840,2610.02851,2610.02912,2610.02953,2610.02964,2610.03015,2610.03031,2610.03060,2610.03064,2610.03103,2610.03137,2610.03162,2610.03167,2610.03187,2610.03192,2610.03196,2610.03198,2610.03203,2610.03228,2610.03273,2610.03294,2610.03308,2610.03323,2610.03332,2610.03391,2610.03395,2610.03436,2610.03453,2610.03516,2610.03522,2610.03530,2610.03537,2610.03587,2610.03595,2610.03599,2610.03605,2610.03607,2610.03620,2610.03622,2610.03624,2610.03669,2610.03716,2610.03717,2610.03797,2610.03828,2610.03910,2610.04007,2610.04013,2610.04029,2610.04057,2610.04069,2610.04076,2610.04088,2610.04092,2610.04187,2610.04199,2610.04203,2610.04237,2610.04258,2610.04282,2610.04300,2610.04336,2610.04351,2610.04366,2610.04432,2610.04438,2610.04477,2610.04489,2610.04540,2610.04551,2610.04552,2610.04557,2610.04571,2610.04606,2610.04607,2610.04608,2610.04627,2610.04632,2610.04651,2610.04661,2610.04662,2610.04687,2610.04697,2610.04703,2610.04736&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-all-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.04760,2610.04767,2610.04770,2610.04786,2610.04792,2610.04802,2610.04870,2610.04883,2610.04885,2610.04896,2610.04913,2610.04916,2610.04924,2610.04955,2610.04980,2610.05011,2610.05019,2610.05024,2610.05026,2610.05029,2610.05087,2610.05123,2610.05128,2610.05135,2610.05180,2610.05207,2610.05249,2610.05261,2610.05289,2610.05310,2610.05361,2610.05364,2610.05429,2610.05455,2610.05483,2610.05505,2610.05526,2610.05531,2610.05546,2610.05576,2610.05594,2610.05639,2610.05664,2610.05672,2610.05733,2610.05757,2610.05758,2610.05801,2610.05911,2610.05928,2610.05939,2610.05958,2610.05979,2610.05981,2610.05989,2610.05996,2610.06035,2610.06037,2610.06065,2610.06085,2610.06107,2610.06121,2610.06140,2610.06150,2610.06171,2610.06215,2610.06232,2610.06280,2610.06303,2610.06308,2610.06327,2610.06349,2610.06350,2610.06374,2610.06400,2610.06402,2610.06469,2610.06472,2610.06476,2610.06510,2610.06511,2610.06551,2610.06572,2610.06575,2610.06594,2610.06598,2610.06600,2610.06613,2610.06617,2610.06687,2610.06688,2610.06704,2610.06805,2610.06813,2610.06814,2610.06838,2610.06862,2610.06919,2610.06955,2610.06958&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-all-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.06965,2610.06975,2610.06978,2610.06982,2610.06999,2610.07014,2610.07015,2610.07019,2610.07024,2610.07031,2610.07061,2610.07106,2610.07110,2610.07116,2610.07171,2610.07185,2610.07192,2610.07217,2610.07219,2610.07228,2610.07231,2610.07275,2610.07278,2610.07306,2610.07380,2610.07381,2610.07396,2610.07412,2610.07442,2610.07472,2610.07474,2610.07493,2610.07540,2610.07558,2610.07561,2610.07564,2610.07566,2610.07569,2610.07576,2610.07599,2610.07661,2610.07670,2610.07681,2610.07692,2610.07734,2610.07772,2610.07779,2610.07788,2610.07793,2610.07795,2610.07809,2610.07815,2610.07873,2610.07882,2610.07883,2610.07922,2610.07930,2610.07940,2610.07958,2610.08038,2610.08105,2610.08110,2610.08127,2610.08179,2610.08188,2610.08195,2610.08213,2610.08220,2610.08228,2610.08257,2610.08264,2610.08267,2610.08294,2610.08306,2610.08324,2610.08350,2610.08360,2610.08410,2610.08419,2610.08433,2610.08469,2610.08509,2610.08524,2610.08526,2610.08533,2610.08540,2610.08592,2610.08604,2610.08618,2610.08620,2610.08640,2610.08644,2610.08650,2610.08684,2610.08696,2610.08713,2610.08719,2610.08756,2610.08780,2610.08782&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-all-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.08800,2610.08812,2610.08852,2610.08892,2610.08911,2610.08949,2610.08978,2610.08983,2610.09068,2610.09086,2610.09108,2610.09116,2610.09118,2610.09125,2610.09134,2610.09161,2610.09172,2610.09173,2610.09200,2610.09251,2610.09274,2610.09285,2610.09290,2610.09298,2610.09302,2610.09317,2610.09343,2610.09347,2610.09372,2610.09383,2610.09397,2610.09402,2610.09411,2610.09427,2610.09457,2610.09468,2610.09474,2610.09488,2610.09513,2610.09518,2610.09535,2610.09575,2610.09613,2610.09631,2610.09646,2610.09666,2610.09682,2610.09690,2610.09707,2610.09718,2610.09720,2610.09734,2610.09773,2610.09774,2610.09777,2610.09783,2610.09785,2610.09828,2610.09853,2610.09857,2610.09859,2610.09880,2610.09967,2610.09983,2610.10017,2610.10055,2610.10079,2610.10089,2610.10123,2610.10125,2610.10158,2610.10181,2610.10196,2610.10201,2610.10238,2610.10258,2610.10286,2610.10288,2610.10303,2610.10328,2610.10359,2610.10381,2610.10382,2610.10390,2610.10396,2610.10408,2610.10409,2610.10421,2610.10438,2610.10479,2610.10481,2610.10515,2610.10528,2610.10564,2610.10598,2610.10637,2610.10646,2610.10741,2610.10748,2610.10781&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-all-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.10787,2610.10846,2610.10913,2610.10917,2610.10939,2610.10943,2610.10949,2610.10952,2610.10960,2610.11003,2610.11011,2610.11039,2610.11049,2610.11070,2610.11072,2610.11084,2610.11119,2610.11141,2610.11146,2610.11161,2610.11176,2610.11187,2610.11198,2610.11215,2610.11220,2610.11241,2610.11245,2610.11246,2610.11278,2610.11283,2610.11308,2610.11322,2610.11335,2610.11364,2610.11376,2610.11401,2610.11416,2610.11475,2610.11499,2610.11504,2610.11515,2610.11531,2610.11547,2610.11562,2610.11572,2610.11577,2610.11583,2610.11591,2610.11612,2610.11622,2610.11657,2610.11671,2610.11705,2610.11714,2610.11720,2610.11729,2610.11752,2610.11757,2610.11782,2610.11809,2610.11814,2610.11815,2610.11857,2610.11925,2610.11943,2610.11967,2610.12026,2610.12033,2610.12069,2610.12099,2610.12126,2610.12127,2610.12189,2610.12194,2610.12196,2610.12203,2610.12208,2610.12231,2610.12234,2610.12272,2610.12276,2610.12282,2610.12285,2610.12339,2610.12368,2610.12388,2610.12394,2610.12407,2610.12411,2610.12423,2610.12424,2610.12432,2610.12461,2610.12465,2610.12468,2610.12474,2610.12514,2610.12568,2610.12570,2610.12612&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-all-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.12613,2610.12624,2610.12631,2610.12727,2610.12733,2610.12735,2610.12743,2610.12751,2610.12772,2610.12780,2610.12786,2610.12818,2610.12867,2610.12871,2610.12877,2610.12886,2610.12895,2610.12910,2610.12936,2610.13007,2610.13024,2610.13046,2610.13054,2610.13088,2610.13097,2610.13101,2610.13110,2610.13128,2610.13143,2610.13164,2610.13165,2610.13177,2610.13187,2610.13193,2610.13250,2610.13262,2610.13300,2610.13309,2610.13316,2610.13331,2610.13362,2610.13409,2610.13498,2610.13503,2610.13537,2610.13541,2610.13552,2610.13559,2610.13597,2610.13643,2610.13681,2610.13706,2610.13740,2610.13757,2610.13763,2610.13781,2610.13788,2610.13816,2610.13838,2610.13849,2610.13860,2610.13891,2610.13945,2610.14018,2610.14034,2610.14041,2610.14042,2610.14064,2610.14069,2610.14077,2610.14081,2610.14082,2610.14090,2610.14100,2610.14112,2610.14156,2610.14170,2610.14175,2610.14182,2610.14207,2610.14223,2610.14235,2610.14293,2610.14315,2610.14325,2610.14335,2610.14351,2610.14385,2610.14399,2610.14406,2610.14513,2610.14516,2610.14522,2610.14541,2610.14561,2610.14583,2610.14590,2610.14596,2610.14634,2610.14655&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-all-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.14663,2610.14678,2610.14682,2610.14685,2610.14691,2610.14698,2610.14702,2610.14720,2610.14734,2610.14805,2610.14844,2610.14848,2610.14851,2610.14854,2610.14866,2610.14925,2610.14944,2610.14951,2610.14963,2610.15037,2610.15060,2610.15075,2610.15112,2610.15138,2610.15157,2610.15161,2610.15170,2610.15174,2610.15211,2610.15215,2610.15242,2610.15267,2610.15280,2610.15287,2610.15294,2610.15296,2610.15305,2610.15357,2610.15362,2610.15375,2610.15392,2610.15401,2610.15425,2610.15432,2610.15451,2610.15496,2610.15509,2610.15522,2610.15548,2610.15560,2610.15572,2610.15582,2610.15585,2610.15595,2610.15691,2610.15698,2610.15735,2610.15740,2610.15745,2610.15747,2610.15752,2610.15776,2610.15839,2610.15841,2610.15854,2610.15857,2610.15888,2610.15891,2610.15930,2610.15954,2610.15966,2610.16012,2610.16024,2610.16059,2610.16098,2610.16103,2610.16119,2610.16122,2610.16124,2610.16134,2610.16139,2610.16143,2610.16146,2610.16147,2610.16160,2610.16170,2610.16177,2610.16204,2610.16222,2610.16242,2610.16248,2610.16272,2610.16292,2610.16330,2610.16342,2610.16368,2610.16409,2610.16411,2610.16445,2610.16455&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-all-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.16470,2610.16489,2610.16522,2610.16548,2610.16558,2610.16570,2610.16582,2610.16595,2610.16618,2610.16641,2610.16645,2610.16675,2610.16692,2610.16737,2610.16821,2610.16841,2610.16906,2610.16945,2610.16959,2610.16986,2610.17089,2610.17114,2610.17208,2610.17232,2610.17256,2610.17260,2610.17279,2610.17283,2610.17290,2610.17300,2610.17317,2610.17355,2610.17361,2610.17421,2610.17423,2610.17435,2610.17462,2610.17479,2610.17513,2610.17521,2610.17526,2610.17539,2610.17555,2610.17562,2610.17591,2610.17593,2610.17605,2610.17625,2610.17630,2610.17651,2610.17688,2610.17705,2610.17762,2610.17768,2610.17787,2610.17800,2610.17844,2610.17870,2610.17903,2610.17912,2610.17922,2610.17927,2610.17929,2610.17936,2610.17967,2610.17968,2610.17970,2610.18018,2610.18038,2610.18049,2610.18093,2610.18123,2610.18125,2610.18135,2610.18136,2610.18168,2610.18176,2610.18207,2610.18224,2610.18225,2610.18264,2610.18307,2610.18321,2610.18371,2610.18373,2610.18404,2610.18407,2610.18417,2610.18425,2610.18446,2610.18447,2610.18478,2610.18479,2610.18487,2610.18497,2610.18546,2610.18559,2610.18624,2610.18637,2610.18686&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-all-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.18694,2610.18697,2610.18725,2610.18741,2610.18774,2610.18779,2610.18804,2610.18826,2610.18832,2610.18835,2610.18846,2610.18871,2610.18872,2610.18926,2610.18944,2610.18950,2610.18976,2610.18991,2610.19044,2610.19082,2610.19097,2610.19102,2610.19110,2610.19120,2610.19132,2610.19175,2610.19201,2610.19203,2610.19227,2610.19232,2610.19253,2610.19265,2610.19277,2610.19290,2610.19295,2610.19330,2610.19420,2610.19431,2610.19466,2610.19481,2610.19491,2610.19502,2610.19523,2610.19538,2610.19541,2610.19579,2610.19618,2610.19623,2610.19674,2610.19681,2610.19708,2610.19711,2610.19742,2610.19753,2610.19756,2610.19786,2610.19821,2610.19825,2610.19847,2610.19875,2610.19896,2610.19927,2610.19957,2610.19962,2610.19993,2610.19995,2610.20019,2610.20064,2610.20076,2610.20115,2610.20121,2610.20150,2610.20157,2610.20182,2610.20185,2610.20193,2610.20211,2610.20219,2610.20226,2610.20241,2610.20242,2610.20254,2610.20290,2610.20336,2610.20337,2610.20341,2610.20397,2610.20399,2610.20444,2610.20460,2610.20476,2610.20484,2610.20490,2610.20511,2610.20560,2610.20561,2610.20582,2610.20590,2610.20596,2610.20607&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-all-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.20609,2610.20611,2610.20693,2610.20723,2610.20792,2610.20797,2610.20840,2610.20844,2610.20895,2610.20901,2610.20921,2610.20928,2610.20953,2610.20958,2610.21027,2610.21031,2610.21034,2610.21082,2610.21086,2610.21090,2610.21121,2610.21126,2610.21166,2610.21199,2610.21215,2610.21222,2610.21225,2610.21263,2610.21297,2610.21302,2610.21307,2610.21353,2610.21362,2610.21378,2610.21408,2610.21409,2610.21450,2610.21451,2610.21462,2610.21481,2610.21498,2610.21586,2610.21590,2610.21617,2610.21619,2610.21634,2610.21666,2610.21668,2610.21686,2610.21696,2610.21768,2610.21801,2610.21802,2610.21845,2610.21852,2610.21864,2610.21871,2610.21888,2610.21922,2610.21978,2610.21985,2610.22013,2610.22018,2610.22041,2610.22052,2610.22092,2610.22108,2610.22120,2610.22139,2610.22176,2610.22177,2610.22215,2610.22256,2610.22315,2610.22325,2610.22335,2610.22337,2610.22343,2610.22356,2610.22363,2610.22364,2610.22371&max_results=100",
+      "count": 82,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2308.11762,2312.06287,2405.04118,2412.03758,2412.14814,2502.10570,2503.17589,2505.01458,2505.12135,2505.21055,2506.03173,2506.17640,2506.21129,2508.04451,2508.12087,2508.19131,2509.14000,2509.16998,2509.17287,2509.19571,2509.26513,2510.04532,2510.06470,2510.06492,2511.10383,2511.21633,2512.08574,2512.14014,2512.15621,2512.16401,2512.20245,2512.21201,2512.23080,2512.23994,2601.07715,2601.07718,2601.09230,2601.18923,2601.22891,2602.04212,2602.04430,2602.05151,2602.05758,2602.06219,2602.12090,2602.14868,2602.18532,2602.19503,2602.23717,2603.00466,2603.04317,2603.04949,2603.07143,2603.08491,2603.09163,2603.11059,2603.13833,2603.14006,2603.18360,2603.19307,2603.20366,2603.20804,2603.22561,2603.25216,2603.25360,2603.29762,2604.00055,2604.02544,2604.03208,2604.14732,2604.17815,2604.19734,2605.00121,2605.03413,2605.07079,2605.10064,2605.11536,2605.13315,2605.15141,2605.15256,2605.16238,2605.17070,2605.17249,2605.17580,2605.19781,2605.19957,2605.21282,2605.21594,2605.23699,2605.25077,2605.27314,2605.27388,2605.30346,2605.30696,2605.31120,2606.00267,2606.00880,2606.01810,2606.02486,2606.05254&max_results=100",
+      "count": 100,
+      "success": false,
+      "error": "Response status code does not indicate success: 429 (Unknown Error)."
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2606.07874,2606.08278,2606.08775,2606.09499,2606.10044,2606.10288,2606.10611,2606.12306,2606.13607,2606.14585,2606.14739,2606.15251,2606.15536,2606.16953,2606.17924,2606.18043,2606.19990,2606.21258,2606.22994,2606.26410,2606.26964,2606.27780,2606.28385,2606.30988,2607.00065,2607.00148,2607.01736,2607.02403,2607.02417,2607.03941,2607.04528,2607.04546,2607.04758,2607.04978,2607.08436,2607.09507,2607.09701,2607.10203,2607.10655,2607.10902,2607.11119,2607.12397,2607.13731,2607.13938,2607.15065,2607.16204,2607.16421,2607.17669,2607.17710,2607.17938,2607.19190,2607.19919,2607.20152,2607.26251,2607.26417,2607.27599,2607.28251,2608.02365,2608.05219,2608.06332,2608.07079,2608.07539,2608.09196,2608.09516,2608.10232,2608.12759,2608.14869,2608.16287,2608.16539,2608.17739,2608.19693,2608.19779,2608.21310,2608.24101,2608.25572,2608.27550,2608.29881,2608.30362,2609.01281,2609.03843,2609.05588,2609.05903,2609.08979,2609.10540,2609.14073,2609.14858,2609.15570,2609.17524,2609.18462,2609.18581,2609.19523,2609.20768,2609.23269,2609.23465,2609.23578,2609.23997,2609.24526,2609.24682,2609.25562,2609.27314&max_results=100",
+      "count": 100,
+      "success": false,
+      "error": "Response status code does not indicate success: 429 (Unknown Error)."
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2609.27455,2609.27526,2609.29827,2609.30247,2609.31133,2609.31586,2609.32336,2609.32755,2609.32921,2609.33563,2609.34199,2609.34221,2609.35338,2609.35445,2609.35545,2609.35603,2609.35671,2609.35916,2609.35965,2609.36091,2609.36413,2609.36531,2609.36677,2609.37250,2609.37676,2609.38472,2609.39207,2609.39870,2609.40219,2609.40245,2610.00729,2610.00976,2610.02055,2610.02205,2610.02521,2610.02812,2610.02848,2610.02908,2610.02922,2610.02996,2610.03132,2610.03506,2610.03930,2610.04134,2610.04230,2610.04406,2610.04510,2610.04781,2610.04904,2610.04910,2610.04911,2610.04981,2610.05024,2610.05207,2610.05301,2610.05414,2610.05470,2610.05482,2610.05489,2610.05771,2610.06002,2610.06046,2610.06284,2610.06352,2610.06467,2610.06487,2610.06759,2610.06843,2610.07027,2610.07327,2610.07369,2610.07371,2610.07739,2610.07742,2610.07810,2610.08092,2610.08275,2610.08320,2610.08364,2610.08368,2610.08373,2610.08387,2610.08432,2610.08595,2610.08761,2610.08966,2610.08982,2610.08990,2610.09280,2610.09294,2610.09358,2610.09461,2610.09508,2610.09520,2610.09652,2610.09710,2610.09764,2610.09842,2610.09857,2610.09884&max_results=100",
+      "count": 100,
+      "success": false,
+      "error": "Response status code does not indicate success: 429 (Unknown Error)."
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.09891,2610.10421,2610.10622,2610.10768,2610.10803,2610.10852,2610.10953,2610.11328,2610.11531,2610.11546,2610.11593,2610.11667,2610.11764,2610.11862,2610.11877,2610.11893,2610.12089,2610.12282,2610.12431,2610.12657,2610.12761,2610.12835,2610.13320,2610.13364,2610.13416,2610.13430,2610.13443,2610.13557,2610.13695,2610.13712,2610.13737,2610.13849,2610.13862,2610.13948,2610.14400,2610.14428,2610.14740,2610.14822,2610.14951,2610.14960,2610.15130,2610.15157,2610.15595,2610.15854,2610.15957,2610.16047,2610.16070,2610.16143,2610.16369,2610.16512,2610.16514,2610.16570,2610.16750,2610.16971,2610.16975,2610.17001,2610.17260,2610.17326,2610.17419,2610.17499,2610.17640,2610.17670,2610.18186,2610.18326,2610.18354,2610.18381,2610.18422,2610.18479,2610.18564,2610.18579,2610.18861,2610.19044,2610.19224,2610.19361,2610.19384,2610.19413,2610.19423,2610.19443,2610.19547,2610.19600,2610.19674,2610.19742,2610.19920,2610.19993,2610.20009,2610.20168,2610.20203,2610.20252,2610.20333,2610.20409,2610.20424,2610.20486,2610.20831,2610.20958,2610.20998,2610.21174,2610.21199,2610.21220,2610.21281,2610.21327&max_results=100",
+      "count": 100,
+      "success": false,
+      "error": "Response status code does not indicate success: 429 (Unknown Error)."
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.21345,2610.21361,2610.21409,2610.21429,2610.21432,2610.21450,2610.21464,2610.21586,2610.21625,2610.21634,2610.21741,2610.21783,2610.21990,2610.22177,2610.22245,2610.22273,2610.22277,2610.22322&max_results=100",
+      "count": 18,
+      "success": false,
+      "error": "Response status code does not indicate success: 429 (Unknown Error)."
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-metadata-retry/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2308.11762,2312.06287,2405.04118,2412.03758,2412.14814,2502.10570,2503.17589,2505.01458,2505.12135,2505.21055,2506.03173,2506.17640,2506.21129,2508.04451,2508.12087,2508.19131,2509.14000,2509.16998,2509.17287,2509.19571,2509.26513,2510.04532,2510.06470,2510.06492,2511.10383,2511.21633,2512.08574,2512.14014,2512.15621,2512.16401,2512.20245,2512.21201,2512.23080,2512.23994,2601.07715,2601.07718,2601.09230,2601.18923,2601.22891,2602.04212,2602.04430,2602.05151,2602.05758,2602.06219,2602.12090,2602.14868,2602.18532,2602.19503,2602.23717,2603.00466,2603.04317,2603.04949,2603.07143,2603.08491,2603.09163,2603.11059,2603.13833,2603.14006,2603.18360,2603.19307,2603.20366,2603.20804,2603.22561,2603.25216,2603.25360,2603.29762,2604.00055,2604.02544,2604.03208,2604.14732,2604.17815,2604.19734,2605.00121,2605.03413,2605.07079,2605.10064,2605.11536,2605.13315,2605.15141,2605.15256,2605.16238,2605.17070,2605.17249,2605.17580,2605.19781,2605.19957,2605.21282,2605.21594,2605.23699,2605.25077,2605.27314,2605.27388,2605.30346,2605.30696,2605.31120,2606.00267,2606.00880,2606.01810,2606.02486,2606.05254&max_results=100",
+      "count": 100,
+      "success": false,
+      "error": "Response status code does not indicate success: 429 (Unknown Error)."
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-metadata-retry/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2606.07874,2606.08278,2606.08775,2606.09499,2606.10044,2606.10288,2606.10611,2606.12306,2606.13607,2606.14585,2606.14739,2606.15251,2606.15536,2606.16953,2606.17924,2606.18043,2606.19990,2606.21258,2606.22994,2606.26410,2606.26964,2606.27780,2606.28385,2606.30988,2607.00065,2607.00148,2607.01736,2607.02403,2607.02417,2607.03941,2607.04528,2607.04546,2607.04758,2607.04978,2607.08436,2607.09507,2607.09701,2607.10203,2607.10655,2607.10902,2607.11119,2607.12397,2607.13731,2607.13938,2607.15065,2607.16204,2607.16421,2607.17669,2607.17710,2607.17938,2607.19190,2607.19919,2607.20152,2607.26251,2607.26417,2607.27599,2607.28251,2608.02365,2608.05219,2608.06332,2608.07079,2608.07539,2608.09196,2608.09516,2608.10232,2608.12759,2608.14869,2608.16287,2608.16539,2608.17739,2608.19693,2608.19779,2608.21310,2608.24101,2608.25572,2608.27550,2608.29881,2608.30362,2609.01281,2609.03843,2609.05588,2609.05903,2609.08979,2609.10540,2609.14073,2609.14858,2609.15570,2609.17524,2609.18462,2609.18581,2609.19523,2609.20768,2609.23269,2609.23465,2609.23578,2609.23997,2609.24526,2609.24682,2609.25562,2609.27314&max_results=100",
+      "count": 100,
+      "success": false,
+      "error": "The request was canceled due to the configured HttpClient.Timeout of 50 seconds elapsing."
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-metadata-retry/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2609.27455,2609.27526,2609.29827,2609.30247,2609.31133,2609.31586,2609.32336,2609.32755,2609.32921,2609.33563,2609.34199,2609.34221,2609.35338,2609.35445,2609.35545,2609.35603,2609.35671,2609.35916,2609.35965,2609.36091,2609.36413,2609.36531,2609.36677,2609.37250,2609.37676,2609.38472,2609.39207,2609.39870,2609.40219,2609.40245,2610.00729,2610.00976,2610.02055,2610.02205,2610.02521,2610.02812,2610.02848,2610.02908,2610.02922,2610.02996,2610.03132,2610.03506,2610.03930,2610.04134,2610.04230,2610.04406,2610.04510,2610.04781,2610.04904,2610.04910,2610.04911,2610.04981,2610.05024,2610.05207,2610.05301,2610.05414,2610.05470,2610.05482,2610.05489,2610.05771,2610.06002,2610.06046,2610.06284,2610.06352,2610.06467,2610.06487,2610.06759,2610.06843,2610.07027,2610.07327,2610.07369,2610.07371,2610.07739,2610.07742,2610.07810,2610.08092,2610.08275,2610.08320,2610.08364,2610.08368,2610.08373,2610.08387,2610.08432,2610.08595,2610.08761,2610.08966,2610.08982,2610.08990,2610.09280,2610.09294,2610.09358,2610.09461,2610.09508,2610.09520,2610.09652,2610.09710,2610.09764,2610.09842,2610.09857,2610.09884&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-metadata-retry/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.09891,2610.10421,2610.10622,2610.10768,2610.10803,2610.10852,2610.10953,2610.11328,2610.11531,2610.11546,2610.11593,2610.11667,2610.11764,2610.11862,2610.11877,2610.11893,2610.12089,2610.12282,2610.12431,2610.12657,2610.12761,2610.12835,2610.13320,2610.13364,2610.13416,2610.13430,2610.13443,2610.13557,2610.13695,2610.13712,2610.13737,2610.13849,2610.13862,2610.13948,2610.14400,2610.14428,2610.14740,2610.14822,2610.14951,2610.14960,2610.15130,2610.15157,2610.15595,2610.15854,2610.15957,2610.16047,2610.16070,2610.16143,2610.16369,2610.16512,2610.16514,2610.16570,2610.16750,2610.16971,2610.16975,2610.17001,2610.17260,2610.17326,2610.17419,2610.17499,2610.17640,2610.17670,2610.18186,2610.18326,2610.18354,2610.18381,2610.18422,2610.18479,2610.18564,2610.18579,2610.18861,2610.19044,2610.19224,2610.19361,2610.19384,2610.19413,2610.19423,2610.19443,2610.19547,2610.19600,2610.19674,2610.19742,2610.19920,2610.19993,2610.20009,2610.20168,2610.20203,2610.20252,2610.20333,2610.20409,2610.20424,2610.20486,2610.20831,2610.20958,2610.20998,2610.21174,2610.21199,2610.21220,2610.21281,2610.21327&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-metadata-retry/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.21345,2610.21361,2610.21409,2610.21429,2610.21432,2610.21450,2610.21464,2610.21586,2610.21625,2610.21634,2610.21741,2610.21783,2610.21990,2610.22177,2610.22245,2610.22273,2610.22277,2610.22322&max_results=100",
+      "count": 18,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-metadata-missing/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2412.03758,2512.21201,2601.09230,2606.00267,2606.01810,2606.02486,2606.05254,2606.08278,2606.08775,2606.09499,2606.10288,2606.12306,2606.14585,2606.15251,2606.16953,2606.17924,2606.18043,2606.19990,2606.21258,2606.26410,2606.26964,2606.28385,2606.30988,2607.00065,2607.00148,2607.02403,2607.02417,2607.03941,2607.04546,2607.04978,2607.08436,2607.09507,2607.09701,2607.10203,2607.10655,2607.11119,2607.13731,2607.13938,2607.15065,2607.16204,2607.16421,2607.17938,2607.19190,2607.19919,2607.26417,2607.27599,2607.28251,2608.02365,2608.05219,2608.06332,2608.07079,2608.07539,2608.09196,2608.09516,2608.10232,2608.16287,2608.19693,2608.24101,2608.25572,2608.27550,2608.29881,2609.01281,2609.03843,2609.05588,2609.10540,2609.14073,2609.15570,2609.17524,2609.18462,2609.18581,2609.21621,2609.23269,2609.23578,2609.23997,2609.24526,2609.24682,2609.25562,2609.27314,2610.04006,2610.05024,2610.05207,2610.09857,2610.10421,2610.11531,2610.12282,2610.13849,2610.14951,2610.15157,2610.15595,2610.15854,2610.16143,2610.16570,2610.17260,2610.18479,2610.19044,2610.19674,2610.19742,2610.19993,2610.20958,2610.21199&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-metadata-missing/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.21409,2610.21450,2610.21586,2610.21634,2610.22177&max_results=100",
+      "count": 5,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-extra-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2602.12971,2604.14643,2605.22467,2606.21258,2607.09020,2607.09507,2608.19693,2609.10296,2610.05024,2610.05207,2610.09857,2610.10421,2610.11531,2610.12282,2610.13849,2610.14951,2610.15157,2610.15595,2610.15854,2610.16143,2610.16570,2610.17260,2610.18479,2610.19044,2610.19674,2610.19742,2610.19993,2610.20958,2610.21199,2610.21409,2610.21450,2610.21586,2610.21634,2610.22177&max_results=100",
+      "count": 34,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2308.11762",
+      "url": "https://arxiv.org/abs/2308.11762",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2312.06287",
+      "url": "https://arxiv.org/abs/2312.06287",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2405.04118",
+      "url": "https://arxiv.org/abs/2405.04118",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2412.03758",
+      "url": "https://arxiv.org/abs/2412.03758",
+      "success": false,
+      "error": "The SSL connection could not be established, see inner exception."
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2412.14814",
+      "url": "https://arxiv.org/abs/2412.14814",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2502.10570",
+      "url": "https://arxiv.org/abs/2502.10570",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2503.17589",
+      "url": "https://arxiv.org/abs/2503.17589",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2505.01458",
+      "url": "https://arxiv.org/abs/2505.01458",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2505.12135",
+      "url": "https://arxiv.org/abs/2505.12135",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2505.21055",
+      "url": "https://arxiv.org/abs/2505.21055",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2506.03173",
+      "url": "https://arxiv.org/abs/2506.03173",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2506.17640",
+      "url": "https://arxiv.org/abs/2506.17640",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2506.21129",
+      "url": "https://arxiv.org/abs/2506.21129",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2508.04451",
+      "url": "https://arxiv.org/abs/2508.04451",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2508.12087",
+      "url": "https://arxiv.org/abs/2508.12087",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2508.19131",
+      "url": "https://arxiv.org/abs/2508.19131",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2509.14000",
+      "url": "https://arxiv.org/abs/2509.14000",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2509.16998",
+      "url": "https://arxiv.org/abs/2509.16998",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2509.17287",
+      "url": "https://arxiv.org/abs/2509.17287",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2509.19571",
+      "url": "https://arxiv.org/abs/2509.19571",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2509.26513",
+      "url": "https://arxiv.org/abs/2509.26513",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2510.04532",
+      "url": "https://arxiv.org/abs/2510.04532",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2510.06470",
+      "url": "https://arxiv.org/abs/2510.06470",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2510.06492",
+      "url": "https://arxiv.org/abs/2510.06492",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2511.10383",
+      "url": "https://arxiv.org/abs/2511.10383",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2511.21633",
+      "url": "https://arxiv.org/abs/2511.21633",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2512.08574",
+      "url": "https://arxiv.org/abs/2512.08574",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2512.14014",
+      "url": "https://arxiv.org/abs/2512.14014",
+      "success": false,
+      "error": "The SSL connection could not be established, see inner exception."
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2512.15621",
+      "url": "https://arxiv.org/abs/2512.15621",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2512.16401",
+      "url": "https://arxiv.org/abs/2512.16401",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2512.20245",
+      "url": "https://arxiv.org/abs/2512.20245",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2512.21201",
+      "url": "https://arxiv.org/abs/2512.21201",
+      "success": false,
+      "error": "The SSL connection could not be established, see inner exception."
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2512.23080",
+      "url": "https://arxiv.org/abs/2512.23080",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2512.23994",
+      "url": "https://arxiv.org/abs/2512.23994",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2601.07715",
+      "url": "https://arxiv.org/abs/2601.07715",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2601.07718",
+      "url": "https://arxiv.org/abs/2601.07718",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2601.09230",
+      "url": "https://arxiv.org/abs/2601.09230",
+      "success": false,
+      "error": "The SSL connection could not be established, see inner exception."
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2601.18923",
+      "url": "https://arxiv.org/abs/2601.18923",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2601.22891",
+      "url": "https://arxiv.org/abs/2601.22891",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2602.04212",
+      "url": "https://arxiv.org/abs/2602.04212",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2602.04430",
+      "url": "https://arxiv.org/abs/2602.04430",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2602.05151",
+      "url": "https://arxiv.org/abs/2602.05151",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2602.05758",
+      "url": "https://arxiv.org/abs/2602.05758",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2602.06219",
+      "url": "https://arxiv.org/abs/2602.06219",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2602.12090",
+      "url": "https://arxiv.org/abs/2602.12090",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2602.14868",
+      "url": "https://arxiv.org/abs/2602.14868",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2602.18532",
+      "url": "https://arxiv.org/abs/2602.18532",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2602.19503",
+      "url": "https://arxiv.org/abs/2602.19503",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2602.23717",
+      "url": "https://arxiv.org/abs/2602.23717",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2603.00466",
+      "url": "https://arxiv.org/abs/2603.00466",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2603.04317",
+      "url": "https://arxiv.org/abs/2603.04317",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2603.04949",
+      "url": "https://arxiv.org/abs/2603.04949",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2603.07143",
+      "url": "https://arxiv.org/abs/2603.07143",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2603.08491",
+      "url": "https://arxiv.org/abs/2603.08491",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2603.09163",
+      "url": "https://arxiv.org/abs/2603.09163",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2603.11059",
+      "url": "https://arxiv.org/abs/2603.11059",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2603.13833",
+      "url": "https://arxiv.org/abs/2603.13833",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2603.14006",
+      "url": "https://arxiv.org/abs/2603.14006",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2603.18360",
+      "url": "https://arxiv.org/abs/2603.18360",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2603.19307",
+      "url": "https://arxiv.org/abs/2603.19307",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2603.20366",
+      "url": "https://arxiv.org/abs/2603.20366",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2603.20804",
+      "url": "https://arxiv.org/abs/2603.20804",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2603.22561",
+      "url": "https://arxiv.org/abs/2603.22561",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2603.25216",
+      "url": "https://arxiv.org/abs/2603.25216",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2603.25360",
+      "url": "https://arxiv.org/abs/2603.25360",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2603.29762",
+      "url": "https://arxiv.org/abs/2603.29762",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2604.00055",
+      "url": "https://arxiv.org/abs/2604.00055",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2604.02544",
+      "url": "https://arxiv.org/abs/2604.02544",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2604.03208",
+      "url": "https://arxiv.org/abs/2604.03208",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2604.14732",
+      "url": "https://arxiv.org/abs/2604.14732",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2604.17815",
+      "url": "https://arxiv.org/abs/2604.17815",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2604.19734",
+      "url": "https://arxiv.org/abs/2604.19734",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2605.00121",
+      "url": "https://arxiv.org/abs/2605.00121",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2605.03413",
+      "url": "https://arxiv.org/abs/2605.03413",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2605.07079",
+      "url": "https://arxiv.org/abs/2605.07079",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2605.10064",
+      "url": "https://arxiv.org/abs/2605.10064",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2605.11536",
+      "url": "https://arxiv.org/abs/2605.11536",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2605.13315",
+      "url": "https://arxiv.org/abs/2605.13315",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2605.15141",
+      "url": "https://arxiv.org/abs/2605.15141",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2605.15256",
+      "url": "https://arxiv.org/abs/2605.15256",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2605.16238",
+      "url": "https://arxiv.org/abs/2605.16238",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2605.17070",
+      "url": "https://arxiv.org/abs/2605.17070",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2605.17249",
+      "url": "https://arxiv.org/abs/2605.17249",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2605.17580",
+      "url": "https://arxiv.org/abs/2605.17580",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2605.19781",
+      "url": "https://arxiv.org/abs/2605.19781",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2605.19957",
+      "url": "https://arxiv.org/abs/2605.19957",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2605.21282",
+      "url": "https://arxiv.org/abs/2605.21282",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2605.21594",
+      "url": "https://arxiv.org/abs/2605.21594",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2605.23699",
+      "url": "https://arxiv.org/abs/2605.23699",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2605.25077",
+      "url": "https://arxiv.org/abs/2605.25077",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2605.27314",
+      "url": "https://arxiv.org/abs/2605.27314",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2605.27388",
+      "url": "https://arxiv.org/abs/2605.27388",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2605.30346",
+      "url": "https://arxiv.org/abs/2605.30346",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2605.30696",
+      "url": "https://arxiv.org/abs/2605.30696",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2605.31120",
+      "url": "https://arxiv.org/abs/2605.31120",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.00267",
+      "url": "https://arxiv.org/abs/2606.00267",
+      "success": false,
+      "error": "The SSL connection could not be established, see inner exception."
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.00880",
+      "url": "https://arxiv.org/abs/2606.00880",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.01810",
+      "url": "https://arxiv.org/abs/2606.01810",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.02486",
+      "url": "https://arxiv.org/abs/2606.02486",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.05254",
+      "url": "https://arxiv.org/abs/2606.05254",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.07874",
+      "url": "https://arxiv.org/abs/2606.07874",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.08278",
+      "url": "https://arxiv.org/abs/2606.08278",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.08775",
+      "url": "https://arxiv.org/abs/2606.08775",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.09499",
+      "url": "https://arxiv.org/abs/2606.09499",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.10044",
+      "url": "https://arxiv.org/abs/2606.10044",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.10288",
+      "url": "https://arxiv.org/abs/2606.10288",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.10611",
+      "url": "https://arxiv.org/abs/2606.10611",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.12306",
+      "url": "https://arxiv.org/abs/2606.12306",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.13607",
+      "url": "https://arxiv.org/abs/2606.13607",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.14585",
+      "url": "https://arxiv.org/abs/2606.14585",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.14739",
+      "url": "https://arxiv.org/abs/2606.14739",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.15251",
+      "url": "https://arxiv.org/abs/2606.15251",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.15536",
+      "url": "https://arxiv.org/abs/2606.15536",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.16953",
+      "url": "https://arxiv.org/abs/2606.16953",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.17924",
+      "url": "https://arxiv.org/abs/2606.17924",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.18043",
+      "url": "https://arxiv.org/abs/2606.18043",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.19990",
+      "url": "https://arxiv.org/abs/2606.19990",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.22994",
+      "url": "https://arxiv.org/abs/2606.22994",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.26410",
+      "url": "https://arxiv.org/abs/2606.26410",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.26964",
+      "url": "https://arxiv.org/abs/2606.26964",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.27780",
+      "url": "https://arxiv.org/abs/2606.27780",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.28385",
+      "url": "https://arxiv.org/abs/2606.28385",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2606.30988",
+      "url": "https://arxiv.org/abs/2606.30988",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.00065",
+      "url": "https://arxiv.org/abs/2607.00065",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.00148",
+      "url": "https://arxiv.org/abs/2607.00148",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.01736",
+      "url": "https://arxiv.org/abs/2607.01736",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.02403",
+      "url": "https://arxiv.org/abs/2607.02403",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.02417",
+      "url": "https://arxiv.org/abs/2607.02417",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.03941",
+      "url": "https://arxiv.org/abs/2607.03941",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.04528",
+      "url": "https://arxiv.org/abs/2607.04528",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.04546",
+      "url": "https://arxiv.org/abs/2607.04546",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.04758",
+      "url": "https://arxiv.org/abs/2607.04758",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.04978",
+      "url": "https://arxiv.org/abs/2607.04978",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.08436",
+      "url": "https://arxiv.org/abs/2607.08436",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.09701",
+      "url": "https://arxiv.org/abs/2607.09701",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.10203",
+      "url": "https://arxiv.org/abs/2607.10203",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.10655",
+      "url": "https://arxiv.org/abs/2607.10655",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.10902",
+      "url": "https://arxiv.org/abs/2607.10902",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.11119",
+      "url": "https://arxiv.org/abs/2607.11119",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.12397",
+      "url": "https://arxiv.org/abs/2607.12397",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.13731",
+      "url": "https://arxiv.org/abs/2607.13731",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.13938",
+      "url": "https://arxiv.org/abs/2607.13938",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.15065",
+      "url": "https://arxiv.org/abs/2607.15065",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.16204",
+      "url": "https://arxiv.org/abs/2607.16204",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.16421",
+      "url": "https://arxiv.org/abs/2607.16421",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.17669",
+      "url": "https://arxiv.org/abs/2607.17669",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.17710",
+      "url": "https://arxiv.org/abs/2607.17710",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.17938",
+      "url": "https://arxiv.org/abs/2607.17938",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.19190",
+      "url": "https://arxiv.org/abs/2607.19190",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.19919",
+      "url": "https://arxiv.org/abs/2607.19919",
+      "success": false,
+      "error": "The SSL connection could not be established, see inner exception."
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.20152",
+      "url": "https://arxiv.org/abs/2607.20152",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.26251",
+      "url": "https://arxiv.org/abs/2607.26251",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.26417",
+      "url": "https://arxiv.org/abs/2607.26417",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.27599",
+      "url": "https://arxiv.org/abs/2607.27599",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2607.28251",
+      "url": "https://arxiv.org/abs/2607.28251",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2608.02365",
+      "url": "https://arxiv.org/abs/2608.02365",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2608.05219",
+      "url": "https://arxiv.org/abs/2608.05219",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2608.06332",
+      "url": "https://arxiv.org/abs/2608.06332",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2608.07079",
+      "url": "https://arxiv.org/abs/2608.07079",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2608.07539",
+      "url": "https://arxiv.org/abs/2608.07539",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2608.09196",
+      "url": "https://arxiv.org/abs/2608.09196",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2608.09516",
+      "url": "https://arxiv.org/abs/2608.09516",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2608.10232",
+      "url": "https://arxiv.org/abs/2608.10232",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2608.12759",
+      "url": "https://arxiv.org/abs/2608.12759",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2608.14869",
+      "url": "https://arxiv.org/abs/2608.14869",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-final-abs/metadata-manifest.json",
+      "id": "2608.16287",
+      "url": "https://arxiv.org/abs/2608.16287",
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-category-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2606.21258,2607.09507,2608.19693,2610.00003,2610.00008,2610.00057,2610.00065,2610.00198,2610.00199,2610.00208,2610.00220,2610.00317,2610.00319,2610.00330,2610.00355,2610.00404,2610.00438,2610.00487,2610.00524,2610.00533,2610.00542,2610.00601,2610.00604,2610.00613,2610.00676,2610.00718,2610.00781,2610.00801,2610.00823,2610.00854,2610.00855,2610.00864,2610.00897,2610.00899,2610.00904,2610.00913,2610.00926,2610.00936,2610.00981,2610.00982,2610.00992,2610.01004,2610.01067,2610.01072,2610.01083,2610.01093,2610.01102,2610.01162,2610.01171,2610.01178,2610.01185,2610.01260,2610.01288,2610.01301,2610.01310,2610.01319,2610.01351,2610.01397,2610.01477,2610.01510,2610.01569,2610.01573,2610.01612,2610.01644,2610.01668,2610.01682,2610.01726,2610.01746,2610.01794,2610.01820,2610.01849,2610.01856,2610.01863,2610.01906,2610.01910,2610.01927,2610.01939,2610.01943,2610.01959,2610.01985,2610.02089,2610.02170,2610.02196,2610.02198,2610.02204,2610.02247,2610.02338,2610.02339,2610.02341,2610.02360,2610.02366,2610.02370,2610.02428,2610.02459,2610.02469,2610.02505,2610.02527,2610.02554,2610.02626,2610.02662&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-category-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.02668,2610.02694,2610.02706,2610.02708,2610.02717,2610.02759,2610.02784,2610.02788,2610.02799,2610.02801,2610.02802,2610.02803,2610.02804,2610.02811,2610.02813,2610.02874,2610.02898,2610.02985,2610.02991,2610.03013,2610.03119,2610.03248,2610.03249,2610.03278,2610.03283,2610.03333,2610.03388,2610.03476,2610.03498,2610.03538,2610.03563,2610.03615,2610.03616,2610.03710,2610.03773,2610.03861,2610.03898,2610.03924,2610.03931,2610.03997,2610.04022,2610.04054,2610.04085,2610.04144,2610.04211,2610.04220,2610.04231,2610.04238,2610.04240,2610.04250,2610.04255,2610.04266,2610.04297,2610.04342,2610.04356,2610.04363,2610.04364,2610.04372,2610.04391,2610.04402,2610.04536,2610.04545,2610.04565,2610.04566,2610.04609,2610.04612,2610.04616,2610.04659,2610.04701,2610.04726,2610.04741,2610.04744,2610.04764,2610.04765,2610.04771,2610.04775,2610.04805,2610.04929,2610.04933,2610.04937,2610.04949,2610.05024,2610.05062,2610.05081,2610.05122,2610.05151,2610.05166,2610.05207,2610.05230,2610.05258,2610.05273,2610.05324,2610.05331,2610.05359,2610.05407,2610.05418,2610.05491,2610.05542,2610.05571,2610.05583&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-category-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.05604,2610.05607,2610.05642,2610.05674,2610.05677,2610.05678,2610.05692,2610.05695,2610.05719,2610.05734,2610.05745,2610.05747,2610.05755,2610.05765,2610.05792,2610.05796,2610.05818,2610.05819,2610.05839,2610.05855,2610.05878,2610.05882,2610.05964,2610.05969,2610.05971,2610.05994,2610.05997,2610.06010,2610.06078,2610.06089,2610.06090,2610.06103,2610.06104,2610.06129,2610.06137,2610.06153,2610.06184,2610.06198,2610.06260,2610.06271,2610.06290,2610.06306,2610.06331,2610.06376,2610.06427,2610.06641,2610.06643,2610.06777,2610.06850,2610.06863,2610.06874,2610.06882,2610.06921,2610.06926,2610.06929,2610.07052,2610.07056,2610.07081,2610.07096,2610.07117,2610.07245,2610.07277,2610.07319,2610.07320,2610.07346,2610.07382,2610.07390,2610.07398,2610.07409,2610.07432,2610.07456,2610.07477,2610.07511,2610.07515,2610.07525,2610.07527,2610.07594,2610.07597,2610.07613,2610.07616,2610.07621,2610.07629,2610.07649,2610.07650,2610.07652,2610.07674,2610.07696,2610.07745,2610.07752,2610.07756,2610.07784,2610.07891,2610.07896,2610.07910,2610.07917,2610.07946,2610.07961,2610.07969,2610.08003,2610.08043&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-category-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.08112,2610.08115,2610.08120,2610.08123,2610.08133,2610.08150,2610.08177,2610.08183,2610.08225,2610.08259,2610.08297,2610.08332,2610.08344,2610.08381,2610.08421,2610.08425,2610.08441,2610.08444,2610.08450,2610.08458,2610.08532,2610.08541,2610.08555,2610.08603,2610.08637,2610.08642,2610.08653,2610.08695,2610.08726,2610.08733,2610.08737,2610.08765,2610.08771,2610.08784,2610.08789,2610.08802,2610.08807,2610.08862,2610.08863,2610.08870,2610.08933,2610.08970,2610.08989,2610.08995,2610.09034,2610.09055,2610.09084,2610.09117,2610.09130,2610.09150,2610.09165,2610.09170,2610.09178,2610.09187,2610.09195,2610.09207,2610.09224,2610.09228,2610.09247,2610.09254,2610.09283,2610.09291,2610.09315,2610.09327,2610.09350,2610.09369,2610.09398,2610.09451,2610.09454,2610.09455,2610.09462,2610.09479,2610.09496,2610.09509,2610.09533,2610.09536,2610.09566,2610.09573,2610.09588,2610.09590,2610.09645,2610.09695,2610.09696,2610.09781,2610.09857,2610.09943,2610.09977,2610.10020,2610.10039,2610.10065,2610.10087,2610.10178,2610.10180,2610.10198,2610.10281,2610.10283,2610.10297,2610.10346,2610.10367,2610.10384&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-category-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.10388,2610.10421,2610.10437,2610.10453,2610.10462,2610.10465,2610.10470,2610.10472,2610.10489,2610.10510,2610.10526,2610.10534,2610.10538,2610.10601,2610.10801,2610.10812,2610.10855,2610.10857,2610.10905,2610.10912,2610.10934,2610.11054,2610.11168,2610.11175,2610.11194,2610.11221,2610.11223,2610.11248,2610.11418,2610.11480,2610.11505,2610.11508,2610.11531,2610.11631,2610.11645,2610.11722,2610.11771,2610.11934,2610.11945,2610.11952,2610.11956,2610.11971,2610.11975,2610.12007,2610.12046,2610.12073,2610.12123,2610.12140,2610.12157,2610.12172,2610.12185,2610.12202,2610.12241,2610.12245,2610.12249,2610.12282,2610.12369,2610.12386,2610.12404,2610.12440,2610.12451,2610.12457,2610.12467,2610.12470,2610.12549,2610.12558,2610.12561,2610.12567,2610.12609,2610.12636,2610.12637,2610.12642,2610.12670,2610.12684,2610.12696,2610.12706,2610.12710,2610.12734,2610.12747,2610.12774,2610.12790,2610.12793,2610.12826,2610.12832,2610.12848,2610.12861,2610.12957,2610.12972,2610.12999,2610.13049,2610.13077,2610.13079,2610.13087,2610.13093,2610.13118,2610.13119,2610.13158,2610.13190,2610.13195,2610.13212&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-category-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.13345,2610.13354,2610.13373,2610.13376,2610.13403,2610.13453,2610.13479,2610.13516,2610.13534,2610.13572,2610.13578,2610.13628,2610.13665,2610.13688,2610.13732,2610.13772,2610.13829,2610.13849,2610.13872,2610.13929,2610.13943,2610.14020,2610.14033,2610.14035,2610.14038,2610.14039,2610.14043,2610.14061,2610.14066,2610.14067,2610.14075,2610.14106,2610.14117,2610.14142,2610.14155,2610.14159,2610.14200,2610.14237,2610.14245,2610.14248,2610.14269,2610.14341,2610.14342,2610.14372,2610.14379,2610.14415,2610.14478,2610.14482,2610.14492,2610.14530,2610.14551,2610.14577,2610.14586,2610.14588,2610.14601,2610.14647,2610.14704,2610.14715,2610.14733,2610.14753,2610.14802,2610.14833,2610.14840,2610.14864,2610.14885,2610.14889,2610.14896,2610.14911,2610.14917,2610.14926,2610.14951,2610.14977,2610.14997,2610.15001,2610.15073,2610.15122,2610.15157,2610.15237,2610.15274,2610.15308,2610.15334,2610.15337,2610.15422,2610.15431,2610.15486,2610.15491,2610.15556,2610.15558,2610.15563,2610.15577,2610.15595,2610.15639,2610.15675,2610.15739,2610.15756,2610.15763,2610.15766,2610.15769,2610.15814,2610.15833&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-category-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.15854,2610.15867,2610.15934,2610.15936,2610.16143,2610.16173,2610.16179,2610.16199,2610.16238,2610.16293,2610.16308,2610.16309,2610.16313,2610.16316,2610.16326,2610.16334,2610.16398,2610.16457,2610.16463,2610.16532,2610.16567,2610.16570,2610.16597,2610.16604,2610.16634,2610.16667,2610.16696,2610.16855,2610.16881,2610.16895,2610.16908,2610.16967,2610.16978,2610.17003,2610.17069,2610.17083,2610.17161,2610.17174,2610.17252,2610.17260,2610.17281,2610.17298,2610.17308,2610.17337,2610.17350,2610.17422,2610.17427,2610.17468,2610.17511,2610.17534,2610.17540,2610.17549,2610.17572,2610.17574,2610.17657,2610.17667,2610.17677,2610.17694,2610.17709,2610.17746,2610.17748,2610.17750,2610.17789,2610.17799,2610.17802,2610.17806,2610.17843,2610.17873,2610.17881,2610.17930,2610.17977,2610.17983,2610.17999,2610.18040,2610.18053,2610.18118,2610.18147,2610.18160,2610.18163,2610.18167,2610.18169,2610.18188,2610.18194,2610.18352,2610.18363,2610.18386,2610.18443,2610.18479,2610.18523,2610.18548,2610.18596,2610.18604,2610.18669,2610.18670,2610.18677,2610.18711,2610.18790,2610.18792,2610.18808,2610.18822&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-category-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.18842,2610.18843,2610.18848,2610.18850,2610.18866,2610.18867,2610.18869,2610.18874,2610.19044,2610.19067,2610.19089,2610.19091,2610.19122,2610.19141,2610.19143,2610.19155,2610.19183,2610.19248,2610.19250,2610.19262,2610.19336,2610.19366,2610.19393,2610.19395,2610.19403,2610.19438,2610.19465,2610.19479,2610.19495,2610.19517,2610.19518,2610.19527,2610.19594,2610.19604,2610.19615,2610.19617,2610.19627,2610.19635,2610.19656,2610.19674,2610.19677,2610.19714,2610.19731,2610.19742,2610.19746,2610.19759,2610.19765,2610.19798,2610.19815,2610.19839,2610.19913,2610.19993,2610.20223,2610.20244,2610.20255,2610.20280,2610.20318,2610.20320,2610.20351,2610.20429,2610.20474,2610.20504,2610.20524,2610.20531,2610.20552,2610.20579,2610.20606,2610.20627,2610.20750,2610.20767,2610.20807,2610.20815,2610.20823,2610.20838,2610.20866,2610.20871,2610.20873,2610.20875,2610.20925,2610.20936,2610.20957,2610.20958,2610.20968,2610.20970,2610.21089,2610.21140,2610.21152,2610.21160,2610.21180,2610.21199,2610.21211,2610.21239,2610.21251,2610.21282,2610.21292,2610.21349,2610.21389,2610.21400,2610.21409,2610.21434&max_results=100",
+      "count": 100,
+      "success": true
+    },
+    {
+      "manifest_source": ".cache/slam-refresh-category-metadata/metadata-manifest.json",
+      "url": "https://export.arxiv.org/api/query?id_list=2610.21450,2610.21453,2610.21503,2610.21515,2610.21522,2610.21534,2610.21586,2610.21621,2610.21634,2610.21735,2610.21755,2610.21792,2610.21823,2610.21913,2610.21915,2610.21939,2610.21965,2610.21984,2610.21999,2610.22020,2610.22057,2610.22119,2610.22146,2610.22177,2610.22178,2610.22184,2610.22193,2610.22198,2610.22225,2610.22285,2610.22323,2610.22342,2610.22362,2610.22368,2610.22372&max_results=100",
+      "count": 35,
+      "success": true
+    }
+  ],
+  "independent_review": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "status": "independent rediscovery completed; all discovered IDs reconciled by main",
+    "new_ids_in_vggt_audit": 93,
+    "source": "Independent title/abstract Atom geometry/pointmap/unposed queries + official cs.RO monthly list; source queries and audit dispositions retained.",
+    "remaining_ids": [],
+    "closure": "独立复查确实重新检索而非只检查清单。主agent在生成前后对账；后续新增候选也已全部核销。早期子agent触及限额后主agent顺序续读；10月20日恢复后以三个gpt-6.1-sol/high子agent分批完成剩余376条摘要核销，此批是候选判读，不冒称新一轮独立再发现。"
+  },
+  "limitations": [
+    "保留HTTP429、超时、SSL失败原记录；重要家族已用成功分页的Atom/Advanced Search/abs时间历史交叉替代。",
+    "部分API submittedDate/lastUpdatedDate返回集合相同，后续Advanced latest-submission补查发现额外旧文修订，未再依赖该API等同假设。最终只保证已记录查询/候选闭环，不声称100%领域召回。",
+    "早期3个gpt-6.1-sol/high子agent完成检索/全文子任务与独立再发现后触及账号限额；主agent回收结果并顺序续读，10月20日三个同级subagent完成剩余376条摘要判读，主agent统一对账。",
+    "GitHub四式各取按stars排名第一页20条，是明确有界工程项目发现，不是穷尽trending或真实涨星测量；stars/forks为读取时快照。",
+    "本文复用前版8篇全文与2个repo静态笔记，新增11篇全文和2个repo静态审计；全部未复现实验/未安装权重，未做整页浏览器渲染。"
+  ],
+  "candidate_count": 2629,
+  "disposition_counts": {
+    "excluded": 1201,
+    "revision_tracking": 249,
+    "supplemental": 1160,
+    "deep_read": 19,
+    "unresolved": 0
+  },
+  "included_window_counts": {
+    "revised": 249,
+    "historical_backfill": 22,
+    "new": 1157
+  },
+  "repository_discovery": [
+    {
+      "query": "VGGT pushed:2026-10-03..2026-10-18",
+      "total": 61,
+      "fetched": 20,
+      "limitation": "Repository discovery sample ranked by stars, not a star-growth time series or exhaustive trending survey.",
+      "retrieved_at": "2026-10-19T01:36:47.5303241+08:00",
+      "exhausted": false,
+      "url": "https://api.github.com/search/repositories?q=VGGT%20pushed%3A2026-10-03..2026-10-18&sort=stars&order=desc&per_page=20&page=1"
+    },
+    {
+      "query": "SLAM created:2026-10-03..2026-10-18",
+      "total": 596,
+      "fetched": 20,
+      "limitation": "Repository discovery sample ranked by stars, not a star-growth time series or exhaustive trending survey.",
+      "retrieved_at": "2026-10-19T01:36:53.3746468+08:00",
+      "exhausted": false,
+      "url": "https://api.github.com/search/repositories?q=SLAM%20created%3A2026-10-03..2026-10-18&sort=stars&order=desc&per_page=20&page=1"
+    },
+    {
+      "query": "3DGS pushed:2026-10-03..2026-10-18",
+      "total": 230,
+      "fetched": 20,
+      "limitation": "Repository discovery sample ranked by stars, not a star-growth time series or exhaustive trending survey.",
+      "retrieved_at": "2026-10-19T01:37:00.3154826+08:00",
+      "exhausted": false,
+      "url": "https://api.github.com/search/repositories?q=3DGS%20pushed%3A2026-10-03..2026-10-18&sort=stars&order=desc&per_page=20&page=1"
+    },
+    {
+      "query": "world-model robotics pushed:2026-10-03..2026-10-18",
+      "total": 112,
+      "fetched": 20,
+      "limitation": "Repository discovery sample ranked by stars, not a star-growth time series or exhaustive trending survey.",
+      "retrieved_at": "2026-10-19T01:37:08.3377781+08:00",
+      "exhausted": false,
+      "url": "https://api.github.com/search/repositories?q=world-model%20robotics%20pushed%3A2026-10-03..2026-10-18&sort=stars&order=desc&per_page=20&page=1"
+    }
+  ],
+  "repository_reviews": [
+    {
+      "name": "ntnu-arl/embedded_rio",
+      "url": "https://github.com/ntnu-arl/embedded_rio",
+      "paper_id": "2610.07278",
+      "evidence_level": "source-file static audit",
+      "created_at": "2026-03-04T07:51:12Z",
+      "pushed_at": "2026-06-14T12:34:34Z",
+      "stars": 13,
+      "forks": 0,
+      "issues": 0,
+      "checked_at": "2026-10-18T17:46:29.5826894Z",
+      "latest_commit": "b399105f7a034392978d043efdc216741bd6b1bb",
+      "files_read": [
+        "README.md",
+        "src/main.cpp",
+        "src/filter/eskf_node.cpp",
+        "src/filter/eskf_node.h",
+        "src/config.h",
+        "src/drivers/xwr6843aop.cpp",
+        "platformio.ini",
+        ".gitmodules",
+        "tools/replay/src/replay.cpp",
+        "config/icins2021.h",
+        "rio-lib@7a876847c298ad089610a421c7a61151ae380e23/README.md",
+        "rio-lib/src/rio_eskf.cpp",
+        "rio-lib/src/measurements/radar_doppler.cpp"
+      ],
+      "goal": "Teensy单核裸机radar-inertial odometry，向未改PX4输出MAVLink外部视觉状态",
+      "structure": "main.cpp以200Hz调度IMU、50Hz读气压计；非阻塞UART状态机解析TI雷达TLV；eskf_node逐雷达点调用Doppler校正、3σ门控和二阶underweighting；offline replay复用RioEskf与配置，输出状态、协方差和创新CSV；已读取锁定子模块SHA的21维ESKF核心：IMU名义状态传播、逐标量Joseph协方差更新、卡方门控；Doppler含角速度×杆臂项，数值Hessian二阶B项仅膨胀创新协方差。",
+      "dependencies": "Teensy4.0(4.1配置注释)、TI IWR6843AOP、BMI088、BMP388、PlatformIO/Arduino/Eigen；rio-lib与MAVLink为submodule，rio-lib使用SSH URL",
+      "maturity": "有具体驱动、滤波封装、离线重放和消融入口；已读锁定rio-lib子模块核心ESKF和Doppler测量实现，超出README-only。未编译／刷机／运行，未下载数据权重。test目录只有占位README；release列表为空。",
+      "timeline": "本期论文关联首次审计；仓库2026-03创建、最近push为2026-06，不冒充本期新建或近期活跃仓库",
+      "reproduction": "先核子模块访问、时间戳／外参和实际雷达帧率；驱动注释写30Hz而frameCfg周期40ms，应按配置和实测核实，不把注释当性能证据"
+    },
+    {
+      "name": "reality-opened/openreality",
+      "url": "https://github.com/reality-opened/openreality",
+      "latest_commit": "107305a6e5b7f518f8861cef7f58a227dcc1812b",
+      "stars": 387,
+      "forks": 3,
+      "checked_at": "2026-10-18T17:38:37Z",
+      "goal": "将手机视频重建为可经MCP查询、测量与规划的持久3D场景；复用VGGT-SLAM 2.0，非新的几何基础模型。README称41工具，代码中可见测量/路径/对象接口；未逐工具运行。",
+      "timeline": "2026-09-01创建；窗口内10-13与10-16提交，最新10-16为文档骨架。stars是运行时快照，不证明期内涨星；最新release v0.3.1在09-03，并非本期发布。",
+      "structure": "core/main.py配置关键帧/子图与尺度开关；graph.py在GTSAM上构建15维SL(4)先验/相对因子并LM优化；scale_solver.py取有限点范数比中位数并拒绝全退化；metric_anchor.py以关键帧深度比r_i构建r_curr/r_prev相对尺度门控（默认关闭），不能直接宣称绝对米。server/oreos/measure.py只有有效anchor指针与正有限scale才输出m；pathplan.py选读模块说明及plan_route：地板/已扫区域占据、可达分量、A*、捷径和平滑、轨迹重采样。mcp/src/plugins/scene.ts选读typed工具→REST调用，单位与provenance透传。",
+      "files_read": [
+        "README.md",
+        "core/MIRROR.md",
+        "core/docs/overview.md",
+        "core/docs/code-structure.md",
+        "core/docs/gotchas.md",
+        "core/docs/setup-and-running.md",
+        "core/main.py（参数与初始化/主循环前段）",
+        "core/vggt_slam/graph.py",
+        "core/vggt_slam/scale_solver.py",
+        "core/vggt_slam/metric_anchor.py",
+        "server/docs/self-hosting.md",
+        "server/server/oreos/measure.py",
+        "server/server/oreos/pathplan.py（模块说明与plan_route，非全文件）",
+        "mcp/package.json",
+        "mcp/src/plugins/scene.ts（工具注册/测量接口）",
+        "mcp/simulator/sim.ts（fixture/脚本事件与单位处理选读）",
+        "mcp/docs/architecture.md",
+        ".github/workflows/ci.yml",
+        "commits/release/issue API各前5条"
+      ],
+      "dependencies": "Node>=20、MCP SDK/cordis/zod；Python3.11、Torch2.3.1、VGGT_SPARK/1B、GTSAM、SALAD及可选SAM3/PE；自托管文档建议CUDA显存>=24GB、RAM>=48GB。README称源码BSD2，但权重另有条款；self-host文档与metric_anchor.py对深度权重许可描述不一致，商业使用前应逐权重核验，未作法律判断。core/requirements.txt一次SSL失败，未读取。",
+      "maturity": "有实际源码和分层CI配置，但core CI只compile/install，不能证明SLAM精度；公开mirror排除内部评测和商业backbone，部分docs提及的脚本未在tree中。gotchas文档所称get_projection_matrix拼写错误在当前graph.py已不存在，说明文档有滞后。MCP architecture.md仍为TBD骨架。离线演示使用fixture和脚本结果，不是GPU重建/真实导航证明；规划只基于扫描自由空间，未认证安全。issue#6明确Windows登录/下载路径未验证；本轮未安装/下载权重/登录托管服务/运行。",
+      "reproduction": "先跑本地fixture协议测试与真视频重建分开验收，再检查已知长度anchor、无anchor单位、薄重叠尺度gate和地板/未知区规划拒绝。GPU重建、Isaac输出、自托管受支持功能应逐路径核验；文档明确v1自托管不含isaac_usd/实时手机流。",
+      "relation": "期内活跃的VGGT-SLAM工程封装，连接几何gauge、单位合同、具身agent与数据导出；不能把模拟接口可用等同机器人实际部署成熟。",
+      "evidence_level": "source-file static audit, selected ranges explicitly marked; not executed"
+    }
+  ],
+  "repository_file_access": [
+    {
+      "url": "https://raw.githubusercontent.com/reality-opened/openreality/107305a6e5b7f518f8861cef7f58a227dcc1812b/core/README.md",
+      "path": "core/README.md",
+      "success": true,
+      "sha": "107305a6e5b7f518f8861cef7f58a227dcc1812b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/reality-opened/openreality/107305a6e5b7f518f8861cef7f58a227dcc1812b/core/MIRROR.md",
+      "path": "core/MIRROR.md",
+      "success": true,
+      "sha": "107305a6e5b7f518f8861cef7f58a227dcc1812b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/reality-opened/openreality/107305a6e5b7f518f8861cef7f58a227dcc1812b/core/docs/overview.md",
+      "path": "core/docs/overview.md",
+      "success": true,
+      "sha": "107305a6e5b7f518f8861cef7f58a227dcc1812b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/reality-opened/openreality/107305a6e5b7f518f8861cef7f58a227dcc1812b/core/docs/code-structure.md",
+      "path": "core/docs/code-structure.md",
+      "success": true,
+      "sha": "107305a6e5b7f518f8861cef7f58a227dcc1812b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/reality-opened/openreality/107305a6e5b7f518f8861cef7f58a227dcc1812b/core/docs/gotchas.md",
+      "path": "core/docs/gotchas.md",
+      "success": true,
+      "sha": "107305a6e5b7f518f8861cef7f58a227dcc1812b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/reality-opened/openreality/107305a6e5b7f518f8861cef7f58a227dcc1812b/core/docs/setup-and-running.md",
+      "path": "core/docs/setup-and-running.md",
+      "success": true,
+      "sha": "107305a6e5b7f518f8861cef7f58a227dcc1812b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/reality-opened/openreality/107305a6e5b7f518f8861cef7f58a227dcc1812b/core/main.py",
+      "path": "core/main.py",
+      "success": true,
+      "sha": "107305a6e5b7f518f8861cef7f58a227dcc1812b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/reality-opened/openreality/107305a6e5b7f518f8861cef7f58a227dcc1812b/core/requirements.txt",
+      "path": "core/requirements.txt",
+      "error": "The SSL connection could not be established, see inner exception.",
+      "success": false,
+      "sha": "107305a6e5b7f518f8861cef7f58a227dcc1812b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/reality-opened/openreality/107305a6e5b7f518f8861cef7f58a227dcc1812b/core/vggt_slam/metric_anchor.py",
+      "path": "core/vggt_slam/metric_anchor.py",
+      "success": true,
+      "sha": "107305a6e5b7f518f8861cef7f58a227dcc1812b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/reality-opened/openreality/107305a6e5b7f518f8861cef7f58a227dcc1812b/core/vggt_slam/scale_solver.py",
+      "path": "core/vggt_slam/scale_solver.py",
+      "success": true,
+      "sha": "107305a6e5b7f518f8861cef7f58a227dcc1812b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/reality-opened/openreality/107305a6e5b7f518f8861cef7f58a227dcc1812b/core/vggt_slam/graph.py",
+      "path": "core/vggt_slam/graph.py",
+      "success": true,
+      "sha": "107305a6e5b7f518f8861cef7f58a227dcc1812b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/reality-opened/openreality/107305a6e5b7f518f8861cef7f58a227dcc1812b/server/docs/self-hosting.md",
+      "path": "server/docs/self-hosting.md",
+      "success": true,
+      "sha": "107305a6e5b7f518f8861cef7f58a227dcc1812b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/reality-opened/openreality/107305a6e5b7f518f8861cef7f58a227dcc1812b/server/server/oreos/measure.py",
+      "path": "server/server/oreos/measure.py",
+      "success": true,
+      "sha": "107305a6e5b7f518f8861cef7f58a227dcc1812b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/reality-opened/openreality/107305a6e5b7f518f8861cef7f58a227dcc1812b/server/server/oreos/pathplan.py",
+      "path": "server/server/oreos/pathplan.py",
+      "success": true,
+      "sha": "107305a6e5b7f518f8861cef7f58a227dcc1812b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/reality-opened/openreality/107305a6e5b7f518f8861cef7f58a227dcc1812b/mcp/docs/architecture.md",
+      "path": "mcp/docs/architecture.md",
+      "success": true,
+      "sha": "107305a6e5b7f518f8861cef7f58a227dcc1812b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/reality-opened/openreality/107305a6e5b7f518f8861cef7f58a227dcc1812b/mcp/package.json",
+      "path": "mcp/package.json",
+      "success": true,
+      "sha": "107305a6e5b7f518f8861cef7f58a227dcc1812b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/reality-opened/openreality/107305a6e5b7f518f8861cef7f58a227dcc1812b/mcp/src/plugins/scene.ts",
+      "path": "mcp/src/plugins/scene.ts",
+      "success": true,
+      "sha": "107305a6e5b7f518f8861cef7f58a227dcc1812b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/reality-opened/openreality/107305a6e5b7f518f8861cef7f58a227dcc1812b/mcp/simulator/sim.ts",
+      "path": "mcp/simulator/sim.ts",
+      "success": true,
+      "sha": "107305a6e5b7f518f8861cef7f58a227dcc1812b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/reality-opened/openreality/107305a6e5b7f518f8861cef7f58a227dcc1812b/.github/workflows/ci.yml",
+      "path": ".github/workflows/ci.yml",
+      "success": true,
+      "sha": "107305a6e5b7f518f8861cef7f58a227dcc1812b"
+    }
+  ],
+  "repository_access_gaps": [
+    {
+      "repo": "Jiang-HB/PointVGGT",
+      "url": "https://github.com/Jiang-HB/PointVGGT",
+      "evidence": "README and full tree read: README.md + teaser.jpg only; code promised after acceptance; 6 stars / 0 forks. Not counted as source deep dive."
+    }
+  ],
+  "regression_seeds": {
+    "audit_path": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "new_missing_29": "all included",
+    "revised_7": "all tracked as revisions",
+    "boundary_LoCoSplat": "2610.04351 is historical_backfill, not an in-window new paper"
+  },
+  "date_anomalies": {
+    "note": "个别官方Atom v1日期与编号月份不一致；不按编号反推时间。下列两例另读abs Submission history与Atom一致，按明确时间排除，保留异常供人工复核。",
+    "verified": [
+      {
+        "id": "2610.00003",
+        "atom_v1": "2026-05-21T20:25:20Z",
+        "abs_v1": "2026-05-21T20:25:20Z",
+        "url": "https://arxiv.org/abs/2610.00003"
+      },
+      {
+        "id": "2610.00057",
+        "atom_v1": "2026-09-04T05:01:56Z",
+        "abs_v1": "2026-09-04T05:01:56Z",
+        "url": "https://arxiv.org/abs/2610.00057"
+      }
+    ]
+  }
+}
