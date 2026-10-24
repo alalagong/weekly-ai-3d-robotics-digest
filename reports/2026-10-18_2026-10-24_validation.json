@@ -1,0 +1,154 @@
+{
+  "validated_at": "2026-10-24T16:31:11.478806+00:00",
+  "run_at": "2026-10-24T08:17:58Z",
+  "report_path": "reports/2026-10-18_2026-10-24_BlazeVGGT-HiP3R-CAOS.html",
+  "checks": {
+    "nine_template_sections": {
+      "passed": true,
+      "details": null
+    },
+    "no_template_placeholders": {
+      "passed": true,
+      "details": null
+    },
+    "candidate_unique_and_closed": {
+      "passed": true,
+      "details": null
+    },
+    "unique_html_anchors": {
+      "passed": true,
+      "details": null
+    },
+    "all_included_exactly_one_anchor": {
+      "passed": true,
+      "details": null
+    },
+    "no_unaccounted_paper_rows": {
+      "passed": true,
+      "details": null
+    },
+    "included_abstract_and_official_history": {
+      "passed": true,
+      "details": null
+    },
+    "included_summary_fields": {
+      "passed": true,
+      "details": null
+    },
+    "new_exact_utc": {
+      "passed": true,
+      "details": null
+    },
+    "revised_exact_utc": {
+      "passed": true,
+      "details": null
+    },
+    "historical_separate": {
+      "passed": true,
+      "details": null
+    },
+    "no_repeat_processed_version": {
+      "passed": true,
+      "details": null
+    },
+    "already_covered_has_reference": {
+      "passed": true,
+      "details": null
+    },
+    "local_links_and_assets_exist": {
+      "passed": true,
+      "details": []
+    },
+    "seven_original_figures_decode_hash_and_visual_evidence": {
+      "passed": true,
+      "details": [
+        {
+          "id": "2610.29454",
+          "path": "reports/assets/2026-10-18_2026-10-24_2610.29454_fig3-overview.png",
+          "hash_matches": true,
+          "visually_verified": true
+        },
+        {
+          "id": "2610.31635",
+          "path": "reports/assets/2026-10-18_2026-10-24_2610.31635_fig2-overview.png",
+          "hash_matches": true,
+          "visually_verified": true
+        },
+        {
+          "id": "2610.26633",
+          "path": "reports/assets/2026-10-18_2026-10-24_2610.26633_overview.png",
+          "hash_matches": true,
+          "visually_verified": true
+        },
+        {
+          "id": "2610.31320",
+          "path": "reports/assets/2026-10-18_2026-10-24_2610.31320_overview.png",
+          "hash_matches": true,
+          "visually_verified": true
+        },
+        {
+          "id": "2610.29374",
+          "path": "reports/assets/2026-10-18_2026-10-24_2610.29374_overview.png",
+          "hash_matches": true,
+          "visually_verified": true
+        },
+        {
+          "id": "2610.27616",
+          "path": "reports/assets/2026-10-18_2026-10-24_2610.27616_overview.png",
+          "hash_matches": true,
+          "visually_verified": true
+        },
+        {
+          "id": "2610.31293",
+          "path": "reports/assets/2026-10-18_2026-10-24_2610.31293_overview.png",
+          "hash_matches": true,
+          "visually_verified": true
+        }
+      ]
+    },
+    "index_contains_report_once": {
+      "passed": true,
+      "details": null
+    },
+    "all_independent_ids_present": {
+      "passed": true,
+      "details": {
+        "independent": 531,
+        "missing": []
+      }
+    },
+    "all_gates_pass": {
+      "passed": true,
+      "details": {
+        "candidate_set_closed": true,
+        "all_included_have_summary_fields": true,
+        "geometry_query_replacements_verified": true,
+        "independent_candidate_membership_verified": true,
+        "independent_final_audit_passed": true,
+        "independent_original_failed_probes_recovered": true
+      }
+    },
+    "no_unresolved": {
+      "passed": true,
+      "details": null
+    },
+    "explicit_reading_boundary": {
+      "passed": true,
+      "details": null
+    },
+    "all_exclusions_have_reason": {
+      "passed": true,
+      "details": null
+    }
+  },
+  "passed": true,
+  "errors": [],
+  "rendering": "Local file:// browser preview rejected by URL policy. No workaround attempted. Static HTML, anchors, local links and decoded-image/hash checks passed; full-page rendering remains unverified.",
+  "quantitative_manual_checks": [
+    "BlazeVGGT Tables I/III/IX and IV-A hardware, main agent",
+    "HiP3R Tables1/3/5/6 and Appendices B-F/K-M, main agent",
+    "CAOS Tables II-V and limitations, core agent plus main numeric table cross-check",
+    "Stream4D Table1/2 and efficiency, geometry agent; main inspected efficiency source",
+    "AOV-GS/EchoNav/RecallGS key figures and tables/protocol excerpts, extension agent plus main cross-check"
+  ]
+}

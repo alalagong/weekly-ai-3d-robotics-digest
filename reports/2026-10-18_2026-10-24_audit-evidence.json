@@ -1,0 +1,1374 @@
+{
+  "run_at": "2026-10-24T08:17:58Z",
+  "generated_at": "2026-10-24T16:31:11.030546Z",
+  "seed_reconciliation": [
+    {
+      "id": "2610.10181",
+      "version": 1,
+      "title": "Argos: Adapt Rich Geometric Priors for Generalizable Online Scene-Change-Detection",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "deep_read",
+      "processed_version_record": {
+        "status": "deep_read",
+        "evidence_level": "full_text",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-10181",
+        "window_class": "new",
+        "updated_utc": "2026-10-07T14:48:54Z",
+        "read_sections": [
+          "Introduction",
+          "Related Work",
+          "Problem Formulation",
+          "Method 4.1–4.5",
+          "Experiments 5.1–5.6",
+          "Conclusion",
+          "Appendix A.1/A.3/A.4/A.5"
+        ],
+        "follow_up": "训练2×RTX4090约3天；真实机器人D455经ROS2向桌面GPU传图。项目页Code/Datasets仍无有效下载链接；未训练、未运行。需核查跨访问配对失败与大范围变化时的漏检，论文未给独立专节limitations或完整轨迹ATE对比。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.12568",
+      "version": 2,
+      "title": "MIRAGE: Metric Inference and Reliability-Aware Gaussian Estimation from Feed-Forward Vision",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "deep_read",
+      "processed_version_record": {
+        "status": "deep_read",
+        "evidence_level": "full_text",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-12568",
+        "window_class": "new",
+        "updated_utc": "2026-10-14T06:53:15Z",
+        "read_sections": [
+          "Introduction",
+          "Related Work",
+          "Method 3.1–3.4",
+          "Experiments 4.1–4.5",
+          "Conclusion",
+          "Appendix A.2/A.3/A.5/A.7",
+          "v2主文段落与v1对账"
+        ],
+        "follow_up": "新benchmark为10条静态室内序列、71,536图、1.15km；参考位姿来自MIRAGE本身，并非独立测量真值。采集低速、人工剔除模糊；透明材质和动态场景未充分覆盖。代码入口项目页仍无有效GitHub链接；未运行。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.12624",
+      "version": 1,
+      "title": "MemReg: Streaming Outdoor LiDAR Point Cloud Registration with Hybrid Memory Buffers",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "deep_read",
+      "processed_version_record": {
+        "status": "deep_read",
+        "evidence_level": "full_text",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-12624",
+        "window_class": "new",
+        "updated_utc": "2026-10-08T18:44:59Z",
+        "read_sections": [
+          "Introduction",
+          "Related Work",
+          "Method 3.1–3.5",
+          "Experiment 4.1–4.5",
+          "Discussions",
+          "Conclusion",
+          "Appendix B.3/C/D/F"
+        ],
+        "follow_up": "体素0.3m，KITTI采样16,384点，nuScenes8,192；buffer20/10帧。附录指出非时序数据泛化仍待验证。IRMVLab/MemReg目前只有README、1commit，不能计源码深读；未训练、未运行。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.20226",
+      "version": 1,
+      "title": "Smart Fusion for Adaptive Visual-IMU Weighting in cuVSLAM Sparse Bundle Adjustment",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "supplemental",
+      "processed_version_record": {
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-20226",
+        "window_class": "new",
+        "updated_utc": "2026-10-14T14:09:42Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "核对按序列划分和自适应决策频率；未深读全文、未核源码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.05757",
+      "version": 1,
+      "title": "Human-in-the-Loop Neuro-Symbolic Drift Anticipation for Reliable Visual SLAM",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "supplemental",
+      "processed_version_record": {
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-05757",
+        "window_class": "new",
+        "updated_utc": "2026-10-05T04:06:38Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "证据不足，先摘要跟踪；未深读全文，不能称已验证可靠性提升。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.05531",
+      "version": 1,
+      "title": "Deep Prior Learning for Embodied Perception",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "deep_read",
+      "processed_version_record": {
+        "status": "deep_read",
+        "evidence_level": "full_text",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-05531",
+        "window_class": "new",
+        "updated_utc": "2026-10-04T20:53:38Z",
+        "read_sections": [
+          "Introduction",
+          "Method",
+          "Experiments",
+          "Ablation/Analysis",
+          "Conclusion",
+          "Limitations",
+          "必要Appendix"
+        ],
+        "follow_up": "PRC零参数，scale分支.447M；24block、10view stride3小固定子集。PRC matched训练3H800约7日；MGA再4H800约3日/2epochs，不能与released baseline作纯架构归因。位姿噪声合成，depth/intrinsics保持GT；MGA无matched ablation/外部metric baseline，未测跨window一致性、闭环或临床；未运行。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.06594",
+      "version": 1,
+      "title": "VGGT-Bridge: Beyond Sequential Pose Graphs via Coarse-Stride Skip Edges",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "deep_read",
+      "processed_version_record": {
+        "status": "deep_read",
+        "evidence_level": "full_text",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-06594",
+        "window_class": "new",
+        "updated_utc": "2026-10-05T16:07:04Z",
+        "read_sections": [
+          "Introduction",
+          "Method",
+          "Experiments",
+          "Ablation/Analysis",
+          "Conclusion",
+          "Limitations",
+          "必要Appendix"
+        ],
+        "follow_up": "固定VGGT检查点；fine B75/O30(KITTI)，coarse stride3 B35/O14、stride5 B25/O10，skip权重0.3，阈值0.7，W60，Cauchyδ2。依赖静态场景与回环可靠性，额外coarse推理增加约50%运行时；未运行。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.07883",
+      "version": 1,
+      "title": "Revar3r: gauge-aware perturbation uncertainty for feed-forward 3d reconstruction",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "deep_read",
+      "processed_version_record": {
+        "status": "deep_read",
+        "evidence_level": "full_text",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-07883",
+        "window_class": "new",
+        "updated_utc": "2026-10-06T07:29:54Z",
+        "read_sections": [
+          "Introduction",
+          "Method",
+          "Experiments",
+          "Ablation/Analysis",
+          "Conclusion",
+          "Limitations",
+          "必要Appendix"
+        ],
+        "follow_up": "core每族N5、共享reference两族需9次模型调用；附录cost表另用~10–11passes，9.09s/set vs Trust3R.919s/pair（约9.9×，protocol单位需警惕），2.91GB vs3.37GB/16GB GPU。内部只用预测valid点、最多8000对应，不用GT mask；校准跨域失效、stable bias漏检、wide-baseline ETH3D可能退化；未运行。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.09274",
+      "version": 1,
+      "title": "Hardware-aware Calibrated Clustered Attention for Efficient Visual Geometric Transformers",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "supplemental",
+      "processed_version_record": {
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-09274",
+        "window_class": "new",
+        "updated_utc": "2026-10-07T01:13:49Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.11612",
+      "version": 1,
+      "title": "PointVGGT: Zero-Shot Multiview RGB-D Point Cloud Registration with Visual Geometry Foundation Priors",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "deep_read",
+      "processed_version_record": {
+        "status": "deep_read",
+        "evidence_level": "full_text",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-11612",
+        "window_class": "new",
+        "updated_utc": "2026-10-08T09:54:56Z",
+        "read_sections": [
+          "Introduction",
+          "Methodology3.1–3.4",
+          "Experiments4.1–4.3",
+          "Conclusion"
+        ],
+        "follow_up": "需RGB与metric depth/内参，非RGB-only；indoor voxel .015m/corr .045m，outdoor .05/.15m；40BA迭代。消融TE recall@.05m65.6→73.4%；80迭代14.62s收益小。HTML没有单独Limitations或其声称的Appendix A/B正文，未假称读到；静态零样本评测，未运行。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.12727",
+      "version": 1,
+      "title": "Zebra3D: Efficient Hybrid Foundation Models For Scalable 3D Reconstruction",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "deep_read",
+      "processed_version_record": {
+        "status": "deep_read",
+        "evidence_level": "full_text",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-12727",
+        "window_class": "new",
+        "updated_utc": "2026-10-08T21:09:21Z",
+        "read_sections": [
+          "Introduction",
+          "Method",
+          "Experiments",
+          "Ablation/Analysis",
+          "Conclusion",
+          "Limitations",
+          "必要Appendix"
+        ],
+        "follow_up": "8MI355X、16views/GPU、teacher额外训练前向；推理无teacher。accuracy inputs518×392、speed harness518×378，CD按bbox对角线归一化，不应当米。8–16view加速有限；固定backbone allocation不自适应输入，跨加速器性能未证，未运行。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.11049",
+      "version": 1,
+      "title": "SatFix: Absolute Visual Localization of UAVs in Satellite Maps from a Single Oblique Image",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "supplemental",
+      "processed_version_record": {
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-11049",
+        "window_class": "new",
+        "updated_utc": "2026-10-08T01:01:46Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.14866",
+      "version": 1,
+      "title": "ScalLoc: Continuous Oblique Thermal UAV Geo-Localization with a 2D Satellite Map",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "supplemental",
+      "processed_version_record": {
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-14866",
+        "window_class": "new",
+        "updated_utc": "2026-10-10T12:35:57Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.16330",
+      "version": 1,
+      "title": "BAT3R: Robust Online 3D Reconstruction with Bayesian Adaptive State Updates",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "deep_read",
+      "processed_version_record": {
+        "status": "deep_read",
+        "evidence_level": "full_text",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-16330",
+        "window_class": "new",
+        "updated_utc": "2026-10-12T07:47:47Z",
+        "read_sections": [
+          "Abstract",
+          "1 Introduction",
+          "2 Related Works",
+          "3.1-3.3 Method",
+          "4.1-4.5 Experiments/Ablation",
+          "5 Conclusion",
+          "Appendix A",
+          "Appendix B.1-B.6",
+          "Appendix C.1-C.4"
+        ],
+        "follow_up": "ViT-L encoder24层1024维16头、递归decoder12层768维12头；额外维护每token方差。未运行代码/权重。未见独立Limitations节；需要检查首帧错误锚定、confidence标定、域外动态场景与门控超参。不能将经验长序列收益写成全指标领先或严格概率保证。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.15112",
+      "version": 1,
+      "title": "Drive3R: Block-wise Streaming Geometric Foundation Models for Autonomous Driving",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "deep_read",
+      "processed_version_record": {
+        "status": "deep_read",
+        "evidence_level": "full_text",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-15112",
+        "window_class": "new",
+        "updated_utc": "2026-10-10T18:35:06Z",
+        "read_sections": [
+          "Abstract",
+          "1 Introduction",
+          "2 Related Work",
+          "3.1-3.5 Method",
+          "4.1-4.3 Experiments/Ablations",
+          "5 Conclusion"
+        ],
+        "follow_up": "正文未交代可复核的训练硬件、吞吐/峰值显存精确表；没有独立Appendix/Limitations。依赖rig标定与块级等待，不等同单目即时SLAM；需核查reset阈值、回退帧数、缓存上界、跨域校准与无回环协议。未运行源码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.16272",
+      "version": 1,
+      "title": "Graph3R: Unifying View Graph Initialization with Feed-Forward Reconstruction",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "deep_read",
+      "processed_version_record": {
+        "status": "deep_read",
+        "evidence_level": "full_text",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-16272",
+        "window_class": "new",
+        "updated_utc": "2026-10-12T06:50:08Z",
+        "read_sections": [
+          "Abstract",
+          "1 Introduction",
+          "2.1-2.3 Related Work",
+          "3.1-3.4 Method",
+          "4.1-4.4 Experiments/Ablations",
+          "5 Conclusion/limitations",
+          "Appendix A.1-A.10"
+        ],
+        "follow_up": "几何结果对GLUEMAP关闭post-optimization；并非完整SfM系统胜负。附录跨视图AbsRel/MVS不是GT几何精度且各法保留pair不同。GV-Bench零样本pairwise MR LoRA15.79 < DG++25.75 / MegaLoc32.38，表明域外泛化不足。消融checkpoint训练步数不同，不能视为等算力比较。未运行代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.08978",
+      "version": 1,
+      "title": "S2Tok: Streaming 3D Gaussian Reconstruction with Persistent Spatial Tokens",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "supplemental",
+      "processed_version_record": {
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-08978",
+        "window_class": "new",
+        "updated_utc": "2026-10-06T18:40:13Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.09720",
+      "version": 1,
+      "title": "DynStream: Online Streaming 4D Gaussian Reconstruction of Dynamic Worlds from Unposed Video",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "supplemental",
+      "processed_version_record": {
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-09720",
+        "window_class": "new",
+        "updated_utc": "2026-10-07T09:15:02Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.10960",
+      "version": 1,
+      "title": "LVSPM: Long Sequence View Synthesis and Pose Estimation Model",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "supplemental",
+      "processed_version_record": {
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-10960",
+        "window_class": "new",
+        "updated_utc": "2026-10-07T22:26:35Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.14698",
+      "version": 1,
+      "title": "PURE: Refining Feed-forward 3D Reconstruction with Unlabeled Post-training",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "supplemental",
+      "processed_version_record": {
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-14698",
+        "window_class": "new",
+        "updated_utc": "2026-10-10T08:16:05Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.20341",
+      "version": 1,
+      "title": "InfiniSplat v2: Analyzing and Improving Feed-Forward 3DGS from Any Views",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "supplemental",
+      "processed_version_record": {
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-20341",
+        "window_class": "new",
+        "updated_utc": "2026-10-14T15:21:57Z",
+        "read_sections": [
+          "Abstract",
+          "Official Atom metadata"
+        ],
+        "follow_up": "摘要级，未深读全文；后续核对全文的协议、baseline、消融、硬件及局限。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.13177",
+      "version": 1,
+      "title": "CompactSplat: Spatially Adaptive Gaussian Distribution for Feedforward Scene Reconstruction",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "supplemental",
+      "processed_version_record": {
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-13177",
+        "window_class": "new",
+        "updated_utc": "2026-10-09T08:04:45Z",
+        "read_sections": [
+          "Abstract",
+          "Official Atom metadata"
+        ],
+        "follow_up": "摘要级，未深读全文；后续核对全文的协议、baseline、消融、硬件及局限。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.09853",
+      "version": 1,
+      "title": "DeltaSplat: Iterative Gaussian Refinement for Pose-Free Feed-Forward 3D Gaussian Splatting",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "supplemental",
+      "processed_version_record": {
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-09853",
+        "window_class": "new",
+        "updated_utc": "2026-10-07T11:11:22Z",
+        "read_sections": [
+          "Abstract",
+          "Official Atom metadata"
+        ],
+        "follow_up": "摘要级，未深读全文；后续核对全文的协议、baseline、消融、硬件及局限。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.09518",
+      "version": 1,
+      "title": "ActiveLang: Active Open-Vocabulary 3D Mapping with Semantic-Uncertainty-Guided Exploration",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "supplemental",
+      "processed_version_record": {
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-09518",
+        "window_class": "new",
+        "updated_utc": "2026-10-07T06:15:39Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "摘要级，需核对不确定性标定、运动预算、观测次数与墙钟成本。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.07110",
+      "version": 1,
+      "title": "MoonGS: High-quality Representation of the Lunar Surface via Gaussian Splatting Using Robust Depth Features from Image Pairs",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "supplemental",
+      "processed_version_record": {
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-07110",
+        "window_class": "new",
+        "updated_utc": "2026-10-05T15:46:50Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；需核对VGGT变体、合成到真实月面泛化与最佳数字对应baseline。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.06965",
+      "version": 1,
+      "title": "ACG-WAM: World-Action Modeling via Action-Conditioned Geometric Latent Prediction",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "supplemental",
+      "processed_version_record": {
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-06965",
+        "window_class": "new",
+        "updated_utc": "2026-10-03T17:52:59Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "摘要级，未深读全文；需查teacher泄漏控制、动作condition消融与实机任务数。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.11577",
+      "version": 1,
+      "title": "CoCam4D: Geometry-Aware Cooperative 4D Perception for Camera-Only Autonomous Driving",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "supplemental",
+      "processed_version_record": {
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-11577",
+        "window_class": "new",
+        "updated_utc": "2026-10-08T09:31:28Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；需查带宽/延迟/标定误差与uncertainty融合假设。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.17625",
+      "version": 1,
+      "title": "4LC: 4D Latent Cache for Efficient Conditioning in Dynamic World Modeling",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "supplemental",
+      "processed_version_record": {
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-17625",
+        "window_class": "new",
+        "updated_utc": "2026-10-13T02:47:58Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "摘要级；需查cache几何误差、动态运动边界与实际机器人闭环用途。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.11161",
+      "version": 1,
+      "title": "VGGTWorld-VLA: Intent-Conditioned 3D World Evolution for Autonomous Driving",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "supplemental",
+      "processed_version_record": {
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-11161",
+        "window_class": "new",
+        "updated_utc": "2026-10-08T03:20:48Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；需区分几何预测与闭环驾驶控制成绩。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2605.14315",
+      "version": 2,
+      "title": "TurboVGGT: Fast Visual Geometry Reconstruction with Adaptive Alternating Attention",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "revision_tracking",
+      "processed_version_record": {
+        "status": "revision_tracking",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2605-14315",
+        "window_class": "revised",
+        "updated_utc": "2026-10-14T00:02:13Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2609.33253",
+      "version": 2,
+      "title": "VGGT-Diff: Visual Geometry Meets Diffusion for Sparse-View Novel View Synthesis",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "revision_tracking",
+      "processed_version_record": {
+        "status": "revision_tracking",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2609-33253",
+        "window_class": "revised",
+        "updated_utc": "2026-10-14T08:33:59Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2606.11326",
+      "version": 3,
+      "title": "DarkVGGT: Seeing Through Darkness Using Thermal Geometry",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "revision_tracking",
+      "processed_version_record": {
+        "status": "revision_tracking",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2606-11326",
+        "window_class": "revised",
+        "updated_utc": "2026-10-12T20:45:04Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.00970",
+      "version": 2,
+      "title": "RelationVGGT: Visual Geometry Transformers for 3D Spatial Relation Segmentation",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "revision_tracking",
+      "processed_version_record": {
+        "status": "revision_tracking",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-00970",
+        "window_class": "revised",
+        "updated_utc": "2026-10-05T12:14:36Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2609.23961",
+      "version": 3,
+      "title": "Colon3R: Cross-Domain 3D Reconstruction from Monocular Colonoscopic Video",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "revision_tracking",
+      "processed_version_record": {
+        "status": "revision_tracking",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2609-23961",
+        "window_class": "revised",
+        "updated_utc": "2026-10-14T09:29:26Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2303.07308",
+      "version": 3,
+      "title": "NeuSE: Neural SE(3)-Equivariant Embedding for Long-Term Object-Based Simultaneous Localization and Mapping",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "revision_tracking",
+      "processed_version_record": {
+        "status": "revision_tracking",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2303-07308",
+        "window_class": "revised",
+        "updated_utc": "2026-10-13T03:15:29Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "期内v3；当前摘要／版本核验，未比较新旧正文。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2606.26046",
+      "version": 3,
+      "title": "RoboAtlas: Contextual Active SLAM",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "revision_tracking",
+      "processed_version_record": {
+        "status": "revision_tracking",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2606-26046",
+        "window_class": "revised",
+        "updated_utc": "2026-10-15T01:10:32Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "期内v3，仅当前摘要／版本跟踪；与具身agent结果按ID合并。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    },
+    {
+      "id": "2610.04351",
+      "version": 1,
+      "title": "LoCoSplat: Real-Time Feed-Forward 3D Gaussian Splatting with Minimal 3D Reasoning",
+      "seed_source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+      "previous_ledger_disposition": "supplemental",
+      "processed_version_record": {
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-04351",
+        "window_class": "historical_backfill",
+        "updated_utc": "2026-10-03T07:36:22Z",
+        "read_sections": [
+          "Abstract",
+          "Official Atom metadata"
+        ],
+        "follow_up": "摘要级，未深读全文；后续核对全文的协议、baseline、消融、硬件及局限。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      "disposition": "excluded",
+      "reason": "already-covered: audited ID/version reconciled against previous ledger/history; not counted as new historical backfill",
+      "original_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
+    }
+  ],
+  "figures": [
+    {
+      "id": "2610.29454",
+      "version": 1,
+      "source_url": "https://arxiv.org/html/2610.29454v1/blazevggt_framework_diagram.png",
+      "path": "reports/assets/2026-10-18_2026-10-24_2610.29454_fig3-overview.png",
+      "sha256": "0651de3696aaefef1b1f779063995c712002d174f3c83dbe112bf54a4de8a49d",
+      "caption": "Fig. 3: Overview of BlazeVGGT. At each global-attention block, camera tokens from all input frames define a view-level similarity structure, from which greedy DPP [2] selection retains a diverse subset of frames. All frames remain in the Query path, while the selected frame blocks provide the Key–Value context for global attention; the resulting features are passed to the camera and depth heads.",
+      "figure_anchor": "S3.F3",
+      "visually_verified": true,
+      "visual_observation": "Main agent viewed original pixels: image is a method pipeline with named stages/attention paths, not a result visualization."
+    },
+    {
+      "id": "2610.31635",
+      "version": 1,
+      "source_url": "https://arxiv.org/html/2610.31635v1/framework.png",
+      "path": "reports/assets/2026-10-18_2026-10-24_2610.31635_fig2-overview.png",
+      "sha256": "24b9d113393b2daa6d2924ee7b9e350cccb2256d6787fb128d0331cdbff14492",
+      "caption": "Figure 2: Overview of HiP3R. Frozen backends predict overlapping chunks. Stage I builds a chunk-level Sim⁡(3)\\mathrm{Sim}(3) graph from overlap and loop constraints to recover layout and scale. Stage II estimates one shared SE⁡(3)\\mathrm{SE}(3) camera per frame under that layout.",
+      "figure_anchor": "S2.F2",
+      "visually_verified": true,
+      "visual_observation": "Main agent viewed original pixels: image is a method pipeline with named stages/attention paths, not a result visualization."
+    },
+    {
+      "id": "2610.26633",
+      "version": 1,
+      "path": "reports/assets/2026-10-18_2026-10-24_2610.26633_overview.png",
+      "source_url": "https://arxiv.org/html/2610.26633v1/system_overview.png",
+      "figure_anchor": "S3.F2",
+      "caption": "Fig. 2: The proposed system is integrated into ORB-SLAM3. A panoptic perception module periodically discovers semantically known and unknown movable objects (blue block) in the scene, while a lightweight propagation module updates object masks between panoptic inferences. Object identities and motion estimates are maintained in a persistent object list (yellow block). Dynamic object masks are then used to remove dynamic ORB features from the localization and mapping framework.",
+      "visually_verified": true,
+      "visual_observation": "Main agent re-viewed original pixels: pipeline/architecture with named stages, not result image.",
+      "sha256": "8e6479ea033806aa385d670cd550a7b4ca2c65568e794c770b09cd0bc3ec6f63"
+    },
+    {
+      "id": "2610.31320",
+      "version": 1,
+      "path": "reports/assets/2026-10-18_2026-10-24_2610.31320_overview.png",
+      "source_url": "https://arxiv.org/html/2610.31320v1/images/figure-4.png",
+      "figure_anchor": "S3.F4",
+      "caption": "Figure 4. Streaming dynamic segmentation architecture. Left: standard causal streaming reconstruction with a KV Cache, where each frame attends only to past tokens. Right: our Stream4D augments the causal pipeline with motion-decoupled masking. Queries load cached keys/values to compute attention scores, aggregate temporal saliency across frames, and produce dynamic masks. These masks are then applied to modify the cached keys, effectively suppressing interference from dynamic regions during historical aggregation.",
+      "visually_verified": true,
+      "visual_observation": "Main agent re-viewed original pixels: pipeline/architecture with named stages, not result image.",
+      "sha256": "2ee7f2e2e92e738b36a54601390637d894ba76c8326fbbdfbce7c97bc6569684"
+    },
+    {
+      "id": "2610.29374",
+      "version": 1,
+      "path": "reports/assets/2026-10-18_2026-10-24_2610.29374_overview.png",
+      "source_url": "https://arxiv.org/html/2610.29374v1/fig_pipeline_overview.png",
+      "figure_anchor": "S3.F1",
+      "caption": "Figure 1: AOV-GS system overview. Online loop: posed RGB-D updates a Gaussian map; the planner selects NBVs; CLIP mask embeddings are extracted in parallel on keyframes. Offline stage: a language field is trained on Gaussians and queried by text.",
+      "visually_verified": true,
+      "visual_observation": "Main agent re-viewed original pixels: pipeline/architecture with named stages, not result image.",
+      "sha256": "30af465649f330bbfab24823664dcf6ebc44b80eb9e166065df68c6a80c14b6c"
+    },
+    {
+      "id": "2610.27616",
+      "version": 1,
+      "path": "reports/assets/2026-10-18_2026-10-24_2610.27616_overview.png",
+      "source_url": "https://arxiv.org/html/2610.27616v1/m06um_architecture_rebuilt.png",
+      "figure_anchor": "S3.F2",
+      "caption": "Fig. 2: Overview of the proposed framework. Frozen VGGT-Omega features from an RGB window are adapted into feature pyramids and frame memories. Historical residual proposals refine a latest-frame BEV anchor through cellwise selective fusion with a learned no-update option. Observation-aware evidential heads produce occupancy, spatial support, and confidence. Right: predicted occupancy with paths to example goals, planned path projections into the latest RGB view, and uncertainty 1−cj1-c_{j}.",
+      "visually_verified": true,
+      "visual_observation": "Main agent re-viewed original pixels: pipeline/architecture with named stages, not result image.",
+      "sha256": "753ff5ea9d8bfd6b2b8137d43abcfd66a3ee5623f2c53453bcc28a3724d7d996"
+    },
+    {
+      "id": "2610.31293",
+      "version": 1,
+      "path": "reports/assets/2026-10-18_2026-10-24_2610.31293_overview.png",
+      "source_url": "https://arxiv.org/html/2610.31293v1/pipeline_embodied_splat.png",
+      "figure_anchor": "S3.F1",
+      "caption": "Figure 1: Overview of RecallGS. Given a posed observation and the observation history, RecallGS recalls candidate views via CLIP, verifies their geometric support with rendering responsibility, and replays the verified features to build an online 3DGS reconstruction with a semantic field",
+      "visually_verified": true,
+      "visual_observation": "Main agent re-viewed original pixels: pipeline/architecture with named stages, not result image.",
+      "sha256": "35e09403996e45cb551c18e21983b43f15b9e8d8d8c577df6acb0c644227bbd2"
+    }
+  ],
+  "independent_review": {
+    "schema_version": 2,
+    "frozen_run_at": "2026-10-24T08:17:58Z",
+    "exact_window": "(2026-10-18T13:52:39.8263257Z,2026-10-24T08:17:58Z]",
+    "audited_at": "2026-10-24T16:22:57.733418+00:00",
+    "source": ".cache\\slam-3d-20261024\\main-merged.json",
+    "source_sha256": "d812e23ca0cb2135ad51ebfc9c913437a5a26409cb26a11cec5b933c0acebd0f",
+    "global_unique": 1258,
+    "global_dispositions": {
+      "excluded": 829,
+      "supplemental": 341,
+      "revision_tracking": 81,
+      "deep_read": 7
+    },
+    "independent_unique": 531,
+    "independent_ids_missing_global": [],
+    "duplicate_global_ids": 0,
+    "unresolved_global_ids": [],
+    "check_coverage": {
+      "all_501_independent_id_membership": "Superseded by expanded531 union; earlier check retained in previous snapshot",
+      "all_1257_date_fields_checked": "Prior full check preserved; increment checks GraFT dates and1258 counts only",
+      "date_new_revised_predicate_errors": [],
+      "historical_labels_hiding_verified_in_window_dates": [],
+      "all_38_alreadycovered_exact_ID_version_checked": true,
+      "alreadycovered_unmatched_history": [],
+      "alreadycovered_original_report_or_anchor_missing": [],
+      "included_exact_same_version_already_in_paper_history": [],
+      "new_revised_excluded_title_scope_screen_count": 72,
+      "cached_complete_abstracts_reread_during_final_audit": [
+        "2606.12844",
+        "2606.31422",
+        "2610.25962",
+        "2610.26424",
+        "2610.27688",
+        "2610.28121",
+        "2610.28920",
+        "2610.29142",
+        "2610.29382",
+        "2610.29534",
+        "2610.30105",
+        "2610.30657",
+        "2610.28945",
+        "2610.29139",
+        "2610.30488",
+        "2610.24452",
+        "2610.25681"
+      ],
+      "full_papers_reread": 0,
+      "all_531_independent_id_membership": true
+    },
+    "required_focus": [
+      {
+        "id": "2610.26625",
+        "title": "EgoXperience: Learning World-Grounded Egocentric Representations from Human Experience",
+        "version": 1,
+        "disposition": "supplemental",
+        "window_class": "new",
+        "v1_utc": "2026-10-19T15:56:05Z",
+        "updated_utc": "2026-10-19T15:56:05Z",
+        "report_anchor": "paper-2610-26625"
+      },
+      {
+        "id": "2610.28566",
+        "title": "MAPLE: Mondrian-Anchored Prior for Learning-free Indoor Exploration",
+        "version": 1,
+        "disposition": "supplemental",
+        "window_class": "new",
+        "v1_utc": "2026-10-20T17:25:49Z",
+        "updated_utc": "2026-10-20T17:25:49Z",
+        "report_anchor": "paper-2610-28566"
+      },
+      {
+        "id": "2610.26508",
+        "title": "Learning Geometry-Aware Planning Representations for Monocular Flight with Cross-Modal Supervision",
+        "version": 1,
+        "disposition": "supplemental",
+        "window_class": "new",
+        "v1_utc": "2026-10-19T14:44:16Z",
+        "updated_utc": "2026-10-19T14:44:16Z",
+        "report_anchor": "paper-2610-26508"
+      },
+      {
+        "id": "2610.29699",
+        "title": "AirPlayground: Benchmarking Aerial Navigation across Diverse Reconstructed Environments",
+        "version": 1,
+        "disposition": "supplemental",
+        "window_class": "new",
+        "v1_utc": "2026-10-21T13:13:00Z",
+        "updated_utc": "2026-10-21T13:13:00Z",
+        "report_anchor": "paper-2610-29699"
+      },
+      {
+        "id": "2511.22250",
+        "title": "ColonAdapter: Geometry Estimation Through Foundation Model Adaptation for Colonoscopy",
+        "version": 2,
+        "disposition": "revision_tracking",
+        "window_class": "revised",
+        "v1_utc": "2025-11-27T09:21:11Z",
+        "updated_utc": "2026-10-21T06:19:25Z",
+        "report_anchor": "paper-2511-22250"
+      },
+      {
+        "id": "2610.25637",
+        "title": "TNVD-SC: Diagnosing Scan Context Failures in Forests with Terrain-Normalized Vertical Distributions",
+        "version": 1,
+        "disposition": "supplemental",
+        "window_class": "new",
+        "v1_utc": "2026-10-19T01:28:06Z",
+        "updated_utc": "2026-10-19T01:28:06Z",
+        "report_anchor": "paper-2610-25637"
+      }
+    ],
+    "scope_conclusion": "Initial full scope audit remains applicable. Late GraFT must be included as unprocessed historical backfill: outside the exact reporting window prevents calling it new/revised this week, but is not itself a scope-exclusion reason. All531 independent IDs now map to1258 global records; six prior focus corrections remain included; five exclusion-wording refinements are verified in the formal paper ledger.",
+    "mandatory_corrections": [],
+    "nonblocking_reason_refinements": [
+      {
+        "id": "2610.25962",
+        "current_disposition": "excluded",
+        "recommendation": "排除理由建议：研究被动轮四足滑行的推进-滑行节奏与低层导航控制，未提出视觉/几何地图、前馈3D或相关世界模型；不宜写成没有具身导航贡献。",
+        "needs_inclusion": false,
+        "resolution": "Applied to formal report paper-ledger by main-deliver.py",
+        "formal_ledger_reason_verified": true
+      },
+      {
+        "id": "2610.27688",
+        "current_disposition": "excluded",
+        "recommendation": "排除理由建议：研究humanoid可通行宽度、姿态调度和AMP低层运动控制，当前无定量结果，未提出感知建图/三维重建方法；不宜否认其导航研究属性。",
+        "needs_inclusion": false,
+        "resolution": "Applied to formal report paper-ledger by main-deliver.py",
+        "formal_ledger_reason_verified": true
+      },
+      {
+        "id": "2610.28121",
+        "current_disposition": "excluded",
+        "recommendation": "排除理由建议：研究UAS临时接管后的递归策略状态恢复和避碰安全，未涉及视觉几何、3D地图或场景世界建模；属于导航控制安全邻域。",
+        "needs_inclusion": false,
+        "resolution": "Applied to formal report paper-ledger by main-deliver.py",
+        "formal_ledger_reason_verified": true
+      },
+      {
+        "id": "2610.28920",
+        "current_disposition": "excluded",
+        "recommendation": "排除理由建议：用LLM解释辅助机器人避障轨迹、评价用户信任，贡献属于导航HRI解释而非建图/定位/前馈三维或世界模型。",
+        "needs_inclusion": false,
+        "resolution": "Applied to formal report paper-ledger by main-deliver.py",
+        "formal_ledger_reason_verified": true
+      },
+      {
+        "id": "2610.29142",
+        "current_disposition": "excluded",
+        "recommendation": "排除理由建议：研究两轮自平衡平台PPO奖励中姿态与导航目标的状态条件标量化，未提出感知/几何表示或地图构建；属于低层导航控制。",
+        "needs_inclusion": false,
+        "resolution": "Applied to formal report paper-ledger by main-deliver.py",
+        "formal_ledger_reason_verified": true
+      }
+    ],
+    "status": "passed",
+    "limits": [
+      "This is an independent set/date/history/scope audit; it does not claim a second full-text read of all 1257 papers.",
+      "72 new/revised excluded titles were screened; 17 ambiguity-prone cached complete abstracts were reread, in addition to the prior 46 complete-abstract assessments.",
+      "Domain-wide absence of further papers is not provable from exhausted queries; earlier API field semantics remain unvalidated, while the independent Advanced latest-submission channel succeeded.",
+      "This final step audits only the one late GraFT increment, expanded531 membership, counts, final source hash, and five already-applied formal reason fixes; it does not repeat the prior1257 scope/full-abstract work."
+    ],
+    "included_total": 429,
+    "included_window_counts": {
+      "historical_backfill": 120,
+      "revised": 76,
+      "historical_revision_backfill": 5,
+      "new": 228
+    },
+    "previous_full_audit_snapshot": {
+      "source_sha256": "8702b4a2d9fa78d612a10365e95da179ff64ddf3d5d49041175fe576236e2dd7",
+      "global_unique": 1257,
+      "independent_unique": 501,
+      "audited_at": "2026-10-24T15:42:40.491646+00:00"
+    },
+    "incremental_only": true,
+    "incremental_checks": {
+      "additional_id": "2609.03892",
+      "additional_entry_count": 1,
+      "graft_global_fields": {
+        "id": "2609.03892",
+        "title": "GraFT: A Training-Free Framework for Spatial Reasoning in Multimodal Large Language Models via 3D Scene Graphs",
+        "version": 2,
+        "disposition": "supplemental",
+        "reason": "主agent纠正：ID/version未在既有paper-history和HTML报告检索到；早于窗口不构成排除理由，按历史补漏单列，不计本期新文或期内修订。",
+        "window_class": "historical_backfill",
+        "v1_utc": "2026-09-03T14:11:56Z",
+        "updated_utc": "2026-10-16T21:39:47Z",
+        "history_verified": true,
+        "report_anchor": "paper-2609-03892"
+      },
+      "graft_no_previous_paper_history_entry": true,
+      "graft_old_html_matches_excluding_current_report": [],
+      "graft_override_source": "main-late-backfill.json",
+      "original_assessment_preserved": "review-original-probe-assessments.json retains original window-only exclusion proposal for traceability; final global disposition overrides it as historical backfill.",
+      "five_reason_fixes": [
+        {
+          "id": "2610.25962",
+          "formal_ledger_reason_verified": true
+        },
+        {
+          "id": "2610.27688",
+          "formal_ledger_reason_verified": true
+        },
+        {
+          "id": "2610.28121",
+          "formal_ledger_reason_verified": true
+        },
+        {
+          "id": "2610.28920",
+          "formal_ledger_reason_verified": true
+        },
+        {
+          "id": "2610.29142",
+          "formal_ledger_reason_verified": true
+        }
+      ],
+      "formal_paper_ledger": "reports\\2026-10-18_2026-10-24_paper-ledger.json",
+      "formal_ledger_count": 1258,
+      "formal_ledger_sha256": "00800608e2aed6c4e8fdcf4427ef0036eba4ebb8525c4b800af417df3f59f398",
+      "full_papers_reread": 0,
+      "new_network_requests": 0
+    }
+  },
+  "repository_reviews": {
+    "run_at": "2026-10-24T08:17:58Z",
+    "discovery_boundary": "5 GitHub repository searches, page1 top50 ordered current stars; metadata snapshots are not star growth. Native REST403 replaced by connected GitHub fetch. Weekly trending HTTP429; topic was not reached because previous independent request failed, so neither is counted exhausted.",
+    "repositories": [
+      {
+        "repo": "nvidia-isaac/cuVSLAM",
+        "url": "https://github.com/nvidia-isaac/cuVSLAM",
+        "stars": 1875,
+        "forks": 207,
+        "evidence_level": "README + tree + selected core source + configuration/docs + exact-window commits + release and issue lists; no execution",
+        "window_event": {
+          "sha": "3c3e1990",
+          "utc": "2026-10-21T17:48:47Z",
+          "message": "place recognition and VPR loop closure, AnyLoc on TensorRT (#206)"
+        },
+        "findings": "DINOv2/AnyLoc descriptors via target-specific TensorRT engine; VPR retrieval proposes loop candidates and existing geometric verifier validates. lcs_vpr.cpp rejects excessive correction/disagreement; default remains LSI. Documents report 66FPS VPR vs232FPS LSI KITTI00 RTX4090, an accuracy/relocalization capability tradeoff, not generic speed improvement.",
+        "source_files": [
+          "README.md",
+          "doc/place_recognition.md",
+          "libs/slam/slam/loop_closure_solver/lcs_vpr.cpp",
+          "libs/slam/vpr/vpr_anyloc.cpp",
+          "cmake/AnyLocModel.cmake"
+        ],
+        "limits": [
+          "Engine tied to GPU architecture and TensorRT version; needs USE_TENSORRT, use_gpu and model path.",
+          "Latest release v17.0.1 published Oct13 is outside window: report Oct21 commit, not new weekly release.",
+          "Issue/PR feature requests are not treated as released behavior."
+        ]
+      },
+      {
+        "repo": "reality-opened/openreality",
+        "url": "https://github.com/reality-opened/openreality",
+        "stars": 449,
+        "forks": 3,
+        "evidence_level": "README + tree + selected source + package config + exact-window commit/release; no execution",
+        "window_event": {
+          "release": "v0.4.0",
+          "utc": "2026-10-20T20:57:03Z",
+          "url": "https://github.com/reality-opened/openreality/releases/tag/v0.4.0"
+        },
+        "findings": "New export_mujoco tool calls server prepare/poll/download and extracts scene.xml+manifest. source export.ts preserves metric_scale_required error and next-step anchor. Explicit collision model is floor + upright object boxes; scanned mesh visual only. Thus phone-scan-to-simulator integration, not validated contact digital twin.",
+        "source_files": [
+          "README.md",
+          "mcp/src/plugins/export.ts",
+          "mcp/package.json"
+        ],
+        "limits": [
+          "Must anchor metric scale before export; source checks absolute output directory.",
+          "MuJoCo>=3.3; remote server build may take minutes and source description says64GB build container.",
+          "Client code reviewed; server meshing/MJCF producer not read in this run."
+        ]
+      },
+      {
+        "repo": "url-kaist/aim-slam",
+        "url": "https://github.com/url-kaist/aim-slam",
+        "stars": 2,
+        "forks": 0,
+        "evidence_level": "README-only + complete one-file tree + exact-window commit metadata",
+        "window_event": {
+          "created": "2026-10-21T12:05:08Z",
+          "last_commit": "2026-10-21T12:17:56Z"
+        },
+        "findings": "Official AIM-SLAM repository created, but complete tree contains only README.md saying code release coming soon. Treat as upcoming release watch, never as code availability or source deep review.",
+        "source_files": [
+          "README.md"
+        ],
+        "limits": [
+          "No implementation, configs or reproducible scripts published in checked tree."
+        ]
+      },
+      {
+        "repo": "kornia/kornia-slam",
+        "url": "https://github.com/kornia/kornia-slam",
+        "stars": 103,
+        "forks": 23,
+        "evidence_level": "metadata + tree + issue/release/commit-list inspection; no core source review",
+        "window_event": {
+          "pushed_at": "2026-10-21T22:12:52Z",
+          "default_branch_exact_window_commits": 0
+        },
+        "findings": "Search discovers pushed repository and recent open PR activity, including oldest-keyframe eviction and LM cost-noise-floor work. Default-branch commit endpoint returns empty window; release v0.1.0 Sept27 outside window. No claim of merged weekly feature.",
+        "limits": [
+          "pushed_at includes branch activity; not equivalent to default-branch merged changes.",
+          "Issue list first5 includes PRs, not only bugs; no exhaustive issue audit."
+        ]
+      },
+      {
+        "repo": "OptimusFaber/AOV-GS",
+        "url": "https://github.com/OptimusFaber/AOV-GS",
+        "stars": 1,
+        "forks": 0,
+        "evidence_level": "README + complete tree + selected planner/feature extractor/config/entry source; no execution",
+        "window_event": {
+          "pushed_at": "2026-08-20T10:54:50Z",
+          "exact_window_commits": 0
+        },
+        "findings": "Paper-linked code exists and implements geometry shortlist plus SAM-CLIP semantic scoring. Selected ActiveOpenSem config usesstage0,K8,max40masks/candidate. sam_clip_extractor has background queue with drop logging, batched CLIP encoding and CorrCLIP-style merge/suppression. Offline language-field scripts are separate from online mapping.",
+        "source_files": [
+          "README.md",
+          "src/planner/active_gs_planner_hybrid_v3.py",
+          "src/semantic/sam_clip_extractor.py",
+          "src/main/activegamer.py",
+          "configs/Replica/office0/ActiveOpenSem.py",
+          "scripts/train_language_field.py"
+        ],
+        "limits": [
+          "Not a new-code event this window; code snapshot supports new-paper reproducibility discussion only.",
+          "Source review covers selected paths; true activesgm entry and semantic scorer implementation not yet opened.",
+          "README install requests checkpoints/data≥30GB; neither downloaded nor run.",
+          "Some config defaults SAM ViT-B while paper describes ViT-H; validate exact experiment config before reproduction."
+        ]
+      }
+    ],
+    "reviewed_at": "2026-10-24T08:44:45.050348+00:00",
+    "metadata_cache_write_time_range_utc": [
+      "2026-10-24T08:24:40.907117+00:00",
+      "2026-10-24T08:24:51.047341+00:00"
+    ]
+  },
+  "summary_completion": {
+    "core": 158,
+    "geometry": 158
+  }
+}
