@@ -1,21 +1,44 @@
-每次运行先读 `.cache/slam-3d-state.json`，无状态再读 `reports/index.html`/最新报告；覆盖范围为上次 `coverage_end` 后到当前运行时间，间隔>7天按实际间隔覆盖，不截断为“最近7天”。成功后更新状态：`run_at`、`coverage_start/end`、`report_path`。
+任务：生成每周 SLAM 与 3D 视觉科研/工程进展报告。先完成可审计的检索覆盖与候选对账，再选择深读；不能用固定篇数、第一页搜索结果或“精选”替代完整性检查。目标是尽量降低遗漏并明确剩余缺口，不能承诺无从证明的“零遗漏”。
 
-先打开并遵循 `reports/templates/slam-3d-weekly-template.html`；版式参考 `reports/2026-06-14_2026-06-21_MMD-SLAM-SGM-SLAM-MoonSplat.html`。HTML 输出到 `reports/YYYY-MM-DD_YYYY-MM-DD_关键词1-关键词2.html`，并更新 `reports/index.html`。
+一、运行上下文与连续覆盖
+先读 AGENTS.md、自动化 memory、.cache/slam-3d-state.json、reports/templates/slam-3d-weekly-template.html；无状态再读 reports/index.html/最新报告。冻结本次 run_at；新论文窗口为上次 coverage_end 之后至 run_at，间隔超过7天仍覆盖实际全部间隔。用 Asia/Shanghai 展示日期，精确时间统一转 UTC 判定。区分 v1首次提交、updated修订、公告/索引日期；不能用列表显示日期替代 Submission history。按日/子窗口检索可向前重叠1–2天捕获延迟索引，再按精确时间和ID去重。
+同时读既有完整性审计（包括 reports/2026-10-18_SLAM-VGGT_论文完整性审计.md，如存在）、上次未处理候选/访问失败/backlog；历史漏项单列“历史补漏”，期内修订单列“旧文更新”，不冒充本期新论文，也不因 coverage_end 已推进而丢弃。已有审计清单只是回归检查种子，不能替代本期重新检索。加载并维护 reports/paper-history.json，将ID+版本映射到已处理状态、证据等级、报告路径/锚点和待办；首次建立时从既有ledger/报告回溯，不能假设此前未报道。审计种子逐项核销：同一已处理版本引用原报告，不重复计作补漏；只有未处理ID、新版本或明确需纠错项重新进入本轮。搜索候选若已覆盖，ledger以excluded并注明already-covered及原报告引用，保持候选计数闭合。
 
-范围：核心 SLAM、VIO、SfM/Structure from Motion、FeedForward 3D Reconstruction；扩展只收与 3DGS、机器人、导航、建图、定位、具身智能、世界模型直接相关内容。目标是科研/工程判断，不做新闻聚合。没有读到的内容必须标明证据等级，不能把 abstract/README 改写成深度分析，不能用无证据的“显著提升/优秀/很有潜力”。
+二、允许并行 subagent
+用户明确允许使用 GPT-6.1 Sol、high 推理级别的 subagent 完成本任务。实际派发时显式指定 model="gpt-6.1-sol"、reasoning_effort="high"；需要覆盖模型参数时用 fork_turns="none"，向子任务完整提供窗口、范围、模板/证据要求和输出格式。通常可安排核心SLAM/VIO/SfM检索、VGGT/前馈3D检索、相关应用或repo审计等独立工作，并在整合后安排独立漏项复核；并发数不得超过环境实际限制（4槽时主agent+最多3个子agent），按需分批复用，不为凑角色重复全文阅读。
+子agent返回结构化候选：ID/版本、标题、v1/updated UTC、方向、来源URL、实际阅读等级、方法/实验摘要、纳入/排除建议与理由、检索式/分页状态/访问缺口。共享目录下各写独立临时文件；主agent统一维护正式报告、主ledger、状态和Git，避免并发覆盖。主agent核查冲突、日期、核心数字和完整性，不能直接拼接未经检查的结论。模型/工具不可用时说明并顺序完成可做的检索/阅读，不擅自换成更昂贵模型；用不同检索词/渠道做第二轮主agent自复核，明确标注“未独立复核”。这不能替代第五节的独立复核门槛：保存临时报告及coverage_status=incomplete_review，不推进coverage_end，待独立复核可用后续跑，不声称完成了实际未运行的并行复核。
 
-论文：从 arXiv 搜覆盖期新论文，优先 cs.CV/cs.RO/cs.AI/cs.LG/eess.IV/eess.SY；关键词含 SLAM、VIO、SfM、3D reconstruction、feed-forward 3D、3DGS、robotics、navigation、mapping、localization、embodied AI、world model。arXiv API/Invoke-WebRequest 不稳时换 advanced search、网页搜索或 web search。
+三、范围与多路检索
+核心：SLAM、VIO、SfM、视觉/激光/雷达里程计、回环、重定位、配准、BA/pose graph、多传感器融合、FeedForward/Streaming 3D、VGGT及几何基础模型。扩展：与3DGS、机器人、建图、定位、embodied navigation、world model、VLN直接相关的研究；排除同名缩写的语音/天文等无关结果并记录理由。
+优先 cs.CV/cs.RO/cs.AI/cs.LG/eess.IV/eess.SY，但不可仅凭分类排除核心相关论文；首次提交与期内updated各检索一轮。
+至少覆盖以下相互补充的检索族，使用标题/摘要字段、短语、布尔组合与实际可用检索语法，不依赖单一all关键词：
+A. SLAM / simultaneous localization or localisation and mapping / VIO / visual-inertial / odometry / SfM / structure from motion / loop closure / relocalization / registration / bundle adjustment / pose graph；按LiDAR、radar、RGB-D、monocular、多相机等交叉补查。
+B. VGGT / VGGT-Ω / OmniVGGT / geometry foundation model / visual geometry transformer，以及DUSt3R、MASt3R、π³/pi3、DA3/Depth Anything等关联方法族；同时搜feed-forward/feedforward、streaming/online、long-sequence、3D reconstruction、pointmap、3DGS/Gaussian splatting、memory、scale、confidence/uncertainty、efficient attention。不能要求标题含SLAM或VGGT才纳入。
+C. world model / world-action model / embodied navigation / VLN / vision-language navigation，以及active/open-vocabulary/semantic mapping、3DGS机器人应用、热成像/水下/内窥镜定位等直接相关扩展。
+以arXiv API/Advanced Search为主，交叉用官方分类列表、论文/作者项目页、GitHub论文链接、网页搜索；网页搜索用于发现，最终以官方摘要/版本历史确认。API/Invoke-WebRequest失败后改用可用渠道；失败或零返回不能直接解释为零论文。对重点论文沿正文相关工作、项目和引用再做一次交叉发现，检查名称不同但问题相同的工作。
 
-Deep-read Papers：少量高质量优先。尽量读完整 PDF/HTML，覆盖 Intro、Method、Experiments、Ablation/Analysis、Limitations/Conclusion、必要 Appendix。按模板列出：解决的问题、方法/结构、insight 与数学知识、实验与效果、复现与启发、阅读证据。实验要写清数据集/指标/baseline/相对结果。
+四、分页与候选台账（必须持久保存）
+每个检索式记录来源URL、字段、日期谓词、时间、返回总数、页数/游标、已取条数、失败及替代渠道。达到100/200等单页上限必须继续分页或切分日期，直到耗尽；没有确认耗尽的查询标记incomplete，不允许标为全量。
+保存 reports/YYYY-MM-DD_YYYY-MM-DD_paper-ledger.json 与同前缀 search-manifest.json，作为本报告证据附件。按arXiv基础ID去重、保留版本；无arXiv者用DOI或canonical URL。ledger至少记录：ID、版本、标题、v1/updated UTC、命中查询/来源URL、方向、new/revised/backfill、窗口归属、abstract_read、阅读章节/证据等级、disposition（deep_read/supplemental/revision_tracking/excluded/unresolved）、理由、报告锚点、后续动作。
+先读所有可能相关候选的摘要再判定范围；仅标题/元数据不能用于草率排除核心论文。相关但全文不可读者仍应以摘要进入跟踪；摘要也不可访问者留在ledger的unresolved及报告访问缺口，不伪装成已读Supplemental。所有in-scope候选都必须有报告落点或明确未解决状态；不能因名额已满、stars低、作者未开源而省略。Deep-read数量可按重要性调整，Supplemental不设8/20等固定上限。
 
-Supplemental Tracking Papers：也必须至少读摘要；每条按模板压缩列出：方向关系、解决的问题、方法/结构、insight 与数学知识、实验、证据级别与后续动作。若只读摘要/元数据，明确写“摘要级/元数据级，未深读全文”，不得作为深度结论来源。
+五、独立漏项复核与完成门槛
+报告撰写前后各核对一次，至少一轮由独立subagent使用不同检索词/渠道重新发现，不能只让其检查现有清单。按核心SLAM/VIO/SfM、VGGT/前馈3D、直接相关扩展分别对账；特别检查不含SLAM标题的系统（例如变化检测中的Argos-SLAM）、VGGT改造/效率/尺度/不确定性、长序列/流式状态，以及期内修订稿。
+用集合检查而非凭感觉：去重候选数 = deep_read + supplemental + revision_tracking + excluded + unresolved；所有已纳入ID与报告相应条目一一对应；新文/修订/补漏分开计数；每个排除有实质理由，每个unresolved有来源、影响与后续动作；全部查询分页完结或明确缺口。复核发现新相关论文就回填ledger并继续对账，直到复核不再发现未处置的核心漏项。保留检索边界，不宣称领域穷尽或100%召回率。
+在Evidence & Reading Coverage中给出检索族、候选/纳入/排除/未解决计数、分页是否耗尽、复核结果和ledger/manifest链接。关键查询未耗尽、核心候选未判定或遗漏清单未处置时，本轮为“覆盖未完成”，不得假报成功、不得把coverage_end跨过缺口；可输出明确标注的临时报告并保存续跑进度。外部Git推送失败与文献覆盖失败分开记录，不重复已完成阅读。
 
-系统图：Deep-read/Top papers 若有 overview/framework/pipeline/architecture/flowchart 图，优先截取并视觉确认；只收 caption/section 明确指向总览/流程的图。放入 Deep-read 表的“系统/框架图”列，用可点击缩略图链接原图；Supplemental 不嵌图，不单建 System Figures 区。
+六、阅读与分析要求
+先遵循 reports/templates/slam-3d-weekly-template.html 和 reports/templates/slam-3d-supplemental-guide.md；可调用同目录 render_supplemental.py 生成分类跟踪组件。HTML输出 reports/YYYY-MM-DD_YYYY-MM-DD_关键词1-关键词2.html，更新reports/index.html。保留header统计tiles、Executive Summary、Deep-read Papers、Repo Deep Dives、Quantitative Experiment Highlights、Supplemental Tracking Papers、Trends & Insights、Evidence & Reading Coverage、值得跟进事项、原始链接列表。修订/补漏作为现有相关section中的子标题/条目，不破坏模板。Executive Summary只能压缩后文支持的结论。
+Deep-read优先核心SLAM与VGGT/前馈3D的重要工作；尽量读完整PDF/HTML，覆盖Intro、Method、Experiments、Ablation/Analysis（没有则明说）、Limitations/Conclusion及必要Appendix。逐篇按模板列问题、方法/结构、insight与数学知识、实验与效果、复现/启发、阅读证据；实验写清数据集、指标/单位、baseline、相对/绝对结果、硬件与协议差异。只读摘要/README不能升级为深读，不使用无证据的“显著提升/优秀/很有潜力”。
+Supplemental每篇至少读摘要，完整保留方向关系、问题、方法/结构、insight/数学、实验、证据级别/后续动作；摘要没有数值就写未提供，不补造，明确“未深读全文”，不据摘要判断深度优劣。旧文更新核对版本，未比较新旧正文不称重大修订。
+Supplemental展示采用“分类目录→一句话→按篇展开详情”，禁止恢复全量七列长表格。按主要研究问题分类，一篇只归一个主分类，跨方向关系放详情；SLAM/VIO、定位配准、几何基础模型/前馈流式3D、3DGS/神经重建、语义地图、导航、世界预测模型、世界动作模型、仿真/评测、传感器感知、机器人应用可作为起点，并按本期内容调整，避免大杂烩。分类默认收起，显示真实数量；每篇默认只显示标题、约40–100字自然中文一句话要点、时间归属和摘要级证据标签，点击后显示全部分析、原文、ID/版本与精确时间。不得用折叠、优先关注或筛选替代完整纳入，也不得把历史补漏混成新文。
+模板已内置原生details/summary、离线搜索、时间筛选、仅优先关注、分类导航、计数、重置和论文锚点自动展开；使用新占位符SUPPLEMENTAL_CATEGORY_NAV/SUPPLEMENTAL_CATEGORY_GROUPS，不使用旧SUPPLEMENTAL_PAPER_ROWS。优先关注是有理由的编辑提示，不是全文/性能认证，不设固定篇数来截断集合。同步保存同前缀presentation.json，逐ID记录category/takeaway/priority及priority_reason，与所有supplemental+revision_tracking ID一一闭合；对分类/一句话逐项核实，不能直接把命中查询名当主题。无JS也必须能逐类逐篇展开。新文/旧文更新/历史补漏/历史版本补跟踪分别标记并可筛选。输出后检查筛选/零结果/重置、分类计数、隐藏后锚点展开、窄屏和无JS退化，以及每个ID唯一且详情完整；所有in-scope条目与审计要求继续适用。仅摘要条目不嵌系统图。
+Deep-read若有overview/framework/pipeline/architecture/flowchart图，优先取原图并视觉确认；caption/section须明确指向总览/流程。在“系统/框架图”列放可点击缩略图，链接原始图像（无法取得时链接相应图的正文位置并说明），本地asset路径可用；不能拿结果图冒充系统图。未视觉确认就不嵌图；Supplemental不嵌图，不另建System Figures区。
 
-Repo：从 GitHub 搜覆盖期内新出现/升温项目，可用 search/trending/topic/starred。重点 repo 不能只看 stars/README；尽量查 README、docs、examples、入口、核心模块、配置、训练/推理/运行脚本、近期 commit/release/issue，并列实际文件/目录。总结目标、能力、路线、结构、模块协作、依赖/硬件、stars/forks、成熟度、领域关系；区分声称能力与代码/示例/实验可验证能力，证据不足写“未充分验证”。
+七、Repo审计
+GitHub检索期内新出现/升温/发布项目，用search/trending/topic/commit/release等，不把stars当成熟度。重点repo检查README、docs、examples、入口、核心模块、配置、训练/推理/运行脚本、近期commit/release/issue，列实际文件/目录。总结目标、能力、路线、结构与协作、依赖/硬件、stars/forks快照、成熟度、领域关系；区分作者声称、源码可见、实际运行验证。README-only/空仓库/404不计源码深读，保留缺口。未下载权重/数据、未运行则明确说，证据不足写“未充分验证”。
 
-报告必须包含模板中的所有 section：header 统计 tiles、Executive Summary、Deep-read Papers、Repo Deep Dives、Quantitative Experiment Highlights、Supplemental Tracking Papers、Trends & Insights、Evidence & Reading Coverage、值得跟进事项、原始链接列表。Executive Summary 只能压缩后文已验证结论。
-
-Git：优先 Windows Git `C:\Users\gongy\AppData\Local\Programs\Git\cmd\git.exe`；若不可用再用 `wsl -d Ubuntu-24 -- git -C /mnt/c/Users/gongy/Documents/每周行业进展-fromAI ...`。只提交本次报告相关文件：新报告、index、assets、状态文件；`.cache` 若被 ignore，用 `git add -u .cache/slam-3d-state.json` 或 `git add -f`。提交前查暂存区，不提交无关用户改动。commit：`更新 YYYY-MM-DD 至 YYYY-MM-DD SLAM与3D视觉周报`；push origin/main，失败不强推，说明原因和人工步骤。
-
-最终回复：报告路径、覆盖时间、深读论文数、repo 深读数、摘要/元数据级条目数、无法访问/证据不足/需登录来源、commit hash、push 结果。
+八、交付、状态与Git
+校验模板section、条目/证据统计、ID集合、重复/遗漏、链接与本地图片、数值单位、索引/ledger一致性；能渲染则检查页面，不能渲染则明确限制。覆盖门槛通过后更新state：run_at、coverage_start/end、report_path，并记录ledger_path、search_manifest_path、paper_history_path、coverage_status和未解决backlog；同步更新reports/paper-history.json的已处理版本与待办，已有字段和历史进度不丢失。访问失败/待补读任务持久保存、下次重试，不能靠写memory“成功”掩盖缺口。
+Windows原生，Git优先 C:\Users\gongy\AppData\Local\Programs\Git\cmd\git.exe；确实不可用才回退 wsl -d Ubuntu-24 -- git -C /mnt/c/Users/gongy/Documents/每周行业进展-fromAI。只提交本次报告、index、引用assets、ledger/manifest、presentation.json、paper-history.json、状态及本次续跑证据；.cache被ignore时用git add -u相应已跟踪文件或git add -f精确路径。提交前审查暂存区，不混入用户改动。commit信息：更新 YYYY-MM-DD 至 YYYY-MM-DD SLAM与3D视觉周报。push origin/main；不强推，失败说明原因和人工步骤。文献覆盖完成但push失败可保留完成state，单独标记Git待推送。
+最终回复：报告与ledger路径、精确覆盖时间、深读/repo/摘要数、新文/修订/补漏数、候选/排除/未解决数、分页/独立复核结果、无法访问/证据不足/需登录来源、commit hash与push结果。总结写入automation memory并附本次运行时间；不能把精选数量表述为“所有论文已齐全”。

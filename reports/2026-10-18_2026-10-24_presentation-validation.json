@@ -1,0 +1,211 @@
+{
+  "validated_at": "2026-10-25T17:40:42.384733+00:00",
+  "editorial_date": "2026-10-26",
+  "report_path": "reports/2026-10-18_2026-10-24_BlazeVGGT-HiP3R-CAOS.html",
+  "checks": {
+    "all_422_tracking_ids_preserved_once": true,
+    "all_page_anchors_unique": true,
+    "all_429_paper_anchors_preserved": true,
+    "every_original_detail_cell_retained": true,
+    "nine_sections_and_other_section_contents_unchanged": true,
+    "tracking_table_removed": true,
+    "all_categories_and_papers_collapsed_initially": true,
+    "no_scriptless_hidden_papers": true,
+    "all_11_category_counts_reconciled": true,
+    "time_status_counts_unchanged": true,
+    "all_422_one_sentence_takeaways": true,
+    "priority_reason_and_abstract_boundary": true,
+    "no_new_remote_script_dependency": true,
+    "new_template_slots_match_renderer": true,
+    "renderer_rejects_omissions": true,
+    "renderer_rejects_duplicate_ids": true,
+    "renderer_rejects_unknown_category": true,
+    "renderer_handles_non_arxiv_and_escapes_text": true,
+    "DOM_interactions_pass": true,
+    "embedded_JS_syntax": true,
+    "active_automation_matches_saved_prompt": true,
+    "existing_schedule_model_and_target_preserved": true,
+    "independent_review_no_blockers": true,
+    "all_four_independent_classification_notes_resolved": true
+  },
+  "passed": true,
+  "DOM_tests": {
+    "passed": true,
+    "total": 422,
+    "categories": 11,
+    "tests": [
+      "initial collapse",
+      "ID search",
+      "Unicode normalization",
+      "zero results",
+      "reset",
+      "four window filters",
+      "priority filter",
+      "topic filter",
+      "expand/collapse groups",
+      "filtered deep link reveal",
+      "same-hash link after filtering",
+      "scriptless fallback"
+    ],
+    "note": "DOM simulation only; no full-page layout rendering"
+  },
+  "independent_review": {
+    "status": "passed_with_editorial_notes",
+    "blocking_issues": [],
+    "nonblocking_notes": [
+      {
+        "type": "classification",
+        "state": "accepted_by_main_agent_pending_reclassification",
+        "items": [
+          {
+            "id": "2610.31540",
+            "current": "sensors-applications",
+            "suggested": "navigation",
+            "reason": "既有ledger明确为多机器人分布式规划、约束与协商。"
+          },
+          {
+            "id": "2610.27049",
+            "current": "sensors-applications",
+            "suggested": "gaussian-reconstruction",
+            "reason": "既有ledger明确为3D场景编辑及几何监督。"
+          },
+          {
+            "id": "2610.27418",
+            "current": "sensors-applications",
+            "suggested": "gaussian-reconstruction",
+            "reason": "既有ledger明确为点云潜token上的rectified flow三维生成。"
+          },
+          {
+            "id": "2610.11723",
+            "current": "world-action",
+            "suggested": "simulation-evaluation",
+            "reason": "既有ledger明确为共享持久世界及跨视运动等维度的benchmark。"
+          }
+        ]
+      },
+      {
+        "type": "test_boundary",
+        "text": "仅静态DOM检查及linkedom模拟；没有浏览器整页渲染、截图或原生details/窄屏像素布局验证。未控制浏览器或绕过file://策略。"
+      },
+      {
+        "type": "scope",
+        "text": "未重复逐条全文阅读422篇；分类依据既有ledger题名、方向、问题和方法。takeaway文案另有agent核实。"
+      }
+    ],
+    "checks": {
+      "ids": {
+        "status": "passed",
+        "expected_supplemental_plus_revision": 422,
+        "actual": 422,
+        "duplicates": 0,
+        "missing": 0,
+        "presentation_ids_exact": true,
+        "all_old_ids_retained": true
+      },
+      "preserved_details": {
+        "status": "passed",
+        "old_cells_text_preserved": 2954,
+        "old_paper_links_preserved": 422,
+        "non_supplemental_sections_text_unchanged": true,
+        "total_sections": 9
+      },
+      "defaults_and_offline": {
+        "status": "passed",
+        "categories": 11,
+        "all_categories_collapsed": true,
+        "all_papers_collapsed": true,
+        "paper_or_group_hidden_attributes_without_js": 0,
+        "supplemental_tables": 0,
+        "supplemental_images": 0,
+        "remote_scripts": 0
+      },
+      "dom_behaviors": {
+        "status": "passed",
+        "independent_script": ".cache/slam-3d-layout-20261026/independent-dom-check.mjs",
+        "tested": [
+          "初始锚点自动展开并定位",
+          "全部5种时间状态×两种优先关注状态×所有类别组合",
+          "每组可见计数与零结果状态",
+          "详情文本关键词检索",
+          "隐藏后的同hash锚点点击重新展开",
+          "主agent既有脚本的Unicode归一化、四时间分布、重置、分类展开收起"
+        ]
+      },
+      "renderer_and_template": {
+        "status": "reviewed",
+        "placeholders": [
+          "SUPPLEMENTAL_COUNT",
+          "SUPPLEMENTAL_CATEGORY_NAV",
+          "SUPPLEMENTAL_CATEGORY_GROUPS"
+        ],
+        "no_legacy_row_placeholder": true,
+        "validation": "renderer检查presentation集合闭合、重复、非空要点、有效分类；旧详情从td或tracking-paper-body保留；新条目从ledger字段生成；已查看非arXiv来源fallback。",
+        "execution_boundary": "本agent未执行Python renderer：PATH中的python.exe为不可启动WindowsApps stub。主agent另有可用runtime并报告重复运行无变化。"
+      },
+      "future_prompt": {
+        "status": "passed",
+        "constraints": [
+          "分类默认收起",
+          "每篇标题与自然中文一句话",
+          "保留全部supplemental+revision_tracking",
+          "单主分类与跨方向关系",
+          "原paper-*锚点",
+          "证据与新文修订补漏分开",
+          "无JS可读",
+          "离线筛选和零结果计数",
+          "presentation保存与逐ID闭合",
+          "不能恢复七列长表或用精选截断"
+        ]
+      },
+      "initial_category_counts": {
+        "slam-vio": 18,
+        "localization-registration": 17,
+        "geometry-foundation": 23,
+        "gaussian-reconstruction": 51,
+        "semantic-spatial": 42,
+        "navigation": 59,
+        "world-models": 57,
+        "world-action": 65,
+        "simulation-evaluation": 20,
+        "sensors-applications": 42,
+        "robot-applications": 28
+      },
+      "sources": [
+        "reports/templates/slam-3d-weekly-template.html",
+        "reports/templates/render_supplemental.py",
+        "reports/templates/slam-3d-supplemental-guide.md",
+        "reports/templates/slam-3d-automation-prompt.txt",
+        "reports/2026-10-18_2026-10-24_BlazeVGGT-HiP3R-CAOS.html",
+        "reports/2026-10-18_2026-10-24_presentation.json",
+        "reports/2026-10-18_2026-10-24_paper-ledger.json",
+        ".cache/slam-3d-layout-20261026/report-before.html"
+      ]
+    }
+  },
+  "independent_classification_resolution": {
+    "resolved": {
+      "2610.31540": "navigation",
+      "2610.27049": "gaussian-reconstruction",
+      "2610.27418": "gaussian-reconstruction",
+      "2610.11723": "simulation-evaluation"
+    },
+    "unresolved": []
+  },
+  "category_counts": {
+    "slam-vio": 18,
+    "localization-registration": 17,
+    "geometry-foundation": 23,
+    "gaussian-reconstruction": 53,
+    "semantic-spatial": 42,
+    "navigation": 60,
+    "world-models": 57,
+    "world-action": 64,
+    "simulation-evaluation": 21,
+    "sensors-applications": 39,
+    "robot-applications": 28
+  },
+  "priority_count": 18,
+  "rendering_limit": "No full-page layout rendering. Prior local file:// preview blocked by browser URL policy; no workaround attempted. Static DOM interaction simulation used linkedom with a standard writable select.value shim; no browser engine/layout checks.",
+  "report_sha256": "98f8f23346fe5c8c03d1a627c198f0586e065bb178a75f26470123f62c0dd15b",
+  "coverage_note": "Presentation only. No changes to literature ledger, reading level, history or coverage cutoff."
+}

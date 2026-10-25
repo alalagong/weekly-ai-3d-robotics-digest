@@ -1,0 +1,2632 @@
+{
+  "schema_version": 1,
+  "layout_version": 2,
+  "editorial_date": "2026-10-26",
+  "source_ledger": "reports/2026-10-18_2026-10-24_paper-ledger.json",
+  "scope_note": "Presentation only; original version dates, reading levels and coverage are unchanged. Category and one-sentence statements derive from the existing audited abstract summaries.",
+  "categories": [
+    {
+      "id": "slam-vio",
+      "label": "SLAM / VIO / 多传感里程计",
+      "description": "状态估计、动态鲁棒性、分布式建图与退化处理。"
+    },
+    {
+      "id": "localization-registration",
+      "label": "SfM / 定位 / 配准与匹配",
+      "description": "多视图几何、回环重定位、特征匹配、点云/地图对齐。"
+    },
+    {
+      "id": "geometry-foundation",
+      "label": "几何基础模型 / 前馈与流式3D",
+      "description": "VGGT等几何模型、共同坐标、尺度、置信与长序列状态。"
+    },
+    {
+      "id": "gaussian-reconstruction",
+      "label": "3DGS / 神经重建与场景生成",
+      "description": "几何与外观重建、Gaussian表示、跨视角一致性和三维资产。"
+    },
+    {
+      "id": "semantic-spatial",
+      "label": "语义地图 / 3D场景理解",
+      "description": "开放词汇、语义分割、场景图、空间推理与记忆。"
+    },
+    {
+      "id": "navigation",
+      "label": "具身导航 / 探索与规划",
+      "description": "VLN、目标导航、主动感知与地图驱动的路径规划。"
+    },
+    {
+      "id": "world-models",
+      "label": "世界模型 / 视频预测与记忆",
+      "description": "潜在状态、视频预测、时序记忆与三维一致性。"
+    },
+    {
+      "id": "world-action",
+      "label": "世界动作模型 / 策略与控制",
+      "description": "动作条件建模、VLA、机器人操控与规划接口。"
+    },
+    {
+      "id": "simulation-evaluation",
+      "label": "仿真 / 物理一致性与世界模型评测",
+      "description": "物理合理性、模型评测、仿真环境与风险验证。"
+    },
+    {
+      "id": "sensors-applications",
+      "label": "传感器 / 标定与3D感知",
+      "description": "多模态感知、标定、深度估计、特殊传感与采集评测。"
+    },
+    {
+      "id": "robot-applications",
+      "label": "机器人应用 / 操作与基础设施",
+      "description": "操作与交互、机器人技能、具身评测及工程基础设施。"
+    }
+  ],
+  "papers": [
+    {
+      "id": "2410.00713",
+      "category": "sensors-applications",
+      "takeaway": "固定视角缺陷检测难反映机器人视点和光照变化，RAD用机器人从多视点采集缺陷物体，统一比较2D特征、3D重建与VLM。",
+      "priority": false
+    },
+    {
+      "id": "2501.12654",
+      "category": "navigation",
+      "takeaway": "AnyNav针对视觉摩擦估计难以适应新地形的问题，结合神经视觉与符号物理，以双层优化自监督学习摩擦并联合规划路径和速度。",
+      "priority": false
+    },
+    {
+      "id": "2504.20829",
+      "category": "gaussian-reconstruction",
+      "takeaway": "3DGS地图可能在少数触发视角隐藏定向视觉破坏，GaussTrap通过对抗注入、几何稳定和正常视角质量恢复植入高斯后门。",
+      "priority": false
+    },
+    {
+      "id": "2506.17545",
+      "category": "semantic-spatial",
+      "takeaway": "SceneR1以强化学习驱动逐步空间推理，从视频中的目标定位到二维框和零样本分割，再细化三维结果，避免依赖昂贵的三维检测器与稠密骨干。",
+      "priority": false
+    },
+    {
+      "id": "2507.10844",
+      "category": "semantic-spatial",
+      "takeaway": "LAOD让多模态大模型为每张图像生成专属词表，再交由开放词汇检测器定位目标，缓解固定类别和笼统未知类对开放世界检测的限制。",
+      "priority": false
+    },
+    {
+      "id": "2508.07406",
+      "category": "navigation",
+      "takeaway": "农业VLN缺少专用基准，长指令尤其容易失败，A2A构建农业连续导航任务，AgriVLN用STL把长指令拆成当前短子任务。",
+      "priority": false
+    },
+    {
+      "id": "2508.15169",
+      "category": "gaussian-reconstruction",
+      "takeaway": "MeSS以无纹理城市网格提供几何约束，通过稀疏视图控制、补绘和几何对齐生成一致的稠密视图，再在网格表面初始化三维高斯。",
+      "priority": false
+    },
+    {
+      "id": "2510.08713",
+      "category": "navigation",
+      "takeaway": "UniWM在同一个多模态自回归骨干中联合预测未来视觉与规划动作，并以分层记忆整合短期感知和长程轨迹，减少状态与动作脱节。",
+      "priority": false
+    },
+    {
+      "id": "2511.09397",
+      "category": "gaussian-reconstruction",
+      "takeaway": "OUGS将高斯位置、尺度和旋转的协方差传播到渲染像素，再用语义掩码隔离背景干扰，为目标物体选择下一最佳观察视点。",
+      "priority": false
+    },
+    {
+      "id": "2511.22250",
+      "category": "geometry-foundation",
+      "takeaway": "ColonAdapter针对几何基础模型难以适应结肠镜图像的问题，结合细节恢复、几何一致性和置信度加权光度损失进行自监督适配。",
+      "priority": true,
+      "priority_reason": "几何基础模型的结肠镜适配；本期版本更新，尚未做新旧全文diff。"
+    },
+    {
+      "id": "2512.10660",
+      "category": "navigation",
+      "takeaway": "NAVI单独衡量导航指令遵从性，NavControl覆盖路口可行方向，再通过蒸馏和鸟瞰轨迹汇集训练导航模型，区分路线服从与单纯前进。",
+      "priority": false
+    },
+    {
+      "id": "2512.15933",
+      "category": "navigation",
+      "takeaway": "CityNav以多城市、长决策链任务检验城市导航，VoP显式构建地标和方向认知图，补足多模态大模型对城市线索与长期决策的处理。",
+      "priority": false
+    },
+    {
+      "id": "2512.21201",
+      "category": "navigation",
+      "takeaway": "遮挡与未观测区域使零样本物体导航的单一场景推断脆弱，对候选轨迹生成多个3D未来，以遮挡感知采样和未来价值图选择路点。",
+      "priority": false
+    },
+    {
+      "id": "2601.07823",
+      "category": "world-models",
+      "takeaway": "机器人视频世界模型的应用潜力与物理幻觉等可靠性问题缺少统一梳理，综述数据生成、策略学习、动力学奖励建模、策略评测与视觉规划。",
+      "priority": false
+    },
+    {
+      "id": "2601.12994",
+      "category": "sensors-applications",
+      "takeaway": "传感器异步造成动态物体BEV检测特征错位，AsyncBEV根据已知时间差预测跨模态BEV流并扭曲对齐特征。",
+      "priority": false
+    },
+    {
+      "id": "2601.14895",
+      "category": "semantic-spatial",
+      "takeaway": "视频问答记忆难同时保留度量空间关系和可追溯视觉证据，SpatialMem以结构锚点组织RGB重建场景、对象节点、描述与证据帧。",
+      "priority": false
+    },
+    {
+      "id": "2601.17354",
+      "category": "gaussian-reconstruction",
+      "takeaway": "手机端3DGS训练受几何初始化、显存和有限优化时域限制，PocketGS结合姿态与稠密先验初始化表面对齐高斯，并重放合成交互计算一致梯度。",
+      "priority": false
+    },
+    {
+      "id": "2601.22615",
+      "category": "geometry-foundation",
+      "takeaway": "流式3D重建的持久状态在长序列中遗忘历史，TTSA3R联合时间状态演化和空间观测对齐质量，免训练调节局部状态更新。",
+      "priority": false
+    },
+    {
+      "id": "2602.01860",
+      "category": "slam-vio",
+      "takeaway": "高速无GNSS飞行中VIO多种状态的漂移会影响控制，融合单目VIO、机载地标测量和IMU，通过漂移模型修正位置、方向及速度。",
+      "priority": false
+    },
+    {
+      "id": "2602.07891",
+      "category": "geometry-foundation",
+      "takeaway": "几何基础模型受昂贵3D标注不足和互联网视频噪声限制，SAGE筛选视频轨迹，以SfM稀疏锚点、3DGS渲染一致性和少量监督回放适配模型。",
+      "priority": false
+    },
+    {
+      "id": "2602.09878",
+      "category": "world-action",
+      "takeaway": "单视角预测难恢复完整一致的4D场景，逆动力学动作解不唯一，MVISTA-4D联合跨视角RGBD生成，测试时反传优化轨迹潜变量，再用残差逆动力学解码动作。",
+      "priority": false
+    },
+    {
+      "id": "2602.24121",
+      "category": "world-models",
+      "takeaway": "MPAIL2研究仅从无动作、无奖励的视频中进行实机学习，通过在线观察式逆强化学习及跨任务迁移获取策略，摘要未交代世界模型结构。",
+      "priority": false
+    },
+    {
+      "id": "2603.06168",
+      "category": "semantic-spatial",
+      "takeaway": "全景图和点云语义分割受标注稀缺与固定类别限制，JOPP-3D将RGBD全景转为切向视图和点云，对齐视觉语言特征后做文本查询分割。",
+      "priority": false
+    },
+    {
+      "id": "2603.08905",
+      "category": "navigation",
+      "takeaway": "可变形颗粒地形的陷车风险难由远程视觉可靠识别，PSANE用足地交互训练高斯过程可通行模型，联合安全前沿探索与反应式控制。",
+      "priority": false
+    },
+    {
+      "id": "2603.17068",
+      "category": "sensors-applications",
+      "takeaway": "形变物体3D关键点跟踪及数据采集依赖昂贵标注或简化假设，TrackDeform3D仅用RGBD相机检测并跟踪3D关键点，以运动一致性约束平滑轨迹。",
+      "priority": false
+    },
+    {
+      "id": "2603.17808",
+      "category": "world-action",
+      "takeaway": "EVA用冻结的逆动力学模型将生成视频解码为动作，再按速度、加速度和平滑约束设置奖励，训练视频生成器减少不可执行的运动。",
+      "priority": false
+    },
+    {
+      "id": "2603.24581",
+      "category": "world-action",
+      "takeaway": "LatentWAM蒸馏几何教师并以可学习查询压缩多视图特征，再用因果Transformer预测未来潜在状态，补足压缩表征中的空间和时序动力学。",
+      "priority": false
+    },
+    {
+      "id": "2603.28887",
+      "category": "simulation-evaluation",
+      "takeaway": "OccSim仅以首帧和自车动作生成长程驾驶场景，用显式刚体变换维护静态占据，并独立预测道路参与者布局，减少对日志和高精地图的依赖。",
+      "priority": false
+    },
+    {
+      "id": "2604.01723",
+      "category": "sensors-applications",
+      "takeaway": "CSN在推理时重组指令与危险片段的描述，检查意图约束的对齐，并分别分析信息内容、文本组织、偏好对齐和运行时监督的作用。",
+      "priority": false
+    },
+    {
+      "id": "2604.02107",
+      "category": "slam-vio",
+      "takeaway": "传统VO位姿频率高但地图稀疏，几何模型稠密更新却慢，HyVGGT-VO在光流与VGGT间自适应切换，并分层联合优化位姿与模型尺度。",
+      "priority": true,
+      "priority_reason": "传统VO与前馈几何组合，直接关系到几何模型接入定位系统。"
+    },
+    {
+      "id": "2604.10809",
+      "category": "robot-applications",
+      "takeaway": "人体视频训练机器人策略常依赖多相机、深度或定制硬件，WARPED从单目自视角视频跟踪手物并重定向动作，用3DGS合成腕部相机观测。",
+      "priority": false
+    },
+    {
+      "id": "2604.11007",
+      "category": "semantic-spatial",
+      "takeaway": "PLOVIS将点云渲染成二维视图并生成开放词汇分割伪标签，再以两级筛选和类别平衡记忆库，缓解少场景、少点标注且缺原始图像的数据限制。",
+      "priority": false
+    },
+    {
+      "id": "2604.11331",
+      "category": "gaussian-reconstruction",
+      "takeaway": "2D潜空间场景生成存在多视角冗余和三维不一致，从DINOv2、SigLIP2与DA3等特征构建隐式3D潜表示，并直接训练潜空间扩散模型。",
+      "priority": false
+    },
+    {
+      "id": "2604.11685",
+      "category": "gaussian-reconstruction",
+      "takeaway": "Iterative Gaussian Synopsis以可学习掩码自顶向下剪枝高斯细节层次，再结合空间网格和共享锚点码本，减少非结构化存储与冗余层级对流式部署的限制。",
+      "priority": false
+    },
+    {
+      "id": "2604.16405",
+      "category": "simulation-evaluation",
+      "takeaway": "ICAT用真实事故案例构建风险记忆，结合约束生成与人工核验，检查生成器执行危险动作后是否呈现相应后果。",
+      "priority": false
+    },
+    {
+      "id": "2604.17407",
+      "category": "navigation",
+      "takeaway": "该方法用视觉语言模型制定短程计划，再由在线强化学习负责执行，并加入徘徊抑制惩罚，处理远处目标缺少直接视觉线索的导航问题。",
+      "priority": false
+    },
+    {
+      "id": "2604.24033",
+      "category": "slam-vio",
+      "takeaway": "现有事件相机演示常限于正对平面抖动或纯旋转，不能代表激烈6DoF运动，EvSLAM提出多平台、极端光照和多运动模式的事件VO、VIO基准与工作极限指标。",
+      "priority": false
+    },
+    {
+      "id": "2604.27620",
+      "category": "navigation",
+      "takeaway": "SpaAct同时学习动作回溯和未来帧选择，再以TriPA渐进课程训练，补充视觉语言模型对动作与动态空间变化的理解。",
+      "priority": false
+    },
+    {
+      "id": "2604.28196",
+      "category": "semantic-spatial",
+      "takeaway": "HERMES++借助鸟瞰表征、语言模型增强的世界查询、当前到未来的连接及几何联合优化，将驾驶未来生成和三维语义理解放到同一模型中。",
+      "priority": false
+    },
+    {
+      "id": "2605.10760",
+      "category": "slam-vio",
+      "takeaway": "多机器人高斯SLAM常需RGBD来处理尺度和跨机对齐，MAGS-SLAM以纯RGB构建局部子图，交换紧凑摘要并进行几何外观回环验证和占据融合。",
+      "priority": false
+    },
+    {
+      "id": "2605.14781",
+      "category": "sensors-applications",
+      "takeaway": "MonoPRIO为各类别构建尺寸原型，经查询软路由和不确定性感知的对数空间调制调整尺寸先验，处理单目检测中的遮挡与尺度深度歧义。",
+      "priority": false
+    },
+    {
+      "id": "2605.15705",
+      "category": "world-action",
+      "takeaway": "世界模型遇到域外状态后开环预测失准，限制策略引导，以实时观测更新轻量反馈状态校正未来，并用动作相关引导抑制不可控变化。",
+      "priority": false
+    },
+    {
+      "id": "2605.15828",
+      "category": "geometry-foundation",
+      "takeaway": "共享几何骨干的任务、块与通道对量化误差敏感度不同，FGQ用对角Fisher信息评估敏感度，并在校准时调节可学习仿射变换。",
+      "priority": false
+    },
+    {
+      "id": "2605.16395",
+      "category": "world-models",
+      "takeaway": "非结构化想象世界模型难与物理资产和下游控制联通，OrbiSim把显式状态转移与视觉生成连成端到端可微仿真环。",
+      "priority": false
+    },
+    {
+      "id": "2605.17661",
+      "category": "semantic-spatial",
+      "takeaway": "Mono-Hydra++联合单目惯性信息、深度语义预测、深特征视觉惯性里程计、位姿图和动态遮罩，使轻量机器人无需搭载深度传感器也能维护语义场景图。",
+      "priority": false
+    },
+    {
+      "id": "2605.22190",
+      "category": "geometry-foundation",
+      "takeaway": "现有单前向方法难同时处理无位姿、多视图和动态场景，NoPo4D分解图像平面与深度方向运动，结合伪光流监督、双向运动编码和视角透明度。",
+      "priority": false
+    },
+    {
+      "id": "2606.00990",
+      "category": "navigation",
+      "takeaway": "临时障碍前固定等待或绕路阈值容易浪费导航时间，OSCAR在线学习按类别分组的剩余清障时间生存分布，并融入时间相关图规划。",
+      "priority": false
+    },
+    {
+      "id": "2606.01810",
+      "category": "robot-applications",
+      "takeaway": "CausalPlanBench以四类因果维度检验视觉规划，并从自视角视频构建四阶段标注数据，区分模型对符号先验的利用与真实下一状态推理。",
+      "priority": false
+    },
+    {
+      "id": "2606.03287",
+      "category": "localization-registration",
+      "takeaway": "BA-T让共享的轻量Transformer层在潜在特征中反复执行类似束调整的残差更新，为前馈三维模型的深解码器引入结构化几何迭代。",
+      "priority": false
+    },
+    {
+      "id": "2606.05102",
+      "category": "gaussian-reconstruction",
+      "takeaway": "ZipSplat从图像图块构建可合并特征单元，以锥损失与GeoCE约束几何并提供TokenBA，使高斯输出预算可变，同时保留观测约束。",
+      "priority": false
+    },
+    {
+      "id": "2606.05160",
+      "category": "world-action",
+      "takeaway": "GRAIL先确定资产、相机、尺度、深度和机器人比例，再将生成视频转为人—物交互优化、动作重定向与跟踪数据，用于扩展人形移动操作示范。",
+      "priority": false
+    },
+    {
+      "id": "2606.13769",
+      "category": "world-action",
+      "takeaway": "像素预测成本高，动作标签又绑定特定机器人，μ0用TraceExtract提取语言对齐3D交互点轨迹，以B样条控制点预测未来并接动作专家。",
+      "priority": false
+    },
+    {
+      "id": "2606.16881",
+      "category": "slam-vio",
+      "takeaway": "SGM-SLAM从彩色图像与激光雷达语义点云构建对象场景图，分阶段交换摘要并匹配、精炼和优化，以应对分布式SLAM的低重叠、外观变化及带宽限制。",
+      "priority": false
+    },
+    {
+      "id": "2606.17562",
+      "category": "sensors-applications",
+      "takeaway": "LiDAR传感链中的潜伏恶意逻辑可能在部署后被外部触发，研究在封闭环境预植恶意逻辑，用调制光经原生双回波处理激活数据注入和抑制。",
+      "priority": false
+    },
+    {
+      "id": "2606.18558",
+      "category": "sensors-applications",
+      "takeaway": "MolmoMotion用世界坐标中的三维点轨迹表示对象运动，并以自回归和流匹配预测语言条件下的运动，提供跨视角稳定且类别无关的世界表示。",
+      "priority": false
+    },
+    {
+      "id": "2606.19340",
+      "category": "robot-applications",
+      "takeaway": "ZeroDex将标定多视图中的视觉语言目标定位转为三维度量目标，再以技能库、轨迹对齐和手臂手部规划执行零样本工具使用与灵巧操作。",
+      "priority": false
+    },
+    {
+      "id": "2606.20698",
+      "category": "world-action",
+      "takeaway": "VLA安全RL常需昂贵实机探索或手写安全函数，SafeDojo在交互视频模型中想象，用成功分类器和接触安全头构成约束GRPO更新。",
+      "priority": false
+    },
+    {
+      "id": "2606.25430",
+      "category": "geometry-foundation",
+      "takeaway": "单图3D重建依赖迭代视频扩散，推理成本高，PRISM将多视图潜变量分为无参数几何前向扭曲与学习残差，并以两阶段蒸馏训练。",
+      "priority": false
+    },
+    {
+      "id": "2606.25699",
+      "category": "slam-vio",
+      "takeaway": "视觉或LiDAR过度自信会比弱信息更严重地破坏融合，SA-LIVO估计帧级视觉噪声、保留重用相关性，并对方向共享误差设信息上限。",
+      "priority": true,
+      "priority_reason": "LiDAR/惯性/视觉融合中的退化处理，属于核心状态估计更新。"
+    },
+    {
+      "id": "2606.30632",
+      "category": "robot-applications",
+      "takeaway": "开放工具使用需要同时选择合适对象和精确作用部位，GROW²让VLM选择工具及部件，再用视觉基础模型从单RGBD定位3D操作区域。",
+      "priority": false
+    },
+    {
+      "id": "2607.06464",
+      "category": "slam-vio",
+      "takeaway": "低成本360相机在施工场重复结构与变化光照下缺可靠评测数据，提供360相机IMU序列、楼层图先验和附着LiDAR惯性参考轨迹，并报告公开挑战。",
+      "priority": false
+    },
+    {
+      "id": "2607.06882",
+      "category": "navigation",
+      "takeaway": "通用导航策略的数据量和动作输出复杂度较高，GemNav将路点坐标表示为离散度量区间分布后软解码，并按物理距离采样训练目标。",
+      "priority": false
+    },
+    {
+      "id": "2607.17103",
+      "category": "localization-registration",
+      "takeaway": "重复建筑中高分LiDAR-BIM注册仍可能落到错误房间，将多子图候选变为共同SE(2)锚点，以共识和拓扑门控输出提交、延迟或歧义状态。",
+      "priority": false
+    },
+    {
+      "id": "2607.18840",
+      "category": "world-action",
+      "takeaway": "WorldScape2.0结合短时视觉记忆、按事件组织的分层长期记忆和自回归规划特征，并进行语义强制对齐，帮助世界动作模型跟踪长任务进展。",
+      "priority": false
+    },
+    {
+      "id": "2607.21918",
+      "category": "world-action",
+      "takeaway": "该方法用动作和时间条件扩散模型预测未来超声图像，再以冻结模型的奖励微调目标条件动作模型，处理示范昂贵且成像依赖接触与组织形变的问题。",
+      "priority": false
+    },
+    {
+      "id": "2607.26148",
+      "category": "navigation",
+      "takeaway": "研究让不同通用模型仅凭单目图像和基础动作自主控制交互闭环，并比较加入路点或SLAM后的表现，检验通用模型自主控制的能力边界。",
+      "priority": false
+    },
+    {
+      "id": "2607.29237",
+      "category": "sensors-applications",
+      "takeaway": "无监督LiDAR场景流常局限于Chamfer损失训练网络，CorrelationFlow将点运动估计改为BEV图像相关最大化，用经典图像操作免训练求解。",
+      "priority": false
+    },
+    {
+      "id": "2608.07809",
+      "category": "world-action",
+      "takeaway": "世界模型预测结构较准，也可能给控制带来错误建议，CausalNav以动作条件转移图模拟干预，经可靠性、策略边际和动作一致门控才采纳建议。",
+      "priority": false
+    },
+    {
+      "id": "2608.09537",
+      "category": "world-models",
+      "takeaway": "某模型上有效的优化策略容易被错误迁移到新世界模型，VERDI以探针构建优化指纹，检索假设并经冻结目标验证器核实后才存证。",
+      "priority": false
+    },
+    {
+      "id": "2608.16264",
+      "category": "sensors-applications",
+      "takeaway": "Cyclops先稠密化激光雷达强度投影，再以潜空间桥接和少步常微分方程生成彩色图像，并用时序注意及终端奖励稳定视频，补充低光雷达缺失的语义纹理。",
+      "priority": false
+    },
+    {
+      "id": "2608.19085",
+      "category": "world-action",
+      "takeaway": "DAWAM为各候选动作预测未来潜在状态，并联合多头效用评分和安全难负例后训练，使相近几何状态中不同的规划价值与安全后果更易区分。",
+      "priority": false
+    },
+    {
+      "id": "2608.22869",
+      "category": "world-action",
+      "takeaway": "VLA在非马尔可夫任务中缺记忆，分层VLM管理又增加开销，UniMem在同骨干中用事件分类器更新文本与视觉记忆，配关键帧编码和缓存。",
+      "priority": false
+    },
+    {
+      "id": "2608.25572",
+      "category": "world-action",
+      "takeaway": "ConfAL-WM为解码特征添加密集置信探针，按任务选择数据并对帧和图块重加权，重点处理世界模型在手臂、接触与遮挡区域集中的域外误差。",
+      "priority": false
+    },
+    {
+      "id": "2609.03892",
+      "category": "semantic-spatial",
+      "takeaway": "GraFT以紧凑三维场景图和符号工具提供数值、鸟瞰图及几何筛选的自视帧证据，无需训练即可辅助冻结多模态大模型进行测量与视角变换。",
+      "priority": false
+    },
+    {
+      "id": "2609.07299",
+      "category": "world-models",
+      "takeaway": "该方法保留异步传感器的最近读数，并向世界模型提供测量已过去的时间和下次刷新时间，避免插值虚构观测或降采样浪费测量。",
+      "priority": false
+    },
+    {
+      "id": "2609.14073",
+      "category": "world-models",
+      "takeaway": "3M对候选轨迹按物理可靠性加权，通过窗口定位和成对复评修正预测，并将完整性、可见性与连续性纳入评估，避免低误差掩盖轨迹遗漏。",
+      "priority": false
+    },
+    {
+      "id": "2609.16926",
+      "category": "gaussian-reconstruction",
+      "takeaway": "远程作物表型分析需要可靠可复用的三维数字模型，比较七种网格重建流水线的几何、图像与用户评价。",
+      "priority": false
+    },
+    {
+      "id": "2609.17210",
+      "category": "world-action",
+      "takeaway": "FluxVLA统一数据、模型、动作头、训练仿真及实机接口，并接入远程计算与在线纠正，减少视觉语言动作模型从训练到部署的流程割裂。",
+      "priority": false
+    },
+    {
+      "id": "2609.18898",
+      "category": "semantic-spatial",
+      "takeaway": "NormLift在CLIP单位球面求解余弦对齐的闭式解，以特征范数评估二维语义提升到高斯后的混合程度，再通过模式投票修正混合语义。",
+      "priority": false
+    },
+    {
+      "id": "2609.20582",
+      "category": "robot-applications",
+      "takeaway": "V2-STRep以视觉语言模型分解动作阶段和几何约束，再通过RGB-D将目标提升到三维并联合优化抓取及完整轨迹，使生成动作视频可迁移到新场景。",
+      "priority": false
+    },
+    {
+      "id": "2609.22332",
+      "category": "world-action",
+      "takeaway": "人类交互视频丰富，但缺动作标签且与机器人形态不同，AffordanceWAM联合流匹配世界与动作专家，生成RGB、标量可供性和热图后预测动作。",
+      "priority": false
+    },
+    {
+      "id": "2609.24526",
+      "category": "robot-applications",
+      "takeaway": "MEVLM通过专家强化学习和多教师在线策略蒸馏联合学习物理感知、推理与执行反馈，再以边缘压缩和低比特量化支持部署。",
+      "priority": false
+    },
+    {
+      "id": "2609.25625",
+      "category": "robot-applications",
+      "takeaway": "研究以惯性、飞行时间和霍尔传感器记录术者器械运动并对齐时延，再用视觉特征与扩散策略在仿真中选型后迁移实机。",
+      "priority": false
+    },
+    {
+      "id": "2609.35052",
+      "category": "simulation-evaluation",
+      "takeaway": "生成历史和选择性重访容易混淆视频世界模型的真实对象记忆，OPIS以初始对象清单为固定参考，结合关联和可见性分层评存在、身份与结构。",
+      "priority": false
+    },
+    {
+      "id": "2609.36889",
+      "category": "navigation",
+      "takeaway": "该方法以条件流匹配生成多个长程目标锚点，再经避障路径转换、模式聚类和分层重排，在部分观测下保留多种未来选择。",
+      "priority": false
+    },
+    {
+      "id": "2609.39601",
+      "category": "world-models",
+      "takeaway": "GroundingPI采用共享量化的点与框词表，结合空间预训练、监督微调和强化学习，再接入操作或驾驶任务，改善细小拥挤目标的精确定位。",
+      "priority": false
+    },
+    {
+      "id": "2609.40003",
+      "category": "world-action",
+      "takeaway": "DashVMC用少量游戏数据训练离散世界模型，在冻结模型内以强化学习改进行为克隆策略，并在部署时跳过图像生成，适应不能暂停等待推理的实时环境。",
+      "priority": false
+    },
+    {
+      "id": "2610.01001",
+      "category": "simulation-evaluation",
+      "takeaway": "MC-WM将拟合、模型选择与校准分开，按独立校准风险选择模拟器校正或目标模型拟合，并以置信信号加权想象中的策略更新。",
+      "priority": false
+    },
+    {
+      "id": "2610.03079",
+      "category": "world-action",
+      "takeaway": "RIFAR从短历史前缀重建回放，以逆动力学可靠性筛选生成数据，再优先回放动作漂移较大的旧输入，减少视觉动作不一致与遗忘。",
+      "priority": false
+    },
+    {
+      "id": "2610.06588",
+      "category": "semantic-spatial",
+      "takeaway": "持久视频记忆既不能无限增长，也不应一次保留后永不复评，Keepsake构建姿态外观图，按观察的替代支持度动态剔除可替换帧。",
+      "priority": false
+    },
+    {
+      "id": "2610.06594",
+      "category": "geometry-foundation",
+      "takeaway": "相邻片段链式拼接会累积长程尺度与轨迹漂移，VGGT-Bridge用粗步长片段建立跨远距离约束，并选择性反序推理修正尺度偏差。",
+      "priority": true,
+      "priority_reason": "VGGT长序列图结构改造，与本期几何一致性主线直接相关。"
+    },
+    {
+      "id": "2610.06617",
+      "category": "world-action",
+      "takeaway": "WAM受多步动作去噪和视频动作专家串行等待拖慢，RealtimeWAM以教师终点锚定一致性蒸馏成一步动作，并逐块共享KV异步流水。",
+      "priority": false
+    },
+    {
+      "id": "2610.06814",
+      "category": "world-action",
+      "takeaway": "TAPDreamer只使用公共视觉编码器和少量源帧构造局部扰动，通过最大化全局表征偏移跨任务破坏世界动作模型控制，无需查询目标策略。",
+      "priority": false
+    },
+    {
+      "id": "2610.07217",
+      "category": "robot-applications",
+      "takeaway": "RoboCap将轻量六相机双惯性单元头戴设备与设备无关接口协同设计，联合标定、SLAM、深度估计和手部跟踪，服务自视角机器人数据采集。",
+      "priority": false
+    },
+    {
+      "id": "2610.11049",
+      "category": "localization-registration",
+      "takeaway": "SatFix用卫星网格查询汇聚无人机观测，并基于VGGT-Ω回归地图坐标中的连续二维位置和航向，弥补离散卫星图块检索的定位局限。",
+      "priority": false
+    },
+    {
+      "id": "2610.11376",
+      "category": "world-models",
+      "takeaway": "LiDAR潜生成器的VAE解码模糊深度边界，产生表面间飞点，CRISP冻结编码器和潜生成器，以带适配器、DiT去噪及支撑掩码的像素扩散替换解码器。",
+      "priority": false
+    },
+    {
+      "id": "2610.11723",
+      "category": "simulation-evaluation",
+      "takeaway": "独立控制的多玩家视图未必描述同一持久世界，MultiWorldBench以Minecraft引擎真值评共享状态、跨视运动、重访和结构推理。",
+      "priority": false
+    },
+    {
+      "id": "2610.13643",
+      "category": "simulation-evaluation",
+      "takeaway": "实验室动态火焰、气泡等现象使灵巧操作评测不够真实，DexBioLab将可交互前景与真实实验室3DGS背景结合，以PFSM和解耦重放并行评测。",
+      "priority": false
+    },
+    {
+      "id": "2610.14018",
+      "category": "world-action",
+      "takeaway": "RoboHarness为代码代理提供视觉与几何控制面板，在机器人任务中比较其与专用视觉语言动作模型、世界动作模型的表现。",
+      "priority": false
+    },
+    {
+      "id": "2610.14698",
+      "category": "geometry-foundation",
+      "takeaway": "前馈几何在真实动态视频中受形变、遮挡和标注不足影响，PURE用相对深度、仿射不变几何蒸馏与特征对应姿态修正做无标签后训练。",
+      "priority": false
+    },
+    {
+      "id": "2610.16177",
+      "category": "semantic-spatial",
+      "takeaway": "DIGS为每个高斯保留多个实例标签的概率分布，延后硬分类，并将持续实例身份与CLIP、语言模型融合，缓解实例边界的特征混淆。",
+      "priority": false
+    },
+    {
+      "id": "2610.16272",
+      "category": "geometry-foundation",
+      "takeaway": "混入不相交场景的图集会污染联合前馈重建，Graph3R复用π3多视特征预测共视图，再分组掩码解码相机和几何。",
+      "priority": false
+    },
+    {
+      "id": "2610.16522",
+      "category": "navigation",
+      "takeaway": "该方法离线学习Hamilton–Jacobi可达性隐式函数，并用于模型预测控制终端约束和控制屏障函数，使安全判断纳入动力学而非只看几何距离。",
+      "priority": false
+    },
+    {
+      "id": "2610.18093",
+      "category": "sensors-applications",
+      "takeaway": "LynxScenes以同步鱼眼相机、双激光雷达、惯性和里程计数据补充真实轮足平台的多任务监督，并通过日志重放进行伪闭环评测。",
+      "priority": false
+    },
+    {
+      "id": "2610.18447",
+      "category": "world-models",
+      "takeaway": "ThinkerWM以共享动力学Transformer和各模态专用编解码器连接图像、几何与动作，统一支持未来预测、策略生成和逆动力学。",
+      "priority": false
+    },
+    {
+      "id": "2610.18697",
+      "category": "world-action",
+      "takeaway": "UniW(A)M共享混合专家中的动力学专家，同时保留各接口的能力专家，并按执行片段选择接口，让世界预测与动作生成复用动力学知识。",
+      "priority": false
+    },
+    {
+      "id": "2610.18826",
+      "category": "simulation-evaluation",
+      "takeaway": "世界模型评测缺少与相同动作的真实执行逐项配对，WorldOracle固定初始观察和低层动作，比较物理状态、空间对齐、交互区域与多视一致性。",
+      "priority": false
+    },
+    {
+      "id": "2610.19327",
+      "category": "world-action",
+      "takeaway": "SonoWorld先从临床视频学习潜在动作，再以少量电磁跟踪数据绑定六自由度运动，最后蒸馏因果流式生成，使超声仿真能响应细微探头位姿变化。",
+      "priority": false
+    },
+    {
+      "id": "2610.20693",
+      "category": "world-models",
+      "takeaway": "Orbia从输入保持、新生内容重访和自一致性三个角度检验视频世界模型，借助深度、对应、尺度及留出高斯渲染揭示三维持久性问题。",
+      "priority": false
+    },
+    {
+      "id": "2610.20731",
+      "category": "world-models",
+      "takeaway": "多步世界状态生成需要联合多模态理解、物理与抽象推理，WorldCast建立四级能力框架与八类人工设计状态预测案例，评多种生成模型。",
+      "priority": false
+    },
+    {
+      "id": "2610.21090",
+      "category": "gaussian-reconstruction",
+      "takeaway": "神经布料材质重建缺真实多视点和多光照采集数据，RoboCloth用机器人标定采集并SfM优化姿态，先学共享MLP材质先验再拟合高分辨潜纹理。",
+      "priority": false
+    },
+    {
+      "id": "2610.21302",
+      "category": "gaussian-reconstruction",
+      "takeaway": "动态高斯中的小快物体消失，增加容量也未必恢复，按时变外观和残差多视图植入新高斯，并按时间优化信号引导高斯重定位。",
+      "priority": false
+    },
+    {
+      "id": "2610.21374",
+      "category": "world-models",
+      "takeaway": "该方法以深度归一化相对运动建立碰撞锥，按观测器误差扩大安全边界，再以控制屏障函数修正控制，避免单目导航依赖难直接观测的绝对尺度和速度。",
+      "priority": false
+    },
+    {
+      "id": "2610.21783",
+      "category": "navigation",
+      "takeaway": "VLM通常被动读取多视图，缺主动获取必要3D证据的能力，ACT3D以单帧交互探索，先轨迹监督再用最终答案奖励训练推理与移动策略。",
+      "priority": false
+    },
+    {
+      "id": "2610.22363",
+      "category": "world-action",
+      "takeaway": "P³-WAM用紧凑三维动作表示和视觉—动作双向注意，在同一模型内统一感知、预测与规划，减少自视角操作中三个环节由独立模型承担的割裂。",
+      "priority": false
+    },
+    {
+      "id": "2610.22450",
+      "category": "simulation-evaluation",
+      "takeaway": "驾驶场景视觉逼真不保证几何可靠，生成内容可能无测量支持，DriveWorld3D提议在线分离占据、可观测性和证据来源，离线受约束扩展NeRF或3DGS场景。",
+      "priority": false
+    },
+    {
+      "id": "2610.22471",
+      "category": "robot-applications",
+      "takeaway": "研究将演示数据量、执行时长和实时世界时钟纳入多基准与实机评测，检验较高任务成功率在统一预算和无域内示范条件下是否仍成立。",
+      "priority": false
+    },
+    {
+      "id": "2610.22505",
+      "category": "slam-vio",
+      "takeaway": "内窥镜运动不均、反光和重复组织使固定关键帧策略失效，KFS⁴LAM以累积运动选帧，结合结肠轮廓监督、密度感知建图与受限组织形变。",
+      "priority": true,
+      "priority_reason": "内窥镜GS-SLAM关键帧策略，连接特殊场景定位与高斯建图。"
+    },
+    {
+      "id": "2610.22509",
+      "category": "sensors-applications",
+      "takeaway": "TriSAR-3D同步采集激光雷达、彩色及热成像数据，PaintFusion再融合投影到点云的视觉证据，适应救援目标卧姿、遮挡等区别于车载行人的分布。",
+      "priority": false
+    },
+    {
+      "id": "2610.22514",
+      "category": "geometry-foundation",
+      "takeaway": "地标照片重建误差存在地域差异，不能只由训练覆盖解释，ArchWorld提供地理广泛的建筑基准，分解场景尺度、建筑特征与背景干扰后设计干预。",
+      "priority": false
+    },
+    {
+      "id": "2610.22552",
+      "category": "slam-vio",
+      "takeaway": "平面声呐SLAM丢弃高度信息，难适应森林坡地，RTISSLAM-3D用球面CFAR、波束感知里程计、子图识别和3D验证回环构成6DoF姿态图。",
+      "priority": true,
+      "priority_reason": "声呐6DoF SLAM，补充非光学传感器的核心建图系统。"
+    },
+    {
+      "id": "2610.22563",
+      "category": "localization-registration",
+      "takeaway": "常规视觉定位难进入微米级，显微成像又带来标定与聚焦问题，利用自然地面显微纹理建立平面地图，结合放大倍率与像素误差设计定位系统。",
+      "priority": false
+    },
+    {
+      "id": "2610.22778",
+      "category": "gaussian-reconstruction",
+      "takeaway": "该方法直接学习透明度的Cholesky精度因子及查询到位置的回归，替代从联合协方差推导条件参数，减少高维高斯切片中的逐基元矩阵求逆。",
+      "priority": false
+    },
+    {
+      "id": "2610.22812",
+      "category": "navigation",
+      "takeaway": "VLN常默认指令可执行，忽略机器人宽度导致的通行失败，PASS-VLN固定场景路线而改变机体宽度，在深度BEV中膨胀障碍并预测连续执行的动作码。",
+      "priority": false
+    },
+    {
+      "id": "2610.22825",
+      "category": "world-action",
+      "takeaway": "世界预测损失可能丢失评价反事实动作所需信息，WAC联合学习候选动作条件未来与价值评估器，借外部质量目标监督未执行候选。",
+      "priority": false
+    },
+    {
+      "id": "2610.22905",
+      "category": "navigation",
+      "takeaway": "群体物理覆盖快不等于对未访问区域已形成完整地图，SenseSwarm在共享占据图上运行709K预测器，并把预期结构写入协作引导场。",
+      "priority": false
+    },
+    {
+      "id": "2610.22997",
+      "category": "robot-applications",
+      "takeaway": "GR-VIP以姿态预训练编码器的稠密关系特征驱动动作，避免依赖最终相对姿态表示，处理通用视觉特征难支持的毫米级末端位置与朝向校正。",
+      "priority": false
+    },
+    {
+      "id": "2610.23039",
+      "category": "geometry-foundation",
+      "takeaway": "两个冻结几何与高斯模型串联时质量下降易被归因于姿态噪声，分析并确定性修复VGGT与TokenGS之间的坐标系和位移尺度失配，无额外训练。",
+      "priority": false
+    },
+    {
+      "id": "2610.23050",
+      "category": "gaussian-reconstruction",
+      "takeaway": "TriFold将多槽位网格查询编码为三平面表示，再按占据与局部集合解码可变数量高斯并训练流匹配，让固定潜空间适应不规则高斯数量和密度。",
+      "priority": false
+    },
+    {
+      "id": "2610.23053",
+      "category": "world-action",
+      "takeaway": "VLA与WAM缺少统一联系训练、输出和部署策略的表述，用条件输出分布及动作实现随机核描述模型，并接预训练与离线或在线后训练。",
+      "priority": false
+    },
+    {
+      "id": "2610.23097",
+      "category": "navigation",
+      "takeaway": "磁导航依赖昂贵且庞大的预建磁地图，用Rao-Blackwell粒子滤波估局部磁梯度，再以梯度下降朝目的地导航。",
+      "priority": false
+    },
+    {
+      "id": "2610.23121",
+      "category": "gaussian-reconstruction",
+      "takeaway": "Scene-Designer以场景设计和评判数据训练设计器与评估器，再用Scene-GRPO指导决策和纠错，使语言场景生成同时检查物理、功能与布局。",
+      "priority": false
+    },
+    {
+      "id": "2610.23127",
+      "category": "world-action",
+      "takeaway": "人形动作跟踪仅用根坐标时，受扰后难恢复世界目标位姿，BeJEPA联合动作一步预测器和目标条件后继预测器，以无监督RL学习行为表征。",
+      "priority": false
+    },
+    {
+      "id": "2610.23156",
+      "category": "world-action",
+      "takeaway": "稠密或图像世界模型长预测易产生刚体形状漂移，ORD-WM用SDF监督向量神经元VAE，预测对象SE(3)增量并解析作用于现有潜变量。",
+      "priority": false
+    },
+    {
+      "id": "2610.23188",
+      "category": "localization-registration",
+      "takeaway": "该方法用惯性运动估计补偿测量窗口内光信号变化，再融合可见光定位与惯性导航，减少快速运动使接收信号强度从瞬时值变成窗口平均值的误差。",
+      "priority": false
+    },
+    {
+      "id": "2610.23203",
+      "category": "navigation",
+      "takeaway": "SimpleVLN保留原生多模态大模型架构，加入固定预算的全局局部记忆和分段动作，再依次进行模仿学习、数据聚合及强化学习，检验其语言导航潜力。",
+      "priority": false
+    },
+    {
+      "id": "2610.23237",
+      "category": "gaussian-reconstruction",
+      "takeaway": "RGB与X射线分别重建导致几何重复和跨模态对齐不稳，X-Splat共享高斯几何，仅近表面加外观；用MVS与X射线代理配准并联合监督。",
+      "priority": false
+    },
+    {
+      "id": "2610.23250",
+      "category": "geometry-foundation",
+      "takeaway": "长视频前馈高斯受联合显存和重复表面高斯积累限制，LonGaussian流式解码长上下文，以多帧点轨迹指导学习合并，并做渲染深度遮挡过滤。",
+      "priority": true,
+      "priority_reason": "长上下文前馈重建中的基础模型先验跟踪，与几何记忆主线相关。"
+    },
+    {
+      "id": "2610.23288",
+      "category": "world-action",
+      "takeaway": "多机器人规划分工难处理执行偏差后的可执行协调修正，CoEvolve把团队策略写成固定技能上的代码，经物理验证从已接受检查点演化。",
+      "priority": false
+    },
+    {
+      "id": "2610.23302",
+      "category": "semantic-spatial",
+      "takeaway": "SpatialTRM冻结视觉语言特征，用共享权重的递归推理器和凸区域解码器处理空区域关系与参考系推理，比较同等可训练参数下的递归收益。",
+      "priority": false
+    },
+    {
+      "id": "2610.23334",
+      "category": "world-action",
+      "takeaway": "长程操作除预测未来外，还需语义子任务规划与进度评估，LAW以VLM规划、估值融合WAM动作并异步检查进展，结合双流记忆和子任务价值学习。",
+      "priority": false
+    },
+    {
+      "id": "2610.23381",
+      "category": "localization-registration",
+      "takeaway": "该研究推导彩色噪声下的定位误差下界及各子载波的到达时间信息贡献，再以贪心功率分配兼顾通信服务质量，处理水声频率选择性带来的定位贡献不均。",
+      "priority": false
+    },
+    {
+      "id": "2610.23396",
+      "category": "world-action",
+      "takeaway": "杂乱遮挡下当前视图无法提供操作所需空间关系，AWAM先预测虚拟相机轨迹，查询几何条件世界模型，将未来压缩记忆后融合实时观测。",
+      "priority": false
+    },
+    {
+      "id": "2610.23423",
+      "category": "world-models",
+      "takeaway": "Momentum用参考多相机视频保存动态记忆，并沿相机关系图传播生成，再据此生成目标视图，持续更新视野外对象以减少重现时的状态错误。",
+      "priority": false
+    },
+    {
+      "id": "2610.23496",
+      "category": "slam-vio",
+      "takeaway": "动态区域的不准确不确定性会污染位姿和深度联合优化，FLoTS以真实光流与相机运动光流之差估掩码，先用高置信像素估姿再联合精炼。",
+      "priority": true,
+      "priority_reason": "动态单目SLAM用光流估计不确定性，值得核对完整优化与协议。"
+    },
+    {
+      "id": "2610.23542",
+      "category": "world-models",
+      "takeaway": "MIST将设定场景、隐藏变化与最终揭示分开，M3-Agent再递归修订指令促成缺失动作，区分模型未执行变化与执行后遗忘变化两类问题。",
+      "priority": false
+    },
+    {
+      "id": "2610.23595",
+      "category": "slam-vio",
+      "takeaway": "稠密光度属性附着LiDAR地图会增加存储与维护成本，F-LIVO以视觉点到LiDAR平面约束耦合，平面射线求交补深度并按平面可靠性调协方差。",
+      "priority": true,
+      "priority_reason": "LiDAR/惯性/视觉测量建模，属于核心多传感器里程计。"
+    },
+    {
+      "id": "2610.23600",
+      "category": "sensors-applications",
+      "takeaway": "自监督深度混合多域训练常学习数据集结构偏差而非通用几何，MaSS分开结构与上下文路径，用场景结构判别目标引导深度解码。",
+      "priority": false
+    },
+    {
+      "id": "2610.23615",
+      "category": "world-action",
+      "takeaway": "潜世界模型规划常需昂贵在线动作搜索，HIJP用未来观察重标目标训练逆模型，再将预测动作送入潜预测器约束转移一致性。",
+      "priority": false
+    },
+    {
+      "id": "2610.23622",
+      "category": "semantic-spatial",
+      "takeaway": "FOUND-IT把基础模型三维记忆与场景图接入单个未标定相机的移动操作机器人，以跨会话、场景变化、路径和抓取任务检验系统闭环。",
+      "priority": false
+    },
+    {
+      "id": "2610.23635",
+      "category": "navigation",
+      "takeaway": "四旋翼方法常只适应静态或动态障碍之一，TransNav用点云图块的局部全局Transformer直接预测有限时域动作，并借质点动力学反传轨迹成本。",
+      "priority": false
+    },
+    {
+      "id": "2610.23662",
+      "category": "robot-applications",
+      "takeaway": "该方法用强化学习读取当前状态、计划和求解器统计，同时决定规划计算量与动作承诺时长，使规划预算适应计划质量和盲控时域。",
+      "priority": false
+    },
+    {
+      "id": "2610.23732",
+      "category": "gaussian-reconstruction",
+      "takeaway": "ESC以源图像、深度和目标相机射线联合生成新视图及深度，再逐像素检查深度一致性，缓解二维扩散在大视角变化下的三维歧义。",
+      "priority": false
+    },
+    {
+      "id": "2610.23795",
+      "category": "world-models",
+      "takeaway": "大规模视频生成需要紧凑且可持续更新的显式3D记忆，PPMem联合预测视频和平面，融合为持久平面库并以渲染深度条件后续片段。",
+      "priority": false
+    },
+    {
+      "id": "2610.23841",
+      "category": "navigation",
+      "takeaway": "StopWatch显式接入目标定位并修正基准标注，区分感知与策略误差，处理物体导航中目标已可见却继续探索或错误估距的问题。",
+      "priority": false
+    },
+    {
+      "id": "2610.23856",
+      "category": "world-models",
+      "takeaway": "VGC从已知相机运动的视频合成训练对，将补绘视频映射回几何一致的目标视图，并用光流辅助区分相机运动与对象运动。",
+      "priority": false
+    },
+    {
+      "id": "2610.23873",
+      "category": "navigation",
+      "takeaway": "该方法融合可见光、长波红外、调频连续波雷达与惯性上下文，为小型水面艇导航输出校准的方位扇区概率、距离和传感器状态。",
+      "priority": false
+    },
+    {
+      "id": "2610.23877",
+      "category": "navigation",
+      "takeaway": "VLM推理准确率和时延会以不同方式影响无人机飞行稳定，在工作站和集显笔记本上压力测试模型规模、语义故障与闭环轨迹响应。",
+      "priority": false
+    },
+    {
+      "id": "2610.23886",
+      "category": "world-models",
+      "takeaway": "冻结驾驶策略重复失败，重新收数训练成本高，EvoAD检索BEV经验，以潜世界模型反思已执行轨迹，并在不重训基策略时改进未来决策。",
+      "priority": false
+    },
+    {
+      "id": "2610.23887",
+      "category": "robot-applications",
+      "takeaway": "ContactKernels根据力和力矩估计接触点及法向，并在线改变采样控制器的候选分布，处理感知、几何和控制误差共同影响的插接任务。",
+      "priority": false
+    },
+    {
+      "id": "2610.23894",
+      "category": "world-action",
+      "takeaway": "WAM视觉预测可能关注场景变化而非全身任务进度，Language-Forcing以冻结VLM描述当前和真实未来的任务变化，训练时对齐中间未来视觉特征。",
+      "priority": false
+    },
+    {
+      "id": "2610.23895",
+      "category": "geometry-foundation",
+      "takeaway": "纯外观跨视对应忽略已存在的标定和度量稀疏测量，GeoForward以LiDAR投影建立对应锚点，局部视觉细化后融合VGGT，分别预测深度与高斯属性。",
+      "priority": false
+    },
+    {
+      "id": "2610.23896",
+      "category": "navigation",
+      "takeaway": "世界模型通常只评价完整动作候选，未指导候选逐步构建，InJePA用目标条件JEPA生成潜意图，动作条件JEPA反馈后果，交替推断意图和动作。",
+      "priority": false
+    },
+    {
+      "id": "2610.23899",
+      "category": "gaussian-reconstruction",
+      "takeaway": "MicroSplat结合机械臂和消费级显微镜进行标定与采集规划，采集焦点堆栈、分割物体并用机械臂姿态初始化高斯，减少微距小物体采集的失焦和出框。",
+      "priority": false
+    },
+    {
+      "id": "2610.23913",
+      "category": "world-action",
+      "takeaway": "UMI-WM按手臂分别注入动作，通过稀疏枢纽交换信息并以相机几何条件生成双视视频，再蒸馏为少步模型，兼顾动作响应与双腕共享场景一致性。",
+      "priority": false
+    },
+    {
+      "id": "2610.23953",
+      "category": "gaussian-reconstruction",
+      "takeaway": "该方法先以视觉语言模型分割对象并推断包含内部结构的部件图，再用广义圆柱拟合内部参数，补足生成外形用于仿真和制造时缺失的几何。",
+      "priority": false
+    },
+    {
+      "id": "2610.23982",
+      "category": "world-models",
+      "takeaway": "视频预训练对物理状态的时间演化监督不足，Time-JEPA以时间对齐的低维物理序列辅助微调视频表示，跨驾驶、操作和人体领域联合训练。",
+      "priority": false
+    },
+    {
+      "id": "2610.23984",
+      "category": "world-models",
+      "takeaway": "Anchor-WM以DINO稠密特征作为训练教师，学习紧凑的动作条件潜状态并在推理时移除教师，兼顾防止表征坍缩与适应动力学变化。",
+      "priority": false
+    },
+    {
+      "id": "2610.24012",
+      "category": "navigation",
+      "takeaway": "ChairNav先从跨形态数据预训练，再用少量轮椅示范做中间训练，最后依据用户干预后训练，兼顾室外长程轮椅导航的数据不足与个性化偏好。",
+      "priority": false
+    },
+    {
+      "id": "2610.24075",
+      "category": "gaussian-reconstruction",
+      "takeaway": "OrTeN用神经逆渲染联合优化高度图和相机修正，结合投影图块相关性、反射及阴影模型，处理轨道线扫地形重建中的轨迹误差与日照变化。",
+      "priority": false
+    },
+    {
+      "id": "2610.24122",
+      "category": "navigation",
+      "takeaway": "视频预测更新慢而局部导航需要实时响应，联合执行易重复计算，HAVANA以慢系统生成语言条件潜计划，快系统异步结合当前观测输出局部轨迹。",
+      "priority": false
+    },
+    {
+      "id": "2610.24218",
+      "category": "localization-registration",
+      "takeaway": "术中单目表面缺度量尺度，肝模型配准又难判断失败，SimCompose从多视点估完整相似变换，以候选分歧选择可靠解，再用SOFA低维形变精炼。",
+      "priority": false
+    },
+    {
+      "id": "2610.24285",
+      "category": "world-action",
+      "takeaway": "机器人接触数据难收集，人类交互到机器人的视觉与触觉迁移不明确，ACTS以手持GelSight采集运动和法向力变化，联合预测场景、腕视与触觉。",
+      "priority": false
+    },
+    {
+      "id": "2610.24349",
+      "category": "robot-applications",
+      "takeaway": "FlashRT-PAI融合计算核并显式管理执行依赖和缓冲区，通过状态封装复用、恢复和分叉流水，减少小批量物理智能推理中的调度与搬运开销。",
+      "priority": false
+    },
+    {
+      "id": "2610.24449",
+      "category": "navigation",
+      "takeaway": "系缆机器人接触障碍后难判断物体可移动及缆线风险，分析速度、接触角、质量和材质下张力曲线，以六特征逻辑回归分类。",
+      "priority": false
+    },
+    {
+      "id": "2610.24462",
+      "category": "semantic-spatial",
+      "takeaway": "O-SCD++利用固定三维高斯的线性渲染，以每个高斯的两个标量递推融合新证据并求自监督阈值，避免在线变化检测每帧回放全部历史线索。",
+      "priority": false
+    },
+    {
+      "id": "2610.24506",
+      "category": "sensors-applications",
+      "takeaway": "自监督单目深度难适应场景分布并保留细边界，SAP-Depth用场景条件参数预测器生成动态深度区间，再以逐区间概率解码融合多尺度特征。",
+      "priority": false
+    },
+    {
+      "id": "2610.24534",
+      "category": "world-models",
+      "takeaway": "HWM将潜变量映射到广义坐标和动量，以耗散哈密顿动力学传播后再返回原骨干，约束长链预测的物理演化并减少能量漂移。",
+      "priority": false
+    },
+    {
+      "id": "2610.24537",
+      "category": "semantic-spatial",
+      "takeaway": "VideoEMem用时间锚定的多尺度文本与稀疏图保存视频记忆，让写入端和读取端依据各自反馈演化，减少逐次重看视频的成本与压缩细节损失。",
+      "priority": false
+    },
+    {
+      "id": "2610.24587",
+      "category": "robot-applications",
+      "takeaway": "LIBERO标准高分不代表模型能应对运行时分布变化，LIBERO-Pro2.0按六维度构造静态扰动和运行干预，多轮人工检查物理有效性。",
+      "priority": false
+    },
+    {
+      "id": "2610.24605",
+      "category": "gaussian-reconstruction",
+      "takeaway": "快速运动模糊使在线高斯地图漂移，高斯数量也持续增长，RoMo-GS解析积分曝光期投影高斯，结合Hessian剪枝及位姿、速度、高斯联合优化。",
+      "priority": false
+    },
+    {
+      "id": "2610.24607",
+      "category": "geometry-foundation",
+      "takeaway": "度量几何模型适配常依赖外部深度，未充分利用已知内参，IntriAdapt比较预测点云视线与内参定义射线的闭式残差，优化冻结骨干上的LoRA。",
+      "priority": false
+    },
+    {
+      "id": "2610.24610",
+      "category": "robot-applications",
+      "takeaway": "该系统从部分RGB-D视角恢复巨型魔方的度量位姿与颜色状态，再通过规划组合强化学习的全身重定向和转层技能，完成四足机器人的长程操作。",
+      "priority": false
+    },
+    {
+      "id": "2610.24619",
+      "category": "simulation-evaluation",
+      "takeaway": "研究在国际单位制下测量力与动力响应，并通过参考重放、坐标读出、积分器及执行器干预，检查视觉和几何正确的模型是否学对了动力学。",
+      "priority": false
+    },
+    {
+      "id": "2610.24674",
+      "category": "robot-applications",
+      "takeaway": "透明、反光等深度错误会同时污染特征单元位置与几何特征，NISE用标定多视自监督学习可靠特征，以高斯边缘化3D注意传播坐标不确定性。",
+      "priority": false
+    },
+    {
+      "id": "2610.24747",
+      "category": "navigation",
+      "takeaway": "内窥镜需从局部观察和文字描述找回视野外已见目标，EndoVLA-OOV结合初始、中间及当前图像，输出连续双自由度末端弯曲命令。",
+      "priority": false
+    },
+    {
+      "id": "2610.24767",
+      "category": "semantic-spatial",
+      "takeaway": "具身记忆即使保存对话，也未必把信息绑定到正确对象和位置，DialogMem将带姿态RGBD与对话同步输入，再统一比较对象导航及问答的记忆检索。",
+      "priority": false
+    },
+    {
+      "id": "2610.24811",
+      "category": "gaussian-reconstruction",
+      "takeaway": "DaFISH将表面反照率与球谐光照分离，利用解析辐照度转换进行可微训练及新视点光照推断，避免将随相机移动的光源误写成表面颜色。",
+      "priority": false
+    },
+    {
+      "id": "2610.24812",
+      "category": "gaussian-reconstruction",
+      "takeaway": "时间条件动态表示难组合门、开关等离散对象状态，SwitchSplat用共享静态底座与各对象二值槽位分解，端到端发现状态高斯并自由组合。",
+      "priority": false
+    },
+    {
+      "id": "2610.25011",
+      "category": "gaussian-reconstruction",
+      "takeaway": "细图块带来高分辨信息，却使全局多视注意昂贵且高斯冗余，FineSplat先邻视分组再按3D空间重连特征单元，用渲染误差反馈细化并紧凑解码高斯。",
+      "priority": false
+    },
+    {
+      "id": "2610.25013",
+      "category": "world-models",
+      "takeaway": "潜空间L2距离在远目标附近产生虚假的低成本盆地，NGC在训练潜变量的互近邻图上计算最短路，直接替换LeWM终端成本且无需重训。",
+      "priority": false
+    },
+    {
+      "id": "2610.25068",
+      "category": "localization-registration",
+      "takeaway": "LENS在边缘硬件上协同实现低比特场景坐标回归与定点有序高斯渲染，并通过透明度递推剪枝，兼顾视觉定位与渲染的部署需求。",
+      "priority": false
+    },
+    {
+      "id": "2610.25130",
+      "category": "navigation",
+      "takeaway": "该方法将小型视觉语言模型的感知结果作为证据，在鸟瞰语义场累积方向分数，再以骨架图和两阶段终止机制规划路线、估距并判断何时停止。",
+      "priority": false
+    },
+    {
+      "id": "2610.25223",
+      "category": "navigation",
+      "takeaway": "文字导航控制模糊，低层相机轨迹又不便用户指定，Map2Vid以BEV布局和路径生成自视视频，通过课程训练逐步弱化非地图条件。",
+      "priority": false
+    },
+    {
+      "id": "2610.25245",
+      "category": "world-models",
+      "takeaway": "GeoV2V将激光雷达和深度几何先验融入全视频条件生成，并以同步多车道数据提供监督，处理新轨迹尤其跨车道外插时的重建与生成失真。",
+      "priority": false
+    },
+    {
+      "id": "2610.25261",
+      "category": "navigation",
+      "takeaway": "机器人地图需同时支持占据避障、外观与有界显存更新，GOFusion把高斯锚到VIO占据子图，活动子图优化，并以光栅器Fisher近似剪枝和选视点。",
+      "priority": false
+    },
+    {
+      "id": "2610.25273",
+      "category": "world-models",
+      "takeaway": "GeoART在特定去噪步骤生成并扰动多个候选，用几何先验、置信门控和排序校准的概率进行选择，增强相机条件视频生成的位姿控制与几何一致性。",
+      "priority": false
+    },
+    {
+      "id": "2610.25276",
+      "category": "gaussian-reconstruction",
+      "takeaway": "新相机视频需保持源场景运动几何，同时补充不可见区域，Holo4D将前馈重建3D轨迹投影为目标视图4D支架，条件化预训练视频扩散。",
+      "priority": false
+    },
+    {
+      "id": "2610.25284",
+      "category": "sensors-applications",
+      "takeaway": "Lane Field在鸟瞰图每个位置编码局部车道结构，以此调制鸟瞰特征并引导可变形注意采样，连接易接入但几何较弱的栅格与需专用编码器的矢量地图。",
+      "priority": false
+    },
+    {
+      "id": "2610.25296",
+      "category": "world-models",
+      "takeaway": "该工作提出定位基础、组织结构、核验和行动四阶段研究议程，为潜在世界模型建立解释变量交互及其决策因果作用的接口。",
+      "priority": false
+    },
+    {
+      "id": "2610.25345",
+      "category": "geometry-foundation",
+      "takeaway": "跨相机曝光差会污染高斯几何，边界法线监督也不稳定，MCSplat构建深度对应的规范外观空间，以双边网格恢复各相机外观，并用Fisher不确定度加权几何监督。",
+      "priority": false
+    },
+    {
+      "id": "2610.25358",
+      "category": "localization-registration",
+      "takeaway": "LateMatch延后跨图交互，使图内上下文模块可预先计算和缓存，再用熵引导压缩特征，减少查询图与多个数据库图匹配时重复执行整网的成本。",
+      "priority": false
+    },
+    {
+      "id": "2610.25360",
+      "category": "world-models",
+      "takeaway": "平滑合理的未来也可能违背当前世界的实际演化规则，OMC以物理有效但规则错误的轨迹作语义难负例，训练世界相对一致性评分。",
+      "priority": false
+    },
+    {
+      "id": "2610.25397",
+      "category": "slam-vio",
+      "takeaway": "相机与IMU非刚性连接使固定外参VIO不适用，以DH机器人运动学表达时变外参，用两步初始化估关节角后在线优化。",
+      "priority": true,
+      "priority_reason": "在线相机-IMU外参变化与VIO耦合，直接影响部署鲁棒性。"
+    },
+    {
+      "id": "2610.25400",
+      "category": "semantic-spatial",
+      "takeaway": "RAHF-Net将预训练圆柱体素特征投影到相机，以软距离掩码融合近处几何与远处视觉上下文，适应激光雷达随距离变化的可靠性。",
+      "priority": false
+    },
+    {
+      "id": "2610.25414",
+      "category": "simulation-evaluation",
+      "takeaway": "物体干预与相机运动混合描述，使可控世界仿真歧义大，UniState在统一空间记忆中指定物体运动，独立选择观察相机轨迹，并联合训练采样跟随。",
+      "priority": false
+    },
+    {
+      "id": "2610.25419",
+      "category": "robot-applications",
+      "takeaway": "行人对机器人反应程度不同，统一保守或合作策略都可能失配，RCRA从运动历史估反应性，空间聚合后门控冻结保守策略上的LoRA残差。",
+      "priority": false
+    },
+    {
+      "id": "2610.25448",
+      "category": "sensors-applications",
+      "takeaway": "UBD-Bench在匹配解码器下成对探测冻结单模态分支，检查融合输出改善是否掩盖分支退化，并在退化处进行单模态到多模态蒸馏。",
+      "priority": false
+    },
+    {
+      "id": "2610.25517",
+      "category": "geometry-foundation",
+      "takeaway": "几何Transformer固定低分辨训练和帧内注意限制高清重建扩展，ReDT把各视图映射到固定基特征单元空间计算对应，再投回原分辨率预测稠密结果。",
+      "priority": true,
+      "priority_reason": "视觉几何Transformer的分辨率解耦，直接关联前馈3D模型效率。"
+    },
+    {
+      "id": "2610.25600",
+      "category": "world-action",
+      "takeaway": "VQ-WM在量化状态间进行离散最短路规划，再用连续视觉反馈逐段到达，并以首次到达时间建立准度量，缓解长链误差、搜索成本和不可达状态的耦合。",
+      "priority": false
+    },
+    {
+      "id": "2610.25631",
+      "category": "semantic-spatial",
+      "takeaway": "2D监督高斯占据的像素损失低估小前景区域，前景吸引损失用伪深度反投影标签，并联合位置与类别将相容高斯拉向目标。",
+      "priority": false
+    },
+    {
+      "id": "2610.25637",
+      "category": "localization-registration",
+      "takeaway": "研究以地形归一化的垂直分布描述森林激光扫描，并分开诊断候选检索与精匹配，减少重复植被和地形对Scan Context地点识别的混淆。",
+      "priority": true,
+      "priority_reason": "独立复核发现的森林地点识别工作，核心在回环描述子的失败诊断。"
+    },
+    {
+      "id": "2610.25649",
+      "category": "robot-applications",
+      "takeaway": "InteractAgent用同一多模态大模型规划和评估，再调用冻结运动模型，依据场景反馈选择继续、重做或重规划，并用记忆反思处理长时误差累积。",
+      "priority": false
+    },
+    {
+      "id": "2610.25665",
+      "category": "gaussian-reconstruction",
+      "takeaway": "机器人有限视角与标定残差使辐射地图几何欠约束且显存增长，SpaRV以LiDAR深度占据监督稀疏辐射体素，交替优化相机并以分辨率子图控制内存。",
+      "priority": false
+    },
+    {
+      "id": "2610.25666",
+      "category": "world-models",
+      "takeaway": "Fréchet Forcing联合流匹配锚定、真实片段附近的潜空间统计及感知真实度约束，微调流式模型和采样器，减少短片训练模型在自生成长历史中的误差累积。",
+      "priority": false
+    },
+    {
+      "id": "2610.25687",
+      "category": "navigation",
+      "takeaway": "宽松接触模型会把物理不可执行的导航动作计为成功，VeSTA用严格接触反馈训练轨迹组策略，并用风险评论器筛选候选未来。",
+      "priority": false
+    },
+    {
+      "id": "2610.25690",
+      "category": "navigation",
+      "takeaway": "真实语言条件局部导航数据昂贵，模拟训练存在域差异，ScaleNav先预训互联网第一视角指令视频，再对齐模拟动作并联合微调。",
+      "priority": false
+    },
+    {
+      "id": "2610.25734",
+      "category": "world-action",
+      "takeaway": "稀疏动作或语言监督容易丢弃驾驶所需的稠密场景信息，LECDrive用潜在专家特征单元依次蒸馏DINOv3、SAM3与DepthAnything3知识。",
+      "priority": false
+    },
+    {
+      "id": "2610.25763",
+      "category": "world-action",
+      "takeaway": "动态抓取既需显式预测目标运动，也受视频动作去噪时延限制，TrajWAM预测未来目标掩码，经Trajectory ControlNet引导视频，再蒸馏单步动作接口。",
+      "priority": false
+    },
+    {
+      "id": "2610.25840",
+      "category": "gaussian-reconstruction",
+      "takeaway": "OV-PEAR生成未知工业物体的候选假设，经检索与配准估计位姿和尺度，再以多视图RGB-D占据核验，处理单视图遮挡、生成偏差和尺度歧义。",
+      "priority": false
+    },
+    {
+      "id": "2610.25861",
+      "category": "world-action",
+      "takeaway": "将动作仅作特征条件难保证平面相机游戏世界的几何一致控制，ActionRoPE把动作位移转成世界坐标旋转位置，并按已知、新区域安排去噪。",
+      "priority": false
+    },
+    {
+      "id": "2610.25869",
+      "category": "sensors-applications",
+      "takeaway": "AeroIntent提供同步多传感器无人机轨迹数据，AeroMIR联合轨迹行为和视觉证据推断任务意图，检验未见轨迹程序及雷达缺失时的识别能力。",
+      "priority": false
+    },
+    {
+      "id": "2610.25874",
+      "category": "world-action",
+      "takeaway": "VLDA用局部过渡过滤器和全局未来锚点学习状态变化量，再用该变化引导动作去噪，避免完整未来预测把容量耗在静态外观上，同时保留动作所需的变化接口。",
+      "priority": false
+    },
+    {
+      "id": "2610.25887",
+      "category": "gaussian-reconstruction",
+      "takeaway": "该方法把高斯视为少样本学习单元，联合光流伪视图、相机与场景优化、运动随机失活和早停，缓解稀疏视图高斯重建的过拟合与几何退化。",
+      "priority": false
+    },
+    {
+      "id": "2610.25959",
+      "category": "world-models",
+      "takeaway": "跨开放三维世界的导航规划缺少统一数据及低成本交互训练环境，发布EmbodiedWorld-200K，并在视频世界模型代理环境中做交互RL后训练。",
+      "priority": false
+    },
+    {
+      "id": "2610.25988",
+      "category": "slam-vio",
+      "takeaway": "新平台惯性里程计通常依赖昂贵的真值轨迹监督，SSIO以短窗IMU积分教师从头训练，再用多窗位姿图蒸馏序列一致目标。",
+      "priority": false
+    },
+    {
+      "id": "2610.26082",
+      "category": "sensors-applications",
+      "takeaway": "研究利用光放大提高热光的可用谱密度，同时保留归一化二阶相干特性，并通过建筑栅格扫描检验放大热光用于激光测距的可行性。",
+      "priority": false
+    },
+    {
+      "id": "2610.26179",
+      "category": "world-models",
+      "takeaway": "层级世界模型上层规划反复搜索宏动作，推理成本高，冻结高层预测器，训练目标条件网络生成条件向量，由预测器产出潜在子目标。",
+      "priority": false
+    },
+    {
+      "id": "2610.26210",
+      "category": "slam-vio",
+      "takeaway": "固定配置单目VIO的完整输出并不等于跨场景定位鲁棒，AnchorFlow-VIO在Basalt上结合IMU校正、固定时序修正、窗初始化和固定模板图块跟踪。",
+      "priority": true,
+      "priority_reason": "固定模板单目VIO，需核查场景与传感器约束。"
+    },
+    {
+      "id": "2610.26213",
+      "category": "sensors-applications",
+      "takeaway": "ExMR针对全身特征容易忽略手足细节的问题，分别以关键点残差旋转精化脚踝，并结合预训练手部特征与初始姿态精化手臂和手。",
+      "priority": false
+    },
+    {
+      "id": "2610.26338",
+      "category": "gaussian-reconstruction",
+      "takeaway": "SplatXR在Unity中串联头显采集、外部重建、高斯渲染、网格转换和物理工具，为缺少显式表面的高斯场景补充碰撞、阴影及虚实交互流程。",
+      "priority": false
+    },
+    {
+      "id": "2610.26395",
+      "category": "navigation",
+      "takeaway": "现有具身基准很少真正要求大范围动态环境下的地图推理，ForagerSim将感知、规模、拓扑、动态和任务难度独立配置，并比较RL、工程建图和人类。",
+      "priority": false
+    },
+    {
+      "id": "2610.26508",
+      "category": "navigation",
+      "takeaway": "该方法将具有特权深度输入的专家几何特征蒸馏给RGB规划器，在部署时仅靠单目视觉支持高速飞行，补充缺失的度量几何线索。",
+      "priority": false
+    },
+    {
+      "id": "2610.26545",
+      "category": "navigation",
+      "takeaway": "导航历史既冗余又可能保留后未被有效使用，ReInsVLN以覆盖和指令压缩视觉历史，并按遗忘启发日程提醒冻结导航器重读。",
+      "priority": false
+    },
+    {
+      "id": "2610.26550",
+      "category": "slam-vio",
+      "takeaway": "激光退化时轮式运动能补约束，但滑移和失接触使轮速可信度方向相关，联合激光惯性运动学滤波，用本体历史学习每轮方向协方差并投影抑制弱激光约束。",
+      "priority": true,
+      "priority_reason": "轮腿融合与退化感知的里程计不确定性建模。"
+    },
+    {
+      "id": "2610.26554",
+      "category": "semantic-spatial",
+      "takeaway": "该方法以六层记忆和双层写入契约管理具身长期信息，再通过监督微调、强化学习验证及回放门控修正，处理时间混淆、失真与存储成本。",
+      "priority": false
+    },
+    {
+      "id": "2610.26564",
+      "category": "world-action",
+      "takeaway": "视频潜变量混合外观语义与物理状态，未明确何种状态有利于控制，PrismWAM依次预测目标RGB、深度空间物理演化，再由深度轨迹生成动作。",
+      "priority": false
+    },
+    {
+      "id": "2610.26585",
+      "category": "geometry-foundation",
+      "takeaway": "生成驾驶视频通常还需逐序列优化才能形成可换视点的显式动态场景，Drive2Gauss联合生成RGB、度量深度和光流，以稀疏高斯查询单次解码4DGS。",
+      "priority": false
+    },
+    {
+      "id": "2610.26625",
+      "category": "world-models",
+      "takeaway": "该工作通过SLAM世界对齐的自动标注引擎提供一致监督，再训练EgoX单次前向模型，联合恢复单目自视角视频中的相机、场景、人手和物体。",
+      "priority": false
+    },
+    {
+      "id": "2610.26641",
+      "category": "sensors-applications",
+      "takeaway": "EgoRayFormer沿观察射线生成共享三维假设并投影到双目鱼眼图像，用几何分支修正后求交射线，再门控融合几何与姿态更新。",
+      "priority": false
+    },
+    {
+      "id": "2610.26659",
+      "category": "semantic-spatial",
+      "takeaway": "空间问答能力不等于能主动探索并构建完整精确的度量地图，SpatialScout让给定标定和相机位姿的VLM控制视点并估计物体中心。",
+      "priority": false
+    },
+    {
+      "id": "2610.26690",
+      "category": "sensors-applications",
+      "takeaway": "该方法融合冻结视觉与深度基础特征，经解码、可训练Transformer匹配及一次从粗到细的细化预测稠密光流，检验基础表征支持光流的架构选择。",
+      "priority": false
+    },
+    {
+      "id": "2610.26711",
+      "category": "simulation-evaluation",
+      "takeaway": "生成视频的物理合理性缺少可核验的物体级定量度量，PVBench以专用视觉模型提取位姿、尺度、法向、运动及守恒残差，并校验人评一致性。",
+      "priority": false
+    },
+    {
+      "id": "2610.26729",
+      "category": "localization-registration",
+      "takeaway": "无纹理LoD城市地图的轮廓匹配存在不同位姿同轮廓的歧义，PlanarCityLoc几何初始化后匹配图像平面图块与城市模型平面，用PnP细化位姿。",
+      "priority": false
+    },
+    {
+      "id": "2610.26751",
+      "category": "robot-applications",
+      "takeaway": "Unisense先对齐传感器与语言，再训练各模态专家，并构建多感官数据，处理多模态大模型感官接口异构和语言语义对齐不足的问题。",
+      "priority": false
+    },
+    {
+      "id": "2610.26757",
+      "category": "simulation-evaluation",
+      "takeaway": "模型RL在真实赛车上的交互昂贵且失败危险，模拟器也有偏差，PIA以混合保真模拟轨迹预训世界模型，再结合不确定性正则规划少量在线适配。",
+      "priority": false
+    },
+    {
+      "id": "2610.26762",
+      "category": "sensors-applications",
+      "takeaway": "DexOAK先优化手—物关系图生成重定向初值，再以人体关键点和物体点云训练前馈模型，并用接触、不穿透与自碰撞约束微调。",
+      "priority": false
+    },
+    {
+      "id": "2610.26765",
+      "category": "simulation-evaluation",
+      "takeaway": "灵巧操作跨手型、物体及组合技能的可靠泛化仍缺少统一测试，HandsOn提供可组合仿真、人工示范和无目标任务示范的迁移测试。",
+      "priority": false
+    },
+    {
+      "id": "2610.26780",
+      "category": "sensors-applications",
+      "takeaway": "分阶段手和相机恢复会传播误差，难直接得到一致世界系双手轨迹，V-JEPA Hand以V-JEPA2.1时空编码和查询预测器，一遍联合预测双手、相机及可选焦距。",
+      "priority": false
+    },
+    {
+      "id": "2610.26811",
+      "category": "world-models",
+      "takeaway": "仅生成动作条件视频不能保证不可见状态相关的持久规则成立，Stateful Harness显式执行规则更新状态，再以冻结视频模型渲染事件并回写状态。",
+      "priority": false
+    },
+    {
+      "id": "2610.26813",
+      "category": "world-action",
+      "takeaway": "视频预测保留外观信息，却未约束动作对无关外观扰动保持不变，PICA-WAM用EMA教师正常观测的深层目标，对齐受扰学生的浅层动作表征。",
+      "priority": false
+    },
+    {
+      "id": "2610.26816",
+      "category": "semantic-spatial",
+      "takeaway": "StreamRPS用激光场景补全自动标注旋转雷达数据，再结合雷达专用特征提取、各向异性图块、极坐标注意及流式解码，补充时序分辨率与监督。",
+      "priority": false
+    },
+    {
+      "id": "2610.26844",
+      "category": "world-models",
+      "takeaway": "专家轨迹内准确的世界模型可能无法重组已见状态和动作以完成新目标，AnyGoal构建目标迁移任务，在各因子仍处于训练支持内时改变其组合。",
+      "priority": false
+    },
+    {
+      "id": "2610.26845",
+      "category": "world-models",
+      "takeaway": "稀疏反馈或不可逆动作下，代理需要在执行前比较行动后果，Agima先SFT统一动作和图像未来预测，再以RL训练想象分支和决策。",
+      "priority": false
+    },
+    {
+      "id": "2610.26852",
+      "category": "navigation",
+      "takeaway": "单机器人导航难处理多机器人遮挡、预测误差及分布外安全风险，CoopUQ跨机器人融合时空特征预测占据和不确定性，再用约束多智能体RL导航。",
+      "priority": false
+    },
+    {
+      "id": "2610.26855",
+      "category": "world-action",
+      "takeaway": "不同本体的移动与操作动作空间异质，统一世界模型缺少多模态监督，Ropedia W0以相机位姿描述移动、投影骨架描述操作，联合人类与机器人第一视角训练。",
+      "priority": false
+    },
+    {
+      "id": "2610.26903",
+      "category": "world-action",
+      "takeaway": "单步动作条件视频模型训练昂贵，插值一致不保证纯噪声端点预测准确，BWM直接学习噪声、历史和动作到未来片段的终端映射，加入端点、运动和生成历史监督。",
+      "priority": false
+    },
+    {
+      "id": "2610.26918",
+      "category": "gaussian-reconstruction",
+      "takeaway": "二维热观测难同时恢复三维几何上的连续热演化并外推，GTSM用场景共享潜过程和高斯局部热状态，经可微RK2传播。",
+      "priority": false
+    },
+    {
+      "id": "2610.26920",
+      "category": "gaussian-reconstruction",
+      "takeaway": "CCT-GS学习跨场景球谐系数变换，形成适合视频编解码的瓶颈，再以LoRA轻量适配场景，减少高维球谐属性在高斯视频编码中的码率负担。",
+      "priority": false
+    },
+    {
+      "id": "2610.26979",
+      "category": "world-models",
+      "takeaway": "潜空间终点L2代价会惩罚防塌缩正则产生的无信号方向，拟合受约束线性动力学矩阵，将规划距离投影至最低不确定性的k维子空间。",
+      "priority": false
+    },
+    {
+      "id": "2610.27045",
+      "category": "world-models",
+      "takeaway": "该专著以感知、建模和行动闭环组织物理、控制、认知、学习及部署技术，梳理物理智能的定义、技术边界与核心挑战。",
+      "priority": false
+    },
+    {
+      "id": "2610.27049",
+      "category": "gaussian-reconstruction",
+      "takeaway": "VitronEdit采用共享序列表征与渐进多模态训练，并从几何重建教师蒸馏深度和位姿监督，以利用丰富图像视频编辑数据缓解三维配对样本不足。",
+      "priority": false
+    },
+    {
+      "id": "2610.27108",
+      "category": "gaussian-reconstruction",
+      "takeaway": "ADC把完全遮挡高斯仍算已观察，会稀释梯度并抑制应有增密，仅在高斯真正贡献渲染的视图累积增密统计，并以平均贡献替代原始视图计数。",
+      "priority": false
+    },
+    {
+      "id": "2610.27110",
+      "category": "localization-registration",
+      "takeaway": "纹理缺失城市LoD地图的轮廓定位存在严重位姿歧义，MatchCityLoc从噪声6自由度先验出发匹配查询与渲染法向，循环渲染匹配并PnP求姿。",
+      "priority": false
+    },
+    {
+      "id": "2610.27199",
+      "category": "sensors-applications",
+      "takeaway": "机器人端缺少当前单目与立体深度在同硬件上的精度、速度和能耗对照，九模型家族在Orin上以TensorRT FP16或CUDA、最多三分辨率统一评测。",
+      "priority": false
+    },
+    {
+      "id": "2610.27275",
+      "category": "localization-registration",
+      "takeaway": "最大团常被当作最大一致集替代，但两者几何保证未明，理论分析配准团误差，并给固定旋转下平移一致集的精确测试与组k一致性界。",
+      "priority": false
+    },
+    {
+      "id": "2610.27280",
+      "category": "world-action",
+      "takeaway": "VPFlow以目标回报而非精确状态预测监督潜在模型，并在单步流策略的噪声空间中进化搜索，让离线目标规划更直接学习决策所需的价值结构。",
+      "priority": false
+    },
+    {
+      "id": "2610.27310",
+      "category": "localization-registration",
+      "takeaway": "GNSS受限时地面雷达需对齐地理参考卫星RGB图像，RadGeoLoc预训雷达表征并对齐卫星特征，以学习似然更新雷达里程计传播的粒子滤波器。",
+      "priority": false
+    },
+    {
+      "id": "2610.27352",
+      "category": "gaussian-reconstruction",
+      "takeaway": "该研究用SIREN拟合无人机采集的时序海面激光点云，形成连续可微的时空表面，可直接查询表面及其导数，用于分析海面波速。",
+      "priority": false
+    },
+    {
+      "id": "2610.27387",
+      "category": "world-action",
+      "takeaway": "专家数据动作分布狭窄，会使视频模型忽略实际动作而生成惯常未来，AIM主动采集能提高数据动作影响力的导航与操作轨迹。",
+      "priority": false
+    },
+    {
+      "id": "2610.27410",
+      "category": "sensors-applications",
+      "takeaway": "TTAD从初始去噪残差估计当前样本的噪声，以噪声与更强噪声之间的对比进行少步适配，CTTAD再跨样本持续更新，以适应未知点云噪声分布。",
+      "priority": false
+    },
+    {
+      "id": "2610.27418",
+      "category": "gaussian-reconstruction",
+      "takeaway": "TokenFlow先在潜在特征单元上进行整流流建模，再用条件流生成点，并以少量可学习特征聚合全局信息，兼顾点云局部结构和置换等变性。",
+      "priority": false
+    },
+    {
+      "id": "2610.27505",
+      "category": "semantic-spatial",
+      "takeaway": "CVG-SGM将记忆分为转移、维持和读取三个步骤，以几何加权的跨节点交互及门控循环单元更新，帮助遮挡载体中的对象重连历史身份。",
+      "priority": false
+    },
+    {
+      "id": "2610.27522",
+      "category": "localization-registration",
+      "takeaway": "全向定位在内容及光照变化下未充分利用环视几何，OmniVLoc联合全局地点识别、单目深度、尺度感知位姿图及球面BA，并分层验证输出。",
+      "priority": false
+    },
+    {
+      "id": "2610.27547",
+      "category": "sensors-applications",
+      "takeaway": "标定网络容易利用训练集固定名义外参捷径，导致真实新配置失效，SynCalib从有真值深度的全向图像合成外参可控的相机—LiDAR数据。",
+      "priority": false
+    },
+    {
+      "id": "2610.27594",
+      "category": "gaussian-reconstruction",
+      "takeaway": "无序时间聚合和独立几何运动监督难维持动态四维状态一致，Causal Spatiotemporal Mamba用时空、空时双扫描，结合相机与深度构成统一运动监督。",
+      "priority": false
+    },
+    {
+      "id": "2610.27604",
+      "category": "geometry-foundation",
+      "takeaway": "稀疏多时刻视图的尺度、位姿与时间证据难对齐，HiQGS以分层时空编码组织多分辨率几何外观，再按目标时刻查询解码高斯状态。",
+      "priority": false
+    },
+    {
+      "id": "2610.27617",
+      "category": "sensors-applications",
+      "takeaway": "研究按多种三维检测器的扰动敏感性组织训练，并结合网络裁窄与离线邻域密度控制采样量，同时处理点云噪声鲁棒性、时延和显存约束。",
+      "priority": false
+    },
+    {
+      "id": "2610.27629",
+      "category": "navigation",
+      "takeaway": "研究求解Reeds–Shepp追踪者锥形视场中的最短逃离问题，以特征线和切换反馈得到解，将逃逸时间转为标量方程首根并做数值复核。",
+      "priority": false
+    },
+    {
+      "id": "2610.27657",
+      "category": "world-action",
+      "takeaway": "完整图像未来预测代价高，高压缩潜变量又掩盖局部操作变化，PLaCA预测空间图块级未来潜在变化，以变化加权监督和专门接口驱动动作。",
+      "priority": false
+    },
+    {
+      "id": "2610.27677",
+      "category": "navigation",
+      "takeaway": "本地小模型空间判断易幻觉，始终慢推理又增加导航延迟，CovNav对物体对邻近判断做共形校准，仅将预测集含歧义的查询升级为慢思考。",
+      "priority": false
+    },
+    {
+      "id": "2610.27690",
+      "category": "world-models",
+      "takeaway": "NeoSDK结合几何、部件分解、可微参数与物理验证，让代码代理以程序重建场景，为仅有照片外观的世界补充可交互的物理行为。",
+      "priority": false
+    },
+    {
+      "id": "2610.27696",
+      "category": "semantic-spatial",
+      "takeaway": "层级三维场景图需要跨视图一致区分语义区域与物体实例，PanoGraphGS在共享高斯几何上学语义原型和实例关联，再构楼层—房间—物体层级图。",
+      "priority": false
+    },
+    {
+      "id": "2610.27704",
+      "category": "semantic-spatial",
+      "takeaway": "VEOcc++在线维护持久稀疏体素并按可靠性更新和解码，探索完成后再利用缓存局部特征进行多尺度细化，兼顾因果在线占据建图与离线全局质量。",
+      "priority": false
+    },
+    {
+      "id": "2610.27712",
+      "category": "geometry-foundation",
+      "takeaway": "先密集预测再裁剪的预算可控3DGS不能随输出预算节省推理开销，RLSplat学习局部分配策略，直接生成精确请求数高斯，并用分层邻居搜索做局部解码。",
+      "priority": true,
+      "priority_reason": "前馈Gaussian的资源线性预算控制，关联长序列推理的可部署性。"
+    },
+    {
+      "id": "2610.27725",
+      "category": "gaussian-reconstruction",
+      "takeaway": "World2HOSI在高斯背景和物体资产上维护持久场景状态，以语言规划协调人体与物体、场景交互专家，并用残差优化和接触约束衔接长程动作。",
+      "priority": false
+    },
+    {
+      "id": "2610.27774",
+      "category": "sensors-applications",
+      "takeaway": "I2R-Pose先以时间关系和骨骼结构生成人体三维姿态，再利用独立雷达特征逐关节修正，处理毫米波部位观测不足和反射重叠。",
+      "priority": false
+    },
+    {
+      "id": "2610.27776",
+      "category": "gaussian-reconstruction",
+      "takeaway": "该方法从NeRF密度中采样候选表面点并构造相交虚拟射线，用可见性加权颜色一致性、透明度和法线平滑约束减少形状与辐射歧义造成的几何噪声。",
+      "priority": false
+    },
+    {
+      "id": "2610.27782",
+      "category": "world-models",
+      "takeaway": "RoboJudge-Bench先检查具身视频评委与人类对物理遵循和指令匹配的评分一致性，再用人工核验分数与解释结合监督微调和强化学习训练评委。",
+      "priority": false
+    },
+    {
+      "id": "2610.27851",
+      "category": "world-action",
+      "takeaway": "异质动作和视觉数据难共享潜在世界预测器，LaLa-World将数值动作与视觉变化均语言化，用语言模型预测未来潜状态。",
+      "priority": false
+    },
+    {
+      "id": "2610.27890",
+      "category": "world-models",
+      "takeaway": "内镜预训常隐式处理相机、组织及器械诱导的动态，EndoWorld-JEPA分离主导光流与局部残差，驱动全局和运动局部潜状态预测。",
+      "priority": false
+    },
+    {
+      "id": "2610.27914",
+      "category": "world-models",
+      "takeaway": "固定感知编码易受任务无关视觉变化干扰，损害规划状态，ConfigWM以语言任务配置视觉到状态的映射，再学习任务状态内动作动力学。",
+      "priority": false
+    },
+    {
+      "id": "2610.27921",
+      "category": "world-action",
+      "takeaway": "Quantum-JEPA以条件量子玻恩先验采样二进制潜动作，再由共享预测器生成多个未来，为单一观测下的未来不确定性提供可采样且保留相关性的表示。",
+      "priority": false
+    },
+    {
+      "id": "2610.28004",
+      "category": "gaussian-reconstruction",
+      "takeaway": "相机光学通常与下游任务分开设计，复杂设计空间缺少可微实景模拟，以实拍3DGS可微成像联合优化单目、双目编码孔径、相机参数和深度网络。",
+      "priority": false
+    },
+    {
+      "id": "2610.28011",
+      "category": "world-action",
+      "takeaway": "世界模型代价持续改善时，真实执行效果仍可能恶化，分离测试EFE式目标评分、代价停滞停止和在线预测器更新。",
+      "priority": false
+    },
+    {
+      "id": "2610.28018",
+      "category": "semantic-spatial",
+      "takeaway": "三维VLM的框提示泄露类别语义，使不看图也可能获高分，P³-VLM改用单三维点提示，以位置、任务和上下文三路径进行无检测器场景推理。",
+      "priority": false
+    },
+    {
+      "id": "2610.28033",
+      "category": "semantic-spatial",
+      "takeaway": "该方法将全景图的重叠透视预测按可靠性、球面重叠和角距融合，再用球面面积聚合及双经度关系评分，处理投影畸变与接缝对场景图的干扰。",
+      "priority": false
+    },
+    {
+      "id": "2610.28074",
+      "category": "world-models",
+      "takeaway": "Slot-JEPA将稳定语义槽位与时变掩码分开，检索历史状态转移，并以非平衡最优传输监督和规划，为稠密图块补充物体结构与跨时对应。",
+      "priority": false
+    },
+    {
+      "id": "2610.28098",
+      "category": "sensors-applications",
+      "takeaway": "研究在没有几何真值的条件下，联合分析多种采集方法对历史乐器板的成对点到面误差，不指定参考方法，推断各方法的内在重建误差。",
+      "priority": false
+    },
+    {
+      "id": "2610.28120",
+      "category": "geometry-foundation",
+      "takeaway": "PointForward V2用静态场景共享特征跨帧沟通，并以动态实例共享特征在规范坐标中沟通，使稠密三维查询交换时空信息而不依赖昂贵全局注意。",
+      "priority": false
+    },
+    {
+      "id": "2610.28122",
+      "category": "world-action",
+      "takeaway": "直接把视频和动作扩散各截成一步会丢失控制所需未来信息，DirectWAM先训练单步动作专家，再将学生未来经该专家解码的动作误差反传至未来预测器。",
+      "priority": false
+    },
+    {
+      "id": "2610.28131",
+      "category": "semantic-spatial",
+      "takeaway": "重叠高斯使单条射线上多基元混合，简单语义反投影不易最优，OV-Foam以PowerFoam幂图分区表示替代高斯，再做视觉语言特征提升。",
+      "priority": false
+    },
+    {
+      "id": "2610.28164",
+      "category": "robot-applications",
+      "takeaway": "CPR用冻结三维模型压缩多视图视频几何，再学习未来几何与动作过渡表征，并将几何查询及运动特征迁移到动作模型，连接当前结构与交互后变化。",
+      "priority": false
+    },
+    {
+      "id": "2610.28190",
+      "category": "gaussian-reconstruction",
+      "takeaway": "无姿态3DGS的畸变地图与错误位姿可能相互强化并累积漂移，CrossFit-GS交错分双子图，让候选位姿在从未用目标帧训练的另一冻结子图中交叉优化。",
+      "priority": false
+    },
+    {
+      "id": "2610.28257",
+      "category": "geometry-foundation",
+      "takeaway": "视频重建和条件生成缺少共同的高效、时间一致显式四维接口，SplatFlux将视频潜变量解码为静态动态分离4DGS，并蒸馏伪动态掩码和光流。",
+      "priority": false
+    },
+    {
+      "id": "2610.28258",
+      "category": "gaussian-reconstruction",
+      "takeaway": "低价多区SPAD稀采样与几何边界深度不可靠，影响折面重建，从置信度、瞬态峰值和锐度学逐点可靠性，再做图深度优化及双平面拟合。",
+      "priority": false
+    },
+    {
+      "id": "2610.28280",
+      "category": "semantic-spatial",
+      "takeaway": "GALA结合点云与语言自回归预测物体六自由度位姿，经几何语言预训练与摆放微调后执行规划、摆放、核验，表达包围盒难覆盖的支撑和容纳约束。",
+      "priority": false
+    },
+    {
+      "id": "2610.28284",
+      "category": "sensors-applications",
+      "takeaway": "HRoPE以倾斜平面及特征单元间的平面单应关系注入相对注意，使多视图Transformer的位置编码感知表面几何，而不只依赖传感器中心。",
+      "priority": false
+    },
+    {
+      "id": "2610.28351",
+      "category": "gaussian-reconstruction",
+      "takeaway": "间歇可见且有噪的长轨迹难约束统一连续三维动态，RayCo4D以相机射线锚定点查询，关联共享SE(3)位姿速度节点，并以双四元数传播到高斯。",
+      "priority": false
+    },
+    {
+      "id": "2610.28354",
+      "category": "semantic-spatial",
+      "takeaway": "该工作以命令行感知工具、持久场景记忆和空间语言解释组织三维证据，处理视觉语言模型即使拿到正确几何工具结果仍难完成推理的问题。",
+      "priority": false
+    },
+    {
+      "id": "2610.28362",
+      "category": "navigation",
+      "takeaway": "可移动障碍导航常需先做不立即开路的准备推，物理搜索成本高，SPAR从短推序列搜索结果学接触特征单元评分，指导搜索或直接执行。",
+      "priority": false
+    },
+    {
+      "id": "2610.28431",
+      "category": "simulation-evaluation",
+      "takeaway": "TaskWAM以模式特征描述任务要求，以状态特征跟踪执行进度并闭环生成，减少世界动作模型产出局部合理却属于错误任务阶段的未来。",
+      "priority": false
+    },
+    {
+      "id": "2610.28432",
+      "category": "navigation",
+      "takeaway": "仿真微调的工业导航策略能否可靠迁移实车缺少系统对照，在Idealworks数字孪生中用Cosmos增强微调X-Mobility并训练COMPASS，车载部署比较生产栈。",
+      "priority": false
+    },
+    {
+      "id": "2610.28465",
+      "category": "simulation-evaluation",
+      "takeaway": "MARE结合UE5与ROS2构建程序化月面、物理月球车、多传感器及任务控制，提供月极低太阳高度和强阴影下难以实采的感知真值环境。",
+      "priority": false
+    },
+    {
+      "id": "2610.28476",
+      "category": "navigation",
+      "takeaway": "CLOSER持续跟踪候选目标，通过本地视觉语言分类、多视角概率融合及掩码深度引导的主动接近核验，减少相似物体误认和观察不足造成的错误停止。",
+      "priority": false
+    },
+    {
+      "id": "2610.28480",
+      "category": "world-action",
+      "takeaway": "SuperMimic联合训练可微世界模型与人形动作跟踪策略，将短期想象轨迹中的控制梯度反向传播，探索减少多专家蒸馏和大规模无模型训练依赖。",
+      "priority": false
+    },
+    {
+      "id": "2610.28483",
+      "category": "world-models",
+      "takeaway": "JEPA物理状态缺少时间上下文，规划又依赖通用候选采样，G-JEPA用共享因果时序模块和物理状态监督学习表征，以目标条件动作生成先验引导细化。",
+      "priority": false
+    },
+    {
+      "id": "2610.28490",
+      "category": "gaussian-reconstruction",
+      "takeaway": "该方法自动编辑参考三维高斯合成变化监督，学习场景专用证据并递推闭式局部贝叶斯因子，为在线变化检测补充先验与证据模型并减少数值推断成本。",
+      "priority": false
+    },
+    {
+      "id": "2610.28521",
+      "category": "geometry-foundation",
+      "takeaway": "Latent Bridge分别将视频潜变量蒸馏到冻结几何特征，直接预测相机、深度和点云，减少先解码RGB再重新编码几何的重复计算。",
+      "priority": false
+    },
+    {
+      "id": "2610.28530",
+      "category": "semantic-spatial",
+      "takeaway": "多代理语义占据依赖稠密标签和闭集类别，通信也需紧凑表示，CoGaussian用基础模型对齐的稀疏三维高斯承载、交流并融合几何语义。",
+      "priority": false
+    },
+    {
+      "id": "2610.28554",
+      "category": "world-models",
+      "takeaway": "OverSeer增加固定辅助相机视图，并以相对静态参考图的差分变分自动编码器压缩信息，帮助多代理视频模型同时维持各视图的时序和世界一致性。",
+      "priority": false
+    },
+    {
+      "id": "2610.28555",
+      "category": "world-models",
+      "takeaway": "高维预测虽可能有稀疏组合结构，常规梯度网络未能充分利用，LeWi联合学习神经元低维位置和权重，仅让位置接近的神经元连接。",
+      "priority": false
+    },
+    {
+      "id": "2610.28566",
+      "category": "navigation",
+      "takeaway": "Mondrian在线生成几何先验并采样地图假设，分别估计可见性与前沿探索收益，处理未观测空间占据预测和探索决策相互影响的问题。",
+      "priority": false
+    },
+    {
+      "id": "2610.28571",
+      "category": "sensors-applications",
+      "takeaway": "显示屏标记与LiDAR物理边界间接对应有歧义，杂波又妨碍提取，ScreenCalib以AprilTag引导屏幕提取及几何假设，用环境边缘消歧，多姿态联合细化外参和标记尺度。",
+      "priority": false
+    },
+    {
+      "id": "2610.28585",
+      "category": "gaussian-reconstruction",
+      "takeaway": "单图重建即使看似相似，也可能物体错位且不满足仿真稳定性，SceneRig代理组合几何视觉工具重建场景，再在物理模拟器内编辑和验证。",
+      "priority": false
+    },
+    {
+      "id": "2610.28594",
+      "category": "world-models",
+      "takeaway": "多视角未来视频必须共同描述同一演化三维场景，VPM联合预测任意视角视频和持久三维点轨迹，并扩展动作特征单元共同去噪。",
+      "priority": false
+    },
+    {
+      "id": "2610.28598",
+      "category": "gaussian-reconstruction",
+      "takeaway": "稀疏噪声LiDAR训练的隐式SDF容易产生表面抖动和伪影，在神经隐式表示参数上优化基于等值面形算子的曲面能量。",
+      "priority": false
+    },
+    {
+      "id": "2610.28613",
+      "category": "simulation-evaluation",
+      "takeaway": "视觉合理的交互视频未必接触动力学正确，妨碍策略评估和训练，PhysCanvas统一RGB、触觉、标记位移和状态动作，用场景、模态、状态奖励做一致性后训练。",
+      "priority": false
+    },
+    {
+      "id": "2610.28615",
+      "category": "gaussian-reconstruction",
+      "takeaway": "KoalaGS在训练前用图像复杂度先验引导高斯重定位，再按基元重要性构建连续细节层次，使缩减渲染预算时仍能逐步保留重要结构。",
+      "priority": false
+    },
+    {
+      "id": "2610.28622",
+      "category": "sensors-applications",
+      "takeaway": "MindView以多任务基准检验生成器的跨视图空间一致性和上下文利用，再结合BAGEL微调与MindCue视图证据选择，研究多视证据如何参与生成。",
+      "priority": false
+    },
+    {
+      "id": "2610.28626",
+      "category": "world-action",
+      "takeaway": "视频动作模型难以同步利用语言推理与记忆，又需保持动作可靠，UniWALM在共享混合Transformer内同步去噪视频、动作和语言，下一步再消费生成文本。",
+      "priority": false
+    },
+    {
+      "id": "2610.28628",
+      "category": "robot-applications",
+      "takeaway": "AdaDex让轨迹跟踪环境与带噪目标泛化环境共享强化学习策略，将单段人体手物轨迹扩展为适应不同初始状态的灵巧技能。",
+      "priority": false
+    },
+    {
+      "id": "2610.28631",
+      "category": "world-models",
+      "takeaway": "视频世界模型外观逼真却几何漂移，三维生成又常静态且不够真实，AEON训练同时预测4DGS和相机的重建解码器，并蒸馏视频潜变量到重建潜变量的域适配器。",
+      "priority": false
+    },
+    {
+      "id": "2610.28701",
+      "category": "slam-vio",
+      "takeaway": "球形移动测绘的快速旋转和少量地面观测妨碍地面法向估计，比较带法向评分与多步验证的单扫RANSAC和基于LIO全局地图的估计。",
+      "priority": false
+    },
+    {
+      "id": "2610.28712",
+      "category": "robot-applications",
+      "takeaway": "该方法将全景方位变换与上肢反向偏航变换耦合，并比较全局缩放和局部聚焦界面，减少第一人称遥操作访问侧后目标时操作者转身的需求。",
+      "priority": false
+    },
+    {
+      "id": "2610.28779",
+      "category": "world-models",
+      "takeaway": "想象规划需决定探索哪些替代及何时覆盖已有策略动作，SDI用相同策略序列重复展开轨迹的变化量，统一归一化候选分散度与计划优势。",
+      "priority": false
+    },
+    {
+      "id": "2610.28791",
+      "category": "sensors-applications",
+      "takeaway": "VeriCalib传播双传感器标定板特征的不确定性并估计方差分量，再检查方向精度、视图内外一致性及故障，弥补仅凭拟合残差难判断标定可靠性的缺陷。",
+      "priority": false
+    },
+    {
+      "id": "2610.28821",
+      "category": "localization-registration",
+      "takeaway": "点云配准网络跨传感器、尺度及密度域时容易退化，RAM跨室内外和物体域统一训练，按几何特性归一化体素，再用局部一致性Transformer粗细配准。",
+      "priority": false
+    },
+    {
+      "id": "2610.28827",
+      "category": "world-models",
+      "takeaway": "WorldStream分层规划地形块约定，以确定性代码编译场景，并持久保存种子、边界约束和实体状态，使开放三维世界可扩展、可交互且能恢复编辑过的旧地点。",
+      "priority": false
+    },
+    {
+      "id": "2610.28880",
+      "category": "semantic-spatial",
+      "takeaway": "R2Sem2R通过蒸馏视觉特征的高斯表示跟踪物体刚体运动，按功能部位对齐数字近亲并映射抓取，将单个人类RGB示范扩展为跨语义物体的机器人数据。",
+      "priority": false
+    },
+    {
+      "id": "2610.28893",
+      "category": "robot-applications",
+      "takeaway": "FLEX通过添加、泛化和掩蔽三种操作迭代编辑任务特征，避免只增加特征导致表征过度限定或适用范围过窄。",
+      "priority": false
+    },
+    {
+      "id": "2610.28953",
+      "category": "robot-applications",
+      "takeaway": "GGraph在GPU上动态构图并支持ROS2部署，将导航、探索与回环整合到同一流程，减少固定图和CPU构图对大规模并行强化学习的限制。",
+      "priority": false
+    },
+    {
+      "id": "2610.29061",
+      "category": "world-models",
+      "takeaway": "OccJEPA删除可见掩码之外的特征，用预训练视频模型补全潜在特征，再轻量解码包含不可见部分的完整物体掩码，减少扩散式视频分割的多步开销与不确定性。",
+      "priority": false
+    },
+    {
+      "id": "2610.29088",
+      "category": "world-models",
+      "takeaway": "物理参数超训练范围时，直接输入参数可能反而损害世界预测，用干预依赖掩码和显式质量仿射惯性、偏置机制建模，另用残差拟合接触。",
+      "priority": false
+    },
+    {
+      "id": "2610.29107",
+      "category": "sensors-applications",
+      "takeaway": "该方法以运动感知轨迹表征和连续运动演化建模动态重建，减少模型用颜色或不透明度补偿错误运动的现象。",
+      "priority": false
+    },
+    {
+      "id": "2610.29168",
+      "category": "world-action",
+      "takeaway": "不同生成骨干使WAM视觉扰动泛化能力显著不同，测量预训特征扰动相对域内流形的正交性，并跟踪策略训练后的扰动抑制。",
+      "priority": false
+    },
+    {
+      "id": "2610.29203",
+      "category": "navigation",
+      "takeaway": "导航到达目标不证明动作真正受语言指令控制，NavBind固定智能体状态和历史，替换路线分叉后的指令并比较动作生成、参考似然及注意归因。",
+      "priority": false
+    },
+    {
+      "id": "2610.29232",
+      "category": "semantic-spatial",
+      "takeaway": "Think-Capture按问题定位对象，仅在需要时把掩码提升到共同三维坐标，再将符号状态交给视觉语言模型，并训练几何证据信任与回退策略。",
+      "priority": false
+    },
+    {
+      "id": "2610.29246",
+      "category": "world-action",
+      "takeaway": "DepState-JEPA融合RGB与深度建立共享度量状态，同时保留各自特征，并以射线读出、状态转移及正向运动学监督连接三维结构和动作诱导变化。",
+      "priority": false
+    },
+    {
+      "id": "2610.29257",
+      "category": "gaussian-reconstruction",
+      "takeaway": "CRAB先预测长方体候选，再以关系感知流匹配细化和修正，输出兼容IFC的语义参数，将点云转为具有厚度与结构关系的可编辑建筑构件。",
+      "priority": false
+    },
+    {
+      "id": "2610.29282",
+      "category": "world-action",
+      "takeaway": "逐点几何教师特征对齐可能过约束紧凑动作特征并伤害学习，RGF对齐帧内、跨视图和动作时间的成对特征关系，仅训练时蒸馏冻结几何教师。",
+      "priority": false
+    },
+    {
+      "id": "2610.29317",
+      "category": "sensors-applications",
+      "takeaway": "该工作以三维融合记忆、空间技能库和任务经验组织空间认知，连接几何工具产生的证据与实际空间推理策略。",
+      "priority": false
+    },
+    {
+      "id": "2610.29377",
+      "category": "navigation",
+      "takeaway": "生成式轨迹规划缺少部署期约束满足和在线避障机制，将流匹配路径分布与模型预测跟踪控制组合，并事件触发重规划。",
+      "priority": false
+    },
+    {
+      "id": "2610.29388",
+      "category": "semantic-spatial",
+      "takeaway": "该方法结合三维稀疏子体素重排和熵调节的层间记忆，缓解稀疏体素上采样后的特征同质化以及解码过程中的语义遗忘。",
+      "priority": false
+    },
+    {
+      "id": "2610.29408",
+      "category": "world-action",
+      "takeaway": "LiveAct用语言空间门控和代理注意将动作绑定到控制对象，再以动作结构的语义特征调制数值并蒸馏因果生成器，区分多代理中的对象与异质动作变量。",
+      "priority": false
+    },
+    {
+      "id": "2610.29432",
+      "category": "sensors-applications",
+      "takeaway": "PRISM将深度缺测与数值测量误差分开建模，蒸馏三维基础模型的空间语义，并结合层次正例监督和难例挖掘，避免仿真噪声混淆两类误差。",
+      "priority": false
+    },
+    {
+      "id": "2610.29435",
+      "category": "world-models",
+      "takeaway": "视频像素误差小并不保证想象回报或计划排序正确，逐转移用真实结果修补想象，比较事件修补与等预算随机及高图像误差修补。",
+      "priority": false
+    },
+    {
+      "id": "2610.29438",
+      "category": "sensors-applications",
+      "takeaway": "足式机器人常规步态激励不足且滑移、冲击和振动妨碍多IMU时空标定，A2I-Calib++结合抗噪激励轨迹、约束AMP控制及接触约束虚拟IMU，先时相关再解析估空间和偏置。",
+      "priority": false
+    },
+    {
+      "id": "2610.29517",
+      "category": "simulation-evaluation",
+      "takeaway": "仅外观无法区分材质刚度等物性，逐资产优化又昂贵，AutoPhyX构造部件可控物性文本数据，跨模态调制网络单次预测空间体素物性。",
+      "priority": false
+    },
+    {
+      "id": "2610.29647",
+      "category": "localization-registration",
+      "takeaway": "稀疏单目地图尺度未知、施工未完成且重复结构多，难对齐楼层平面图，RR以统一类平衡语义几何能量驱动全局初始化和局部细化，可选一个粗用户锚点。",
+      "priority": true,
+      "priority_reason": "尺度不确定的稀疏视觉地图与楼层图配准，直接连接定位与已有地图。"
+    },
+    {
+      "id": "2610.29699",
+      "category": "navigation",
+      "takeaway": "AirPlayground以三维高斯重建飞行环境，结合自动专家飞行和统一接口，扩充无人机学习示范与闭环评估的环境覆盖。",
+      "priority": false
+    },
+    {
+      "id": "2610.29702",
+      "category": "robot-applications",
+      "takeaway": "该方法把世界状态分解为对象属性和关系，以非参数因果交互知识保存动作前提与效应，支持具身代理跨任务复用交互经验。",
+      "priority": false
+    },
+    {
+      "id": "2610.29716",
+      "category": "gaussian-reconstruction",
+      "takeaway": "RGB人类动作预训缺少与手部行为共同理解的空间场景上下文，SpatialDex重建场景与手运动，用手尺寸统一尺度，融合几何并预测未来几何和双手动作。",
+      "priority": false
+    },
+    {
+      "id": "2610.29761",
+      "category": "semantic-spatial",
+      "takeaway": "机器人缺少明示收纳规则时难推断当前货架组织并放置未知物体，OMAR跨视图标注属性、分割和深度关联建实例三维图，再由LLM排序位置并做几何运动学核验。",
+      "priority": false
+    },
+    {
+      "id": "2610.29845",
+      "category": "navigation",
+      "takeaway": "RangeNav用各向异性卷积和环形填充编码全周激光距离图，在合成数据上联合进行重建、语义与鸟瞰预训练后冻结，减少强化学习中表征学习的样本和显存成本。",
+      "priority": false
+    },
+    {
+      "id": "2610.29866",
+      "category": "semantic-spatial",
+      "takeaway": "逐观测估计几何后即丢弃，不利于长期操作记忆且三维教师部署昂贵，GeoMem-VLA以冻结教师监督GeoPlan 特征单元的点图和末端轨迹，再检索融合历史记忆。",
+      "priority": false
+    },
+    {
+      "id": "2610.29915",
+      "category": "world-models",
+      "takeaway": "CausalAlign用探针和干预定位视频模型的运动表征层，在相邻帧差分特征中对齐三维教师，处理静态内容对齐无法解决的长时相机运动与动态几何漂移。",
+      "priority": false
+    },
+    {
+      "id": "2610.29936",
+      "category": "gaussian-reconstruction",
+      "takeaway": "世界系手恢复受相机分阶段误差、尺度歧义和手遮挡多解影响，DewHand融合VGGT-Ω场景和手特征，流匹配联合生成度量手及相机运动。",
+      "priority": false
+    },
+    {
+      "id": "2610.29964",
+      "category": "navigation",
+      "takeaway": "该方法按对象和任务相关概率选择下一最佳视点，检查路径附近的不确定区域，再接入分层模型预测控制协调手眼，减少半静态场景旧地图带来的碰撞风险。",
+      "priority": false
+    },
+    {
+      "id": "2610.29989",
+      "category": "world-models",
+      "takeaway": "FCP在常规去噪之外预测间隔更远的未来片段，并禁止访问中间视觉上下文，避免教师强制训练借邻帧冗余绕开真正的未来演化建模。",
+      "priority": false
+    },
+    {
+      "id": "2610.29995",
+      "category": "semantic-spatial",
+      "takeaway": "该方法以实体身份、提及和事实为节点，以出现、演化和证据为超边组织记忆，使代理在跨会话状态变化后仍可检索原始视觉观察。",
+      "priority": false
+    },
+    {
+      "id": "2610.30013",
+      "category": "semantic-spatial",
+      "takeaway": "只保RGB质量的高斯压缩会剪掉对语义重要但颜色贡献小的基元，ClunoGS将语义感知稀疏化与向量量化写入统一约束目标，交替更新原始、压缩及对偶变量。",
+      "priority": false
+    },
+    {
+      "id": "2610.30035",
+      "category": "gaussian-reconstruction",
+      "takeaway": "该研究零样本审计公开模型的颅骨缺损补全，以原残骨作为无操作基线，并检查碰撞和新增材料，判断看似合理的补全是否满足植入几何约束。",
+      "priority": false
+    },
+    {
+      "id": "2610.30043",
+      "category": "robot-applications",
+      "takeaway": "TARSphere结合物理模拟、多层技能、分层记忆与有限状态机评估，检验长时具身代理在物理和社会环境变化下的鲁棒性。",
+      "priority": false
+    },
+    {
+      "id": "2610.30117",
+      "category": "world-action",
+      "takeaway": "CW-WAM联合预测视频、运动及接触力和力矩，以成对因果注意和长力矩记忆连接导纳控制，为视觉状态补充力敏感操作所需的接触与载荷信息。",
+      "priority": false
+    },
+    {
+      "id": "2610.30120",
+      "category": "world-models",
+      "takeaway": "ALPS以图文从头训练视觉编码器，联合语言对齐、重建、空间对应和跨视图自蒸馏，使世界模型表征同时保留物理状态、语言语义与像素可解码性。",
+      "priority": false
+    },
+    {
+      "id": "2610.30125",
+      "category": "simulation-evaluation",
+      "takeaway": "PhysiCalWorld将测试场景中的探索交互一次编码为物理描述特征，供后续轨迹预测使用，补足短时视觉历史难以辨识的质量、阻尼和摩擦等实例参数。",
+      "priority": false
+    },
+    {
+      "id": "2610.30129",
+      "category": "world-models",
+      "takeaway": "离线视频生成器的自动编码压缩未必适合交互世界模型时延与运动需求，CADRE在冻结特征上改变小瓶颈及因果时空压缩，共享单步或少步扩散解码器。",
+      "priority": false
+    },
+    {
+      "id": "2610.30136",
+      "category": "world-action",
+      "takeaway": "WAM缺少显式可组合技能复用，代码代理又缺预测动力学支撑，AW-0用混合Transformer联合代码、未来视频和动作三流，自动标注程序并整理技能库。",
+      "priority": false
+    },
+    {
+      "id": "2610.30319",
+      "category": "navigation",
+      "takeaway": "TerraTransfer++将向量化自博弈策略蒸馏到流模型轨迹教师，再以冻结视觉骨干的适配器对齐教师潜变量，减少驾驶专家日志与逼真渲染训练成本。",
+      "priority": false
+    },
+    {
+      "id": "2610.30320",
+      "category": "world-action",
+      "takeaway": "单步未来特征条件动作解码依赖高质量预测，但噪声中直接提特征不足，FRED以真实未来提取的表征自蒸馏噪声到未来单步预测，并加入历史视频条件。",
+      "priority": false
+    },
+    {
+      "id": "2610.30326",
+      "category": "semantic-spatial",
+      "takeaway": "ReferGaussian从掩码支持的实体构建实体库，由多模态大模型分解短语和约束并追踪指代，使动态四维高斯支持复杂时间、多目标及无目标语言查询。",
+      "priority": false
+    },
+    {
+      "id": "2610.30340",
+      "category": "gaussian-reconstruction",
+      "takeaway": "驾驶几何、检测、占据及重建通常分开建模，跨窗口轨迹难统一，Foundation4D以分解时空注意共享多相机视频骨干，结合位姿图和物体轨迹组装。",
+      "priority": false
+    },
+    {
+      "id": "2610.30589",
+      "category": "navigation",
+      "takeaway": "在线轻量地图语义不足，稠密地图昂贵且难重定位移动物体，OASIS用稳定语义锚点保存描述、视觉和几何状态，按需提证据并分层检索。",
+      "priority": false
+    },
+    {
+      "id": "2610.30605",
+      "category": "navigation",
+      "takeaway": "越野遥操作的通行性估计常忽略操作者速度与风险偏好，PATH-Net融合视觉几何BEV及历史车态，以最大熵逆RL和稀疏速度监督预测成本与速度。",
+      "priority": false
+    },
+    {
+      "id": "2610.30606",
+      "category": "navigation",
+      "takeaway": "粗场景图缺功能区域理解，动态物体搜索易陷低效顺序穷举，CMAR-search以常识和环境记忆构建功能三维图，分区域及容器两层规划并持续重定位。",
+      "priority": false
+    },
+    {
+      "id": "2610.30609",
+      "category": "navigation",
+      "takeaway": "KinoUAV以速度、加速度和加加速度约束生成轨迹，并预测各方向自由空间距离来决定动作，将动力学与安全距离纳入无人机语言导航。",
+      "priority": false
+    },
+    {
+      "id": "2610.30643",
+      "category": "navigation",
+      "takeaway": "VLN测试适配的熵最小化会传播错误，均匀人类轨迹反馈又低效，FETA先按归一化熵波动选轨迹，再用熵梯度找关键步，只问一次二元反馈并局部更新。",
+      "priority": false
+    },
+    {
+      "id": "2610.30694",
+      "category": "gaussian-reconstruction",
+      "takeaway": "可变形缝线无固定位姿，接触位置需在长时操作中持续重估，提出图像到操作流程，并行在线重建缝线和执行顺序操作。",
+      "priority": false
+    },
+    {
+      "id": "2610.30724",
+      "category": "world-models",
+      "takeaway": "VANE在冻结语义特征空间中根据因果历史预测整帧表征，并辅助重建未来图块，补充缺失特征补全与逐单元自回归未充分利用的整帧未来监督。",
+      "priority": false
+    },
+    {
+      "id": "2610.30774",
+      "category": "slam-vio",
+      "takeaway": "通用匹配器在低纹理强光月面帧间匹配及VO上的相对能力缺少对照，统一评测11种经典、学习检测匹配组合与跟踪器，比较成对位姿和VO轨迹。",
+      "priority": false
+    },
+    {
+      "id": "2610.30781",
+      "category": "world-action",
+      "takeaway": "视频生成混合动力学与相机外观，点轨迹又缺显式物体结构，DeXplicit先预测度量三维物体运动、形变，再搬运外观投影成视频几何支架。",
+      "priority": false
+    },
+    {
+      "id": "2610.30786",
+      "category": "navigation",
+      "takeaway": "柔性内镜接触支撑随推进变化，仅局部视觉难可靠控制弯曲和插入，EBV-CAN联合初始全局鸟瞰图、内镜图和电机态，以三个语义查询定位尖端、路点和目标。",
+      "priority": false
+    },
+    {
+      "id": "2610.30789",
+      "category": "world-models",
+      "takeaway": "世界模型定义宽泛，与控制、动力系统和策略学习关系易混淆，从POMDP出发统一介绍动力学、模拟器和联合未来动作模型。",
+      "priority": false
+    },
+    {
+      "id": "2610.30814",
+      "category": "world-action",
+      "takeaway": "DRILL以双层优化提高想象策略更新后的真实回报，提供误差加权代理和截断元梯度两种实现，检验比像素预测精度更直接的策略学习目标。",
+      "priority": false
+    },
+    {
+      "id": "2610.30839",
+      "category": "navigation",
+      "takeaway": "ProTrav以稀疏变分高斯过程建立概率高程，采样相关地形并传播至通行代价，再用置信上界风险连接采样控制，纳入空间相关性及非线性变换的不确定性。",
+      "priority": false
+    },
+    {
+      "id": "2610.30908",
+      "category": "semantic-spatial",
+      "takeaway": "固定CLIP三维特征的方向集中，使原始余弦查询未利用场景特定分布，查询时部分减去共享场景方向并白化文本原型，多类软聚类、单查询用CSLS和参考词表相关边际。",
+      "priority": false
+    },
+    {
+      "id": "2610.30910",
+      "category": "gaussian-reconstruction",
+      "takeaway": "H-2DGS将稳健高斯深度融入截断符号距离场，再构建沿曲面朝向的高度场高斯并按MRI深度形变，减少有限手术视角下厚模糊表面对联合显示的干扰。",
+      "priority": false
+    },
+    {
+      "id": "2610.30988",
+      "category": "world-action",
+      "takeaway": "服装部分观测难揭示完整形状及材质动力学，真实数据又昂贵，仿真训Transformer以可变长部分点云历史做全状态生成和动作预测，再接目标条件规划。",
+      "priority": false
+    },
+    {
+      "id": "2610.30991",
+      "category": "world-action",
+      "takeaway": "UniFlowWAM将视觉、动作和三维场景流设为平等专家模态，联合注意并按多种角色目标训练，把示范中的显式三维变化纳入模型主体。",
+      "priority": false
+    },
+    {
+      "id": "2610.30994",
+      "category": "navigation",
+      "takeaway": "非结构化林地的视觉歧义和可变形地面挑战反应式通行边界估计，TRACE融合VLM正负提示置信图，提取通路边界并作为NMPC软屏障约束。",
+      "priority": false
+    },
+    {
+      "id": "2610.31020",
+      "category": "robot-applications",
+      "takeaway": "该系统用RGB-D估计嘴部位置，以AprilTag将示范注册到机器人坐标并定位托盘，再用动态运动基元表示舀取与送食，将进食示范重定向到当前布局。",
+      "priority": false
+    },
+    {
+      "id": "2610.31028",
+      "category": "navigation",
+      "takeaway": "柔性内镜指令插入不一定产生远端进展，需预判操作者将回撤，MPRF从正常导航建名义进展模型，融合EM进展残差、指令及视频预测回撤。",
+      "priority": false
+    },
+    {
+      "id": "2610.31066",
+      "category": "simulation-evaluation",
+      "takeaway": "Dual Exam固定环境响应来测试代理，固定动作干预来测试世界模型，再考察两者耦合运行，分别定位决策错误与世界状态演化错误。",
+      "priority": false
+    },
+    {
+      "id": "2610.31108",
+      "category": "gaussian-reconstruction",
+      "takeaway": "DRAFT融合早期视觉皮层信号中的紧凑布局编码与已知相机运动推导的自由空间，在不输入RGB图像的条件下估计未见房间布局。",
+      "priority": false
+    },
+    {
+      "id": "2610.31121",
+      "category": "semantic-spatial",
+      "takeaway": "该方法用基础模型构建时序任务场景图，将持久掩码、状态和三维操作轨迹组织为交互证据，检查机器人生成视频是否出现视觉逼真却交互错误的问题。",
+      "priority": false
+    },
+    {
+      "id": "2610.31123",
+      "category": "sensors-applications",
+      "takeaway": "WildDepth-v2扩充同步RGB、激光雷达与四维雷达的野生动物视频，并将二维跟踪提升为三维轨迹，通过隐藏测试集补充尺度与多模态运动真值。",
+      "priority": false
+    },
+    {
+      "id": "2610.31186",
+      "category": "semantic-spatial",
+      "takeaway": "RaSFNet采用沿射线的分布编码、扫描拓扑Mamba及距离约束的点—视锥融合，减少视锥聚合和二维邻近关系对不同深度几何的混合。",
+      "priority": false
+    },
+    {
+      "id": "2610.31194",
+      "category": "world-models",
+      "takeaway": "JEPA预测状态难解释，仅潜预测不会自动形成实体关系，Inside-JEPA在状态内放有序实体对通道，让逆动力学头从其变化恢复动作。",
+      "priority": false
+    },
+    {
+      "id": "2610.31217",
+      "category": "sensors-applications",
+      "takeaway": "磁阵列静默测速能否替代DVL受弱空间变化与强时间变化限制，在忽略平台扰动的一维模型中，对不同阵列和测量模型推导速度CRLB。",
+      "priority": false
+    },
+    {
+      "id": "2610.31221",
+      "category": "slam-vio",
+      "takeaway": "Joint-CI先在接收机器人的误差坐标中联合估计位姿和共享特征，再对部分状态做协方差交叉融合，处理分布式不变滤波中地图坐标不同和位姿相关的问题。",
+      "priority": true,
+      "priority_reason": "分布式不变EKF的点/物体联合SLAM，属于核心多机器人估计。"
+    },
+    {
+      "id": "2610.31321",
+      "category": "geometry-foundation",
+      "takeaway": "逐对匹配参考图到多邻图重复计算，不能利用多视图互补几何，MVLoMa以冻结多视图几何编码器联合描述星图，注入局部描述子并一次匹配全部邻图。",
+      "priority": true,
+      "priority_reason": "利用任意几何基础模型做多视图局部匹配，连接基础模型与SfM前端。"
+    },
+    {
+      "id": "2610.31384",
+      "category": "sensors-applications",
+      "takeaway": "CoHelix递归估计四个螺旋桨共享的单应矩阵和各自转动状态，利用多桨共同校正相机几何，分离运动事件相机投影变化与螺旋桨转速。",
+      "priority": false
+    },
+    {
+      "id": "2610.31429",
+      "category": "simulation-evaluation",
+      "takeaway": "物理合理性评分常不能指出历史条件下何种预期在哪个时刻被违反，PhysTrace对齐MLLM历史条件物理预期与观测窗口，给时间定位及解释，并标注IntPhys2-Timing。",
+      "priority": false
+    },
+    {
+      "id": "2610.31432",
+      "category": "navigation",
+      "takeaway": "跨时段场景变化与重复结构使细点级地图匹配昂贵且脆弱，稀疏拓扑度量图以局部三维节点、可达加权边建图，再学习跨时段子图匹配。",
+      "priority": false
+    },
+    {
+      "id": "2610.31474",
+      "category": "world-action",
+      "takeaway": "SkeLAM用骨架监督拆分运动学与视觉残差潜动作，通过交换重建对齐模态，并配合分支随机失活和动作适配器，减少机器人运动与物体响应混合造成的控制障碍。",
+      "priority": false
+    },
+    {
+      "id": "2610.31476",
+      "category": "semantic-spatial",
+      "takeaway": "只追加点的物体语义地图会累积感知噪声，保留已移动物体旧点，多视图时间证据概率更新每点置信度，结合跟踪和重识别保留实例身份。",
+      "priority": false
+    },
+    {
+      "id": "2610.31540",
+      "category": "navigation",
+      "takeaway": "WarpWeaver以分散树、本地约束和去中心列生成进行协商，使多机器人在各自安全约束下协调联合规划，探索超出离线集中优化的求解方式。",
+      "priority": false
+    },
+    {
+      "id": "2610.31617",
+      "category": "simulation-evaluation",
+      "takeaway": "DiffDreamer用学习模型预测外界潜状态，以可微模拟器推进机器人自身状态，并拆分策略奖励梯度，减少将无人机自体与环境动力学混在预测中引入的控制偏差。",
+      "priority": false
+    },
+    {
+      "id": "2610.31645",
+      "category": "gaussian-reconstruction",
+      "takeaway": "单图三维模型固定针孔假设难兼容鱼眼、广角和全景相机，OmniRay以单调径向基、球谐残差和自由残差三级球面旋转预测射线，再估径向距离。",
+      "priority": false
+    },
+    {
+      "id": "2610.31668",
+      "category": "world-models",
+      "takeaway": "视频时间连贯不等于底层世界状态在物理和因果上持续一致，综述以读取、写入、共享和交互四操作组织视频基础模型与世界模型文献。",
+      "priority": false
+    },
+    {
+      "id": "2610.31670",
+      "category": "robot-applications",
+      "takeaway": "具身基础模型闭环评估昂贵，需要廉价能力筛选指标，S²离线测感知表征与物理运动轨迹几何的对齐，比较跨模型下游成功。",
+      "priority": false
+    }
+  ],
+  "independent_category_corrections": {
+    "2610.31540": "navigation",
+    "2610.27049": "gaussian-reconstruction",
+    "2610.27418": "gaussian-reconstruction",
+    "2610.11723": "simulation-evaluation"
+  },
+  "copy_review": {
+    "records": 422,
+    "min_chars": 46,
+    "max_chars": 87,
+    "source": "Existing audited abstract summaries only; GPT-6.1 Sol/high editorial rewrite; main-agent sampled comparison.",
+    "limits": [
+      "2602.24121: world-model structure absent in prior abstract fields",
+      "2610.14018 and2610.29317: mechanism remains broad; no algorithm/quantitative claim added"
+    ]
+  }
+}
