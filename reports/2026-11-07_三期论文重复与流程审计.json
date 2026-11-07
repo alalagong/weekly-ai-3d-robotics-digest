@@ -1,0 +1,681 @@
+{
+  "method": "Compare base IDs and exact versions; abstract_read is a stored evidence flag, not a token bill or proof of a separate model call.",
+  "periods": [
+    {
+      "prefix": "2026-10-03_2026-10-18",
+      "candidate_count": 2629,
+      "included_count": 1428,
+      "prior_included_ids": 0,
+      "same_version_reincluded_count": 0,
+      "same_version_reincluded_ids": [],
+      "prior_same_version_candidates": 0,
+      "both_periods_abstract_read_flags": 0,
+      "both_periods_read_previously_included": 0,
+      "both_read_ids": [],
+      "prior_excluded_now_included_same_version": [],
+      "version_updates": []
+    },
+    {
+      "prefix": "2026-10-18_2026-10-24",
+      "candidate_count": 1258,
+      "included_count": 429,
+      "prior_included_ids": 30,
+      "same_version_reincluded_count": 0,
+      "same_version_reincluded_ids": [],
+      "prior_same_version_candidates": 38,
+      "both_periods_abstract_read_flags": 5,
+      "both_periods_read_previously_included": 5,
+      "both_read_ids": [
+        "2610.02521",
+        "2610.10382",
+        "2610.11215",
+        "2610.12282",
+        "2610.17434"
+      ],
+      "prior_excluded_now_included_same_version": [],
+      "version_updates": [
+        {
+          "id": "2512.21201",
+          "title": "Schrödinger's Navigator: Imagining an Ensemble of Futures for Zero-Shot Object Navigation",
+          "previous_version": "4",
+          "current_version": "5",
+          "window_class": "historical_backfill",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2606.01810",
+          "title": "Planning Takes More Than Token Prediction: Causal Plan for Benchmarking and Building Physically Grounded Embodied Reasoners",
+          "previous_version": "4",
+          "current_version": "5",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2607.29237",
+          "title": "CorrelationFlow: A Training-Free Geometric Approach for LiDAR Scene Flow Estimation",
+          "previous_version": "2",
+          "current_version": "3",
+          "window_class": "historical_backfill",
+          "normalized_abstract_unchanged": false
+        },
+        {
+          "id": "2608.25572",
+          "title": "ConfAL-WM: Confidence-Guided Active Learning for Action-Conditioned World Models",
+          "previous_version": "2",
+          "current_version": "3",
+          "window_class": "historical_backfill",
+          "normalized_abstract_unchanged": false
+        },
+        {
+          "id": "2609.14073",
+          "title": "LPA-CWM: A Learned Physical Adjudicator for Motion Reasoning with Counterfactual World Models",
+          "previous_version": "2",
+          "current_version": "3",
+          "window_class": "historical_backfill",
+          "normalized_abstract_unchanged": false
+        },
+        {
+          "id": "2609.24526",
+          "title": "ME-VLM: A Unified VLM for Embodied Cognition and Agent Coordination",
+          "previous_version": "3",
+          "current_version": "4",
+          "window_class": "historical_backfill",
+          "normalized_abstract_unchanged": false
+        },
+        {
+          "id": "2610.03079",
+          "title": "RIFAR: Reliability-Informed and Forgetting-Aware Replay for Continual Robot Learning with World-Action Models",
+          "previous_version": "2",
+          "current_version": "3",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": false
+        },
+        {
+          "id": "2610.06594",
+          "title": "VGGT-Bridge: Beyond Sequential Pose Graphs via Coarse-Stride Skip Edges",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": false
+        },
+        {
+          "id": "2610.06617",
+          "title": "RealtimeWAM: One-Step Asynchronous World Action Models",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "historical_backfill",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.06814",
+          "title": "TAPDreamer: Transferable Adversarial Patches for World Action Models",
+          "previous_version": "1",
+          "current_version": "3",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.07217",
+          "title": "RoboCap: A New Platform for Egocentric Robot Learning",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.11049",
+          "title": "SatFix: Absolute Visual Localization of UAVs in Satellite Maps from a Single Oblique Image",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": false
+        },
+        {
+          "id": "2610.11376",
+          "title": "CRISP: Fixing Flying Pixels in Latent LiDAR Generation via Diffusion Decoding",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": false
+        },
+        {
+          "id": "2610.13643",
+          "title": "DexBioLab: Benchmarking Dexterous Manipulation with Dynamic Experimental Phenomena in Realistic Laboratories",
+          "previous_version": "1",
+          "current_version": "4",
+          "window_class": "historical_backfill",
+          "normalized_abstract_unchanged": false
+        },
+        {
+          "id": "2610.14698",
+          "title": "PURE: Refining Feed - forward 3D Reconstruction with Unlabeled Post-training",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": false
+        },
+        {
+          "id": "2610.16177",
+          "title": "DIGS: Distribution-Informed Gaussian Splatting for Training-Free Open-Vocabulary 3D Segmentation",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "historical_backfill",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.16272",
+          "title": "Graph3R: Unifying View Graph Initialization with Feed - Forward Reconstruction",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "historical_backfill",
+          "normalized_abstract_unchanged": false
+        },
+        {
+          "id": "2610.16522",
+          "title": "Learning Reachability-Based Safety Representations for Real-Time Robot Navigation in Unknown and Dynamic Environments",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.18093",
+          "title": "LynxScenes: A Large-Scale Real-World Benchmark for Outdoor Wheel-Legged Robot Perception, Navigation, Imagination and Reconstruction",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "historical_backfill",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.18447",
+          "title": "Thinker-WM: A Unified World Model with Shared Multimodal Representations for Embodied Intelligence",
+          "previous_version": "1",
+          "current_version": "3",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.18697",
+          "title": "UniW(A)M: A Unified Mixture-of-Experts Framework for World and World-Action Models",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.18826",
+          "title": "WorldOracle: Benchmarking Action-Conditioned World Models against Real-World Executions",
+          "previous_version": "1",
+          "current_version": "3",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": false
+        },
+        {
+          "id": "2610.19327",
+          "title": "SonoWorld: Towards Interactive Pose-Controllable Ultrasound World Models",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.20693",
+          "title": "Orbia: Do Generated Videos Form a Consistent 3D World?",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "historical_backfill",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.20731",
+          "title": "WorldCast: Exploring Intelligent Visual Generation in World State Prediction",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.21090",
+          "title": "RoboCloth: A Large-Scale Real Cloth Material Dataset for Neural Reflectance Reconstruction",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.21302",
+          "title": "Dusting the Phantom: Gaussian Allocation for Fading Dynamic Content",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "historical_backfill",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.21374",
+          "title": "From Optical Flow to Safety: Visual Safety Certification via Scale-Free Relative Motion",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.21783",
+          "title": "Learning to Think and Explore in 3D World",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.22363",
+          "title": "Perceive, Predict, and Plan: a Unified World Action Model for Egocentric Dexterous Manipulation",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": true
+        }
+      ]
+    },
+    {
+      "prefix": "2026-10-24_2026-11-01",
+      "candidate_count": 2486,
+      "included_count": 449,
+      "prior_included_ids": 26,
+      "same_version_reincluded_count": 0,
+      "same_version_reincluded_ids": [],
+      "prior_same_version_candidates": 116,
+      "both_periods_abstract_read_flags": 43,
+      "both_periods_read_previously_included": 37,
+      "both_read_ids": [
+        "2604.23862",
+        "2609.17210",
+        "2609.20582",
+        "2609.40003",
+        "2610.06594",
+        "2610.11049",
+        "2610.20731",
+        "2610.26659",
+        "2610.29845",
+        "2610.30320",
+        "2610.30589",
+        "2610.30605",
+        "2610.30606",
+        "2610.30609",
+        "2610.30619",
+        "2610.30643",
+        "2610.30657",
+        "2610.30694",
+        "2610.30774",
+        "2610.30781",
+        "2610.30786",
+        "2610.30789",
+        "2610.30814",
+        "2610.30839",
+        "2610.30932",
+        "2610.30991",
+        "2610.30994",
+        "2610.31020",
+        "2610.31108",
+        "2610.31123",
+        "2610.31149",
+        "2610.31186",
+        "2610.31194",
+        "2610.31221",
+        "2610.31384",
+        "2610.31429",
+        "2610.31432",
+        "2610.31474",
+        "2610.31476",
+        "2610.31518",
+        "2610.31617",
+        "2610.31635",
+        "2610.31668"
+      ],
+      "prior_excluded_now_included_same_version": [
+        "2610.30619"
+      ],
+      "version_updates": [
+        {
+          "id": "2601.14895",
+          "title": "SpatialMem: Metric-Aligned Long-Horizon Video Memory for Language Grounding and QA",
+          "previous_version": "3",
+          "current_version": "4",
+          "window_class": "historical_revision_backfill",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2609.05588",
+          "title": "GE-Act 2.0: Pretraining and Scaling a World-Action Model for Robotic Manipulation",
+          "previous_version": "2",
+          "current_version": "3",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.05414",
+          "title": "RMMBench: A Comprehensive Benchmark for Robotic Mobile Manipulation",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "historical_revision_backfill",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.09857",
+          "title": "Towards Accurate End-Effector Localization for UMI-Style Robotic Manipulation Teaching",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.10270",
+          "title": "Video Prediction Policy 2: Predict Better, Act Better",
+          "previous_version": "3",
+          "current_version": "4",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.13309",
+          "title": "NovaSplat: Model-Free 6D Object Pose Estimation via 3D Gaussian Splatting Onboarding and Refinement",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": false
+        },
+        {
+          "id": "2610.13706",
+          "title": "GLIMPSE: Global-Local Indexing with Multi-Precision Spectral Encoding for Explorable Video World Models",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": false
+        },
+        {
+          "id": "2610.14561",
+          "title": "From Video to Vision: Learning Generalizable Humanoid Carrying from Human Motion",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.18826",
+          "title": "WorldOracle: Benchmarking Action-Conditioned World Models against Real-World Executions",
+          "previous_version": "3",
+          "current_version": "4",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": false
+        },
+        {
+          "id": "2610.19683",
+          "title": "MemWM: Associative Memory-Enhanced Latent World Models for Long-Horizon Planning",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": false
+        },
+        {
+          "id": "2610.22335",
+          "title": "Illumination-Aware Active Perception for Spacecraft Inspection",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.22340",
+          "title": "PlayPolicy: Dexterity from Supervised Play",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": false
+        },
+        {
+          "id": "2610.23334",
+          "title": "LAW: Unifying Language, Action, and World Modeling for Agentic Physical Intelligence",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.25068",
+          "title": "Localization and Neural Splatting on the Edge: An FPGA Scene Memory for Robots",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "historical_revision_backfill",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.25959",
+          "title": "EmbodiedWorld-200K: Toward Embodied World Agents via Embodied-Planning Dataset and Interactive World Models",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": false
+        },
+        {
+          "id": "2610.26179",
+          "title": "Learning Goal-Conditioned Subgoals through Frozen Hierarchical World Models",
+          "previous_version": "2",
+          "current_version": "3",
+          "window_class": "historical_revision_backfill",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.26844",
+          "title": "AnyGoal: On World Model Generalization Beyond Expert Rollouts",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.27049",
+          "title": "VitronEdit: Universal Visual Editing across Images, Videos, and 3D Scenes",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.27712",
+          "title": "RLSplat: Resource-Linear Budget Control for Feed-forward 3D Gaussian Splatting",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "historical_revision_backfill",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.28465",
+          "title": "MARE: An Open-Source Lunar Rover Simulator with Shadow Ground Truth for Perception and Autonomy",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.29246",
+          "title": "DepState-JEPA: Learning Depth-Grounded State Representation for Visual Perception and Manipulation",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "historical_revision_backfill",
+          "normalized_abstract_unchanged": false
+        },
+        {
+          "id": "2610.30724",
+          "title": "Learning from Next-Frame Prediction: Towards Unified and Scalable Visual World Modeling",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "historical_revision_backfill",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.30988",
+          "title": "In-Context Learning World Models for Robot Dual-Arm Manipulation of Soft Garment with Partial Observations",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": false
+        },
+        {
+          "id": "2610.31028",
+          "title": "Multimodal Progress-Residual Fusion for Anticipating Navigation Retreat in Robotic Flexible Endoscopy",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.31066",
+          "title": "Dual Exam: Controlled Evaluation of Multimodal Agents and World Models",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "revised",
+          "normalized_abstract_unchanged": true
+        },
+        {
+          "id": "2610.31670",
+          "title": "Sensorimotor Alignment: A Platonic Proxy for Embodied Policy Success",
+          "previous_version": "1",
+          "current_version": "2",
+          "window_class": "historical_revision_backfill",
+          "normalized_abstract_unchanged": false
+        }
+      ]
+    }
+  ],
+  "pairs": [
+    {
+      "first": "2026-10-03_2026-10-18",
+      "second": "2026-10-18_2026-10-24",
+      "shared_included_ids": 30,
+      "same_version": [],
+      "deep_read_in_both": []
+    },
+    {
+      "first": "2026-10-03_2026-10-18",
+      "second": "2026-10-24_2026-11-01",
+      "shared_included_ids": 11,
+      "same_version": [],
+      "deep_read_in_both": []
+    },
+    {
+      "first": "2026-10-18_2026-10-24",
+      "second": "2026-10-24_2026-11-01",
+      "shared_included_ids": 16,
+      "same_version": [],
+      "deep_read_in_both": []
+    }
+  ],
+  "within_run_abstract_flags": {
+    "per_task": {
+      "core-search.json": 146,
+      "geometry-search.json": 221,
+      "extension-screened.json": 348
+    },
+    "total_marks": 715,
+    "unique_ids": 668,
+    "excess_marks_over_unique_ids": 47,
+    "pairwise": [
+      {
+        "a": "core-search.json",
+        "b": "geometry-search.json",
+        "overlap": 9
+      },
+      {
+        "a": "core-search.json",
+        "b": "extension-screened.json",
+        "overlap": 13
+      },
+      {
+        "a": "geometry-search.json",
+        "b": "extension-screened.json",
+        "overlap": 27
+      }
+    ]
+  },
+  "queries": [
+    {
+      "source": "main-search-manifest.json",
+      "queries": 18,
+      "fetched_hits": 1542,
+      "large_queries": [
+        {
+          "family": "B-streaming",
+          "name": "main-api-B-streaming-submittedDate",
+          "total": 355
+        },
+        {
+          "family": "B-streaming",
+          "name": "main-api-B-streaming-lastUpdatedDate",
+          "total": 355
+        }
+      ]
+    },
+    {
+      "source": "main-advanced-manifest.json",
+      "queries": 18,
+      "fetched_hits": 2071,
+      "large_queries": [
+        {
+          "family": "B-streaming",
+          "name": "main-advanced-B-streaming-submitted_date_first",
+          "total": 345
+        },
+        {
+          "family": "B-streaming",
+          "name": "main-advanced-B-streaming-submitted_date",
+          "total": 510
+        }
+      ]
+    },
+    {
+      "source": "review-query-manifest.json",
+      "queries": 10,
+      "fetched_hits": 2379,
+      "large_queries": [
+        {
+          "family": "A-geometry",
+          "name": "review-A-geometry-submitted_date_first",
+          "total": 854
+        },
+        {
+          "family": "A-geometry",
+          "name": "review-A-geometry-submitted_date",
+          "total": 1309
+        }
+      ]
+    }
+  ],
+  "prompt_update": {
+    "verified_at": "2026-11-07T05:08:30.830040+00:00",
+    "previous_characters": 6959,
+    "current_characters": 3688,
+    "character_reduction_percent": 47.0,
+    "token_savings_not_measured": true,
+    "automation_id": "slam-3d",
+    "saved_matches_repository": true,
+    "unchanged_fields": [
+      "status",
+      "rrule",
+      "model",
+      "reasoning_effort",
+      "execution_environment",
+      "target",
+      "cwds"
+    ],
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "low",
+    "sha256": "418e39e5b3b76e3315e465312c32a3faaaf96a67ed8a0673eee8cf334f935077"
+  },
+  "report_anchor_verification": {
+    "all_included_ids_have_report_anchor": true,
+    "period_counts": [
+      1428,
+      429,
+      449
+    ]
+  }
+}
