@@ -1,0 +1,43 @@
+{
+  "report_path": "reports/2026-10-24_2026-11-01_RESPLE2-GPA-VGGT-OctWorld.html",
+  "assets": [
+    "reports\\assets\\2026-10-24_2026-11-01_2610.37602_overview.png",
+    "reports\\assets\\2026-10-24_2026-11-01_2610.36853_overview.png",
+    "reports\\assets\\2026-10-24_2026-11-01_2610.36454_overview.jpg",
+    "reports\\assets\\2026-10-24_2026-11-01_2610.37000_overview.png",
+    "reports\\assets\\2026-10-24_2026-11-01_2610.36150_overview.png",
+    "reports\\assets\\2026-10-24_2026-11-01_2605.23889_overview.png",
+    "reports\\assets\\2026-10-24_2026-11-01_2609.03919_overview.png"
+  ],
+  "counts": {
+    "excluded": 2037,
+    "revision_tracking": 121,
+    "supplemental": 320,
+    "deep_read": 8
+  },
+  "window_counts": {
+    "revised": 123,
+    "historical_backfill": 64,
+    "historical_revision_backfill": 10,
+    "new": 252
+  },
+  "tracking": 441,
+  "supplemental_render_stats": {
+    "total": 441,
+    "categories": {
+      "sensor-applications": 71,
+      "geometry-foundation": 47,
+      "world-model": 93,
+      "gaussian-reconstruction": 37,
+      "embodied-navigation": 67,
+      "world-action": 43,
+      "slam-vio": 14,
+      "semantic-mapping": 20,
+      "simulation-evaluation": 11,
+      "localization-registration": 20,
+      "spatial-understanding": 18
+    },
+    "priority": 37
+  },
+  "generated_at": "2026-11-07T04:22:39.120328+00:00"
+}

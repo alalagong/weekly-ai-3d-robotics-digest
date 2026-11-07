@@ -1,0 +1,508 @@
+[
+  {
+    "name": "main-advanced-A-state-submitted_date_first",
+    "family": "A-state",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "SLAM",
+      "\"simultaneous localization\"",
+      "\"simultaneous localisation\"",
+      "VIO",
+      "\"visual-inertial\"",
+      "odometry",
+      "SfM",
+      "\"structure from motion\""
+    ],
+    "date_predicate": "submitted_date_first:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:21:54Z",
+    "total": 34,
+    "fetched": 34,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=SLAM&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22simultaneous+localization%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22simultaneous+localisation%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=VIO&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual-inertial%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=odometry&terms-5-field=all&terms-6-operator=OR&terms-6-term=SfM&terms-6-field=all&terms-7-operator=OR&terms-7-term=%22structure+from+motion%22&terms-7-field=all",
+        "start": 0,
+        "returned": 34,
+        "raw_path": "main-advanced-A-state-submitted_date_first-0.html"
+      }
+    ],
+    "exhausted": true
+  },
+  {
+    "name": "main-advanced-A-state-submitted_date",
+    "family": "A-state",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "SLAM",
+      "\"simultaneous localization\"",
+      "\"simultaneous localisation\"",
+      "VIO",
+      "\"visual-inertial\"",
+      "odometry",
+      "SfM",
+      "\"structure from motion\""
+    ],
+    "date_predicate": "submitted_date:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:21:54Z",
+    "total": 53,
+    "fetched": 53,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=SLAM&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22simultaneous+localization%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22simultaneous+localisation%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=VIO&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual-inertial%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=odometry&terms-5-field=all&terms-6-operator=OR&terms-6-term=SfM&terms-6-field=all&terms-7-operator=OR&terms-7-term=%22structure+from+motion%22&terms-7-field=all",
+        "start": 0,
+        "returned": 53,
+        "raw_path": "main-advanced-A-state-submitted_date-0.html"
+      }
+    ],
+    "exhausted": true
+  },
+  {
+    "name": "main-advanced-A-backend-submitted_date_first",
+    "family": "A-backend",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"loop closure\"",
+      "relocalization",
+      "relocalisation",
+      "registration",
+      "\"bundle adjustment\"",
+      "\"pose graph\""
+    ],
+    "date_predicate": "submitted_date_first:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:21:54Z",
+    "total": 50,
+    "fetched": 50,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22loop+closure%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=relocalization&terms-1-field=all&terms-2-operator=OR&terms-2-term=relocalisation&terms-2-field=all&terms-3-operator=OR&terms-3-term=registration&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22bundle+adjustment%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22pose+graph%22&terms-5-field=all",
+        "start": 0,
+        "returned": 50,
+        "raw_path": "main-advanced-A-backend-submitted_date_first-0.html"
+      }
+    ],
+    "exhausted": true
+  },
+  {
+    "name": "main-advanced-A-backend-submitted_date",
+    "family": "A-backend",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"loop closure\"",
+      "relocalization",
+      "relocalisation",
+      "registration",
+      "\"bundle adjustment\"",
+      "\"pose graph\""
+    ],
+    "date_predicate": "submitted_date:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:21:54Z",
+    "total": 66,
+    "fetched": 66,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22loop+closure%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=relocalization&terms-1-field=all&terms-2-operator=OR&terms-2-term=relocalisation&terms-2-field=all&terms-3-operator=OR&terms-3-term=registration&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22bundle+adjustment%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22pose+graph%22&terms-5-field=all",
+        "start": 0,
+        "returned": 66,
+        "raw_path": "main-advanced-A-backend-submitted_date-0.html"
+      }
+    ],
+    "exhausted": true
+  },
+  {
+    "name": "main-advanced-A-sensors-submitted_date_first",
+    "family": "A-sensors",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "LiDAR",
+      "radar",
+      "\"RGB-D\"",
+      "monocular",
+      "\"multi-camera\""
+    ],
+    "date_predicate": "submitted_date_first:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:21:54Z",
+    "total": 97,
+    "fetched": 97,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=LiDAR&terms-0-field=all&terms-1-operator=OR&terms-1-term=radar&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22RGB-D%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=monocular&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-camera%22&terms-4-field=all",
+        "start": 0,
+        "returned": 97,
+        "raw_path": "main-advanced-A-sensors-submitted_date_first-0.html"
+      }
+    ],
+    "exhausted": true
+  },
+  {
+    "name": "main-advanced-A-sensors-submitted_date",
+    "family": "A-sensors",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "LiDAR",
+      "radar",
+      "\"RGB-D\"",
+      "monocular",
+      "\"multi-camera\""
+    ],
+    "date_predicate": "submitted_date:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:21:54Z",
+    "total": 155,
+    "fetched": 155,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=LiDAR&terms-0-field=all&terms-1-operator=OR&terms-1-term=radar&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22RGB-D%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=monocular&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-camera%22&terms-4-field=all",
+        "start": 0,
+        "returned": 155,
+        "raw_path": "main-advanced-A-sensors-submitted_date-0.html"
+      }
+    ],
+    "exhausted": true
+  },
+  {
+    "name": "main-advanced-B-foundation-submitted_date_first",
+    "family": "B-foundation",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "VGGT",
+      "\"VGGT-Ω\"",
+      "OmniVGGT",
+      "\"geometry foundation\"",
+      "\"visual geometry transformer\"",
+      "DUSt3R",
+      "MASt3R",
+      "pi3",
+      "\"π³\"",
+      "DA3",
+      "\"Depth Anything\""
+    ],
+    "date_predicate": "submitted_date_first:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:21:54Z",
+    "total": 88,
+    "fetched": 88,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=VGGT&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22VGGT-%CE%A9%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=OmniVGGT&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometry+foundation%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual+geometry+transformer%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=DUSt3R&terms-5-field=all&terms-6-operator=OR&terms-6-term=MASt3R&terms-6-field=all&terms-7-operator=OR&terms-7-term=pi3&terms-7-field=all&terms-8-operator=OR&terms-8-term=%22%CF%80%C2%B3%22&terms-8-field=all&terms-9-operator=OR&terms-9-term=DA3&terms-9-field=all&terms-10-operator=OR&terms-10-term=%22Depth+Anything%22&terms-10-field=all",
+        "start": 0,
+        "returned": 88,
+        "raw_path": "main-advanced-B-foundation-submitted_date_first-0.html"
+      }
+    ],
+    "exhausted": true
+  },
+  {
+    "name": "main-advanced-B-foundation-submitted_date",
+    "family": "B-foundation",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "VGGT",
+      "\"VGGT-Ω\"",
+      "OmniVGGT",
+      "\"geometry foundation\"",
+      "\"visual geometry transformer\"",
+      "DUSt3R",
+      "MASt3R",
+      "pi3",
+      "\"π³\"",
+      "DA3",
+      "\"Depth Anything\""
+    ],
+    "date_predicate": "submitted_date:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:21:54Z",
+    "total": 158,
+    "fetched": 158,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=VGGT&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22VGGT-%CE%A9%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=OmniVGGT&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometry+foundation%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual+geometry+transformer%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=DUSt3R&terms-5-field=all&terms-6-operator=OR&terms-6-term=MASt3R&terms-6-field=all&terms-7-operator=OR&terms-7-term=pi3&terms-7-field=all&terms-8-operator=OR&terms-8-term=%22%CF%80%C2%B3%22&terms-8-field=all&terms-9-operator=OR&terms-9-term=DA3&terms-9-field=all&terms-10-operator=OR&terms-10-term=%22Depth+Anything%22&terms-10-field=all",
+        "start": 0,
+        "returned": 158,
+        "raw_path": "main-advanced-B-foundation-submitted_date-0.html"
+      }
+    ],
+    "exhausted": true
+  },
+  {
+    "name": "main-advanced-B-reconstruction-submitted_date_first",
+    "family": "B-reconstruction",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"feed-forward\"",
+      "feedforward",
+      "\"3D reconstruction\"",
+      "pointmap",
+      "\"Gaussian splatting\"",
+      "3DGS"
+    ],
+    "date_predicate": "submitted_date_first:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:21:54Z",
+    "total": 80,
+    "fetched": 80,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22feed-forward%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=feedforward&terms-1-field=all&terms-2-operator=OR&terms-2-term=%223D+reconstruction%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=pointmap&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22Gaussian+splatting%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=3DGS&terms-5-field=all",
+        "start": 0,
+        "returned": 80,
+        "raw_path": "main-advanced-B-reconstruction-submitted_date_first-0.html"
+      }
+    ],
+    "exhausted": true
+  },
+  {
+    "name": "main-advanced-B-reconstruction-submitted_date",
+    "family": "B-reconstruction",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"feed-forward\"",
+      "feedforward",
+      "\"3D reconstruction\"",
+      "pointmap",
+      "\"Gaussian splatting\"",
+      "3DGS"
+    ],
+    "date_predicate": "submitted_date:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:21:54Z",
+    "total": 140,
+    "fetched": 140,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22feed-forward%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=feedforward&terms-1-field=all&terms-2-operator=OR&terms-2-term=%223D+reconstruction%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=pointmap&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22Gaussian+splatting%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=3DGS&terms-5-field=all",
+        "start": 0,
+        "returned": 140,
+        "raw_path": "main-advanced-B-reconstruction-submitted_date-0.html"
+      }
+    ],
+    "exhausted": true
+  },
+  {
+    "name": "main-advanced-B-streaming-submitted_date_first",
+    "family": "B-streaming",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"long-sequence\"",
+      "\"long-horizon\"",
+      "streaming",
+      "\"efficient attention\"",
+      "\"online reconstruction\""
+    ],
+    "date_predicate": "submitted_date_first:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:21:54Z",
+    "total": 345,
+    "fetched": 345,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+        "start": 0,
+        "returned": 200,
+        "raw_path": "main-advanced-B-streaming-submitted_date_first-0.html"
+      },
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+        "start": 200,
+        "returned": 145,
+        "raw_path": "main-advanced-B-streaming-submitted_date_first-200.html"
+      }
+    ],
+    "exhausted": true
+  },
+  {
+    "name": "main-advanced-B-streaming-submitted_date",
+    "family": "B-streaming",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"long-sequence\"",
+      "\"long-horizon\"",
+      "streaming",
+      "\"efficient attention\"",
+      "\"online reconstruction\""
+    ],
+    "date_predicate": "submitted_date:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:21:54Z",
+    "total": 510,
+    "fetched": 510,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+        "start": 0,
+        "returned": 200,
+        "raw_path": "main-advanced-B-streaming-submitted_date-0.html"
+      },
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+        "start": 200,
+        "returned": 200,
+        "raw_path": "main-advanced-B-streaming-submitted_date-200.html"
+      },
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=400&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+        "start": 400,
+        "returned": 110,
+        "raw_path": "main-advanced-B-streaming-submitted_date-400.html"
+      }
+    ],
+    "exhausted": true
+  },
+  {
+    "name": "main-advanced-C-navigation-submitted_date_first",
+    "family": "C-navigation",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"embodied navigation\"",
+      "VLN",
+      "\"vision-language navigation\"",
+      "\"active mapping\"",
+      "\"semantic mapping\"",
+      "\"open-vocabulary mapping\""
+    ],
+    "date_predicate": "submitted_date_first:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:22:08Z",
+    "total": 17,
+    "fetched": 17,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22embodied+navigation%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=VLN&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22vision-language+navigation%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22active+mapping%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+mapping%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22open-vocabulary+mapping%22&terms-5-field=all",
+        "start": 0,
+        "returned": 17,
+        "raw_path": "main-advanced-C-navigation-submitted_date_first-0.html"
+      }
+    ],
+    "exhausted": true
+  },
+  {
+    "name": "main-advanced-C-navigation-submitted_date",
+    "family": "C-navigation",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"embodied navigation\"",
+      "VLN",
+      "\"vision-language navigation\"",
+      "\"active mapping\"",
+      "\"semantic mapping\"",
+      "\"open-vocabulary mapping\""
+    ],
+    "date_predicate": "submitted_date:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:22:08Z",
+    "total": 26,
+    "fetched": 26,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22embodied+navigation%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=VLN&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22vision-language+navigation%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22active+mapping%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+mapping%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22open-vocabulary+mapping%22&terms-5-field=all",
+        "start": 0,
+        "returned": 26,
+        "raw_path": "main-advanced-C-navigation-submitted_date-0.html"
+      }
+    ],
+    "exhausted": true
+  },
+  {
+    "name": "main-advanced-C-world-submitted_date_first",
+    "family": "C-world",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"world model\"",
+      "\"world-action\"",
+      "\"world action\"",
+      "\"world modeling\""
+    ],
+    "date_predicate": "submitted_date_first:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:22:08Z",
+    "total": 101,
+    "fetched": 101,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22world+model%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22world-action%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22world+action%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22world+modeling%22&terms-3-field=all",
+        "start": 0,
+        "returned": 101,
+        "raw_path": "main-advanced-C-world-submitted_date_first-0.html"
+      }
+    ],
+    "exhausted": true
+  },
+  {
+    "name": "main-advanced-C-world-submitted_date",
+    "family": "C-world",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"world model\"",
+      "\"world-action\"",
+      "\"world action\"",
+      "\"world modeling\""
+    ],
+    "date_predicate": "submitted_date:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:22:08Z",
+    "total": 149,
+    "fetched": 149,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22world+model%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22world-action%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22world+action%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22world+modeling%22&terms-3-field=all",
+        "start": 0,
+        "returned": 149,
+        "raw_path": "main-advanced-C-world-submitted_date-0.html"
+      }
+    ],
+    "exhausted": true
+  },
+  {
+    "name": "main-advanced-C-applications-submitted_date_first",
+    "family": "C-applications",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"underwater localization\"",
+      "\"underwater state estimation\"",
+      "\"thermal localization\"",
+      "\"endoscopic reconstruction\""
+    ],
+    "date_predicate": "submitted_date_first:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:22:08Z",
+    "total": 1,
+    "fetched": 1,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22underwater+localization%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22underwater+state+estimation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22thermal+localization%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22endoscopic+reconstruction%22&terms-3-field=all",
+        "start": 0,
+        "returned": 1,
+        "raw_path": "main-advanced-C-applications-submitted_date_first-0.html"
+      }
+    ],
+    "exhausted": true
+  },
+  {
+    "name": "main-advanced-C-applications-submitted_date",
+    "family": "C-applications",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"underwater localization\"",
+      "\"underwater state estimation\"",
+      "\"thermal localization\"",
+      "\"endoscopic reconstruction\""
+    ],
+    "date_predicate": "submitted_date:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:22:09Z",
+    "total": 1,
+    "fetched": 1,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22underwater+localization%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22underwater+state+estimation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22thermal+localization%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22endoscopic+reconstruction%22&terms-3-field=all",
+        "start": 0,
+        "returned": 1,
+        "raw_path": "main-advanced-C-applications-submitted_date-0.html"
+      }
+    ],
+    "exhausted": true
+  }
+]

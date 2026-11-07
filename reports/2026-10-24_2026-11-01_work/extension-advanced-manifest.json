@@ -1,0 +1,59 @@
+[
+  {
+    "name": "extension-advanced-A-independent-latest",
+    "source": "arXiv Advanced Search",
+    "field": "all fields exact phrase alternatives",
+    "date_predicate": "Submission date (most recent), date-date_type=submitted_date, 2026-10-24 through 2026-11-01 inclusive whole days; official history exact postfilter",
+    "requested_at": "2026-11-01T15:22:33Z",
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22place+recognition%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22pose+tracking%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22map+merging%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22global+localization%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual+localisation%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22inertial+navigation%22&terms-5-field=all",
+        "start": 0,
+        "returned": 11,
+        "retrieved_at": "2026-11-01T15:22:36Z",
+        "raw_path": "extension-advanced-A-independent-latest-0.html"
+      }
+    ],
+    "total": 11,
+    "fetched": 11,
+    "exhausted": true
+  },
+  {
+    "name": "extension-advanced-B-independent-latest",
+    "source": "arXiv Advanced Search",
+    "field": "all fields exact phrase alternatives",
+    "date_predicate": "Submission date (most recent), date-date_type=submitted_date, 2026-10-24 through 2026-11-01 inclusive whole days; official history exact postfilter",
+    "requested_at": "2026-11-01T15:22:33Z",
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22metric+scale%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22point+map%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22multi-view+stereo%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometric+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22camera+recovery%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22dense+geometry%22&terms-5-field=all",
+        "start": 0,
+        "returned": 17,
+        "retrieved_at": "2026-11-01T15:22:36Z",
+        "raw_path": "extension-advanced-B-independent-latest-0.html"
+      }
+    ],
+    "total": 17,
+    "fetched": 17,
+    "exhausted": true
+  },
+  {
+    "name": "extension-advanced-C-independent-latest",
+    "source": "arXiv Advanced Search",
+    "field": "all fields exact phrase alternatives",
+    "date_predicate": "Submission date (most recent), date-date_type=submitted_date, 2026-10-24 through 2026-11-01 inclusive whole days; official history exact postfilter",
+    "requested_at": "2026-11-01T15:22:36Z",
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22object-goal%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22object+navigation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22scene+graph%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22spatial+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+exploration%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22language-guided+navigation%22&terms-5-field=all",
+        "start": 0,
+        "returned": 19,
+        "retrieved_at": "2026-11-01T15:22:39Z",
+        "raw_path": "extension-advanced-C-independent-latest-0.html"
+      }
+    ],
+    "total": 19,
+    "fetched": 19,
+    "exhausted": true
+  }
+]

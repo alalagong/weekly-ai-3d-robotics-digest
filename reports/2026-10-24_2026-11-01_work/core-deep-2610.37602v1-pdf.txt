@@ -1,0 +1,2516 @@
+PAGE 1
+1
+RESPLE2: Inertial-Informed Recursive Non-Uniform Spline
+Estimation for Multi-Sensor Odometry with Global Refinement
+Ziyu Cao, William Talbot, Song Li, Pakpong Chirarattananon, Fredrik Gustafsson, Marco Hutter, and Kailai Li
+Abstract—We present RESPLE2, a recursive multi-sensor state
+estimation framework using non-uniform B-splines for 6-DoF
+motion representation. By exploiting the knot-clamping bound-
+ary property, we propose a theoretically grounded mechanism
+for exact control-point prediction directly informed by inertial
+kinematics along the trajectory, with knot placement adapted
+to motion and measurement availability. Within an iterated
+extended Kalman filter, we perform this prediction using a subset
+of inertial measurements. A subsequent reset step preserves
+trajectory consistency as the knots extend. The update step
+further incorporates heterogeneous sensor measurements at their
+native timestamps through continuous-time observation models,
+supporting flexible combinations of LiDARs, cameras, inertial
+measurement units, and leg kinematics. We further develop a
+lightweight global optimization module that directly refines non-
+uniform B-spline control points by incorporating loop-closure
+constraints derived from LiDAR-visual cues. We conduct ex-
+tensive evaluations on public and experimental datasets across
+handheld, tracked, legged, and hybrid aerial-legged platforms,
+covering highly dynamic maneuvers with extreme accelerations.
+Compared with state-of-the-art multi-sensor odometry systems,
+RESPLE2 achieves competitive or superior estimation accu-
+racy and robustness in the corresponding sensor configurations,
+particularly under aggressive motion, while maintaining real-
+time operation. We publicly release our code and experimental
+datasets athttps://github.com/ASIG-X/RESPLE2.
+I. INTRODUCTION
+Recent advances in high-performance sensing and actua-
+tion technologies have enabled mobile robots to operate in
+increasingly diverse and challenging environments. Emerging
+platforms, including legged and hybrid locomotion systems
+equipped with multimodal sensors [1], [2], have been devel-
+oped for demanding applications spanning search and rescue,
+logistics, healthcare, entertainment, household assistance, in
+situ forestry, and environmental monitoring [3]–[7].
+Accurate and robust six-degree-of-freedom (6-DoF) egomo-
+tion estimation is essential for high-performance autonomy in
+This work was supported in part by the Swiss National Science Foundation
+(SNSF) [20CH-1 229464/1] under Grant CHIST-ERA-23-MultiGIS-07 (to
+W.T.), in part by the Natural Sciences and Engineering Research Council
+of Canada (NSERC) under Discovery Grant RGPIN-2026-05891 (to P.C.),
+and in part by the Canada Foundation for Innovation (CFI) John R. Evans
+Leaders Fund (JELF) under Award 47054 (to P.C.).(Corresponding author:
+Kailai Li.)
+Ziyu Cao, Fredrik Gustafsson and Kailai Li are with the Department of
+Electrical Engineering, Link ¨oping University, 58183 Link ¨oping, Sweden (e-
+mail: ziyu.cao@liu.se; fredrik.gustafsson@liu.se; kailai.li@liu.se).
+William Talbot and Marco Hutter are with the Robotic Systems Lab
+(RSL), ETH Z ¨urich, 8092 Zurich, Switzerland (e-mail: wtalbot@ethz.ch;
+mahutter@ethz.ch).
+Song Li and Pakpong Chirarattananon are with the Department of Mechani-
+cal and Industrial Engineering, University of Toronto, Toronto, ON M5S 3G8,
+Canada. (e-mail: lsong.li@mail.utoronto.ca; p.chirarattananon@utoronto.ca)
+Song Li is also with the Department of Biomedical Engineering, City
+University of Hong Kong, Hong Kong (e-mail: lsong22-c@my.cityu.edu.hk).
+these emerging scenarios. Odometry systems using cameras
+and inertial measurement units (IMUs) are well established [9].
+Light detection and ranging (LiDAR) sensors complement
+cameras by providing accurate, illumination-invariant geomet-
+ric observations over long ranges and across a wide field of
+view (FoV), motivating configurations such as LiDAR-inertial
+odometry (LIO), LiDAR-visual-inertial odometry (LVIO), and
+LIO augmented with leg kinematics (LKIO) [10]–[13]. Fus-
+ing these complementary measurements mitigates modality-
+specific degradation, improves estimation accuracy and robust-
+ness, and enables more informative scene maps. Nevertheless,
+aggressive platform dynamics, unstructured environments, and
+limited onboard computational resources continue to challenge
+reliable egomotion estimation [8], [14]. Beyond these oper-
+ational challenges, most existing odometry systems remain
+sensor-specific and standalone, with limited extensibility to
+new modalities. Furthermore, they have been validated pri-
+marily on conventional aerial and wheeled platforms rather
+than on emerging embodiments deployed in demanding real-
+world mobile scenarios, such as highly dynamic (loco)motion
+and complex terrain interaction [2], [15].
+Conventional multi-sensor estimation methods represent dy-
+namic motion in discrete time and use recursive filtering
+or nonlinear sliding-window optimization, with motion states
+associated with specific timestamps at fixed frame rates.
+During online estimation, asynchronous sensor measurements
+are typically approximated, e.g., through temporal interpola-
+tion [9], [16]. This paradigm often scales poorly as sensor rates
+and the number of sensors vary, particularly when changing
+sensors without synchronized triggering. Moreover, measure-
+ments from many exteroceptive sensors, such as LiDARs and
+rolling-shutter cameras, exhibit motion distortion during agile
+maneuvers and require explicit modeling or compensation for
+undistortion in state estimation. These design choices can
+compromise the spatiotemporal fidelity of raw observations
+and alter underlying noise characteristics, potentially degrad-
+ing estimation accuracy and robustness while increasing both
+methodological and engineering complexity [10], [17].
+Continuous-time motion representations decouple the num-
+ber and temporal placement of estimates from observations,
+facilitating the integration of asynchronous multi-sensor read-
+ings at their native timestamps without complicating system
+design. Piecewise-linear models show promise for LiDAR-
+only odometry, e.g., Traj-LO [18], due to simplicity and
+computational efficiency, but may inadequately capture non-
+linear motion during rapid or aggressive maneuvers. A more
+advanced, well-studied approach usesexactly sparsetempo-
+ral Gaussian processes (GPs), in which system dynamics
+are modeled as a Markovian LTV-SDE process, such as
+arXiv:2610.37602v1  [cs.RO]  27 Oct 2026
+PAGE 2
+2
+Fig. 1. RESPLE2 enables multi-sensor odometry across diverse scenarios on ANYmal D (a, b) and Unitree Go2 (e) legged robots, a tracked vehicle (c), a
+hybrid legged quadcopter (d), and handheld platforms (f, g, h). TheBoxisensor payload [8] was deployed for the ANYmal D and tracked vehicle.
+white-noise-on-acceleration (WNOA) or white-noise-on-jerk
+(WNOJ) [19]–[23]. B-splines, often cubic, represent6-DoF
+motion as piecewise polynomial functions, with each segment
+defined by a local set ofcontrol pointsblended according to
+a sequence of chosen scalar times calledknotsof typically
+uniform intervals [24]–[26].
+Most existing online continuous-time estimators solve max-
+imum likelihood estimation (MLE) or maximum a posteriori
+(MAP) estimation problems in a sliding-window fashion [17],
+[24], [26], [27]. Although these optimization-based methods
+generally achieve high accuracy and improve robustness to
+sensor degeneracy, their real-time deployment is challenging
+and often requires carefully designed solvers, which compli-
+cates the integration of additional sensor modalities.
+Recursive Bayesian estimators, such as the extended
+Kalman filter (EKF), offer a methodologically lightweight
+alternative; however, they remain scarce and underexplored
+in continuous-time multi-sensor odometry systems and are
+restricted to a narrow, fixed set of sensor configurations.
+For example, CTE-MLO performs recursive estimation using
+a GP-based continuous-time representation for LiDAR-only
+odometry [21]. RESPLE is the first6-DoF B-spline-based
+recursive motion estimator, supporting both LiDAR-only and
+LiDAR-inertial odometry [25]. But its uniform knot spacing
+imposes a globally fixed temporal knot interval, where ac-
+curate control-point estimation requires knot intervals to be
+short enough for the polynomial to capture aggressive motions,
+yet long enough to include sufficient sensor measurements to
+constrain all degrees of freedom at each update, increasing
+susceptibility to geometric degeneracy. It is therefore theorized
+that well-chosen, non-uniform knots can bring both accuracy
+and computational benefits [26], [28]. Despite preliminary
+efforts to develop non-uniform B-spline LVIO using sliding-
+window optimization [26], the broader methodological and
+practical potential of this motion-adaptive representation re-
+mains underexplored.
+More fundamentally, despite its growing adoption in prac-
+tical systems, the theoretical formulation of B-spline-based
+odometry systems remains incomplete. Regardless of whether
+estimation uses filtering or sliding-window optimization, or
+whether knot spacing is uniform or non-uniform, B-spline
+control points do not lie on the motion trajectory in general.
+Consequently, existing theory has not established exact kine-
+matic models for the states (i.e., the control points) analogous
+to those used in discrete-time or GP-based continuous-time
+approaches. As a result, new control points have not been
+predicted or initialized along the trajectory by directly inte-
+grating kinematic information, such as IMU measurements.
+Furthermore, no existing non-uniform B-spline-based odome-
+try system natively supports loop closure for global refinement.
+To address these methodological and engineering limi-
+tations, we present RESPLE2, a novel recursive Bayesian
+estimation framework that represents continuous-time 6-DoF
+motion using non-uniform B-splines within an iterated ex-
+tended Kalman filter (IEKF). Unlike existing B-spline-based
+estimators, our framework introduces a inertial-informed pro-
+cess model to guarantee exact prediction of control points
+located on the motion trajectory. Moreover, RESPLE2 enables
+a versatile estimation framework supporting a configurable
+fusion of LiDAR, camera, IMU, and leg joint measurements.
+Extensive real-world validation spans generic mobile platforms
+and, particularly, emerging robotic embodiments. More specif-
+ically, our key contributions are summarized below.
+PAGE 3
+3
+Contributions
+•We propose the first recursive continuous-time estimator
+using non-uniform B-splines for multi-sensor odometry.
+Using the knot-clamping boundary property, the framework
+enables exact prediction of control points on the motion
+trajectory directly informed by inertial measurements and
+supports efficient and versatile multi-sensor fusion.
+•A lightweight optimization module is additionally developed
+for direct global refinement of non-uniform control points
+for correcting drifts at loop closures detected by LiDAR-
+visual cues, while preserving the local kinematic consistency
+of the continuous-time trajectory.
+•The framework enables diverse multi-sensor odometry sys-
+tems, including LO, LIO, LVIO, LKIO, and LKVIO, within
+a unified design. We conduct extensive evaluations on
+legged, tracked vehicle, and hybrid legged-quadcopter plat-
+forms under challenging real-world conditions, including
+aggressive motion and exteroceptive degradation. Compared
+with state-of-the-art methods, RESPLE2 achieves compara-
+ble or superior odometry robustness and accuracy in real
+time and supports optional global refinement.
+•We publicly release the full system implementation and the
+experimental datasets.
+II. RELATEDWORK
+A. Multi-Sensor Odometry
+Popular multi-sensor odometry systems remain predomi-
+nantly based on discrete-time formulations, in which tightly
+coupled filtering-based or optimization-based estimators can
+fuse disparate sensor modalities more consistently and accu-
+rately than their loosely coupled counterparts [14], [29]. The
+most closely related system, FAST-LIVO2 [30], uses IMU
+strapdown integration within an error-state iterated Kalman
+filter (ESIKF) andVoxelMapfor local map management [31].
+The sequential updates adopt LiDAR point-to-plane residuals
+using planes extracted from the local map and photometric
+visual residuals computed by warping image patches stored
+in the map and efficiently retrieved through on-demand voxel
+raycasting. Point-LIO focuses on robust LIO under dynamic
+motion and IMU saturation, with point-wise updates for both
+inertial and LiDAR measurements [32]. For legged robots,
+kinematic information from joint encoders and contact sensing
+provides an additional measurement modality to complement
+inertial and exteroceptive sensors. Leg-KILO [13] fuses Li-
+DAR, inertial, and leg joint measurements using an error-state
+Kalman filter (ESKF) for quadrupedal odometry, with point-
+wise updates for individual sensors as in Point-LIO [32].
+The proposed RESPLE2 adoptsVoxelMap[31] for local
+map management and uses feature-based visual residuals.
+These design choices build on the state of the art and place less
+emphasis on variations in map representation while prioritiz-
+ing estimation robustness and versatile multi-sensor designs,
+enabling LVIO, LKIO, and beyond.
+B. Continuous-Time Motion Estimation
+We refer readers to [22], [28] for comprehensive surveys and
+comparisons of continuous-time motion estimation methods
+and their relative advantages in robotics. GP-based methods
+provide the most theoretically complete alternative, enabling
+constant-time interpolation of the mean and covariance be-
+tween state variables and supporting online MAP estimation
+through sliding-window optimization. Following this strat-
+egy, systems fusing inertial measurements with individual
+modalities, including camera, LiDAR, radar, ultra-wideband,
+and GNSS, have been reported [20], [22], [28], [33]. CTE-
+MLO [21] further combines the GP representation with an
+EKF for LiDAR-only odometry. Its filtering-based design
+makes it a GP-based counterpart to RESPLE2. However, to
+the best of our knowledge, no LVIO or LKVIO systems using
+the GP representation have been proposed.
+Recent improvements in interpolation efficiency have pro-
+moted the use of B-splines in multi-sensor odometry [34], [35].
+As with other continuous-time methods, almost all B-spline-
+based systems perform MAP estimation by optimizing control
+points over one or more spline segments [28]. For example,
+CLINS, SLICT2, and CLIC [24], [36], [37] use sliding-
+window optimization to estimate uniform B-spline trajectories
+for LIO or LVIO. RESPLE [25] was the first to introduce
+recursive B-spline estimation using an IEKF, supporting LO
+and LIO within a unified design. This lightweight estima-
+tor achieves comparable or superior accuracy and greater
+robustness under dynamic motion than these optimization-
+based systems. Its LIO variant provides a direct baseline for
+assessing RESPLE2’s exact control-point prediction within a
+non-uniform B-spline framework.
+For online non-uniform B-spline estimation, the knot can be
+placed by using the maximum magnitudes of IMU-measured
+angular velocity and acceleration as heuristic indicators of
+motion complexity, selecting shorter segments when these
+values are high [26]. As a non-uniform B-spline LVIO system,
+Coco-LIC [26] uses sliding-window MAP estimation and
+determines knot locations by subdividing a uniform knot distri-
+bution based on IMU excitation. Alternatively, the number and
+local distribution of visual keyframes can guide knot density
+selection [38]. A further methodological challenge is that the
+blending matrix needed for interpolation is no longer constant
+but depends on future knots to be determined in advance. This
+is problematic for Coco-LIC [26] as the approach must wait
+for future IMU measurements to determine knot placements,
+inducing optimization delays [39]. LIO-Mars [39] sets future
+knots according to an expected interval, correcting these knots
+when future LiDAR scans arrive.
+For both uniform and non-uniform B-splines, no existing
+online estimation scheme enablesexactinitialization or pre-
+diction of new control points by directly integrating kinematic
+information, such as IMU measurements, along the motion tra-
+jectory. For example, RESPLE [25] uses a process model with
+a constant transition matrix to predict new control points by
+carrying forward the velocities at previous knots. SLICT2 [24]
+initializes new control points at the trajectory endpoint plus
+an offset obtained by integrating IMU measurements, causing
+the resulting B-spline to deviate from the predicted trajec-
+tory. Coco-LIC [26] adopts a simple scheme that copies
+the most recent control points. This theoretical limitation
+can compromise estimation performance under challenging
+PAGE 4
+4
+conditions, such as aggressive dynamics, particularly with ex-
+teroceptive degradation. In comparison, RESPLE2 exploits the
+knot-clamping boundary property of non-uniform B-splines to
+ensure that the latest control point always lies on the trajectory,
+thereby providing a theoretical guarantee for exact control-
+point prediction using kinematic models informed by inertial
+measurements, with knot placement guided by both kinematic
+and exteroceptive cues. This enables significantly more accu-
+rate control-point prediction without estimation delays.
+Furthermore, native support for loop closure and global
+refinement within B-spline estimation remains limited. For
+loop closure detection, BTC [40] uses a binary and triangle
+descriptor to encode global and local point-cloud structure for
+3D place recognition. Its extension, iBTC [41], incorporates
+visual information, outperforming geometry-based BTC and
+bag of visual words in LVIO systems while remaining efficient
+for online operation. CLINS [36] adopts a two-stage global
+correction scheme at loop closures for uniform B-splines
+in LIO: pose-graph optimization of discrete-time key-scan
+poses using loop-closure constraints, followed by control-
+point updates that align the continuous-time trajectory while
+preserving its local shape. RESPLE2 integrates iBTC [41]
+for loop closure detection in the LVIO setting and is the
+first to provide native global trajectory refinement by directly
+optimizing non-uniform B-spline control points.
+III. PRELIMINARIES
+A. Notation Conventions
+Throughout this paper, scalar values are written as lowercase
+letters, such asa. Vectors are denoted by bold lowercase
+letters, such asa, and matrices by bold uppercase letters, such
+asA. Thed-dimensional zero vector and thed×dzero and
+identity matrices are denoted by0 d×1,0 d, andI d, respec-
+tively. Specifically, continuous-time functions represented by
+B-splines are denoted by script letters, such ass(t). diag(·)
+assembles a (block-)diagonal matrix from its arguments. Op-
+erators•and⊗denote the Hamilton and Kronecker products,
+respectively. Rigid-body orientations are represented by unit
+quaternions on the manifold asr∈S 3,Q ⌞(·)andQ ⌟(·)denote
+its left and right matrix expressions, andR(·) :S 3 →SO(3)
+maps a quaternionrto its corresponding rotation matrix
+R[42].a × denotes the skew-symmetric cross-product matrix
+for vectora∈R 3.R I
+L ands I
+L denote the rotation matrix and
+translation vector from the LiDAR (L) to the IMU (I) frame,
+respectively.(·) W denotes a vector in the world frame,(·) V in
+the camera frame, and(·) B in the robot base frame.
+B. Non-Uniform B-Spline Motion Representation
+We represent the 6-DoF egomotion trajectory in continuous
+time with cubic B-splines of non-uniformly spaced knots,
+decoupled into a translational and a rotational component as
+x(t) = [s(t)⊤,r(t) ⊤]⊤ ∈R 3 ×S 3 ⊂R 7 ,(1)
+wheres(t)andr(t)are the position and quaternion-valued
+orientation trajectories, respectively. The trajectory in (1) is
+defined over a sequence ofnknots{t i}n
+i=1 with non-uniform
+intervalsτ i =t i+1 −t i, and is determined by translational
+control points{s i}n
+i=1 and rotational control points{r i}n
+i=1.
+Given a query timet∈[t n−1, tn], the position is obtained
+from the four local control points according to
+s(t) = [sn−3 ,s n−2 ,s n−1 ,s n]Ωu,where (2)
+Ω=
+" m0,0 −3m0,0 3m0,0 −m0,0
+1−m0,0−m2,0 3m0,0−m2,1 −3m0,0−m2,2 m0,0−m2,3−m3,3
+m2,0 m2,1 m2,2 m2,3
+0 0 0m 3,3
+#
+is the basis matrix for non-uniform cubic B-splines. The
+entriesm i,j depend on local knots{t i}n+2
+i=n−3 as detailed
+in [43]. Unlike the uniform case, the non-uniform cubic B-
+spline is locally determined here by six knots while retaining
+four control points. The vectoru= [ 1, u, u 2, u3]⊤ collects the
+powers of the normalized timeu= (t−t n−1)/τn−1 ∈[ 0,1].
+The orientation B-spline has a cumulative expression [35]
+r(t) =r n−4 •
+nY
+i=n−3
+Exp(λiδi),withδ i = Log(r−1
+i−1 •ri)(3)
+being the increment of adjacent control points measured in the
+tangent space. Here,Exp(·) :R 3 →S 3 andLog(·) :S 3 →R 3
+denote the exponential and logarithm maps at the identity unit
+quaternion[ 1,0,0,0 ] ⊤ [42].{λ i}n
+i=n−3 are the cumulative
+basis functions computed by
+[λ n−3, λn−2, λn−1, λn ]⊤ =Φu,(4)
+whereΦis the cumulative basis matrix [34], [43]
+Φ=
+" 1 0 0 0
+1−m0,0 3m0,0 −3m0,0 m0,0
+m2,0 m2,1 m2,2 m2,3+m3,3
+0 0 0m 3,3
+#
+.
+C. Kinematic Interpolations
+We now present the temporal derivatives of the position
+and orientation B-spliness(t)andr(t)defined in (2) and (3),
+yielding the linear velocity, acceleration, and angular velocity
+used in the proposed continuous-time multi-sensor IEKF.
+1) Positions:Sinces(t)is linear in the control points, its
+derivatives follow directly from those ofu:
+˚s(t) = [sn−3 ,s n−2 ,s n−1 ,s n]Ω ˚u,with (5)
+˚(·)denoting any of the zeroth- to second-order time derivatives
+of the underlying quantity, e.g., positions(t), velocity ˙s(t),
+and acceleration ¨s(t)[44].
+2) Orientations:The angular velocityω(t)in the body
+frame satisfies ˙r(t) = 1
+2 r(t)•ω(t). Differentiatingr(t)in
+(3) directly scales quadratically with the spline order. Follow-
+ing [35], we instead computeω(t)recursively according to
+ω1(t) = 2 ˙λn−2 δn−2 ,
+ω2(t) =e −1
+n−1 •ω 1(t)•e n−1 + 2˙λn−1 δn−1 ,
+ω(t) =e −1
+n •ω 2(t)•e n + 2˙λn δn ,
+(6)
+withe i = Exp(λiδi)and[ ˙λn−3, ˙λn−2, ˙λn−1, ˙λn]⊤ =Φ ˙u.
+The Jacobians of these kinematics w.r.t. the control points
+are required to linearize sensor measurement models for
+recursive state estimation. For position, this Jacobian follows
+directly from the linear relation in (5). The Jacobians ofr(t)
+andω(t)w.r.t. the orientation-increment control points follow
+from the chain rule applied to (3)–(6), as derived in [25].
+PAGE 5
+5
+Inertial-Informed 
+RCP Prediction
+Reset 
+RCP 
+Update
+Kinematic
+Interpolationif new knot
+Local 
+Voxel Map
+if conv.
+Construct 
+Residuals
+Measurement 
+Buffer
+N Y
+iBTC Storage
+& Extraction 
+Global Spline 
+Optimization
+Global 
+Trajectory
+if LC
+Global 
+Map
+Y
+N
+N
+Y
+Global Refinement
+IMU-Predicted Non-Uniform B-Spline Filtering
+LiDAR Downsample
+Camera KLT Tracking
+IMU Split Samples
+Joints Compute FK
+RCPs
+Fig. 2. System overview of the proposed RESPLE2 framework.
+D. Spline-State-Space Model for Recursive State Estimation
+The spline state-space (TriS) model was originally devel-
+oped for continuous-time estimation in Euclidean space using
+B-splines of uniform knot intervals [44]. Given a measurement
+zk at timestampt k ∈[t n−1, tn], the B-spline within this time
+interval is determined by the following state comprising a set
+of recurrent control points (RCPs):
+xk = [s ⊤
+n−3,s ⊤
+n−2,s ⊤
+n−1,s ⊤
+n ]⊤ ∈R 12 .
+Here,kindexes the time steps within the TriS model, com-
+prising the following process and measurement models
+xk+1 =A kxk +w k ,
+zk =h(s(x k;t k)) +v k . (7)
+Ak governs linear RCP propagation, andw k denotes pro-
+cess noise.h(s(x k;t k))maps the sensor-relevant kinematic
+quantities interpolated att k following Section III-C to the
+measurement domain, corrupted by measurement noisev k.
+Continuous-time trajectory estimation then boils down to
+recursive estimation of the RCPs via an EKF [44].
+Building on this framework, the TriS model was extended
+in [25] for6-DoF continuous-time LiDAR odometry, where
+an iterated update step was proposed to handle point cloud
+association during the measurement update. The TriS model,
+however, has not yet been extended to non-uniform B-splines
+for multi-sensor continuous-time motion estimation. More
+importantly, the transition matrixA k in (7) typically prop-
+agates the RCPs by extrapolating motion from preceding knot
+intervals, without incorporating current kinematic information.
+Such propagation can yield inaccurate trajectory priors dur-
+ing rapid changes in motion, compromising data association
+particularly in perceptually degenerate scenes where weak
+observational constraints limit subsequent correction.
+IV. SYSTEMOVERVIEW
+The proposed RESPLE2 framework is illustrated in Fig. 2
+in a multi-sensor setting for dynamic egomotion estimation.
+The basic configuration comprises an IMU and a LiDAR,
+with optional camera and legged-kinematic measurements
+(joint positions and velocities). Incoming LiDAR scans are
+downsampled using voxel-grid filtering, while IMU samples
+are split by alternating assignment into twodisjointsubsets
+for prediction and measurement update, respectively, over
+the current knot interval. When camera images are available,
+they are undistorted, and visual features are tracked across
+frames using a Kanade-Lucas-Tomasi (KLT) sparse optical-
+flow tracker [9]. When available, leg joint measurements are
+preprocessed using forward kinematics to obtain foot positions
+and velocities with respect to the robot base frame.
+We introduce a generalized spline-state-space model for
+the non-uniform B-splines, where a new process model is
+proposed based on the knot-clamping condition that guaran-
+tees control point initialization directly informed by inertial
+measurements on the motion trajectory (Section V). Once the
+criteria for creating a new knot are met, we clamp a new knot
+to the spline endpoint and initialize its associated control point
+through exact RCP prediction using the IMU measurement
+subset (Section VI-A). The knot at the previous endpoint
+is then unclamped to accommodate incoming measurements,
+for which a reset step is first performed to correct RCPs
+over the finalized knot spacing together with their covariance
+(Section VI-B). Afterwards, IMU measurements assigned to
+the update and other sensor measurements falling within
+the current knot interval are buffered and fused through the
+iterated update (Section VI-C) via kinematic interpolation to
+construct residuals according to the modality-specific observa-
+tion models (Section V-C). This includes establishing point-
+to-plane correspondences between LiDAR points and the local
+voxel map [31]. After convergence, the voxel map is updated
+with the undistorted LiDAR points, and new image features
+are initialized with depth from the co-registered LiDAR points.
+The estimated control points from odometry are sent to the
+global refinement module that maintains the global spline tra-
+jectory and map. Loop closures are detected using iBTC [41],
+after which global refinement is performed directly on the non-
+uniform B-spline control points to correct accumulated drift
+while preserving local kinematic consistency (Section VII).
+V. GENERALIZEDSPLINESTATE-SPACEMODELING WITH
+MULTI-SENSORMEASUREMENTS
+A. Generalized Spline-State-Space Model
+In our IMU-centric multi-sensor setting, we parameterize
+the IMU body trajectory in the world frame using the non-
+uniform B-splines introduced in Section III-B. The TriS model
+is extended accordingly. For a spline withncontrol points, the
+TriS state att k ∈[t n−1, tn]is given by
+xk = [c ⊤
+n−3 ,c ⊤
+n−2 ,c ⊤
+n−1 ,c ⊤
+n ,b ⊤
+acc ,b ⊤
+gyro ]⊤ ∈R 30 ,(8)
+wherec i = [s ⊤
+i ,δ ⊤
+i ]⊤ ∈R 6 comprises the position RCP
+si ∈R 3 and orientation RCP incrementδ i ∈R 3, with
+i∈ {n−3, . . . , n}. As in [25], we adopt the tangent-
+space parameterization in (3) for the orientation RCPs to
+mitigate nonlinearity during state estimation.b acc ∈R 3 and
+PAGE 6
+6
+bgyro ∈R 3 denote the accelerometer and gyroscope biases
+overt k ∈[t n−1, tn], respectively. In the proposed framework,
+we propagate RCPs by directly integrating IMU readings,
+thereby generalizing the TriS model to the following form
+xk+1 =f(x k,u k,w k),
+zk =h(x(x k;t k)) +v k , (9)
+wheref(·)denotes the IMU-predicted transition function that
+will be derived in Section V-B, andu k denotes the IMU
+samples assigned to prediction.w k andv k are zero-mean
+process and measurement noise with covarianceQ k andΣ k,
+respectively. In the remainder of this section, we formulate the
+process and measurement models within the generalized TriS
+framework, providing the basis for the recursive non-uniform
+B-spline estimator derived in the next section.
+B. Process Model
+To establish a process model for the RCPs that is directly
+informed by inertial measurements, we clamp each new knot
+at the non-uniform B-spline boundary [45], [46], ensuring that
+the associated control point lies on the motion trajectory and
+enabling its direct prediction through IMU integration.
+1) Knot-Clamping Boundary Property:To extend the cur-
+rent B-spline withn−1control points and terminal knott n−1,
+we introduce a new boundary knott n with multiplicity three,
+i.e.,t n =t n+1 =t n+2. Evaluating the position and velocity
+expressions in (2) and (5) att n (thereforeu= 1) yields
+s(tn) =S Ωu=s n ,
+˙s(tn) =S Ω ˙u= 3(s n −s n−1)/τn−1 ,
+¨s(tn) =S Ω ¨u= 6(µs n−2 −(1 +µ)s n−1 +s n)/τ 2
+n−1 ,
+(10)
+withS= [s n−3 ,s n−2 ,s n−1 ,s n]being the matrix of local
+control points andµa coefficient derived from knots. The
+orientation kinematics follow analogously:
+r(tn) =r n andω(t n) = 6δ n/τn−1 . (11)
+The full derivations of (10) and (11) are given in Appendix A.
+Under this clamping property for non-uniform cubic B-splines,
+the6-DoF motion trajectoryx(t)passes exactly through
+the new control pointss n andr n att n, with translational
+and angular velocities proportional to the final position and
+orientation control point increments, respectively. As the spline
+extends, the clamped boundary advances to each new knot,
+ensuring that the latest control point always lies exactly at the
+trajectory endpoint. This property further enables control-point
+prediction by directly integrating IMU measurements along the
+trajectory, as described next.
+2) Exact Inertial-Informed RCP Propagation:Given the
+incoming IMU measurement subset{z acc
+i ,z gyro
+i }M−1
+i=0 within
+[t n−1, tn], we propagate the position and orientation RCPs
+progressively, yielding the intermediate statess n,j andδ n,j
+across substepsj. We start this procedure off by expressing
+the continuous-time inertial kinematics as
+
+˙s
+˙v
+˙r
+˙bacc
+˙bgyro
+
+
+=
+
+
+v
+R(zacc −b acc −n acc)−g
+1
+2 r•(z gyro −b gyro −n gyro)
+nbacc
+nbgyro
+
+
+∈R 16 ,(12)
+withn acc ,n gyro ,n bacc, andn bgyro being the zero-mean
+accelerometer, gyroscope, and bias noise terms of covariances
+Qacc ,Q gyro ,Q bacc, andQ bgyro, respectively.gdenotes grav-
+ity. We augment the state vector in (8) with the substep
+velocityv j, leading to the substep state
+˘xj = [c ⊤
+n−3:n−1,c ⊤
+n,j,(b acc
+j )⊤,(b gyro
+j )⊤,v ⊤
+j ]⊤∈R 33 ,(13)
+wherec n−3:n−1 = [c ⊤
+n−3,c ⊤
+n−2,c ⊤
+n−1]⊤ collects the first
+three RCPs.c n,j = [s ⊤
+n,j,δ ⊤
+n,j]⊤ denotes the new control point
+propagated to substepj, withj∈ {1, . . . , M}.
+Discretizing (12) over∆t=t j −t j−1 between consecutive
+IMU measurements within the current knot interval[t n−1, tn]
+yields the process model for the substep state
+˘xj =f( ˘xj−1,u j−1,w j−1),with
+
+cn−3:n−1
+sn,j
+δn,j
+bacc
+j
+bgyro
+j
+vj
+
+
+=
+
+
+cn−3:n−1
+fs(˘xj−1,u j−1,w j−1)
+fδ(˘xj−1,u j−1,w j−1)
+bacc
+j−1 +n bacc∆t
+bgyro
+j−1 +n bgyro∆t
+fv(˘xj−1,u j−1,w j−1)
+
+
+. (14)
+Here, the IMU input and process noise are specified as
+uj−1 = [(zacc
+j−1)⊤,(z gyro
+j−1 )⊤]⊤ and
+wj−1 = [n ⊤
+acc,n ⊤
+gyro,n ⊤
+bacc ,n ⊤
+bgyro]⊤ ,
+respectively. Functionsf s,f v, andf δ in (14) follow the
+standard IMU strapdown model according to
+fs(˘xj−1,u j−1,w j−1) =s n,j−1 +v j−1∆t+ 0.5a W∆t2 ,
+fv(˘xj−1,u j−1,w j−1) =v j−1 +a W∆t ,
+fδ(˘xj−1,u j−1,w j−1) = Log(∆rn,j),with
+∆rn,j = Exp(δn,j−1)•Exp(∆tω/2),
+denoting the accumulated relative rotation obtained by com-
+posing the previous accumulated rotation with the rotation
+increment derived from the bias-compensated angular velocity
+ω=z gyro
+j−1 −b gyro
+j−1 −n gyro expressed in the body frame.
+aW =R n,j−1(zacc
+j−1 −b acc
+j−1 −n acc)−gis the gravity-
+and bias-compensated acceleration in the world frame. Here,
+Rn,j−1 =R n,0R(Exp(δn,j−1))is the(j−1)-th orientation
+estimate obtained by composing the initial rotationR n,0 with
+the rotation increment induced byδ n,j−1.
+C. Multi-Sensor Measurement Model
+We introduce the following measurement models for Li-
+DAR, IMU, camera, and joint measurements within the pro-
+posed RESPLE2 framework. Each model instantiates the ob-
+servation functionhin (9) with a sensor-specific metric.
+1) LiDAR Point-to-Plane Metric:Given a raw LiDAR point
+pL
+i att i, the point-to-plane distance follows
+hL
+i (xk, ti) =n ⊤
+i
+ 
+R(r(ti))p I
+i +s(t i)−α i
+
+.(15)
+Here,p I
+i =R I
+L pL
+i +s I
+L transforms the LiDAR point into the
+IMU frame via the extrinsics, andr(t i),s(t i)interpolate the
+body orientation and position att i from (3) and (2).α i and
+ni are the nearest-neighbor point and normal of the local-
+map plane associated with the transformed point, obtained via
+PAGE 7
+7
+V oxelMap [31]. Assuming that the transformed LiDAR point
+lies exactly on this plane, the residual ise L
+i =−h L
+i (xk, ti).
+The measurement noise varianceσ 2
+i of each point-to-plane
+residual accounts for both plane and point uncertainties.
+Following V oxelMap, each map plane carries a covariance
+Σn,α ∈R 6×6 over its normal and center, and each raw
+LiDAR point carries a covarianceΣ p ∈R 3×3 in the LiDAR
+frame derived from its range and bearing noise. With the point
+pW
+i =R(r(t i))p I
+i +s(t i)in the world frame, a first-order
+propagation through (15) yields
+σ2
+i =σ 2
+min +J ⊤
+i Σn,α Ji + (nL
+i )⊤Σp nL
+i ,withJ i =
+ αi−pW
+i
+ni
+
+being the Jacobian of the residual w.r.t. the plane normal
+and center point. The normaln L
+i = (R(r(t i))RI
+L)⊤ni is
+expressed in the LiDAR frame, andσ 2
+min is a constant variance
+floor that guards against overconfident residuals.
+2) IMU Metric:Given an IMU measurementz I
+i =
+[(zacc
+i )⊤,(z gyro
+i )⊤]⊤ at timestampt i, the corresponding mea-
+surement model is
+hI
+i (xk, ti) =
+
+R(r(ti))⊤(¨s(ti) +g) +b acc
+ω(ti) +b gyro
+
+,
+with ¨s(ti)andω(t i)being the acceleration and angular
+velocity interpolated as in Section III. The former is combined
+with gravity and rotated into the body frame, and both are
+offset by the current bias estimates. The corresponding residual
+ise I
+i =z I
+i −h I
+i (xk, ti).
+For accelerometer residuals, we opt for an adaptive outlier
+suppression mechanism in handling sensor noise and potential
+saturation. Thus, a block-Huber weightβ i is applied to each
+three-dimensional acceleration residual[e I
+i ]1:3. LetΣ acc de-
+note the accelerometer measurement covariance. We compute
+βi =
+(
+1, s i ≤δ acc ,
+δacc/si, s i > δ acc , (16)
+wheres i is the Mahalanobis norm of the residual with respect
+toΣ acc, andδ acc >0is the Huber threshold applied to
+si. The same scalar weight scales the precision of all three
+accelerometer components, yielding the reweighted covariance
+˜Σ−1
+acc,i =β iΣ−1
+acc.
+3) Visual Projection Metric:For each visual feature tracked
+from the previous image via KLT optical flow [9] and observed
+at pixel coordinatesz V
+i at timet i, the observation model is
+hV
+i (xk, ti) =π
+ 
+RV
+IR(r(ti))⊤(pW
+i −s(t i)) +s V
+I
+
+.
+Here, we transform the feature positionp W
+i , obtained using
+depth from co-registered LiDAR points in previous frames,
+into the camera frame using the pose interpolated att i and
+the IMU-camera extrinsic, and then apply the camera model
+π(·)to obtain the predicted pixel coordinates. The same Huber
+weighting as in (16) is applied to the resulting visual residual
+eV
+i =z V
+i −h V
+i (xk, ti)to suppress association outliers.
+4) Legged Kinematics Metric:Given joint position and
+velocity measurements from a legged robot att i, we compute
+the foot positionp B
+i using forward kinematics [47] and its
+velocityv B
+i using the corresponding kinematic Jacobian, both
+expressed in the robot base frame. This yields
+hK
+i (xk, ti) =
+ ˙s(ti) +R(r(t i))(ω(ti)×pI
+i +R I
+BvB
+i )
+n⊤
+i (RW
+B pB
+i +s W
+B −α i)
+
+.(17)
+The first row is a foot-velocity metric that predicts the velocity
+of the foot in the world frame. Expressing the foot position
+in the IMU frame asp I
+i =s I
+B +R I
+B pB
+i , its world-frame
+counterpart isp W
+i =s(t i) +R(r(t i))p I
+i . Differentiatingp W
+i
+with respect to time yields the first row, which combines the
+velocity of the IMU body and the foot velocity in the IMU
+frame rotated into the world frame. The termω(t i)×pI
+i +RI
+BvB
+i
+consists of two contributions: the velocity induced by the
+angular velocityω(t i)acting on the lever armp I
+i , and the
+foot velocityv B
+i from forward kinematics expressed in the
+IMU frame. The second element is a point-to-plane metric
+analogous to (15). It treats the foot-ground contact as a point
+observed against the nearest-neighbor plane(α i,n i)of the
+local map. The robot base pose in the world frame is obtained
+by composing the interpolated IMU pose att i with the fixed
+robot-to-IMU extrinsics, namely,
+RW
+B =R(r(t i))RI
+B ands W
+B =R(r(t i))sI
+B +s(t i).
+Under the assumption of no slippage during contact, the legged
+kinematics residual ise K
+i =−h K
+i (xk, ti).
+VI. INERTIAL-INFORMEDITERATEDEXTENDEDKALMAN
+FILTER ONNON-UNIFORMB-SPLINES
+Based on the process and measurement models introduced
+in Section V, we now derive an iterated extended Kalman filter
+to recursively estimate the state (8), which comprises the non-
+uniform B-spline RCPs and IMU biases.
+A. Inertial-Informed RCP Prediction
+At time stepk, given the incoming IMU subset for predic-
+tion{z acc
+i ,z gyro
+i }M−1
+i=0 with timestamps after knott n−1, we
+first initialize the augmented state (13) and its covariance at
+knott n−1 using the clamped boundary property established
+in Sec. V-B. The initial state is
+˘x0 = [c ⊤
+n−3,c ⊤
+n−2,c ⊤
+n−1,s ⊤
+n−1,0 ⊤
+3×1,b ⊤
+0 ,v ⊤
+0 ]⊤ ,
+whereb 0 ∈R 6 collects the accelerometer and gyroscope bias
+estimates from the previous posterior ˆxk−1|k−1, andv 0 =
+˙s(tn−1) = 3(sn−1 −s n−2)/τn−2. When introducing knott n,
+we initialize its position and orientation control points to those
+att n−1, givings n,0 =s n−1 andδ n,0 =0 3×1. The augmented
+initial state can be thus expressed as a linear transformation
+of the previous posterior, namely, ˘x0 =T k ˆxk−1|k−1, where
+Tk =
+
+
+018×6 I18 018×6
+06 06 06 D⊤D 0 6
+06 06 06 06 I6
+03×6 03×6 −αDαD 0 3×6
+
+ ∈R 33×30 ,
+withα= 3/τ n−2 andD= [I 3,0 3 ]∈R 3×6. The augmented
+covariance is initialized as
+˘P0 =T kPk−1|k−1T⊤
+k .(18)
+PAGE 8
+8
+The augmented state mean and covariance are propagated
+recursively via the process model (14) following
+˘xj =f( ˘xj−1,u j−1,0)and
+˘Pj =A j−1 ˘Pj−1A⊤
+j−1 +B j−1QimuB⊤
+j−1 , (19)
+withjindexing theMIMU substeps. The Jacobians of the
+process model can be derived as
+Aj−1 = ∂f(x,u,w)
+∂x
+
+x=˘xj−1 ,u=uj−1 ,w=0
+=
+
+
+I18 018×3 018×3 018×3 018×3 018×3
+∆t2
+2 Fa,1 I3 ∆t2
+2 Fa,n − ∆t2
+2 Rn,j−1 03 ∆tI3
+03×18 03 Fδ,n 03 Fbgyro 03
+03×18 03 03 I3 03 03
+03×18 03 03 03 I3 03
+∆tFa,1 03 ∆tFa,n −∆tRn,j−1 03 I3
+
+
+,
+Bj−1 = ∂f(x,u,w)
+∂w
+
+x=˘xj−1 ,u=uj−1 ,w=0
+=
+
+
+018×3 018×9
+− ∆t2
+2 Rn,j−1 03×9
+09×3 diag(Fbgyro,∆tI 6)
+−∆tRn,j−1 03×9
+
+ .
+(20)
+The process noise comprises IMU measurement and bias
+noise, withQ imu =diag(Q acc,Q gyro,Q bacc,Q bgyro)being
+the covariance. The non-zero blocks inA j−1 are obtained by
+applying the chain rule to functionsf s,f v, andf δ w.r.t. the
+augmented state components:
+Fa,1 = [0 3 ,F a,n−3 ,0 3 ,F a,n−2 ,0 3 ,F a,n−1],
+Fa,n−3+ℓ = ∂Rn,j−1(zacc
+j−1 −b acc
+j−1)
+∂δn−3+ℓ
+, ℓ= 0, . . . ,3,
+Fδ,n = ∂Log(∆r n,j)
+∂∆rn,j
+Q⌟(Exp(∆tω/2)) ∂Exp(δn,j−1)
+∂δn,j−1
+,
+Fbgyro =− ∂Log(∆r n,j)
+∂∆rn,j
+Q⌞(Exp(δn,j−1)) ∂Exp(∆tω/2)
+∂ω .
+Knot Extension:We introduce a new knott n once any of
+the following conditions is satisfied after the current knottn−1:
+•The LiDAR batch passes the geometric sufficiency check,
+with point count> N 1 and IMU sample count> N 2;
+•The knot interval exceedsτ max;
+•The position change∥s n,j −s n−1∥> d max;
+•The orientation increment∥δ n,j∥> θ max; or
+•The velocity change∥v j −v 0∥> v max.
+The first criterion aims to reduce the risk of geometric de-
+generacy as LiDAR points accumulate in the current batch
+by checking both the strength and directional balance of
+its geometric constraints. We first compute the following
+weighted normal matrix [48]:
+G=
+X
+i∈C
+nin⊤
+i
+σ2
+i
+,
+whereCcontains preliminary point-to-plane correspondences
+obtained by transforming LiDAR points into the world frame
+using the IMU-predicted poses from substep propagation (19)
+and matching the transformed points to planes in the voxel
+map. For each correspondence,n i is the matched plane’s
+normal, andσ 2
+i is the residual variance computed from the
+plane and point uncertainties as in Section V-C1. Follow-
+ing the eigenvalue-based degeneracy criterion, we require
+λmin(G)≥γ >0to ensure sufficient information in the
+weakest translational direction. For directional balance, we
+also requireλ min(G)/tr(G)≥η, where the trace measures
+total information and0< η≤1/3sets the weakest direction’s
+minimum relative contribution. The batch passes the check
+only when both conditions are satisfied.
+To evaluate the last three criteria, we recursively propagate
+the changes in states n,j,v j, andδ n,j at each IMU substepj
+propagated via (19). In a LiDAR-inertial configuration, these
+criteria balance the accumulation of geometric and inertial
+information for the next RCP update with limits on knot
+interval duration and accumulated rotation. For additional
+sensor modalities, they can be adapted or supplemented with
+sensor-specific heuristics.
+B. RCP Reset for Unclamping
+Unclamping:Introducing a new knot att n during prediction
+shifts the clamped boundary fromt n−1 tot n, where (10)
+applies. The resultingunclampingatt n−1 changes the local
+spline basis, so the trajectory no longer necessarily interpolates
+sn−1 andr n−1 at that time. Without correction, this alters the
+trajectory prior used in the subsequent measurement update
+over[t n−1, tn], potentially compromising data association. To
+compensate for unclamping at the previous boundaryt n−1,
+we reset the RCPs after prediction. This restores the position,
+velocity, acceleration, orientation, and angular velocity att n−1
+to their values before unclamping. The joint covariance is
+transformed accordingly.
+Position Reset:We denote quantities before and after the
+reset using(·) − and(·) +, respectively. The reset preserves
+position, velocity, and acceleration att n−1 with
+˚s(tn−1)− = ˚s(tn−1)+ .(21)
+This yields a closed-form linear transformation
+s+
+n−3:n =J ss−
+n−3:n ∈R 12 ,(22)
+withs −
+n−3:n ands +
+n−3:n being the position RCPs before and
+after reset, respectively. The derivation ofJ s is provided in
+Appendix B1.
+Orientation Reset:We aim to preserve both the orientation
+r(tn−1)and the angular velocityω(t n−1)across the reset
+r(tn−1)− =r(t n−1)+ andω(t n−1)− =ω(t n−1)+ .
+To enforce this, we define a residualz δ = [z ⊤
+r ,z ⊤
+ω ]⊤ ∈R 6,
+with the orientation and angular velocity components
+zr = [(r(tn−1)−)−1 •r(t n−1)+]2:4 ,and
+zω =ω(t n−1)+ −ω(t n−1)− , (23)
+respectively. Minimizing the residualz δ in the sense of least
+squares does not admit a closed-form solution. We therefore
+solve it iteratively using Newton’s method. Onlyδ n−2 and
+δn−1 need to be reset, because the remaining control points
+PAGE 9
+9
+do not appear in the residual. To solve this, we derive the
+residual term and its JacobianH δ ∈R 6×6 with respect to the
+reset incrementsδ + = [(δ +
+n−2)⊤,(δ +
+n−1)⊤]⊤, as detailed in
+Appendix B2. Starting atδ +
+0 =δ −, we obtain the increment
+at iterationmas
+∆δ+
+m =−(H δ,m)−1zδ,m (24)
+and update the solution iteratively. In practice, the cost typi-
+cally converges within five iterations.
+Furthermore, to preserve the originally predicted endpoint
+orientationr n, the latest RCP incrementδ n must also be reset
+after resettingδ n−2 andδ n−1. According tor n =r n−4 •Qn
+i=n−3 Exp(δ−
+i ), this is straightforward as
+δ+
+n = Log
+ 
+(r+
+n−1)−1 •r n
+
+= Log
+  n−1Y
+i=n−2
+Exp(δ+
+i )
+−1
+•
+nY
+i=n−2
+Exp(δ−
+i )
+
+. (25)
+Covariance Reset:The RCP covariance must be trans-
+formed according to the reset map (22) and (24). The bias
+term in the state remains unchanged during reset, but its cross-
+covariances with the RCPs must be transformed. The full
+covariance reset followsP + =JP −J⊤, with
+P− =
+
+
+P−
+ss P−
+sr P−
+sb
+P−
+rs P−
+rr P−
+rb
+P−
+bs P−
+br P−
+bb
+
+ ∈R 30×30
+comprising the blocks extracted from the predicted covariance
+Pk|k−1. The reset transformationJ=diag(J s,J r,I 6)is the
+Jacobian of the reset map and is block diagonal, because
+the position and orientation reset maps depend only on their
+respective pre-reset variables and biases remain unchanged.
+We provide complete derivations ofJ s andJ r in Appendix B.
+C. Iterated Update
+We apply an iterated update for incorporating the multi-
+sensor measurements introduced in Section V-C. Starting
+from ˆx0 = ˆxk|k−1, the estimate is refined over iterations
+i= 0,1, . . . , N max −1via
+δxi =K i(zk −h( ˆxi))−(I−K iHi)(ˆxi − ˆxk|k−1),
+withK i =P k|k−1H⊤
+i (HiPk|k−1H⊤
+i +Σ k)−1 .
+We collect all the multi-modal measurements in the current
+buffer intoz k, with associated covarianceΣ k. Here,h( ˆxi)is
+the observation model evaluated at the current iterate ˆxi.H i =
+∂h
+∂x
+
+ˆxi
+is the corresponding observation Jacobian. The iteration
+terminates once∥δx i∥falls below a threshold or a maximum
+number of iterations is reached, yielding the posterior ˆxk|k =
+ˆxi +δx i andP k|k = (I−K iHi)Pk|k−1.
+D. Filter Setup
+We summarize the full recursive non-uniform spline filtering
+in Algorithm 1, including inertial-informed RCP prediction,
+reset, and the iterated update. In the update step, the Jacobians
+for the LiDAR, IMU, and camera measurement models in
+Section V-C are straightforward to derive [20], [25]. For legged
+joints, we hereby derive the Jacobian of the zero-velocity part
+Algorithm 1:Inertial-Informed Recursive Non-Uniform
+B-Spline Estimation
+Input:posterior ˆxk−1|k−1,P k−1|k−1, IMU subset
+{zimu
+i }M−1
+i=0 for prediction, measurement batchz k
+Output:posterior ˆxk|k,P k|k
+/* IMU-Informed RCP Prediction */
+1 ˘x0 ←[c ⊤
+n−3,c ⊤
+n−2,c ⊤
+n−1,s ⊤
+n−1,0 ⊤
+3 ,b ⊤
+0 ,v ⊤
+0 ]⊤ ;
+2 ˘P0 ←T kPk−1|k−1T⊤
+k ;//(18)
+3Q imu ←diag(Q acc ,Q gyro ,Q bacc ,Q bgyro);
+4forj←1toMdo
+5A j−1,B j−1 ←Jacobian( ˘xj−1,z imu
+j−1);//(20)
+6 ˘xj ←f( ˘xj−1,u j−1,0);
+7 ˘Pj ←A j−1 ˘Pj−1A⊤
+j−1 +B j−1QimuB⊤
+j−1 ;
+8 ˆxk|k−1 ←[ ˘xM ]1:30 ;P k|k−1 ←[ ˘PM ]1:30,1:30 ;
+/* RCP Reset */
+9 ˆxk|k−1,P k|k−1 ←reset( ˆxk|k−1,P k|k−1);
+/* Iterated Update */
+10i←0; ˆxi ← ˆxk|k−1 ;
+11whiletruedo
+12γ i ←z k −h( ˆxi;t z
+k);
+13H i ←computeJacobian( ˆxi, tz
+k);
+14K i ←P k|k−1H⊤
+i (HiPk|k−1H⊤
+i +Σ k)−1 ;
+15δx i ←K iγi −(I−K iHi)(ˆxi − ˆxk|k−1);
+16 ˆxi+1 ← ˆxi +δx i ;
+17if∥δx i∥< ϵori+ 1 =N max then
+18break;
+19i←i+ 1;
+20 ˆxk|k ← ˆxi+1 ;P k|k ←(I−K iHi)Pk|k−1 ;
+21return ˆxk|k ,P k|k
+of the legged kinematic measurement model in (17) w.r.t. the
+position and orientation RCPs as
+∂hK,v
+i
+∂sn−3:n
+= (Ω ˙u⊗I 3)⊤ ,
+∂hK,v
+i
+∂δn−3:n
+= ∂hK,v
+i
+∂r(t i)
+∂r(t i)
+∂δn−3:n
++ ∂hK,v
+i
+∂ω(t i)
+∂ω(t i)
+∂δn−3:n
+,with
+∂hK,v
+i
+∂r(t i) = ∂(R(r(t i))v I
+i )
+∂r(t i) , ∂hK,v
+i
+∂ω(t i) =−R(r(t i))(pI
+i )× ,
+withv I
+i =ω(t i)×pI
+i +R I
+BvB
+i . The Jacobians ∂r(t i)
+∂δn−3:n
+and
+∂ω(t i)
+∂δn−3:n
+are available in [25] as in Section III-C2. The Jacobian
+blocks of IMU biases are zero. The Jacobian of the foot
+position observation in the second row of (17) resembles that
+of the LiDAR residual [25].
+VII. GLOBALREFINEMENT
+A. Loop Closure Detection
+The image-assisted binary and triangle descriptor iBTC [41]
+combines registered LiDAR point clouds, images, and
+odometry-estimated camera poses for place recognition. RE-
+SPLE2 employs iBTC to detect loop closures between the
+current LiDAR scan and historical keyframes in the LiDAR-
+visual-inertial configuration. The module aggregates consecu-
+PAGE 10
+10
+tive scans into keyframe submaps, retrieves historical candi-
+dates using geometric and image-assisted descriptors, and veri-
+fies matches through geometric registration. Accepted matches
+provide paired timestamps and relative6-DoF transformations
+as constraints for global spline optimization.
+B. Global Spline Optimization
+Once a loop closure is detected by iBTC, we perform global
+optimization over the existing non-uniform B-spline trajectory
+to correct accumulated drift while preserving higher-order
+kinematics, such as angular and translational velocities, by di-
+rectly refining the global stateX w = [s⊤
+1 ,r ⊤
+1 ,· · ·,s ⊤
+N ,r ⊤
+N]⊤,
+comprisingNcontrol points from odometry. We obtain the
+refined stateX ⋆
+w by minimizing
+mX
+k=1
+Elc(Xw,z lc,k)
+2
+Clc
++
+N−1X
+i=1
+Eod(Xw,z od,i)
+2
+Cod
+,(26)
+which combinesmloop-closure andN−1control-point
+odometry residuals. The former follows
+Elc(Xw,z lc,k) =
+R(r(ti))⊤ 
+s(tj)−s(t i)
+
+−z s
+ij
+Log
+ 
+(zr
+ij)−1 •r(t i)−1 •r(t j)
+
+
+,
+withz s
+ij andz r
+ij denoting the relative translation and rotation,
+respectively, in the transformationz lc,k between keyframes
+iandjprovided by iBTC. To preserve the local kinematic
+consistency given by odometry during global optimization, we
+constrain the relative translation and rotation between adjacent
+control points according to
+Eod(Xw,z od,i) =
+ R(ri)⊤ 
+si+1 −s i
+
+−z s
+i,i+1
+Log
+ 
+(zr
+i,i+1)−1 •r −1
+i •r i+1
+
+
+,
+withz s
+i,i+1 andz r
+i,i+1 denoting the relative translation and
+rotation inz od,i, respectively, between two consecutive control
+points estimated by odometry. Unlike existing approaches to
+global B-spline correction [36], our formulation in (26) ap-
+plies odometry constraints directly to the non-uniform control
+points, requiring spline interpolation only for the infrequent
+loop-closure residuals. This limits the Jacobian support of each
+odometry residual to two control points, preserving sparsity
+and improving the efficiency of solving the optimization prob-
+lem at scale via the standard Levenberg-Marquardt algorithm.
+VIII. EVALUATION
+A. Implementation
+We implement RESPLE2 as a ROS2 package with separate
+nodes for multi-sensor odometry and global spline refinement.
+We use a minimal set of dependencies, including Eigen for
+numerical computations and OpenMP to parallelize B-spline
+kinematic interpolation, LiDAR point processing, nearest-
+neighbor association, and linearization during global optimiza-
+tion. Each node is typically allocated five OpenMP threads.
+We use Pinocchio for computing leg forward kinematics [49].
+The global refinement solver is implemented from scratch and
+solves the sparse linear systems using Eigen’s CHOLMOD
+interface, reusing symbolic factorization across iterations.
+We combine the sensor models in Section V-C to enable
+LiDAR-inertial (LIO), LiDAR-visual-inertial (LVIO), LiDAR-
+leg-inertial (LKIO), and LiDAR-leg-visual-inertial (LKVIO)
+odometry within the same filtering scheme, where multi-modal
+observations in each knot interval are stacked into a single
+measurement vector. Additionally, following the system design
+of RESPLE2, we provide a LiDAR-only variant (RESPLE2-
+LO) to support platforms without an IMU. Here, the original
+inertial-informed process model is replaced by a constant-
+velocity model with the same knot-clamping boundary prop-
+erty, predicting position using the linear velocity estimate
+and scaling the latest orientation increment by the ratio of
+successive knot intervals. Accordingly, the reset preserves
+the position, orientation and linear velocity at the previous
+endpoint while imposing zero acceleration.
+B. Benchmarking Setup
+We evaluate RESPLE2 under diverse real-world condi-
+tions and sensor configurations using the public datasets
+GrandTour[50] andJEPLO[51], together with our own
+experimental datasetsPPS Tracked Vehicle(PPS TV),
+HOPPER, andHANDI. These datasets are summarized in
+Tab. I, along with their sensor configurations and scenarios.
+TABLE I
+PUBLIC AND EXPERIMENTAL DATASETS FOR BENCHMARKING.
+Dataset Deployment Scenario Adopted Sensors ∗
+GrandTour
+[50]
+ANYmal D quadruped, indoor,
+outdoor, and wilderness environments
+Hesai(L),Alpha(V),
+ICM40609(I), leg joints (K)
+JEPLO[51] Unitree Go2 quadruped, maneuvers
+over stairs and boxes
+Mid360(L),ICM40609(I),
+leg joints (K)
+PPS TV
+(experiment)
+Tracked vehicle, high-speed
+maneuvers in outdoor environments
+Hesai(L),HDR(V),
+ICM40609(I)
+HOPPER
+(experiment)
+Legged quadcopter [2], highly
+dynamic maneuvers in enclosed and
+open spaces
+Mid360(L),ICM40609
+(I1),BMI088(I2)
+HANDI
+(experiment)
+Handheld platform, long-distance
+walking in indoor and outdoor
+campus environments
+Mid360(L1),ICM40609
+(I1),Avia(L2),BMI088
+(I2),D455(V1),ZedX1(V2)
+∗LiDARs:Hesai(Hesai XT32),Mid360(Livox Mid360), andAvia(Livox Avia
+LiDAR). IMUs:ICM40609(built inMid360),BMI088(Bosch SensortecBMI088
+IMU, andAviabuilt-in IMU). Cameras:Alpha(Alphasense, front-center),HDR
+(TierIV C1 HDR, front),D455(RealSense D455), andZedX1(ZED X One).
+Our baselines include state-of-the-art LVIO systems Coco-
+LIC [26] (CoLIC) and FAST-LIVO2 [30] (FLIVO2). We
+also involve CTE-MLO [21] (CMLO) for comparison with
+GP-based continuous-time estimation, Point-LIO [32] (PLIO)
+for LIO under highly dynamic motion, and Leg-KILO [13]
+(LeKILO) for LKIO on quadrupedal robots. Where applicable,
+we also evaluate Coco-LIC and FAST-LIVO2 for LIO. In
+this setting, FAST-LIVO2 has been reported to consistently
+outperform FAST-LIO2, with the gains attributed to its voxel-
+based local map and accurate noise modeling of LiDAR
+points [30]. Likewise, we include RESPLE [25], replacing its
+ikd-Treelocal map [52] with V oxelMap [31] to match the local
+map and LiDAR point noise modeling in RESPLE2, thereby
+helping to isolate differences in estimation performance.
+All evaluations are performed on a desktop running Ubuntu
+24.04 with an AMD Ryzen 9 9950X CPU and 32 GB of
+RAM. We use a single set of parameters across all sequences
+for each dataset and sensor setting. Unless otherwise stated,
+PAGE 11
+11
+TABLE II
+APEANDRPE (RMSE,METERS)ONGR A N DTO U R.
+ARC-2∗ ARC-7∗ CON-4∗ EIG-1∗ SNOW-2∗ SPX-2∗ ARC-3† HIL-1† LEE-1† PIL-2†
+Method Variant APE RPE APE RPE APE RPE APE RPE APE RPE APE RPE APE RPE APE RPE APE RPE APE RPE
+CMLO LO3.090 0.360 0.182 0.061 0.024 0.015 0.041 0.023 0.023 0.016 0.104 0.030✗ ✗0.063 0.025✗ ✗ ✗ ✗
+CoLIC LVIO 0.095 0.028 0.052 0.005 0.027 0.005 0.048 0.006 0.012 0.005 0.040 0.006 0.154 0.019 0.031 0.009 0.051 0.006 0.031 0.013
+FLIVO2 LVIO0.0120.0090.0130.014 0.030 0.015 0.033 0.014 0.016 0.016 0.023 0.013✗ ✗0.0180.008 0.037 0.011 0.071 0.025
+RESPLE LIO 0.109 0.055 0.347 0.142 0.054 0.024 0.107 0.022 0.026 0.021 0.042 0.012 ✗ ✗ 0.036 0.009 0.041 0.020 ✗ ✗
+LIO0.012 0.0060.036 0.016 0.016 0.021 0.034 0.008 0.014 0.009 0.0220.013 0.078 0.024 0.0220.0040.020 0.0050.029 0.010
+LVIO 0.012 0.007 0.038 0.016 0.018 0.020 0.032 0.008 0.014 0.009 0.023 0.013 0.072 0.024 0.020 0.004 0.017 0.006 0.028 0.009
+LKIO0.013 0.008 0.032 0.014 0.0150.020 0.034 0.007 0.013 0.009 0.0220.012 0.0560.023 0.0230.0040.027 0.006 0.028 0.007RESPLE2
+LKVIO 0.012 0.007 0.017 0.014 0.015 0.020 0.033 0.007 0.013 0.009 0.023 0.012 0.060 0.023 0.021 0.004 0.023 0.006 0.026 0.008
+∗Test sequences: RESPLE2 results are obtained by submitting pose estimates to the COMFORT Localization Benchmark 1. Results for the other systems are taken from [50]
+and were obtained using the high-endHG4930MEMS IMU (unavailable to RESPLE2). †Training sequences: All systems are evaluated using theMid360built-in IMU.
+trajectory estimates are compared against the ground truth
+using theevopackage [53], with RPEs computed over fixed
+0.5 mpath-length increments usingevo’s point-distance pose
+relation. In the following tables of reported results, boldface
+and underlining indicate the best and second-best results,
+respectively, while✗denotes an error exceeding50 m.
+C. Public Datasets
+1)GrandTour:TheGrandTourdataset 2 was collected
+using an ANYmal D quadruped equipped with theBoximulti-
+sensor rig [8], including LiDAR, camera, inertial, and leg-joint
+measurements for studying legged autonomy across diverse
+environments. We evaluate all six test sequences covering
+diverse egomotions. We additionally select four training se-
+quences featuring challenging conditions, including stairs and
+hills, with potential LiDAR and visual degeneracy.
+As summarized in Tab. II, despite using the lower-end
+Mid360built-in IMU, RESPLE2 variants achieve over-
+all competitive or superior estimation accuracy. Noticeably,
+RESPLE2-LIO achieves competitive accuracy compared with
+Coco-LIC and FAST-LIVO2 in APE without visual input.
+Within the RESPLE2 framework, adding visual or kinematic
+measurements to the LIO configuration improves perfor-
+mance, with RESPLE2-LKVIO delivering the best overall
+performance among our variants. Compared with RESPLE,
+RESPLE2-LIO achieves lower APE and RPE on nearly all se-
+quences, supporting the benefits of the proposed non-uniform
+B-spline estimation scheme. Coco-LIC exhibits low RPE,
+reflecting strong local consistency, which may be attributed to
+its sliding-window optimization of short-range relative motion.
+However, the corresponding APEs indicate that this does not
+translate into superior global accuracy. Examples of running
+RESPLE2 onGrandTourare shown in Fig. 1-(a,b).
+2)JEPLO:TheJEPLOdataset is recorded onboard a
+Unitree Go2 quadruped driven by a perceptive locomotion
+policy to perform dynamic maneuvers at approximately1 m/s
+across varying terrains, including long staircases and boxes, in
+both indoor and outdoor scenarios [51], as shown in Fig. 1-(e)
+forOutdoor2and Fig. 3-(a). AMid360is mounted upside
+down on the robot’s head, providing a limited FoV of the sur-
+roundings. In theEIL_Mask1andEIL_Mask2sequences,
+1Available at https://grand-tour.leggedrobotics.com/tasks/localization
+2Available at https://grand-tour.leggedrobotics.com/dataset
+EIL_Mix
+ EIL_Box
+(a) RESPLE2 on two sequences of theJEPLOdataset. Black and red curves indicate
+estimates and ground truth, respectively.
+(b) Foot position estimates from RESPLE2 during theEIL_Mixsequence.
+Fig. 3. Examples of RESPLE2 tested onJEPLO.
+taped masks partially cover the sensor to deliberately restrict
+its FoV and induce perceptual degeneracy.
+As shown in Tab. III, RESPLE2 achieves the best overall
+APE performance, with its LKIO variant attaining the lowest
+error on all eight sequences. Incorporating leg kinematic mea-
+surements improves or maintains estimation accuracy across
+all sequences. FAST-LIVO2 performs substantially worse,
+possibly because its discrete-time formulation is sensitive
+to abrupt changes in the observed scene within the limited
+LiDAR FoV and to high-impact landings when the robot
+steps down from elevated platforms. Leg-KILO follows the
+filtering-based design of Point-LIO with point-wise measure-
+ment update. Like RESPLE2, it uses V oxelMap for local map
+management and incorporates a foot-velocity measurement
+model. Despite these shared design choices, RESPLE2-LKIO
+consistently achieves lower estimation errors than Leg-KILO,
+even without customization for legged odometry. This sup-
+ports the benefits of our proposed continuous-time estimation
+method. Foot position estimation is demonstrated in Fig. 3-(b).
+TABLE III
+APE (RMSE,METERS)ONJEPLO.
+Method CoLIC FLIVO2 RESPLE LeKILO RESPLE2
+Variant LIO LIO LIO LKIO LIO LKIO
+EIL_Box 0.054 3.200 0.011 0.032 0.006 0.005
+EIL_Mask1 0.032 0.551 0.015 0.032 0.009 0.008
+EIL_Mask2 0.045 0.830 0.015 0.040 0.011 0.010
+EIL_Mix 0.028 1.628 0.015 0.028 0.010 0.010
+EIL_Stairs 0.047✗0.013 0.052 0.010 0.007
+Long_Stairs 0.015 ✗ 0.010 0.027 0.007 0.007
+Outdoor1 0.017✗0.010 0.018 0.008 0.007
+Outdoor2 0.016 ✗ 0.011 0.026 0.007 0.006
+PAGE 12
+12
+(a)
+ (b)
+Fig. 4. (a) Tracked vehicle equipped withBoxifor collecting thePPS TV
+dataset. (b) RESPLE2 results on theday_streetsequence.
+D. Experiments
+1)PPS TV:ThePPS Tracked Vehicledataset 3 is
+recorded onboard a tracked robot equipped with theBoxi
+multi-sensor rig [8] as shown in Fig. 4-(a). It features high
+translational and angular velocities in unstructured outdoor en-
+vironments under both daytime and nighttime conditions. The
+peak angular rate reaches4.5 rad/sinnight_street, and
+the accelerometer (Mid360built-in IMU) frequently saturates
+at its±4gfull-scale limits during aggressive maneuvers.
+As summarized in Tab. IV, RESPLE2 achieves strong
+overall performance, with low APE and RPE across the dataset
+in both LIO and LVIO configurations. RESPLE-LO fails on
+day_open, which becomes particularly challenging near the
+end as the robot climbs a hill and becomes stuck. In the LIO
+setting, RESPLE2 mostly achieves lower RPE and APE than
+FAST-LIVO2 and Coco-LIC. Incorporating visual measure-
+ments generally reduces odometry errors for RESPLE2 and
+FAST-LIVO2, whereas it does not improve the reported ac-
+curacy of Coco-LIC. In the LVIO setting, RESPLE2 achieves
+lower APE than Coco-LIC on every sequence, with equal or
+lower RPE on most sequences. We further show representative
+runs of RESPLE2 in Fig. 1-(c) and Fig. 4-(b).
+TABLE IV
+APEANDRPE (RMSE,METERS)ONPPS TR A C K E DVE H I C L E.
+CMLO CoLIC FLIVO2 RESPLE RESPLE2
+LO LIO LVIO LIO LVIO LO LIO LIO LVIO
+DO APE0.082 0.051 0.051 0.582 0.046✗0.066 0.042 0.041
+RPE0.079 0.007 0.007 0.044 0.007 ✗0.018 0.0060.007
+APE 0.063 0.026 0.026 0.026 0.028 0.030 0.024 0.024 0.020DH RPE 0.060 0.006 0.006 0.009 0.009 0.020 0.012 0.005 0.005
+NH APE0.071 0.029 0.029 0.024 0.023 0.034 0.025 0.0250.022
+RPE0.070 0.006 0.006 0.009 0.008 0.020 0.008 0.005 0.004
+APE 0.077 0.189 0.202 0.258 0.058 0.225 0.039 0.045 0.059NL RPE 0.038 0.006 0.006 0.010 0.008 0.019 0.012 0.006 0.006
+NS APE0.057 0.016 0.016 0.015 0.015 0.032 0.017 0.013 0.011
+RPE0.0430.005 0.0050.007 0.008 0.023 0.011 0.006 0.005
+APE 0.058 0.023 0.024 0.024 0.024 0.031 0.025 0.021 0.019DS RPE 0.043 0.005 0.005 0.006 0.007 0.018 0.011 0.005 0.005
+Sequence abbreviations:DO(day_open),DH(day_hill),NH(night_hill),NL
+(night_loop),NS(night_street), andDS(day_street).
+2)HOPPER:TheHOPPERdataset comprises 12 indoor
+sequences recorded onboard a legged quadcopter performing
+highly aggressive hybrid maneuvers, including vertical and
+lateral jumps, flight, and flips (Fig. 5), in both enclosed and
+open spaces [2], [54]. The robot is equipped with aMid360,
+with inertial measurements recorded by its built-inICM40609
+(200 Hz) and an externalBMI088(range±24g), which
+operates at1000 Hzand500 Hzin enclosed and open spaces,
+respectively. The robot undergoes highly aggressive motion,
+3Available at https://datasets.leggedrobotics.com/project/f44c68af-6827-
+4b16-bcd8-abf2d493eebb/missions
+(a)
+ (b)
+ (c)
+Fig. 5. Legged quadcopter (a) used to collect theHOPPERdataset, with
+examples of flip (b) and lateral jump (c) fromflip4.
+36 37 37.30510152025
+time	#10
+az [g]
+36.2 43 44 45 46 47 480
+5
+10
+15
+20
+t [s] k!k [rad/s]
+Fig. 6. Acceleration along thez-axis duringhigh2(left) and angular velocity
+norms duringflip2(right). Red and black curves correspond to the external
+and internal IMUs, respectively.
+with instantaneous accelerations reaching approximately25g
+and angular rates of up to18 rad/s(Fig. 6). These acceleration
+peaks exceed the±4g measurement range of theMid360
+built-in IMU, highlighting a challenging test of robustness to
+severe inertial measurement saturation. We calibrate the extrin-
+sic transformation between the external IMU and the LiDAR
+and compensate for their time offset. Both pose (300 Hz) and
+velocity (100 Hz) ground truth data are recorded using a Vicon
+motion capture system equipped with 10 Vantage cameras in a
+room of10 m×10 m. The enclosed-space sequences take place
+within this room, while the open-space sequences (long1to
+long3) start and end there and cover longer distances through
+a larger area beyond the room.
+In theflipsequences, the robot performs flips, producing
+high angular velocities and abrupt changes in the LiDAR
+scans. In thehighsequences, the robot jumps higher, gen-
+erating extreme accelerations exceeding24g. In theside
+sequences, the robot performs large lateral jumps. The three
+longsequences evaluate performance over longer trajectories
+of jumps, withlong3shown in Fig. 1-(d). Fig. 7 provides rep-
+resentative results from RESPLE2 on another four sequences.
+Tab. V reports position APE of LIO individually with the
+external and internal IMUs. RESPLE2 achieves the lowest
+APE on all sequences under both IMU configurations (except
+forflip4using internal IMU). Remarkably, its internal-
+IMU variant remains competitive with other methods using the
+external IMU, demonstrating consistent robustness to reduced
+IMU quality. Using the external IMU, RESPLE and Coco-
+LIC achieve comparable position accuracy and complete all
+sequences. FAST-LIVO2 is competitive on successful runs,
+although it fails onflip1.
+Coco-LIC and FAST-LIVO2 fail on all sequences with the
+internal IMU, highlighting the challenges posed by aggressive
+motion and severe inertial measurement saturation. Point-LIO
+completes all sequences with the internal IMU through its
+dedicated design for handling dynamic motion, using point-
+wise measurement updates and rejecting accelerometer mea-
+surements along saturated axes. However, its errors remain
+higher than those of RESPLE and RESPLE2, with severe de-
+terioration on thehighandflipsequences under more ag-
+PAGE 13
+13
+base1
+ side2
+flip2
+ high2
+Fig. 7. RESPLE2 tested onHOPPER. Black and red curves represent the
+estimated and ground-truth trajectories, respectively.
+gressive maneuvers when using the internal IMU. RESPLE2-
+LO also completes all sequences without IMU measurements,
+with estimation accuracy similar to or only slightly worse
+than that of RESPLE2 using the internal IMU. Specifically, it
+outperforms Point-LIO with the internal IMU on all sequences.
+TABLE V
+APE (RMSE,METERS)ONHOPPER.
+Method PLIO CoLIC FLIVO2 RESPLE RESPLE2
+Variant ext int ext ext ext int ext int LO
+base1 0.022 0.178 0.008 0.007 0.010 0.016 0.0050.014 0.017
+high1 0.022 0.556 0.020 0.019 0.011 0.019 0.005 0.017 0.021
+high2 0.022 0.594 0.017 0.021 0.011 0.023 0.0050.020 0.024
+side1 0.019 0.178 0.008 0.008 0.008 0.018 0.004 0.016 0.017
+side2 0.019 0.149 0.008 0.008 0.008 0.017 0.0040.015 0.015
+flip1 0.024 0.335 0.038 ✗ 0.014 0.019 0.008 0.018 0.022
+flip2 0.026 0.314 0.015 0.012 0.012 0.018 0.0080.018 0.019
+flip3 0.028 0.361 0.024 0.024 0.013 0.020 0.011 0.019 0.020
+flip4 0.042 0.407 0.017 0.016 0.013 0.019 0.0090.020 0.027
+long1 0.025 0.102 0.013 0.017 0.013 0.019 0.010 0.015 0.022
+long2 0.033 0.087 0.014 0.0130.016 0.020 0.0130.018 0.019
+long3 0.034 0.133 0.017 0.016 0.018 0.022 0.014 0.020 0.021
+We additionally evaluate velocity estimation recorded within
+enclosed spaces using the instantaneous estimates produced
+after each measurement update, reflecting their use in online
+control tasks [2]. As shown in Tab. VI, all systems exhibit
+greater sensitivity to IMU quality in velocity estimation than
+in position estimation. With the external IMU, RESPLE2
+achieves the lowest or the second lowest velocity estimation
+error on all sequences. With the internal IMU, it achieves
+higher accuracy than all other systems on all sequences under
+the same IMU configuration. Notably, due to its delayed knot
+determination, Coco-LIC introduces an additional latency of
+up to two optimization cycles (200 ms), which may degrade
+online control performance [39].
+TABLE VI
+VELOCITY ESTIMATION ERROR(RMSE,m/s)ONHOPPER.
+Method PLIO CoLIC FLIVO2 RESPLE RESPLE2
+IMU ext int ext ext ext int ext int LO
+base1 0.245 1.6740.0810.254 0.732 0.798 0.111 0.617 1.019
+high1 0.294 2.098 0.123 0.269 0.683 0.775 0.097 0.678 1.079
+high2 0.261 2.509 0.125 0.353 0.734 0.924 0.1050.809 1.264
+side1 0.256 1.836 0.077 0.236 0.582 0.756 0.107 0.591 0.993
+side2 0.1231.757 0.218 0.290 0.705 0.802 0.210 0.675 1.068
+flip1 0.252 2.013 0.288 ✗ 0.789 0.843 0.227 0.749 1.176
+flip2 0.300 2.000 0.258 0.317 0.798 0.881 0.2560.742 1.155
+flip3 0.231 1.837 0.269 0.332 0.759 0.859 0.255 0.708 1.139
+flip4 0.316 2.162 0.204 0.266 0.707 0.752 0.1660.668 1.245
+0.5
+1
+1.5
+z [m]
+25.5 26 26.5 27 27.5 28 28.5 29 29.5 30-6-4-2024
+time #2
+t[s]
+vz [m/s]
+Ground truth RESPLE2 PLIO CoLIC FLIVO2
+Fig. 8. Position (top) and velocity (bottom) along thez-axis onflip1.
+As depicted in Fig. 8, we further compare the position and
+velocity estimates of the systems against the ground truth
+onflip1, including a flip maneuver during26-27 s. After
+approximately29 s, FAST-LIVO2 diverges, and Coco-LIC and
+Point-LIO deviate substantially from the ground truth, whereas
+RESPLE2 closely tracks it despite the dynamic maneuver.
+3)HANDI:TheHANDIdataset comprises13sequences
+recorded in diverse indoor and outdoor environments using
+different LVI configurations on a handheld platform. Theaz
+sequences useAviaandZedX1,ar-inoutusesAvia
+andD455, andmz-inoutusesMid360andZedX1. The
+az-dynasequences capture dynamic motion during jumping,
+running, rapid lateral rotations, and circular arm movements
+within a12 m×12 mspace. Theinoutandaz-corri
+sequences involve long-distance travel, including scenarios
+with geometric degeneracy (e.g., in long corridors), as well
+as transitions between indoor and outdoor environments. The
+az-outsequences are recorded entirely outdoors, including
+in wilderness environments, and return to their starting lo-
+cations, enabling end-to-end error evaluation. For all other
+sequences, a Qualisys camera tracking system provides ground
+truth for either the entire trajectory (az-dyna) or the initial
+and final portions of longer trajectories (rest). We enable the
+proposed global refinement module at loop closures for the
+long-distance sequences.
+As summarized in Tab. VII, RESPLE2 completes all eval-
+uated sequences for both LIO and LVIO, with at least one
+variant achieving the lowest odometry error on every sequence.
+RESPLE2-LVIO outperforms all competing systems in ge-
+ometrically degenerate corridors and during indoor-outdoor
+transitions, and achieves the lowest end-to-end errors on the
+outdoor sequences. In general, incorporating visual measure-
+ments substantially improves the odometry accuracy in both
+dynamic and long-distance scenarios. Global refinement of
+the LVIO trajectories further reduces errors on long-distance
+sequences, with particularly pronounced gains in unstructured
+or geometrically degenerate environments, e.g.,az-corri
+andaz-out2. Fig. 9 further illustrates representative runs
+of RESPLE2 on theaz-dynasequences. The hardware
+setups and mapping results ofar-inout,az-inout, and
+mz-inoutare shown in Fig. 1-(f), (g), and (h), respectively.
+Fig. 10 further provides a qualitative comparison of mapping
+consistency before and after global refinement. Fig. 11 shows
+the quantitative results of global refinement at the first de-
+tected loop closure inar-inout. The proposed global spline
+optimization reduces position errors along the trajectory by
+up to nearly2 mwhile consistently preserving higher-order
+PAGE 14
+14
+az-dyna1
+ az-dyna2
+az-dyna4
+ az-dyna5
+Fig. 9. RESPLE2 onaz-dynasequences. Black and red curves are estimated
+and ground-truth trajectories, respectively.
+Before
+After
+Fig. 10. Comparison before and after global refinement onaz-out2.
+continuous-time states such as angular and linear velocities.
+TABLE VII
+APE (RMSE,METERS)ONHANDI.
+Method CoLIC FLIVO2 RESPLE RESPLE2
+Variant LVIO LVIO LIO LIO LVIO (+LC)
+az-base1 0.121 0.059 0.034 0.0360.028(N/A)
+az-base2 ✗ ✗ 0.085 0.036 0.033(N/A)
+az-dyna1 0.105 0.080 0.157 0.0550.059 (N/A)
+az-dyna2 0.074 0.074 1.588 0.053 0.054 (N/A)
+az-dyna3 0.141 0.095 4.489 15.9440.059(N/A)
+az-dyna4 ✗ 0.097 0.045 0.044 0.036(N/A)
+az-dyna5 0.082 0.067 0.069 0.056 0.042(N/A)
+az-corri 25.236 46.476 44.057 6.166 1.339 (0.044)
+az-inout 2.562 5.122 11.330 1.334 0.031 (0.030)
+mz-inout 2.476 ✗ 36.974 1.491 0.668 (0.026)
+ar-inout 0.808✗1.122 10.177 0.394 (0.076)
+az-out1∗ 1.686 0.057 9.605 4.780 0.009(0.009)
+az-out2∗ 3.623 25.235✗ 5.355 2.767 (0.009)
+∗Sequences start and end at the same location, for which end-to-end error is reported.
+For the long-distance sequences below the divider, RESPLE2 applies loop closure
+detection and global refinement, with resulting errors shown in parentheses.
+IX. FURTHERDISCUSSIONS
+A. Ablations
+1) Inertial-Informed Prediction:To assess the proposed
+inertial-informed control point prediction, we compare our
+method with a baseline in which each new RCP is predicted
+using a constant transition matrixAthat copies the most recent
+position and orientation-increment RCPs, with carefully tuned
+process noise. This baseline resembles the prediction scheme
+in RESPLE [25] or the initialization scheme in Coco-LIC [26].
+Both settings apply the same knot-placement criteria based on
+Section VI-A, ensuring identical knot intervals and measure-
+ment batches at each update step. This isolates the effect of
+the prediction strategy from that of adaptive knot placement.
+k"pk [m]
+0
+1
+2
+time	×0.05
+t[s]0 50 125 130 135 140 145 200
+kvk [m/s]
+1
+1.5
+2
+k!k [rad/s]
+0
+1
+2
+3
+Fig. 11. Position correction and preservation of body-frame angular (blue)
+and linear velocities (black) at the first global spline optimization.
+0.1
+0.15
+time	×2 time	×2
+x [m]
+35.8 36 36.2 36.4 36.6
+-0.1
+0
+0.1
+t[s]
+y [m]
+Fig. 12. Ablation of exact RCP prediction onflip1in(x, y)-coordinates
+w.r.t. ground truth (red). The IMU-predicted control points and those predicted
+using the constant transition matrixAin Section IX-A1 are shown in blue
+and green with the corresponding B-spline estimates, respectively.
+We use theHOPPERsequences recorded in enclosed spaces
+for testing under aggressive motion.
+As shown in Tab. VIII, the proposed inertial-informed
+prediction reduces the position APE on all the sequences with
+relative reductions of approximately39%-76%. The largest
+reduction occurs onhigh1, which features extremely high
+accelerations. These consistent improvements support the ben-
+efit of incorporating current inertial measurements into control
+point prediction during highly dynamic motion.
+TABLE VIII
+POSITIONAPE (RMSE,METERS)ONHOPPERFOR ABLATION ON
+INERTIAL-INFORMED PREDICTION.
+base1 high1 high2 side1 side2 flip1 flip2 flip3 flip4
+Pred. w/o IMU0.015 0.017 0.012 0.010 0.011 0.015 0.016 0.018 0.017
+Pred. w/ IMU0.005 0.004 0.005 0.004 0.004 0.008 0.008 0.011 0.009
+Fig. 12 further illustrates the corresponding position control
+point predictions on a segment offlip1. The IMU-predicted
+RCPs generally lie closer to the subsequently estimated trajec-
+tory, whereas the baseline predictions exhibit larger deviations.
+Under knot clamping, the newest control point coincides with
+the trajectory endpoint, thereby enabling improved control
+point initialization through direct IMU integration and pro-
+viding a better endpoint prior for the subsequent iterated
+measurement update, including data association.
+2) Knot Placement:To examine how knot placement adapts
+to dynamic motion, we compare RESPLE2 and Coco-LIC on
+a segment offlip1containing two landing impacts sepa-
+rated by a ballistic phase as shown in Fig. 13-(a). RESPLE2
+concentrates knots around the ground impacts, where velocity
+changes abruptly, and places sparser knots during the smoother
+ballistic motion, with the vertical position and velocity es-
+timates closely following the ground truth throughout the
+segment. Coco-LIC exhibits a nearly uniform knot density over
+the same interval, with larger position and velocity deviations.
+PAGE 15
+15
+47.4 47.6 47.8 48 48.2 48.4 48.6
+0.5
+1
+1.5
+-5
+0
+5
+sz [m]
+vz [m/s]
+RESPLE2
+47.4 47.6 47.8 48 48.2 48.4 48.6
+0.5
+1
+1.5
+-5
+0
+5
+t[s]
+sz [m]
+vz [m/s]
+Coco-LIC
+(a) Position (black) and velocity (blue) estimates over placed knots (gray) compared
+with ground truth (red).
+47.6 47.8 48.6 48.80
+10
+20
+0
+1
+2
+kak [g]
+k!k [rad/s]
+time	×10
+RESPLE2
+47.6 47.8 48.6 48.80
+10
+20
+0
+1
+2
+t[s]
+kak [g]
+k!k [rad/s]
+time	×10
+Coco-LIC
+(b) Norms of acceleration (black) and angular velocity (blue) estimates over placed
+knots (gray) w.r.t. the accelerometer (green) and gyroscope (red) readings, respectively.
+Fig. 13. Comparison of knot placement and motion estimates between
+RESPLE2 and Coco-LIC on a segment offlip1, with reference to ground
+truth (a) and IMU measurements (b). RESPLE2 achieves higher estimation
+accuracy and fidelity with a knot distribution that better adapts to motion.
+In Coco-LIC’s design, the number of control points in
+each0.1 sinterval is determined by thresholding the accel-
+eration and angular velocity in the global frame averaged over
+that interval. We observe that this averaging can reduce the
+contribution of brief, aggressive motion transitions, such as
+those during a landing impact lasting about50 ms, limiting
+the sensitivity of knot placement to these transient events.
+Instead, RESPLE2 evaluates changes in position, orientation,
+and velocity at each IMU propagation substep, together with
+criteria on interval duration and measurement point counts. In
+particular, the velocity-change criterion allows rapid changes
+in translational motion to trigger knot extension without wait-
+ing for a fixed averaging interval.
+As shown in Fig. 13-(b), we further examine the consis-
+tency of inertial estimation within the same phase. RESPLE2
+produces acceleration and angular-velocity estimates that are
+more closely aligned with the measurements, particularly
+during pronounced variations near the peaks, whereas Coco-
+LIC overshoots the acceleration peaks and underestimates the
+angular-velocity peaks around both ground impacts. These ob-
+servations further support our motion-adaptive knot placement
+strategy for estimating dynamic motion.
+Furthermore, over the entireflip1sequence, RESPLE2
+uses2087control points compared with2362for Coco-
+LIC, a reduction of11.6%, while achieving higher estimation
+accuracy. This also demonstrates the superior representation
+efficiency of our motion-adaptive knot placement.
+idx 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+time/itr. [s]
+0
+0.05
+0.1
+0.15
+total time [s]
+0
+1
+2
+linearization solver setup solve other
+7:60 8:06 20:1 20:2 20:2 20:7 20:8 21:0 21:3 21:6 21:8 24:3 26:3 26:4 26:9 28:1
+#knots [K]
+Fig. 14. Runtime profile of global spline optimization onar-inout,
+including per-iteration cost, total optimization time, and knot counts.
+B. Runtime and Computational Analysis
+Tab. IX reports the per-frame runtime breakdown on three
+sequences, one for each operating mode:flip1(LIO),
+day_open(LVIO), andOutdoor1(LKIO). In all three
+modes, RESPLE2 runs well within real time, consuming only
+15.4%,18.3%, and10.6%of the available time budget per
+LiDAR frame, respectively. The IEKF update is the dominant
+stage throughout, accounting for roughly one third of the per-
+frame runtime in LIO, one quarter in LVIO, and about half
+in LKIO, followed by the image preprocessing, V oxelMap
+maintenance and LiDAR preprocessing. The proposed RCP
+prediction and reset are lightweight, together requiring at most
+0.51 msper frame and less than7%of the total runtime on
+every sequence. The LVIO mode incurs the highest cost, as
+visual processing adds about4.1 msper frame and the visual
+measurements further enlarge the IEKF update.
+TABLE IX
+RUNTIME(msPERLIDARFRAME)ANALYSIS.
+Sequenceflip1 day_open Outdoor1
+LiDAR preprocessing1.570 2.765 0.810
+Image preprocessing – 3.346 –
+Visual feature generation –0.756–
+Knot extension 0.372 2.926 0.380
+RCP prediction0.363 0.184 0.107
+RCP reset 0.142 0.163 0.090
+Iterated update2.664 4.883 2.644
+V oxelMap maintenance 2.291 2.934 1.013
+Others0.290 0.388 0.264
+Total / Available7.7/50 18.3/100 5.3/50
+Fig. 14 reports the runtime of the main components of the 16
+global optimizations triggered onar-inout, with optimiza-
+tion windows ranging from243 sto853 s. Each linearization
+evaluates the residuals and Jacobians and accumulates the lin-
+ear system. Solver setup merges these contributions, assembles
+the sparse system matrix, and scales the system. The linear
+solve factorizes the matrix and computes the state increment.
+Each optimization typically converges within approximately
+15iterations. The latest global spline optimization takes about
+2 s, indicating a low overall computational cost.
+X. CONCLUSION
+We presented RESPLE2, a recursive continuous-time6-DoF
+state estimation framework using non-uniform B-splines. By
+exploiting the knot-clamping boundary condition, the frame-
+work directly predicts control points from IMU-integrated
+PAGE 16
+16
+kinematics on the trajectory and adapts knot placement to mo-
+tion and measurement availability. A subsequent control point
+reset preserves local trajectory consistency as the spline is
+extended. In addition, a lightweight global optimization mod-
+ule is developed to directly refine the non-uniform B-spline
+control points by combining loop-closure constraints, reduc-
+ing accumulated global drift and preserving local kinematic
+consistency. RESPLE2 supports flexible combinations of Li-
+DAR, visual, inertial, and leg-kinematic measurements, as well
+as LiDAR-only operation. Extensive real-world evaluations
+across diverse platforms demonstrate accuracy and robustness
+comparable to or exceeding those of state-of-the-art meth-
+ods while maintaining real-time operation, with particularly
+strong performance under aggressive motion and severe IMU
+saturation. These results highlight the potential of motion-
+adaptive, recursive B-spline estimation for robust multi-sensor
+egomotion estimation under challenging conditions. For future
+work, we plan to investigate adaptive sensor weighting and
+visual feature constraints that do not depend on LiDAR-
+derived depth to further improve estimation robustness under
+sensor degeneracy. Another promising direction is to integrate
+spline-based state estimation directly with optimization- or
+learning-based motion planning onboard mobile robots.
+ACKNOWLEDGMENT
+ChatGPT is used for debugging code.
+APPENDIX
+A. Derivation of the Knot-Clamping Boundary Property
+Using the general matrix representation of non-uniform
+cubic B-splines [43], we derive the six coefficients in the
+basis matrixΩ(2) by imposing the clamping condition
+tn =t n+1 =t n+2 at the new knott n:
+m0,0 = (tn−tn−1)2
+(tn−tn−2)(tn−tn−3) , m 2,0 = (tn−1−tn−2)2
+(tn−tn−2)2 ,
+m2,1 = 3(tn−tn−1)(tn−1−tn−2)
+(tn−tn−2)2 , m 2,2 = 3(tn−tn−1)2
+(tn−tn−2)2 ,
+m2,3 =− 1
+3 m2,2 −m 3,3 − tn−tn−1
+tn−tn−2
+, m 3,3 = 1.
+At the boundaryt=t n, the normalized time isu= 1,
+givingu= [ 1,1,1,1 ] ⊤, ˙u= [ 0,1,2,3 ] ⊤/τn−1, and
+¨u= [ 0,0,2,6 ] ⊤/τ 2
+n−1. Substituting these vectors into the
+kinematic interpolation formula in (5) yields the following
+matrix-vector products:
+Ωu=
+ 0
+1−m2,0−m2,1−m2,2−m2,3−m3,3
+m2,0+m2,1+m2,2+m2,3
+m3,3
+
+= [ 0,0,0,1 ] ⊤ ,
+Ω ˙u= 1
+τn−1
+ 0
+−m2,1−2m2,2−3m2,3−3m3,3
+m2,1+2m2,2+3m2,3
+3m3,3
+
+= [ 0,0,−3,3 ] ⊤
+τn−1
+,
+Ω¨u= 1
+τ 2
+n−1
+ 0
+−2m2,2−6m2,3−6m3,3
+2m2,2+6m2,3
+6m3,3
+
+= [ 0,6µ,−6−6µ,6 ] ⊤
+τ 2
+n−1
+,
+withµ= tn−tn−1
+tn−tn−2
+. SinceS= [s n−3 ,s n−2 ,s n−1 ,s n], this
+then establishes (10). For the orientation B-spline, evaluating
+the cumulative basis functions in (4) and their time derivatives
+at the clamped boundaryt=t n gives
+λn−3:n =
+ 1
+1
+m2,0+m2,1+m2,2+m2,3+m3,3
+m3,3
+
+= [ 1,1,1,1 ] ⊤ ,and
+˙λn−3:n = 1
+τn−1
+ 0
+0
+m2,1+2m2,2+3m2,3+3m3,3
+3m3,3
+
+= [ 0,0,0,3 ] ⊤
+τn−1
+,
+withλ n−3:n = [λ n−3, λn−2, λn−1, λn]⊤. Substituting these
+basis function values into (3) yields the orientation at the
+boundaryt=t n:
+r(tn) =r n−4 •Qn
+i=n−3
+ 
+r−1
+i−1 •r i
+
+=r n .
+For angular-velocity interpolation at the clamped boundaryt=
+tn =t n+1 =t n+2, we have ˙λn−3 = ˙λn−2 = ˙λn−1 = 0. The
+recursion in (6) thus givesω 1(tn) =ω 2(tn) =0 3×1, yielding
+ω(tn) =e −1
+n •0 3×1 •e n + 2˙λn δn = 6δ n/τn−1 ,
+which establishes (11).
+B. Derivation of the RCP Reset
+1) Position RCP Reset:In (21), the pre-reset values are
+evaluated using (10) at the right endpoint of[t n−2, tn−1]with
+u− = 1. After unclamping, the same instantt n−1 corresponds
+to the left endpoint of[t n−1, tn]withu + = 0. Hence,
+˚s(tn−1)+ =
+
+s+
+n−3,s +
+n−2,s +
+n−1,s +
+n
+
+Ω+˚u(tn−1)+ ,
+wheres +
+n−3:n are the post-reset position control points andΩ +
+is the corresponding basis matrix. The post-reset normalized
+time vector and its derivatives att n−1 follow
+u(tn−1)+ = [ 1,0,0,0 ] ⊤ ,
+˙u(tn−1)+ = [ 0,1,0,0 ] ⊤/τn−1 ,
+¨u(tn−1)+ = [ 0,0,2,0 ] ⊤/τ 2
+n−1 .
+(27)
+The contributions ofs −
+n−4 ands +
+n to (21) vanish atu − = 1
+andu + = 0, respectively.s n is thus left unchanged during the
+reset, and (21) reduces to the following linear system:
+M−s−
+n−3:n−1 =M +s+
+n−3:n−1 ,with
+M− =diag(1,3/τ n−2,6/τ 2
+n−2)
+h 0 0 1
+0−1 1
+µ− −1−µ− 1
+i
+⊗I 3 and
+M+ =diag(1,1/τ n−1,2/τ 2
+n−1)(Ω+
+1:3,1:3)⊤ ⊗I 3 .
+withµ − = (t n−1 −t n−2)/(tn−1 −t n−3). Here,Ω +
+1:3,1:3
+extracts the3×3top-left corner of the post-reset basis matrix.
+SinceM + is nonsingular, the post-reset RCPs can be obtained
+in closed form as
+s+
+n−3:n−1 = (M+)−1M− s−
+n−3:n−1 .
+Since the latest RCP remains unchanged, this further yields
+s+
+n−3:n =J ss−
+n−3:n ∈R 12 ,withJ s =diag((M +)−1M−,I 3),
+which establishes the position RCP reset in (22).
+PAGE 17
+17
+2) Orientation RCP Reset:We now derive the orientation
+and angular velocity residuals in (23). According to (4), the
+cumulative basis functions and their derivatives att n−1 follow
+˚λ(tn−1)+ =Φ +˚u(tn−1)+ ,
+with ˚u(tn−1)+ given by (27), yielding
+r(tn−1)+ =r n−4 •Exp(δ +
+n−3)• Qn−1
+i=n−2 Exp(λ+
+i δ+
+i ),
+ω(tn−1)+ =R(e +
+n−1)⊤(2 ˙λ+
+n−2 δ+
+n−2) + 2˙λ+
+n−1 δ+
+n−1 .
+Here, the orientation component is given by the vector part of
+the relative quaternion
+zr = [(r(tn−1)−)−1 •r(t n−1)+]2:4 = [r− •Qn−1
+i=n−2 e+
+i ]2:4 ,
+withr − = (Exp(δ−
+n−2)•Exp(δ −
+n−1))−1 ,e +
+i = Exp(λ+
+i δ+
+i ).
+The angular-velocity component is given by the difference
+between the post-reset and pre-reset angular velocities
+zω =ω(t n−1)+ −ω(t n−1)−
+=R(e +
+n−1)⊤(2 ˙λ+
+n−2δ+
+n−2) + 2˙λ+
+n−1δ+
+n−1 −6δ −
+n−1/τn−2 .
+For minimizing the residual in the sense of nonlinear least
+squares using Newton’s method, we derive its Jacobian with
+respect to the incrementsδ + = [(δ+
+n−2)⊤,(δ +
+n−1)⊤]⊤ as
+Hδ =
+
+
+L1Q⌟(e+
+n−1)
+∂e+
+n−2
+∂δ +
+n−2
+L1Q⌞(e+
+n−2)
+∂e+
+n−1
+∂δ +
+n−1
+2 ˙λ+
+n−2R(e+
+n−1)⊤ L2
+∂e+
+n−1
+∂δ +
+n−1
++ 2˙λ+
+n−1I3
+
+ ,(28)
+withL 1 = [0 3×1,I 3]Q ⌞(r−)∈R 3×4. The derivativeL 2 =
+∂R(e+
+n−1)⊤(2 ˙λ+
+n−2δ+
+n−2)
+∂e+
+n−1
+is evaluated using [42, Eq. 174]. This
+then enables the iterative solution in (24).
+3) Covariance Reset:The reset transformation for the posi-
+tion RCP is the JacobianJ s in (22). The orientation reset is im-
+plicitly defined by the zero-residual conditionz δ(δ+,δ −) =
+06×1. Linearizing this condition at the converged post-reset
+solutionδ +
+∗ leads to
+dzδ =H ∗
+δ dδ+ +G ∗
+δ dδ− =0 6×1 ,
+whereH ∗
+δ (28) andG ∗
+δ are the Jacobians of the residualz δ
+with respect toδ + andδ −, respectively, evaluated atδ +
+∗ and
+δ−. The JacobianG ∗
+δ w.r.t. the pre-resetδ − follows
+G∗
+δ =
+
+L3Q⌟
+n−1
+∂Exp(δ −
+n−2)
+∂δ −
+n−2
+L3Q⌞
+n−2
+∂Exp(δ −
+n−1)
+∂δ −
+n−1
+03 − 6
+τn−2
+I3
+
+ ,with
+Q⌟
+n−1 =Q ⌟(Exp(δ−
+n−1))andQ ⌞
+n−2 =Q ⌞(Exp(δ−
+n−2)).
+Here,L 3 = [0 3×1,I 3]Q ⌟(e+
+n−2 •e +
+n−1)diag(1,−1,−1,−1),
+with all post-reset quantities evaluated atδ +
+∗ . Therefore, the
+Jacobian of the reset map for the full set of orientation RCP
+incrementsδ n−3:n is given by
+Jr = ∂δ+
+n−3:n
+∂δ −
+n−3:n
+=
+
+
+I3 03×6 03
+06×3 −(H∗
+δ)−1G∗
+δ 06×3
+03 Jn1 Jn2
+
+ ,with
+Jn1 = ∂δ+
+n
+∂[(δ −
+n−2)⊤,(δ −
+n−1)⊤]⊤ andJ n2 = ∂δ+
+n
+∂δ −n
+.
+Here, the identity matrix indicates the unchanged increment
+δn−3.J n1 andJ n2 are the Jacobians ofδ +
+n (25) w.r.t.
+δ−
+n−2:n−1 andδ −
+n computed using the chain rule.
+REFERENCES
+[1] T. Miki, J. Lee, J. Hwangbo, L. Wellhausen, V . Koltun, and M. Hutter,
+“Learning robust perceptive locomotion for quadrupedal robots in the
+wild,”Science robotics, vol. 7, no. 62, p. eabk2822, 2022.
+[2] S. Li, S. Bai, R. Jia, Y . Cai, R. Ding, Y . Shi, F. Zhang, and P. Chirarat-
+tananon, “A High-Payload Robotic Hopper Powered by Bidirectional
+Thrusters,”IEEE Transactions on Robotics, vol. 41, pp. 5307–5326,
+2025.
+[3] M. Mattamala, N. Chebrolu, J. Frey, L. Freißmuth, H. Oh, B. Casseau,
+M. Hutter, and M. Fallon, “Building Forest Inventories With Au-
+tonomous Legged Robots—System, Lessons, and Challenges Ahead,”
+IEEE Transactions on Field Robotics, vol. 2, pp. 418–436, 2025.
+[4] J. Lee, M. Bjelonic, A. Reske, L. Wellhausen, T. Miki, and M. Hutter,
+“Learning robust autonomous navigation and locomotion for wheeled-
+legged robots,”Science Robotics, vol. 9, no. 89, p. eadi9641, 2024.
+[5] J. Richter, T. Tuna, M. Patel, T. Miki, D. Higgins, J. Fox, C. Cadena,
+A. Diaz, and M. Hutter, “Large-Scale Autonomous Gas Monitoring for
+V olcanic Environments: A Legged Robot on Mount Etna,”arXiv preprint
+arXiv:2601.07362, 2026.
+[6] S. Bai, R. Ding, S. Li, R. Jia, R. Wang, Z. Zhang, F. Wang, and
+P. Chirarattananon, “Parallel-elastic actuation with reactive latch ele-
+vates robotic hopping performance: Jump height and continuity,”IEEE
+Transactions on Robotics, vol. 42, pp. 2521–2540, 2026.
+[7] M. Tranzatto, T. Miki, M. Dharmadhikari, L. Bernreiter, M. Kulkarni,
+F. Mascarich, O. Andersson, S. Khattak, M. Hutter, R. Siegwart, and
+K. Alexis, “CERBERUS in the DARPA subterranean challenge,”Science
+Robotics, vol. 7, no. 66, p. eabp9742, 2022.
+[8] J. Frey, T. Tuna, L. F. T. Fu, C. Weibel, K. Patterson, B. Krummenacher,
+M. M ¨uller, J. Nubert, M. Fallon, C. Cadena, and M. Hutter, “Boxi: De-
+sign Decisions in the Context of Algorithmic Performance for Robotics,”
+inRobotics: Science and Systems Conference (RSS), 2025.
+[9] T. Qin, P. Li, and S. Shen, “VINS-Mono: A robust and versatile monoc-
+ular visual-inertial state estimator,”IEEE Transactions on Robotics,
+vol. 34, no. 4, pp. 1004–1020, 2018.
+[10] W. Xu, Y . Cai, D. He, J. Lin, and F. Zhang, “FAST-LIO2: Fast direct
+LiDAR-inertial odometry,”IEEE Transactions on Robotics, vol. 38,
+no. 4, pp. 2053–2073, 2022.
+[11] K. Li, M. Li, and U. D. Hanebeck, “Towards high-performance solid-
+state-LiDAR-inertial odometry and mapping,”IEEE Robotics and Au-
+tomation Letters, vol. 6, no. 3, pp. 5167–5174, 2021.
+[12] C. Bai, T. Xiao, Y . Chen, H. Wang, F. Zhang, and X. Gao, “Faster-LIO:
+Lightweight tightly coupled LiDAR-inertial odometry using parallel
+sparse incremental voxels,”IEEE Robotics and Automation Letters,
+vol. 7, no. 2, pp. 4861–4868, 2022.
+[13] G. Ou, D. Li, and H. Li, “Leg-KILO: Robust kinematic-inertial-LiDAR
+odometry for dynamic legged robots,”IEEE Robotics and Automation
+Letters, vol. 9, no. 10, pp. 8194–8201, 2024.
+[14] J. Nubert, T. Tuna, J. Frey, C. Cadena, K. J. Kuchenbecker, S. Khattak,
+and M. Hutter, “Holistic Fusion: Task- and Setup-Agnostic Robot Lo-
+calization and State Estimation With Factor Graphs,”IEEE Transactions
+on Robotics, vol. 42, pp. 3366–3387, 2026.
+[15] Q. Yuan, Z. Cao, M. Cao, and K. Li, “REASAN: Learning Reactive
+Safe Navigation for Legged Robots,”arXiv preprint arXiv:2512.09537,
+2025.
+[16] J. Niu, S. Zhong, X. Lu, S. Shen, G. Gallego, and Y . Zhou, “ESVO2:
+Direct visual-inertial odometry with stereo event cameras,”IEEE Trans-
+actions on Robotics, vol. 41, pp. 2164–2183, 2025.
+[17] X. Lang, J. Lv, J. Huang, Y . Ma, Y . Liu, and X. Zuo, “Ctrl-VIO:
+Continuous-time visual-inertial odometry for rolling shutter cameras,”
+IEEE Robotics and Automation Letters, vol. 7, no. 4, pp. 11 537–11 544,
+2022.
+[18] X. Zheng and J. Zhu, “Traj-LO: In defense of LiDAR-only odometry
+using an effective continuous-time trajectory,”IEEE Robotics and Au-
+tomation Letters, vol. 9, no. 2, pp. 1961–1968, 2024.
+[19] T. Y . Tang, D. J. Yoon, and T. D. Barfoot, “A white-noise-on-jerk
+motion prior for continuous-time trajectory estimation on SE (3),”IEEE
+Robotics and Automation Letters, vol. 4, no. 2, pp. 594–601, 2019.
+[20] T.-M. Nguyen, Z. Cao, K. Li, W. Talbot, T. Jin, S. Yuan, T. D. Barfoot,
+and L. Xie, “A Third-Order Gaussian Process Trajectory Representation
+Framework With Closed-Form Kinematics for Continuous-Time Motion
+Estimation,”IEEE Transactions on Robotics, vol. 42, pp. 2648–2667,
+2026.
+[21] H. Shen, Z. Wu, Y . Hui, W. Wang, Q. Lyu, T. Deng, Y . Zhu, B. Tian,
+and D. Wang, “CTE-MLO: Continuous-time and efficient multi-LiDAR
+odometry with localizability-aware point cloud sampling,”IEEE Trans-
+actions on Field Robotics, vol. 2, pp. 165–187, 2025.
+PAGE 18
+18
+[22] J. Johnson, J. Mangelson, T. Barfoot, and R. Beard, “Continuous-time
+trajectory estimation: A comparative study between Gaussian process
+and spline-based approaches,”arXiv preprint arXiv:2402.00399, 2024.
+[23] T. D. Barfoot,State estimation for robotics. Cambridge University
+Press, 2024.
+[24] T.-M. Nguyen, X. Xu, T. Jin, Y . Yang, J. Li, S. Yuan, and L. Xie, “Eigen
+is all you need: Efficient LiDAR-inertial continuous-time odometry with
+internal association,”IEEE Robotics and Automation Letters, vol. 9,
+no. 6, pp. 5330–5337, 2024.
+[25] Z. Cao, W. Talbot, and K. Li, “RESPLE: Recursive Spline Estimation
+for LiDAR-Based Odometry,”IEEE Robotics and Automation Letters,
+vol. 10, no. 10, pp. 10 666–10 673, 2025.
+[26] X. Lang, C. Chen, K. Tang, Y . Ma, J. Lv, Y . Liu, and X. Zuo, “Coco-
+LIC: continuous-time tightly-coupled LiDAR-inertial-camera odometry
+using non-uniform B-spline,”IEEE Robotics and Automation Letters,
+vol. 8, no. 11, pp. 7074–7081, 2023.
+[27] D. Hug, P. B ¨anninger, I. Alzugaray, and M. Chli, “Continuous-time
+stereo-inertial odometry,”IEEE Robotics and Automation Letters, vol. 7,
+no. 3, pp. 6455–6462, 2022.
+[28] W. Talbot, J. Nubert, T. Tuna, C. Cadena, F. D ¨umbgen, J. Tordesillas,
+T. D. Barfoot, and M. Hutter, “Continuous-time state estimation methods
+in robotics: A survey,”IEEE Transactions on Robotics, vol. 41, pp.
+4975–4999, 2025.
+[29] S. Zhao, H. Zhang, P. Wang, L. Nogueira, and S. Scherer, “Super
+Odometry: IMU-centric LiDAR-visual-inertial estimator for challenging
+environments,” in2021 IEEE/RSJ International Conference on Intelli-
+gent Robots and Systems (IROS), 2021, pp. 8729–8736.
+[30] C. Zheng, W. Xu, Z. Zou, T. Hua, C. Yuan, D. He, B. Zhou, Z. Liu,
+J. Lin, F. Zhu, Y . Ren, R. Wang, F. Meng, and F. Zhang, “FAST-LIVO2:
+Fast, Direct LiDAR-Inertial-Visual Odometry,”IEEE Transactions on
+Robotics, vol. 41, pp. 326–346, 2024.
+[31] C. Yuan, W. Xu, X. Liu, X. Hong, and F. Zhang, “Efficient and prob-
+abilistic adaptive voxel mapping for accurate online LiDAR odometry,”
+IEEE Robotics and Automation Letters, vol. 7, no. 3, pp. 8518–8525,
+2022.
+[32] D. He, W. Xu, N. Chen, F. Kong, C. Yuan, and F. Zhang, “Point-LIO:
+Robust high-bandwidth light detection and ranging inertial odometry,”
+Advanced Intelligent Systems, vol. 5, no. 7, p. 2200459, 2023.
+[33] K. Burnett, A. P. Schoellig, and T. D. Barfoot, “Continuous-time radar-
+inertial and LiDAR-inertial odometry using a Gaussian process motion
+prior,”IEEE Transactions on Robotics, vol. 41, pp. 1059–1076, 2025.
+[34] C. Sommer, V . Usenko, D. Schubert, N. Demmel, and D. Cremers,
+“Efficient Derivative Computation for Cumulative B-Splines on Lie
+Groups,” inProceedings of the IEEE/CVF Conference on Computer
+Vision and Pattern Recognition (CVPR), June 2020, pp. 11 148–11 156.
+[35] K. Li, Z. Cao, and U. D. Hanebeck, “Continuous-time ultra-wideband-
+inertial fusion,”IEEE Robotics and Automation Letters, vol. 8, no. 7,
+pp. 4338–4345, 2023.
+[36] J. Lv, K. Hu, J. Xu, Y . Liu, X. Ma, and X. Zuo, “CLINS: Continuous-
+time trajectory estimation for LiDAR-inertial system,” inIEEE/RSJ
+International Conference on Intelligent Robots and Systems (IROS),
+2021, pp. 6657–6663.
+[37] J. Lv, X. Lang, J. Xu, M. Wang, Y . Liu, and X. Zuo, “Continuous-time
+fixed-lag smoothing for LiDAR-inertial-camera SLAM,”IEEE/ASME
+Transactions on Mechatronics, vol. 28, no. 4, pp. 2259–2270, 2023.
+[38] J. Wu, X. Cheng, and Z. Zhang, “NURBS-Based Continuous LiDAR-
+Visual-Inertial SLAM With Adaptive Keyframe Selection,”IEEE/ASME
+Transactions on Mechatronics, 2026.
+[39] J. Quenzel and S. Behnke, “LIO-MARS: Non-uniform Continuous-time
+Trajectories for Real-time LiDAR-Inertial-Odometry,”IEEE Transac-
+tions on Robotics, pp. 1–19, 2026.
+[40] C. Yuan, J. Lin, Z. Liu, H. Wei, X. Hong, and F. Zhang, “BTC: A
+binary and triangle combined descriptor for 3-D place recognition,”
+IEEE Transactions on Robotics, vol. 40, pp. 1580–1599, 2024.
+[41] Z. Zou, C. Zheng, C. Yuan, S. Zhou, K. Xue, and F. Zhang, “iBTC:
+An image-assisting binary and triangle combined descriptor for place
+recognition by fusing LiDAR and camera measurements,”IEEE Robotics
+and Automation Letters, vol. 9, no. 12, pp. 10 858–10 865, 2024.
+[42] J. Sola, “Quaternion kinematics for the error-state Kalman filter,”arXiv
+preprint arXiv:1711.02508, 2017.
+[43] K. Qin, “General Matrix Representations for B-Splines,” inProceedings
+Pacific Graphics’ 98. Sixth Pacific Conference on Computer Graphics
+and Applications (Cat. No. 98EX208), 1998, pp. 37–43.
+[44] K. Li, “On Embedding B-Splines in Recursive State Estimation,”IEEE
+Transactions on Aerospace and Electronic Systems, vol. 61, no. 5, pp.
+13 594–13 604, 2025.
+[45] J. H. Ahlberg, E. N. Nilson, and J. L. Walsh,The Theory of Splines and
+Their Applications: Mathematics in Science and Engineering: A Series
+of Monographs and Textbooks, Vol. 38. Elsevier, 2016, vol. 38.
+[46] Z. Wang, R. Romagnoli, S. Mowlavi, and Y . Nakahira, “Physics-
+Informed Deep B-Spline Networks,”arXiv preprint arXiv:2503.16777,
+2026.
+[47] M. Bloesch, M. Hutter, M. A. Hoepflinger, S. Leutenegger, C. Gehring,
+C. D. Remy, and R. Siegwart, “State estimation for legged robots-
+consistent fusion of leg kinematics and IMU,” inRobotics: Science and
+Systems Conference (RSS), 2013, pp. 17–24.
+[48] J. Zhang, M. Kaess, and S. Singh, “On degeneracy of optimization-based
+state estimation problems,” in2016 IEEE international conference on
+robotics and automation (ICRA), 2016, pp. 809–816.
+[49] J. Carpentier, G. Saurel, G. Buondonno, J. Mirabel, F. Lamiraux,
+O. Stasse, and N. Mansard, “The Pinocchio C++ library – A fast
+and flexible implementation of rigid body dynamics algorithms and
+their analytical derivatives,” inIEEE/SICE International Symposium on
+System Integration (SII), 2019, pp. 614–619.
+[50] T. Tuna, J. Frey, L. F. T. Fu, K. Patterson, T. Xu, M. Fallon, C. Cadena,
+and M. Hutter, “GrandTour: A legged robotics dataset in the wild for
+multi-modal perception and state estimation,”The International Journal
+of Robotics Research, vol. 0, no. 0, p. 02783649261480737, 2026.
+[51] Q. Yuan, Y . Qiu, Z. Cao, M. Cao, and K. Li, “JEPLO: Joint-Embedding
+Predictive Learning for LiDAR-Based Legged Locomotion,”arXiv
+preprint arXiv:2609.15770, 2026.
+[52] Y . Cai, W. Xu, and F. Zhang, “ikd-Tree: An incremental KD tree for
+robotic applications,”arXiv preprint arXiv:2102.10808, 2021.
+[53] M. Grupp, “evo: Python package for the evaluation of odometry and
+SLAM.” https://github.com/MichaelGrupp/evo, 2017.
+[54] J. O. Kledkruemas, S. Li, S. Bai, and P. Chirarattananon, “Compliant
+footpads enable terrain-adaptive hopping in a monopedal robot,”Ad-
+vanced Intelligent Systems, p. e70580, 2026.

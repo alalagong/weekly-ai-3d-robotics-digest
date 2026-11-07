@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/6HXjPWsubJl7Er2NZz8UahUfCF4</id>
+  <title>arXiv Query: search_query=&amp;id_list=2605.09383&amp;start=0&amp;max_results=10</title>
+  <updated>2026-11-01T15:23:34Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=&amp;start=0&amp;max_results=10&amp;id_list=2605.09383" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2605.09383v3</id>
+    <title>Safety-Critical LiDAR-Inertial Odometry with On-Manifold Deterministic Protection Level</title>
+    <updated>2026-10-29T09:00:41Z</updated>
+    <link href="https://arxiv.org/abs/2605.09383v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.09383v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In safety-critical scenarios, the protection level of the autonomous navigation system is crucial for enabling mobile robots to perform safe tasks. However, existing studies on probabilistic navigation systems for robots usually perform offline accuracy evaluations using limited datasets and assume that the results can be applied to unknown real-world environments. As a result, current autonomous mobile robots often lack protection levels for online safety assessment. To fill this gap, we propose a safety-critical LiDAR-inertial odometry (LIO) that provides deterministic protection levels based on a novel on-manifold set-membership filter. By adopting the unknown but bounded assumption, we derive a neat closed-form relationship between point cloud noise and the uncertainty of the estimation from the iterative closest point algorithm. Using this relationship, we design an on-manifold ellipsoidal set-membership filter (OM-ESMF) and implement it within the LIO system. Leveraging the properties of the set-membership filter, our system offers the feasible sets of the estimated locations as the deterministic protection levels, serving as safety references for the robots' downstream autonomous operations. The experimental results show that our system can provide effective deterministic online safety references for diverse robots in various environments.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-10T07:20:34Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Yueqi Zhu</name>
+    </author>
+    <author>
+      <name>Yan Pan</name>
+    </author>
+    <author>
+      <name>Chufan Rui</name>
+    </author>
+    <author>
+      <name>Jiasheng Luo</name>
+    </author>
+    <author>
+      <name>Bo Zhou</name>
+    </author>
+  </entry>
+</feed>

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "2610.37000",
+    "version": 2,
+    "title": "GPA-VGGT: Geometry-Preserving Acceleration of VGGT",
+    "window_class": "new",
+    "v1_utc": "2026-10-27T10:46:52Z",
+    "updated_utc": "2026-10-28T08:53:15Z",
+    "reading_level": "full_main_text_and_appendices",
+    "actual_read_sections": ["Abstract", "1 Introduction", "2 Related Work (2.1–2.2)", "3 Analysis (3.1–3.2)", "4 Method (4.1–4.5), equations 1–2", "5 Experiments (5.1–5.5), Tables 1–5", "6 Conclusion", "Appendix A Triton kernels", "Appendix B VRAM, Table S1", "Appendix C pooling, S2", "Appendix D merge operators, S3", "Appendix E core blocks", "Appendix F projection dimension, S4", "Appendix G AVGGT comparison", "Appendix H transfer, S5–S6", "Appendix I qualitative captions"],
+    "coverage_limitations": ["正文没有独立Limitations小节；方法/实验和附录中的范围限制已摘出。", "Appendix I仅阅读说明/caption；除系统图外未逐张视觉检查定性点云图。", "未比较v1全文，因此不评价v2是否实质或重大修订。"],
+    "problem": "对VGGT压缩attention时，宽松AUC@30会掩盖精细位姿下降：合并query使多像素共享输出、未恢复token数量破坏attention mass、早期完全去掉跨帧上下文使不同视图发生不一致表征漂移。目标是在不训练/微调的条件下保留严格几何精度。",
+    "method_structure": ["早期global blocks 0–8改为帧attention，但每个query读取本帧patch、全部帧camera+4 registers和内容自适应patch摘要；stride-8 seeds后按head级cosine聚类，跨帧KV集只构造一次。", "后期blocks 9–23保留全部Q，仅合并K/V，通常merge ratio 0.9；13–16核心块用0.2，因为其中稀疏跨视图匹配更易被均值稀释。", "对每个merged/pooled key按代表的原token数量s给logit加log(s)，恢复attention质量。", "1024→128固定Gaussian随机投影只用于matching argmax；原K/V仍按选定分组平均。Triton注意力核直接加入per-key bias，matching核不物化完整score矩阵。"],
+    "insight_math": [
+      {"claim": "完整Q、压缩KV的输出为 o_i=Σ_j softmax_j(q_iᵀ k̄_j/√d + log s_j) v̄_j。当组内keys完全相同时，与未合并attention精确相等；一般keys相近时仍为近似，不是无损证明。", "source": "S4.E1; S4.SS1.p2.1–p2.2"},
+      {"claim": "保留Q把attention复杂度从Nmerged²提高为N×Nmerged，主动保留每token独立预测；节省的是K/V轴的计算，而不是任意压缩所有token。", "source": "S4.SS1.p1.1"},
+      {"claim": "log(s)是概率质量修正而非学习bias；去掉后首帧接收近两倍attention。两个算子消融中，mass修正带来的AUC恢复大于单独保Q。", "source": "S3.SS1; A3.T3 / Appendix D"},
+      {"claim": "128D随机投影只需选到足够相似的近似邻居，无需完全保留argmax。只有76.6%分组目的地相同，但相似度损失0.56%；这是一组实测权衡，不是跨数据集精度保证。", "source": "Appendix F, Table S4"},
+      {"claim": "核心块按特殊token最终输出的相对Frobenius偏离选出，不使用GT任务标签；多块交互使逐层排名不等价于最优块集。", "source": "Appendix E"}
+    ],
+    "experiments": [
+      {"dataset": "CO3D, 10 frames/sequence", "metric": "relative-pose AUC@3", "unit": "% AUC", "ours": 56.94, "baselines": {"vanilla_VGGT":57.49,"FastVGGT":41.56,"FasterVGGT":16.05,"AVGGT_reimplemented_stride2":51.87,"AVGGT_reimplemented_stride4":47.08}, "protocol": "π3 evaluation; all frame pairs, identical released VGGT weights and no training", "source": "Table 1, S4.T1; S5.SS1"},
+      {"dataset": "RE10K, 10 frames/sequence", "metric": "relative-pose AUC@3", "unit": "% AUC", "ours":44.45,"baselines":{"vanilla_VGGT":44.78,"FastVGGT":37.56,"AVGGT_reimplemented_stride2":44.68},"source":"Table 1, S4.T1"},
+      {"dataset":"CO3D, 200 input frames","metric":"AUC@3","unit":"% AUC","ours":61.43,"baselines":{"vanilla_VGGT":61.47,"FastVGGT":56.28,"AVGGT_stride2":57.71},"source":"Table 2, S5.T2"},
+      {"dataset":"forward-pass benchmark, 200 frames","metric":"whole forward latency incl. camera/depth heads","unit":"seconds","ours":33.65,"baselines":{"vanilla_VGGT":86.78,"FastVGGT":33.91,"FasterVGGT":32.27,"AVGGT_stride2":37.02,"AVGGT_stride4":25.82},"hardware":"one RTX A6000 48 GiB; bfloat16 autocast; PyTorch 2.11 / CUDA 12.8","derived_speedup_vs_vanilla":2.579,"source":"Table 4, S5.T4; S5.SS1.p3.1"},
+      {"dataset":"forward-pass benchmark, 500 frames","metric":"whole forward latency","unit":"seconds","ours":158.63,"baselines":{"vanilla_VGGT":513.78,"AVGGT_stride4":111.74,"FasterVGGT":"OOM"},"derived_speedup_vs_vanilla":3.239,"source":"Table 4"},
+      {"dataset":"A6000 500 frames after warmup","metric":"torch.cuda.max_memory_allocated peak","unit":"GiB","ours":32.69,"baselines":{"VRAM_efficient_vanilla_VGGT":32.67,"FastVGGT":38.69,"FasterVGGT":"OOM"},"protocol":"vanilla here is FastVGGT's VRAM-efficient VGGT implementation; peak dominated by unchanged feed-forward sublayer; not original naive implementation","source":"Appendix B Table S1"},
+      {"dataset":"NRGBD dense","metric":"pointmap accuracy/completeness/normal consistency","unit":"Acc/Comp units not explicitly printed in extracted Table 3; NC dimensionless","ours":[0.0143,0.0151,0.8714],"baselines":{"vanilla_VGGT":[0.0144,0.0152,0.8743]},"protocol":"π3 dense sampling, GT valid mask; 114 frames over 9 sequences; no unit conversion inferred","source":"Table 3; S5.SS1.p2.1"},
+      {"dataset":"CO3D merge-operator ablation","metric":"AUC@3","unit":"% AUC","ours":56.94,"baselines":{"no_query_preservation_no_mass_correction":49.93,"Q_only":51.09,"mass_correction_only":55.36,"broadcast_no_merging":57.25},"source":"Table S3, A3.T3; Appendix D"},
+      {"dataset":"cross-backbone 200 frames","metric":"latency speedup","unit":"times","ours":{"pi3":2.36,"VGGT_Omega":1.84},"protocol":"adopted merge ratio0.5 and backbone-specific core sets, not VGGT ratio0.9 unchanged","source":"Appendix H Tables S5–S6"}
+    ],
+    "protocol_cautions": ["AVGGT官方代码未公开，作者据规范重实现；其原RE10K子集/采样未公开，不能把本文绝对AUC与AVGGT原论文绝对数直接比较。", "CO3D10帧、CO3D200帧与速度200帧是不同评估设置；不可把10帧AUC当200帧同样本测得精度。", "严格AUC@3几乎保留不表示每个pointmap指标都胜或等于VGGT，7-Scenes sparse Acc0.0474仍弱于vanilla0.0432；NRGBD sparse AVGGT2更好。", "200帧2.58倍并非所有长度都成立：10帧0.78对0.84秒，仅约1.08倍；最快AVGGT4在长序列更快但精度损失大。", "峰值显存没有随attention加速而大降；不应称几何精度与内存双重数量级改善。"],
+    "reproduction": {"repo_url":"https://github.com/noheat61/GPA-VGGT","project_url":"https://noheat61.github.io/GPA-VGGT/","status":"论文与项目页已读；核心代码审计由主agent另行完成，本子任务未重复审计。","local_run":false,"weights_downloaded":false,"datasets_downloaded":false,"limitations":["需要自定义Triton内核以免per-key bias导致SDPA退回慢后端。","本文只支持具有特殊token+patchgrid、帧/全局交替块的backbone适配；不是任意attention的即插即用精度保证。"]}
+  },
+  {
+    "id":"2610.35806","version":1,"title":"Does VGGT Know What It Does Not Know?","window_class":"new","v1_utc":"2026-10-26T17:37:39Z","updated_utc":"2026-10-26T17:37:39Z",
+    "reading_level":"full_main_text",
+    "actual_read_sections":["Abstract","1 Introduction","2 Related Work","3 Method (3.1–3.2), Equation1","4 Experiments (4.1–4.4), Tables1–7 and failure-mode/transfer/negative-result analyses","5 Limitations","6 Conclusion"],
+    "coverage_limitations":["HTML无Appendix，因此不虚构附录阅读；没有caption明确overview/pipeline/framework的系统图，仅链接方法正文。","未逐张视觉检查ROC/点对结果图；定量来自表格和正文，不从缩略图估算。"],
+    "problem":"VGGT和pi3输出的是每像素几何confidence，未提供相机相对位姿是否正确的可靠性。研究问题是冻结表示是否已线性编码自身失败，以及该信息能否跨类别/数据/失败模式使用。",
+    "method_structure":["冻结VGGT1B，图对单次前向。RGB最长边518、短边14倍数，居中方形画布；从pose编码解码R,t,K。pi3不预测intrinsics，按local pointmap最小二乘拟合focal。","HardMatch无GTpose，以人工匹配的对称极线距离中位数定义失败；剔除dynamic及<8对应，留下903对97类，主阈值50px。PhotoTourism/ScanNet按GT旋转/平移方向定义失败。","hook encoder、aggregator、camera token/trunk；每图mean pool，再两图mean，标准化及PCA128，带L2和balanced class weights的logistic probe。","10-fold按HardMatch类别分组，内层5-fold选正则；1000次整类别bootstrap给95%CI；transfer在全HardMatch训练后完全不重训。与point/depth confidence及同CV训练的all-output classifier比较。"],
+    "insight_math":[
+      {"claim":"预测fundamental matrix为 F=H2ᵀ K2^-ᵀ[t]× R K1^-1 H1；H把原图坐标映到network canvas，避免直接把缩放padding后的相机参数用于原图对应。HardMatch标签混合旋转、平移、intrinsics错误，不能等同纯旋转失败。","source":"S3.E1; S3.SS1"},
+      {"claim":"failure awareness在本文被操作化为冻结feature的线性可解码性；不等于输出已校准概率、因果自省或无需监督的不确定性。class-balanced logistic分数主要验证排名和选择性预测。","source":"S3.SS2; S4.SS2 selective prediction; S5"},
+      {"claim":"VGGT probe在encoder≤65.2%、aggregator前半63–66%，block11/12/13/15约69/81/88/93%，显示跨视图融合中段形成信号；训练自由cosine仅在VGGT后段有效，pi3不复现该简单读数。","source":"S4.SS2 Where the signal emerges; Table4"},
+      {"claim":"短baseline平移方向是病态两视图几何：即使rotation正确，接近零的位移方向也弱可观测。其失败在特征中的可读出方向与HardMatch大视差错误不同，不能期待单一线性头跨所有失败模式。","source":"S4.SS4, Table7"}
+    ],
+    "experiments":[
+      {"dataset":"HardMatch, 903 pairs/97 categories","metric":"pose-failure ROC-AUC","unit":"%","ours":93.5,"ours_95CI":[91.7,95.2],"baselines":{"pointmap_confidence":79.7,"pointmap_confidence_95CI":[76.6,82.4],"all_VGGT_outputs_classifier":77.7,"depth_confidence":66.5},"protocol":"median epipolar distance>50px; grouped10-fold CV; last global block fixed in advance","source":"Table2, S4.T2; Table1"},
+      {"dataset":"HardMatch, same protocol","metric":"average precision","unit":"%","ours":87.4,"baselines":{"pointmap_confidence":60.4,"all_outputs":59.5},"source":"Table2"},
+      {"dataset":"HardMatch, top50% trusted pairs retained","metric":"failure rate / mAA@10px","unit":"% / %","ours":[3.8,34.9],"baselines":{"confidence_ranking":[12.4,29.7],"oracle":[0,38.3]},"source":"S4.SS2.SSS0.Px7.p1.1"},
+      {"dataset":"HardMatch, all coverages","metric":"area under risk-coverage","unit":"dimensionless","ours":0.096,"baselines":{"confidence":0.154,"all_outputs":0.169,"oracle":0.070},"source":"S4.SS2 selective prediction"},
+      {"dataset":"HardMatch, most confident half","metric":"ROC-AUC","unit":"%","ours":90.0,"ours_95CI":[85.4,94.2],"baselines":{"confidence":69.9},"failure_prevalence_percent":12.2,"source":"Table4; S4.SS2 Confidently wrong"},
+      {"dataset":"HardMatch pi3 frozen","metric":"ROC-AUC","unit":"%","ours":91.7,"baselines":{"pi3_own_confidence":62.2,"all_outputs":76.9},"protocol":"same image pairs and failure definition; camera head probe88.7; training-free cosine≤69","source":"Table4"},
+      {"dataset":"PhotoTourism 1262pairs/16 landmarks","metric":"rotation-failure ROC-AUC, >15 degrees","unit":"%","ours":97.5,"baselines":{"VGGT_confidence":90.6,"GT_covisibility":89.8},"failure_count":22,"protocol":"HardMatch probe unchanged; small positive count means wide intervals","source":"Table5; S4.SS3"},
+      {"dataset":"ScanNet1500, 100 rooms","metric":"rotation-failure ROC-AUC, >5 degrees","unit":"%","ours":79.5,"baselines":{"confidence":58.7,"in_domain_probe":82.3},"failure_count":32,"source":"Table7"},
+      {"dataset":"ScanNet1500","metric":"pose-failure ROC-AUC, max(rotation,translation-direction)>15 degrees","unit":"%","ours":44.2,"baselines":{"confidence":63.6,"in_domain_probe":91.0},"failure_count":115,"protocol":"negative transfer result:113/115 pose failures have rotation<5deg, dominated by short-baseline translation","source":"Table7; S4.SS4"},
+      {"dataset":"PhotoTourism 10 graphs ×16images,1200pair edges","metric":"mean absolute rotation after robust averaging","unit":"degrees","ours_drop10percent_edges":0.66,"baselines":{"robust_all_edges":0.70,"confidence_drop10percent":0.67,"oracle_remove_error_above15deg":0.67,"least_squares_all":1.27},"protocol":"no meaningful downstream advantage; fewer than2% edges fail","source":"S4.SS3 Multi-view graphs: no downstream gain"},
+      {"dataset":"HardMatch official test split","metric":"mAA@10px matcher routing","unit":"%","ours_router":51.1,"baselines":{"LoMa_alone":50.8,"oracle_best_of_LoMa_VGGT":52.1,"VGGT":19.9},"protocol":"negative result: almost no complementarity, authors make no routing claim","source":"S4.SS2 A negative result: routing to a matcher"},
+      {"dataset":"PhotoTourism same2304pair subset,96sets","metric":"rotation failures>5deg, with2/4/8/16views per forward","unit":"%","ours_model_failure_rates":[3.6,1.4,0.5,0.3],"protocol":"2-view-trained probe no longer clearly better than confidence with many views; small failure counts and95%CI span>40points","source":"Table6; S4.SS3 More than two views"}
+    ],
+    "ablation_controls":["50px labels shuffled AUC51.6%; image size/aspect alone49.8%; excluding45near-zero-baseline pairs probe93.4%. SourceTable3.","Threshold10/20/50/100px probe91.1/92.9/93.5/92.4%, confidence72.8/76.0/79.7/77.8%; not a single-threshold artifact. SourceTable3.","PCA32/64/256 AUC93.4/93.7/93.5; combining all7layers93.2 does not help. SourceTable3."],
+    "hardware":"No measured GPU type, probe latency, runtime memory, or training duration found in the main HTML; do not infer them from 'one linear layer'.",
+    "protocol_cautions":["摘要1000pairs是原benchmark规模，实际主表903有效pairs；official test830与主groupedCV903不可混为同split。","Co-visibility是场景属性、failure是预测属性；部分相关检验支持额外信息，但不是因果证明。","probe使用监督failure labels，原生confidence不需该训练；all-output classifier是作者匹配监督成本的控制。","跨域旋转迁移不能推广为平移可靠性或多视图系统整体增益。","无证据证明已改进完整SLAM/NVS或恢复失败位姿，论文验证的是检测/拒绝能力。"],
+    "reproduction":{"repo_url":null,"project_url":null,"status":"正文4.1仅称code will be released publicly；未确认可运行独立仓库。","local_run":false,"weights_downloaded":false,"datasets_downloaded":false,"limitations":["需在hook层部署PCA/标准化/linear head并保持同预处理。","few-failure迁移集CI宽，短baseline平移需域内head。","仅VGGT和pi3两backbone，不能直接泛化到所有新3D基础模型。"]}
+  }
+]

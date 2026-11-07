@@ -1,0 +1,94 @@
+[
+  {
+    "source_paper": "geometry-deep-2605.23889v2",
+    "reference_id": "bib.bib1",
+    "text": "[7] C. Cheng, X. Chen, T. Xie, W. Yin, W. Ren, Q. Zhang, X. Guo, and H. Wang (2026) LongStream: long-sequence streaming autoregressive visual geometry. In CVPR, Cited by: §1, §1, §2, §3.3, §3.3, §4.1.",
+    "urls": [
+      "#S1.p2.1",
+      "#S1.p3.1",
+      "#S2.p3.1",
+      "#S3.SS3.p4.1",
+      "#S3.SS3.p6.1",
+      "#S4.SS1.p2.1"
+    ]
+  },
+  {
+    "source_paper": "geometry-deep-2605.23889v2",
+    "reference_id": "bib.bib2",
+    "text": "[61] J. Zhang, C. Herrmann, J. Hur, C. Sun, M. Yang, F. Cole, T. Darrell, and D. Sun (2026) LoGeR: long-context geometric reconstruction with hybrid memory. External Links: 2603.03269, Link Cited by: Appendix D, §1, §2, §4.1, Remark 2, Remark 3.",
+    "urls": [
+      "https://arxiv.org/abs/2603.03269",
+      "#A4.p9.1",
+      "#S1.p1.1",
+      "#S2.p2.1",
+      "#S4.SS1.p2.1",
+      "#Thmremark2.p1.1.1",
+      "#Thmremark3.p1.1.1"
+    ]
+  },
+  {
+    "source_paper": "geometry-deep-2610.35806v1",
+    "reference_id": "bib.bib28",
+    "text": "[16] S. Mahdi, F. B. Salim, R. B. Rabbani, and A. N. Zereen (2026) ReVar3R: gauge-aware perturbation uncertainty for feed-forward 3D reconstruction. Note: arXiv:2610.07883 Cited by: §2.",
+    "urls": [
+      "#S2.SS0.SSS0.Px2.p1.1"
+    ]
+  },
+  {
+    "source_paper": "geometry-deep-2610.35806v1",
+    "reference_id": "bib.bib24",
+    "text": "[28] F. Ziliotto, L. Serafini, L. Ballan, and T. Campari (2026) What VGGT knows about overlap: probing geometric foundation models for co-visibility. Note: arXiv:2607.09503 Cited by: §2, §4.3.",
+    "urls": [
+      "#S2.SS0.SSS0.Px3.p1.1",
+      "#S4.SS3.SSS0.Px3.p1.1"
+    ]
+  },
+  {
+    "source_paper": "geometry-deep-2610.36150v1",
+    "reference_id": "bib.bib20",
+    "text": "[45] D. Sinitsyn, N. Araslanov, and D. Cremers (2026) RayTun3R: online camera adaptation in 3d foundation models. arXiv preprint arXiv:2607.02711. Cited by: §2.2.",
+    "urls": [
+      "#S2.SS2.p2.1"
+    ]
+  },
+  {
+    "source_paper": "geometry-deep-2610.36150v1",
+    "reference_id": "bib.bib18",
+    "text": "[69] B. Ye, M. Pollefeys, M. Yang, and A. Kundu (2026) OmniPoint: universal monocular metric pointcloud from any camera. In ECCV, Note: arXiv:2609.09394 Cited by: §2.2.",
+    "urls": [
+      "#S2.SS2.p2.1"
+    ]
+  },
+  {
+    "source_paper": "geometry-deep-2610.36150v1",
+    "reference_id": "bib.bib19",
+    "text": "[77] S. Zhang, X. Su, W. Wang, J. Liu, X. Zeng, Y. Chen, C. Wang, G. Zhu, J. Wang, B. Luo, and L. Zhang (2026) G-ray: ray-level relative geometric position encoding in multi-view vision transformers under camera heterogeneity. arXiv preprint arXiv:2609.15018. Cited by: §2.2.",
+    "urls": [
+      "#S2.SS2.p2.1"
+    ]
+  },
+  {
+    "source_paper": "geometry-deep-2610.37000v2",
+    "reference_id": "bib.bib7",
+    "text": "[7] Weilun Feng, Haotong Qin, Mingqiang Wu, Chuanguang Yang, Yuqi Li, Xiangqi Li, Zhulin An, Libo Huang, Yulun Zhang, Michele Magno, and Yongjun Xu. Quantized visual geometry grounded transformer. In ICLR, 2026.",
+    "urls": []
+  },
+  {
+    "source_paper": "geometry-deep-2610.37000v2",
+    "reference_id": "bib.bib8",
+    "text": "[8] Zhizhen Pan, Hesong Wang, and Huan Wang. QVGGT: Post-training quantized visual geometry grounded transformer. In CVPR, 2026.",
+    "urls": []
+  },
+  {
+    "source_paper": "geometry-deep-2610.37000v2",
+    "reference_id": "bib.bib9",
+    "text": "[9] Yutian Chen, Yuheng Qiu, Ruogu Li, Ali Agha, Shayegan Omidshafiei, Jay Patrikar, and Sebastian Scherer. Co-Me: Confidence-guided token merging for visual geometric transformers. In CVPR, 2026.",
+    "urls": []
+  },
+  {
+    "source_paper": "geometry-deep-2610.37000v2",
+    "reference_id": "bib.bib10",
+    "text": "[10] Weitian Wang, Lukas Meiner, Shubham Rai, Cecilia De La Parra, and Akash Kumar. HTTM: Head-wise temporal token merging for faster VGGT. In CVPR, 2026.",
+    "urls": []
+  }
+]

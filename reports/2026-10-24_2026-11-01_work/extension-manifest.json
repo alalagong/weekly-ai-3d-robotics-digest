@@ -1,0 +1,128 @@
+[
+  {
+    "name": "A-independent-submittedDate",
+    "source": "arXiv Atom API",
+    "fields": "title OR abstract",
+    "query": "((ti:\"place recognition\") OR (abs:\"place recognition\") OR (ti:\"pose tracking\") OR (abs:\"pose tracking\") OR (ti:\"map merging\") OR (abs:\"map merging\") OR (ti:\"global localization\") OR (abs:\"global localization\") OR (ti:\"visual localisation\") OR (abs:\"visual localisation\") OR (ti:\"inertial navigation\") OR (abs:\"inertial navigation\")) AND submittedDate:[202610240817 TO 202611011459]",
+    "date_predicate": "submittedDate:[202610240817 TO 202611011459]",
+    "requested_at": "2026-11-01T15:19:43Z",
+    "total": 6,
+    "fetched": 6,
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22place+recognition%22%29+OR+%28abs%3A%22place+recognition%22%29+OR+%28ti%3A%22pose+tracking%22%29+OR+%28abs%3A%22pose+tracking%22%29+OR+%28ti%3A%22map+merging%22%29+OR+%28abs%3A%22map+merging%22%29+OR+%28ti%3A%22global+localization%22%29+OR+%28abs%3A%22global+localization%22%29+OR+%28ti%3A%22visual+localisation%22%29+OR+%28abs%3A%22visual+localisation%22%29+OR+%28ti%3A%22inertial+navigation%22%29+OR+%28abs%3A%22inertial+navigation%22%29%29+AND+submittedDate%3A%5B202610240817+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 6,
+        "retrieved_at": "2026-11-01T15:19:45Z",
+        "raw_path": "extension-api-A-independent-submittedDate-0.xml"
+      }
+    ],
+    "exhausted": true,
+    "status": "complete"
+  },
+  {
+    "name": "A-independent-lastUpdatedDate",
+    "source": "arXiv Atom API",
+    "fields": "title OR abstract",
+    "query": "((ti:\"place recognition\") OR (abs:\"place recognition\") OR (ti:\"pose tracking\") OR (abs:\"pose tracking\") OR (ti:\"map merging\") OR (abs:\"map merging\") OR (ti:\"global localization\") OR (abs:\"global localization\") OR (ti:\"visual localisation\") OR (abs:\"visual localisation\") OR (ti:\"inertial navigation\") OR (abs:\"inertial navigation\")) AND lastUpdatedDate:[202610240817 TO 202611011459]",
+    "date_predicate": "lastUpdatedDate:[202610240817 TO 202611011459]",
+    "requested_at": "2026-11-01T15:19:43Z",
+    "total": 6,
+    "fetched": 6,
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22place+recognition%22%29+OR+%28abs%3A%22place+recognition%22%29+OR+%28ti%3A%22pose+tracking%22%29+OR+%28abs%3A%22pose+tracking%22%29+OR+%28ti%3A%22map+merging%22%29+OR+%28abs%3A%22map+merging%22%29+OR+%28ti%3A%22global+localization%22%29+OR+%28abs%3A%22global+localization%22%29+OR+%28ti%3A%22visual+localisation%22%29+OR+%28abs%3A%22visual+localisation%22%29+OR+%28ti%3A%22inertial+navigation%22%29+OR+%28abs%3A%22inertial+navigation%22%29%29+AND+lastUpdatedDate%3A%5B202610240817+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 6,
+        "retrieved_at": "2026-11-01T15:19:48Z",
+        "raw_path": "extension-api-A-independent-lastUpdatedDate-0.xml"
+      }
+    ],
+    "exhausted": true,
+    "status": "complete"
+  },
+  {
+    "name": "B-independent-submittedDate",
+    "source": "arXiv Atom API",
+    "fields": "title OR abstract",
+    "query": "((ti:\"metric scale\") OR (abs:\"metric scale\") OR (ti:\"point map\") OR (abs:\"point map\") OR (ti:\"multi-view stereo\") OR (abs:\"multi-view stereo\") OR (ti:\"geometric memory\") OR (abs:\"geometric memory\") OR (ti:\"camera recovery\") OR (abs:\"camera recovery\") OR (ti:\"dense geometry\") OR (abs:\"dense geometry\")) AND submittedDate:[202610240817 TO 202611011459]",
+    "date_predicate": "submittedDate:[202610240817 TO 202611011459]",
+    "requested_at": "2026-11-01T15:19:45Z",
+    "total": 10,
+    "fetched": 10,
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22metric+scale%22%29+OR+%28abs%3A%22metric+scale%22%29+OR+%28ti%3A%22point+map%22%29+OR+%28abs%3A%22point+map%22%29+OR+%28ti%3A%22multi-view+stereo%22%29+OR+%28abs%3A%22multi-view+stereo%22%29+OR+%28ti%3A%22geometric+memory%22%29+OR+%28abs%3A%22geometric+memory%22%29+OR+%28ti%3A%22camera+recovery%22%29+OR+%28abs%3A%22camera+recovery%22%29+OR+%28ti%3A%22dense+geometry%22%29+OR+%28abs%3A%22dense+geometry%22%29%29+AND+submittedDate%3A%5B202610240817+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 10,
+        "retrieved_at": "2026-11-01T15:19:47Z",
+        "raw_path": "extension-api-B-independent-submittedDate-0.xml"
+      }
+    ],
+    "exhausted": true,
+    "status": "complete"
+  },
+  {
+    "name": "B-independent-lastUpdatedDate",
+    "source": "arXiv Atom API",
+    "fields": "title OR abstract",
+    "query": "((ti:\"metric scale\") OR (abs:\"metric scale\") OR (ti:\"point map\") OR (abs:\"point map\") OR (ti:\"multi-view stereo\") OR (abs:\"multi-view stereo\") OR (ti:\"geometric memory\") OR (abs:\"geometric memory\") OR (ti:\"camera recovery\") OR (abs:\"camera recovery\") OR (ti:\"dense geometry\") OR (abs:\"dense geometry\")) AND lastUpdatedDate:[202610240817 TO 202611011459]",
+    "date_predicate": "lastUpdatedDate:[202610240817 TO 202611011459]",
+    "requested_at": "2026-11-01T15:19:47Z",
+    "total": 10,
+    "fetched": 10,
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22metric+scale%22%29+OR+%28abs%3A%22metric+scale%22%29+OR+%28ti%3A%22point+map%22%29+OR+%28abs%3A%22point+map%22%29+OR+%28ti%3A%22multi-view+stereo%22%29+OR+%28abs%3A%22multi-view+stereo%22%29+OR+%28ti%3A%22geometric+memory%22%29+OR+%28abs%3A%22geometric+memory%22%29+OR+%28ti%3A%22camera+recovery%22%29+OR+%28abs%3A%22camera+recovery%22%29+OR+%28ti%3A%22dense+geometry%22%29+OR+%28abs%3A%22dense+geometry%22%29%29+AND+lastUpdatedDate%3A%5B202610240817+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 10,
+        "retrieved_at": "2026-11-01T15:19:49Z",
+        "raw_path": "extension-api-B-independent-lastUpdatedDate-0.xml"
+      }
+    ],
+    "exhausted": true,
+    "status": "complete"
+  },
+  {
+    "name": "C-independent-submittedDate",
+    "source": "arXiv Atom API",
+    "fields": "title OR abstract",
+    "query": "((ti:\"object-goal\") OR (abs:\"object-goal\") OR (ti:\"object navigation\") OR (abs:\"object navigation\") OR (ti:\"scene graph\") OR (abs:\"scene graph\") OR (ti:\"spatial memory\") OR (abs:\"spatial memory\") OR (ti:\"semantic exploration\") OR (abs:\"semantic exploration\") OR (ti:\"language-guided navigation\") OR (abs:\"language-guided navigation\") OR (ti:\"neural radiance\" AND robot) OR (abs:\"neural radiance\" AND robot) OR (ti:thermal AND SLAM) OR (abs:thermal AND SLAM) OR (ti:underwater AND mapping) OR (abs:underwater AND mapping) OR (ti:endoscopic AND localization) OR (abs:endoscopic AND localization)) AND submittedDate:[202610240817 TO 202611011459]",
+    "date_predicate": "submittedDate:[202610240817 TO 202611011459]",
+    "requested_at": "2026-11-01T15:19:48Z",
+    "total": 13,
+    "fetched": 13,
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22object-goal%22%29+OR+%28abs%3A%22object-goal%22%29+OR+%28ti%3A%22object+navigation%22%29+OR+%28abs%3A%22object+navigation%22%29+OR+%28ti%3A%22scene+graph%22%29+OR+%28abs%3A%22scene+graph%22%29+OR+%28ti%3A%22spatial+memory%22%29+OR+%28abs%3A%22spatial+memory%22%29+OR+%28ti%3A%22semantic+exploration%22%29+OR+%28abs%3A%22semantic+exploration%22%29+OR+%28ti%3A%22language-guided+navigation%22%29+OR+%28abs%3A%22language-guided+navigation%22%29+OR+%28ti%3A%22neural+radiance%22+AND+robot%29+OR+%28abs%3A%22neural+radiance%22+AND+robot%29+OR+%28ti%3Athermal+AND+SLAM%29+OR+%28abs%3Athermal+AND+SLAM%29+OR+%28ti%3Aunderwater+AND+mapping%29+OR+%28abs%3Aunderwater+AND+mapping%29+OR+%28ti%3Aendoscopic+AND+localization%29+OR+%28abs%3Aendoscopic+AND+localization%29%29+AND+submittedDate%3A%5B202610240817+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 13,
+        "retrieved_at": "2026-11-01T15:19:50Z",
+        "raw_path": "extension-api-C-independent-submittedDate-0.xml"
+      }
+    ],
+    "exhausted": true,
+    "status": "complete"
+  },
+  {
+    "name": "C-independent-lastUpdatedDate",
+    "source": "arXiv Atom API",
+    "fields": "title OR abstract",
+    "query": "((ti:\"object-goal\") OR (abs:\"object-goal\") OR (ti:\"object navigation\") OR (abs:\"object navigation\") OR (ti:\"scene graph\") OR (abs:\"scene graph\") OR (ti:\"spatial memory\") OR (abs:\"spatial memory\") OR (ti:\"semantic exploration\") OR (abs:\"semantic exploration\") OR (ti:\"language-guided navigation\") OR (abs:\"language-guided navigation\") OR (ti:\"neural radiance\" AND robot) OR (abs:\"neural radiance\" AND robot) OR (ti:thermal AND SLAM) OR (abs:thermal AND SLAM) OR (ti:underwater AND mapping) OR (abs:underwater AND mapping) OR (ti:endoscopic AND localization) OR (abs:endoscopic AND localization)) AND lastUpdatedDate:[202610240817 TO 202611011459]",
+    "date_predicate": "lastUpdatedDate:[202610240817 TO 202611011459]",
+    "requested_at": "2026-11-01T15:19:49Z",
+    "total": 13,
+    "fetched": 13,
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22object-goal%22%29+OR+%28abs%3A%22object-goal%22%29+OR+%28ti%3A%22object+navigation%22%29+OR+%28abs%3A%22object+navigation%22%29+OR+%28ti%3A%22scene+graph%22%29+OR+%28abs%3A%22scene+graph%22%29+OR+%28ti%3A%22spatial+memory%22%29+OR+%28abs%3A%22spatial+memory%22%29+OR+%28ti%3A%22semantic+exploration%22%29+OR+%28abs%3A%22semantic+exploration%22%29+OR+%28ti%3A%22language-guided+navigation%22%29+OR+%28abs%3A%22language-guided+navigation%22%29+OR+%28ti%3A%22neural+radiance%22+AND+robot%29+OR+%28abs%3A%22neural+radiance%22+AND+robot%29+OR+%28ti%3Athermal+AND+SLAM%29+OR+%28abs%3Athermal+AND+SLAM%29+OR+%28ti%3Aunderwater+AND+mapping%29+OR+%28abs%3Aunderwater+AND+mapping%29+OR+%28ti%3Aendoscopic+AND+localization%29+OR+%28abs%3Aendoscopic+AND+localization%29%29+AND+lastUpdatedDate%3A%5B202610240817+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 13,
+        "retrieved_at": "2026-11-01T15:19:52Z",
+        "raw_path": "extension-api-C-independent-lastUpdatedDate-0.xml"
+      }
+    ],
+    "exhausted": true,
+    "status": "complete"
+  }
+]

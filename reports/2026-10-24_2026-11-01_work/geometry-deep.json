@@ -1,0 +1,1264 @@
+{
+  "schema_version": 1,
+  "run_at": "2026-11-01T14:59:32Z",
+  "coverage_start_utc": "2026-10-24T08:17:58Z",
+  "coverage_end_utc": "2026-11-01T14:59:32Z",
+  "generated_at": "2026-11-02T16:04:57.831629+00:00",
+  "status": "complete",
+  "freeze_note": "论文版本按官方提交历史锁定；11月2日访问项目页仅确认当前可见入口，不据此追认窗口内代码发布时间。",
+  "counts": {
+    "full_main_text_read": 4,
+    "system_figures_visually_verified": 3,
+    "no_qualifying_system_figure": 1,
+    "local_experiment_runs": 0,
+    "cross_context_abstracts_read": 5,
+    "new_in_window_cross_discoveries": 0
+  },
+  "papers": [
+    {
+      "id": "2610.37000",
+      "version": 2,
+      "title": "GPA-VGGT: Geometry-Preserving Acceleration of VGGT",
+      "window_class": "new",
+      "v1_utc": "2026-10-27T10:46:52Z",
+      "updated_utc": "2026-10-28T08:53:15Z",
+      "reading_level": "full_main_text_and_appendices",
+      "actual_read_sections": [
+        "Abstract",
+        "1 Introduction",
+        "2 Related Work (2.1–2.2)",
+        "3 Analysis (3.1–3.2)",
+        "4 Method (4.1–4.5), equations 1–2",
+        "5 Experiments (5.1–5.5), Tables 1–5",
+        "6 Conclusion",
+        "Appendix A Triton kernels",
+        "Appendix B VRAM, Table S1",
+        "Appendix C pooling, S2",
+        "Appendix D merge operators, S3",
+        "Appendix E core blocks",
+        "Appendix F projection dimension, S4",
+        "Appendix G AVGGT comparison",
+        "Appendix H transfer, S5–S6",
+        "Appendix I qualitative captions"
+      ],
+      "coverage_limitations": [
+        "正文没有独立Limitations小节；方法/实验和附录中的范围限制已摘出。",
+        "Appendix I仅阅读说明/caption；除系统图外未逐张视觉检查定性点云图。",
+        "未比较v1全文，因此不评价v2是否实质或重大修订。"
+      ],
+      "problem": "对VGGT压缩attention时，宽松AUC@30会掩盖精细位姿下降：合并query使多像素共享输出、未恢复token数量破坏attention mass、早期完全去掉跨帧上下文使不同视图发生不一致表征漂移。目标是在不训练/微调的条件下保留严格几何精度。",
+      "method_structure": [
+        "早期global blocks 0–8改为帧attention，但每个query读取本帧patch、全部帧camera+4 registers和内容自适应patch摘要；stride-8 seeds后按head级cosine聚类，跨帧KV集只构造一次。",
+        "后期blocks 9–23保留全部Q，仅合并K/V，通常merge ratio 0.9；13–16核心块用0.2，因为其中稀疏跨视图匹配更易被均值稀释。",
+        "对每个merged/pooled key按代表的原token数量s给logit加log(s)，恢复attention质量。",
+        "1024→128固定Gaussian随机投影只用于matching argmax；原K/V仍按选定分组平均。Triton注意力核直接加入per-key bias，matching核不物化完整score矩阵。"
+      ],
+      "insight_math": [
+        {
+          "claim": "完整Q、压缩KV的输出为 o_i=Σ_j softmax_j(q_iᵀ k̄_j/√d + log s_j) v̄_j。当组内keys完全相同时，与未合并attention精确相等；一般keys相近时仍为近似，不是无损证明。",
+          "source": "S4.E1; S4.SS1.p2.1–p2.2"
+        },
+        {
+          "claim": "保留Q把attention复杂度从Nmerged²提高为N×Nmerged，主动保留每token独立预测；节省的是K/V轴的计算，而不是任意压缩所有token。",
+          "source": "S4.SS1.p1.1"
+        },
+        {
+          "claim": "log(s)是概率质量修正而非学习bias；去掉后首帧接收近两倍attention。两个算子消融中，mass修正带来的AUC恢复大于单独保Q。",
+          "source": "S3.SS1; A3.T3 / Appendix D"
+        },
+        {
+          "claim": "128D随机投影只需选到足够相似的近似邻居，无需完全保留argmax。只有76.6%分组目的地相同，但相似度损失0.56%；这是一组实测权衡，不是跨数据集精度保证。",
+          "source": "Appendix F, Table S4"
+        },
+        {
+          "claim": "核心块按特殊token最终输出的相对Frobenius偏离选出，不使用GT任务标签；多块交互使逐层排名不等价于最优块集。",
+          "source": "Appendix E"
+        }
+      ],
+      "experiments": [
+        {
+          "dataset": "CO3D, 10 frames/sequence",
+          "metric": "relative-pose AUC@3",
+          "unit": "% AUC",
+          "ours": 56.94,
+          "baselines": {
+            "vanilla_VGGT": 57.49,
+            "FastVGGT": 41.56,
+            "FasterVGGT": 16.05,
+            "AVGGT_reimplemented_stride2": 51.87,
+            "AVGGT_reimplemented_stride4": 47.08
+          },
+          "protocol": "π3 evaluation; all frame pairs, identical released VGGT weights and no training",
+          "source": "Table 1, S4.T1; S5.SS1",
+          "source_url": "https://arxiv.org/html/2610.37000v2#S4.T1"
+        },
+        {
+          "dataset": "RE10K, 10 frames/sequence",
+          "metric": "relative-pose AUC@3",
+          "unit": "% AUC",
+          "ours": 44.45,
+          "baselines": {
+            "vanilla_VGGT": 44.78,
+            "FastVGGT": 37.56,
+            "AVGGT_reimplemented_stride2": 44.68
+          },
+          "source": "Table 1, S4.T1",
+          "source_url": "https://arxiv.org/html/2610.37000v2#S4.T1"
+        },
+        {
+          "dataset": "CO3D, 200 input frames",
+          "metric": "AUC@3",
+          "unit": "% AUC",
+          "ours": 61.43,
+          "baselines": {
+            "vanilla_VGGT": 61.47,
+            "FastVGGT": 56.28,
+            "AVGGT_stride2": 57.71
+          },
+          "source": "Table 2, S5.T2",
+          "source_url": "https://arxiv.org/html/2610.37000v2#S5.T2"
+        },
+        {
+          "dataset": "forward-pass benchmark, 200 frames",
+          "metric": "whole forward latency incl. camera/depth heads",
+          "unit": "seconds",
+          "ours": 33.65,
+          "baselines": {
+            "vanilla_VGGT": 86.78,
+            "FastVGGT": 33.91,
+            "FasterVGGT": 32.27,
+            "AVGGT_stride2": 37.02,
+            "AVGGT_stride4": 25.82
+          },
+          "hardware": "one RTX A6000 48 GiB; bfloat16 autocast; PyTorch 2.11 / CUDA 12.8",
+          "derived_speedup_vs_vanilla": 2.579,
+          "source": "Table 4, S5.T4; S5.SS1.p3.1",
+          "source_url": "https://arxiv.org/html/2610.37000v2#S5.T4"
+        },
+        {
+          "dataset": "forward-pass benchmark, 500 frames",
+          "metric": "whole forward latency",
+          "unit": "seconds",
+          "ours": 158.63,
+          "baselines": {
+            "vanilla_VGGT": 513.78,
+            "AVGGT_stride4": 111.74,
+            "FasterVGGT": "OOM"
+          },
+          "derived_speedup_vs_vanilla": 3.239,
+          "source": "Table 4",
+          "source_url": "https://arxiv.org/html/2610.37000v2#S5.T4"
+        },
+        {
+          "dataset": "A6000 500 frames after warmup",
+          "metric": "torch.cuda.max_memory_allocated peak",
+          "unit": "GiB",
+          "ours": 32.69,
+          "baselines": {
+            "VRAM_efficient_vanilla_VGGT": 32.67,
+            "FastVGGT": 38.69,
+            "FasterVGGT": "OOM"
+          },
+          "protocol": "vanilla here is FastVGGT's VRAM-efficient VGGT implementation; peak dominated by unchanged feed-forward sublayer; not original naive implementation",
+          "source": "Appendix B Table S1",
+          "source_url": "https://arxiv.org/html/2610.37000v2#A2.T1"
+        },
+        {
+          "dataset": "NRGBD dense",
+          "metric": "pointmap accuracy/completeness/normal consistency",
+          "unit": "Acc/Comp units not explicitly printed in extracted Table 3; NC dimensionless",
+          "ours": [
+            0.0143,
+            0.0151,
+            0.8714
+          ],
+          "baselines": {
+            "vanilla_VGGT": [
+              0.0144,
+              0.0152,
+              0.8743
+            ]
+          },
+          "protocol": "π3 dense sampling, GT valid mask; 114 frames over 9 sequences; no unit conversion inferred",
+          "source": "Table 3; S5.SS1.p2.1",
+          "source_url": "https://arxiv.org/html/2610.37000v2#S5.T3"
+        },
+        {
+          "dataset": "CO3D merge-operator ablation",
+          "metric": "AUC@3",
+          "unit": "% AUC",
+          "ours": 56.94,
+          "baselines": {
+            "no_query_preservation_no_mass_correction": 49.93,
+            "Q_only": 51.09,
+            "mass_correction_only": 55.36,
+            "broadcast_no_merging": 57.25
+          },
+          "source": "Table S3, A3.T3; Appendix D",
+          "source_url": "https://arxiv.org/html/2610.37000v2#A3.T3"
+        },
+        {
+          "dataset": "cross-backbone 200 frames",
+          "metric": "latency speedup",
+          "unit": "times",
+          "ours": {
+            "pi3": 2.36,
+            "VGGT_Omega": 1.84
+          },
+          "protocol": "adopted merge ratio0.5 and backbone-specific core sets, not VGGT ratio0.9 unchanged",
+          "source": "Appendix H Tables S5–S6",
+          "source_url": "https://arxiv.org/html/2610.37000v2#A7.T5"
+        }
+      ],
+      "protocol_cautions": [
+        "AVGGT官方代码未公开，作者据规范重实现；其原RE10K子集/采样未公开，不能把本文绝对AUC与AVGGT原论文绝对数直接比较。",
+        "CO3D10帧、CO3D200帧与速度200帧是不同评估设置；不可把10帧AUC当200帧同样本测得精度。",
+        "严格AUC@3几乎保留不表示每个pointmap指标都胜或等于VGGT，7-Scenes sparse Acc0.0474仍弱于vanilla0.0432；NRGBD sparse AVGGT2更好。",
+        "200帧2.58倍并非所有长度都成立：10帧0.78对0.84秒，仅约1.08倍；最快AVGGT4在长序列更快但精度损失大。",
+        "峰值显存没有随attention加速而大降；不应称几何精度与内存双重数量级改善。"
+      ],
+      "reproduction": {
+        "repo_url": "https://github.com/noheat61/GPA-VGGT",
+        "project_url": "https://noheat61.github.io/GPA-VGGT/",
+        "status": "论文与项目页已读；核心代码审计由主agent另行完成，本子任务未重复审计。",
+        "local_run": false,
+        "weights_downloaded": false,
+        "datasets_downloaded": false,
+        "limitations": [
+          "需要自定义Triton内核以免per-key bias导致SDPA退回慢后端。",
+          "本文只支持具有特殊token+patchgrid、帧/全局交替块的backbone适配；不是任意attention的即插即用精度保证。"
+        ]
+      },
+      "evidence_level": "full_text",
+      "abstract_read": true,
+      "full_main_text_read": true,
+      "source": {
+        "html_url": "https://arxiv.org/html/2610.37000v2",
+        "html_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-2610.37000v2.html",
+        "extracted_text_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-2610.37000v2-read.txt",
+        "structure_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-2610.37000v2-structure.json",
+        "retrieved_at": "2026-11-02T15:52:28.081919+00:00",
+        "char_count": 50984,
+        "pdf_used": false,
+        "official_history_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\extension-abs-2610.37000.html",
+        "official_history": "Submission history From: Muyeol Sung [view email] [v1] Tue, 27 Oct 2026 10:46:52 UTC (17,354 KB) [v2] Wed, 28 Oct 2026 08:53:15 UTC (17,354 KB)"
+      },
+      "system_figure": {
+        "id": "2610.37000",
+        "version": 2,
+        "figure_id": "S4.F4",
+        "caption": "Figure 4: Overview of GPA-VGGT. Early blocks 00–88 replace global attention with frame attention augmented by a shared cross-frame K/V set containing special tokens and content-adaptive pooled image-token summaries. Later blocks 99–2323 preserve all queries and merge only K/V tokens, using a weaker merge ratio in the core blocks 1313–1616. (a) Pooled summaries are constructed by assigning patch tokens to stride-8 seeds according to cosine similarity and averaging the K/V tokens within each content-adaptive cluster; the summary size determines the +log⁡s+\\log s correction. (b) K/V matching is computed after a 128128-dimensional Gaussian projection, while all queries are retained for global attention.",
+        "url": "https://arxiv.org/html/2610.37000v2/GPA-VGGT_Figure.png",
+        "path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-2610.37000v2-overview.png",
+        "visually_verified": true,
+        "status": "downloaded",
+        "verification_tool": "functions.view_image",
+        "visual_description": "原图1680×889，视觉确认：上部DINOv2输入→0–8共享跨帧KV→9–23仅KV合并，13–16弱合并；下部(a)stride8内容聚类与log s，(b)128D投影与保留Q。与Fig4 Overview caption一致。",
+        "width": 1680,
+        "height": 889,
+        "embed_allowed": true
+      },
+      "revision_comparison": "v1全文未读取比较；不评价重大修订",
+      "ran_experiments": false,
+      "downloaded_weights_or_datasets": false,
+      "claim_boundary": "作者实验及本文阅读结论，非本地复现实测。"
+    },
+    {
+      "id": "2610.35806",
+      "version": 1,
+      "title": "Does VGGT Know What It Does Not Know?",
+      "window_class": "new",
+      "v1_utc": "2026-10-26T17:37:39Z",
+      "updated_utc": "2026-10-26T17:37:39Z",
+      "reading_level": "full_main_text",
+      "actual_read_sections": [
+        "Abstract",
+        "1 Introduction",
+        "2 Related Work",
+        "3 Method (3.1–3.2), Equation1",
+        "4 Experiments (4.1–4.4), Tables1–7 and failure-mode/transfer/negative-result analyses",
+        "5 Limitations",
+        "6 Conclusion"
+      ],
+      "coverage_limitations": [
+        "HTML无Appendix，因此不虚构附录阅读；没有caption明确overview/pipeline/framework的系统图，仅链接方法正文。",
+        "未逐张视觉检查ROC/点对结果图；定量来自表格和正文，不从缩略图估算。"
+      ],
+      "problem": "VGGT和pi3输出的是每像素几何confidence，未提供相机相对位姿是否正确的可靠性。研究问题是冻结表示是否已线性编码自身失败，以及该信息能否跨类别/数据/失败模式使用。",
+      "method_structure": [
+        "冻结VGGT1B，图对单次前向。RGB最长边518、短边14倍数，居中方形画布；从pose编码解码R,t,K。pi3不预测intrinsics，按local pointmap最小二乘拟合focal。",
+        "HardMatch无GTpose，以人工匹配的对称极线距离中位数定义失败；剔除dynamic及<8对应，留下903对97类，主阈值50px。PhotoTourism/ScanNet按GT旋转/平移方向定义失败。",
+        "hook encoder、aggregator、camera token/trunk；每图mean pool，再两图mean，标准化及PCA128，带L2和balanced class weights的logistic probe。",
+        "10-fold按HardMatch类别分组，内层5-fold选正则；1000次整类别bootstrap给95%CI；transfer在全HardMatch训练后完全不重训。与point/depth confidence及同CV训练的all-output classifier比较。"
+      ],
+      "insight_math": [
+        {
+          "claim": "预测fundamental matrix为 F=H2ᵀ K2^-ᵀ[t]× R K1^-1 H1；H把原图坐标映到network canvas，避免直接把缩放padding后的相机参数用于原图对应。HardMatch标签混合旋转、平移、intrinsics错误，不能等同纯旋转失败。",
+          "source": "S3.E1; S3.SS1"
+        },
+        {
+          "claim": "failure awareness在本文被操作化为冻结feature的线性可解码性；不等于输出已校准概率、因果自省或无需监督的不确定性。class-balanced logistic分数主要验证排名和选择性预测。",
+          "source": "S3.SS2; S4.SS2 selective prediction; S5"
+        },
+        {
+          "claim": "VGGT probe在encoder≤65.2%、aggregator前半63–66%，block11/12/13/15约69/81/88/93%，显示跨视图融合中段形成信号；训练自由cosine仅在VGGT后段有效，pi3不复现该简单读数。",
+          "source": "S4.SS2 Where the signal emerges; Table4"
+        },
+        {
+          "claim": "短baseline平移方向是病态两视图几何：即使rotation正确，接近零的位移方向也弱可观测。其失败在特征中的可读出方向与HardMatch大视差错误不同，不能期待单一线性头跨所有失败模式。",
+          "source": "S4.SS4, Table7"
+        }
+      ],
+      "experiments": [
+        {
+          "dataset": "HardMatch, 903 pairs/97 categories",
+          "metric": "pose-failure ROC-AUC",
+          "unit": "%",
+          "ours": 93.5,
+          "ours_95CI": [
+            91.7,
+            95.2
+          ],
+          "baselines": {
+            "pointmap_confidence": 79.7,
+            "pointmap_confidence_95CI": [
+              76.6,
+              82.4
+            ],
+            "all_VGGT_outputs_classifier": 77.7,
+            "depth_confidence": 66.5
+          },
+          "protocol": "median epipolar distance>50px; grouped10-fold CV; last global block fixed in advance",
+          "source": "Table2, S4.T2; Table1",
+          "source_url": "https://arxiv.org/html/2610.35806v1#S4.T2"
+        },
+        {
+          "dataset": "HardMatch, same protocol",
+          "metric": "average precision",
+          "unit": "%",
+          "ours": 87.4,
+          "baselines": {
+            "pointmap_confidence": 60.4,
+            "all_outputs": 59.5
+          },
+          "source": "Table2",
+          "source_url": "https://arxiv.org/html/2610.35806v1#S4.T2"
+        },
+        {
+          "dataset": "HardMatch, top50% trusted pairs retained",
+          "metric": "failure rate / mAA@10px",
+          "unit": "% / %",
+          "ours": [
+            3.8,
+            34.9
+          ],
+          "baselines": {
+            "confidence_ranking": [
+              12.4,
+              29.7
+            ],
+            "oracle": [
+              0,
+              38.3
+            ]
+          },
+          "source": "S4.SS2.SSS0.Px7.p1.1",
+          "source_url": "https://arxiv.org/html/2610.35806v1#S4.SS2.SSS0.Px7.p1.1"
+        },
+        {
+          "dataset": "HardMatch, all coverages",
+          "metric": "area under risk-coverage",
+          "unit": "dimensionless",
+          "ours": 0.096,
+          "baselines": {
+            "confidence": 0.154,
+            "all_outputs": 0.169,
+            "oracle": 0.07
+          },
+          "source": "S4.SS2 selective prediction",
+          "source_url": "https://arxiv.org/html/2610.35806v1#S4.SS2"
+        },
+        {
+          "dataset": "HardMatch, most confident half",
+          "metric": "ROC-AUC",
+          "unit": "%",
+          "ours": 90.0,
+          "ours_95CI": [
+            85.4,
+            94.2
+          ],
+          "baselines": {
+            "confidence": 69.9
+          },
+          "failure_prevalence_percent": 12.2,
+          "source": "Table4; S4.SS2 Confidently wrong",
+          "source_url": "https://arxiv.org/html/2610.35806v1#S4.T4"
+        },
+        {
+          "dataset": "HardMatch pi3 frozen",
+          "metric": "ROC-AUC",
+          "unit": "%",
+          "ours": 91.7,
+          "baselines": {
+            "pi3_own_confidence": 62.2,
+            "all_outputs": 76.9
+          },
+          "protocol": "same image pairs and failure definition; camera head probe88.7; training-free cosine≤69",
+          "source": "Table4",
+          "source_url": "https://arxiv.org/html/2610.35806v1#S4.T4"
+        },
+        {
+          "dataset": "PhotoTourism 1262pairs/16 landmarks",
+          "metric": "rotation-failure ROC-AUC, >15 degrees",
+          "unit": "%",
+          "ours": 97.5,
+          "baselines": {
+            "VGGT_confidence": 90.6,
+            "GT_covisibility": 89.8
+          },
+          "failure_count": 22,
+          "protocol": "HardMatch probe unchanged; small positive count means wide intervals",
+          "source": "Table5; S4.SS3",
+          "source_url": "https://arxiv.org/html/2610.35806v1#S4.T5"
+        },
+        {
+          "dataset": "ScanNet1500, 100 rooms",
+          "metric": "rotation-failure ROC-AUC, >5 degrees",
+          "unit": "%",
+          "ours": 79.5,
+          "baselines": {
+            "confidence": 58.7,
+            "in_domain_probe": 82.3
+          },
+          "failure_count": 32,
+          "source": "Table7",
+          "source_url": "https://arxiv.org/html/2610.35806v1#S4.T7"
+        },
+        {
+          "dataset": "ScanNet1500",
+          "metric": "pose-failure ROC-AUC, max(rotation,translation-direction)>15 degrees",
+          "unit": "%",
+          "ours": 44.2,
+          "baselines": {
+            "confidence": 63.6,
+            "in_domain_probe": 91.0
+          },
+          "failure_count": 115,
+          "protocol": "negative transfer result:113/115 pose failures have rotation<5deg, dominated by short-baseline translation",
+          "source": "Table7; S4.SS4",
+          "source_url": "https://arxiv.org/html/2610.35806v1#S4.T7"
+        },
+        {
+          "dataset": "PhotoTourism 10 graphs ×16images,1200pair edges",
+          "metric": "mean absolute rotation after robust averaging",
+          "unit": "degrees",
+          "ours_drop10percent_edges": 0.66,
+          "baselines": {
+            "robust_all_edges": 0.7,
+            "confidence_drop10percent": 0.67,
+            "oracle_remove_error_above15deg": 0.67,
+            "least_squares_all": 1.27
+          },
+          "protocol": "no meaningful downstream advantage; fewer than2% edges fail",
+          "source": "S4.SS3 Multi-view graphs: no downstream gain",
+          "source_url": "https://arxiv.org/html/2610.35806v1#S4.SS3"
+        },
+        {
+          "dataset": "HardMatch official test split",
+          "metric": "mAA@10px matcher routing",
+          "unit": "%",
+          "ours_router": 51.1,
+          "baselines": {
+            "LoMa_alone": 50.8,
+            "oracle_best_of_LoMa_VGGT": 52.1,
+            "VGGT": 19.9
+          },
+          "protocol": "negative result: almost no complementarity, authors make no routing claim",
+          "source": "S4.SS2 A negative result: routing to a matcher",
+          "source_url": "https://arxiv.org/html/2610.35806v1#S4.SS2"
+        },
+        {
+          "dataset": "PhotoTourism same2304pair subset,96sets",
+          "metric": "rotation failures>5deg, with2/4/8/16views per forward",
+          "unit": "%",
+          "ours_model_failure_rates": [
+            3.6,
+            1.4,
+            0.5,
+            0.3
+          ],
+          "protocol": "2-view-trained probe no longer clearly better than confidence with many views; small failure counts and95%CI span>40points",
+          "source": "Table6; S4.SS3 More than two views",
+          "source_url": "https://arxiv.org/html/2610.35806v1#S4.T6"
+        }
+      ],
+      "ablation_controls": [
+        "50px labels shuffled AUC51.6%; image size/aspect alone49.8%; excluding45near-zero-baseline pairs probe93.4%. SourceTable3.",
+        "Threshold10/20/50/100px probe91.1/92.9/93.5/92.4%, confidence72.8/76.0/79.7/77.8%; not a single-threshold artifact. SourceTable3.",
+        "PCA32/64/256 AUC93.4/93.7/93.5; combining all7layers93.2 does not help. SourceTable3."
+      ],
+      "hardware": "No measured GPU type, probe latency, runtime memory, or training duration found in the main HTML; do not infer them from 'one linear layer'.",
+      "protocol_cautions": [
+        "摘要1000pairs是原benchmark规模，实际主表903有效pairs；official test830与主groupedCV903不可混为同split。",
+        "Co-visibility是场景属性、failure是预测属性；部分相关检验支持额外信息，但不是因果证明。",
+        "probe使用监督failure labels，原生confidence不需该训练；all-output classifier是作者匹配监督成本的控制。",
+        "跨域旋转迁移不能推广为平移可靠性或多视图系统整体增益。",
+        "无证据证明已改进完整SLAM/NVS或恢复失败位姿，论文验证的是检测/拒绝能力。"
+      ],
+      "reproduction": {
+        "repo_url": null,
+        "project_url": null,
+        "status": "正文4.1仅称code will be released publicly；未确认可运行独立仓库。",
+        "local_run": false,
+        "weights_downloaded": false,
+        "datasets_downloaded": false,
+        "limitations": [
+          "需在hook层部署PCA/标准化/linear head并保持同预处理。",
+          "few-failure迁移集CI宽，短baseline平移需域内head。",
+          "仅VGGT和pi3两backbone，不能直接泛化到所有新3D基础模型。"
+        ]
+      },
+      "evidence_level": "full_text",
+      "abstract_read": true,
+      "full_main_text_read": true,
+      "source": {
+        "html_url": "https://arxiv.org/html/2610.35806v1",
+        "html_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-2610.35806v1.html",
+        "extracted_text_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-2610.35806v1-read.txt",
+        "structure_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-2610.35806v1-structure.json",
+        "retrieved_at": "2026-11-02T15:52:26.493141+00:00",
+        "char_count": 41005,
+        "pdf_used": false,
+        "official_history_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\extension-abs-2610.35806.html",
+        "official_history": "Submission history From: Adityan Thirumani Srinivasan [view email] [v1] Mon, 26 Oct 2026 17:37:39 UTC (546 KB)"
+      },
+      "system_figure": {
+        "embed_allowed": false,
+        "visually_verified": false,
+        "reason": "全文所有figure caption无明确overview/pipeline/framework系统图；不将ROC或结果图冒充系统图。",
+        "body_figure_position_url": "https://arxiv.org/html/2610.35806v1#S3",
+        "label": "方法Section3正文位置（不嵌图）"
+      },
+      "revision_comparison": "v1新文，无旧版差异比较",
+      "ran_experiments": false,
+      "downloaded_weights_or_datasets": false,
+      "claim_boundary": "作者实验及本文阅读结论，非本地复现实测。"
+    },
+    {
+      "id": "2610.36150",
+      "version": 1,
+      "title": "Any3R: Feedforward 3D Reconstruction from Any Camera Type",
+      "window_class": "new",
+      "v1_utc": "2026-10-26T18:53:14Z",
+      "updated_utc": "2026-10-26T18:53:14Z",
+      "reading_level": "full_main_text_and_selected_appendices",
+      "actual_read_sections": [
+        "Abstract",
+        "1 Introduction",
+        "2 Related Work (2.1–2.2)",
+        "3 Method (3.1–3.3), Equations1–6",
+        "4 Experiments (4.1–4.4), Tables1–4",
+        "5 Conclusion",
+        "Appendix A evaluation details",
+        "Appendix B explanation and mixed-camera results, Tables5–6 inspected, Table8 discussion",
+        "Appendix C comparison protocol discussion",
+        "Appendix D all13-camera findings and caveats",
+        "Appendix E per-point explanation and Tables19–20",
+        "Appendix F ray map withdrawn",
+        "Appendix G camera generation and narrow-pinhole limit",
+        "Appendix H FoV analysis",
+        "Appendix I real pinhole validation",
+        "Appendix J matched coverage, Table21",
+        "Appendix K training convergence limitations",
+        "Appendix L frequency split, Table22"
+      ],
+      "coverage_limitations": [
+        "全主文及必要附录段落已读；未逐单元格读完附录所有52-cell大表，不宣称附录每项数值全审计。",
+        "没有独立Limitations节，限制来自4.4及Appendix A/B/D/F/I/J/K/L。",
+        "除Overview Fig3外未逐张视觉检查全部结果图；定量直接核对表格。"
+      ],
+      "problem": "前馈模型的像素索引RoPE、绝对位置与等像素训练权重暗含透视投影，换成鱼眼/全景时同一pixel并非同一射线方向或球面面积，单一内参矩阵也不能表示≥180°镜头。目标是同一权重处理混合的中央相机。",
+      "method_structure": [
+        "输入不是只有RGB：每视图提供从标定计算的dense unit-ray field R∈S²及有效mask M，网络不再读取lens类别/畸变系数，但要求R准确；只适用于所有射线经过单点的central cameras。",
+        "沿每pixel射线预测径向距离d，解码X=dR，camera head预测camera-to-world pose；深度是radial range，不是固定z-depth。",
+        "在每视图以patch平均归一化射线求elevation/azimuth，代替pixel index进行intra-frame rotary定位；绝对角度MLP也用真实ray角。",
+        "最低8频用恒定角度尺度，最高8频按本视图FoV归一化；split为兼顾pose和几何的发布配置，不是所有频率都具有同样绝对角度语义。",
+        "点损失在原distance^-1/2权重基础上乘每pixel球面面积，相对同view有效均值归一化；finite differences计算ray导数，1st/99th percentile clamp且weight不回传。训练混合8种camera，每view独立抽lens、2–8views/sample。"
+      ],
+      "insight_math": [
+        {
+          "claim": "central camera完整由R:pixel→S²描述；X=dR支持横向/后向射线。它统一已知投影，不是从未知相机自动恢复标定，也不是非中央滚动快门或多视点相机的通用证明。",
+          "source": "S3.SS1, Equations1–2; Appendix F/G"
+        },
+        {
+          "claim": "角RoPE坐标为c_lat=(Hp/m)(1-2θ/π)-1、c_lon=(Wp/m)(φ/π+1)-1；代入ERP中心角恰好还原预训练索引坐标，保留已有全景先验。实际patch平均产生最多4.3% patch-step偏差。",
+          "source": "S3.E3–E4; S3.SS2.p2.1"
+        },
+        {
+          "claim": "球面积分的Jacobian为dΩ=||∂R/∂u×∂R/∂v||；按有效pixel平均归一化只重分布监督、不改变总体损失量级。点损失还含每sample最优scale λ，因此不能据重建距离单位m声称输出本身绝对尺度可辨。",
+          "source": "S3.E5–E6"
+        },
+        {
+          "claim": "pin-hole下dΩ=cos³ψ/f²，只在窄视角极限接近常数；90°正方形中心/角pixel面积已相差5.2倍，说明权重问题并非只存在于全景。",
+          "source": "Appendix G narrow-pinhole limit"
+        },
+        {
+          "claim": "发布的频率split保留pose表现，但预注册的严格几何改进准则未满足；constant-angle arm在180/200°几何更好却pose崩溃，故是准确性目标之间的权衡。",
+          "source": "Appendix L; Table22"
+        }
+      ],
+      "experiments": [
+        {
+          "dataset": "Matterport3D+Stanford2D3DS indoor, full ERP360°",
+          "metric": "pointcloud Acc / pose AUC@15 / AUC@30",
+          "unit": "m / % / %",
+          "ours": [
+            0.054,
+            94.5,
+            96.6
+          ],
+          "baselines": {
+            "PanoVGGT": [
+              0.072,
+              89.2,
+              93.2
+            ],
+            "Argus": [
+              0.094,
+              88.4,
+              91.3
+            ],
+            "MapAnything_ray": [
+              0.405,
+              4.1,
+              14.1
+            ]
+          },
+          "protocol": "24heldout scenes/dataset,3views, predicted poses; fused cloud Sim3 alignment+ICP",
+          "source": "Table1, S3.T1",
+          "source_url": "https://arxiv.org/html/2610.36150v1#S3.T1"
+        },
+        {
+          "dataset": "PanoCity outdoor, KB4 200°",
+          "metric": "Acc / AUC@15 / AUC@30",
+          "unit": "m / % / %",
+          "ours": [
+            0.863,
+            79.5,
+            89.4
+          ],
+          "baselines": {
+            "PanoVGGT": [
+              2.405,
+              51.0,
+              73.9
+            ],
+            "MapAnything_ray": [
+              2.523,
+              15.1,
+              31.9
+            ]
+          },
+          "source": "Table1",
+          "source_url": "https://arxiv.org/html/2610.36150v1#S3.T1"
+        },
+        {
+          "dataset": "Indoor pinhole90°",
+          "metric": "AUC@15",
+          "unit": "%",
+          "ours": 74.8,
+          "baselines": {
+            "pi3": 76.9
+          },
+          "protocol": "main exception to uniform superiority; pi3 stronger onStanford2D3DS",
+          "source": "Table3; S4.SS2 Geometry foundation models",
+          "source_url": "https://arxiv.org/html/2610.36150v1#S4.T3"
+        },
+        {
+          "dataset": "FIORD real fisheye200°,2scenes/24triplets",
+          "metric": "Acc / AUC@15 / AUC@30",
+          "unit": "m / % / %",
+          "ours": [
+            0.274,
+            63.8,
+            78.4
+          ],
+          "baselines": {
+            "PanoVGGT": [
+              0.511,
+              29.4,
+              51.2
+            ],
+            "MapAnything_ray": [
+              0.396,
+              19.4,
+              36.5
+            ],
+            "VGGT": [
+              0.442,
+              15.6,
+              35.3
+            ]
+          },
+          "protocol": "zero-shot calibrated rays; upstairs scene excluded because scan registration fails; Wid3R cannot express >180°camera",
+          "source": "Table2; Appendix A",
+          "source_url": "https://arxiv.org/html/2610.36150v1#S4.T2"
+        },
+        {
+          "dataset": "ScanNet++ DSLRfisheye146° validation",
+          "metric": "Acc / AUC@15 / AUC@30",
+          "unit": "m / % / %",
+          "ours": [
+            0.055,
+            62.7,
+            79.7
+          ],
+          "baselines": {
+            "Wid3R_trained_on_ScanNetpp": [
+              0.039,
+              85.3,
+              92.6
+            ],
+            "MapAnything_ray": [
+              0.093,
+              18.5,
+              43.6
+            ],
+            "pi3": [
+              0.086,
+              20.6,
+              46.6
+            ]
+          },
+          "protocol": "Any3R zero-shot, Wid3R in-domain trained; do not claim Any3R best overall on this benchmark",
+          "source": "Table2; S4.SS3",
+          "source_url": "https://arxiv.org/html/2610.36150v1#S4.T2"
+        },
+        {
+          "dataset": "Matterport3D full-sequence ablation",
+          "metric": "AUC@15 / mean of per-sequence median rotation error",
+          "unit": "fraction / degrees",
+          "ours": [
+            0.492,
+            7.13
+          ],
+          "baselines": {
+            "angular_no_perview_no_solidangle": [
+              0.364,
+              9.26
+            ],
+            "angular_perview_no_solidangle": [
+              0.488,
+              6.36
+            ],
+            "warm_start_architecture_star_not_directly_comparable": [
+              0.619,
+              4.61
+            ]
+          },
+          "protocol": "separate PanoVGGT fullsequence protocol; not3-view Table1; AUC fraction notpercent",
+          "source": "Table4",
+          "source_url": "https://arxiv.org/html/2610.36150v1#S4.T4"
+        },
+        {
+          "dataset": "Matterport3D ray-field ablation,8camera average",
+          "metric": "Acc",
+          "unit": "m",
+          "ours_true_ray": 0.059,
+          "baselines": {
+            "predicted_ray_mean_angle7_9deg": 0.192,
+            "ERP_fallback_mean_angle35_8deg": 0.243
+          },
+          "source": "Table19; Appendix F",
+          "source_url": "https://arxiv.org/html/2610.36150v1#A5.T19"
+        },
+        {
+          "dataset": "PanoCity ray-field ablation,8camera average",
+          "metric": "Acc",
+          "unit": "m",
+          "ours_true_ray": 0.92,
+          "baselines": {
+            "predicted_ray": 3.378,
+            "ERP_fallback": 2.299
+          },
+          "protocol": "predicted ray field can be worse than crude fallback; calibration sensitivity matters",
+          "source": "Table19",
+          "source_url": "https://arxiv.org/html/2610.36150v1#A5.T19"
+        },
+        {
+          "dataset": "DL3DV real perspective,60scenes×3views",
+          "metric": "AUC@5 / AUC@30 / mean per-scene median rotation",
+          "unit": "fraction / fraction / degrees",
+          "ours": [
+            0.7211,
+            0.9313,
+            3.0
+          ],
+          "baselines": {
+            "DA3": [
+              0.9022,
+              0.9543,
+              3.32
+            ],
+            "VGGT": [
+              0.7011,
+              0.93,
+              3.06
+            ]
+          },
+          "protocol": "pose only:DL3DV no dense depth; quantitative geometry not validated there",
+          "source": "Table20; Appendix I",
+          "source_url": "https://arxiv.org/html/2610.36150v1#A5.T20"
+        },
+        {
+          "dataset": "Matched-coverage M3D pinhole crop53°",
+          "metric": "median per-scene Acc",
+          "unit": "m",
+          "ours": 0.0681,
+          "baselines": {
+            "VGGT_Omega": 0.0513,
+            "pi3": 0.0619
+          },
+          "protocol": "10scenes,crop then resize to same pixel count; narrow-view counterexample",
+          "source": "Table21; Appendix J",
+          "source_url": "https://arxiv.org/html/2610.36150v1#A10.T21"
+        },
+        {
+          "dataset": "Mixed-camera supplement",
+          "metric": "median-accuracy ranking",
+          "unit": "qualitative ranking stated in text",
+          "ours": "best on3datasets forBrown-Conrady+double-sphere+ERP-crop; behindPanoVGGT onPanoCity forpinhole+KB4+ERP",
+          "protocol": "different mix can changeordering; not universal superiority forarbitrary mixtures",
+          "source": "Appendix B paragraph2, Table8 discussion",
+          "source_url": "https://arxiv.org/html/2610.36150v1"
+        }
+      ],
+      "hardware": {
+        "training": "40epochs,32GH200 GPUs,about27hours; trainMatterport3D/Stanford2D3DS/Structured3D/PanoCity/DL3DV,holdtest scenes",
+        "other_run": "Appendix K earlier convergence run uses8A100s and is not the released32GH200 run",
+        "inference": "No quantitative latency, VRAM or inferenceGPU benchmark found in the main text/selected appendices"
+      },
+      "protocol_cautions": [
+        "Any3R receives calibrated rays; some baselines images only, Wid3R true ray where expressible, MapA-ray explicitly true ray. Label input differences, especially when comparing toVGGT/DA3.",
+        "Acc after similarity alignment and ICP does not establish metric scale recovery or pose-only reconstruction; sampled40000pixels/scene,ICP0.1m indoors/1m outdoors.",
+        "Main13camera benchmark has24heldout scenes/dataset and3views;8lens types seen in training,5heldout types; syntheticlens imagesresampledfrompanoramas. Reallens tests partly address this domain concern.",
+        "Structured3Dviews do not overlap,so pose is not scored inmain; itsdensegeometry evidence cannot be interpreted asmulti-viewalignment success.",
+        "Per-view conditioning gives largeposegain butM3D meanlog10deptherror0.033→0.045;solid-angleweightingdoes not improveevery metric.",
+        "Ablation warmstart row not samearchitecture; fullsequence AUC fractions cannot be mixedwith3-viewpercent AUC.",
+        "Appendix K earlierERP-only run ends withpose slightly belowpanoramicbaselineonthreeoffourdatasets; paper itself limits claimtoacross-camera robustness.",
+        "No独立Limitationssection; useappendix counterexamplesratherthan abstractclaimanycameraequalsallsettingsSOTA."
+      ],
+      "reproduction": {
+        "repo_url": "https://github.com/Jingong-Chen/Any3R",
+        "model_url": "https://huggingface.co/Jingong/Any3R",
+        "project_url": "https://jingong-chen.github.io/Any3R/",
+        "status": "作者项目页已读并确认Code/Model/Demo入口；本子任务未审计源码或运行。",
+        "local_run": false,
+        "weights_downloaded": false,
+        "datasets_downloaded": false,
+        "limitations": [
+          "需提供准确dense ray field与validmask，不是免标定。",
+          "非中央相机不在模型假设内；未知/错误calibration会明显损害预测。",
+          "多目标权衡应复核checkpoint hash和split配置；不能只按state-dict形状判断模型相同。"
+        ]
+      },
+      "evidence_level": "full_text",
+      "abstract_read": true,
+      "full_main_text_read": true,
+      "source": {
+        "html_url": "https://arxiv.org/html/2610.36150v1",
+        "html_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-2610.36150v1.html",
+        "extracted_text_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-2610.36150v1-read.txt",
+        "structure_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-2610.36150v1-structure.json",
+        "retrieved_at": "2026-11-02T15:52:33.888036+00:00",
+        "char_count": 107049,
+        "pdf_used": false,
+        "official_history_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\extension-abs-2610.36150.html",
+        "official_history": "Submission history From: Jingong Chen [view email] [v1] Mon, 26 Oct 2026 18:53:14 UTC (34,283 KB)"
+      },
+      "system_figure": {
+        "id": "2610.36150",
+        "version": 1,
+        "figure_id": "S2.F3",
+        "caption": "Figure 3: Overview. The ray field 𝑹\\bm{R} of each view gives its patches angular coordinates for the rotary encoding in intra-frame attention, and the heads predict the camera poses and a radial distance dd per pixel, decoded as 𝑿=d​𝑹\\bm{X}=d\\bm{R}. In training, the point loss ℒpt\\mathcal{L}_{\\mathrm{pt}} compares 𝑿\\bm{X} with the ground truth 𝑿gt\\bm{X}^{\\mathrm{gt}}, and the solid angle d​Ω\\mathrm{d}\\Omega of the same 𝑹\\bm{R} weighs the error of each pixel, shown here on the panorama, where cells of equal pixel count cover unequal areas of the sphere.",
+        "url": "https://arxiv.org/html/2610.36150v1/any3r_method.png",
+        "path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-2610.36150v1-overview.png",
+        "visually_verified": true,
+        "status": "downloaded",
+        "verification_tool": "functions.view_image",
+        "visual_description": "原图823×281，视觉确认：三类相机与ray sphere→角坐标→intra/inter-frame attention；camera/dense heads输出pose及X=dR；下支路solid-angle训练损失。与Fig3 Overview caption一致。",
+        "width": 823,
+        "height": 281,
+        "embed_allowed": true
+      },
+      "revision_comparison": "v1新文，无旧版差异比较",
+      "ran_experiments": false,
+      "downloaded_weights_or_datasets": false,
+      "claim_boundary": "作者实验及本文阅读结论，非本地复现实测。"
+    },
+    {
+      "id": "2605.23889",
+      "version": 2,
+      "title": "HorizonStream: Long-Horizon Attention for Streaming 3D Reconstruction",
+      "window_class": "revised",
+      "v1_utc": "2026-05-22T17:50:48Z",
+      "updated_utc": "2026-10-24T14:53:26Z",
+      "reading_level": "full_main_text_and_appendices",
+      "actual_read_sections": [
+        "Abstract",
+        "1 Introduction",
+        "2 Related Work",
+        "3 Method(3.1–3.4),Equations1–10",
+        "4 Experiments(4.1–4.4),Tables1–6 andDiscussion",
+        "5 Conclusion",
+        "Appendix A attentiondilution proof",
+        "Appendix B.1–B.4 stability/horizon/statebound/TTTconnection",
+        "Appendix C.1–C.3 architecture/training/data,Table7",
+        "Appendix D protocols",
+        "Appendix E additionalexperiments,Table8, failurecases andE.1linearprobing"
+      ],
+      "coverage_limitations": [
+        "仅锁定本期v2深读，未比较v1正文，故只称旧文期内更新，不称重大修订或本期新方法。",
+        "无独立Limitations节；4.4Discussion和Appendix E failurecases已读。",
+        "系统Fig3已视觉确认；memory/runtime曲线Fig7未视觉量读，故只引用作者定性趋势，不编造显存数值。",
+        "其余定性图仅读caption及正文分析。"
+      ],
+      "problem": "流式3D中的局部对应、结构与尺度具有不同有效寿命。统一滑窗、无遗忘递归或全历史softmax会形成硬截断、状态污染和attention sinks，导致长序列漂移或崩溃；模型希望以固定状态保留多时间尺度几何。",
+      "method_structure": [
+        "将evidence influence kernel分解为空间content factor与时间retention factor。ViT-L继承VGGT/DINOv2，局部Gated Window Attention配合四个Geometric Linear Attention层。",
+        "GLA在layers4/11/17/23维护1024×1024状态，以输入条件channel-wise sigmoid decay更新；不同channel学习不同保留时间，跨chunk不reset。",
+        "窗口attention按head输出门控，RoPE按(t,y,x)三轴编码。注意这里是时间+图像行列，并非从深度取得的世界xyz坐标。",
+        "每帧Metric Readout Token参与状态读出，exp尺度头统一缩放translation/depth；窗口内多pose-token consensus避免仅顺序keyframe chaining。",
+        "训练48帧样本按21帧计算chunk序列处理，推理pose windowW10。可选LC检索已存DINOv2global descriptor、重跑framepair、建立约束并posegraph优化；与核心严格onlinehead分开。"
+      ],
+      "insight_math": [
+        {
+          "claim": "核心递归S_t=diag(γ_t)S_(t-1)+φ(k_t) ṽ_tᵀ，γ_t=sigmoid(Wγx+b)；通道证据权重是∏γ，常数gate的e-fold horizon τ=-1/logγ，超过3τ权重约<5%。",
+          "source": "S3.E5–E7; Appendix B.2"
+        },
+        {
+          "claim": "状态范数界||S_t||F≤γbar^t||S0||F+BkBv/(1-γbar)需要统一γbar=sup_t,c|γ|<1及key/value有界。固定张量大小保证存储不随帧数增长，但该界不证明几何误差或重定位误差永远有界。",
+          "source": "Appendix B.3 Proposition5"
+        },
+        {
+          "claim": "sigmoid逐点落在(0,1)不自动提供无限序列上统一远离1的sup界；将论文条件式稳定性分析和实测长序列效果分别呈现，不能写成任意场景无限稳定保证。",
+          "source": "Equation6 andAppendix B.3; editorial mathematical interpretation"
+        },
+        {
+          "claim": "softmax稀释证明假设logits有界且相关帧数Wgeo有界，相关attention总质量上界约O(Wgeo exp(2M)/t)。这是该假设下的failuremode解释，而非所有注意力记忆的普遍不可能定理。",
+          "source": "Appendix A Proposition1"
+        },
+        {
+          "claim": "附录将折扣状态上的一步残差回归更新解释为TTT关联；它并未证明一般非线性网络每步精确求解累计回归最小值。核心是遗忘与固定状态的计算形式。",
+          "source": "Appendix B.4; Equations2/5/6; editorial interpretation"
+        },
+        {
+          "claim": "Metric Readout使用ŝ=exp(g(zmetric))，同时缩放t和D；scale-loss只对度量样本应用。可读出scale-related signal并不等于每个慢通道单独代表尺度；probe归因跨短中长band近均匀。",
+          "source": "S3.E9–E10;Appendix E.1"
+        }
+      ],
+      "experiments": [
+        {
+          "dataset": "KITTI full11sequences00–10",
+          "metric": "meanATE",
+          "unit": "m",
+          "ours": 19.75,
+          "ours_with_LC": 16.44,
+          "baselines": {
+            "Lingbot_map": 25.29,
+            "LongStream": 51.9,
+            "LoGeR_offline": 21.91,
+            "LoGeR_optimization": 16.35
+          },
+          "protocol": "fullframes,nosubsampling;missing/failedentry assignedworsterror insequencecolumn foraverages;LCvariantnotpurestreamingonly",
+          "source": "Table1;Table2;Appendix D",
+          "source_url": "https://arxiv.org/html/2605.23889v2#S3.T1"
+        },
+        {
+          "dataset": "VBR7fullsequences,8815–18846frames,up to5.2km",
+          "metric": "meanATE",
+          "unit": "m",
+          "ours": 25.3,
+          "ours_with_LC": 18.84,
+          "baselines": {
+            "Lingbot_map_online": 27.53,
+            "LoGeR_offline": 28.02,
+            "LoGeR_optimization": 25.24,
+            "LongStream": 77.93
+          },
+          "source": "Table3, S4.T3.fig1",
+          "source_url": "https://arxiv.org/html/2605.23889v2#S4.T3.fig1"
+        },
+        {
+          "dataset": "VBR campus_0,12042frames",
+          "metric": "ATE",
+          "unit": "m",
+          "ours": 22.46,
+          "ours_with_LC": 28.54,
+          "baselines": {
+            "Lingbot_map": 23.61
+          },
+          "protocol": "LCnotuniversallybeneficial;diag_0also22.46→24.05m",
+          "source": "Table3",
+          "source_url": "https://arxiv.org/html/2605.23889v2#S4.T3.fig1"
+        },
+        {
+          "dataset": "OxfordSpires12alignedsequences",
+          "metric": "meanATE",
+          "unit": "m",
+          "ours": 9.38,
+          "ours_with_LC": 8.71,
+          "baselines": {
+            "Lingbot_map": 15.46,
+            "LoGeR_optimization": 15.79
+          },
+          "protocol": "alignmentbetweenimageandGTcloudcoordinates; varyingnumberofalignedimages",
+          "source": "Table2;Appendix D/E Table8",
+          "source_url": "https://arxiv.org/html/2605.23889v2#S4.T2"
+        },
+        {
+          "dataset": "Table2runtime",
+          "metric": "FPS",
+          "unit": "frames/second",
+          "ours": 13.2,
+          "ours_with_LC": 10.45,
+          "baselines": {
+            "Lingbot_map": 11.9,
+            "TTT3R": 22.0,
+            "CUT3R": 19.9
+          },
+          "hardware": "inferenceGPUandtiming scope notspecifiedinreadtext;not directlycomparabletoGPA A6000 measurements",
+          "source": "Table2",
+          "source_url": "https://arxiv.org/html/2605.23889v2#S4.T2"
+        },
+        {
+          "dataset": "vKITTI2ablation,400frames",
+          "metric": "ATE",
+          "unit": "m pertrajectory-tablecontext",
+          "ours": 1.2,
+          "baselines": {
+            "no_GLA": 5.38,
+            "no_channel_gate": 3.21,
+            "TTT_like_fastweight": 3.96,
+            "no_window_attention": 7.46,
+            "no_head_gate": 4.06,
+            "2D_RoPE_only": 2.58,
+            "no_MRT": 3.34,
+            "single_pose_token": 2.67
+          },
+          "protocol": "vKITTI2is training-overlap evaluation; notOODproof",
+          "source": "Table6;Appendix D",
+          "source_url": "https://arxiv.org/html/2605.23889v2#S4.T6"
+        },
+        {
+          "dataset": "KITTIvideodepth",
+          "metric": "AbsRel / delta<1.25",
+          "unit": "dimensionless / %",
+          "ours": [
+            0.057,
+            94.8
+          ],
+          "baselines": {
+            "VGGT_offline": [
+              0.061,
+              97.0
+            ],
+            "Lingbot_map": [
+              0.098,
+              90.7
+            ]
+          },
+          "protocol": "oursbetterAbsRelbutnotdeltaaccuracythanVGGT;do notcollapsebothintouniversalbestdepthclaim",
+          "source": "Table5, S4.T5.fig2",
+          "source_url": "https://arxiv.org/html/2605.23889v2#S4.T5.fig2"
+        },
+        {
+          "dataset": "7Scenesreconstruction",
+          "metric": "CD / F1@0.25",
+          "unit": "CDunitnotexplicitlyprinted;F1fraction",
+          "ours": [
+            2.98,
+            0.93
+          ],
+          "baselines": {
+            "LongStream": [
+              2.26,
+              0.64
+            ],
+            "Lingbot_map": [
+              6.33,
+              0.72
+            ]
+          },
+          "protocol": "oursnotbestCD;4evaluatedsequence01scenesintraining;f1notpercent",
+          "source": "Table4,S4.T5.fig1;Appendix D",
+          "source_url": "https://arxiv.org/html/2605.23889v2#S4.T5.fig1"
+        }
+      ],
+      "hardware": {
+        "stage1": "64A800 GPUs,60000iterations",
+        "stage2": "64H20 GPUs,40000iterations",
+        "training": "48frame samplesbothstages;21framecomputationalchunks;W10pose;AdamW2e-5/cosine,2000warmup;518×518images;24datasetsincludinginternal long-sequence data4%stage2",
+        "inference": "NoexplicitinferenceGPUinreadtext;reportedcorememorystudyexcludesoptionalLC"
+      },
+      "protocol_cautions": [
+        "vKITTI2trainingoverlap;7Scenessequence01Chess/Fire/Office/RedKitchenincludedintraining,Heads/Pumpkin/Stairsexcluded. Waymo9segmentsandScanNet++5sceneevalsegmentsheldoutbutdatasetfamiliesintrains.",
+        "Trainingclip48doesnotmeanonlyshortsourcevideos:stage2adds long-source/revisitcoverage whilekeeping48framespersample.",
+        "O(1)coregeometricstateandnearconstantGPUmemoryexcludeLCanddo notmeanoutputmap/exportedpointcloud/storedglobaldescriptorhistoryusesconstanttotalstorage.",
+        "Model13.20FPSnotfastestonlinebaseline;LC10.45FPStradeoff. Hardwareunspecifiedpreventscontrolledcrosspaperlatencyclaim.",
+        "MeanATEusesfailurepenaltyratherthanmeanofonlysuccessfulruns;comparisonswithotherpublishedpaperaveragesneedprotocolmatching.",
+        "LCcanworsensomesequences,andnonLCdoesnotbeatalloffline/optimizationmethods;preservebothrows.",
+        "Fixedstatecanforgetfine-grainedrevisits;dynamicforeground,lowtextureandambiguousregionsremainfailuremodes;strongpretrainingandlargecompute/internalsamplinglimitfullreproducibility."
+      ],
+      "reproduction": {
+        "repo_url": "https://github.com/3DAgentWorld/HorizonStream/",
+        "model_url": "https://huggingface.co/NicolasCC/HorizonStream",
+        "demo_url": "https://huggingface.co/spaces/NicolasCC/HorizonStream_Demo",
+        "project_url": "https://3dagentworld.github.io/horizonstream/",
+        "status": "项目页Code/Model/Demo入口已确认，正文称inference/evalreleased；本子任务未审计源码或运行。",
+        "local_run": false,
+        "weights_downloaded": false,
+        "datasets_downloaded": false,
+        "limitations": [
+          "内部长序列数据占stage2采样4%，无法仅凭公开表格完全重建训练。",
+          "需要分离纯online与LCtrajectoryoptimization，并记录LC额外历史、内存及延迟。",
+          "度量样本混合、训练重叠与missing-resultpenalty均需在复现实验写明。"
+        ]
+      },
+      "evidence_level": "full_text",
+      "abstract_read": true,
+      "full_main_text_read": true,
+      "source": {
+        "html_url": "https://arxiv.org/html/2605.23889v2",
+        "html_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-2605.23889v2.html",
+        "extracted_text_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-2605.23889v2-read.txt",
+        "structure_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-2605.23889v2-structure.json",
+        "retrieved_at": "2026-11-02T15:52:27.148365+00:00",
+        "char_count": 71484,
+        "pdf_used": false,
+        "official_history_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\main-abs-2605.23889.html",
+        "official_history": "Submission history From: Chong Cheng [view email] [v1] Fri, 22 May 2026 17:50:48 UTC (14,278 KB) [v2] Sat, 24 Oct 2026 14:53:26 UTC (14,310 KB)"
+      },
+      "system_figure": {
+        "id": "2605.23889",
+        "version": 2,
+        "figure_id": "S3.F3",
+        "caption": "Figure 3: Overview of HorizonStream. Given an RGB stream, the model causally processes the most recent WW frames. Gated Window Attention handles local matching, Geometric Linear Attention propagates long-range geometry with an O⁡(1)O(1) recurrent geometric state, and Metric Readout Tokens recover stable scale and pose. An optional loop-closure module refines the trajectory.",
+        "url": "https://arxiv.org/html/2605.23889v2/framework_v5.png",
+        "path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-2605.23889v2-overview.png",
+        "visually_verified": true,
+        "status": "downloaded",
+        "verification_tool": "functions.view_image",
+        "visual_description": "原图2035×872，视觉确认：RGB stream/local causal window、pose/MRT/image tokens，GWA与GLA交替，右侧pose/depth/optional LC，下面head/channel gates及persistent state。与Fig3 Overview caption一致。",
+        "width": 2035,
+        "height": 872,
+        "embed_allowed": true
+      },
+      "revision_comparison": "v1全文未读取比较；不评价重大修订",
+      "ran_experiments": false,
+      "downloaded_weights_or_datasets": false,
+      "claim_boundary": "作者实验及本文阅读结论，非本地复现实测。"
+    }
+  ],
+  "cross_discovery": [
+    {
+      "id": "2607.02711",
+      "version": 1,
+      "title": "[2607.02711] RayTun3R: Online Camera Adaptation in 3D Foundation Models",
+      "source_url": "https://arxiv.org/abs/2607.02711",
+      "history": "Submission history From: Daniil Sinitsyn [view email] [v1] Thu, 2 Jul 2026 18:55:35 UTC (10,805 KB)",
+      "official_abs_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-cross-2607.02711.html",
+      "abstract_read": true,
+      "reading_level": "abstract",
+      "abstract": "Abstract:Recent 3D foundation models, such as DUSt3R, MASt3R, VGGT, $\\pi^3$, and Depth Anything 3, provide strong feed-forward depth and pose estimates on pinhole imagery, but degrade sharply under fisheye camera geometry. We show that this failure is partly caused by a pinhole camera bias in the positional encodings of pretrained 3D foundation models, and propose RayTun3R, a lightweight camera adaptation approach. It keeps the pretrained network fixed and adapts only lightweight components tied to token position and camera geometry. RayTun3R learns parameter-efficient residual corrections to absolute and rotary positional encodings, together with parameter-free tokenization and corrections to prediction-grid coordinates that remove residual pinhole assumptions. The resulting adapter contains only 10,752 trainable parameters and can be learned from a short temporal segment using geometric losses. Once adapted, RayTun3R transfers effectively to the remaining frames of the sequence without incurring additional runtime costs. Across diverse fisheye datasets with fields of view from $110^\\circ$ to $200^\\circ$, our adapter reduces rotation error by $2$-$12\\times$ relative to the unadapted model, outperforms LoRA while using $\\sim\\!14\\times$ fewer trainable parameters, improves pose over adaptation-free baselines while avoiding their multi-view inference cost, and remains competitive on depth accuracy.",
+      "disposition": "context_outside_window_not_new_backfill",
+      "reason": "官方submission history显示最新版本仍早于2026-10-24T08:17:58Z，仅用于方法关系定位，不冒作期内新发现或新补漏。",
+      "history_match": null,
+      "legacy_mentions": []
+    },
+    {
+      "id": "2609.09394",
+      "version": 1,
+      "title": "[2609.09394] OmniPoint: Universal Monocular Metric Pointcloud from Any Camera",
+      "source_url": "https://arxiv.org/abs/2609.09394",
+      "history": "Submission history From: Botao Ye [view email] [v1] Tue, 8 Sep 2026 19:45:58 UTC (2,093 KB)",
+      "official_abs_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-cross-2609.09394.html",
+      "abstract_read": true,
+      "reading_level": "abstract",
+      "abstract": "Abstract:Recovering metric 3D geometry from monocular images is a fundamental computer vision task, yet current methods remain heavily fragmented by fixed camera model assumptions and inflexible input schemes. We present OmniPoint, a unified framework designed to generalize metric reconstruction across diverse imaging sensors, including pinhole, fisheye, and equirectangular projections, while accommodating varying geometric priors. To overcome projection rigidity, OmniPoint abandons conventional planar depth regression. It instead adopts a decoupled ray and distance representation alongside a decoupled training objective, explicitly separating the camera projection model from the scene structure. To address the severe scarcity of training data for alternative cameras, we introduce a bidirectional augmentation strategy that explicitly bridges labeled perspective data and unlabeled omnidirectional domains in 3D space. Furthermore, to seamlessly integrate optional inputs like camera intrinsics or sparse depth without destabilizing the network through feature distribution shifts, we propose a robust information injection mechanism. This mechanism utilizes learnable input state embeddings to resolve architectural ambiguity and applies vectorized Gaussian smoothing to densify irregular measurements. Extensive experiments demonstrate that OmniPoint achieves state-of-the-art zero-shot performance across multiple benchmarks, establishing a robust new standard for unified monocular 3D reconstruction.",
+      "disposition": "context_outside_window_not_new_backfill",
+      "reason": "官方submission history显示最新版本仍早于2026-10-24T08:17:58Z，仅用于方法关系定位，不冒作期内新发现或新补漏。",
+      "history_match": null,
+      "legacy_mentions": [
+        {
+          "report_path": "reports/2026-09-05_2026-09-12_LightSplat-Functional-SLAM-OmniNav.html",
+          "version": null,
+          "status": "legacy-mention; exact treatment/evidence requires source report inspection"
+        }
+      ]
+    },
+    {
+      "id": "2609.15018",
+      "version": 2,
+      "title": "[2609.15018] G-ray: Ray-Level Relative Geometric Position Encoding in Multi-View Vision Transformers under Camera Heterogeneity",
+      "source_url": "https://arxiv.org/abs/2609.15018",
+      "history": "Submission history From: Shuo Zhang [view email] [v1] Mon, 14 Sep 2026 04:30:34 UTC (21,648 KB) [v2] Tue, 15 Sep 2026 11:44:01 UTC (21,628 KB)",
+      "official_abs_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-cross-2609.15018.html",
+      "abstract_read": true,
+      "reading_level": "abstract",
+      "abstract": "Abstract:We study relative position encoding for multi-view vision Transformers under camera heterogeneity, including varying fields of view (FoVs) or projection models. Existing rotary relative position encodings commonly use image-plane positional coordinates, producing projection-dependent relative phases and inconsistent geometric cues for cross-projection attention. We introduce G-ray, a ray-level relative position encoding whose rotary phases are parameterized by camera-local ray angles. The same camera-local ray pair induces the same relative phase across projections, providing projection-invariant positional consistency. G-ray can be used directly or integrated with existing encodings, retaining complementary geometric cues without additional learned parameters. We validate G-ray in three host encodings, RoPE, GTA, and RayRoPE, across 3D reconstruction and novel-view synthesis (NVS). Across three heterogeneous 3D reconstruction benchmarks at 50 views, G-ray leads all six averaged metrics and reduces mean pointmap relative error by 45.8% over MapAnything, with calibration supplied to both. Trained exclusively on homogeneous pinhole images, the 3D reconstruction model handles mixed pinhole and non-pinhole inputs without retraining and remains competitive on homogeneous pinhole 3D reconstruction protocols. For NVS, GTA and RayRoPE improve with G-ray under joint viewpoint and FoV variation. The project's webpage is available at this https URL.",
+      "disposition": "context_outside_window_not_new_backfill",
+      "reason": "官方submission history显示最新版本仍早于2026-10-24T08:17:58Z，仅用于方法关系定位，不冒作期内新发现或新补漏。",
+      "history_match": null,
+      "legacy_mentions": []
+    },
+    {
+      "id": "2603.03269",
+      "version": 2,
+      "title": "[2603.03269] LoGeR: Long-Context Geometric Reconstruction with Hybrid Memory",
+      "source_url": "https://arxiv.org/abs/2603.03269",
+      "history": "Submission history From: Junyi Zhang [view email] [v1] Tue, 3 Mar 2026 18:55:37 UTC (15,992 KB) [v2] Mon, 27 Apr 2026 16:46:35 UTC (15,992 KB)",
+      "official_abs_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-cross-2603.03269.html",
+      "abstract_read": true,
+      "reading_level": "abstract",
+      "abstract": "Abstract:Feedforward geometric foundation models achieve strong short-window reconstruction, yet scaling them to minutes-long videos is bottlenecked by quadratic attention complexity or limited effective memory in recurrent designs. We present LoGeR (Long-context Geometric Reconstruction), a novel architecture that scales dense 3D reconstruction to extremely long sequences without post-optimization. LoGeR processes video streams in chunks, leveraging strong bidirectional priors for high-fidelity intra-chunk reasoning. To manage the critical challenge of coherence across chunk boundaries, we propose a learning-based hybrid memory module. This dual-component system combines a parametric Test-Time Training (TTT) memory to anchor the global coordinate frame and prevent scale drift, alongside a non-parametric Sliding Window Attention (SWA) mechanism to preserve uncompressed context for high-precision adjacent alignment. Remarkably, this memory architecture enables LoGeR to be trained on sequences of 128 frames, and generalize up to thousands of frames during inference. Evaluated across standard benchmarks and a newly repurposed VBR dataset with sequences of up to 19k frames, LoGeR substantially outperforms prior state-of-the-art feedforward methods--reducing ATE on KITTI by over 74%--and achieves robust, globally consistent reconstruction over unprecedented horizons.",
+      "disposition": "context_outside_window_not_new_backfill",
+      "reason": "官方submission history显示最新版本仍早于2026-10-24T08:17:58Z，仅用于方法关系定位，不冒作期内新发现或新补漏。",
+      "history_match": null,
+      "legacy_mentions": []
+    },
+    {
+      "id": "2607.09503",
+      "version": 1,
+      "title": "[2607.09503] What VGGT Knows About Overlap: Probing Geometric Foundation Models for Co-Visibility",
+      "source_url": "https://arxiv.org/abs/2607.09503",
+      "history": "Submission history From: Filippo Ziliotto [view email] [v1] Fri, 10 Jul 2026 15:17:02 UTC (4,509 KB)",
+      "official_abs_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-cross-2607.09503.html",
+      "abstract_read": true,
+      "reading_level": "abstract",
+      "abstract": "Abstract:A fundamental challenge in 3D reconstruction and robotic localization is co-visibility: determining which image pairs share overlapping visible surfaces, particularly in scenarios with minimal overlap. We demonstrate that VGGT implicitly encodes co-visibility as an emergent behavior: without any supervision for this task, its internal representations exhibit a clear hierarchical structure mirroring that of large language models, i.e. early layers build a 3D-aware scene representation, while late layers act as dedicated co-visibility reasoners. In particular, we identify layer L17 as a negative anchor that consistently routes non-co-visible pairs for this backbone, regardless of the evaluation setting, providing task-grounded evidence of layer specialization in a geometry-grounded foundation model. Building on this, we introduce Co-VGGT, which freezes VGGT and trains only a lightweight layer-wise mixture-of-experts head (less than 7.5M parameters) to classify co-visibility from RGB alone, treating each layer as a specialized expert whose geometric abstraction is adaptively weighted per input pair. On the Co-VisiON benchmark, Co-VGGT surpasses the human annotation baseline and improves over prior work by more than 25% pairwise and 10% multiview. Pairwise predictions are well-calibrated (ECE=0.030), enabling direct use as edge weights in visibility graphs for downstream SfM and SLAM pipelines without post-hoc correction. Code and data are available.",
+      "disposition": "context_outside_window_not_new_backfill",
+      "reason": "官方submission history显示最新版本仍早于2026-10-24T08:17:58Z，仅用于方法关系定位，不冒作期内新发现或新补漏。",
+      "history_match": null,
+      "legacy_mentions": []
+    },
+    {
+      "id": "2610.07883",
+      "version": 1,
+      "title": "ReVar3R: gauge-aware perturbation uncertainty for feed-forward 3D reconstruction",
+      "reading_level": "reference_metadata_this_subtask",
+      "disposition": "already_covered_exact_version",
+      "reason": "failure-probe Related Work引用的点级不确定性对照；不重复升级本次阅读。",
+      "previous_report": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+      "previous_evidence_level": "full_text"
+    }
+  ],
+  "cross_reference_evidence_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-cross-references.json",
+  "project_crosscheck_evidence_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-cross-fetch.json",
+  "known_limits": [
+    "全文获取采用arXiv HTML；所有数学/表格数字以原HTML对应段落为源；没有下载PDF或权重数据。",
+    "read.txt含MathML与TeX双文本，出现重复数字是抽取表示；本JSON手工核对记录单一数值。",
+    "不把主文全文深读扩张成每张定性图视觉全审计；actual_read_sections与coverage_limitations逐篇写明。",
+    "五个相关工作均核对官方abs/完整摘要且最新版本在窗口前；其余仅提名引用没有时间归属证据，不进入新候选。"
+  ]
+}

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/W8O/1wPvEqMCrCfg4JoOj+a+PGM</id>
+  <title>arXiv Query: search_query=( (ti:"underwater localization") OR (abs:"underwater localization") OR (ti:"underwater state estimation") OR (abs:"underwater state estimation") OR (ti:"thermal localization") OR (abs:"thermal localization") OR (ti:"endoscopic reconstruction") OR (abs:"endoscopic reconstruction") ) AND submittedDate:"202610220000 TO 202611011459"&amp;id_list=&amp;start=0&amp;max_results=200</title>
+  <updated>2026-11-01T15:18:21Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(ti:%22underwater+localization%22+OR+(abs:%22underwater+localization%22+OR+(ti:%22underwater+state+estimation%22+OR+(abs:%22underwater+state+estimation%22+OR+(ti:%22thermal+localization%22+OR+(abs:%22thermal+localization%22+OR+(ti:%22endoscopic+reconstruction%22+OR+abs:%22endoscopic+reconstruction%22)))))))+AND+submittedDate:%22202610220000+TO+202611011459%22&amp;start=0&amp;max_results=200&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>200</opensearch:itemsPerPage>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2610.36454v1</id>
+    <title>SVIn+: Multi-Modal Framework for Robust Underwater State Estimation using 3D Sonar, Visual-Inertial, Water-Pressure, and DVL</title>
+    <updated>2026-10-27T01:01:19Z</updated>
+    <link href="https://arxiv.org/abs/2610.36454v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.36454v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>As expansion and scalability in underwater oper- ations becomes more important and challenging, autonomous underwater vehicles (AUVs) become more relevant and the necessity for reliable autonomy more critical. A fundamental challenge in any autonomous underwater operation, from control to safe navigation and mapping, is state estimation; a notorious hard problem to address, especially in low visibility conditions. In this paper, we tackle this problem, by presenting SVIn+, a multi-sensor framework for robust state estimation of AUVs equipped with an IMU, cameras, a water-pressure sensor, a Doppler Velocity Log (DVL), and a compact 3D sonar. This framework extends an established open-source state-of-the-art visual-inertial SLAM, SVIn, by integrating water-pressure and DVL measurements into a tightly-coupled nonlinear optimiza- tion formulation resulting in improved estimates. To leverage the structural information of recently available 3D acoustic sonars while maintaining computational efficiency, we introduce a hierarchical architecture that incorporates estimates from a decoupled front-end via KISS-ICP, treated as relative pose factors within the factor graph. The proposed framework is validated through field deployments in a shipwreck and coral reef, demonstrating drift mitigation and global consistency. To support further research in underwater multi-modal fusion, the code and the datasets can be found on project website https://cmburgul.github.io/projects/svin+/ https://dartmouthrobotics.github.io/svin-plus</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T01:01:19Z</published>
+    <arxiv:comment>IROS 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Chinmay Burgul</name>
+    </author>
+    <author>
+      <name>Xiaoming Zhao</name>
+    </author>
+    <author>
+      <name>Yewei Huang</name>
+    </author>
+    <author>
+      <name>Michalis Chatzispyrou</name>
+    </author>
+    <author>
+      <name>Marios Xanthidis</name>
+    </author>
+    <author>
+      <name>Ioannis Rekleitis</name>
+    </author>
+    <author>
+      <name>Alberto Quattrini Li</name>
+    </author>
+  </entry>
+</feed>

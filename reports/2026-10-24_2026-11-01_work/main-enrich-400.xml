@@ -1,0 +1,1473 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/ddng1DJHp807tclJZ51DwJqgLm8</id>
+  <title>arXiv Query: search_query=&amp;id_list=2605.17912,2610.10270,2610.22340,2506.07450,2609.35032,2609.22798,2609.34826,2606.07974,2610.18826,2609.39135,2609.05588,2511.18991,2602.08032,2606.03371,2605.13775,2608.24885,2607.06988,2610.20731,2609.17210,2607.21620,2610.38879,2610.36881,2505.07687,2606.01734,2610.33669,2610.40648,2512.24036,2610.40066,2604.23018,2610.33715,2602.00414,2610.35817,2610.36146,2601.11460,2608.12290,2606.04689&amp;start=0&amp;max_results=100</title>
+  <updated>2026-11-01T15:27:00Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=&amp;start=0&amp;max_results=100&amp;id_list=2605.17912,2610.10270,2610.22340,2506.07450,2609.35032,2609.22798,2609.34826,2606.07974,2610.18826,2609.39135,2609.05588,2511.18991,2602.08032,2606.03371,2605.13775,2608.24885,2607.06988,2610.20731,2609.17210,2607.21620,2610.38879,2610.36881,2505.07687,2606.01734,2610.33669,2610.40648,2512.24036,2610.40066,2604.23018,2610.33715,2602.00414,2610.35817,2610.36146,2601.11460,2608.12290,2606.04689" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>100</opensearch:itemsPerPage>
+  <opensearch:totalResults>36</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2609.17210v2</id>
+    <title>FluxVLA Engine: A One-Stop VLA Engineering Platform for Embodied Intelligence</title>
+    <updated>2026-10-22T07:45:54Z</updated>
+    <link href="https://arxiv.org/abs/2609.17210v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.17210v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Vision-language-action (VLA) models, world-action models (WAMs), and offline reinforcement learning methods are rapidly expanding the design space of embodied policies, yet turning these algorithms into reliable robot systems remains constrained by fragmented data formats, training stacks, evaluation protocols, inference runtimes, and embodiment-specific interfaces. We present $\mathrm{FluxVLA}$ Engine, an open, configuration-driven platform that turns heterogeneous embodied-policy components into a reproducible data-to-deployment workflow. Rather than introducing another policy model, $\mathrm{FluxVLA}$ standardizes interfaces for datasets, visual-language and world models, action heads, reward- or advantage-weighted learning, distributed training, simulation evaluation, optimized inference, and robot operators. The engine further integrates compositional dual-arm simulation, scalable automatic data generation, and model-decoupled human-in-the-loop rollout, takeover, correction collection, and reward annotation. For responsive physical execution, it combines Real-Time Chunking (RTC) with accelerated inference backends, lightweight remote GPU serving, and configurable trajectory post-processing. Together, these capabilities connect offline learning, simulation validation, online correction, and real-robot execution through shared and auditable contracts. $\mathrm{FluxVLA}$ therefore targets the engineering bottlenecks separating promising embodied-learning algorithms from reproducible evaluation and dependable deployment. Code is available at https://github.com/FluxVLA/FluxVLA</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-15T13:59:09Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Yinhao Li</name>
+    </author>
+    <author>
+      <name>Weixin Mao</name>
+    </author>
+    <author>
+      <name>Zihan Lan</name>
+    </author>
+    <author>
+      <name>Jikun Rong</name>
+    </author>
+    <author>
+      <name>Qirui Hu</name>
+    </author>
+    <author>
+      <name>Yiming Zhang</name>
+    </author>
+    <author>
+      <name>Weipeng Deng</name>
+    </author>
+    <author>
+      <name>Bowen Shen</name>
+    </author>
+    <author>
+      <name>Minzhao Zhu</name>
+    </author>
+    <author>
+      <name>Yiming Mao</name>
+    </author>
+    <author>
+      <name>Yan Yang</name>
+    </author>
+    <author>
+      <name>Chenguang Cui</name>
+    </author>
+    <author>
+      <name>Hongyuan Chen</name>
+    </author>
+    <author>
+      <name>Xu Huang</name>
+    </author>
+    <author>
+      <name>Zheyi Zhao</name>
+    </author>
+    <author>
+      <name>Pinxi Shen</name>
+    </author>
+    <author>
+      <name>Bozhen He</name>
+    </author>
+    <author>
+      <name>Zhen Fu</name>
+    </author>
+    <author>
+      <name>Yifan Wang</name>
+    </author>
+    <author>
+      <name>Zexin Zhang</name>
+    </author>
+    <author>
+      <name>Ang Gao</name>
+    </author>
+    <author>
+      <name>Haoyu Chen</name>
+    </author>
+    <author>
+      <name>Chengqi Shi</name>
+    </author>
+    <author>
+      <name>Wenda Wu</name>
+    </author>
+    <author>
+      <name>Hua Chen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.03371v6</id>
+    <title>See, Foresee, Act: Intent-Aware World Modeling for Proactive Retail Assistance</title>
+    <updated>2026-10-24T09:27:09Z</updated>
+    <link href="https://arxiv.org/abs/2606.03371v6" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.03371v6" rel="related" type="application/pdf" title="pdf"/>
+    <summary>World models allow agents to anticipate action consequences, but proactive assistance also requires interpreting incomplete observations and deciding whether to intervene before a user asks for help. We propose See-Foresee-Act and instantiate it as the Proactive Intent World Model (PIWM) for retail assistance. See preserves role-relevant observable evidence alongside AIDA-BDI customer states; Foresee predicts one-step consequences for candidate actions; Act explicitly compares those consequences, including non-intervention. GuidanceSalesBench supplies predominantly synthetic supervision linking observations, states, candidate outcomes, and decisions. On 509 Full test examples, consequence-based selection achieves 63.65% decision accuracy, compared with 45.38% for direct decision output, an improvement of 18.27 percentage points. These results support candidate-consequence comparison for decision reasoning in this retail task. Code and data will be released after consent verification and upon publication.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-02T09:18:39Z</published>
+    <arxiv:comment>19 pages. Updated manuscript; corrected punctuation in the author list</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Honghui Zhang</name>
+    </author>
+    <author>
+      <name>Anna Min</name>
+    </author>
+    <author>
+      <name>Chenmeinian Guo</name>
+    </author>
+    <author>
+      <name>Yujia Zhang</name>
+    </author>
+    <author>
+      <name>Zezhou Zhang</name>
+    </author>
+    <author>
+      <name>Yichen Yu</name>
+    </author>
+    <author>
+      <name>Guanyu Liu</name>
+    </author>
+    <author>
+      <name>Yongming Qin</name>
+    </author>
+    <author>
+      <name>Chongguo Song</name>
+    </author>
+    <author>
+      <name>Mengyue Yang</name>
+    </author>
+    <author>
+      <name>Lei Yu</name>
+    </author>
+    <author>
+      <name>Tianyu Shi</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.33715v1</id>
+    <title>Quantum Closed Loop Inverse Kinematics Through Hilbert-Space Encoding of Robot Kinematics</title>
+    <updated>2026-10-24T15:02:09Z</updated>
+    <link href="https://arxiv.org/abs/2610.33715v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.33715v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The integration of quantum computing into robotics requires mathematical representations that preserve the geometric structure and configuration dependence of robot motion. This paper introduces a structure-preserving quantum representation of rigid-body transformations and serial-manipulator kinematics, establishing a correspondence between classical kinematic models and parameterized quantum circuits. Building on the Bloch-sphere representation, spatial directions are encoded into single-qubit states, while quantum rotations reproduce the ordered composition of reference-frame transformations. Translational contributions are combined through quantum-state aggregation, with their metric scales retained classically, enabling the reconstruction of end-effector position and orientation from Pauli expectation values. The formulation preserves the original joint variables and accommodates different kinematic conventions and joint types. Beyond forward kinematics, we establish that the manipulator geometric Jacobian can be reconstructed from quantum-observable derivatives using the parameter-shift rule, with analytical equivalence to its classical counterpart under ideal readout. To demonstrate the applicability of this representation to robot-level algorithms, we introduce Quantum Closed Loop Inverse Kinematics, a hybrid closed-loop method that exploits quantum-derived pose and Jacobian information. The proposed framework provides a geometrically interpretable foundation for developing and investigating quantum and hybrid computational methods for robotic kinematics and motion.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-24T15:02:09Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Andrea Morghen</name>
+    </author>
+    <author>
+      <name>Pierluigi Arpenti</name>
+    </author>
+    <author>
+      <name>Roberto Schiattarella</name>
+    </author>
+    <author>
+      <name>Giovanni Acampora</name>
+    </author>
+    <author>
+      <name>Bruno Siciliano</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.17912v2</id>
+    <title>WorldArena 2.0: Extending Embodied World Model Benchmarking on Modality, Functionality and Platform</title>
+    <updated>2026-10-26T17:24:26Z</updated>
+    <link href="https://arxiv.org/abs/2605.17912v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.17912v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>World models have emerged as a central paradigm for embodied intelligence, enabling agents to predict action-conditioned future and reason about environmental dynamics. However, existing embodied world model benchmarks are still largely confined to vision-only prediction, offline embodied applications, and simulator-based evaluation, making them insufficient for assessing increasingly comprehensive world models. In this work, we introduce WorldArena 2.0, an expanded benchmark that systematically broadens embodied world model evaluation along three dimensions: modality, functionality, and platform. Along the modality dimension, WorldArena 2.0 extends evaluation from vision-only to visuotactile modalities, enabling assessment of multimodal perception and prediction. Along the functionality dimension, it extends beyond policy evaluation and planning to assess world models as interactive RL environments for policy optimization. Along the platform dimension, it moves beyond simulator-only evaluation to a diverse suite of simulated and real-world robotic settings across multiple embodiments. Under a standardized protocol, WorldArena 2.0 comprehensively evaluates perceptual quality, interactive utility, and cross-platform performance, providing a comprehensive testbed for tracking progress toward embodied world models. The project page including codes and demos is available at: https://world-arena.ai/.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-18T06:18:21Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Zhuohang Li</name>
+    </author>
+    <author>
+      <name>Yiding Ma</name>
+    </author>
+    <author>
+      <name>Yu Shang</name>
+    </author>
+    <author>
+      <name>Lei Jin</name>
+    </author>
+    <author>
+      <name>Shengyuan Wang</name>
+    </author>
+    <author>
+      <name>Jianjie Fang</name>
+    </author>
+    <author>
+      <name>Zhaolu Wang</name>
+    </author>
+    <author>
+      <name>Xvyuan Liu</name>
+    </author>
+    <author>
+      <name>Yinzhou Tang</name>
+    </author>
+    <author>
+      <name>Xin Jin</name>
+    </author>
+    <author>
+      <name>Ziyou Wang</name>
+    </author>
+    <author>
+      <name>Weikang Su</name>
+    </author>
+    <author>
+      <name>Xin Zhang</name>
+    </author>
+    <author>
+      <name>Haisheng Su</name>
+    </author>
+    <author>
+      <name>Weizhen He</name>
+    </author>
+    <author>
+      <name>Wei Wu</name>
+    </author>
+    <author>
+      <name>Haoyi Duan</name>
+    </author>
+    <author>
+      <name>Gordon Wetzstein</name>
+    </author>
+    <author>
+      <name>Xihui Liu</name>
+    </author>
+    <author>
+      <name>Dhruv Shah</name>
+    </author>
+    <author>
+      <name>Zhaoxiang Zhang</name>
+    </author>
+    <author>
+      <name>Zhibo Chen</name>
+    </author>
+    <author>
+      <name>Jun Zhu</name>
+    </author>
+    <author>
+      <name>Yonghong Tian</name>
+    </author>
+    <author>
+      <name>Tat-Seng Chua</name>
+    </author>
+    <author>
+      <name>Xin Wang</name>
+    </author>
+    <author>
+      <name>Wenwu Zhu</name>
+    </author>
+    <author>
+      <name>Chen Gao</name>
+    </author>
+    <author>
+      <name>Yong Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.23018v3</id>
+    <title>AmaraSpatial-10K: A Spatially and Semantically Aligned 3D Dataset for Spatial Computing and Embodied AI</title>
+    <updated>2026-10-26T19:47:13Z</updated>
+    <link href="https://arxiv.org/abs/2604.23018v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2604.23018v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Web-scale 3D asset collections are abundant but rarely ready to ingest without cleanup, suffering from arbitrary metric scaling, incorrect pivots, brittle geometry, and incomplete textures, defects that limit their use in embodied AI, robotics, and spatial computing. We present AmaraSpatial-10K, a dataset of 10,071 synthetic 3D assets standardised for direct ingestion. Each asset ships as a metric-scaled, deterministically anchored .glb with separated PBR maps, a convex collision hull, a paired reference image, and multi-sentence text metadata. Alongside the dataset we introduce a reusable evaluation suite for 3D asset banks, a continuous Scale Plausibility Score (SPS), a keyword-based Concept Density metric, anchor-error auditing, and a cross-modal CLIP coherence protocol, and apply it to AmaraSpatial-10K alongside matched subsets of Objaverse, HSSD, ABO, and GSO. We check the annotations independently of the LLM/VLM pipeline that produced them: measured ABO object heights fall inside our scale intervals 88.7-90.7% of the time, and three non-author raters auditing a stratified sample of 314 assets judge 95.5% plausibly scaled and 99.7% correctly anchored. AmaraSpatial-10K improves CLIP Recall@5 by 3.4x over Objaverse (0.612 vs. 0.181, median rank 267 -&gt; 3), achieves a 99.1% settling-stability rate under Habitat-Sim in static placement and collision tests, with ~20x lower per-load wall time, and as a drop-in Holodeck asset bank improves planned-scale matching and is preferred by blinded human raters in 27 of 40 paired scenes. Controlled ablations on the same asset bank attribute the retrieval gain to description richness.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-04-24T21:09:25Z</published>
+    <arxiv:comment>Accepted to NeurIPS 2026 (Evaluations and Datasets Track)</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Mohammad Sadegh Salehi</name>
+    </author>
+    <author>
+      <name>Alexander J. P. Perkins</name>
+    </author>
+    <author>
+      <name>Igor Pardo Maurell</name>
+    </author>
+    <author>
+      <name>Ashkan Dabbagh</name>
+    </author>
+    <author>
+      <name>Raymond Wong</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.01734v3</id>
+    <title>FlatVPR: Plug-and-play Geo-linear Residual Adapter for Geometric Rectification of Foundation Model Feature Manifolds</title>
+    <updated>2026-10-26T02:40:16Z</updated>
+    <link href="https://arxiv.org/abs/2606.01734v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.01734v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper proposes ``FlatVPR,'' a novel geometric rectification paradigm that effectively bridges the trade-off between map lightweightness and localization accuracy in visual place recognition (VPR) by enforcing a feature manifold structure where any descriptor between two adjacent anchors $\mathbf{z}_A$ and $\mathbf{z}_B$ can be accurately reconstructed via linear interpolation $\hat{\mathbf{z}}_{pseudo} = (1-t)\mathbf{z}_A + t\mathbf{z}_B$, where $t \in [0,1]$ denotes the relative position. While state-of-the-art foundation models such as DINOv2-ViT-S/14 provide robust semantic features, their latent manifolds exhibit prominent curvature, projecting uniform linear motion in physical space onto highly non-linear trajectories in the feature space, which hinders reliable reconstruction under sparse anchor conditions. To enable the aforementioned interpolation-based reconstruction, we introduce a residual transformation $\hat{\mathbf{z}} = \mathbf{z} + \text{Res}(\mathbf{z})$ to the raw foundation features $\mathbf{z}$, where $\text{Res}(\cdot)$ represents a learnable adapter. Our method explicitly suppresses manifold curvature using a mathematically grounded Pullback Flatness Loss that minimizes the deviation of intermediate features from the linear segment connecting adjacent anchors, thereby minimizing the intrinsic curvature of the manifold. Through this spatial flattening, map construction is formulated within an Expectation-Maximization (EM) framework, decoupled into a continuous M-step for manifold adaptation and a conceptual E-step for optimal anchor selection guidelines. Experiments on the NCLT dataset demonstrate that the application of our adapter leads to significant performance improvements even under extremely sparse anchor conditions with 100m intervals and extreme seasonal changes.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-01T05:56:59Z</published>
+    <arxiv:comment>25 pages, 7 figures, technical report; v3: Added supplementary materials for downstream tasks and included a supplementary roadmap in Section I</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Rai Hisada</name>
+    </author>
+    <author>
+      <name>Kanji Tanaka</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.36146v1</id>
+    <title>From Structural Feedback to Prompt Policies: Learning Faithful Text-to-Image Prompt Editors</title>
+    <updated>2026-10-26T18:50:50Z</updated>
+    <link href="https://arxiv.org/abs/2610.36146v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.36146v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Prompt optimization should improve the image a user receives without changing the scene the user requested. Yet stylistic rewriting can weaken object attributes and relations even when global text--image similarity remains high. We propose StruPO, a structure-aware prompt editor that uses a calibrated scene graph as a shared representation for policy conditioning and image-grounded supervision. The graph exposes what should be preserved, while deletion, reordering, and insertion provide a token-aligned way to modify the prompt. This turns structural feedback from an external critique into a training signal for a reusable editing policy. Learning from that signal requires handling both uncertain grounding and stochastic image generation. StruPO retains grounding confidence through smooth reward shaping and averages multiple images for each edit before computing group-relative advantages. Experiments span three disjoint 2K-prompt test sets and four frozen generation backbones, with comparisons to learned prompt optimizers, iterative structural feedback, diffusion-model fine-tuning, and inference-time attention control. StruPO improves the faithfulness--aesthetics trade-off, with consistent gains in relational fidelity. Independent automatic evaluators and a 15-annotator study provide complementary evidence, and human preference margins increase with relation complexity. Controlled ablations connect these gains to graph conditioning, local editing, and image-grounded learning. The resulting policy produces reusable optimized text in one pass after graph calibration, without an iterative critique--rewrite loop.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T18:50:50Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Wentao Ye</name>
+    </author>
+    <author>
+      <name>Yali Ye</name>
+    </author>
+    <author>
+      <name>Zhiqing Xiao</name>
+    </author>
+    <author>
+      <name>Ru Peng</name>
+    </author>
+    <author>
+      <name>Xinpeng Ti</name>
+    </author>
+    <author>
+      <name>Liyao Li</name>
+    </author>
+    <author>
+      <name>Zhanming Shen</name>
+    </author>
+    <author>
+      <name>Peng Lu</name>
+    </author>
+    <author>
+      <name>Jie Zhang</name>
+    </author>
+    <author>
+      <name>Haobo Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.10270v4</id>
+    <title>Video Prediction Policy 2: Predict Better, Act Better</title>
+    <updated>2026-10-26T11:46:50Z</updated>
+    <link href="https://arxiv.org/abs/2610.10270v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.10270v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>World action models (WAMs) have emerged as an important class of generalist robot policies, aiming to transfer video prediction priors to action learning. However, we find that existing WAMs frequently produce incorrect motion predictions in open-ended environment, leading to erroneous actions. We attribute this limitation to two factors: (1) base video models are not optimized for manipulation, and (2) naively incorporating action components into video models can substantially degrade their generalization capabilities. We introduce Video Prediction Policy 2 (VPP2), a WAM that enables strong zero-shot generalization in both video prediction and action generation. First, we curate a large-scale, diverse dataset of manipulation videos to continue pretraining the base video foundation model. We annotate video clips with detailed captions and perform \textit{event-level} video pretraining to promote generalization across open-ended manipulation tasks. Second, we post-train and distill the video model into a single-step visual planner with fixed prediction horizon. Finally, we introduce action module via a mixture-of-transformers (MoT) architecture to learn implicit inverse dynamics model. Experiments demonstrate three key results: (1) VPP2-14B outperforms Cosmos3-64B by 11.0\% points in video prediction instruction-following success rate on open-ended tasks; (2) VPP2 surpasses the strongest baseline by 18.5\% points in success rate on real-world zero-shot ALOHA manipulation tasks; and (3) following benchmark-specific post-training, VPP2 achieves the highest success rates among evaluated methods on the challenging LIBERO-Pro, LIBERO-OOD, and RoboDojo benchmarks.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-07T15:40:02Z</published>
+    <arxiv:comment>Project Page: https://robert-gyj.github.io/video-prediction-policy-2</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Yanjiang Guo</name>
+    </author>
+    <author>
+      <name>Haodong Yan</name>
+    </author>
+    <author>
+      <name>Zhide Zhong</name>
+    </author>
+    <author>
+      <name>Zhongru Zhang</name>
+    </author>
+    <author>
+      <name>Qingyuan Yang</name>
+    </author>
+    <author>
+      <name>Qingzhou Lu</name>
+    </author>
+    <author>
+      <name>Xiaoyu Chen</name>
+    </author>
+    <author>
+      <name>Yen-Jen Wang</name>
+    </author>
+    <author>
+      <name>Shuying Deng</name>
+    </author>
+    <author>
+      <name>Chenghan Yang</name>
+    </author>
+    <author>
+      <name>Puzhen Yuan</name>
+    </author>
+    <author>
+      <name>Chenxin Liu</name>
+    </author>
+    <author>
+      <name>Tun Ban</name>
+    </author>
+    <author>
+      <name>Xiang Zhu</name>
+    </author>
+    <author>
+      <name>Yichen Liu</name>
+    </author>
+    <author>
+      <name>Kun Feng</name>
+    </author>
+    <author>
+      <name>Haoang Li</name>
+    </author>
+    <author>
+      <name>Jianyu Chen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.40648v1</id>
+    <title>Light-Cone Friedel Oscillations: a Window into van Hove Superconductivity</title>
+    <updated>2026-10-29T17:59:26Z</updated>
+    <link href="https://arxiv.org/abs/2610.40648v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.40648v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Van Hove (vH) singularities can enhance superconductivity by generating a large pairing susceptibility. Yet, it remains challenging to experimentally establish whether pairing really occurs near these points. We show that the saddle-point dispersion near a vH point gives rise to a `light-cone' vH-selective behavior of Friedel oscillations, which is drastically different from the familiar concentric circles. Each vH point maps onto its own real-space light-cone sector, allowing STM around a single impurity to measure whether---and how strongly---that saddle-point quasiparticle sector is gapped. A superconducting gap near vH points suppresses the oscillations in the directions corresponding to peaks in the gap function angular dependence, a behavior that provides a signature of vH-related pairing at STM-accessible length scales. This STM protocol, targeting vH superconductivity, is capable of determining whether superconducting pairing emerges near the vH points or elsewhere on the Fermi surface.</summary>
+    <category term="cond-mat.mes-hall" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-29T17:59:26Z</published>
+    <arxiv:primary_category term="cond-mat.mes-hall"/>
+    <author>
+      <name>Archisman Panigrahi</name>
+    </author>
+    <author>
+      <name>Vladislav Poliakov</name>
+    </author>
+    <author>
+      <name>Leonid Levitov</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.22340v2</id>
+    <title>PlayPolicy: Dexterity from Supervised Play</title>
+    <updated>2026-10-26T07:47:05Z</updated>
+    <link href="https://arxiv.org/abs/2610.22340v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.22340v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>How can robots autonomously collect the contact-rich experience needed to learn dexterous manipulation? We present PlayPolicy: Dexterity from supervised play (DSP), a framework in which a robot learns a play policy from minutes of human play through behavior cloning, then deploys it autonomously to collect hours of interaction data to train a world model. During inference, the same play policy then guides model-predictive control (MPC) by proposing candidate action sequences for evaluation under the learned world model. To accelerate inference, we also introduce a method for distilling a closed-loop, goal-conditioned policy through self-play within the learned world model. We evaluate this framework on underactuated pushing and any-to-any in-hand pose reorientation with a multifingered hand, in simulation and real world. In real world experiment, our method outperforms hindsight behavior cloning by 69.6% in success rate and achieves comparable success to reinforcement learning with 490 times less interaction data. These results demonstrate that supervised play can autonomously collect interaction data, guide model-based planning, and enable policy learning without any task-specific demonstrations or sim-to-real transfer. Project page: https://play-policy.github.io/</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-15T17:55:50Z</published>
+    <arxiv:comment>Project page: https://play-policy.github.io/</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Botao He</name>
+    </author>
+    <author>
+      <name>Yiming Dou</name>
+    </author>
+    <author>
+      <name>Yiannis Aloimonos</name>
+    </author>
+    <author>
+      <name>Jitendra Malik</name>
+    </author>
+    <author>
+      <name>Akash Sharma</name>
+    </author>
+    <author>
+      <name>Ruoshi Liu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2506.07450v2</id>
+    <title>Efficient Generation of Diverse Cooperative Agents with World Models</title>
+    <updated>2026-10-26T07:33:58Z</updated>
+    <link href="https://arxiv.org/abs/2506.07450v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2506.07450v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A major bottleneck in the training process for Zero-Shot Coordination (ZSC) agents is the generation of diverse partner agents via Population-based Training (PBT). Prominent PBT methods, such as Cross-play Minimization (XPM), can be very computationally expensive and sample inefficient, as the training objective requires sampling multiple types of trajectories, in particular the need of Mixed-Play (MP) trajectories to mitigate self-sabotage in cross-play. Each partner agent in the population is also trained from scratch, despite all of the partners in the population learning policies of the same coordination task. In this work, we propose that simulated trajectories from the dynamics model of an environment can drastically speed up the training process for XPM methods. We introduce XPM-WM, a framework for generating simulated trajectories for XPM via a learned World Model (WM). We show XPM with simulated trajectories removes the need to sample Mixed-Play trajectories while still mitigating any self-sabotage. The learned WM also bootstraps the training of subsequent agents in the population. We show that these two factors combined gives XPM-WM significantly better sample efficiency as compared to other XPM methods and scales linearly to the size of the population. We show our proposed method can effectively generate partners with diverse conventions that match the performance of previous methods. Finally, we show that our proposed training paradigm of using learned world models to generate diverse population can be extended to other PBT methods beyond XPM.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-06-09T05:52:45Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Yi Loo</name>
+    </author>
+    <author>
+      <name>Akshunn Trivedi</name>
+    </author>
+    <author>
+      <name>Malika Meghjani</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.22798v2</id>
+    <title>Expert-Play Contouring Control: Faster-than-Demonstration Planning from Slow Expert and Fast Play</title>
+    <updated>2026-10-26T02:10:23Z</updated>
+    <link href="https://arxiv.org/abs/2609.22798v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.22798v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Expert demonstrations often specify what a robot should do, but not how fast it can do it. Imitation Learning (IL) inherits demonstration timing, while directly accelerating the learned motion can fail when faster execution changes the robot-object dynamics. We study faster-than-demonstration execution as a dynamics-aware control problem and introduce Expert-Play Contouring Control (EPCC), which combines slow expert demonstrations with fast, non-expert play. Expert demonstrations train a latent trajectory generator whose predictions are reparameterized into a time-independent contour of successful task progression, while play trains a world model (WM) of fast-action outcomes. At deployment, our proposed planner uses the WM to optimize actions that makes maximize progress along the expert-derived contour while penalizing deviation from the intended task evolution. Averaged across three visuomotor manipulation tasks, EPCC achieves a $2.0\times$ the throughput of the IL baseline, including $2.2\times$ that of the throughput of the strongest acceleration baseline on a task with interaction-sensitive object dynamics. Our analysis shows that the gains concentrate where faster execution changes robot-object evolution. Together, our results highlight a simple yet effective principle: demonstrations provide task intent, while play data provides the dynamic coverage needed to execute that intent faster.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-19T06:01:54Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Seunghoon Cho</name>
+    </author>
+    <author>
+      <name>Wonsuhk Jung</name>
+    </author>
+    <author>
+      <name>Sundhar Vinodh Sangeetha</name>
+    </author>
+    <author>
+      <name>Shreyas Kousik</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.13775v2</id>
+    <title>RoboEvolve: Co-Evolving Planner-Simulator for Robotic Manipulation with Limited Data</title>
+    <updated>2026-10-24T07:54:03Z</updated>
+    <link href="https://arxiv.org/abs/2605.13775v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.13775v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The scalability of robotic manipulation is fundamentally bottlenecked by the scarcity of task-aligned physical interaction data. While vision-language models (VLMs) and video generation models (VGMs) hold promise for autonomous data synthesis, they suffer from semantic-spatial misalignment and physical hallucinations, respectively. To bridge this gap, we introduce RoboEvolve, a novel framework that couples a VLM planner and a VGM simulator into a mutually reinforcing co-evolutionary loop. Bootstrapped for self-evolution with unlabeled seed images, RoboEvolve leverages a cognitive-inspired dual-phase mechanism: (i) daytime exploration fosters physically grounded behavioral discovery through a semantic-controlled multi-granular reward, and (ii) nighttime consolidation mines "near-miss" failures to stabilize policy optimization. Guided by an autonomous progressive curriculum, the system naturally scales from simple atomic actions to complex tasks. Extensive experiments demonstrate that RoboEvolve (I) achieves superior effectiveness, elevating base planners by 30 absolute points and amplifying simulator success by 48% on average; (II) exhibits extreme data efficiency, surpassing fully supervised baselines with merely 500 unlabeled seeds--a 50X reduction in initial RL data; (III) demonstrates robust continual learning without catastrophic forgetting; and (IV) extends to low-level control, improving cold-started LingBot-VA from 78.7% to 98.7% average task success on LIBERO using environment feedback. Together, these results demonstrate the applicability of our co-evolutionary framework to both internally supervised generative learning and environment-grounded action learning.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-13T16:54:36Z</published>
+    <arxiv:comment>v2: Extended RoboEvolve to the world-action model setting, with new low-level control experiments on LIBERO</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Harold Haodong Chen</name>
+    </author>
+    <author>
+      <name>Sirui Chen</name>
+    </author>
+    <author>
+      <name>Yingjie Xu</name>
+    </author>
+    <author>
+      <name>Wenhang Ge</name>
+    </author>
+    <author>
+      <name>Ying-Cong Chen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.12290v2</id>
+    <title>Beyond Trial-and-Error: Agentic Optimization for Image-to-Video Adherence</title>
+    <updated>2026-10-26T13:52:08Z</updated>
+    <link href="https://arxiv.org/abs/2608.12290v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.12290v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Modern black-box Image-to-Video (I2V) models offer powerful capabilities in automated content creation, yet their lack of fine-grained control and reliability presents significant challenges in professional workflows. Their inherent stochasticity causes minor variations in textual prompts or hyperparameters to yield drastically different outputs often necessitating inefficient, brute-force trial-and-error processes. To address these limitations, we introduce the ``Agentic Self-Improvement" framework, which reframes video synthesis into a closed-loop, goal-directed optimization. Our framework systematically navigates the generation parameter space using a novel two-stage approach. In the first stage, an iterative prompt optimization loop uses a multimodal Large Language Model (mLLM) to refine the input prompt. This refinement implements two automated evaluations: Davidsonian Scene Graph (DSG) queries ensure semantic adherence, and Common Mistake Questions (CMQ) for artifact detection. At the second stage, we use Bayesian optimization to efficiently co-optimize stochastic seeds and CFG scales. This search is guided by a suite of quality metrics, including the novel Video-Text Adherence (VTA) score derived from the DSG and CMQ evaluations. Our framework significantly outperforms unguided search methods: in human preference studies, videos generated via our agentic approach were strongly preferred over baseline outputs, achieving win rates up to 69\%. This work provides a practical and extensible methodology for enhancing the predictability and control of state-of-the-art video generation models, moving the field beyond speculative curiosities toward reliable, production-ready tools.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-12T17:35:16Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Aman Tyagi</name>
+    </author>
+    <author>
+      <name>Hemanth Boinpally</name>
+    </author>
+    <author>
+      <name>Jonathan Chen</name>
+    </author>
+    <author>
+      <name>Douglas Gebert</name>
+    </author>
+    <author>
+      <name>Steven Hickson</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2602.00414v2</id>
+    <title>Toward Autonomous Laboratory Safety Monitoring with Vision Language Models: Learning to See Hazards Through Scene Structure</title>
+    <updated>2026-10-28T23:54:27Z</updated>
+    <link href="https://arxiv.org/abs/2602.00414v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2602.00414v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Laboratories are prone to severe injuries from unsafe actions, yet continuous manual safety monitoring, beyond mandatory pre-lab safety training, is infeasible. Vision-language models (VLMs) offer promise for autonomous laboratory safety monitoring, but their effectiveness in realistic settings is unclear due to the lack of visual evaluation data. Safety incidents are mostly documented as text, and existing studies are largely limited to textual understanding. Since hazardous scenes are unsafe to stage or capture, synthetic visual data becomes the only practical way to study this problem. This motivates us to introduce a structured data generation pipeline that converts textual laboratory scenarios into aligned quadruples using LLM as scene graph architect and image generation model as renderer, yielding \dataset: a synthetic dataset of 1,207 $\langle$image, scene graph, ground truth, hazard relevance mask$\rangle$ quadruples across 362 unique scenarios. Experiments on \dataset and seven open- and closed-source models show that VLMs perform effectively given a textual scene graph but degrade substantially in visual-only settings (i.e., where no scene graph is involved), indicating difficulty in extracting structured object relationships directly from pixels. We thus propose \saga, a post-training framework that leverages reinforcement learning to first structure the visual scene as a scene graph, and then predict hazards while aligning attention with relevant image regions. Evaluations with Qwen 3.5 and Gemma 4 show that our method nearly doubles the $F_1$ score over the baseline on our synthetic dataset and achieves an improvement of $\sim 3\times$ on a mini real-world dataset, while preserving general visual understanding in visual question answering.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-31T00:08:41Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Trishna Chakraborty</name>
+    </author>
+    <author>
+      <name>Udita Ghosh</name>
+    </author>
+    <author>
+      <name>Aldair Ernesto Gongora</name>
+    </author>
+    <author>
+      <name>Ruben Glatt</name>
+    </author>
+    <author>
+      <name>Yue Dong</name>
+    </author>
+    <author>
+      <name>Jiachen Li</name>
+    </author>
+    <author>
+      <name>Amit K. Roy-Chowdhury</name>
+    </author>
+    <author>
+      <name>Chengyu Song</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.35817v2</id>
+    <title>Pretraining Knows What, Simulation Teaches How: Compositional Generalization in a Sim-Trained Robot Agent</title>
+    <updated>2026-10-27T16:21:26Z</updated>
+    <link href="https://arxiv.org/abs/2610.35817v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.35817v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A robot policy needs to understand what a task is asking for in a scene, and how to move the robot to accomplish that task. To achieve these two skills, we introduce Zero-real Agent Policy (ZAP), a recipe that teaches a small off-the-shelf vision-language model to control a robot via a simple tool harness. We use a pretrained 27B parameter model to bootstrap world understanding and reasoning, followed by supervised fine-tuning and GRPO on simple simulated tasks to teach it how to move the robot. Without observing real-world robot data during training, ZAP reaches 96.7% success on real-world tasks, matching GPT-6 Astra in our harness and outperforming the MolmoAct2 VLA (33.3%), while running 3x faster and 17x cheaper than GPT-6 Astra. Furthermore, ZAP also generalizes to an unseen embodiment as well as new objects, goals and strategies never seen during training. On a single-arm Franka, ZAP reaches 55.9% on RoboLab-120, 4.9 percentage points ahead of the leading VLA/WAM baseline.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T17:44:34Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Benjamin Pikus</name>
+    </author>
+    <author>
+      <name>Daniel Saunders</name>
+    </author>
+    <author>
+      <name>Mircea Mironenco</name>
+    </author>
+    <author>
+      <name>Salman Mohammadi</name>
+    </author>
+    <author>
+      <name>Mathew Mathew</name>
+    </author>
+    <author>
+      <name>Sirou Zhu</name>
+    </author>
+    <author>
+      <name>Divya Makkar</name>
+    </author>
+    <author>
+      <name>Xuhua Huang</name>
+    </author>
+    <author>
+      <name>Qinbo Li</name>
+    </author>
+    <author>
+      <name>Supreeth Narasimhaswamy</name>
+    </author>
+    <author>
+      <name>Siyuan Cen</name>
+    </author>
+    <author>
+      <name>Dejia Xu</name>
+    </author>
+    <author>
+      <name>Shyamal Buch</name>
+    </author>
+    <author>
+      <name>Thomas Neff</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2505.07687v5</id>
+    <title>FermatSyn: SAM2-Enhanced Bidirectional Mamba with Isotropic Spiral Scanning for Multi-Modal Medical Image Synthesis</title>
+    <updated>2026-10-26T07:11:35Z</updated>
+    <link href="https://arxiv.org/abs/2505.07687v5" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2505.07687v5" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Multi-modal medical image synthesis is pivotal for alleviating clinical data scarcity, yet existing methods fail to reconcile global anatomical consistency with high-fidelity local detail. We propose FermatSyn, which addresses three persistent limitations: (1) SAM2-based Prior Encoder that injects domain-aware anatomical knowledge via LoRA$^{+}$ efficient fine-tuning of a frozen SAM2 Vision Transformer; (2) Hierarchical Residual Downsampling Module (HRDM) coupled with a Cross-scale Integration Network (CIN) that preserves high-frequency lesion details and adaptively fuses global--local representations; and (3) continuity constrained Fermat Spiral Scanning strategy within a Bidirectional Fermat Scan Mamba (BFS-Mamba), constructing an approximately isotropic receptive field that substantially reduces the directional bias of raster or spiral serialization. Experiments on SynthRAD2023, BraTS2019, BraTS-MEN, and BraTS-MET show FermatSyn surpasses state-of-the-art methods in PSNR, SSIM, FID, and 3D structural consistency. Downstream segmentation on synthesized images yields no significant difference from real-image training ($p{&gt;}0.05$), confirming clinical utility. Code is available at https://github.com/exsinger-hub/ FermatSyn.</summary>
+    <category term="eess.IV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-05-12T15:51:15Z</published>
+    <arxiv:comment>MICCAI 2026</arxiv:comment>
+    <arxiv:primary_category term="eess.IV"/>
+    <author>
+      <name>Feng Yuan</name>
+    </author>
+    <author>
+      <name>Yifan Gao</name>
+    </author>
+    <author>
+      <name>Haoyue Li</name>
+    </author>
+    <author>
+      <name>Xin Gao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.04689v2</id>
+    <title>QPredSGG: Hybrid Quantum Predicate Learning for Long-Tailed Scene Graph Generation</title>
+    <updated>2026-10-24T08:12:43Z</updated>
+    <link href="https://arxiv.org/abs/2606.04689v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.04689v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Scene Graph Generation (SGG) requires relational reasoning over objects and their interactions, but performance is constrained by long-tail predicate imbalance. Classical SGG models rely on dataset statistics, leading to biased predictions toward frequent relations rather than fine-grained semantic predicates. Although debiasing improves mean recall, predicate classification in existing frameworks still relies on high-dimensional classical decision modules with high parameter overhead. This work introduces a resource-efficient hybrid quantum predicate classifier for SGG by replacing the classical predicate head in the CFEN with a QP-Head trained using class-balanced WCE. To the best of our knowledge, this work is among the first evaluations of a hybrid quantum architecture for scene graph predicate classification on Visual Genome 150. We evaluate the impact of qubit count, encoding strategy, entangling topology, and circuit depth. Under a 4-qubit configuration using Amplitude Embedding and Strongly Entangling Layers, the QP-Head projects 4096-dimensional pair features into a 16-dimensional quantum input while using 96 trainable quantum parameters. Operating within this compressed representation space under WCE training, it achieves strong long-tail recognition, reaching a peak mR@100 of 57.25% compared to the 41.1% mR@100 reported in the CFEN baseline under standard training. Protocol-matched ablations indicate that the primary advantage of the quantum head lies in extreme representational compactness rather than an accuracy gain over full-dimensional weighted classical heads: it achieves global recall within 0.19pp of the 2048-dimensional WCE classical baseline while operating from a 128x smaller head feature space. Scaling to 8 qubits maintains robust long-tail performance (55.38% mR@100 with 384 quantum parameters), while depth analysis highlights expressibility-latency trade-offs.</summary>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-03T10:15:56Z</published>
+    <arxiv:comment>Accepted at the 38th IEEE International Conference on Tools with Artificial Intelligence (ICTAI) 2026</arxiv:comment>
+    <arxiv:primary_category term="quant-ph"/>
+    <author>
+      <name>Prerana Ramkumar</name>
+    </author>
+    <author>
+      <name>Nouhaila Innan</name>
+    </author>
+    <author>
+      <name>Muhammad Shafique</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.05588v3</id>
+    <title>GE-Act 2.0: Pretraining and Scaling a World-Action Model for Robotic Manipulation</title>
+    <updated>2026-10-24T15:41:00Z</updated>
+    <link href="https://arxiv.org/abs/2609.05588v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.05588v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>World-action models (WAM) predict future states to guide robot actions, enabling learning from both action-free video and action-labeled interaction. Most inherit pretrained video generators, leaving WAM pretraining and scaling underexplored. We introduce Genie Envisioner Act 2.0 (GE-Act 2.0), a world-action model whose trainable generative and action components are all initialized from scratch on manipulation data. It combines a control-oriented autoencoder (CoAE), a single-step visual planner (SVP), and an inverse dynamics model (IDM). CoAE retains action- and instruction-relevant information under aggressive compression, while SVP produces a complete future state in one differentiable pass, so visual planning and inverse dynamics can be pretrained separately on complementary data. The components are then jointly trained with knowledge-aligned selective optimization (KASO), which reduces mismatched supervision by selecting only predicted futures judged behaviorally compatible with the recorded action. We evaluate pretrained checkpoints directly, without per-task fine-tuning, on 100 tasks across 20 manipulation skill groups with held-out scenes, backgrounds, lighting, and object instances. Scaling co-training data from 300 to 30,000 hours raises success from 17.1% to 44.1% on G1-OP and from 13.4% to 31.1% on G2-90D; despite comprising less than 2% of the co-training data, G2-90D improves by 17.7 points, suggesting cross-embodiment transfer. Gains span 19/20 and 18/20 skill groups, and skill-specific coverage strongly correlates with zero-shot out-of-distribution (OOD) success (Pearson r=0.80; Spearman rho=0.85). Under the same protocol, the model grounds object, color, shape, and position references in at least 90% of trials and follows explicit instructions even when they conflict with an already-committed behavior or a conventional scene association.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-04T17:16:48Z</published>
+    <arxiv:comment>Technical report by the AgiBot Research Team. Project page: https://ge-act-v2.github.io/</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Renhang Liu</name>
+    </author>
+    <author>
+      <name>Wenzhi Zhao</name>
+    </author>
+    <author>
+      <name>Zhuo Yang</name>
+    </author>
+    <author>
+      <name>Liliang Chen</name>
+    </author>
+    <author>
+      <name>Pengfei Zhou</name>
+    </author>
+    <author>
+      <name>Shengcong Chen</name>
+    </author>
+    <author>
+      <name>Guanghui Ren</name>
+    </author>
+    <author>
+      <name>Youlun Peng</name>
+    </author>
+    <author>
+      <name>Rongjun Jin</name>
+    </author>
+    <author>
+      <name>Nan Wang</name>
+    </author>
+    <author>
+      <name>Sukai Wang</name>
+    </author>
+    <author>
+      <name>Xindong He</name>
+    </author>
+    <author>
+      <name>Jinyuan Feng</name>
+    </author>
+    <author>
+      <name>Ziyu Xiong</name>
+    </author>
+    <author>
+      <name>Linqing Zhong</name>
+    </author>
+    <author>
+      <name>Yifei Wei</name>
+    </author>
+    <author>
+      <name>Feng Han</name>
+    </author>
+    <author>
+      <name>Long Zhang</name>
+    </author>
+    <author>
+      <name>Da Huang</name>
+    </author>
+    <author>
+      <name>Nanshu Zhao</name>
+    </author>
+    <author>
+      <name>Chenghao Yin</name>
+    </author>
+    <author>
+      <name>Mo Wu</name>
+    </author>
+    <author>
+      <name>Zhaodong Yan</name>
+    </author>
+    <author>
+      <name>Kongtao Hu</name>
+    </author>
+    <author>
+      <name>Yuxiang Yan</name>
+    </author>
+    <author>
+      <name>Aogelijiang Niyazi</name>
+    </author>
+    <author>
+      <name>Yu Fang</name>
+    </author>
+    <author>
+      <name>Jia Zeng</name>
+    </author>
+    <author>
+      <name>Lizhu Meng</name>
+    </author>
+    <author>
+      <name>Daizhen Lv</name>
+    </author>
+    <author>
+      <name>Haoyu Cao</name>
+    </author>
+    <author>
+      <name>Zhiwen Hou</name>
+    </author>
+    <author>
+      <name>Lianjin Ye</name>
+    </author>
+    <author>
+      <name>Yuehan Niu</name>
+    </author>
+    <author>
+      <name>Zhikai Cai</name>
+    </author>
+    <author>
+      <name>Xuan Hu</name>
+    </author>
+    <author>
+      <name>Hui Min</name>
+    </author>
+    <author>
+      <name>Xiongfeng Cai</name>
+    </author>
+    <author>
+      <name>Yue Liao</name>
+    </author>
+    <author>
+      <name>Jing Wu</name>
+    </author>
+    <author>
+      <name>Soujanya Poria</name>
+    </author>
+    <author>
+      <name>Ye Li</name>
+    </author>
+    <author>
+      <name>Sanping Zhou</name>
+    </author>
+    <author>
+      <name>Maoqing Yao</name>
+    </author>
+    <author>
+      <name>AgiBot Research Team</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2602.08032v3</id>
+    <title>Horizon Imagination: Efficient On-Policy Rollout in Diffusion World Models</title>
+    <updated>2026-10-24T10:32:23Z</updated>
+    <link href="https://arxiv.org/abs/2602.08032v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2602.08032v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study diffusion-based world models for reinforcement learning, which offer high generative fidelity but face critical efficiency challenges in control. Current methods either require heavyweight models at inference or rely on highly sequential imagination, both of which impose prohibitive computational costs. We propose Horizon Imagination (HI), an on-policy imagination process for discrete stochastic policies that denoises multiple future observations in parallel. HI incorporates a stabilization mechanism and a novel sampling schedule that decouples the denoising budget from the effective horizon over which denoising is applied while also supporting sub-frame budgets. Experiments on Atari 100K and Craftium show that our approach maintains control performance with a sub-frame budget of half the denoising steps and achieves superior generation quality under varied schedules. Code is available at https://github.com/leor-c/horizon-imagination.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-02-08T16:07:04Z</published>
+    <arxiv:comment>Accepted and published at ICLR 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Lior Cohen</name>
+    </author>
+    <author>
+      <name>Ofir Nabati</name>
+    </author>
+    <author>
+      <name>Kaixin Wang</name>
+    </author>
+    <author>
+      <name>Navdeep Kumar</name>
+    </author>
+    <author>
+      <name>Shie Mannor</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.20731v2</id>
+    <title>WorldCast: Exploring Intelligent Visual Generation in World State Prediction</title>
+    <updated>2026-10-22T14:44:41Z</updated>
+    <link href="https://arxiv.org/abs/2610.20731v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.20731v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Humans interpret multimodal observations of the world and forecast how it will evolve. Recent multimodal generative systems have demonstrated similar capabilities: they can integrate multimodal context and synthesize visual outputs that depict changes in the world. To characterize this emerging trajectory, we organize model capabilities into a four-level hierarchy and discover that higher-level tasks remain relatively underexplored despite model progress. To bridge this gap, we explore model performance on multi-step world state prediction, a high-level task that requires models to forecast successive future world states from multimodal observations and diverse references. Such a task requires models to possess entangled understanding and generation capabilities, as well as extensive world knowledge to translate human action sequences, physical transformations, and abstract visual reasoning into coherent visual outputs. We introduce WorldCast, a benchmark comprising 320 manually designed cases across eight categories, and evaluate 12 representative models. The conducted experiments yield three key insights: (a) advances in frontier models are rapidly pushing the boundaries of intelligent world modeling, with the GPT-Image-2.5 System scoring 72.8 and demonstrating early-stage visual state prediction capabilities on real-world tasks; (b) WorldCast reveals substantial gaps between models: even Nano Banana Pro reaches only 42.8 and the best open-source model scores 20.1, with deficits in handling complex context, entangled references, and reasoning-heavy tasks; (c) strong generative models effectively draw on the capabilities of their underlying language models. These findings highlight the need for multimodal generative models that are capable of dynamic planning and reasoning while also being deeply unified to faithfully simulate real-world states.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-14T18:00:07Z</published>
+    <arxiv:comment>Project Page: https://teal024.github.io/WorldCast</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Wenhao Yan</name>
+    </author>
+    <author>
+      <name>Haodong Li</name>
+    </author>
+    <author>
+      <name>Xiaotong Li</name>
+    </author>
+    <author>
+      <name>Yaxin Luo</name>
+    </author>
+    <author>
+      <name>Zhengrong Yue</name>
+    </author>
+    <author>
+      <name>Jialv Zou</name>
+    </author>
+    <author>
+      <name>Xu Huang</name>
+    </author>
+    <author>
+      <name>Haojin Yang</name>
+    </author>
+    <author>
+      <name>Nan Jia</name>
+    </author>
+    <author>
+      <name>Yan Feng</name>
+    </author>
+    <author>
+      <name>Peng Pei</name>
+    </author>
+    <author>
+      <name>Xunliang Cai</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.11460v3</id>
+    <title>Semantic-Geometric Task Representations for Bimanual Manipulation from Human Demonstrations to Robot Action Planning</title>
+    <updated>2026-10-26T18:41:08Z</updated>
+    <link href="https://arxiv.org/abs/2601.11460v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.11460v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Learning structured task representations from human demonstrations is essential for bimanual manipulation, where action ordering, object involvement, and interaction geometry vary significantly across executions. A key challenge lies in jointly capturing the discrete semantic task structure and the temporal evolution of object-centric geometric relations in a form that supports reasoning over task progression. We introduce a semantic-geometric graph-based task representation that jointly encodes object identities, inter-object semantic relations, and per-object motion histories, via a Message Passing Neural Network (MPNN) encoder and a Transformer-based decoder. The encoder operates solely on the temporal scene graph, producing structured representations decoupled from action labels. The decoder then conditions on action-context to forecast future actions, associated objects, and object motions. This decoupling learns task-agnostic representations, enabling encoder reuse across embodiments through decoder-only finetuning on a small robot dataset. Across eleven bimanual tasks from two datasets, we find that the benefit of structured semantic--geometric representations over simpler sequence-based models grows with task variability in action ordering and object involvement. At deployment, a planner couples the action and motion predictions with learned Probabilistic Movement Primitives, achieving full task success on two real-robot bimanual tasks and outperforming graph ablations, Transformer, decoder-only, and finetuned vision-language model baselines.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-16T17:35:00Z</published>
+    <arxiv:comment>9 pages, 7 figures, preprint version of paper accepted at IEEE RA-L 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <arxiv:journal_ref>IEEE Robotics and Automation Letters (RA-L), 11 (8), 9731-9738, 2026</arxiv:journal_ref>
+    <author>
+      <name>Franziska Herbert</name>
+    </author>
+    <author>
+      <name>Vignesh Prasad</name>
+    </author>
+    <author>
+      <name>Han Liu</name>
+    </author>
+    <author>
+      <name>Dorothea Koert</name>
+    </author>
+    <author>
+      <name>Georgia Chalvatzaki</name>
+    </author>
+    <arxiv:doi>10.1109/LRA.2026.3703251</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1109/LRA.2026.3703251" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.18826v4</id>
+    <title>WorldOracle: Benchmarking Action-Conditioned World Models against Real-World Executions</title>
+    <updated>2026-10-24T18:38:01Z</updated>
+    <link href="https://arxiv.org/abs/2610.18826v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.18826v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We introduce WorldOracle, a benchmark specifically designed to evaluate action-conditioned world models (ACWMs) against paired real-world executions. Given the same initial observation and low-level action sequence, WorldOracle asks whether a predicted rollout reproduces what happens in the real world, including physical consequences and task-state transitions. We evaluate models along four complementary dimensions: physical state correctness, interaction spatial alignment, key interaction area fidelity, and multi-view action coherence. To support this evaluation, we curate real-world training and evaluation suites that cover different interaction dynamics and embodiments. The evaluation suite contains long, multi-segment episodes with both successful and failed executions, enabling evaluation across varied action outcomes and behavior distributions. Experiments on seven representative ACWMs reveal distinct model strengths and failure modes. WorldOracle provides a systematic foundation for measuring and advancing action-conditioned world modeling for manipulation. We release the datasets, evaluation code, and leaderboard: https://worldoracle-benchmark.github.io/.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-13T17:52:55Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Haoyi Duan</name>
+    </author>
+    <author>
+      <name>Liliang Chen</name>
+    </author>
+    <author>
+      <name>Nan Wang</name>
+    </author>
+    <author>
+      <name>Yang Zhang</name>
+    </author>
+    <author>
+      <name>Yuhang Lu</name>
+    </author>
+    <author>
+      <name>Xiaotong Chen</name>
+    </author>
+    <author>
+      <name>Wei-Cheng Tseng</name>
+    </author>
+    <author>
+      <name>Shenyuan Gao</name>
+    </author>
+    <author>
+      <name>Zhaoshuo Li</name>
+    </author>
+    <author>
+      <name>Jingyi Jin</name>
+    </author>
+    <author>
+      <name>Pooya Jannaty</name>
+    </author>
+    <author>
+      <name>Dhruv Shah</name>
+    </author>
+    <author>
+      <name>Yuke Zhu</name>
+    </author>
+    <author>
+      <name>Ming-Yu Liu</name>
+    </author>
+    <author>
+      <name>Maoqing Yao</name>
+    </author>
+    <author>
+      <name>Guanghui Ren</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2511.18991v2</id>
+    <title>Do View-Consistent Representations Matter for Camera-Controlled Video Generation?</title>
+    <updated>2026-10-24T11:32:47Z</updated>
+    <link href="https://arxiv.org/abs/2511.18991v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.18991v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Camera-controlled video generation has attracted increasing interest for its applications in simulation, gaming, and world modeling. However, current models often deform rigid objects and scene structure as the viewpoint changes. We investigate whether this failure is related to a measurable internal property: the view consistency of diffusion representations. Across a diverse collection of camera-controlled image-to-video diffusion models, we find that models exhibiting more view-consistent representations generate videos with superior 3D consistency. We complement this correlation-based evidence with a within-model controlled intervention, ViCoDR, which directly supervises the view consistency of internal diffusion representations, during training. Across camera-controlled image-to-video, camera-controlled text-to-video, and multi-view generation tasks, ViCoDR consistently improves output 3D consistency. Finally, we evaluate the loss used for these interventions as an auxiliary training objective by retraining a camera-controlled I2V model using either ViCoDR or existing methods for supervising diffusion representations under the same training setup. We show that the ViCoDR loss improves output 3D consistency more reliably than the alternatives and remains effective across design variants, while exhibiting camera-control trade-offs and requiring additional training computation. Together, these results establish view consistency of internal diffusion representations as an important property for analyzing and improving camera-controlled video generation. Project page: https://danier97.github.io/ViCoDR.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-24T11:16:55Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Duolikun Danier</name>
+    </author>
+    <author>
+      <name>Ge Gao</name>
+    </author>
+    <author>
+      <name>Chengxi Zeng</name>
+    </author>
+    <author>
+      <name>Steven McDonagh</name>
+    </author>
+    <author>
+      <name>Changjian Li</name>
+    </author>
+    <author>
+      <name>Hakan Bilen</name>
+    </author>
+    <author>
+      <name>Oisin Mac Aodha</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.35032v2</id>
+    <title>JRDB-AVR: An Active Visual Reasoning Benchmark for Embodied Agents in Real-World Environments</title>
+    <updated>2026-10-26T03:28:40Z</updated>
+    <link href="https://arxiv.org/abs/2609.35032v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.35032v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In complex embodied visual reasoning scenarios, an agent often has only a limited field of view, and the evidence needed to answer a question may be distributed across time, viewpoint, and interacting objects. A model may therefore give a plausible answer without ever observing the relevant object, time, or view that supports it. Current visual reasoning benchmarks largely evaluate passive observations and final answers, overlooking settings that require active reasoning and evidence acquisition. We introduce JRDB-AVR, a benchmark derived from existing real-world JRDB robotics data through a structured question-generation engine that turns this gap into an explicit evaluation: an embodied agentic system receives a visual reasoning question, requests bounded observations by timestamp and viewing angle, and is evaluated on both the final answer and the grounded visual evidence supporting it. The benchmark contains diverse questions over multiple real-world environments involving temporal search, viewpoint selection, and human-oriented compositional reasoning. We also introduce JRDB-AVR-Agent, a reference active reasoning agentic method that maintains an explicit observation-grounded graph-based world model and answers through solving. Experiments reveal a substantial gap between answer accuracy and evidence accuracy in current baselines, showing that current VLMs can produce unsupported correct answers and that active evidence-aware evaluation is necessary for embodied visual reasoning. Code and benchmark are available at https://github.com/ControlNet/JRDB-AVR.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-28T12:30:11Z</published>
+    <arxiv:comment>NeurIPS 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Zhixi Cai</name>
+    </author>
+    <author>
+      <name>Fucai Ke</name>
+    </author>
+    <author>
+      <name>Sukai Huang</name>
+    </author>
+    <author>
+      <name>Maria Garcia de la Banda</name>
+    </author>
+    <author>
+      <name>Peter J. Stuckey</name>
+    </author>
+    <author>
+      <name>Gholamreza Haffari</name>
+    </author>
+    <author>
+      <name>Hamid Rezatofighi</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.33669v1</id>
+    <title>SoftBART-CORM Models for Density Regression</title>
+    <updated>2026-10-24T13:33:32Z</updated>
+    <link href="https://arxiv.org/abs/2610.33669v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.33669v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Flexible modelling of the conditional distribution of a response given predictors is important in many applications where nonlinear effects, heteroskedasticity, and multimodality may be present. We introduce the SoftBART-CoRM, a predictor-dependent infinite mixture model that combines the interpretable component structure of Compound Random Measures (CoRMs) with SoftBART priors on both mixture weights and component-specific parameters. The model flexibly captures complex distributional features, while global--local shrinkage and predictor-selection priors mitigate overfitting and identify the covariates driving component allocation and kernel parameters. Posterior inference is performed using an efficient Markov chain Monte Carlo algorithm that leverages existing \texttt{R} implementations of SoftBART. Through simulation studies and real-data applications, we show that the proposed approach can adaptively shrink towards simpler mixture representations, provide interpretable inference on the predictors governing different aspects of the conditional distribution, and achieve superior out-of-sample predictive performance relative to benchmark models.</summary>
+    <category term="stat.ME" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-24T13:33:32Z</published>
+    <arxiv:primary_category term="stat.ME"/>
+    <author>
+      <name>Jim E. Griffin</name>
+    </author>
+    <author>
+      <name>Maria Kalli</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.38879v1</id>
+    <title>Proximal R2 Priors for Structured Variance Allocation</title>
+    <updated>2026-10-28T20:46:24Z</updated>
+    <link href="https://arxiv.org/abs/2610.38879v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.38879v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Scientific domain knowledge in regression often concerns structural relationships among model terms, which are typically encoded as parameter constraints. Since such relationships rarely hold exactly in practice, prior distributions should encourage them while at the same time retaining support for scientifically plausible departures. Accounting for these relationships becomes more pressing in modern regression, where high-dimensionality is usually present and regularisation is essential. $R^2$ decomposition priors provide an interpretable foundation for regularisation by placing a prior on total explained variance and distributing the implied signal across model terms. We introduce the Proximal R2 prior, which uses proximal relaxations to encode these relationships as soft constraints on the variance allocation. Our formulation yields differentiable posteriors compatible with standard gradient based samplers. Theoretically, we prove that our prior preserves the characteristic marginal properties of global-local shrinkage priors. Moreover, we establish posterior consistency and contraction rates in growing dimensions, showing that the inclusion of structural relationships and proximal methods do not alter the shrinkage properties. Notably, these results demonstrate that the structural constraints in the model do not hinder posterior recovery. Simulation studies and real-data applications to interaction and generalised additive models demonstrate that our prior improves parameter recovery, out-of-sample prediction, and sampling efficiency over existing constrained and unconstrained shrinkage priors, even under structural misspecification.</summary>
+    <category term="stat.ME" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.ST" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-28T20:46:24Z</published>
+    <arxiv:primary_category term="stat.ME"/>
+    <author>
+      <name>Javier Enrique Aguilar</name>
+    </author>
+    <author>
+      <name>David Kohns</name>
+    </author>
+    <author>
+      <name>Eric Yanchenko</name>
+    </author>
+    <author>
+      <name>Shonosuke Sugasawa</name>
+    </author>
+    <author>
+      <name>Kaoru Irie</name>
+    </author>
+    <author>
+      <name>Aki Vehtari</name>
+    </author>
+    <author>
+      <name>Paul-Christian Bürkner</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.21620v2</id>
+    <title>From Profiles to Steering Vectors: Global Sparse Priors and Local Semantic Calibration for Personalized Text Generation</title>
+    <updated>2026-10-29T14:05:24Z</updated>
+    <link href="https://arxiv.org/abs/2607.21620v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.21620v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Personalized text generation requires models to capture user-specific writing styles from historical data. Existing approaches based on retrieval, parameter-efficient fine-tuning, or activation steering either introduce inference and storage overhead or struggle to separate stylistic signals from semantic content. We propose GLASS, a training-free framework for personalized generation via Global-Local Activation Steering with Sparse priors. GLASS uses sparse autoencoders to extract a global user-style prior from historical responses and constructs local contrastive style vectors over clustered interaction scenarios. During inference, it jointly injects global and local vectors into different model layers, enabling context-aware personalization without retrieval or parameter updates. Experiments on LaMP and LongLaMP show that GLASS outperforms retrieval-, fine-tuning-, and steering-based baselines across ROUGE metrics and LLM-as-judge evaluations. Further analyses show that SAE-based representations are more robust to topic and length shifts, suggesting better disentanglement of stylistic information from semantic residue.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-01T12:42:17Z</published>
+    <arxiv:comment>EMNLP2026 Oral, SAC Highlight Award</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Liuji Chen</name>
+    </author>
+    <author>
+      <name>Zeyu Zhang</name>
+    </author>
+    <author>
+      <name>Xinyuan Zhang</name>
+    </author>
+    <author>
+      <name>Shuai Nie</name>
+    </author>
+    <author>
+      <name>Qiang Liu</name>
+    </author>
+    <author>
+      <name>Shu Wu</name>
+    </author>
+    <author>
+      <name>Liang Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.24036v2</id>
+    <title>Signatures of Quantum-Corrected Black Holes in Gravitational Waves from Periodic Orbits</title>
+    <updated>2026-10-29T15:40:47Z</updated>
+    <link href="https://arxiv.org/abs/2512.24036v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.24036v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Focusing on a Schwarzschild spacetime modified by loop quantum gravity (LQG) holonomy corrections, this work explores the gravitational radiation produced by test masses in bound periodic configurations. The underlying geometry incorporates a quantum-correction parameter $q_c$ that alters the radial metric scaling while maintaining both asymptotic flatness and the classical horizon radius. The bound geodesics are systematically classified using the zoom--whirl representation labelled by three integers $(z,w,v)$. Gravitational waveforms are computed within a numerical framework that combines exact geodesic motion with the quadrupole approximation, which is suitable for extreme mass ratio inspirals. We demonstrate that the quantum corrections lead to distinct phase shifts, amplitude variations, and modifications to the harmonic structure of the waveforms, with increasingly complex features for orbits with larger zoom numbers. The corresponding frequency spectra and characteristic strain peak, which fall within the millihertz band, are within the sensitivity ranges of space-based detectors such as LISA, Taiji, and TianQin. For specific orbital configurations and values of the quantum-correction parameter, the characteristic strain exceeds the projected detector noise, indicating potential observability. Our results demonstrate that gravitational waves from periodic orbits provide a sensitive probe of quantum-corrected black hole spacetimes in the strong-field regime.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-30T07:23:32Z</published>
+    <arxiv:comment>13 pages, 8 figures; v2: published in the Communications in Theoretical Physics</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <arxiv:journal_ref>Commun. Theor. Phys. 78, 125402 (2026)</arxiv:journal_ref>
+    <author>
+      <name>Fazlay Ahmed</name>
+    </author>
+    <author>
+      <name>Qiang Wu</name>
+    </author>
+    <author>
+      <name>Sushant G Ghosh</name>
+    </author>
+    <author>
+      <name>Tao Zhu</name>
+    </author>
+    <arxiv:doi>10.1088/1572-9494/aea603</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1088/1572-9494/aea603" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.24885v2</id>
+    <title>Do Robotic World Models Really Follow Actions? Diagnosing and Aligning Action-Conditioned Generation for Policy Learning</title>
+    <updated>2026-10-23T11:26:30Z</updated>
+    <link href="https://arxiv.org/abs/2608.24885v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.24885v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Action-conditioned world models increasingly serve as learned simulators for robotic policy improvement, yet their reliability rests on an unverified assumption: generated futures faithfully reflect the consequences of arbitrary valid actions. Systematic evaluation against action-specific ground truth remains limited beyond expert demonstrations. To address this gap, we introduce WorldEcho, which evaluates action following over a broader action distribution through visual integrity and SE(3) end-effector trajectory alignment. Our diagnosis shows that expert-trained models perform better on demonstrated actions but struggle with off-expert trajectories, producing motion inconsistent with the commanded actions or visually invalid rollouts. To mitigate these failures, we propose WorldSync, which broadens action coverage, grounds intermediate video representations in action-induced robot dynamics through an Action-Forcing Expert, and aligns predicted and ground-truth changes under action interventions. Experiments show that WorldSync reduces integrity-gated error on RoboTwin and, when used for iterative policy improvement, yields higher success rates in simulation and on real robots.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-25T17:59:49Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Sixiang Chen</name>
+    </author>
+    <author>
+      <name>Jiaming Liu</name>
+    </author>
+    <author>
+      <name>Jixian Wu</name>
+    </author>
+    <author>
+      <name>Yichen Guo</name>
+    </author>
+    <author>
+      <name>Tinghao Wang</name>
+    </author>
+    <author>
+      <name>QR Li</name>
+    </author>
+    <author>
+      <name>Siyuan Qian</name>
+    </author>
+    <author>
+      <name>Peterson Co</name>
+    </author>
+    <author>
+      <name>Hao Chen</name>
+    </author>
+    <author>
+      <name>Jiajun Cao</name>
+    </author>
+    <author>
+      <name>Zhoujian Li</name>
+    </author>
+    <author>
+      <name>Lingfei Zhai</name>
+    </author>
+    <author>
+      <name>Jian Tang</name>
+    </author>
+    <author>
+      <name>Shanghang Zhang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.06988v3</id>
+    <title>WAM-TTT: Steering World-Action Models by Watching Human Play at Test Time</title>
+    <updated>2026-10-23T06:57:20Z</updated>
+    <link href="https://arxiv.org/abs/2607.06988v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.06988v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Steering robot foundation models (RFMs) toward new task variants or user-preferred behaviors remains challenging, often requiring additional robot demonstrations, task-specific fine-tuning, or long-context conditioning. We present WAM-TTT, a test-time training framework for steering world action models from raw human videos. Rather than treating human videos as trajectories to imitate, WAM-TTT absorbs them into a lightweight adaptive memory inside a frozen WAM through self-supervised video prediction. To make this memory useful for control, we introduce a meta-training stage that aligns human demonstrations with robot behaviors using paired human-robot data and a key--value memory reconstruction objective. At test time, only unlabeled human videos are required to adapt the memory, while the pretrained WAM remains frozen. This enables efficient and reusable steering without robot actions, human-side annotations, or task-specific fine-tuning, while preserving the generalization ability of the foundation model. Extensive experiments show that WAM-TTT consistently outperforms in-context human-video conditioning baselines across diverse manipulation tasks and generalization settings.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-08T04:23:22Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Yusen Feng</name>
+    </author>
+    <author>
+      <name>Bingchen Han</name>
+    </author>
+    <author>
+      <name>Jiangran Lyu</name>
+    </author>
+    <author>
+      <name>Kai Liu</name>
+    </author>
+    <author>
+      <name>Yixin Zheng</name>
+    </author>
+    <author>
+      <name>Yuxuan Wan</name>
+    </author>
+    <author>
+      <name>Weiheng Liu</name>
+    </author>
+    <author>
+      <name>Sun Han</name>
+    </author>
+    <author>
+      <name>Ruiqin Li</name>
+    </author>
+    <author>
+      <name>Yulong Zhang</name>
+    </author>
+    <author>
+      <name>Fangfu Liu</name>
+    </author>
+    <author>
+      <name>Xuesong Shi</name>
+    </author>
+    <author>
+      <name>Libin Liu</name>
+    </author>
+    <author>
+      <name>Yizhou Wang</name>
+    </author>
+    <author>
+      <name>Zhizheng Zhang</name>
+    </author>
+    <author>
+      <name>He Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.36881v1</id>
+    <title>RAG-CSI: Global Local Retrieval via Joint State and Dynamics Matching for CSI Prediction</title>
+    <updated>2026-10-27T09:19:16Z</updated>
+    <link href="https://arxiv.org/abs/2610.36881v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.36881v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Channel state information (CSI) prediction forecasts future channel states from historical observations, supporting transceiver design and resource allocation with reduced measurement overhead. However, existing deep learning predictors mainly encode channel knowledge in model parameters, which can limit their ability to represent diverse patterns of channel dynamics across scenes. In this paper, we propose RAG-CSI, a retrieval-enhanced Transformer framework that augments prediction with relevant historical channel knowledge. Specifically, we construct a global--local CSI knowledge store containing representative observations across scenes and historical observations from the current serving scene. We further develop joint state--dynamics retrieval (JSDR), which jointly characterizes channel states, phase dynamics, and amplitude dynamics to retrieve relevant CSI sequences. A Transformer predictor then uses cross-attention to fuse the retrieved knowledge with the current CSI history and predict future CSI with limited additional model parameters. Experiments on a multi-scene CSI dataset show overall improvements exceeding 10\% across all five evaluation metrics over the best baseline for each metric, including a 15.42\% reduction in normalized mean squared error.</summary>
+    <category term="eess.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T09:19:16Z</published>
+    <arxiv:primary_category term="eess.SP"/>
+    <author>
+      <name>Xinyue Jiang</name>
+    </author>
+    <author>
+      <name>Tong Li</name>
+    </author>
+    <author>
+      <name>Shiceng Zhang</name>
+    </author>
+    <author>
+      <name>Ke Chen</name>
+    </author>
+    <author>
+      <name>Zhu Xiao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.39135v2</id>
+    <title>Asking the World: Generalist Physical Reasoning through Agentic World Modeling and Probing</title>
+    <updated>2026-10-24T18:11:49Z</updated>
+    <link href="https://arxiv.org/abs/2609.39135v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.39135v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Physical reasoning from video requires inferring latent physical properties and dynamics beyond direct observation. Direct VLM inference remains unreliable on complex physical tasks without explicit modeling and validation, while predefined tool pipelines rely on task- and domain-specific priors that limit generalization across materials, dynamics, and reasoning tasks. We introduce Asking the World (ATW), a generalist agent that constructs and interrogates task-relevant executable worlds through two adaptive stages: World Modeling calibrates a world from video, while World Probing queries, simulates, and intervenes on it to obtain question-relevant evidence. Rather than prescribing the operations in either stage, ATW determines how to model and probe according to the scene and question. We develop PolyWorld Engine, a lightweight and highly programmable Warp-based multiphysics simulator for constructing and probing worlds with rigid bodies, soft bodies, cloth, ropes, fluids, and their coupled interactions. CEM-based system identification recovers task-relevant dynamics during World Modeling. The resulting world becomes an active workspace for question-directed physical experiments rather than a predetermined downstream tool. We evaluate ATW on CLEVRER, ContPhy, and three real-world scenarios. Using Gemini-3-Flash as its base VLM, ATW achieves 80.82% overall per-question accuracy on CLEVRER, improving direct Gemini-3-Flash by 46.50 points, GPT-5.5 by 13.58 points, and PhysMind by 8.27 points. On ContPhy, it reaches 70.56% overall accuracy, surpassing Gemini-3-Flash by 28.10 points and GPT-5.5 by 3.53 points. Across the three real-world scenarios, ATW achieves 71.67% accuracy, 28.33 points above GPT-5.5. These results establish agentic world modeling and probing as an effective, execution-grounded approach to generalist physical reasoning. Project page: https://asking-the-world.github.io/</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-30T07:04:21Z</published>
+    <arxiv:comment>21 pages, 9 figures, 6 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Shenxiang Zeng</name>
+    </author>
+    <author>
+      <name>Chen Yang</name>
+    </author>
+    <author>
+      <name>Peiyao Chen</name>
+    </author>
+    <author>
+      <name>Guohui Zhang</name>
+    </author>
+    <author>
+      <name>Jiansheng Fan</name>
+    </author>
+    <author>
+      <name>Chen Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.07974v2</id>
+    <title>PRISM: PRior-guided Imagination Sampling in world Models</title>
+    <updated>2026-10-24T23:45:30Z</updated>
+    <link href="https://arxiv.org/abs/2606.07974v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.07974v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Latent world models learn representations that enable them to predict how actions change the environment - a capability we call physical intuition. We find that these same representations also support action intuition: a lightweight head can learn a goal-conditioned action prior directly from the frozen encoder's features. We introduce PRISM to investigate how action intuition can be extracted from frozen world-model representations and used to guide goal-conditioned planning. The prior's mean and predicted uncertainty guide the search for useful actions, while the world model evaluates their consequences against the goal. Experiments on four simulated control tasks and two real-robot platforms show that a lightweight action head improves planning performance, and that the same fusion interface accepts a diffusion prior over the same frozen features without modification. These results demonstrate the potential of reusing world-model representations to both predict action consequences and guide action selection.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-06T04:18:10Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Yuhai Wang</name>
+    </author>
+    <author>
+      <name>Jiawei Xia</name>
+    </author>
+    <author>
+      <name>Bowen Sun</name>
+    </author>
+    <author>
+      <name>Rongxuan Zhou</name>
+    </author>
+    <author>
+      <name>Xiao Hu</name>
+    </author>
+    <author>
+      <name>Yongliang Shi</name>
+    </author>
+    <author>
+      <name>Jing Du</name>
+    </author>
+    <author>
+      <name>Yang Ye</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.34826v2</id>
+    <title>WM-VLM: Probing Internal World Models for Interleaved Visual-Textual Reasoning</title>
+    <updated>2026-10-25T20:23:36Z</updated>
+    <link href="https://arxiv.org/abs/2609.34826v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.34826v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Humans often solve spatial problems by mentally simulating visual transformations. In contrast, conventional vision-language models (VLMs) reason primarily through language. We investigate whether VLMs can solve spatial problems by reasoning with both text and generated visual states. To this end, we introduce WM-VLM, which equips a pretrained VLM with a lightweight world model branch for generating intermediate visual states. Our two-stage training first teaches the model to generate the next visual state and then to use that state for reasoning. We programmatically construct spatial reasoning tasks with verifiable intermediate visual states. These tasks allow us to evaluate how well the model generates visual states and how much it relies on them to answer the question. On 2D and 3D mental rotation tasks, WM-VLM consistently outperforms the supervised fine-tuned backbone, with gains of up to 39.25 percentage points. Ablations suggest that these gains depend on the generated visual states, as removing or corrupting them sharply reduces performance. Together, these results suggest that internal world models offer a promising path toward VLMs that reason in both language and visual space. Code is publicly available at: https://github.com/yuh-zha/WM-VLM</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-28T10:23:42Z</published>
+    <arxiv:comment>31 pages, 22 figures, 9 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Yuheng Zha</name>
+    </author>
+    <author>
+      <name>Yilei Wang</name>
+    </author>
+    <author>
+      <name>Qiyue Gao</name>
+    </author>
+    <author>
+      <name>Junrong Chen</name>
+    </author>
+    <author>
+      <name>Yujia Wu</name>
+    </author>
+    <author>
+      <name>Zhengfeng Lai</name>
+    </author>
+    <author>
+      <name>Zhengzhong Liu</name>
+    </author>
+    <author>
+      <name>Eric P. Xing</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.40066v1</id>
+    <title>Quantum Metric Scaling and Its Exceptions in Classical Flat Bands</title>
+    <updated>2026-10-29T13:49:36Z</updated>
+    <link href="https://arxiv.org/abs/2610.40066v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.40066v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The quantum metric length has been proposed as the localization length scale in one-dimensional flat bands. Here, we study this quantum metric scaling and the exceptions to it in a classical flat band formed by a locally resonant mass--spring system. We find that the localization length follows the quantum metric length near the flat band but departs from this proportionality at the exact flat-band frequency. Selective mass disorder also produces divergent localization lengths or arbitrarily short tails near the flat-band frequency without changing the clean metric. These exceptions show that disorder can select localization scales beyond those predicted by the quantum metric alone.</summary>
+    <category term="cond-mat.other" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-29T13:49:36Z</published>
+    <arxiv:comment>5 pages, 3 figures</arxiv:comment>
+    <arxiv:primary_category term="cond-mat.other"/>
+    <author>
+      <name>Kin Hung Fung</name>
+    </author>
+    <author>
+      <name>K. T. Law</name>
+    </author>
+    <author>
+      <name>C. T. Chan</name>
+    </author>
+  </entry>
+</feed>

@@ -1,0 +1,10 @@
+{
+  "title_reviewed": 862,
+  "possible_relevance_routed": {
+    "core": 54,
+    "geometry": 65,
+    "extension": 131
+  },
+  "clear_title_offscope": 612,
+  "note": "Manual title audit of every screen entry; routed uncertain/robot/3D/sensor/application candidates for abstract judgment. Clear mathematics/physics/astronomy/audio/NLP/medical2D/etc title exclusions require specific reasons, never low stars or quota."
+}

@@ -1,0 +1,382 @@
+[
+  {
+    "name": "main-advanced-A-state-submitted_date_first",
+    "family": "A-state",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "SLAM",
+      "\"simultaneous localization\"",
+      "\"simultaneous localisation\"",
+      "VIO",
+      "\"visual-inertial\"",
+      "odometry",
+      "SfM",
+      "\"structure from motion\""
+    ],
+    "date_predicate": "submitted_date_first:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:19:41Z",
+    "total": 34,
+    "fetched": 0,
+    "pages": [],
+    "exhausted": false,
+    "failure": "cssselect does not seem to be installed. See https://pypi.org/project/cssselect/"
+  },
+  {
+    "name": "main-advanced-A-state-submitted_date",
+    "family": "A-state",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "SLAM",
+      "\"simultaneous localization\"",
+      "\"simultaneous localisation\"",
+      "VIO",
+      "\"visual-inertial\"",
+      "odometry",
+      "SfM",
+      "\"structure from motion\""
+    ],
+    "date_predicate": "submitted_date:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:19:41Z",
+    "total": 53,
+    "fetched": 0,
+    "pages": [],
+    "exhausted": false,
+    "failure": "cssselect does not seem to be installed. See https://pypi.org/project/cssselect/"
+  },
+  {
+    "name": "main-advanced-A-backend-submitted_date_first",
+    "family": "A-backend",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"loop closure\"",
+      "relocalization",
+      "relocalisation",
+      "registration",
+      "\"bundle adjustment\"",
+      "\"pose graph\""
+    ],
+    "date_predicate": "submitted_date_first:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:19:46Z",
+    "total": 50,
+    "fetched": 0,
+    "pages": [],
+    "exhausted": false,
+    "failure": "cssselect does not seem to be installed. See https://pypi.org/project/cssselect/"
+  },
+  {
+    "name": "main-advanced-A-backend-submitted_date",
+    "family": "A-backend",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"loop closure\"",
+      "relocalization",
+      "relocalisation",
+      "registration",
+      "\"bundle adjustment\"",
+      "\"pose graph\""
+    ],
+    "date_predicate": "submitted_date:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:19:47Z",
+    "total": 66,
+    "fetched": 0,
+    "pages": [],
+    "exhausted": false,
+    "failure": "cssselect does not seem to be installed. See https://pypi.org/project/cssselect/"
+  },
+  {
+    "name": "main-advanced-A-sensors-submitted_date_first",
+    "family": "A-sensors",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "LiDAR",
+      "radar",
+      "\"RGB-D\"",
+      "monocular",
+      "\"multi-camera\""
+    ],
+    "date_predicate": "submitted_date_first:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:19:50Z",
+    "total": 97,
+    "fetched": 0,
+    "pages": [],
+    "exhausted": false,
+    "failure": "cssselect does not seem to be installed. See https://pypi.org/project/cssselect/"
+  },
+  {
+    "name": "main-advanced-A-sensors-submitted_date",
+    "family": "A-sensors",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "LiDAR",
+      "radar",
+      "\"RGB-D\"",
+      "monocular",
+      "\"multi-camera\""
+    ],
+    "date_predicate": "submitted_date:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:19:50Z",
+    "total": 155,
+    "fetched": 0,
+    "pages": [],
+    "exhausted": false,
+    "failure": "cssselect does not seem to be installed. See https://pypi.org/project/cssselect/"
+  },
+  {
+    "name": "main-advanced-B-foundation-submitted_date_first",
+    "family": "B-foundation",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "VGGT",
+      "\"VGGT-Ω\"",
+      "OmniVGGT",
+      "\"geometry foundation\"",
+      "\"visual geometry transformer\"",
+      "DUSt3R",
+      "MASt3R",
+      "pi3",
+      "\"π³\"",
+      "DA3",
+      "\"Depth Anything\""
+    ],
+    "date_predicate": "submitted_date_first:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:19:55Z",
+    "total": 88,
+    "fetched": 0,
+    "pages": [],
+    "exhausted": false,
+    "failure": "cssselect does not seem to be installed. See https://pypi.org/project/cssselect/"
+  },
+  {
+    "name": "main-advanced-B-foundation-submitted_date",
+    "family": "B-foundation",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "VGGT",
+      "\"VGGT-Ω\"",
+      "OmniVGGT",
+      "\"geometry foundation\"",
+      "\"visual geometry transformer\"",
+      "DUSt3R",
+      "MASt3R",
+      "pi3",
+      "\"π³\"",
+      "DA3",
+      "\"Depth Anything\""
+    ],
+    "date_predicate": "submitted_date:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:19:57Z",
+    "total": 158,
+    "fetched": 0,
+    "pages": [],
+    "exhausted": false,
+    "failure": "cssselect does not seem to be installed. See https://pypi.org/project/cssselect/"
+  },
+  {
+    "name": "main-advanced-B-reconstruction-submitted_date_first",
+    "family": "B-reconstruction",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"feed-forward\"",
+      "feedforward",
+      "\"3D reconstruction\"",
+      "pointmap",
+      "\"Gaussian splatting\"",
+      "3DGS"
+    ],
+    "date_predicate": "submitted_date_first:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:20:01Z",
+    "total": 80,
+    "fetched": 0,
+    "pages": [],
+    "exhausted": false,
+    "failure": "cssselect does not seem to be installed. See https://pypi.org/project/cssselect/"
+  },
+  {
+    "name": "main-advanced-B-reconstruction-submitted_date",
+    "family": "B-reconstruction",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"feed-forward\"",
+      "feedforward",
+      "\"3D reconstruction\"",
+      "pointmap",
+      "\"Gaussian splatting\"",
+      "3DGS"
+    ],
+    "date_predicate": "submitted_date:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:20:06Z",
+    "total": 140,
+    "fetched": 0,
+    "pages": [],
+    "exhausted": false,
+    "failure": "cssselect does not seem to be installed. See https://pypi.org/project/cssselect/"
+  },
+  {
+    "name": "main-advanced-B-streaming-submitted_date_first",
+    "family": "B-streaming",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"long-sequence\"",
+      "\"long-horizon\"",
+      "streaming",
+      "\"efficient attention\"",
+      "\"online reconstruction\""
+    ],
+    "date_predicate": "submitted_date_first:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:20:07Z",
+    "total": 345,
+    "fetched": 0,
+    "pages": [],
+    "exhausted": false,
+    "failure": "cssselect does not seem to be installed. See https://pypi.org/project/cssselect/"
+  },
+  {
+    "name": "main-advanced-B-streaming-submitted_date",
+    "family": "B-streaming",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"long-sequence\"",
+      "\"long-horizon\"",
+      "streaming",
+      "\"efficient attention\"",
+      "\"online reconstruction\""
+    ],
+    "date_predicate": "submitted_date:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:20:13Z",
+    "total": 510,
+    "fetched": 0,
+    "pages": [],
+    "exhausted": false,
+    "failure": "cssselect does not seem to be installed. See https://pypi.org/project/cssselect/"
+  },
+  {
+    "name": "main-advanced-C-navigation-submitted_date_first",
+    "family": "C-navigation",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"embodied navigation\"",
+      "VLN",
+      "\"vision-language navigation\"",
+      "\"active mapping\"",
+      "\"semantic mapping\"",
+      "\"open-vocabulary mapping\""
+    ],
+    "date_predicate": "submitted_date_first:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:20:17Z",
+    "total": 17,
+    "fetched": 0,
+    "pages": [],
+    "exhausted": false,
+    "failure": "cssselect does not seem to be installed. See https://pypi.org/project/cssselect/"
+  },
+  {
+    "name": "main-advanced-C-navigation-submitted_date",
+    "family": "C-navigation",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"embodied navigation\"",
+      "VLN",
+      "\"vision-language navigation\"",
+      "\"active mapping\"",
+      "\"semantic mapping\"",
+      "\"open-vocabulary mapping\""
+    ],
+    "date_predicate": "submitted_date:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:20:20Z",
+    "total": 26,
+    "fetched": 0,
+    "pages": [],
+    "exhausted": false,
+    "failure": "cssselect does not seem to be installed. See https://pypi.org/project/cssselect/"
+  },
+  {
+    "name": "main-advanced-C-world-submitted_date_first",
+    "family": "C-world",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"world model\"",
+      "\"world-action\"",
+      "\"world action\"",
+      "\"world modeling\""
+    ],
+    "date_predicate": "submitted_date_first:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:20:24Z",
+    "total": 101,
+    "fetched": 0,
+    "pages": [],
+    "exhausted": false,
+    "failure": "cssselect does not seem to be installed. See https://pypi.org/project/cssselect/"
+  },
+  {
+    "name": "main-advanced-C-world-submitted_date",
+    "family": "C-world",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"world model\"",
+      "\"world-action\"",
+      "\"world action\"",
+      "\"world modeling\""
+    ],
+    "date_predicate": "submitted_date:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:20:25Z",
+    "total": 149,
+    "fetched": 0,
+    "pages": [],
+    "exhausted": false,
+    "failure": "cssselect does not seem to be installed. See https://pypi.org/project/cssselect/"
+  },
+  {
+    "name": "main-advanced-C-applications-submitted_date_first",
+    "family": "C-applications",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"underwater localization\"",
+      "\"underwater state estimation\"",
+      "\"thermal localization\"",
+      "\"endoscopic reconstruction\""
+    ],
+    "date_predicate": "submitted_date_first:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:20:30Z",
+    "total": 1,
+    "fetched": 0,
+    "pages": [],
+    "exhausted": false,
+    "failure": "cssselect does not seem to be installed. See https://pypi.org/project/cssselect/"
+  },
+  {
+    "name": "main-advanced-C-applications-submitted_date",
+    "family": "C-applications",
+    "source": "arXiv Advanced Search",
+    "field": "all metadata; complementary to ti/abs API",
+    "terms": [
+      "\"underwater localization\"",
+      "\"underwater state estimation\"",
+      "\"thermal localization\"",
+      "\"endoscopic reconstruction\""
+    ],
+    "date_predicate": "submitted_date:2026-10-22..2026-11-01",
+    "retrieved_at": "2026-11-01T15:20:32Z",
+    "total": 1,
+    "fetched": 0,
+    "pages": [],
+    "exhausted": false,
+    "failure": "cssselect does not seem to be installed. See https://pypi.org/project/cssselect/"
+  }
+]

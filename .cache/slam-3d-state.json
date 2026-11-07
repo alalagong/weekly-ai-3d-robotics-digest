@@ -1,29 +1,29 @@
 {
-  "run_at": "2026-10-24T08:17:58Z",
-  "coverage_start": "2026-10-18T13:52:39.8263257Z",
-  "coverage_end": "2026-10-24T08:17:58Z",
-  "report_path": "reports/2026-10-18_2026-10-24_BlazeVGGT-HiP3R-CAOS.html",
+  "run_at": "2026-11-01T14:59:32Z",
+  "coverage_start": "2026-10-24T08:17:58Z",
+  "coverage_end": "2026-11-01T14:59:32Z",
+  "report_path": "reports/2026-10-24_2026-11-01_RESPLE2-GPA-VGGT-OctWorld.html",
   "previous_run_at": "2026-10-19T17:10:23.356Z",
   "coverage_status": "complete_with_known_limits",
-  "last_refresh_at": "2026-10-24T16:30:17.216750Z",
+  "last_refresh_at": "2026-11-07T04:24:15.893207+00:00",
   "refresh_window": {
     "coverage_start": "2026-10-03T16:16:46.3538283+08:00",
     "coverage_end": "2026-10-18T21:52:39.8263257+08:00",
     "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
   },
-  "ledger_path": "reports/2026-10-18_2026-10-24_paper-ledger.json",
-  "search_manifest_path": "reports/2026-10-18_2026-10-24_search-manifest.json",
+  "ledger_path": "reports/2026-10-24_2026-11-01_paper-ledger.json",
+  "search_manifest_path": "reports/2026-10-24_2026-11-01_search-manifest.json",
   "paper_history_path": "reports/paper-history.json",
   "backlog": {
     "unresolved_count": 0,
     "ids": [],
-    "reason": "All discovered candidates and query recovery reconciled; abstract-level full-paper/reproduction followups persist per ID/version in paper-history.",
-    "independent_review_status": "Independent new-phrase/API/category and latest-submission Advanced rediscovery completed; all531 IDs reconciled; scope/date/history audit passed.",
     "evidence_followups_path": "reports/paper-history.json",
     "access_limits": [
-      "No local training/build/inference; hosted services/weights/data not accessed",
-      "GitHub trending429 and first-page bounded repo search; not star growth/exhaustive repo recall"
-    ]
+      "未下载数据/权重或运行代码；441摘要条目保留全文待办。",
+      "SVIn+数据待发布、LingGS源码待发布；不计源码深读。",
+      "2610.37330官方abs/Atom摘要错配，使用同版本官方HTML摘要并保留原始冲突。"
+    ],
+    "independent_review_status": "独立重新发现1404并全处置，写后独立集合/数字复核通过；见work/review-final-check.json。"
   },
   "coverage_history": [
     {
@@ -34,13 +34,23 @@
       "ledger_path": "reports/2026-10-03_2026-10-18_paper-ledger.json",
       "search_manifest_path": "reports/2026-10-03_2026-10-18_search-manifest.json",
       "coverage_status": "complete_with_known_limits"
+    },
+    {
+      "run_at": "2026-10-24T08:17:58Z",
+      "coverage_start": "2026-10-18T13:52:39.8263257Z",
+      "coverage_end": "2026-10-24T08:17:58Z",
+      "report_path": "reports/2026-10-18_2026-10-24_BlazeVGGT-HiP3R-CAOS.html",
+      "ledger_path": "reports/2026-10-18_2026-10-24_paper-ledger.json",
+      "search_manifest_path": "reports/2026-10-18_2026-10-24_search-manifest.json",
+      "coverage_status": "complete_with_known_limits"
     }
   ],
-  "validation_path": "reports/2026-10-18_2026-10-24_validation.json",
+  "validation_path": "reports/2026-10-24_2026-11-01_validation.json",
   "git_delivery": {
     "target": "origin/main",
-    "report_run_at": "2026-10-24T08:17:58Z",
-    "result_path": ".cache/slam-3d-20261024/git-delivery.json",
-    "note": "Commit/push result is recorded after delivery in the referenced local evidence and automation memory; literature coverage is independent."
-  }
+    "report_run_at": "2026-11-01T14:59:32Z",
+    "result_path": "reports/2026-10-24_2026-11-01_work/git-delivery.json",
+    "status": "pending_commit_push"
+  },
+  "presentation_path": "reports/2026-10-24_2026-11-01_presentation.json"
 }

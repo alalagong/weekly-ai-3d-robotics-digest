@@ -1,0 +1,95 @@
+{
+  "run_at": "2026-11-01T14:59:32Z",
+  "validated_at": "2026-11-07T04:24:15.893207+00:00",
+  "passed": true,
+  "checks": {
+    "candidate_count_closure": true,
+    "unique_base_ids": true,
+    "no_unresolved": true,
+    "all_included_abstract_and_history": true,
+    "excluded_reasons": true,
+    "exact_report_id_set": true,
+    "unique_html_ids": true,
+    "presentation_id_closure": true,
+    "takeaway_length": true,
+    "priority_reasons": true,
+    "no_placeholders": true,
+    "nine_sections": true,
+    "all_detail_fields": true,
+    "native_nojs_degradation": true,
+    "local_links_and_assets": true,
+    "pagination_main-search-manifest.json": true,
+    "pagination_main-advanced-manifest.json": true,
+    "pagination_main-category-manifest.json": true,
+    "pagination_extension-manifest.json": true,
+    "pagination_extension-advanced-manifest.json": true,
+    "pagination_extension-advanced-applications-manifest.json": true,
+    "pagination_review-query-manifest.json": true,
+    "independent_rediscovery": true,
+    "geometry_fulltext_validation": true
+  },
+  "errors": [],
+  "missing_local_links": [],
+  "stats": {
+    "candidates": 2486,
+    "dispositions": {
+      "excluded": 2037,
+      "revision_tracking": 121,
+      "supplemental": 320,
+      "deep_read": 8
+    },
+    "included": 449,
+    "included_windows": {
+      "revised": 123,
+      "historical_backfill": 64,
+      "historical_revision_backfill": 10,
+      "new": 252
+    },
+    "abstracts_read_unique": 719,
+    "included_history_verified": 449,
+    "included_missing_history": [],
+    "unresolved_ids": [],
+    "legacy_mentions_need_inspection": [],
+    "deep_read_count": 8,
+    "supplemental_tracking_count": 441,
+    "legacy_inspection_closed_ids": [
+      "2605.30488",
+      "2607.08115",
+      "2608.07267",
+      "2608.16499",
+      "2609.18465",
+      "2609.35032"
+    ]
+  },
+  "browser_checks": {
+    "passed": true,
+    "validated_at": "2026-11-07T04:24:15.689312+00:00",
+    "browser": "Chrome extension, local read-only HTTP",
+    "counts": {
+      "all": 441,
+      "search_VGGT": 8,
+      "zero_result": 0,
+      "reset": 441,
+      "new": 246,
+      "revised": 121,
+      "historical_backfill": 64,
+      "historical_revision_backfill": 10,
+      "priority": 37,
+      "slam_vio_category": 14
+    },
+    "checks": {
+      "zero_result_message": true,
+      "reset_restores_all": true,
+      "hidden_anchor_opens_paper_and_category_resets_search": true,
+      "all_7_images_loaded": true,
+      "desktop_no_page_overflow": true,
+      "mobile_390_no_page_overflow_tables_scroll": true,
+      "category_counts_sum_441": true,
+      "console_errors": false
+    },
+    "nojs": "静态原生details/summary退化检查，未在禁JS浏览器实测",
+    "screenshot": "report-preview.png"
+  },
+  "nojs_limit": "原生details/summary与无hidden条目的静态退化已检查；未在禁用JS浏览器实测。",
+  "external_link_limit": "源链接获取证据保存在manifest；未对所有449条外链重新请求，避免把后续站点状态混为冻结窗口证据。"
+}

@@ -1,0 +1,86 @@
+{
+  "reviewed_at": "2026-11-02T15:51:54.642640+00:00",
+  "coverage_start_exclusive": "2026-10-24T08:17:58Z",
+  "coverage_end_inclusive": "2026-11-01T14:59:32Z",
+  "independent_discovery_completed_before_main_pool_read": true,
+  "query_count": 10,
+  "query_rows": 2379,
+  "queries_exhausted": true,
+  "unique_ids": 1404,
+  "overlap_main": 211,
+  "outside_main": 1193,
+  "potential_ids": 425,
+  "potential_outside_main": 256,
+  "complete_abstracts_read": 25,
+  "included_new_candidates": 16,
+  "all_disposition_counts": {
+    "excluded": 1245,
+    "included": 16,
+    "existing_main_pool": 143
+  },
+  "seed_count": 37,
+  "seeds_exact_version_already_covered": 37,
+  "limitations": [
+    "Original 937 vocabulary-prefilter exclusions preserved separately, then all 937 titles independently LLM-reviewed in four printed batches; 16 ambiguous items received complete abstract follow-up. No automatic prefilter is claimed as independent acceptance.",
+    "Metadata title exclusions do not claim abstract or full-text reading.",
+    "Official updated histories govern time attribution; search result display date may differ by one day.",
+    "No paper full texts or executable source internals read in this independent review; 3 project/README pages read.",
+    "PhysEvolve admitted after main reviewer clarified C includes executable physical world simulator and training/evaluation; no claim of camera geometry, mapping or full-text reading."
+  ],
+  "offscope_risk_abstracts_read": 29,
+  "offscope_risk_reversed": 0,
+  "offscope_risk_borderline_ids": [
+    "2610.32792",
+    "2610.38752"
+  ],
+  "programmatic_exclusions_original": 937,
+  "independent_llm_title_audit_count": 937,
+  "independent_llm_title_audit_batches": [
+    {
+      "indices": [
+        0,
+        239
+      ],
+      "count": 240
+    },
+    {
+      "indices": [
+        240,
+        479
+      ],
+      "count": 240
+    },
+    {
+      "indices": [
+        480,
+        719
+      ],
+      "count": 240
+    },
+    {
+      "indices": [
+        720,
+        936
+      ],
+      "count": 217
+    }
+  ],
+  "ambiguous_title_complete_abstracts_read": 16,
+  "ambiguous_title_core_misses_found": 0,
+  "scope_borderline_ids_additional": [
+    "2610.38628",
+    "2610.35170",
+    "2610.34921"
+  ],
+  "programmatic_only_final_exclusions": 0,
+  "total_independent_complete_abstracts_read": 69,
+  "new_candidate_window_counts": {
+    "new": 4,
+    "historical_backfill": 4,
+    "revised": 8
+  },
+  "scope_borderline_resolved_included": [
+    "2610.34921"
+  ],
+  "ambiguity_followup_overlap_candidate_count": 1
+}

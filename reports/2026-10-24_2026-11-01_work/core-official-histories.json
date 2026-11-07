@@ -1,0 +1,1574 @@
+{
+  "2610.33174": {
+    "url": "https://arxiv.org/abs/2610.33174",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Olivier Gamache [ view email ] [v1] Fri, 23 Oct 2026 18:16:24 UTC (3,344 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-23T18:16:24Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.33174.html",
+    "cached": true
+  },
+  "2610.37350": {
+    "url": "https://arxiv.org/abs/2610.37350",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Simon Bultmann [ view email ] [v1] Tue, 27 Oct 2026 14:51:03 UTC (29,268 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-27T14:51:03Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.37350.html",
+    "cached": true
+  },
+  "2610.39691": {
+    "url": "https://arxiv.org/abs/2610.39691",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Xiansheng Yang [ view email ] [v1] Thu, 29 Oct 2026 09:31:09 UTC (8,484 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-29T09:31:09Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.39691.html",
+    "cached": true
+  },
+  "2610.32645": {
+    "url": "https://arxiv.org/abs/2610.32645",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Mohammad Reza Ranjbar Divkoti [ view email ] [v1] Fri, 23 Oct 2026 13:54:30 UTC (6,152 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-23T13:54:30Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.32645.html",
+    "cached": true
+  },
+  "2610.39708": {
+    "url": "https://arxiv.org/abs/2610.39708",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Zhaoqing He [ view email ] [v1] Thu, 29 Oct 2026 09:44:11 UTC (240 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-29T09:44:11Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.39708.html",
+    "cached": true
+  },
+  "2610.37602": {
+    "url": "https://arxiv.org/abs/2610.37602",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Kailai Li [ view email ] [v1] Tue, 27 Oct 2026 17:33:19 UTC (25,881 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-27T17:33:19Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.37602.html",
+    "cached": true
+  },
+  "2610.36312": {
+    "url": "https://arxiv.org/abs/2610.36312",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Ziang Guo [ view email ] [v1] Mon, 26 Oct 2026 21:34:06 UTC (18,760 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-26T21:34:06Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.36312.html",
+    "cached": true
+  },
+  "2610.38141": {
+    "url": "https://arxiv.org/abs/2610.38141",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Hogyun Kim [ view email ] [v1] Wed, 28 Oct 2026 01:24:37 UTC (42,532 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-28T01:24:37Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "extension-abs-2610.38141.html",
+    "cached": true
+  },
+  "2610.39005": {
+    "url": "https://arxiv.org/abs/2610.39005",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Kunzhe Song [ view email ] [v1] Wed, 28 Oct 2026 22:32:03 UTC (3,459 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-28T22:32:03Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.39005.html",
+    "cached": true
+  },
+  "2610.34271": {
+    "url": "https://arxiv.org/abs/2610.34271",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Seong Hun Lee [ view email ] [v1] Sun, 25 Oct 2026 13:02:43 UTC (3,616 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-25T13:02:43Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.34271.html",
+    "cached": true
+  },
+  "2610.35363": {
+    "url": "https://arxiv.org/abs/2610.35363",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Moumita Mukherjee [ view email ] [v1] Fri, 23 Oct 2026 15:58:05 UTC (38,304 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-23T15:58:05Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.35363.html",
+    "cached": true
+  },
+  "2610.37111": {
+    "url": "https://arxiv.org/abs/2610.37111",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Xinyi Chen [ view email ] [v1] Tue, 27 Oct 2026 12:08:37 UTC (18,980 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-27T12:08:37Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.37111.html",
+    "cached": true
+  },
+  "2610.31221": {
+    "url": "https://arxiv.org/abs/2610.31221",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Mengya Xu [ view email ] [v1] Thu, 22 Oct 2026 13:06:44 UTC (1,273 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-22T13:06:44Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.31221.html",
+    "cached": true
+  },
+  "2610.35522": {
+    "url": "https://arxiv.org/abs/2610.35522",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Haobin Duan [ view email ] [v1] Mon, 26 Oct 2026 14:40:40 UTC (28,299 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-26T14:40:40Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.35522.html",
+    "cached": true
+  },
+  "2610.35554": {
+    "url": "https://arxiv.org/abs/2610.35554",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Diego Di Tommaso [ view email ] [v1] Mon, 26 Oct 2026 14:57:37 UTC (972 KB) [v2] Tue, 27 Oct 2026 08:47:21 UTC (972 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-26T14:57:37Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-10-27T08:47:21Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "extension-abs-2610.35554.html",
+    "cached": true
+  },
+  "2610.36658": {
+    "url": "https://arxiv.org/abs/2610.36658",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Tomoyasu Shimada [ view email ] [v1] Tue, 27 Oct 2026 05:22:22 UTC (22,015 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-27T05:22:22Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.36658.html",
+    "cached": true
+  },
+  "2610.35501": {
+    "url": "https://arxiv.org/abs/2610.35501",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Tze Ho Elden Tse [ view email ] [v1] Mon, 26 Oct 2026 14:29:13 UTC (15,293 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-26T14:29:13Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.35501.html",
+    "cached": true
+  },
+  "2610.36853": {
+    "url": "https://arxiv.org/abs/2610.36853",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Da Li [ view email ] [v1] Tue, 27 Oct 2026 08:51:00 UTC (5,515 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-27T08:51:00Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.36853.html",
+    "cached": true
+  },
+  "2610.20226": {
+    "url": "https://arxiv.org/abs/2610.20226",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Wonju Lee [ view email ] [v1] Wed, 14 Oct 2026 14:09:42 UTC (1,211 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-14T14:09:42Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.20226.html",
+    "cached": true
+  },
+  "2610.12624": {
+    "url": "https://arxiv.org/abs/2610.12624",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Mengmeng Liu [ view email ] [v1] Thu, 8 Oct 2026 18:44:59 UTC (9,750 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-08T18:44:59Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.12624.html",
+    "cached": true
+  },
+  "2610.33356": {
+    "url": "https://arxiv.org/abs/2610.33356",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Angelo Stefanini [ view email ] [v1] Fri, 23 Oct 2026 22:54:00 UTC (4,388 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-23T22:54:00Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.33356.html",
+    "cached": true
+  },
+  "2610.30774": {
+    "url": "https://arxiv.org/abs/2610.30774",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Guillem Casadesus Vila [ view email ] [v1] Thu, 22 Oct 2026 05:52:13 UTC (4,474 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-22T05:52:13Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.30774.html",
+    "cached": true
+  },
+  "2610.31635": {
+    "url": "https://arxiv.org/abs/2610.31635",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Zunnan Xu [ view email ] [v1] Thu, 22 Oct 2026 17:51:10 UTC (6,844 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-22T17:51:10Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.31635.html",
+    "cached": true
+  },
+  "2610.05757": {
+    "url": "https://arxiv.org/abs/2610.05757",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Junhyun Nam [ view email ] [v1] Mon, 5 Oct 2026 04:06:38 UTC (3,696 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-05T04:06:38Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.05757.html",
+    "cached": true
+  },
+  "2610.11612": {
+    "url": "https://arxiv.org/abs/2610.11612",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Haobo Jiang [ view email ] [v1] Thu, 8 Oct 2026 09:54:56 UTC (27,919 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-08T09:54:56Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.11612.html",
+    "cached": true
+  },
+  "2606.26046": {
+    "url": "https://arxiv.org/abs/2606.26046",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Alexander Schperberg [ view email ] [v1] Wed, 24 Jun 2026 17:26:07 UTC (33,541 KB) [v2] Fri, 7 Aug 2026 18:00:18 UTC (29,282 KB) [v3] Thu, 15 Oct 2026 01:10:32 UTC (29,239 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-06-24T17:26:07Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-08-07T18:00:18Z"
+      },
+      {
+        "version": 3,
+        "utc": "2026-10-15T01:10:32Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2606.26046.html",
+    "cached": true
+  },
+  "2610.06594": {
+    "url": "https://arxiv.org/abs/2610.06594",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Sungjae Choi [ view email ] [v1] Mon, 5 Oct 2026 16:07:04 UTC (5,735 KB) [v2] Thu, 22 Oct 2026 13:58:33 UTC (5,735 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-05T16:07:04Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-10-22T13:58:33Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.06594.html",
+    "cached": true
+  },
+  "2610.37947": {
+    "url": "https://arxiv.org/abs/2610.37947",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Qi Wang [ view email ] [v1] Tue, 27 Oct 2026 20:33:34 UTC (11 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-27T20:33:34Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.37947.html",
+    "cached": true
+  },
+  "2610.35642": {
+    "url": "https://arxiv.org/abs/2610.35642",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Richard Fechner [ view email ] [v1] Mon, 26 Oct 2026 15:51:30 UTC (4,483 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-26T15:51:30Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "extension-abs-2610.35642.html",
+    "cached": true
+  },
+  "2610.39385": {
+    "url": "https://arxiv.org/abs/2610.39385",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Brandon Yang [ view email ] [v1] Thu, 29 Oct 2026 05:18:16 UTC (39,364 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-29T05:18:16Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.39385.html",
+    "cached": true
+  },
+  "2610.36876": {
+    "url": "https://arxiv.org/abs/2610.36876",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Zhuoxiao Li [ view email ] [v1] Tue, 27 Oct 2026 09:17:38 UTC (42,656 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-27T09:17:38Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "extension-abs-2610.36876.html",
+    "cached": true
+  },
+  "2610.36598": {
+    "url": "https://arxiv.org/abs/2610.36598",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Adithyavairavan Murali [ view email ] [v1] Tue, 27 Oct 2026 03:58:54 UTC (6,901 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-27T03:58:54Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.36598.html",
+    "cached": true
+  },
+  "2610.36454": {
+    "url": "https://arxiv.org/abs/2610.36454",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Chinmay Burgul [ view email ] [v1] Tue, 27 Oct 2026 01:01:19 UTC (7,793 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-27T01:01:19Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "extension-abs-2610.36454.html",
+    "cached": true
+  },
+  "2610.34403": {
+    "url": "https://arxiv.org/abs/2610.34403",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Dr. Suryansh Kumar [ view email ] [v1] Sun, 25 Oct 2026 16:05:59 UTC (5,961 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-25T16:05:59Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.34403.html",
+    "cached": true
+  },
+  "2610.34845": {
+    "url": "https://arxiv.org/abs/2610.34845",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Yihang Chen [ view email ] [v1] Mon, 26 Oct 2026 04:55:36 UTC (26,723 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-26T04:55:36Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.34845.html",
+    "cached": true
+  },
+  "2610.32976": {
+    "url": "https://arxiv.org/abs/2610.32976",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Philipp Lindenberger [ view email ] [v1] Fri, 23 Oct 2026 17:59:00 UTC (8,961 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-23T17:59:00Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.32976.html",
+    "cached": true
+  },
+  "2610.33338": {
+    "url": "https://arxiv.org/abs/2610.33338",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Chahat Singh [ view email ] [v1] Fri, 23 Oct 2026 22:21:29 UTC (20,640 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-23T22:21:29Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.33338.html",
+    "cached": true
+  },
+  "2610.34034": {
+    "url": "https://arxiv.org/abs/2610.34034",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Bahar Haghighat [ view email ] [v1] Sun, 25 Oct 2026 03:55:16 UTC (734 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-25T03:55:16Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.34034.html",
+    "cached": true
+  },
+  "2610.34041": {
+    "url": "https://arxiv.org/abs/2610.34041",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Yilong Chen [ view email ] [v1] Sun, 25 Oct 2026 04:10:13 UTC (8,606 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-25T04:10:13Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "extension-abs-2610.34041.html",
+    "cached": true
+  },
+  "2610.34590": {
+    "url": "https://arxiv.org/abs/2610.34590",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Ege Gursoy [ view email ] [v1] Sun, 25 Oct 2026 21:43:27 UTC (34 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-25T21:43:27Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.34590.html",
+    "cached": true
+  },
+  "2610.38040": {
+    "url": "https://arxiv.org/abs/2610.38040",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Vahid Tavakkoli [ view email ] [v1] Tue, 27 Oct 2026 22:51:53 UTC (97 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-27T22:51:53Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.38040.html",
+    "cached": true
+  },
+  "2610.35361": {
+    "url": "https://arxiv.org/abs/2610.35361",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Xiaohan Lu [ view email ] [v1] Mon, 26 Oct 2026 12:50:21 UTC (729 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-26T12:50:21Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "extension-abs-2610.35361.html",
+    "cached": true
+  },
+  "2610.39161": {
+    "url": "https://arxiv.org/abs/2610.39161",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Eli Underwood [ view email ] [v1] Thu, 29 Oct 2026 01:47:54 UTC (4,369 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-29T01:47:54Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.39161.html",
+    "cached": true
+  },
+  "2610.35637": {
+    "url": "https://arxiv.org/abs/2610.35637",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Xunpeng Yi [ view email ] [v1] Mon, 26 Oct 2026 15:46:35 UTC (4,265 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-26T15:46:35Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.35637.html",
+    "cached": true
+  },
+  "2610.33550": {
+    "url": "https://arxiv.org/abs/2610.33550",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Jiapeng Yao [ view email ] [v1] Sat, 24 Oct 2026 09:06:04 UTC (2,714 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-24T09:06:04Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.33550.html",
+    "cached": true
+  },
+  "2610.32663": {
+    "url": "https://arxiv.org/abs/2610.32663",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Roy Amoyal [ view email ] [v1] Fri, 23 Oct 2026 14:07:04 UTC (35,509 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-23T14:07:04Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.32663.html",
+    "cached": true
+  },
+  "2610.31476": {
+    "url": "https://arxiv.org/abs/2610.31476",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Taimeng Fu [ view email ] [v1] Thu, 22 Oct 2026 16:02:16 UTC (9,070 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-22T16:02:16Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.31476.html",
+    "cached": true
+  },
+  "2610.30589": {
+    "url": "https://arxiv.org/abs/2610.30589",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Kaiyao Liao [ view email ] [v1] Thu, 22 Oct 2026 01:44:10 UTC (12,129 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-22T01:44:10Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.30589.html",
+    "cached": true
+  },
+  "2610.34468": {
+    "url": "https://arxiv.org/abs/2610.34468",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Abdelgabar Ahmed [ view email ] [v1] Sun, 25 Oct 2026 17:39:35 UTC (3,073 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-25T17:39:35Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.34468.html",
+    "cached": true
+  },
+  "2610.34085": {
+    "url": "https://arxiv.org/abs/2610.34085",
+    "retrieved_at": "2026-11-01T15:27:55Z",
+    "history_raw": "Submission history From: Yerin Cheon [ view email ] [v1] Sun, 25 Oct 2026 06:05:00 UTC (3,595 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-25T06:05:00Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.34085.html",
+    "cached": true
+  },
+  "2610.34873": {
+    "url": "https://arxiv.org/abs/2610.34873",
+    "retrieved_at": "2026-11-01T15:27:57Z",
+    "history_raw": "Submission history From: Siyuan Yang [ view email ] [v1] Mon, 26 Oct 2026 05:41:45 UTC (6,213 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-26T05:41:45Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.34873.html",
+    "cached": false
+  },
+  "2610.35877": {
+    "url": "https://arxiv.org/abs/2610.35877",
+    "retrieved_at": "2026-11-01T15:27:56Z",
+    "history_raw": "Submission history From: Dhruv Gupta Mr [ view email ] [v1] Thu, 20 Aug 2026 19:34:21 UTC (254 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-08-20T19:34:21Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.35877.html",
+    "cached": false
+  },
+  "2610.40429": {
+    "url": "https://arxiv.org/abs/2610.40429",
+    "retrieved_at": "2026-11-01T15:27:56Z",
+    "history_raw": "Submission history From: Chinmay Mundane [ view email ] [v1] Thu, 29 Oct 2026 16:51:33 UTC (1,297 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-29T16:51:33Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.40429.html",
+    "cached": false
+  },
+  "2610.34393": {
+    "url": "https://arxiv.org/abs/2610.34393",
+    "retrieved_at": "2026-11-01T15:27:59Z",
+    "history_raw": "Submission history From: Adnan Abdullah [ view email ] [v1] Sun, 25 Oct 2026 15:54:02 UTC (5,941 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-25T15:54:02Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.34393.html",
+    "cached": false
+  },
+  "2610.33471": {
+    "url": "https://arxiv.org/abs/2610.33471",
+    "retrieved_at": "2026-11-01T15:27:56Z",
+    "history_raw": "Submission history From: Xiaoyu Han [ view email ] [v1] Sat, 24 Oct 2026 05:49:07 UTC (384 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-24T05:49:07Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.33471.html",
+    "cached": false
+  },
+  "2610.39649": {
+    "url": "https://arxiv.org/abs/2610.39649",
+    "retrieved_at": "2026-11-01T15:27:57Z",
+    "history_raw": "Submission history From: Yuan Wang [ view email ] [v1] Thu, 29 Oct 2026 09:06:15 UTC (2,074 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-29T09:06:15Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.39649.html",
+    "cached": false
+  },
+  "2610.37149": {
+    "url": "https://arxiv.org/abs/2610.37149",
+    "retrieved_at": "2026-11-01T15:27:57Z",
+    "history_raw": "Submission history From: Bohua Wang [ view email ] [v1] Tue, 27 Oct 2026 12:47:53 UTC (4,290 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-27T12:47:53Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.37149.html",
+    "cached": false
+  },
+  "2610.35516": {
+    "url": "https://arxiv.org/abs/2610.35516",
+    "retrieved_at": "2026-11-01T15:27:58Z",
+    "history_raw": "Submission history From: Zhenying Fang [ view email ] [v1] Mon, 26 Oct 2026 14:37:47 UTC (1,712 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-26T14:37:47Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.35516.html",
+    "cached": false
+  },
+  "2610.36672": {
+    "url": "https://arxiv.org/abs/2610.36672",
+    "retrieved_at": "2026-11-01T15:27:58Z",
+    "history_raw": "Submission history From: Chenyu Guo [ view email ] [v1] Tue, 27 Oct 2026 05:43:45 UTC (9,286 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-27T05:43:45Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.36672.html",
+    "cached": false
+  },
+  "2610.38830": {
+    "url": "https://arxiv.org/abs/2610.38830",
+    "retrieved_at": "2026-11-01T15:27:58Z",
+    "history_raw": "Submission history From: Huayu Wang [ view email ] [v1] Wed, 28 Oct 2026 20:22:38 UTC (1,402 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-28T20:22:38Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.38830.html",
+    "cached": false
+  },
+  "2610.37965": {
+    "url": "https://arxiv.org/abs/2610.37965",
+    "retrieved_at": "2026-11-01T15:27:59Z",
+    "history_raw": "Submission history From: Dmitry Sorokin [ view email ] [v1] Tue, 27 Oct 2026 20:57:39 UTC (5,880 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-27T20:57:39Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.37965.html",
+    "cached": false
+  },
+  "2610.40061": {
+    "url": "https://arxiv.org/abs/2610.40061",
+    "retrieved_at": "2026-11-01T15:27:59Z",
+    "history_raw": "Submission history From: Jiang Nanxiang [ view email ] [v1] Thu, 29 Oct 2026 13:49:01 UTC (3,568 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-29T13:49:01Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.40061.html",
+    "cached": false
+  },
+  "2610.32073": {
+    "url": "https://arxiv.org/abs/2610.32073",
+    "retrieved_at": "2026-11-01T15:28:00Z",
+    "history_raw": "Submission history From: Mulugeta Weldezgina Asres [ view email ] [v1] Fri, 23 Oct 2026 02:19:42 UTC (14,400 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-23T02:19:42Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.32073.html",
+    "cached": false
+  },
+  "2610.34346": {
+    "url": "https://arxiv.org/abs/2610.34346",
+    "retrieved_at": "2026-11-01T15:28:00Z",
+    "history_raw": "Submission history From: Robin Koç [ view email ] [v1] Sun, 25 Oct 2026 14:57:51 UTC (444 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-25T14:57:51Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.34346.html",
+    "cached": false
+  },
+  "2610.32174": {
+    "url": "https://arxiv.org/abs/2610.32174",
+    "retrieved_at": "2026-11-01T15:28:00Z",
+    "history_raw": "Submission history From: Vineet Prasad Dr [ view email ] [v1] Fri, 23 Oct 2026 05:18:40 UTC (2,057 KB) [v2] Wed, 28 Oct 2026 07:42:09 UTC (2,063 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-23T05:18:40Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-10-28T07:42:09Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.32174.html",
+    "cached": false
+  },
+  "2610.32816": {
+    "url": "https://arxiv.org/abs/2610.32816",
+    "retrieved_at": "2026-11-01T15:28:00Z",
+    "history_raw": "Submission history From: Matthias Seibold [ view email ] [v1] Fri, 23 Oct 2026 15:51:48 UTC (12,666 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-23T15:51:48Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.32816.html",
+    "cached": false
+  },
+  "2610.33127": {
+    "url": "https://arxiv.org/abs/2610.33127",
+    "retrieved_at": "2026-11-01T15:28:00Z",
+    "history_raw": "Submission history From: Pu Wang [ view email ] [v1] Fri, 23 Oct 2026 12:21:22 UTC (3,332 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-23T12:21:22Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.33127.html",
+    "cached": false
+  },
+  "2610.32182": {
+    "url": "https://arxiv.org/abs/2610.32182",
+    "retrieved_at": "2026-11-01T15:28:02Z",
+    "history_raw": "Submission history From: Muhammad Zeeshan Karamat [ view email ] [v1] Fri, 23 Oct 2026 05:28:49 UTC (64 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-23T05:28:49Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.32182.html",
+    "cached": false
+  },
+  "2610.33256": {
+    "url": "https://arxiv.org/abs/2610.33256",
+    "retrieved_at": "2026-11-01T15:28:01Z",
+    "history_raw": "Submission history From: David Mayerich [ view email ] [v1] Fri, 23 Oct 2026 20:05:33 UTC (8,697 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-23T20:05:33Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.33256.html",
+    "cached": false
+  },
+  "2610.34218": {
+    "url": "https://arxiv.org/abs/2610.34218",
+    "retrieved_at": "2026-11-01T15:28:01Z",
+    "history_raw": "Submission history From: Shidin Balakrishnan [ view email ] [v1] Sun, 25 Oct 2026 11:18:07 UTC (4,124 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-25T11:18:07Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.34218.html",
+    "cached": false
+  },
+  "2610.31253": {
+    "url": "https://arxiv.org/abs/2610.31253",
+    "retrieved_at": "2026-11-01T15:28:02Z",
+    "history_raw": "Submission history From: Shaheer Ullah Saeed [ view email ] [v1] Thu, 22 Oct 2026 13:33:10 UTC (1,219 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-22T13:33:10Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.31253.html",
+    "cached": false
+  },
+  "2610.33118": {
+    "url": "https://arxiv.org/abs/2610.33118",
+    "retrieved_at": "2026-11-01T15:28:01Z",
+    "history_raw": "Submission history From: Tian Zhang [ view email ] [v1] Fri, 23 Oct 2026 05:38:03 UTC (597 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-23T05:38:03Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.33118.html",
+    "cached": false
+  },
+  "2610.32010": {
+    "url": "https://arxiv.org/abs/2610.32010",
+    "retrieved_at": "2026-11-01T15:28:03Z",
+    "history_raw": "Submission history From: Erin Obermayer [ view email ] [v1] Fri, 23 Oct 2026 00:20:27 UTC (1,590 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-23T00:20:27Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.32010.html",
+    "cached": false
+  },
+  "2610.31950": {
+    "url": "https://arxiv.org/abs/2610.31950",
+    "retrieved_at": "2026-11-01T15:28:03Z",
+    "history_raw": "Submission history From: Sai Vidyaranya Nuthalapati [ view email ] [v1] Thu, 22 Oct 2026 21:53:14 UTC (6,675 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-22T21:53:14Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.31950.html",
+    "cached": false
+  },
+  "2610.34037": {
+    "url": "https://arxiv.org/abs/2610.34037",
+    "retrieved_at": "2026-11-01T15:28:04Z",
+    "history_raw": "Submission history From: Chaitat Utintu [ view email ] [v1] Sun, 25 Oct 2026 04:02:48 UTC (6,127 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-25T04:02:48Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.34037.html",
+    "cached": false
+  },
+  "2610.34618": {
+    "url": "https://arxiv.org/abs/2610.34618",
+    "retrieved_at": "2026-11-01T15:28:05Z",
+    "history_raw": "Submission history From: Yunchuan Ma [ view email ] [v1] Sun, 25 Oct 2026 22:35:05 UTC (763 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-25T22:35:05Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.34618.html",
+    "cached": false
+  },
+  "2610.34600": {
+    "url": "https://arxiv.org/abs/2610.34600",
+    "retrieved_at": "2026-11-01T15:28:04Z",
+    "history_raw": "Submission history From: Mojtaba Safari [ view email ] [v1] Sun, 25 Oct 2026 21:55:46 UTC (20,162 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-25T21:55:46Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.34600.html",
+    "cached": false
+  },
+  "2610.30944": {
+    "url": "https://arxiv.org/abs/2610.30944",
+    "retrieved_at": "2026-11-01T15:28:04Z",
+    "history_raw": "Submission history From: Xiaowen Liang [ view email ] [v1] Thu, 22 Oct 2026 08:59:02 UTC (7,791 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-22T08:59:02Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.30944.html",
+    "cached": false
+  },
+  "2610.32321": {
+    "url": "https://arxiv.org/abs/2610.32321",
+    "retrieved_at": "2026-11-01T15:28:04Z",
+    "history_raw": "Submission history From: Mengnan Liu [ view email ] [v1] Fri, 23 Oct 2026 08:19:53 UTC (4,408 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-23T08:19:53Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.32321.html",
+    "cached": false
+  },
+  "2610.14866": {
+    "url": "https://arxiv.org/abs/2610.14866",
+    "retrieved_at": "2026-11-01T15:28:06Z",
+    "history_raw": "Submission history From: Xiaoran Zhang [ view email ] [v1] Sat, 10 Oct 2026 12:35:57 UTC (44,141 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-10T12:35:57Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.14866.html",
+    "cached": false
+  },
+  "2610.11049": {
+    "url": "https://arxiv.org/abs/2610.11049",
+    "retrieved_at": "2026-11-01T15:28:06Z",
+    "history_raw": "Submission history From: Jiarui Zeng [ view email ] [v1] Thu, 8 Oct 2026 01:01:46 UTC (1,471 KB) [v2] Mon, 19 Oct 2026 01:41:37 UTC (1,471 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-08T01:01:46Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-10-19T01:41:37Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.11049.html",
+    "cached": false
+  },
+  "2303.07308": {
+    "url": "https://arxiv.org/abs/2303.07308",
+    "retrieved_at": "2026-11-01T15:28:07Z",
+    "history_raw": "Submission history From: Jiahui Fu [ view email ] [v1] Mon, 13 Mar 2023 17:30:43 UTC (9,322 KB) [v2] Mon, 10 Jul 2023 12:33:04 UTC (10,478 KB) [v3] Tue, 13 Oct 2026 03:15:29 UTC (48,419 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2023-03-13T17:30:43Z"
+      },
+      {
+        "version": 2,
+        "utc": "2023-07-10T12:33:04Z"
+      },
+      {
+        "version": 3,
+        "utc": "2026-10-13T03:15:29Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2303.07308.html",
+    "cached": false
+  },
+  "2610.09274": {
+    "url": "https://arxiv.org/abs/2610.09274",
+    "retrieved_at": "2026-11-01T15:28:07Z",
+    "history_raw": "Submission history From: Weitian Wang [ view email ] [v1] Wed, 7 Oct 2026 01:13:49 UTC (7,114 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-07T01:13:49Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.09274.html",
+    "cached": false
+  },
+  "2610.37271": {
+    "url": "https://arxiv.org/abs/2610.37271",
+    "retrieved_at": "2026-11-01T15:28:06Z",
+    "history_raw": "Submission history From: Yiming Xiao [ view email ] [v1] Tue, 27 Oct 2026 14:02:24 UTC (6,084 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-27T14:02:24Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.37271.html",
+    "cached": false
+  },
+  "2610.33815": {
+    "url": "https://arxiv.org/abs/2610.33815",
+    "retrieved_at": "2026-11-01T15:28:08Z",
+    "history_raw": "Submission history From: Deepak Karki [ view email ] [v1] Sat, 24 Oct 2026 17:27:18 UTC (131 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-24T17:27:18Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.33815.html",
+    "cached": false
+  },
+  "2610.38493": {
+    "url": "https://arxiv.org/abs/2610.38493",
+    "retrieved_at": "2026-11-01T15:28:07Z",
+    "history_raw": "Submission history From: Sahrish Batool Naqvi [ view email ] [v1] Wed, 28 Oct 2026 09:07:27 UTC (818 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-28T09:07:27Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.38493.html",
+    "cached": false
+  },
+  "2610.37195": {
+    "url": "https://arxiv.org/abs/2610.37195",
+    "retrieved_at": "2026-11-01T15:28:07Z",
+    "history_raw": "Submission history From: Yingjian Chen [ view email ] [v1] Tue, 27 Oct 2026 13:16:08 UTC (2,991 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-27T13:16:08Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.37195.html",
+    "cached": false
+  },
+  "2610.35150": {
+    "url": "https://arxiv.org/abs/2610.35150",
+    "retrieved_at": "2026-11-01T15:28:08Z",
+    "history_raw": "Submission history From: Shusheng Li [ view email ] [v1] Mon, 26 Oct 2026 10:15:38 UTC (8,834 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-26T10:15:38Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.35150.html",
+    "cached": false
+  },
+  "2610.34500": {
+    "url": "https://arxiv.org/abs/2610.34500",
+    "retrieved_at": "2026-11-01T15:28:09Z",
+    "history_raw": "Submission history From: Hanze Li [ view email ] [v1] Sun, 25 Oct 2026 18:55:44 UTC (5,499 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-25T18:55:44Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.34500.html",
+    "cached": false
+  },
+  "2610.32950": {
+    "url": "https://arxiv.org/abs/2610.32950",
+    "retrieved_at": "2026-11-01T15:28:08Z",
+    "history_raw": "Submission history From: Donald Williamson [ view email ] [v1] Fri, 23 Oct 2026 17:44:09 UTC (441 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-23T17:44:09Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.32950.html",
+    "cached": false
+  },
+  "2606.29868": {
+    "url": "https://arxiv.org/abs/2606.29868",
+    "retrieved_at": "2026-11-01T15:28:08Z",
+    "history_raw": "Submission history From: Han Shen [ view email ] [v1] Mon, 29 Jun 2026 07:04:56 UTC (14,686 KB) [v2] Thu, 29 Oct 2026 13:40:30 UTC (14,299 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-06-29T07:04:56Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-10-29T13:40:30Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2606.29868.html",
+    "cached": false
+  },
+  "2605.09383": {
+    "url": "https://arxiv.org/abs/2605.09383",
+    "retrieved_at": "2026-11-01T15:28:08Z",
+    "history_raw": "Submission history From: Yan Pan [ view email ] [v1] Sun, 10 May 2026 07:20:34 UTC (5,656 KB) [v2] Thu, 18 Jun 2026 13:02:37 UTC (6,053 KB) [v3] Thu, 29 Oct 2026 09:00:41 UTC (5,011 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-05-10T07:20:34Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-06-18T13:02:37Z"
+      },
+      {
+        "version": 3,
+        "utc": "2026-10-29T09:00:41Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2605.09383.html",
+    "cached": true
+  },
+  "2607.08115": {
+    "url": "https://arxiv.org/abs/2607.08115",
+    "retrieved_at": "2026-11-01T15:28:10Z",
+    "history_raw": "Submission history From: Hogyun Kim [ view email ] [v1] Thu, 9 Jul 2026 05:21:44 UTC (6,910 KB) [v2] Wed, 28 Oct 2026 01:25:16 UTC (6,927 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-07-09T05:21:44Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-10-28T01:25:16Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2607.08115.html",
+    "cached": false
+  },
+  "2610.09857": {
+    "url": "https://arxiv.org/abs/2610.09857",
+    "retrieved_at": "2026-11-01T15:28:09Z",
+    "history_raw": "Submission history From: Zhang Junjie [ view email ] [v1] Wed, 7 Oct 2026 11:14:14 UTC (3,236 KB) [v2] Tue, 27 Oct 2026 01:43:02 UTC (3,236 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-07T11:14:14Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-10-27T01:43:02Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.09857.html",
+    "cached": false
+  },
+  "2605.30488": {
+    "url": "https://arxiv.org/abs/2605.30488",
+    "retrieved_at": "2026-11-01T15:28:10Z",
+    "history_raw": "Submission history From: Zhihao Cao [ view email ] [v1] Thu, 28 May 2026 19:06:19 UTC (23,915 KB) [v2] Tue, 8 Sep 2026 20:45:07 UTC (5,702 KB) [v3] Mon, 26 Oct 2026 08:38:08 UTC (6,260 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-05-28T19:06:19Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-09-08T20:45:07Z"
+      },
+      {
+        "version": 3,
+        "utc": "2026-10-26T08:38:08Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2605.30488.html",
+    "cached": false
+  },
+  "2601.00705": {
+    "url": "https://arxiv.org/abs/2601.00705",
+    "retrieved_at": "2026-11-01T15:28:09Z",
+    "history_raw": "Submission history From: Wei Tse Cheng [ view email ] [v1] Sun, 28 Dec 2025 03:45:57 UTC (57,522 KB) [v2] Tue, 13 Jan 2026 12:21:54 UTC (57,522 KB) [v3] Thu, 15 Jan 2026 15:14:21 UTC (57,522 KB) [v4] Fri, 23 Oct 2026 07:46:23 UTC (28,075 KB) [v5] Mon, 26 Oct 2026 04:07:52 UTC (28,075 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2025-12-28T03:45:57Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-01-13T12:21:54Z"
+      },
+      {
+        "version": 3,
+        "utc": "2026-01-15T15:14:21Z"
+      },
+      {
+        "version": 4,
+        "utc": "2026-10-23T07:46:23Z"
+      },
+      {
+        "version": 5,
+        "utc": "2026-10-26T04:07:52Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2601.00705.html",
+    "cached": false
+  },
+  "2604.04554": {
+    "url": "https://arxiv.org/abs/2604.04554",
+    "retrieved_at": "2026-11-01T15:28:11Z",
+    "history_raw": "Submission history From: Prateeth Rao [ view email ] [v1] Mon, 6 Apr 2026 09:29:37 UTC (1,785 KB) [v2] Sun, 7 Jun 2026 12:55:02 UTC (1,786 KB) [v3] Sat, 24 Oct 2026 12:13:57 UTC (12,607 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-04-06T09:29:37Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-06-07T12:55:02Z"
+      },
+      {
+        "version": 3,
+        "utc": "2026-10-24T12:13:57Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2604.04554.html",
+    "cached": false
+  },
+  "2610.25068": {
+    "url": "https://arxiv.org/abs/2610.25068",
+    "retrieved_at": "2026-11-01T15:28:10Z",
+    "history_raw": "Submission history From: Mingkai Liu [ view email ] [v1] Sun, 18 Oct 2026 07:18:24 UTC (4,564 KB) [v2] Fri, 23 Oct 2026 13:18:56 UTC (4,564 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-18T07:18:24Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-10-23T13:18:56Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.25068.html",
+    "cached": false
+  },
+  "2609.11472": {
+    "url": "https://arxiv.org/abs/2609.11472",
+    "retrieved_at": "2026-11-01T15:28:12Z",
+    "history_raw": "Submission history From: Qianliang Wu [ view email ] [v1] Thu, 10 Sep 2026 12:39:58 UTC (2,493 KB) [v2] Tue, 29 Sep 2026 02:51:20 UTC (2,492 KB) [v3] Thu, 29 Oct 2026 09:54:52 UTC (2,608 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-09-10T12:39:58Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-09-29T02:51:20Z"
+      },
+      {
+        "version": 3,
+        "utc": "2026-10-29T09:54:52Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2609.11472.html",
+    "cached": false
+  },
+  "2608.28715": {
+    "url": "https://arxiv.org/abs/2608.28715",
+    "retrieved_at": "2026-11-01T15:28:13Z",
+    "history_raw": "Submission history From: Nikals Schwarz [ view email ] [v1] Fri, 28 Aug 2026 08:15:01 UTC (2,189 KB) [v2] Thu, 29 Oct 2026 08:08:35 UTC (2,190 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-08-28T08:15:01Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-10-29T08:08:35Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2608.28715.html",
+    "cached": false
+  },
+  "2605.07351": {
+    "url": "https://arxiv.org/abs/2605.07351",
+    "retrieved_at": "2026-11-01T15:28:12Z",
+    "history_raw": "Submission history From: Miso Lee [ view email ] [v1] Fri, 8 May 2026 07:01:30 UTC (1,884 KB) [v2] Thu, 29 Oct 2026 05:52:11 UTC (1,885 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-05-08T07:01:30Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-10-29T05:52:11Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2605.07351.html",
+    "cached": false
+  },
+  "2610.29959": {
+    "url": "https://arxiv.org/abs/2610.29959",
+    "retrieved_at": "2026-11-01T15:28:14Z",
+    "history_raw": "Submission history From: Suhang Yao [ view email ] [v1] Wed, 21 Oct 2026 16:16:41 UTC (4,748 KB) [v2] Thu, 22 Oct 2026 15:23:22 UTC (4,004 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-21T16:16:41Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-10-22T15:23:22Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2610.29959.html",
+    "cached": false
+  },
+  "2606.08666": {
+    "url": "https://arxiv.org/abs/2606.08666",
+    "retrieved_at": "2026-11-01T15:28:13Z",
+    "history_raw": "Submission history From: Aryan Naveen Mr. [ view email ] [v1] Sun, 7 Jun 2026 15:17:25 UTC (885 KB) [v2] Fri, 23 Oct 2026 03:20:24 UTC (887 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-06-07T15:17:25Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-10-23T03:20:24Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2606.08666.html",
+    "cached": false
+  },
+  "2607.21620": {
+    "url": "https://arxiv.org/abs/2607.21620",
+    "retrieved_at": "2026-11-01T15:28:13Z",
+    "history_raw": "Submission history From: Liuji Chen [ view email ] [v1] Mon, 1 Jun 2026 12:42:17 UTC (607 KB) [v2] Thu, 29 Oct 2026 14:05:24 UTC (647 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-06-01T12:42:17Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-10-29T14:05:24Z"
+      }
+    ],
+    "history_verified": true,
+    "raw_path": "core-abs-2607.21620.html",
+    "cached": false
+  }
+}

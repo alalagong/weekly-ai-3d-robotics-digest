@@ -1,0 +1,22 @@
+{
+  "repos": [
+    "/Nutlope/hallmark",
+    "/pbakaus/impeccable",
+    "/AgriciDaniel/claude-seo",
+    "/thedotmack/claude-mem",
+    "/cloudflare/security-audit-skill",
+    "/obra/superpowers",
+    "/JetBrains/thinkrail",
+    "/pingdotgg/t3code",
+    "/multica-ai/andrej-karpathy-skills",
+    "/jakubkrehel/skills",
+    "/TauricResearch/TradingAgents",
+    "/Leonxlnx/taste-skill",
+    "/anthropics/skills",
+    "/affaan-m/ECC",
+    "/YuJunZhiXue/dsh-purge",
+    "/ghostty-org/ghostty"
+  ],
+  "source": "https://github.com/trending?since=weekly",
+  "evidence": "public weekly ranking snapshot; no measured star-growth or all-repository recall"
+}

@@ -1,0 +1,1019 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/PGEmyDmUrB1b4FAZhjtjsRGpopA</id>
+  <title>arXiv Query: search_query=&amp;id_list=2610.05757,2610.05531,2610.06594,2610.07883,2610.09274,2610.11612,2610.12727,2610.11049,2610.14866,2610.16330,2610.15112,2610.16272,2610.08978,2610.09720,2610.10960,2610.14698,2610.20341,2610.13177,2610.09853,2610.09518,2610.07110,2610.06965,2610.11577,2610.17625,2610.11161,2605.14315,2609.33253,2606.11326,2610.00970,2609.23961,2303.07308,2606.26046,2610.04351&amp;start=0&amp;max_results=100</title>
+  <updated>2026-11-01T15:14:34Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=&amp;start=0&amp;max_results=100&amp;id_list=2610.05757,2610.05531,2610.06594,2610.07883,2610.09274,2610.11612,2610.12727,2610.11049,2610.14866,2610.16330,2610.15112,2610.16272,2610.08978,2610.09720,2610.10960,2610.14698,2610.20341,2610.13177,2610.09853,2610.09518,2610.07110,2610.06965,2610.11577,2610.17625,2610.11161,2605.14315,2609.33253,2606.11326,2610.00970,2609.23961,2303.07308,2606.26046,2610.04351" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>100</opensearch:itemsPerPage>
+  <opensearch:totalResults>33</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2610.00970v2</id>
+    <title>RelationVGGT: Visual Geometry Transformers for 3D Spatial Relation Segmentation</title>
+    <updated>2026-10-05T12:14:36Z</updated>
+    <link href="https://arxiv.org/abs/2610.00970v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.00970v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Recent advances in 3D reconstruction have progressed from per-scene optimization to feed-forward inference, and semantic scene understanding has followed suit -- yet existing methods remain confined to object-centric perception, neglecting spatial relations between objects. We formulate 3D spatial relation segmentation in a feed-forward, pose-free multi-view setting: given a visually specified subject and a relational text query, the model segments the target across views without receiving its category name. To this end, we propose RelationVGGT, a novel feed-forward framework that integrates semantic features from a visual foundation model with geometry-aware representations from a 3D geometry foundation model and leverages a relation transformer for subject-conditioned, cross-view relation prediction -- requiring neither per-scene optimization nor known camera poses. We additionally provide a fully automated annotation pipeline built on ScanNet++ with VLMs and LLMs, enabling scalable training data generation for this new task.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-01T03:00:27Z</published>
+    <arxiv:comment>10 pages. Accepted to NeurIPS 2026 (poster). Project page: https://relationvggt.github.io/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Minsu Kim</name>
+    </author>
+    <author>
+      <name>Jaesung Choe</name>
+    </author>
+    <author>
+      <name>Jiwoo Lee</name>
+    </author>
+    <author>
+      <name>Yu-Chiang Frank Wang</name>
+    </author>
+    <author>
+      <name>Seon Joo Kim</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.07110v1</id>
+    <title>MoonGS: High-quality Representation of the Lunar Surface via Gaussian Splatting Using Robust Depth Features from Image Pairs</title>
+    <updated>2026-10-05T15:46:50Z</updated>
+    <link href="https://arxiv.org/abs/2610.07110v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.07110v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>High-quality 3D reconstruction of lunar terrain from sparse rover images is indispensable for autonomous lunar exploration, but remains challenging because viewpoint overlap is insufficient, surface textures are weak, and data volume is limited. We propose MoonGS, the first feed-forward 3D Gaussian Splatting framework tailored to lunar scenes. Given only two input images, MoonGS predicts pixel-aligned Gaussian primitives in a single forward pass and renders photorealistic novel views without any per-scene optimization. MoonGS (i) adopts an adaptable backbone design that seamlessly integrates advanced vision foundation models to extract robust depth features; (ii) integrates semantic priors in two manners: merging semantic cues with visual features to refine Gaussian parameter estimation, and adopting a semantic ranking loss that regularizes background depth; and (iii) employs an entropy-guided heuristic resampling strategy to augment sparse observations by selecting the most informative distant viewpoints with negligible overhead. Experiments on the LuSNAR benchmark and our synthetic weak-texture MoonBlender dataset show that MoonGS surpasses state-of-the-art feed-forward NeRF/3DGS baselines by +4.9 dB PSNR, +0.29 SSIM, and 40\% lower LPIPS while maintaining sub-second inference. Furthermore, we validate the broad applicability of our framework by demonstrating that it effectively leverages state-of-the-art backbones, including VGGT, to significantly boost performance. Qualitative evaluations on Chang'e mission imagery also show the best visual quality among compared methods, indicating robustness on real lunar data. The source code and dataset are publicly available at https://github.com/InRobots/MoonBlender.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-05T15:46:50Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Yun Jiang</name>
+    </author>
+    <author>
+      <name>Bo Zheng</name>
+    </author>
+    <author>
+      <name>Yingying Zhang</name>
+    </author>
+    <author>
+      <name>Xueming Xiao</name>
+    </author>
+    <author>
+      <name>Tao Hu</name>
+    </author>
+    <author>
+      <name>Hutao Cui</name>
+    </author>
+    <author>
+      <name>Zhiguo Meng</name>
+    </author>
+    <author>
+      <name>Ke Gao</name>
+    </author>
+    <author>
+      <name>Yang Gao</name>
+    </author>
+    <author>
+      <name>Meibao Yao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.06965v1</id>
+    <title>ACG-WAM: World-Action Modeling via Action-Conditioned Geometric Latent Prediction</title>
+    <updated>2026-10-03T17:52:59Z</updated>
+    <link href="https://arxiv.org/abs/2610.06965v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.06965v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>World action models jointly learn visual predictionand robot actions, providing a way to use observations ofscene evolution for policy learning. Their video and actionlosses, however, provide no explicit target for the geometricconsequences of a demonstrated action sequence. Moreover,visual features taken after temporal attention can contain futureobservations, making them unsuitable as the sole current visualinput to an auxiliary predictor. We introduce ACG-WAMand its auxiliary objective, the Action-Conditioned GeometricJoint-Embedding Predictive Architecture (ACG-JEPA), whichpredicts geometric features at several horizons from the currentobservation and intervening actions, using the future slot of afrozen VGGT encoding of each current and future image pairas the target. We apply this supervision from the head and wristcameras to a shared visual embedding before temporal mixing,and remove the teacher and auxiliary modules at inference.On 50 RoboTwin 2.0 tasks, ACG-WAM achieves 93.46%success in clean scenes, with the best randomized success(92.68%) and mean across both settings (93.07%) among thecompared methods; across three tasks on a real robot, itachieves 85.00% success and 91.67% partial completion score,exceeding Motus by 10.00 and 9.17 percentage points, respec-tively. Code:https://github.com/RoboOpus/ACG-WAM.Website:https://RoboOpus.github.io/ACG-WAM.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-03T17:52:59Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Jiangtao Liu</name>
+    </author>
+    <author>
+      <name>Zishang Xiang</name>
+    </author>
+    <author>
+      <name>Yage He</name>
+    </author>
+    <author>
+      <name>Lingguo Cui</name>
+    </author>
+    <author>
+      <name>Baihai Zhang</name>
+    </author>
+    <author>
+      <name>Runqi Chai</name>
+    </author>
+    <author>
+      <name>Senchun Chai</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.14866v1</id>
+    <title>ScalLoc: Continuous Oblique Thermal UAV Geo-Localization with a 2D Satellite Map</title>
+    <updated>2026-10-10T12:35:57Z</updated>
+    <link href="https://arxiv.org/abs/2610.14866v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.14866v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Cross-modal Thermal Geo-localization (TG) provides an illumination-robust positioning solution for Unmanned Aerial Vehicles (UAVs) in Global Navigation Satellite System (GNSS)-denied environments. However, existing thermal geo-localization methods mainly focus on near-nadir observations or depend on map-side elevation priors, limiting their applicability to continuous oblique thermal localization with only geo-referenced 2D satellite maps. To address this problem, we propose ScalLoc, a scale-aligned local-to-map localization framework for continuous oblique thermal UAV geo-localization. ScalLoc follows a reconstruction--refinement--anchoring--propagation design: it reconstructs local window geometry from thermal sequences, refines camera poses using track-based pose optimization, adaptively anchors each window to the satellite map, and propagates validated states to recover frame-level global trajectories. To support systematic evaluation, we construct Thermal-Oblique, a real thermal UAV sequence dataset containing 216 urban and rural day--night trajectories and 28,112 thermal frames with frame-level annotations. Extensive experiments demonstrate that ScalLoc reduces the mean localization error from 112.69 m to 26.97 m compared with the VGGT-only configuration, corresponding to a 76.07% reduction, and achieves the lowest frame-weighted mean position error among the compared methods. These results demonstrate the feasibility of continuous oblique thermal geo-localization using only lightweight 2D satellite maps, without requiring digital surface models or preconstructed 3D maps. Code and dataset are available at https://github.com/FloralHercules/ScalLoc.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-10T12:35:57Z</published>
+    <arxiv:comment>14 pages, 8 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Xiaoran Zhang</name>
+    </author>
+    <author>
+      <name>Yu Liu</name>
+    </author>
+    <author>
+      <name>Jinyu Liang</name>
+    </author>
+    <author>
+      <name>Huaxin Xiao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.14315v2</id>
+    <title>TurboVGGT: Fast Visual Geometry Reconstruction with Adaptive Alternating Attention</title>
+    <updated>2026-10-14T00:02:13Z</updated>
+    <link href="https://arxiv.org/abs/2605.14315v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.14315v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Recent feed-forward 3D reconstruction methods, such as visual geometry transformers, have substantially advanced the traditional per-scene optimization paradigm by enabling effective multi-view reconstruction in a single forward pass. However, most existing methods struggle to achieve a balance between reconstruction quality and computational efficiency, which limits their scalability and efficiency. Although some efficient visual geometry transformers have recently emerged, they typically use the same sparsity ratio across layers and frames and lack mechanisms to adaptively learn representative tokens to capture global relationships, leading to suboptimal performance. In this work, we propose TurboVGGT, a novel approach that employs an efficient visual geometry transformer with adaptive alternating attention for fast multi-view 3D reconstruction. Specifically, TurboVGGT employs an end-to-end trainable framework that leverages adaptive sparse global attention guided by adaptive sparsity selection to capture global relationships across frames and uses frame attention to aggregate local details within each frame. In the adaptive sparse global attention, TurboVGGT adaptively learns representative tokens with varying sparsity levels for global geometry modeling, considering that token importance varies across frames, different attention layers operate on tokens at different levels of abstraction, and global dependencies rely on structurally informative regions. Extensive experiments on multiple 3D reconstruction benchmarks demonstrate that TurboVGGT achieves fast multi-view reconstruction while maintaining competitive reconstruction quality compared with state-of-the-art methods.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-14T03:24:09Z</published>
+    <arxiv:comment>NeurIPS 2026. Project page: https://turbovggt.github.io/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>David Huang</name>
+    </author>
+    <author>
+      <name>Guile Wu</name>
+    </author>
+    <author>
+      <name>Chengjie Huang</name>
+    </author>
+    <author>
+      <name>Bingbing Liu</name>
+    </author>
+    <author>
+      <name>Dongfeng Bai</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.05757v1</id>
+    <title>Human-in-the-Loop Neuro-Symbolic Drift Anticipation for Reliable Visual SLAM</title>
+    <updated>2026-10-05T04:06:38Z</updated>
+    <link href="https://arxiv.org/abs/2610.05757v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.05757v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper introduces Hybrid DeepSEE (HDS), a Human-in-the-Loop (HITL) neuro-symbolic framework for proactive drift anticipation in Visual SLAM (V-SLAM). While data-driven models offer predictive power, their "black-box" nature often yields physically inconsistent outputs in out-of-distribution (OOD) environments. To address this, HDS integrates neural drift risk estimation with symbolic constraint reasoning. By utilizing a Large Language Model (LLM) as a reasoning bridge, the framework translates qualitative human context into interpretable symbolic constraints. Building upon this architecture, we propose a superior drift anticipation framework that ensures enhanced reliability and consistency in Visual SLAM</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-05T04:06:38Z</published>
+    <arxiv:comment>IFAC conference paper; 5 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Junhyun Nam</name>
+    </author>
+    <author>
+      <name>Wonse Jo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.11612v1</id>
+    <title>PointVGGT: Zero-Shot Multiview RGB-D Point Cloud Registration with Visual Geometry Foundation Priors</title>
+    <updated>2026-10-08T09:54:56Z</updated>
+    <link href="https://arxiv.org/abs/2610.11612v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.11612v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper addresses multiview RGB-D point cloud registration, aiming to estimate global rigid poses for unordered RGB-D scans and align them in a metrically consistent coordinate frame. The conventional pairwise-then-global paradigm suffers from locally optimized pairwise registration, severe error propagation and high computational burden. In particular, existing methods typically treat RGB data as a mere auxiliary matching cue and overlook the holistic geometric priors (e.g., camera poses and 3D models) encoded across image sequences. This paper introduces PointVGGT, a zero-shot framework built upon a novel \emph{foundation-then-refinement} paradigm that systematically leverages visual geometry foundation models (e.g., VGGT) as the computational backbone for robust, training-free multiview RGB-D registration. In the foundation stage, we directly recover metrically consistent global poses (without any pairwise estimation) by grounding the scale-ambiguous pose predictions of the foundation model against metric depth observations. In the refinement stage, we introduce an efficient voxelized spatial hashing mechanism that exploits the globally coherent 3D reconstruction (induced by the foundation model) as a shared spatial anchor, enabling dense multiview correspondences in near-linear time. On top of this, an IRLS-based robust motion-only bundle adjustment is performed using a conjugate gradient solver to jointly minimize the correspondence and reprojection residuals for multiview pose refinement. Extensive experiments on indoor/object-centric/outdoor datasets verify the outstanding zero-shot registration accuracy and computational efficiency of our proposed method.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-08T09:54:56Z</published>
+    <arxiv:comment>19 Pages, 6 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Haobo Jiang</name>
+    </author>
+    <author>
+      <name>Liang Yu</name>
+    </author>
+    <author>
+      <name>Jianmin Zheng</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.11326v3</id>
+    <title>DarkVGGT: Seeing Through Darkness Using Thermal Geometry</title>
+    <updated>2026-10-12T20:45:04Z</updated>
+    <link href="https://arxiv.org/abs/2606.11326v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.11326v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Recent feed-forward 3D reconstruction methods have demonstrated strong performance and flexibility in efficient end-to-end scene geometry estimation from image streams. However, their reliance on visible-light appearance makes them vulnerable in dark and low-visibility environments, where RGB cues are severely degraded and geometric evidence becomes ambiguous. To address this challenge, we propose DarkVGGT, a structured RGB-T adaptation of pretrained VGGT for robust 3D estimation in low-light scenes. DarkVGGT introduces two complementary modules. First, complementary thermal feature factorization processes thermal tokens through content-preserving and high-frequency residual pathways controlled by learned complementary allocation weights. Second, geometry-shared thermal routing aligns RGB and thermal representations in a shared latent space and selectively injects a gated feature correction into the RGB stream. Together, these components enable accurate thermal-informed geometry estimation under degraded RGB conditions while largely preserving performance in well-lit environments. Experiments on low-visibility RGB-T benchmarks demonstrate consistent improvements in both depth and camera pose estimation over existing feed-forward geometry baselines.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-09T18:08:51Z</published>
+    <arxiv:comment>NeurIPS 2026, Project Page: https://darkvggt.github.io</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Minseong Kweon</name>
+    </author>
+    <author>
+      <name>Wenyuan Zhao</name>
+    </author>
+    <author>
+      <name>Nuo Chen</name>
+    </author>
+    <author>
+      <name>Lulin Liu</name>
+    </author>
+    <author>
+      <name>Huiwen Han</name>
+    </author>
+    <author>
+      <name>Zihao Zhu</name>
+    </author>
+    <author>
+      <name>Srinivas Shakkottai</name>
+    </author>
+    <author>
+      <name>Chao Tian</name>
+    </author>
+    <author>
+      <name>Zhiwen Fan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.17625v1</id>
+    <title>4LC: 4D Latent Cache for Efficient Conditioning in Dynamic World Modeling</title>
+    <updated>2026-10-13T02:47:58Z</updated>
+    <link href="https://arxiv.org/abs/2610.17625v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.17625v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For video generation in dynamic world modeling, observed static and dynamic content should be efficiently reused to provide conditions for repeated generation at different times and viewpoints. We introduce 4LC, a 4D latent cache with composite visual representations and a flexible spatiotemporal access interface. As a latent cache, 4LC directly reuses visual representations of static and dynamic content to provide generation conditions, avoiding per-request RGB rendering and re-encoding. As a composite cache, 4LC binds visual representations from multiple visual encoders (e.g., VAE, DINO, V-JEPA, VGGT) to shared geometry and motion, allowing the composite representations to describe the dynamic world with rich information. Besides, we design a flexible spatiotemporal interface, which directly reads the cache at independently specified times and viewpoints and combines readouts across observations, providing a common conditioning format for diverse downstream tasks. Building on 4LC, we develop 4LC-Video to address multiple video generation tasks through different configurations of source observations, spatiotemporal requests, and historical reuse, including camera control, temporal control, novel-view synthesis, scene revisits, and long-term generation. Our experiments show more efficient condition acquisition, effective spatiotemporal controllability, and scene consistency across tasks using a single 4LC-Video model without task-specific fine-tuning.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-13T02:47:58Z</published>
+    <arxiv:comment>Project page: https://zgca-hmi-lab.github.io/4LC</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Jianhui Zhang</name>
+    </author>
+    <author>
+      <name>Zuyao Lin</name>
+    </author>
+    <author>
+      <name>Pengxin Xu</name>
+    </author>
+    <author>
+      <name>Jingdong Wang</name>
+    </author>
+    <author>
+      <name>Xingyu Chen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.11049v2</id>
+    <title>SatFix: Absolute Visual Localization of UAVs in Satellite Maps from a Single Oblique Image</title>
+    <updated>2026-10-19T01:41:37Z</updated>
+    <link href="https://arxiv.org/abs/2610.11049v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.11049v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study absolute metric UAV localization within a provided geo-referenced satellite region, recovering continuous map position and viewing heading from a single oblique image or a short multi-view clip. Existing cross-view geo-localization methods retrieve the most similar satellite tile from a gallery and report Recall@K, but retrieval depends on gallery sampling, provides no heading estimate, and returns a tile index rather than a continuous coordinate. We propose SatFix, a feed-forward UAV--satellite localization framework built on VGGT-$Ω$. Satellite-grid features act as queries that aggregate UAV visual evidence, and two lightweight heads regress a 3-DoF pose in the satellite-map frame: continuous 2D position and heading. SatFix requires no explicit 3D map, rendered bird's-eye image, auxiliary sensor, or test-time pose alignment. A single model supports both single- and multi-view inputs, with trajectory constraints used during multi-view training. For metric evaluation, we introduce University-Metric, where satellite imagery is re-collected over a region up to 10.7$\times$ longer on a side (about 114$\times$ the ground area) than the original University-1652 tiles, with continuous position and heading labels for the original UAV tours. With one UAV view, SatFix localizes 52.08% of test frames within 50 m and 17.34% within 10 m, with median position and heading errors of 45.66 m and $20.81^\circ$, respectively. Inference takes under 0.1 s per single-view query on an NVIDIA RTX 4090. With nine UAV views, the median position error falls to 21.96 m and the median heading error to $8.73^\circ$. Compared with a fine-tuned VGGT-$Ω$ baseline, SatFix reduces median position error by 34.0% and nine-view median heading error from $25.43^\circ$ to $8.73^\circ$.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-08T01:01:46Z</published>
+    <arxiv:comment>Satellite images at multiple resolutions are available at: https://1drv.ms/u/c/758af5fc520c81c5/IQCjvHc3iiq6SJDpYipcIv5vAc-NmHMPCAwSTBnrA1vhM5U?e=YSX1lZ UAV images can be downloaded from the original University-1652 dataset</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Jiarui Zeng</name>
+    </author>
+    <author>
+      <name>Kun Shi</name>
+    </author>
+    <author>
+      <name>Chiman Vong</name>
+    </author>
+    <author>
+      <name>Zhedong Zheng</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.16272v2</id>
+    <title>Graph3R: Unifying View Graph Initialization with Feed-Forward Reconstruction</title>
+    <updated>2026-10-17T08:44:22Z</updated>
+    <link href="https://arxiv.org/abs/2610.16272v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.16272v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Feed-forward reconstruction recovers camera poses and dense geometry from image sets whose views are assumed to come from a single scene. In practice, uncurated image collections often contain views from disjoint scenes, and reconstructing these views jointly can corrupt camera poses and geometry. Existing pipelines typically resolve view associations in separate stages before final reconstruction, leaving view graph initialization and reconstruction inference only loosely coupled. We introduce Graph3R, which unifies view graph initialization with feed-forward reconstruction through a shared geometric representation. A lightweight verification head predicts pairwise covisibility from the multi-view features of $π^3$ to construct a view graph. This graph classifies the input views into scene groups. For each group, we mask the shared features before decoding camera poses and dense geometry. Reusing the multi-view features allows Graph3R to reconstruct disjoint scenes separately with a single backbone pass. Across three benchmarks, Graph3R improves average maximum recall at 100% precision by upto 8.99 percentage points over the baseline, while improving reconstruction quality on mixed-scene inputs. Regarding the multi-session mapping task, Graph3R improves cross-session localization and achieves competitive pose estimation accuracy, while delivering a runtime speedup of approximately $35.9\times$ over the baseline when reconstructing the query group. By integrating learned view association with geometric inference, our approach takes a step toward end-to-end reconstruction from uncurated image collections.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-12T06:50:08Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Jingwen Yu</name>
+    </author>
+    <author>
+      <name>Hengli Wang</name>
+    </author>
+    <author>
+      <name>Jianhao Jiao</name>
+    </author>
+    <author>
+      <name>Zhonghang Liu</name>
+    </author>
+    <author>
+      <name>Ping Tan</name>
+    </author>
+    <author>
+      <name>Hong Zhang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.09853v1</id>
+    <title>DeltaSplat: Iterative Gaussian Refinement for Pose-Free Feed-Forward 3D Gaussian Splatting</title>
+    <updated>2026-10-07T11:11:22Z</updated>
+    <link href="https://arxiv.org/abs/2610.09853v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.09853v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Pose-free feed-forward 3D Gaussian Splatting (3DGS) reconstructs a scene from sparse, unposed images in a single network pass, removing the need for camera calibration and per-scene optimization. However, camera estimation errors propagate into the predicted Gaussians and compound the geometric and photometric inaccuracies of single-pass prediction. To correct these errors, we introduce DeltaSplat, a lightweight Gaussian refinement module for pose-free feed-forward 3DGS. It iteratively renders the current Gaussians at the input context views and predicts per-Gaussian updates from the resulting residuals. A 2D residual alone, however, underdetermines the 3D correction. DeltaSplat therefore conditions each update on per-pixel Plücker rays and rendered depth as a soft geometric prior. A dual-branch convolutional mixer efficiently encodes these inputs, and per-attribute heads decode the fused features into position, opacity, and color updates. The module adds only ~2.2% parameters to the backbone and remains fully feed-forward at inference. On DL3DV, DeltaSplat reaches 26.64 dB PSNR in the pose-free setting, improving its state-of-the-art backbone by 1.75 dB and surpassing even baselines supplied with ground-truth cameras; consistent gains hold across 6-24 views and all camera regimes.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-07T11:11:22Z</published>
+    <arxiv:comment>11 pages, 6 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Chanung Park</name>
+    </author>
+    <author>
+      <name>Seunghyeon Song</name>
+    </author>
+    <author>
+      <name>Joo Chan Lee</name>
+    </author>
+    <author>
+      <name>Eunbyung Park</name>
+    </author>
+    <author>
+      <name>Jong Hwan Ko</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.09720v1</id>
+    <title>DynStream: Online Streaming 4D Gaussian Reconstruction of Dynamic Worlds from Unposed Video</title>
+    <updated>2026-10-07T09:15:02Z</updated>
+    <link href="https://arxiv.org/abs/2610.09720v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.09720v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Online reconstruction of dynamic 4D scenes from long, unposed streaming videos requires both continuous processing and photorealistic rendering, which existing methods struggle to achieve simultaneously. Existing feed-forward Gaussian methods are restricted to offline processing, whereas online point-cloud approaches struggle to maintain dense geometry and high-fidelity rendering. We present DynStream, a framework for streaming 4D Gaussian reconstruction from long, unposed videos. Given a continuous video stream, DynStream reconstructs the scene within local temporal windows and incrementally aligns and fuses these local reconstructions into a globally consistent scene, enabling online 4D reconstruction without per-scene optimization. By jointly enforcing cross-window geometric consistency and modeling time-varying scene content, DynStream supports efficient reconstruction and photorealistic rendering over extended video streams. Experiments demonstrate that DynStream enables high-fidelity online dynamic reconstruction and rendering from long video streams, achieving state-of-the-art performance across diverse dynamic indoor and outdoor scenes.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-07T09:15:02Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Dingwei Xian</name>
+    </author>
+    <author>
+      <name>Xiaoyu Zhou</name>
+    </author>
+    <author>
+      <name>Yajiao Xiong</name>
+    </author>
+    <author>
+      <name>Yongtao Wang</name>
+    </author>
+    <author>
+      <name>Ming-Hsuan Yang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.09518v1</id>
+    <title>ActiveLang: Active Open-Vocabulary 3D Mapping with Semantic-Uncertainty-Guided Exploration</title>
+    <updated>2026-10-07T06:15:39Z</updated>
+    <link href="https://arxiv.org/abs/2610.09518v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.09518v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>As robots increasingly assist humans with diverse tasks, they need both geometric and semantic understanding of their surroundings. Moreover, robots often operate in unfamiliar environments and take on new tasks without knowing the relevant concepts ahead of time. This motivates language-annotated 3D maps that support open-vocabulary scene understanding and human-robot interaction. We introduce ActiveLang, an autonomous system for active open-vocabulary 3D mapping with semantic-uncertainty-guided exploration. ActiveLang performs online language-feature adaptation on a compact dual-Gaussian representation to jointly reconstruct scene geometry, appearance, and open-vocabulary semantics with modest memory overhead. Its planner efficiently selects informative viewpoints, enabling effective mapping with fewer observations and lower computational cost. Experiments on Replica and ScanNet++ demonstrate substantial improvements in 2D and 3D open-vocabulary segmentation over both online and offline baselines, highlighting that actively exploring scenes builds language-annotated 3D maps more efficiently.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-07T06:15:39Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Liyan Chen</name>
+    </author>
+    <author>
+      <name>Hairong Yin</name>
+    </author>
+    <author>
+      <name>Huangying Zhan</name>
+    </author>
+    <author>
+      <name>Yi Xu</name>
+    </author>
+    <author>
+      <name>Raymond A. Yeh</name>
+    </author>
+    <author>
+      <name>Philippos Mordohai</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.15112v1</id>
+    <title>Drive3R: Block-wise Streaming Geometric Foundation Models for Autonomous Driving</title>
+    <updated>2026-10-10T18:35:06Z</updated>
+    <link href="https://arxiv.org/abs/2610.15112v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.15112v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>High-fidelity closed-loop simulation for autonomous driving increasingly relies on dense multi-view 3D reconstruction. While recent feed-forward geometric foundation models have revolutionized per-scene optimization, applying them to continuous, long-horizon driving sequences is computationally intractable due to GPU memory limits and the quadratic complexity of global attention. Existing scaling strategies are fundamentally limited, as causal streaming suffers from compounding scale drift and trajectory deviation, while rigid "chunk-then-align" heuristics fragment global context and produce trajectory discontinuities. To address these limitations, we introduce Drive3R, a block-wise streaming geometric foundation model. Its block-wise causal attention resolves the scalability bottleneck of fully bidirectional attention while avoiding the loss of local future context in purely causal streaming. Its confidence-aware re-anchoring further mitigates long-range drift by detecting unreliable streaming states, re-initializing the KV cache, and stitching refreshed segments through SE(3) alignment. Extensive experiments demonstrate that Drive3R establishes a new state-of-the-art on nuScenes, KITTI, and Waymo. Specifically, on nuScenes, it improves over the recent DVGT-2 baseline from 0.1806 to 0.1081 in AbsRel, from 0.6750 to 0.5344 in point-cloud Accuracy, and from 1.5812 to 0.9092 in ATE.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-10T18:35:06Z</published>
+    <arxiv:comment>11 pages, 6 figures, 4 tables. Project page: https://silence-ai423.github.io/Drive3R/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Tianyi Yang</name>
+    </author>
+    <author>
+      <name>Haojun Yang</name>
+    </author>
+    <author>
+      <name>Jipeng Xiao</name>
+    </author>
+    <author>
+      <name>Xuesong Chen</name>
+    </author>
+    <author>
+      <name>Shaoshuai Shi</name>
+    </author>
+    <author>
+      <name>Li Jiang</name>
+    </author>
+    <author>
+      <name>Zhipeng Zhang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.26046v3</id>
+    <title>RoboAtlas: Contextual Active SLAM</title>
+    <updated>2026-10-15T01:10:32Z</updated>
+    <link href="https://arxiv.org/abs/2606.26046v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.26046v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present RoboAtlas, a contextual Active SLAM framework that adaptively balances geometric exploration and semantic reasoning using a scalable 3D semantic mapping system, OpenRoboVox. RoboAtlas integrates frontier exploration, global semantic-map reasoning, and egocentric VLM-based reasoning through a contextual multi-armed bandit that transitions from exploration to semantically guided navigation as scene understanding improves. We evaluate the system in simulation and on a Unitree Go2 robot in large-scale real-world environments exceeding 1800 m2 with approx. 30k mapped semantic instances, achieving a 100% task success rate. On the GOAT-Bench "Val Unseen" benchmark, RoboAtlas achieves state-of-the-art performance with highest reported success rate (SR) of 90.6%, using GPT-4o, improving over the strongest prior baseline by 17.8 percentage points in SR. Using the much smaller Qwen2.5-VL-7B model, it still achieves 88.8% SR, outperforming all baselines using GPT-4o in SR, and revealing the importance of the information gained by our semantic mapping framework over simply replacing the underlying foundation model. The results demonstrate that grounding foundation models with large-scale 3D semantic maps enables robust and efficient contextual Active SLAM.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-24T17:26:07Z</published>
+    <arxiv:comment>Alexander Schperberg and Shivam K. Panda made equal contribution</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Alexander Schperberg</name>
+    </author>
+    <author>
+      <name>Shivam K. Panda</name>
+    </author>
+    <author>
+      <name>Abraham P. Vinod</name>
+    </author>
+    <author>
+      <name>Bhagawan Rokaha</name>
+    </author>
+    <author>
+      <name>M. K. Jawed</name>
+    </author>
+    <author>
+      <name>Stefano Di Cairano</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.08978v1</id>
+    <title>S2Tok: Streaming 3D Gaussian Reconstruction with Persistent Spatial Tokens</title>
+    <updated>2026-10-06T18:40:13Z</updated>
+    <link href="https://arxiv.org/abs/2610.08978v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.08978v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Streaming 3D reconstruction requires more than a sequence of geometric predictions: it requires a persistent scene state that can incorporate new evidence and remain renderable as observations arrive. Latent spatial tokens offer a promising representation for this purpose, but constructing them from an image collection leaves open how to maintain them online, where each observation may both revisit known regions and reveal new content. We introduce S2Tok, a feed-forward framework that maintains a size-adaptive, persistent scene state from uncalibrated image streams. Its central idea is to distinguish updates to the existing representation from selective expansion. A spatially informed transformer integrates each incoming observation with the persistent scene tokens, while a learned admission module selectively expands the representation to limit redundant storage. A hierarchical decoder and Gaussian head convert the evolving state into non-pixel-aligned 3D Gaussians, enabling novel-view rendering without caching previous frames. Experiments across four benchmarks demonstrate competitive streaming rendering quality with compact Gaussian representations. These results support latent spatial tokens as a persistent computational state for online 3D reconstruction, combining learned scene updates with explicit Gaussian rendering.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-06T18:40:13Z</published>
+    <arxiv:comment>Project Page: https://s2tok.github.io/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Fang Li</name>
+    </author>
+    <author>
+      <name>Jiraphon Yenphraphai</name>
+    </author>
+    <author>
+      <name>Quentin Herau</name>
+    </author>
+    <author>
+      <name>Depu Meng</name>
+    </author>
+    <author>
+      <name>Yihan Hu</name>
+    </author>
+    <author>
+      <name>Tianshuo Xu</name>
+    </author>
+    <author>
+      <name>Narendra Ahuja</name>
+    </author>
+    <author>
+      <name>Wei Zhan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.11161v1</id>
+    <title>VGGTWorld-VLA: Intent-Conditioned 3D World Evolution for Autonomous Driving</title>
+    <updated>2026-10-08T03:20:48Z</updated>
+    <link href="https://arxiv.org/abs/2610.11161v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.11161v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>VGGT provides a strong foundation for geometry-centric world models by recovering unified 3D scene geometry from visual observations. Although recent extensions enable temporal 3D prediction, their future evolution remains weakly conditioned on driving intentions and actions, limiting their ability to model alternative action-dependent futures. We propose VGGTWorld-VLA, an intention-conditioned extension of VGGT-World for controllable 3D world evolution in autonomous driving. First, we introduce an action--semantic conditioning mechanism that injects complementary driving semantics and ego-motion representations into the future-token stream, enabling different future geometry predictions for the same observed scene under alternative ego actions. Second, we develop a geometry--language--action bridge that adapts historical geometry, VLA semantic features, and maneuver and trajectory representations for joint conditioning of future geometry prediction. We evaluate future geometry prediction on NAVSIM, while conditioning ablations further examine the contributions of semantic and action information. Compared with the baseline, our method demonstrates competitive geometry prediction performance. Ablation studies further support the effectiveness of semantic and action conditioning. These results demonstrate the potential of semantic and action conditioning for controllable VGGT-based world prediction in autonomous driving.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-08T03:20:48Z</published>
+    <arxiv:comment>20 pages, 9 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Zhaoyang Liu</name>
+    </author>
+    <author>
+      <name>Kun Jiang</name>
+    </author>
+    <author>
+      <name>Ziying Song</name>
+    </author>
+    <author>
+      <name>Diange Yang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.11577v1</id>
+    <title>CoCam4D: Geometry-Aware Cooperative 4D Perception for Camera-Only Autonomous Driving</title>
+    <updated>2026-10-08T09:31:28Z</updated>
+    <link href="https://arxiv.org/abs/2610.11577v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.11577v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Autonomous vehicles often suffer from limited perception due to occlusions, blind spots, limited sensor range, and the complex nature of surrounding environments. Multi-agent collaborative perception (CP) addresses these challenges by allowing vehicles to share sensory information and reconstruct the scene cooperatively. However, camera-only perception remains fundamentally limited by the uncertainty of distance-dependent monocular depth estimation. We propose CoCam4D, a Bayesian framework for collaborative perception that explicitly models geometric uncertainty. It uses a VGGT-based feedforward network to generate 3D Gaussian scene representations with associated uncertainty estimates, enabling multiple vehicles or agents to efficiently combine their observations. By sharing compact Gaussian primitives, reliable observations from one agent can reduce the depth uncertainty of another without requiring LiDAR sensors. To support real-world deployment, we introduce Dynamic Object Primitives (DOPs), a compact 35-byte representation designed for efficient C-V2X communication. Extensive experiments show that our proposed method consistently outperforms recent vision-only methods, achieving improvements of 11.48% on OPV2V+ and 10.62% on DAIR-V2X-C, demonstrating the potential of geometrically grounded collaborative perception for LiDAR-free autonomous driving.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-08T09:31:28Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Soham Pahari</name>
+    </author>
+    <author>
+      <name>Sudip Das</name>
+    </author>
+    <author>
+      <name>Arindam Das</name>
+    </author>
+    <author>
+      <name>Ujjwal Bhattacharya</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.16330v1</id>
+    <title>BAT3R: Robust Online 3D Reconstruction with Bayesian Adaptive State Updates</title>
+    <updated>2026-10-12T07:47:47Z</updated>
+    <link href="https://arxiv.org/abs/2610.16330v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.16330v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Feed-forward transformer models have driven remarkable progress in 3D vision,yet their quadratic complexity renders them impractical for long video sequences. Streaming 3D reconstruction addresses this bottleneck by processing frames sequen?tially with constant memory. However, existing recurrent architectures inevitably suffer from progressive degradation over long sequences, as they fail to account for the intrinsic reliability of observations and the accumulated confidence of the historical state, leading to severe error accumulation. To address these issues, we introduce BAT3R, a training-free Bayesian adaptation framework comprising two synergistic modules: State Innovation Gating (SIG) and Bayesian-guided Adaptive State Updating (BASU). SIG acts as a distributional regularizer that anchors state evolution to its geometric initialization, effectively arresting representational drift during long-term inference. Building on this, BASU reformulates state update as a recursive Bayesian inference process within a Kalman filtering framework. By jointly modeling the temporal reliability of observations via information-theoretic gain and spatial relevance via cross-attention maps, BASU achieves an asymmetric spatio-temporal state fusion: well-consolidated historical regions are protected from redundant updates, while genuinely novel scene content is aggressively incor?porated. Extensive experiments on standard benchmarks (7-Scenes, TUM, ScanNet, KITTI, etc.) demonstrate that BAT3R consistently outperforms state-of-the-art online 3D reconstruction methods, with the most significant gains observed on long sequences and complex scenes.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-12T07:47:47Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Lijian Li</name>
+    </author>
+    <author>
+      <name>Yuanpeng He</name>
+    </author>
+    <author>
+      <name>Yudian Zheng</name>
+    </author>
+    <author>
+      <name>Chung-ju Huang</name>
+    </author>
+    <author>
+      <name>Linyu Li</name>
+    </author>
+    <author>
+      <name>Dongming Jin</name>
+    </author>
+    <author>
+      <name>Wenpin Jiao</name>
+    </author>
+    <author>
+      <name>Zhi Jin</name>
+    </author>
+    <author>
+      <name>Chi-Man Pun</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.12727v1</id>
+    <title>Zebra3D: Efficient Hybrid Foundation Models For Scalable 3D Reconstruction</title>
+    <updated>2026-10-08T21:09:21Z</updated>
+    <link href="https://arxiv.org/abs/2610.12727v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.12727v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Feed-forward 3D foundation models reconstruct scenes from unposed images, but the quadratic cost of global attention limits their scalability to large view sets. We present Zebra3D, a layerwise sparse-linear hybrid attention framework that improves the efficiency of pretrained 3D foundation models without training from scratch. Across VGGT, HunyuanWorld-Mirror, and $π^3$, we observe a broadly consistent depth-wise pattern: early stages are relatively tolerant to linear replacement, while sensitive middle-to-late stages tend to exhibit more concentrated attention. Zebra3D exploits this structure by assigning linear-centered attention to tolerant stages and tile-sparse attention to sensitive stages, using landmark summaries to preserve unselected context. Closed-form affine fitting enables training-free conversion, while optional post-conversion training combines task supervision with output and relational feature distillation. Across all three backbones, Zebra3D achieves strong reconstruction and camera-pose accuracy at high attention sparsity, with training-free variants remaining close to their dense counterparts. End-to-end speedups increase with input view count, reaching up to $7.1\times$ at 1,024 views. After post-conversion training, Zebra3D-VGGT reaches 80.5\% RealEstate10K AUC@30 at 94\% mean attention sparsity, within 1.1 percentage points of dense VGGT fine-tuned on the same data and schedule.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-08T21:09:21Z</published>
+    <arxiv:comment>37 pages, 12 figures, 22 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Utkarsh Saxena</name>
+    </author>
+    <author>
+      <name>Ruijing Yang</name>
+    </author>
+    <author>
+      <name>Mehdi Rezagholizadeh</name>
+    </author>
+    <author>
+      <name>Akash Haridas</name>
+    </author>
+    <author>
+      <name>Vikram Appia</name>
+    </author>
+    <author>
+      <name>Emad Barsoum</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.04351v1</id>
+    <title>LoCoSplat: Real-Time Feed-Forward 3D Gaussian Splatting with Minimal 3D Reasoning</title>
+    <updated>2026-10-03T07:36:22Z</updated>
+    <link href="https://arxiv.org/abs/2610.04351v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.04351v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Feed-forward 3D Gaussian Splatting (3DGS) increasingly aggregates multi-view evidence with heavy learned 3D networks. We propose LoCoSplat (Local-Context Splatting), motivated by the observation that a Gaussian is a local primitive: once depth is predicted, what the 3D stage must add (scale, rotation, opacity) depends on the point cloud around each anchor, and a fixed local average of that neighbourhood is enough to supply it, no heavy network required. LoCoSplat realises exactly this average: it splats a 16-d linear projection of the point features into a fine and a coarse grid and reads both back at each anchor with a 0.14M-parameter pointwise MLP; with no learned 3D network and no dynamic sparse computation, its whole encoder runs as one fp16 CUDA graph. On RealEstate10K, LoCoSplat outperforms every prior feed-forward method on PSNR, SSIM, and LPIPS at 6, 12, and 24 views, with a margin that widens as views densify (+3.3 PSNR over VolSplat, the prior voxel-aligned state of the art, at 24 views) and grows further under zero-shot transfer to ACID and fine-tuning on ScanNet. It reconstructs a 6-view scene in 33 ms on one NVIDIA RTX PRO 6000 GPU, the fastest of seven feed-forward methods and $4.2\times$ faster than the previous state of the art, trains $2.7\times$ faster ($5.9\times$ at 24 views), and uses $6.7\times$ less inference memory.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.GR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-03T07:36:22Z</published>
+    <arxiv:comment>23 pages. Under review</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Sinan Wang</name>
+    </author>
+    <author>
+      <name>Jinjin He</name>
+    </author>
+    <author>
+      <name>Yuchen Sun</name>
+    </author>
+    <author>
+      <name>Duowen Chen</name>
+    </author>
+    <author>
+      <name>Shenyifan Lu</name>
+    </author>
+    <author>
+      <name>Bo Zhu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2303.07308v3</id>
+    <title>NeuSE: Neural SE(3)-Equivariant Embedding for Long-Term Object-Based Simultaneous Localization and Mapping</title>
+    <updated>2026-10-13T03:15:29Z</updated>
+    <link href="https://arxiv.org/abs/2303.07308v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2303.07308v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present NeuSE, a novel Neural SE(3)-Equivariant Embedding for objects, and illustrate how it supports object-based Simultaneous Localization and Mapping (SLAM) for consistent spatial understanding with long-term scene changes. NeuSE is a set of latent object embeddings created from partial object observations. It serves as a compact point cloud surrogate for complete object models, encoding the full shape, scale, and transform information about an object. In addition, the inferred latent code is both SE(3) and scale equivariant, enabling strong generalization to objects of both unseen sizes and different SE(3) poses. This makes NeuSE particularly effective in real-world scenarios where objects may vary in size or spatial configuration. With NeuSE, relative frame transforms can be directly derived from inferred latent codes. Our proposed SLAM paradigm, using NeuSE for object shape, size, and pose characterization, can operate independently or in conjunction with typical SLAM systems. It directly infers SE(3) camera pose constraints that are compatible with general SLAM pose graph optimization, while maintaining a lightweight, object-centric map that adapts to real-world changes. Our evaluation is conducted on synthetic and real-world sequences with changes in both controlled and uncontrolled settings, featuring multi-category objects of various shapes and sizes. Our approach demonstrates improved localization capability and change-aware mapping consistency when working either independently or as a complement to common SLAM pipelines. Additional results are presented in the supplementary video: https://youtu.be/fZ4_2P1fQBQ</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-03-13T17:30:43Z</published>
+    <arxiv:comment>Accepted to The International Journal of Robotics Research (IJRR). Supplementary video: https://youtu.be/fZ4_2P1fQBQ</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <arxiv:journal_ref>The International Journal of Robotics Research 45(1), 159-189 (2026)</arxiv:journal_ref>
+    <author>
+      <name>Jiahui Fu</name>
+    </author>
+    <author>
+      <name>Yilun Du</name>
+    </author>
+    <author>
+      <name>Kurran Singh</name>
+    </author>
+    <author>
+      <name>Joshua B. Tenenbaum</name>
+    </author>
+    <author>
+      <name>John J. Leonard</name>
+    </author>
+    <arxiv:doi>10.1177/02783649251355966</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1177/02783649251355966" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.20341v1</id>
+    <title>InfiniSplat v2: Analyzing and Improving Feed-Forward 3DGS from Any Views</title>
+    <updated>2026-10-14T15:21:57Z</updated>
+    <link href="https://arxiv.org/abs/2610.20341v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.20341v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Feed-forward Gaussian reconstruction builds 3D scenes directly from input images for novel view rendering, but learning Gaussian attributes from predicted geometry for high-quality rendering under large viewpoint changes remains challenging. We analyze limitations in Gaussian attribute learning and introduce InfiniSplat v2, which improves rendering quality through architectural and training changes. Our method decouples geometry and attribute prediction with a frozen geometry branch, aligns predicted Gaussians using ground-truth camera poses during training, and adopts large-angle target view supervision. Across six datasets, the feed-forward outputs of the same trained model achieve state-of-the-art mean LPIPS and DISTS among the evaluated methods in both pose-conditioned and pose-free settings. In the pose-conditioned setting, mean LPIPS and DISTS decrease by 25.8% and 32.9%, respectively, compared with the strongest evaluated baselines. We further find that opacity learned with only image reconstruction supervision suppresses geometrically inconsistent points. Project page: https://zju3dv.github.io/InfiniSplat2/</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-14T15:21:57Z</published>
+    <arxiv:comment>21 pages. Project page: https://zju3dv.github.io/InfiniSplat2/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Yongzhen Hu</name>
+    </author>
+    <author>
+      <name>Hao Yu</name>
+    </author>
+    <author>
+      <name>Jiawei Wang</name>
+    </author>
+    <author>
+      <name>Xianming Zeng</name>
+    </author>
+    <author>
+      <name>Jianyun Xu</name>
+    </author>
+    <author>
+      <name>Xingliang Liu</name>
+    </author>
+    <author>
+      <name>Ruizhen Hu</name>
+    </author>
+    <author>
+      <name>Xiaowei Zhou</name>
+    </author>
+    <author>
+      <name>Hujun Bao</name>
+    </author>
+    <author>
+      <name>Sida Peng</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.05531v1</id>
+    <title>Deep Prior Learning for Embodied Perception</title>
+    <updated>2026-10-04T20:53:38Z</updated>
+    <link href="https://arxiv.org/abs/2610.05531v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.05531v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Embodied systems need geometric perception that exploits available observations beyond images alone. Recent feed-forward 3D models incorporate geometric priors, including camera poses, intrinsics, and depth. However, handling noisy poses, preserving accurate priors, and recovering physical scale require more than simply accepting these inputs. We introduce \emph{Vision-Prior Geometry Grounded Transformer} (VPGGT), a VGGT-based framework that extends OmniVGGT for prior-aware embodied perception. We formulate sensor-motivated pose corruptions from ground-truth trajectories for training and introduce a parameter-free \emph{prior residual connection} (PRC) to mitigate \emph{prior dilution}, where predictions are less accurate than their supplied pose priors. Our noise formulation targets camera poses; supplied intrinsics and depth receive no additional corruption. We further introduce \emph{Metric Global Attention}, which conditions a global scale token on available pose and depth scales and predicts a shared metric scaling factor for the geometric outputs. Experiments across four datasets show that \emph{PRC} improves translation-direction accuracy and joint pose AUC over a matched training baseline when camera priors are provided for all views, under both exact and corrupted poses. These results support explicit prior access during refinement as a useful addition to feature-level conditioning.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-04T20:53:38Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Yimou Wu</name>
+    </author>
+    <author>
+      <name>Jiaxin Guo</name>
+    </author>
+    <author>
+      <name>Yun-hui Liu</name>
+    </author>
+    <author>
+      <name>Zheng Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.09274v1</id>
+    <title>Hardware-aware Calibrated Clustered Attention for Efficient Visual Geometric Transformers</title>
+    <updated>2026-10-07T01:13:49Z</updated>
+    <link href="https://arxiv.org/abs/2610.09274v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.09274v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Visual Geometry Grounded Transformer (VGGT) marks a significant leap forward in 3D scene reconstruction, as it is the first model that directly infers all key 3D attributes (camera poses, depths, and dense geometry) jointly in one pass. However, this joint inference mechanism requires global attention layers with extremely long sequences that causes a significant latency bottleneck. In this paper, we propose blockwise clustered attention (BC attention) to accelerate the global attention layers in VGGT. By limiting the clustering within HW-friendly neighborhood blocks, BC attention reduces the computation overhead of query clustering as well as the costly data movement between on- and off-chip memory. This enables BC attention to scale to long sequences and deliver practical latency improvements on GPUs. Moreover, we introduce a hashing hyperplane calibration method and a threshold-based error compensation method to reduce clustering errors efficiently, which is a bottleneck in the current clustered attention mechanism. Overall, our experiments on GPU demonstrate that calibrated BC attention accelerates the global attention layers by 2.10-2.63$\times$ and the whole backbone by 1.77-2.35$\times$ with negligible loss (1%) for large scenes. With a small performance loss (&lt; 5%), calibrated BC attention further achieves a 2.26-2.87$\times$ latency improvement on the global attention layers and a 1.90-2.55$\times$ improvement on the backbone.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-07T01:13:49Z</published>
+    <arxiv:comment>Accepted to IJCNN26</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Weitian Wang</name>
+    </author>
+    <author>
+      <name>Shubham Rai</name>
+    </author>
+    <author>
+      <name>Cecilia De La Parra</name>
+    </author>
+    <author>
+      <name>Akash Kumar</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.10960v1</id>
+    <title>LVSPM: Long Sequence View Synthesis and Pose Estimation Model</title>
+    <updated>2026-10-07T22:26:35Z</updated>
+    <link href="https://arxiv.org/abs/2610.10960v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.10960v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present LVSPM, a generalizable model that jointly estimates camera poses and synthesizes novel views from uncalibrated image collections. Trained with only RGB images and pose supervision, LVSPM avoids dense 3D ground truth and employs test-time training (TTT) layers to scale seamlessly to hundreds of input views. On RealEstate10k, Co3Dv2, and DL3DV, LVSPM surpasses VGGT in pose estimation across 16-256 views, with especially large margins at strict thresholds. For novel view synthesis under a practical protocol where more views cover larger scenes, LVSPM achieves state-of-the-art pose-free quality---surpassing even pose-dependent models in PSNR---and still maintains high quality as scene scale grows, while baselines collapse. The code is available at https://burningdust21.github.io/Projects/LVSPM .</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-07T22:26:35Z</published>
+    <arxiv:comment>ECCV 2026. Project Page: https://burningdust21.github.io/Projects/LVSPM/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Xi Chen</name>
+    </author>
+    <author>
+      <name>Yachi Zhang</name>
+    </author>
+    <author>
+      <name>Linghao Chen</name>
+    </author>
+    <author>
+      <name>Minghua Liu</name>
+    </author>
+    <author>
+      <name>Hao Su</name>
+    </author>
+    <author>
+      <name>Zexiang Xu</name>
+    </author>
+    <author>
+      <name>Xiaoshuai Zhang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.14698v2</id>
+    <title>PURE: Refining Feed-forward 3D Reconstruction with Unlabeled Post-training</title>
+    <updated>2026-10-20T09:25:44Z</updated>
+    <link href="https://arxiv.org/abs/2610.14698v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.14698v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Feed-forward 3D reconstruction models have achieved remarkable progress through large-scale training and strong learned priors. However, they remain fragile when applied to dynamic in-the-wild videos, where non-rigid motion, occlusions, and illumination changes are prevalent. A key limitation lies in their reliance on expensive depth and camera pose annotations, which hinders scaling to diverse real-world dynamic data and restricts generalization. To address this issue, we propose \textbf{PURE}, an unlabeled post-training refinement framework that improves depth and camera estimation without requiring ground-truth supervision. Instead of relying on annotations, PURE elegantly distills robust structural knowledge from state-of-the-art 2D priors into 4D feed-forward architectures. PURE leverages relative depth constraints, affine-invariant geometry distillation, and pose refinement based on feature correspondences to stabilize geometric predictions under challenging dynamic conditions. Extensive experiments on both synthetic and real-world dynamic benchmarks demonstrate that PURE delivers consistent improvements across multiple state-of-the-art architectures. Furthermore, our data-efficient paradigm effectively mitigates domain shifts, successfully unlocking the architectural limits of these base models in challenging, in-the-wild dynamic scenes.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-10T08:16:05Z</published>
+    <arxiv:comment>Accepted by ACMMM 2026. Project Page: https://funnyguy525.github.io/PURE-Page/ Github: https://github.com/jiah-cloud/PURE</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Yaolong Zhu</name>
+    </author>
+    <author>
+      <name>Peng Li</name>
+    </author>
+    <author>
+      <name>Jiahao Lu</name>
+    </author>
+    <author>
+      <name>Chengfeng Zhao</name>
+    </author>
+    <author>
+      <name>Mengfei Li</name>
+    </author>
+    <author>
+      <name>Chao Wang</name>
+    </author>
+    <author>
+      <name>Wenyue Chen</name>
+    </author>
+    <author>
+      <name>Zekai Gu</name>
+    </author>
+    <author>
+      <name>Chengwei Ren</name>
+    </author>
+    <author>
+      <name>Ronggang Wang</name>
+    </author>
+    <author>
+      <name>Yuan Liu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.07883v1</id>
+    <title>Revar3r: gauge-aware perturbation uncertainty for feed-forward 3d reconstruction</title>
+    <updated>2026-10-06T07:29:54Z</updated>
+    <link href="https://arxiv.org/abs/2610.07883v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.07883v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A correctly reconstructed distant point appears uncertain even when a frozen 3D model processes equivalent inputs because its output frame rotates fractionally. This exposes a weakness of trainingfree perturbation uncertainty: when outputs contain an unobserved symmetry, run-to-run variation potentially reflects symmetry rather than error. Existing alternatives have trade-offs: built-in confidence is outperformed in most evaluated conditions, while trained evidential heads require modelspecific supervision. For point maps, this research derives a closed-form, error-independent variance term that grows with scene extent and potentially overwhelms the desired signal. Simulation reproduces the effect; all 30 real VGGT view-sets tested exhibit its predicted $\|x_p\|^2$ signature. ReVar3R robustly registers predictions to a common similarity frame before computing per-point variance, without retraining or modifying the frozen model. Optional calibration and fusion use a held-out split. Across VGGT, π3, and MASt3R on six datasets, the same estimator on every backbone lowers AUSE below built-in confidence in 15 of 18 conditions. The staged evaluation yields 11 of 18 wins for the label-free core, 12/18 for label-free equal-weight fusion, 14/18 with held-out weights, and 15/18 when the built-in signal is included. Against a trained evidential head, the result is a trade-off: the head calibrates magnitude better and leads in its training domain, whereas ReVar3R transfers across backbones without adaptation. Its ranking improves point filtering, but it does not detect stable systematic bias, aid novel-view synthesis, or transfer calibration across domains.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-06T07:29:54Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Sammam Mahdi</name>
+    </author>
+    <author>
+      <name>Fariha Binta Salim</name>
+    </author>
+    <author>
+      <name>Rakin Bin Rabbani</name>
+    </author>
+    <author>
+      <name>Aniqua Nusrat Zereen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.13177v1</id>
+    <title>CompactSplat: Spatially Adaptive Gaussian Distribution for Feedforward Scene Reconstruction</title>
+    <updated>2026-10-09T08:04:45Z</updated>
+    <link href="https://arxiv.org/abs/2610.13177v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.13177v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Reconstructing 3D scenes from sparse views without per-scene optimization remains highly challenging, especially for recovering accurate geometry and fine textures. While recent feedforward approaches leverage generalizable 3D Gaussian Splatting (3DGS) for scene generation, they typically assign one or multiple Gaussians to each pixel. Such uniform allocation not only produces highly redundant representations by wasting primitives in homogeneous areas, but also fails to exploit the inherent geometric priors of planar surfaces, often resulting in sub-optimal structural modeling. To address these limitations, we present CompactSplat, a novel feedforward framework that enables a content-aware allocation of 3D Gaussians. By integrating texture-guided spatial partitioning with hierarchical sampling, CompactSplat adaptively distributes primitives - concentrating dense Gaussians in complex regions while tiling flat areas with expanded, scale-modulated primitives. Moreover, our framework inherently supports dynamic sparsity control at inference time, enabling seamless trade-offs between rendering fidelity and memory footprint without requiring network retraining. Extensive experiments on RealEstate10K, DL3DV, and ScanNet demonstrate that CompactSplat consistently outperforms prior methods on both standard metrics and high-resolution rendering consistency, achieving high-fidelity reconstructions with significantly fewer primitives.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-09T08:04:45Z</published>
+    <arxiv:comment>NeuRIPS2026, Generalizable reconstruction, 3DGS, 2DGS</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Bing He</name>
+    </author>
+    <author>
+      <name>Jingnan Gao</name>
+    </author>
+    <author>
+      <name>Yunuo Chen</name>
+    </author>
+    <author>
+      <name>Zhengxue Cheng</name>
+    </author>
+    <author>
+      <name>Rong Xie</name>
+    </author>
+    <author>
+      <name>Li Song</name>
+    </author>
+    <author>
+      <name>Wenjun Zhang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.23961v3</id>
+    <title>Colon3R: Cross-Domain 3D Reconstruction from Monocular Colonoscopic Video</title>
+    <updated>2026-10-14T09:29:26Z</updated>
+    <link href="https://arxiv.org/abs/2609.23961v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.23961v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Monocular colonoscopic 3D reconstruction is important for surgical robotic colonoscopy, but remains challenging due to weak texture, specular reflections, limited view overlap, and non-rigid tissue motion. Conventional multi-view 3D reconstruction methods rely on stable correspondences and approximate rigidity, which are often violated in colonoscopy. Existing endoscopic methods often rely on domain-specific supervision, whereas there are not enough in-vivo labeled data available to adapt geometry foundation models to clinical colonoscopy. We present Colon3R, a cross-domain semi-supervised framework built on pretrained VGGT that transfers coupled camera, depth, and pointmap geometry from labeled phantom and simulated data to unlabeled in-vivo colonoscopy without requiring target-domain geometric annotations. Unlike source-only fine-tuning, which learns only from phantom and simulated data, Colon3R directly exploits unlabeled in-vivo video through teacher-derived cross-view supervision. Our proposed hierarchical quasi-rigid reliability selects reliable supervision at the sequence, directed-pair, and pixel levels, while source-preserving adaptation retains the learned coupled geometry during target-domain adaptation. Extensive experiments demonstrate that our method achieves superior overall performance over state-of-the-art approaches in depth, pointmap, and camera pose estimation. Qualitative comparisons on real in-vivo colonoscopy further show substantially more complete and geometrically consistent reconstructions than competing methods under clinical domain shift. The code is publicly available at https://github.com/vglx/Colon3R.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-21T00:23:25Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Zhihao Xing</name>
+    </author>
+    <author>
+      <name>Yingyu Wang</name>
+    </author>
+    <author>
+      <name>Liang Zhao</name>
+    </author>
+    <author>
+      <name>Shoudong Huang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.33253v2</id>
+    <title>VGGT-Diff: Visual Geometry Meets Diffusion for Sparse-View Novel View Synthesis</title>
+    <updated>2026-10-14T08:33:59Z</updated>
+    <link href="https://arxiv.org/abs/2609.33253v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.33253v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present VGGT-Diff, a geometry-routed multi-view diffusion model for sparse-view novel view synthesis. Existing novel view synthesis (NVS) methods face a fundamental trade-off: reconstruction-based approaches preserve observed geometry but struggle to synthesize unseen regions, while diffusion-based methods provide strong generative priors yet rely on implicit source-to-query correspondence. VGGT-Diff bridges these regimes by routing visual geometry latents from VGGT-Ω into a pretrained video diffusion model. Each visual token is associated with a 3D point and confidence, then transformed into query-aligned latent conditions through a confidence-aware Visual Geometry Router (VGR) that preserves front and back surface evidence. These conditions guide joint target-view denoising, while Point-Track Residual Consistency (PTRC) regularizes predicted-clean residuals along reliable 3D tracks, improving multi-view stability. We further introduce robust geometry conditioning, combining training-time regularization with inference-time guidance for improved robustness. Experiments show competitive or state-of-the-art performance across interpolation and extrapolation under different viewpoint difficulties. Our code is available at https://github.com/chenkangjie1123/VGGT-Diff.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-27T05:57:25Z</published>
+    <arxiv:comment>Project page: https://chenkangjie1123.github.io/VGGT-Diff, Code at: https://github.com/chenkangjie1123/VGGT-Diff</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Kangjie Chen</name>
+    </author>
+    <author>
+      <name>Xiangyu Li</name>
+    </author>
+    <author>
+      <name>Dongbin Zhang</name>
+    </author>
+    <author>
+      <name>Chaoda Zheng</name>
+    </author>
+    <author>
+      <name>Shijia Chen</name>
+    </author>
+    <author>
+      <name>Jinhao Deng</name>
+    </author>
+    <author>
+      <name>Hongbin Lin</name>
+    </author>
+    <author>
+      <name>Choo Sin Wai</name>
+    </author>
+    <author>
+      <name>Minqi Wang</name>
+    </author>
+    <author>
+      <name>Minghao Yang</name>
+    </author>
+    <author>
+      <name>Dake Zhong</name>
+    </author>
+    <author>
+      <name>Guorui Song</name>
+    </author>
+    <author>
+      <name>Yu Zhang</name>
+    </author>
+    <author>
+      <name>Xianming Liu</name>
+    </author>
+    <author>
+      <name>Boyang Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.06594v2</id>
+    <title>VGGT-Bridge: Beyond Sequential Pose Graphs via Coarse-Stride Skip Edges</title>
+    <updated>2026-10-22T13:58:33Z</updated>
+    <link href="https://arxiv.org/abs/2610.06594v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.06594v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Feed-forward visual geometry transformers such as VGGT reconstruct dense 3D structure from images in a single forward pass, simplifying multi-view 3D reconstruction. However, their quadratic attention complexity makes them difficult to scale to long sequences with thousands of frames. Chunk-and-align frameworks address this by splitting a long sequence into overlapping chunks and stitching their local reconstructions into a pose graph. Yet existing methods connect only sequentially adjacent chunks, so small per-frame errors accumulate along the chain into large-scale drift. To move beyond sequential edges, we propose VGGT-Bridge, which adds long-range skip edges that directly constrain non-adjacent chunks without retraining. By running VGGT on sparsely sampled coarse chunks, each coarse chunk bridges distant fine chunks into a single direct constraint. We further turn VGGT's first-frame scale bias into a drift correction by feeding selected coarse chunks in reverse, and a loop-aware policy keeps this reversal compatible with existing loop closures. VGGT-Bridge reduces ATE by 28.3% on KITTI Odometry, 18.8% on Virtual KITTI, and 10.0% on Waymo Open over the SwiftVGGT baseline, achieving the best performance among all chunk-and-align methods. Our code is available at https://github.com/BeCow5X5/VGGT-Bridge.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-05T16:07:04Z</published>
+    <arxiv:comment>Accepted to ACCV 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Sungjae Choi</name>
+    </author>
+    <author>
+      <name>Hanna Bae</name>
+    </author>
+    <author>
+      <name>Sunghyun Baek</name>
+    </author>
+    <author>
+      <name>Junmo Kim</name>
+    </author>
+  </entry>
+</feed>

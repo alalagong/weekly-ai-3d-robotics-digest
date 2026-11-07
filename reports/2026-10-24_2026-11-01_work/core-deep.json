@@ -1,0 +1,2204 @@
+{
+  "schema_version": 1,
+  "run_at": "2026-11-01T14:59:32Z",
+  "coverage_start_utc": "2026-10-24T08:17:58Z",
+  "coverage_end_utc": "2026-11-01T14:59:32Z",
+  "generated_at": "2026-11-02T16:03:01.337024+00:00",
+  "status": "complete",
+  "deep_read_count": 3,
+  "execution_note": "No paper code compiled or executed; no datasets or weights downloaded. Full-text reading is not a reproduction claim. Retrieval occurred after frozen run_at, but all reviewed paper versions are locked v1 within the frozen window.",
+  "papers": [
+    {
+      "name": "RESPLE2",
+      "takeaway": "把非均匀样条的最新控制点放回真实轨迹端点，用IMU直接给先验，再以状态和协方差重置消除解除clamp带来的轨迹变化；其价值由激烈运动消融支持，而不只是增加传感器。",
+      "problem": {
+        "text": "异步传感器在激烈运动下需要按原始时间建模；一般B样条控制点不在轨迹上，无法直接套IMU运动学预测。滑窗非均匀样条还可能等待未来IMU而延迟。",
+        "sources": [
+          "S1.p3.1",
+          "S1.p6.1",
+          "S1.p7.1",
+          "S2.SS2.p3.1",
+          "S2.SS2.p4.1"
+        ],
+        "evidence_urls": [
+          "https://arxiv.org/html/2610.37602v1#S1.p3.1",
+          "https://arxiv.org/html/2610.37602v1#S1.p6.1",
+          "https://arxiv.org/html/2610.37602v1#S1.p7.1",
+          "https://arxiv.org/html/2610.37602v1#S2.SS2.p3.1",
+          "https://arxiv.org/html/2610.37602v1#S2.SS2.p4.1"
+        ]
+      },
+      "method_structure": [
+        {
+          "text": "三次非均匀B样条拆分平移R3和旋转S3。局部4个6维控制点加acc/gyro bias共30维；IMU传播临时增3维速度形成33维状态。",
+          "sources": [
+            "S3.SS2",
+            "S5.E8",
+            "S5.E13"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.37602v1#S3.SS2",
+            "https://arxiv.org/html/2610.37602v1#S5.E8",
+            "https://arxiv.org/html/2610.37602v1#S5.E13"
+          ]
+        },
+        {
+          "text": "同一knot区间IMU样本交替分成互斥prediction/update两组。以endpoint multiplicity=3实现clamp，使s(t_n)=s_n、r(t_n)=r_n，可沿IMU strapdown直接预测控制点。",
+          "sources": [
+            "S4.p1.1",
+            "S5.E10",
+            "S5.E11",
+            "S5.E12",
+            "S5.E14"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.37602v1#S4.p1.1",
+            "https://arxiv.org/html/2610.37602v1#S5.E10",
+            "https://arxiv.org/html/2610.37602v1#S5.E11",
+            "https://arxiv.org/html/2610.37602v1#S5.E12",
+            "https://arxiv.org/html/2610.37602v1#S5.E14"
+          ]
+        },
+        {
+          "text": "新knot到来会unclamp上一个端点，改变basis。平移closed-form reset保持旧端点位置/速度/加速度；旋转Newton reset保持方向/角速率，通常5迭代；同时P+=J P- J^T变换含bias交叉项的联合协方差。",
+          "sources": [
+            "S6.SS2",
+            "S6.E21",
+            "S6.E22",
+            "S6.E23",
+            "S6.E24",
+            "S6.E25",
+            "A0.SS2"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.37602v1#S6.SS2",
+            "https://arxiv.org/html/2610.37602v1#S6.E21",
+            "https://arxiv.org/html/2610.37602v1#S6.E22",
+            "https://arxiv.org/html/2610.37602v1#S6.E23",
+            "https://arxiv.org/html/2610.37602v1#S6.E24",
+            "https://arxiv.org/html/2610.37602v1#S6.E25",
+            "https://arxiv.org/html/2610.37602v1#A0.SS2"
+          ]
+        },
+        {
+          "text": "逐测量时间插值得到LiDAR点面、IMU加速度/角速率、KLT视觉重投影和足端速度/触地平面残差，堆叠后IEKF迭代。VoxelMap维护平面和点噪声；加速度/视觉用Huber。视觉地图点深度来自LiDAR；足端因子假设接触无滑移。",
+          "sources": [
+            "S5.SS3",
+            "S5.E15",
+            "S5.E16",
+            "S5.E17",
+            "S6.SS3"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.37602v1#S5.SS3",
+            "https://arxiv.org/html/2610.37602v1#S5.E15",
+            "https://arxiv.org/html/2610.37602v1#S5.E16",
+            "https://arxiv.org/html/2610.37602v1#S5.E17",
+            "https://arxiv.org/html/2610.37602v1#S6.SS3"
+          ]
+        },
+        {
+          "text": "knot由信息量/方向平衡、最长间隔、位移/旋转/速度变化共同触发；几何矩阵G=Σ nn^T/σ²的最小特征值与最小值/trace检测弱方向。全局由iBTC生成回环，LM直接优化控制点而非先离散posegraph再拟合spline。",
+          "sources": [
+            "S6.SS1.SSSx1",
+            "S7.SS1",
+            "S7.E26"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.37602v1#S6.SS1.SSSx1",
+            "https://arxiv.org/html/2610.37602v1#S7.SS1",
+            "https://arxiv.org/html/2610.37602v1#S7.E26"
+          ]
+        }
+      ],
+      "math_insight": [
+        {
+          "text": "clamp把控制变量与物理运动状态在端点精确等同：s(t_n)=s_n；v(t_n)=3(s_n-s_{n-1})/τ；ω(t_n)=6δ_n/τ。这里的exact是样条参数化/端点传播关系，不是无噪声真值保证。",
+          "sources": [
+            "S5.E10",
+            "S5.E11",
+            "A0.SS1"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.37602v1#S5.E10",
+            "https://arxiv.org/html/2610.37602v1#S5.E11",
+            "https://arxiv.org/html/2610.37602v1#A0.SS1"
+          ]
+        },
+        {
+          "text": "unclamp重置不是额外观测更新，而是basis变化下的状态坐标变换，因此必须同步重置协方差；orientation reset的Jacobian由隐函数零残差条件得到。",
+          "sources": [
+            "S6.SS2.SSSx4",
+            "A0.SS2.SSS3"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.37602v1#S6.SS2.SSSx4",
+            "https://arxiv.org/html/2610.37602v1#A0.SS2.SSS3"
+          ]
+        },
+        {
+          "text": "全局目标由回环和相邻控制点相对里程计残差组成；后者只连接两个控制点，回环才用spline interpolation，维持稀疏性。保持高阶运动一致性是软约束效果，正文Fig11展示速度保持。",
+          "sources": [
+            "S7.E26",
+            "S7.SS2.p1.4",
+            "S8.F10",
+            "S9.F11"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.37602v1#S7.E26",
+            "https://arxiv.org/html/2610.37602v1#S7.SS2.p1.4",
+            "https://arxiv.org/html/2610.37602v1#S8.F10",
+            "https://arxiv.org/html/2610.37602v1#S9.F11"
+          ]
+        }
+      ],
+      "experimental_protocol": {
+        "datasets": "GrandTour(ANYmal D)、JEPLO(Unitree Go2)、PPS tracked vehicle、HOPPER飞腿四旋翼、HANDI手持13段。HOPPER有12段，最高约25g/18rad/s；external BMI088±24g 1000/500Hz，对比internal ICM40609±4g 200Hz。",
+        "ground_truth": "GrandTour benchmark/公开GT；HOPPER 10台Vicon在10×10m房间提供300Hz pose、100Hz velocity，long段只起止在房间；HANDI长段部分仅起止Qualisys，az-out1/2只报告end-to-end。",
+        "metrics": "evo APE/RPE RMSE以m计；RPE固定0.5m路径长度间隔、point-distance pose relation；失败✗定义误差>50m。速度Table VI单位PDF确认m/s，HTML漏掉/s。",
+        "hardware": "Ubuntu24.04，AMD Ryzen9 9950X，32GB RAM。ROS2双节点里程计/全局优化，每节点通常5 OpenMP线程；Eigen/Pinocchio/CHOLMOD。",
+        "baseline_fairness": "Coco-LIC、FAST-LIVO2、CTE-MLO、Point-LIO、Leg-KILO；RESPLE基线改用相同VoxelMap以减小地图噪声差异。GrandTour六test段他方法数值取原文且使用更高端HG4930 IMU，RESPLE2使用Mid360内置IMU，不能作完全相同传感器对比；四train段均内置IMU。每数据集/传感器配置共用一套参数。",
+        "sources": [
+          "S8.SS1",
+          "S8.SS2",
+          "S8.T1",
+          "S8.T2.8",
+          "S8.SS4.SSS2",
+          "S8.SS4.SSS3",
+          "core-deep-2610.37602v1-pdf.txt:TABLE VI"
+        ],
+        "evidence_urls": [
+          "https://arxiv.org/html/2610.37602v1#S8.SS1",
+          "https://arxiv.org/html/2610.37602v1#S8.SS2",
+          "https://arxiv.org/html/2610.37602v1#S8.T1",
+          "https://arxiv.org/html/2610.37602v1#S8.T2.8",
+          "https://arxiv.org/html/2610.37602v1#S8.SS4.SSS2",
+          "https://arxiv.org/html/2610.37602v1#S8.SS4.SSS3",
+          "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\core-deep-2610.37602v1-pdf.txt"
+        ]
+      },
+      "table_findings": [
+        {
+          "table": "I",
+          "anchor": "S8.T1",
+          "finding": "硬件与五数据集配置。GrandTour和PPS用Hesai XT32；HOPPER/JEPLO用Mid360；HANDI混Avia/Mid360、ZED X One/D455。",
+          "evidence_url": "https://arxiv.org/html/2610.37602v1#S8.T1"
+        },
+        {
+          "table": "II",
+          "anchor": "S8.T2",
+          "finding": "GrandTour ARC-3(train) APE：RESPLE2-LIO0.078、LVIO0.072、LKIO0.056、LKVIO0.060m；Coco-LIC LVIO0.154m，FAST-LIVO2与RESPLE失败。不同模态不逐行单调优胜，Coco-LIC多段RPE仍更低。",
+          "units": "m RMSE",
+          "evidence_url": "https://arxiv.org/html/2610.37602v1#S8.T2"
+        },
+        {
+          "table": "III",
+          "anchor": "S8.T3",
+          "finding": "JEPLO八段LKIO最低/并列：EIL_Box0.005，Mask1/2 0.008/0.010，Mix0.010，Stairs0.007，LongStairs0.007，Outdoor1/2 0.007/0.006m。EIL_Box：Leg-KILO0.032、RESPLE0.011、FLIVO2 3.200m。",
+          "units": "m APE RMSE",
+          "evidence_url": "https://arxiv.org/html/2610.37602v1#S8.T3"
+        },
+        {
+          "table": "IV",
+          "anchor": "S8.T4",
+          "finding": "PPS day_open：RESPLE2-LVIO APE0.041/RPE0.007m，对FLIVO2-LVIO0.046/0.007m；night_loop却是RESPLE LIO0.039、RESPLE2-LIO0.045/LVIO0.059m，不能宣称所有序列最优。",
+          "units": "m",
+          "evidence_url": "https://arxiv.org/html/2610.37602v1#S8.T4"
+        },
+        {
+          "table": "V",
+          "anchor": "S8.T5",
+          "finding": "HOPPER flip1外置IMU：RESPLE2-LIO APE0.008m，RESPLE0.014、Coco-LIC0.038、Point-LIO0.024，FAST-LIVO2失败。内置IMU：RESPLE2 0.018，RESPLE0.019、Point-LIO0.335m；该表CoLIC/FLIVO未列internal列，正文称其全部失败。",
+          "units": "m",
+          "evidence_url": "https://arxiv.org/html/2610.37602v1#S8.T5"
+        },
+        {
+          "table": "VI",
+          "anchor": "S8.T6",
+          "finding": "flip1速度RMSE外置：RESPLE2 0.227，RESPLE0.789、CoLIC0.288、Point-LIO0.252m/s；内置RESPLE2 0.749，对RESPLE0.843/Point-LIO2.013m/s。base1/side1外置Coco-LIC更低，故不是所有速度项第一。",
+          "units": "m/s (PDF caption checked)",
+          "evidence_url": "https://arxiv.org/html/2610.37602v1#S8.T6"
+        },
+        {
+          "table": "VII",
+          "anchor": "S8.T7",
+          "finding": "HANDI az-corri：RESPLE2 LVIO APE1.339→加回环0.044m；mz-inout0.668→0.026m，ar-inout0.394→0.076m。az-out2为end-to-end2.767→0.009m而非全轨迹ATE。az-dyna3 LIO15.944m、LVIO0.059m表明视觉对退化补偿重要。",
+          "units": "m; outdoor starred rows end-to-end",
+          "evidence_url": "https://arxiv.org/html/2610.37602v1#S8.T7"
+        },
+        {
+          "table": "VIII",
+          "anchor": "S9.T8",
+          "finding": "同knot/measurement batch隔离prediction消融：high1不使用IMU预测0.017→0.004m，flip1 0.015→0.008m；九段APE降约39–76%。控制点预测替换有直接因果消融支持。",
+          "units": "m APE RMSE",
+          "evidence_url": "https://arxiv.org/html/2610.37602v1#S9.T8"
+        },
+        {
+          "table": "IX",
+          "anchor": "S9.T9",
+          "finding": "flip1/day_open/Outdoor1里程计总耗时7.7/18.3/5.3ms，对LiDAR帧预算50/100/50ms；RCP预测+reset最大0.505ms。全局优化另外统计，ar-inout后期单次约2s、约15迭代，不能计成同一低延迟里程计帧。",
+          "units": "ms per LiDAR frame; global optimization s",
+          "evidence_url": "https://arxiv.org/html/2610.37602v1#S9.T9"
+        }
+      ],
+      "ablation_analysis": {
+        "text": "IMU-prediction同knot消融与自适应knot对Coco-LIC分析分开；flip1控制点2087对2362，少11.6%。Coco-LIC0.1s平均可能漏50ms冲击；RESPLE2逐IMU子步触发。后一项为机制/单段比较，不是独立等预算随机消融。",
+        "sources": [
+          "S9.SS1.SSS1",
+          "S9.T8",
+          "S9.SS1.SSS2"
+        ],
+        "evidence_urls": [
+          "https://arxiv.org/html/2610.37602v1#S9.SS1.SSS1",
+          "https://arxiv.org/html/2610.37602v1#S9.T8",
+          "https://arxiv.org/html/2610.37602v1#S9.SS1.SSS2"
+        ]
+      },
+      "limitations": [
+        {
+          "text": "无独立Limitations章节；Conclusion明确未来要自适应sensor weighting、摆脱LiDAR-derived depth的视觉约束和与规划集成。",
+          "sources": [
+            "S10.p1.1"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.37602v1#S10.p1.1"
+          ]
+        },
+        {
+          "text": "视觉需要前帧LiDAR深度；KLT受纹理、足端无滑移假设受接触误判/滑移影响；可靠外参与时间同步仍必要。",
+          "sources": [
+            "S4.p1.1",
+            "S5.SS3.SSS3",
+            "S5.SS3.SSS4",
+            "S8.SS4.SSS2.p1.1"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.37602v1#S4.p1.1",
+            "https://arxiv.org/html/2610.37602v1#S5.SS3.SSS3",
+            "https://arxiv.org/html/2610.37602v1#S5.SS3.SSS4",
+            "https://arxiv.org/html/2610.37602v1#S8.SS4.SSS2.p1.1"
+          ]
+        },
+        {
+          "text": "图优化用iBTC成功回环作输入；未给错误回环鲁棒性系统评估、长期全局内存上限或机载闭环控制延迟验证。未从约2s异步全局solve推导硬实时保证。",
+          "sources": [
+            "S7",
+            "S9.SS2.p2.1"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.37602v1#S7",
+            "https://arxiv.org/html/2610.37602v1#S9.SS2.p2.1"
+          ]
+        },
+        {
+          "text": "GrandTour test异IMU、HOPPER/HANDI部分GT/端点误差协议须保留；桌面5线程每节点性能不等于小型机载平台表现。",
+          "sources": [
+            "S8.SS2.p3.1",
+            "S8.T2.8",
+            "S8.T7.8"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.37602v1#S8.SS2.p3.1",
+            "https://arxiv.org/html/2610.37602v1#S8.T2.8",
+            "https://arxiv.org/html/2610.37602v1#S8.T7.8"
+          ]
+        }
+      ],
+      "reproduction_insight": "先复现HOPPER同knot预测消融，再复核clamp/unclamp前后kinematics和协方差一致性；按external/internalIMU分组，区分局部odom帧与异步global总成本。主线程已审RESPLE2源码，本次不重复源码审计。",
+      "conclusion": "完整理论推导和多平台强动态实验值得优先跟进，但不能把exact控制点关系或低端IMU成功推成普适的退化/饱和保证。",
+      "id": "2610.37602",
+      "version": 1,
+      "title": "RESPLE2: Inertial-Informed Recursive Non-Uniform Spline Estimation for Multi-Sensor Odometry with Global Refinement",
+      "v1_utc": "2026-10-27T17:33:19Z",
+      "updated_utc": "2026-10-27T17:33:19Z",
+      "window_class": "new",
+      "official_version_history": {
+        "url": "https://arxiv.org/abs/2610.37602",
+        "retrieved_at": "2026-11-01T15:27:55Z",
+        "history_raw": "Submission history From: Kailai Li [ view email ] [v1] Tue, 27 Oct 2026 17:33:19 UTC (25,881 KB)",
+        "version_history": [
+          {
+            "version": 1,
+            "utc": "2026-10-27T17:33:19Z"
+          }
+        ],
+        "history_verified": true,
+        "raw_path": "core-abs-2610.37602.html",
+        "cached": true
+      },
+      "evidence_level": "full_text",
+      "actual_reading": {
+        "primary": "Complete arXiv HTML main text, equations, experiments, ablations, analysis, conclusion and all appendices present in HTML",
+        "sections": [
+          {
+            "id": null,
+            "text": "RESPLE2: Inertial-Informed Recursive Non-Uniform Spline Estimation for Multi-Sensor Odometry with Global Refinement"
+          },
+          {
+            "id": "S1",
+            "text": "I Introduction"
+          },
+          {
+            "id": "S1.SSx1",
+            "text": "Contributions"
+          },
+          {
+            "id": "S2",
+            "text": "II Related Work"
+          },
+          {
+            "id": "S2.SS1",
+            "text": "II-A Multi-Sensor Odometry"
+          },
+          {
+            "id": "S2.SS2",
+            "text": "II-B Continuous-Time Motion Estimation"
+          },
+          {
+            "id": "S3",
+            "text": "III Preliminaries"
+          },
+          {
+            "id": "S3.SS1",
+            "text": "III-A Notation Conventions"
+          },
+          {
+            "id": "S3.SS2",
+            "text": "III-B Non-Uniform B-Spline Motion Representation"
+          },
+          {
+            "id": "S3.SS3",
+            "text": "III-C Kinematic Interpolations"
+          },
+          {
+            "id": "S3.SS3.SSS1",
+            "text": "III-C 1 Positions"
+          },
+          {
+            "id": "S3.SS3.SSS2",
+            "text": "III-C 2 Orientations"
+          },
+          {
+            "id": "S3.SS4",
+            "text": "III-D Spline-State-Space Model for Recursive State Estimation"
+          },
+          {
+            "id": "S4",
+            "text": "IV System Overview"
+          },
+          {
+            "id": "S5",
+            "text": "V Generalized Spline State-Space Modeling with Multi-Sensor Measurements"
+          },
+          {
+            "id": "S5.SS1",
+            "text": "V-A Generalized Spline-State-Space Model"
+          },
+          {
+            "id": "S5.SS2",
+            "text": "V-B Process Model"
+          },
+          {
+            "id": "S5.SS2.SSS1",
+            "text": "V-B 1 Knot-Clamping Boundary Property"
+          },
+          {
+            "id": "S5.SS2.SSS2",
+            "text": "V-B 2 Exact Inertial-Informed RCP Propagation"
+          },
+          {
+            "id": "S5.SS3",
+            "text": "V-C Multi-Sensor Measurement Model"
+          },
+          {
+            "id": "S5.SS3.SSS1",
+            "text": "V-C 1 LiDAR Point-to-Plane Metric"
+          },
+          {
+            "id": "S5.SS3.SSS2",
+            "text": "V-C 2 IMU Metric"
+          },
+          {
+            "id": "S5.SS3.SSS3",
+            "text": "V-C 3 Visual Projection Metric"
+          },
+          {
+            "id": "S5.SS3.SSS4",
+            "text": "V-C 4 Legged Kinematics Metric"
+          },
+          {
+            "id": "S6",
+            "text": "VI Inertial-Informed Iterated Extended Kalman Filter on Non-Uniform B-Splines"
+          },
+          {
+            "id": "S6.SS1",
+            "text": "VI-A Inertial-Informed RCP Prediction"
+          },
+          {
+            "id": "S6.SS1.SSSx1",
+            "text": "Knot Extension"
+          },
+          {
+            "id": "S6.SS2",
+            "text": "VI-B RCP Reset for Unclamping"
+          },
+          {
+            "id": "S6.SS2.SSSx1",
+            "text": "Unclamping"
+          },
+          {
+            "id": "S6.SS2.SSSx2",
+            "text": "Position Reset"
+          },
+          {
+            "id": "S6.SS2.SSSx3",
+            "text": "Orientation Reset"
+          },
+          {
+            "id": "S6.SS2.SSSx4",
+            "text": "Covariance Reset"
+          },
+          {
+            "id": "S6.SS3",
+            "text": "VI-C Iterated Update"
+          },
+          {
+            "id": "S6.SS4",
+            "text": "VI-D Filter Setup"
+          },
+          {
+            "id": "S7",
+            "text": "VII Global Refinement"
+          },
+          {
+            "id": "S7.SS1",
+            "text": "VII-A Loop Closure Detection"
+          },
+          {
+            "id": "S7.SS2",
+            "text": "VII-B Global Spline Optimization"
+          },
+          {
+            "id": "S8",
+            "text": "VIII Evaluation"
+          },
+          {
+            "id": "S8.SS1",
+            "text": "VIII-A Implementation"
+          },
+          {
+            "id": "S8.SS2",
+            "text": "VIII-B Benchmarking Setup"
+          },
+          {
+            "id": "S8.SS3",
+            "text": "VIII-C Public Datasets"
+          },
+          {
+            "id": "S8.SS3.SSS1",
+            "text": "VIII-C 1 GrandTour"
+          },
+          {
+            "id": "S8.SS3.SSS2",
+            "text": "VIII-C 2 JEPLO"
+          },
+          {
+            "id": "S8.SS4",
+            "text": "VIII-D Experiments"
+          },
+          {
+            "id": "S8.SS4.SSS1",
+            "text": "VIII-D 1 PPS TV"
+          },
+          {
+            "id": "S8.SS4.SSS2",
+            "text": "VIII-D 2 HOPPER"
+          },
+          {
+            "id": "S8.SS4.SSS3",
+            "text": "VIII-D 3 HANDI"
+          },
+          {
+            "id": "S9",
+            "text": "IX Further Discussions"
+          },
+          {
+            "id": "S9.SS1",
+            "text": "IX-A Ablations"
+          },
+          {
+            "id": "S9.SS1.SSS1",
+            "text": "IX-A 1 Inertial-Informed Prediction"
+          },
+          {
+            "id": "S9.SS1.SSS2",
+            "text": "IX-A 2 Knot Placement"
+          },
+          {
+            "id": "S9.SS2",
+            "text": "IX-B Runtime and Computational Analysis"
+          },
+          {
+            "id": "S10",
+            "text": "X Conclusion"
+          },
+          {
+            "id": "Sx1",
+            "text": "ACKNOWLEDGMENT"
+          },
+          {
+            "id": "A0.SS1",
+            "text": "-A Derivation of the Knot-Clamping Boundary Property"
+          },
+          {
+            "id": "A0.SS2",
+            "text": "-B Derivation of the RCP Reset"
+          },
+          {
+            "id": "A0.SS2.SSS1",
+            "text": "-B 1 Position RCP Reset"
+          },
+          {
+            "id": "A0.SS2.SSS2",
+            "text": "-B 2 Orientation RCP Reset"
+          },
+          {
+            "id": "A0.SS2.SSS3",
+            "text": "-B 3 Covariance Reset"
+          }
+        ],
+        "bibliography": "2026/nearest-method bibliography entries screened for problem-neighborhood cross-discovery; not every cited historical paper read",
+        "pdf": "Downloaded frozen v1; selected PDF text checks for RESPLE2 velocity/angular-rate units and SVIn+ pressure formula; PDF pages not all visually reviewed",
+        "code": "RESPLE2 code review delegated to main agent; SVIn+ README only; LingGS manuscript release statement only",
+        "executed": false,
+        "datasets_downloaded": false,
+        "weights_downloaded": false
+      },
+      "sources": {
+        "html_url": "https://arxiv.org/html/2610.37602v1",
+        "html_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\core-deep-2610.37602v1.html",
+        "html_sha256": "dcfe27237db6b95f7eecd06c2e35d95f3437a8b2a6035d2c79d2409e7c392d40",
+        "plain_text_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\core-deep-2610.37602v1.txt",
+        "pdf_url": "https://arxiv.org/pdf/2610.37602v1",
+        "pdf_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\core-deep-2610.37602v1.pdf",
+        "table_and_caption_evidence": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\core-deep-extracted.json"
+      },
+      "overview_figure": {
+        "id": "2610.37602",
+        "url": "https://arxiv.org/html/2610.37602v1/pipeline.png",
+        "path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\core-deep-2610.37602-overview.png",
+        "bytes": 643085,
+        "retrieved_at": "2026-11-02T15:53:48Z",
+        "figure_number": "Fig. 2",
+        "figure_id": "S4.F2",
+        "caption": "Fig. 2: System overview of the proposed RESPLE2 framework.",
+        "source_page_url": "https://arxiv.org/html/2610.37602v1#S4.F2",
+        "asset_type": "original arXiv HTML image, unmodified",
+        "visually_verified": true,
+        "visual_verification": "tools.view_image displayed original asset; checked that image shows the described system/modules/arrows, not a result-only figure",
+        "approved_for_embed": true
+      },
+      "missing_sections": [
+        "No separately titled Limitations section; limitations read in Conclusion/future work."
+      ],
+      "status": "deep_read_complete_no_execution"
+    },
+    {
+      "name": "LingGS",
+      "takeaway": "流式几何模型保留depth能力，camera head交给显式几何优化；关键增量是对预测深度噪声直接建模，并以低预算Gaussian优化取得渲染/几何收益。",
+      "problem": {
+        "text": "单目Gaussian SLAM同时缺深度和准确pose。学习模型的depth有用，但其camera head误差会让多帧Gaussian相互冲突；单帧深度还可能尺度不一致。",
+        "sources": [
+          "S1.p2.1",
+          "S1.p3.1"
+        ],
+        "evidence_urls": [
+          "https://arxiv.org/html/2610.36853v1#S1.p2.1",
+          "https://arxiv.org/html/2610.36853v1#S1.p3.1"
+        ]
+      },
+      "method_structure": [
+        {
+          "text": "冻结LingBot-Map用最初RGB帧估计并固定intrinsics K，后续输出一致深度作为虚拟RGB-D；没有新增训练。",
+          "sources": [
+            "S3.p1.1",
+            "S3.SS1.p1.1"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.36853v1#S3.p1.1",
+            "https://arxiv.org/html/2610.36853v1#S3.SS1.p1.1"
+          ]
+        },
+        {
+          "text": "保留ORB-SLAM3提取/匹配/local BA；每帧1200 ORB、8层金字塔，匹配局部map后固定map点优化SE3 pose。四轮优化/离群点重分类，Huber鲁棒核。",
+          "sources": [
+            "S3.SS1.SSS0.Px1",
+            "S3.E1"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.36853v1#S3.SS1.SSS0.Px1",
+            "https://arxiv.org/html/2610.36853v1#S3.E1"
+          ]
+        },
+        {
+          "text": "残差为(u误差,v误差,直接depth误差)，Σ=diag(σ²,σ²,(0.05z)²)。取代RGB-D虚拟右图像残差并改对应Jacobian和权重。",
+          "sources": [
+            "S3.E1",
+            "S3.E2",
+            "S3.E3",
+            "S3.E5"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.36853v1#S3.E1",
+            "https://arxiv.org/html/2610.36853v1#S3.E2",
+            "https://arxiv.org/html/2610.36853v1#S3.E3",
+            "https://arxiv.org/html/2610.36853v1#S3.E5"
+          ]
+        },
+        {
+          "text": "Gaussian插入权由当前图像Laplacian超过render的正差决定；有效depth反投影初始化center，尺度2z/fx、opacity0.07、RGB颜色。每keyframe30步，0.2专门采最新，其余在全部keyframes均匀replay。",
+          "sources": [
+            "S3.SS2",
+            "S3.E7",
+            "S3.E8"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.36853v1#S3.SS2",
+            "https://arxiv.org/html/2610.36853v1#S3.E7",
+            "https://arxiv.org/html/2610.36853v1#S3.E8"
+          ]
+        },
+        {
+          "text": "优化0.8L1_RGB+0.2(1-SSIM)+0.01L1_inverse_depth，gsplat渲染；depth先验始终是模型预测而非GT深度。",
+          "sources": [
+            "S3.E9",
+            "S3.E10"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.36853v1#S3.E9",
+            "https://arxiv.org/html/2610.36853v1#S3.E10"
+          ]
+        }
+      ],
+      "math_insight": [
+        {
+          "text": "虚拟右图像残差r_R=r_u+(fx b/(z_obs z_pred))r_z，因此成本有u-depth交叉项；局部深度平方项系数约z^-4。direct depth按恒定5%相对不确定性给z^-2权重，改变远近深度的约束分配，不能说原ORB-SLAM3信息矩阵显式有z^-4。",
+          "sources": [
+            "A1.E18",
+            "A1.E22",
+            "A1.E23",
+            "A1.E24",
+            "A1.E25",
+            "A1.E26"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.36853v1#A1.E18",
+            "https://arxiv.org/html/2610.36853v1#A1.E22",
+            "https://arxiv.org/html/2610.36853v1#A1.E23",
+            "https://arxiv.org/html/2610.36853v1#A1.E24",
+            "https://arxiv.org/html/2610.36853v1#A1.E25",
+            "https://arxiv.org/html/2610.36853v1#A1.E26"
+          ]
+        },
+        {
+          "text": "mapper用inverse-depth L1，近似|Δz|/z²，同样更重近处；Laplacian插入是缺失细节启发式，不覆盖所有photometric disagreement。",
+          "sources": [
+            "S3.SS2.SSS0.Px1.p1.2",
+            "S3.SS2.SSS0.Px3.p2.3"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.36853v1#S3.SS2.SSS0.Px1.p1.2",
+            "https://arxiv.org/html/2610.36853v1#S3.SS2.SSS0.Px3.p2.3"
+          ]
+        }
+      ],
+      "experimental_protocol": {
+        "datasets": "7-Scenes七场景；Oxford Spires六段1000–2001帧(Keble02/03/04、Observatory01、ChristChurch02、Bodleian02)；RE10K选择60段71–279帧；TUM-D选择11段。所有518×392输入。",
+        "ground_truth": "7Scenes/TUM-D dense depth；Oxford以terrestrial laser scan投影稀疏depth；RE10K无depth参考。",
+        "metrics": "held-out NVS PSNR/SSIM/LPIPS；ATE RMSE先Sim3 Umeyama对齐；连续帧RPE_t(cm)/RPE_R(deg)；Table2为scale-aligned rendereddepth meanL1(m)。端到端FPS=帧数/总重建时间。",
+        "hardware": "单NVIDIA RTX4090 GPU+AMD Ryzen Threadripper PRO3995WX 64-core CPU。",
+        "baseline_fairness": "MonoGS/S3PO-GS/Photo-SLAM/OTF公开实现相同输入帧；Photo-SLAM mapping从8提高到最多200迭代以约6FPS加强画质，非其默认配置；Photo-SLAM Pumpkin失败故7Scenes平均仅6场景。OTF只在有pose的keyframe/heldout子集算轨迹误差，不同于全输入帧。ICP消融是Open3D CPU未优化参考，不能宣称ICP计算极限。",
+        "sources": [
+          "S4.SS1",
+          "S4.T1",
+          "S4.F4",
+          "S4.T2",
+          "S4.T3"
+        ],
+        "evidence_urls": [
+          "https://arxiv.org/html/2610.36853v1#S4.SS1",
+          "https://arxiv.org/html/2610.36853v1#S4.T1",
+          "https://arxiv.org/html/2610.36853v1#S4.F4",
+          "https://arxiv.org/html/2610.36853v1#S4.T2",
+          "https://arxiv.org/html/2610.36853v1#S4.T3"
+        ]
+      },
+      "table_findings": [
+        {
+          "table": "1",
+          "anchor": "S4.T1",
+          "finding": "7Scenes：ours PSNR24.48dB/ATE8.58cm/FPS6.99，对Photo21.91/19.78/5.99；S3PO-GS ATE7.30cm更低。Oxford：ours26.35dB/73.81cm/6.40FPS；OTF23.19/624.06/8.24，S3PO21.63/287.81/1.31，Photo22.05/567.71/5.99。",
+          "units": "PSNR dB, ATE cm, FPS",
+          "evidence_url": "https://arxiv.org/html/2610.36853v1#S4.T1"
+        },
+        {
+          "table": "1",
+          "anchor": "S4.T1",
+          "finding": "RE10K：ours25.73dB/ATE2.84cm/7.94FPS；Photo-SLAM tracking1.90cm更低，OTF PSNR25.20/FPS6.35。TUM-D：ours20.89dB/41.33cm/5.01FPS；OTF19.58/88.55/6.54。不是所有方法2–3倍加速、不是所有集tracking第一。",
+          "units": "dB/cm/FPS",
+          "evidence_url": "https://arxiv.org/html/2610.36853v1#S4.T1"
+        },
+        {
+          "table": "2",
+          "anchor": "S4.T2",
+          "finding": "scale-aligned depthL1：7Scenes/TUM-D/Oxford ours0.15/0.33/3.18m，S3PO0.17/0.57/4.47m，Photo0.36/1.66/8.54m，OTF1.00/2.35/14.12m；按表四舍五入较S3PO减少11.8/42.1/28.9%。",
+          "units": "m; scale aligned",
+          "evidence_url": "https://arxiv.org/html/2610.36853v1#S4.T2"
+        },
+        {
+          "table": "3",
+          "anchor": "S4.T3",
+          "finding": "Oxford六段平均directdepth ATE73.8cm/track16.1ms/PSNR26.35；virtualstereo79.5cm/16.2ms/26.35；2Donly162.1cm/13.9ms/22.90；CPU ICP307.2cm/138.6ms/21.37；camerahead598.5cm/9.5ms/20.23。相对camerahead ATE降87.6%，额外6.6ms，端到端7.04→6.40FPS。",
+          "units": "cm/ms/dB",
+          "evidence_url": "https://arxiv.org/html/2610.36853v1#S4.T3"
+        },
+        {
+          "table": "4",
+          "anchor": "S4.T4",
+          "finding": "只KebleCollege02：XStreamVGGT head23.277→solver0.773m，STream3R25.560→2.332，TTT3R10.57→7.29，Lingbot8.224→1.224；ATE降31.0–96.7%，不是四个完整benchmark的通用97%。",
+          "units": "ATE m; single sequence",
+          "evidence_url": "https://arxiv.org/html/2610.36853v1#S4.T4"
+        }
+      ],
+      "ablation_analysis": {
+        "text": "Fig2映射20→30步+0.93dB，30→75再约+0.88dB，100后27.11–27.15dB饱和；默认30是速度优先。Table3 directdepth vsvirtualstereo只是ATE79.5→73.8cm且PSNR相同，主要总体收益不能全归功于深度权重替换；geometry vsnativehead幅度更大。",
+        "sources": [
+          "S4.F2",
+          "S4.T3",
+          "S4.SS3.SSS0.Px3"
+        ],
+        "evidence_urls": [
+          "https://arxiv.org/html/2610.36853v1#S4.F2",
+          "https://arxiv.org/html/2610.36853v1#S4.T3",
+          "https://arxiv.org/html/2610.36853v1#S4.SS3.SSS0.Px3"
+        ]
+      },
+      "limitations": [
+        {
+          "text": "Conclusion明说未处理loop closure和dynamic scenes；ORB在重复/弱纹理退化。不是可长期闭环稠密SLAM的已验证方案。",
+          "sources": [
+            "S5.p2.1"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.36853v1#S5.p2.1"
+          ]
+        },
+        {
+          "text": "误差经过Sim3及depth尺度对齐，不能当未知尺度单目绝对metric能力。固定5%depth噪声是假设，未见模型分布/动态退化的校准验证。",
+          "sources": [
+            "S3.E2",
+            "S4.SS1.SSS0.Px2",
+            "S4.T2"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.36853v1#S3.E2",
+            "https://arxiv.org/html/2610.36853v1#S4.SS1.SSS0.Px2",
+            "https://arxiv.org/html/2610.36853v1#S4.T2"
+          ]
+        },
+        {
+          "text": "代码/config承诺录用后发布；正文没给initial frames数量n0、完整keyframe选取阈值、held-out拆分细节、长期缓存/显存增长统计。只做跨主干单序列实验不能支持全部场景泛化。",
+          "sources": [
+            "S3.p1.1",
+            "S3.SS2",
+            "S4.SS1",
+            "S4.T4",
+            "A1.SSx3"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.36853v1#S3.p1.1",
+            "https://arxiv.org/html/2610.36853v1#S3.SS2",
+            "https://arxiv.org/html/2610.36853v1#S4.SS1",
+            "https://arxiv.org/html/2610.36853v1#S4.T4",
+            "https://arxiv.org/html/2610.36853v1#A1.SSx3"
+          ]
+        },
+        {
+          "text": "约7FPS来自单4090+64核desktop的总序列吞吐，不等于30Hz在线输入时无积压/机载实测。",
+          "sources": [
+            "S4.SS1",
+            "S4.T1"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.36853v1#S4.SS1",
+            "https://arxiv.org/html/2610.36853v1#S4.T1"
+          ]
+        }
+      ],
+      "reproduction_insight": "先保留相同frame/keyframe/GT对齐协议复现Table3四个pose源，单独统计depth推理、CPU tracking和mapper；直接深度与虚拟stereo差别可作为不重训的简洁适配点。视觉质量与metric geometry分开评估，保留每集depth valid mask。",
+      "conclusion": "有说服力地支持学习depth+显式pose求解的分工，渲染/深度收益清楚；最强泛化和速度宣传需限定到具体基线、序列与对齐协议。",
+      "id": "2610.36853",
+      "version": 1,
+      "title": "LingGS: Decoupling Feed-Forward Geometry Prediction from Camera Tracking for High-Fidelity Gaussian SLAM",
+      "v1_utc": "2026-10-27T08:51:00Z",
+      "updated_utc": "2026-10-27T08:51:00Z",
+      "window_class": "new",
+      "official_version_history": {
+        "url": "https://arxiv.org/abs/2610.36853",
+        "retrieved_at": "2026-11-01T15:27:55Z",
+        "history_raw": "Submission history From: Da Li [ view email ] [v1] Tue, 27 Oct 2026 08:51:00 UTC (5,515 KB)",
+        "version_history": [
+          {
+            "version": 1,
+            "utc": "2026-10-27T08:51:00Z"
+          }
+        ],
+        "history_verified": true,
+        "raw_path": "core-abs-2610.36853.html",
+        "cached": true
+      },
+      "evidence_level": "full_text",
+      "actual_reading": {
+        "primary": "Complete arXiv HTML main text, equations, experiments, ablations, analysis, conclusion and all appendices present in HTML",
+        "sections": [
+          {
+            "id": null,
+            "text": "LingGS: Decoupling Feed-Forward Geometry Prediction from Camera Tracking for High-Fidelity Gaussian SLAM"
+          },
+          {
+            "id": "S1",
+            "text": "1 Introduction"
+          },
+          {
+            "id": "S2",
+            "text": "2 Related Work"
+          },
+          {
+            "id": "S2.SS0.SSS0.Px1",
+            "text": "Visual tracking without depth prior."
+          },
+          {
+            "id": "S2.SS0.SSS0.Px2",
+            "text": "Learned geometry for tracking and mapping."
+          },
+          {
+            "id": "S3",
+            "text": "3 Method"
+          },
+          {
+            "id": "S3.SS1",
+            "text": "3.1 Geometry Solver"
+          },
+          {
+            "id": "S3.SS1.SSS0.Px1",
+            "text": "Camera pose estimation with a direct depth observation."
+          },
+          {
+            "id": "S3.SS2",
+            "text": "3.2 Gaussian Mapper"
+          },
+          {
+            "id": "S3.SS2.SSS0.Px1",
+            "text": "Laplacian-guided Gaussian insertion."
+          },
+          {
+            "id": "S3.SS2.SSS0.Px2",
+            "text": "Geometric initialization."
+          },
+          {
+            "id": "S3.SS2.SSS0.Px3",
+            "text": "Refinement with keyframe replay."
+          },
+          {
+            "id": "S4",
+            "text": "4 Experiment"
+          },
+          {
+            "id": "S4.SS1",
+            "text": "4.1 Setup and Evaluation"
+          },
+          {
+            "id": "S4.SS1.SSS0.Px1",
+            "text": "Datasets."
+          },
+          {
+            "id": "S4.SS1.SSS0.Px2",
+            "text": "Evaluation metrics."
+          },
+          {
+            "id": "S4.SS1.SSS0.Px3",
+            "text": "Baselines."
+          },
+          {
+            "id": "S4.SS2",
+            "text": "4.2 Novel View Synthesis and Tracking"
+          },
+          {
+            "id": "S4.SS3",
+            "text": "4.3 Ablation study"
+          },
+          {
+            "id": "S4.SS3.SSS0.Px1",
+            "text": "Ablation on camera tracking."
+          },
+          {
+            "id": "S4.SS3.SSS0.Px2",
+            "text": "Ablation on backbones."
+          },
+          {
+            "id": "S4.SS3.SSS0.Px3",
+            "text": "Ablation on mapping iterations."
+          },
+          {
+            "id": "S5",
+            "text": "5 Conclusion"
+          },
+          {
+            "id": "A1",
+            "text": "Appendix A Appendix"
+          },
+          {
+            "id": "A1.SS1",
+            "text": "A.1 Relation to ORB-SLAM3’s Virtual-Stereo Model"
+          },
+          {
+            "id": "A1.SS1.SSS0.Px1",
+            "text": "Calibrated stereo geometry and observations."
+          },
+          {
+            "id": "A1.SS1.SSS0.Px2",
+            "text": "Explicit weighting in pixel coordinates."
+          },
+          {
+            "id": "A1.SS1.SSS0.Px3",
+            "text": "RGB-D observations and the virtual right coordinate."
+          },
+          {
+            "id": "A1.SS1.SSS0.Px4",
+            "text": "Depth sensitivity induced by the residual."
+          },
+          {
+            "id": "A1.SS1.SSS0.Px5",
+            "text": "Comparison with direct-depth weighting."
+          },
+          {
+            "id": "A1.SSx1",
+            "text": "AI use statement"
+          },
+          {
+            "id": "A1.SSx2",
+            "text": "Ethics statement"
+          },
+          {
+            "id": "A1.SSx3",
+            "text": "Reproducibility statement"
+          },
+          {
+            "id": "Ax1",
+            "text": "Acknowledgements"
+          }
+        ],
+        "bibliography": "2026/nearest-method bibliography entries screened for problem-neighborhood cross-discovery; not every cited historical paper read",
+        "pdf": "Downloaded frozen v1; selected PDF text checks for RESPLE2 velocity/angular-rate units and SVIn+ pressure formula; PDF pages not all visually reviewed",
+        "code": "RESPLE2 code review delegated to main agent; SVIn+ README only; LingGS manuscript release statement only",
+        "executed": false,
+        "datasets_downloaded": false,
+        "weights_downloaded": false
+      },
+      "sources": {
+        "html_url": "https://arxiv.org/html/2610.36853v1",
+        "html_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\core-deep-2610.36853v1.html",
+        "html_sha256": "cb3be375997ab7b6ab8e0fa6d4a6787de63546680a2346c83c840bebbb981956",
+        "plain_text_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\core-deep-2610.36853v1.txt",
+        "pdf_url": "https://arxiv.org/pdf/2610.36853v1",
+        "pdf_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\core-deep-2610.36853v1.pdf",
+        "table_and_caption_evidence": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\core-deep-extracted.json"
+      },
+      "overview_figure": {
+        "id": "2610.36853",
+        "url": "https://arxiv.org/html/2610.36853v1/overview.png",
+        "path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\core-deep-2610.36853-overview.png",
+        "bytes": 1130045,
+        "retrieved_at": "2026-11-02T15:53:49Z",
+        "figure_number": "Figure 1",
+        "figure_id": "S3.F1",
+        "caption": "Figure 1: Overview of our online Gaussian splatting SLAM system. (a) A frozen streaming foundation model estimates camera intrinsics from the initial RGB frames. (b) Predicted depth and image features support geometric camera tracking through correspondence matching and reprojection error minimization. (c) The Gaussian mapper integrates RGB frames, predicted depth, and estimated poses through keyframe selection, Laplacian-guided Gaussian insertion, and 30-step refinement using RGB and depth losses with keyframe replay.",
+        "source_page_url": "https://arxiv.org/html/2610.36853v1#S3.F1",
+        "asset_type": "original arXiv HTML image, unmodified",
+        "visually_verified": true,
+        "visual_verification": "tools.view_image displayed original asset; checked that image shows the described system/modules/arrows, not a result-only figure",
+        "approved_for_embed": true
+      },
+      "missing_sections": [
+        "No separately titled Limitations section; limitations read in Conclusion."
+      ],
+      "status": "deep_read_complete_no_execution"
+    },
+    {
+      "name": "SVIn+",
+      "takeaway": "海洋专用压力/DVL与视觉惯性紧耦合，稀疏低频3D声呐先解relative pose再进图；部署证据真实，但当前工作重在局部里程计，全球闭环与失败切换仍未解决。",
+      "problem": {
+        "text": "水下视觉受浑浊/光照/回散影响；压力/DVL能约束深度/速度却不提供环境结构。3D声呐5Hz、稀疏且多路径噪声明显，需要低成本地加入估计器。",
+        "sources": [
+          "S1.p1.1",
+          "S1.p2.1",
+          "S1.p3.1"
+        ],
+        "evidence_urls": [
+          "https://arxiv.org/html/2610.36454v1#S1.p1.1",
+          "https://arxiv.org/html/2610.36454v1#S1.p2.1",
+          "https://arxiv.org/html/2610.36454v1#S1.p3.1"
+        ]
+      },
+      "method_structure": [
+        {
+          "text": "基于SVIn2/OKVIS slidingwindow非线性最小二乘，紧耦合camera重投影、IMU预积分、压力深度、DVL速度。传感器外参预先标定且固定。",
+          "sources": [
+            "S3.p1.1",
+            "S4.EGx2",
+            "S4.E6",
+            "S4.p2.1"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.36454v1#S3.p1.1",
+            "https://arxiv.org/html/2610.36454v1#S4.EGx2",
+            "https://arxiv.org/html/2610.36454v1#S4.E6",
+            "https://arxiv.org/html/2610.36454v1#S4.p2.1"
+          ]
+        },
+        {
+          "text": "压力标定water-surface offset并约束globalZ，假定短实验水面高度/潮汐/环境压力不变；DVL在sensor坐标量测速度，经外参/杠杆臂角速度项变换，采用sensor自带协方差作information。",
+          "sources": [
+            "S4.SS1",
+            "S4.SS2",
+            "S4.EGx3",
+            "S4.EGx4"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.36454v1#S4.SS1",
+            "https://arxiv.org/html/2610.36454v1#S4.SS2",
+            "https://arxiv.org/html/2610.36454v1#S4.EGx3",
+            "https://arxiv.org/html/2610.36454v1#S4.EGx4"
+          ]
+        },
+        {
+          "text": "3D声呐以KISS-ICP做scan-to-local-map，但motionprior来自上一SVIn+而非原constantvelocity；声呐world与融合world分离。将相邻声呐pose作SE3插值对齐状态时刻，构造6D相对位姿因子。",
+          "sources": [
+            "S4.SS3.p1.1",
+            "S4.SS3.p2.1",
+            "S4.EGx5",
+            "S4.EGx6",
+            "S4.EGx7"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.36454v1#S4.SS3.p1.1",
+            "https://arxiv.org/html/2610.36454v1#S4.SS3.p2.1",
+            "https://arxiv.org/html/2610.36454v1#S4.EGx5",
+            "https://arxiv.org/html/2610.36454v1#S4.EGx6",
+            "https://arxiv.org/html/2610.36454v1#S4.EGx7"
+          ]
+        },
+        {
+          "text": "因此应称视觉/惯性/压力/DVL紧耦合+3D声呐分层或松耦合，不能称raw sonar point factors端到端全紧耦合。Fig2突出局部optimizer；论文末尾把multimodal global place recognition列为未来工作。",
+          "sources": [
+            "S2.p7.1",
+            "S3.F2",
+            "S6.p1.1"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.36454v1#S2.p7.1",
+            "https://arxiv.org/html/2610.36454v1#S3.F2",
+            "https://arxiv.org/html/2610.36454v1#S6.p1.1"
+          ]
+        }
+      ],
+      "math_insight": [
+        {
+          "text": "总目标Σe_r^TΩ_re_r+e_IMU^TΩ_IMUe_IMU+e_DVL^TΩ_DVLe_DVL+Ω_depth e_depth²+e_sonar^TΩ_sonar e_sonar保持稀疏；用relative sonar motion消除两个world frame的绝对gauge差异。",
+          "sources": [
+            "S4.E6",
+            "S4.EGx5",
+            "S4.EGx6",
+            "S4.EGx7"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.36454v1#S4.E6",
+            "https://arxiv.org/html/2610.36454v1#S4.EGx5",
+            "https://arxiv.org/html/2610.36454v1#S4.EGx6",
+            "https://arxiv.org/html/2610.36454v1#S4.EGx7"
+          ]
+        },
+        {
+          "text": "DVL必须加角速度×安装位置的杠杆臂修正，压力也需考虑sensor offset随姿态变化；简单把DVL当body velocity/压力当IMU高度会引入系统误差。",
+          "sources": [
+            "S4.SS1",
+            "S4.EGx4"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.36454v1#S4.SS1",
+            "https://arxiv.org/html/2610.36454v1#S4.EGx4"
+          ]
+        },
+        {
+          "text": "论文Eq7虽然介绍当前z_d,k，却只写D0−predicted sensorZ，且D0只用初始z_d,0定义；当前压力量测项未显式出现，HTML与PDF均如此。这是需代码/作者澄清的公式歧义，不据此断言实现错误。",
+          "sources": [
+            "S4.EGx3",
+            "S4.SS1.p1.2",
+            "core-deep-2610.36454v1-pdf.txt:Eq7"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.36454v1#S4.EGx3",
+            "https://arxiv.org/html/2610.36454v1#S4.SS1.p1.2",
+            "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\core-deep-2610.36454v1-pdf.txt"
+          ]
+        }
+      ],
+      "experimental_protocol": {
+        "platform": "Aqua2 AUV，MicroStrain3DM-CV7，硬同步双AR0234 globalshutter，WaterLinked DVL-A50、Bar30压力、WaterLinked3D-15声呐。Fig2标相机25Hz、IMU90Hz、DVL8Hz、压力42Hz、sonar5Hz、pose25Hz。",
+        "calibration": "camera-IMU Kalibr；IMU-DVL/pressure由制造商；camera-sonar用水下四个cinder blocks的3D-2D对应做PnP。",
+        "datasets": "Barbados BajanQueen01约75m/8min(固定ArUco访问3次)；BajanQueen02在V-B称约600m/55min，但V-D又称215m transit；Folkestone01 V-B约280m/1252s、V-D285m。后两处距离写法未解释。",
+        "ground_truth": "无GPS/long-baseline acoustic全局GT。quantitative依据return-to-origin与固定ArUco重访空间偏差，不是全轨迹ATE；Colmap是离线视觉参考且有断裂，不是权威GT。",
+        "hardware": "实验Ubuntu24.04/CoreUltra7 155H/64GB/RTX5000Ada；另称i7-10510U/16GB/GTX1050 laptop可实时，无per-stage ms/runtime表。",
+        "baselines": "SVIn2 visualinertial、KISS-ICP sonarodom、Colmap offline；比较odom时禁global loopclosure。另TableI含SVIn2-loop作为单独配置。作者称各方法充分调参，但无固定搜索预算/重复运行置信区间。",
+        "sources": [
+          "S3.F2",
+          "S5.SS1",
+          "S5.SS2",
+          "S5.SS3",
+          "S5.SS4",
+          "S5.T1"
+        ],
+        "evidence_urls": [
+          "https://arxiv.org/html/2610.36454v1#S3.F2",
+          "https://arxiv.org/html/2610.36454v1#S5.SS1",
+          "https://arxiv.org/html/2610.36454v1#S5.SS2",
+          "https://arxiv.org/html/2610.36454v1#S5.SS3",
+          "https://arxiv.org/html/2610.36454v1#S5.SS4",
+          "https://arxiv.org/html/2610.36454v1#S5.T1"
+        ]
+      },
+      "table_findings": [
+        {
+          "table": "I",
+          "anchor": "S5.T1",
+          "metric": "fixed ArUco revisitation spatial deviation, mean(std), not pixel reprojection RMSE",
+          "units": "m",
+          "values": {
+            "SVIn2": "0.53 (0.11)",
+            "SVIn2_loop": "0.22 (0.11)",
+            "SVIn_depth": "0.29 (0.11)",
+            "SVIn_dvl": "0.52 (0.23)",
+            "SVIn_sonar": "0.29 (0.15)",
+            "SVIn_plus": "0.21 (0.08)"
+          },
+          "finding": "作者按0.53→0.21算60.4% reduction；0.21与loopbaseline0.22差0.01m，不足以宣称统计显著优于loopSLAM或普适globalaccuracy。",
+          "evidence_url": "https://arxiv.org/html/2610.36454v1#S5.T1"
+        },
+        {
+          "paragraph": "V-C",
+          "anchor": "S5.SS3.p3.1",
+          "metric": "return-to-origin end drift",
+          "units": "m",
+          "finding": "SVIn+0.52m对SVIn2 0.81m；与TableI 0.21/0.53是不同指标，不能互换或平均。",
+          "evidence_url": "https://arxiv.org/html/2610.36454v1#S5.SS3.p3.1"
+        },
+        {
+          "figure": "8",
+          "anchor": "S5.F8",
+          "finding": "固定深度lawnmower定性消融，DVL主要约束XY、压力约束Z，两者结合最小起止漂移；未提供全轨迹GT误差表。",
+          "evidence_url": "https://arxiv.org/html/2610.36454v1#S5.F8"
+        },
+        {
+          "figure": "6/7",
+          "anchor": "S5.SS4",
+          "finding": "55min沉船和1252s珊瑚礁主要可视化轨迹/depth/map coherence；无全局定位精度数字或统计失败率。",
+          "evidence_url": "https://arxiv.org/html/2610.36454v1#S5.SS4"
+        }
+      ],
+      "ablation_analysis": {
+        "text": "单加depth使tag mean0.53→0.29m，单DVL0.52m，单sonar0.29m，all0.21m；证明该重访/环境下多模态互补。不能仅凭一个数据集和三次tag通过声称全球误差有界。Sonar稀疏失败例Fig12说明质量门控未解决。",
+        "sources": [
+          "S5.SS5",
+          "S5.T1",
+          "S6.F12"
+        ],
+        "evidence_urls": [
+          "https://arxiv.org/html/2610.36454v1#S5.SS5",
+          "https://arxiv.org/html/2610.36454v1#S5.T1",
+          "https://arxiv.org/html/2610.36454v1#S6.F12"
+        ]
+      },
+      "limitations": [
+        {
+          "text": "独立Limitations节没有，VI Lessons Learned/Future Work明确：传感器退化主动切换、global multimodal relocalization/loopclosure、在线外参标定均未来方向。",
+          "sources": [
+            "S6.p1.1"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.36454v1#S6.p1.1"
+          ]
+        },
+        {
+          "text": "无全局GT、仅有限水下三数据集、长序列距离写法矛盾；不能由定性map coherence推断绝对全局一致或误差有界。",
+          "sources": [
+            "S5.SS2",
+            "S5.SS3",
+            "S5.SS4"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.36454v1#S5.SS2",
+            "https://arxiv.org/html/2610.36454v1#S5.SS3",
+            "https://arxiv.org/html/2610.36454v1#S5.SS4"
+          ]
+        },
+        {
+          "text": "声呐odom依赖融合pose prior而后又回灌相对因子；全文没有说明如何处理相关性/registration covariance或失败门控参数，需要实现验证，不能假设因子独立。",
+          "sources": [
+            "S4.SS3",
+            "S4.p3.1",
+            "S6.p1.1"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.36454v1#S4.SS3",
+            "https://arxiv.org/html/2610.36454v1#S4.p3.1",
+            "https://arxiv.org/html/2610.36454v1#S6.p1.1"
+          ]
+        },
+        {
+          "text": "公式7当前深度项书写含糊；window大小K、信息矩阵具体数值/sonar插值缓冲延迟、数据split/下载入口及完整runtime表未给，复现需要补核。",
+          "sources": [
+            "S4",
+            "S4.SS1",
+            "S4.SS3",
+            "S5.SS1"
+          ],
+          "evidence_urls": [
+            "https://arxiv.org/html/2610.36454v1#S4",
+            "https://arxiv.org/html/2610.36454v1#S4.SS1",
+            "https://arxiv.org/html/2610.36454v1#S4.SS3",
+            "https://arxiv.org/html/2610.36454v1#S5.SS1"
+          ]
+        },
+        {
+          "text": "获取时作者cmburgul项目页存在，可读paper/code链接，但Dataset与arXiv仍comingsoon、MoreWorks仍模板占位；第二dartmouth项目页基本空白。GitHub README有未解<<<<<<< HEAD标记、Running ToDo，虽给ROS2Jazzy启动例，不能据此说开箱即用。网页/README于2026-11-02获取，不证明冻结截止时完全相同。",
+          "sources": [
+            "core-deep-cross-project-svin.html",
+            "core-deep-cross-project-svin-placeholder.html",
+            "core-deep-SVIn-Plus-README.md"
+          ],
+          "evidence_urls": [
+            "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\core-deep-cross-project-svin.html",
+            "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\core-deep-cross-project-svin-placeholder.html",
+            "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\core-deep-SVIn-Plus-README.md"
+          ]
+        }
+      ],
+      "reproduction_insight": "优先核清pressure Eq7与实际sensor offset/符号；按tag三次重访分别算start-end和TableI空间误差，保留无GT边界；加入sonar稀疏/无回波失败门控和因子相关性检查，再测完整同步/插值延迟。README仅静态阅读，未编译、未下数据。",
+      "conclusion": "可靠的海洋多模态局部估计工程案例，压力/DVL/声呐互补有实地证据，但完整SLAM、故障切换和可复现打包仍待推进。",
+      "id": "2610.36454",
+      "version": 1,
+      "title": "SVIn+: Multi-Modal Framework for Robust Underwater State Estimation using 3D Sonar, Visual-Inertial, Water-Pressure, and DVL",
+      "v1_utc": "2026-10-27T01:01:19Z",
+      "updated_utc": "2026-10-27T01:01:19Z",
+      "window_class": "new",
+      "official_version_history": {
+        "url": "https://arxiv.org/abs/2610.36454",
+        "retrieved_at": "2026-11-01T15:27:55Z",
+        "history_raw": "Submission history From: Chinmay Burgul [ view email ] [v1] Tue, 27 Oct 2026 01:01:19 UTC (7,793 KB)",
+        "version_history": [
+          {
+            "version": 1,
+            "utc": "2026-10-27T01:01:19Z"
+          }
+        ],
+        "history_verified": true,
+        "raw_path": "extension-abs-2610.36454.html",
+        "cached": true
+      },
+      "evidence_level": "full_text",
+      "actual_reading": {
+        "primary": "Complete arXiv HTML main text, equations, experiments, ablations, analysis, conclusion and all appendices present in HTML",
+        "sections": [
+          {
+            "id": null,
+            "text": "SVIn+: Multi-Modal Framework for Robust Underwater State Estimation using 3D Sonar, Visual-Inertial, Water-Pressure, and DVL"
+          },
+          {
+            "id": "S1",
+            "text": "I Introduction"
+          },
+          {
+            "id": "S2",
+            "text": "II Related Work"
+          },
+          {
+            "id": "S3",
+            "text": "III Preliminaries"
+          },
+          {
+            "id": "S4",
+            "text": "IV Multi Sensor Odometry"
+          },
+          {
+            "id": "S4.SS1",
+            "text": "IV-A Water-Pressure Sensor Fusion"
+          },
+          {
+            "id": "S4.SS2",
+            "text": "IV-B Doppler Velocity Log (DVL) Fusion"
+          },
+          {
+            "id": "S4.SS3",
+            "text": "IV-C 3D Sonar Fusion"
+          },
+          {
+            "id": "S5",
+            "text": "V Experimental Validation"
+          },
+          {
+            "id": "S5.SS1",
+            "text": "V-A Experimental Setup"
+          },
+          {
+            "id": "S5.SS2",
+            "text": "V-B Dataset Description"
+          },
+          {
+            "id": "S5.SS3",
+            "text": "V-C Evaluation of Return-to-Origin Trajectory"
+          },
+          {
+            "id": "S5.SS4",
+            "text": "V-D Evaluation on Long-Duration Field Sequences"
+          },
+          {
+            "id": "S5.SS5",
+            "text": "V-E Ablation study"
+          },
+          {
+            "id": "S6",
+            "text": "VI Lessons Learned and Future Work"
+          },
+          {
+            "id": "S7",
+            "text": "VII Conclusions"
+          }
+        ],
+        "bibliography": "2026/nearest-method bibliography entries screened for problem-neighborhood cross-discovery; not every cited historical paper read",
+        "pdf": "Downloaded frozen v1; selected PDF text checks for RESPLE2 velocity/angular-rate units and SVIn+ pressure formula; PDF pages not all visually reviewed",
+        "code": "RESPLE2 code review delegated to main agent; SVIn+ README only; LingGS manuscript release statement only",
+        "executed": false,
+        "datasets_downloaded": false,
+        "weights_downloaded": false
+      },
+      "sources": {
+        "html_url": "https://arxiv.org/html/2610.36454v1",
+        "html_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\core-deep-2610.36454v1.html",
+        "html_sha256": "eb4ae1119ba5e858366697cf2e6081cdf61977cabb9f1e5c350b981ce596033e",
+        "plain_text_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\core-deep-2610.36454v1.txt",
+        "pdf_url": "https://arxiv.org/pdf/2610.36454v1",
+        "pdf_path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\core-deep-2610.36454v1.pdf",
+        "table_and_caption_evidence": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\core-deep-extracted.json"
+      },
+      "overview_figure": {
+        "id": "2610.36454",
+        "url": "https://arxiv.org/html/2610.36454v1/figures/pipeline.jpg",
+        "path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\core-deep-2610.36454-overview.jpg",
+        "bytes": 964676,
+        "retrieved_at": "2026-11-02T15:53:49Z",
+        "figure_number": "Fig. 2",
+        "figure_id": "S3.F2",
+        "caption": "Fig. 2 : System pipeline of the proposed framework. Classical camera modules are highlighted in green, the sonar processing pipeline in gray, and marine-specific components in pink. This paper focuses on the integration of the local odometry optimization module.",
+        "source_page_url": "https://arxiv.org/html/2610.36454v1#S3.F2",
+        "asset_type": "original arXiv HTML image, unmodified",
+        "visually_verified": true,
+        "visual_verification": "tools.view_image displayed original asset; checked that image shows the described system/modules/arrows, not a result-only figure",
+        "approved_for_embed": true
+      },
+      "missing_sections": [
+        "No Appendix in HTML/PDF; no separately titled Limitations section, VI Lessons Learned/Future Work supplies limitations."
+      ],
+      "status": "deep_read_complete_no_execution"
+    }
+  ],
+  "cross_discovery": [
+    {
+      "id": "2504.06479",
+      "version": 2,
+      "title": "Holistic Fusion: Task- and Setup-Agnostic Robot Localization and State Estimation with Factor Graphs",
+      "origin": "RESPLE2 Related Work [30], setup-agnostic factor-graph fusion",
+      "reading_level": "complete abstract + official submission history; no full text",
+      "v1_utc": "2025-04-08T22:54:52Z",
+      "updated_utc": "2026-07-16T22:15:43Z",
+      "history_evidence": {
+        "url": "https://arxiv.org/abs/2504.06479",
+        "retrieved_at": "2026-11-02T15:56:41Z",
+        "status": "success",
+        "bytes": 46757,
+        "path": "core-deep-cross-abs-2504.06479.html",
+        "history_raw": "Submission history From: Julian Nubert [ view email ] [v1] Tue, 8 Apr 2025 22:54:52 UTC (33,832 KB) [v2] Thu, 16 Jul 2026 22:15:43 UTC (9,003 KB)",
+        "version_history": [
+          {
+            "version": 1,
+            "utc": "2025-04-08T22:54:52Z"
+          },
+          {
+            "version": 2,
+            "utc": "2026-07-16T22:15:43Z"
+          }
+        ]
+      },
+      "decision": "background_only_outside_window",
+      "reason": "问题相邻的通用局部/全局sensor fusion；官方v2为2026-07-16，无期内更新，背景引用。",
+      "prior_history": {},
+      "source_urls": [
+        "https://arxiv.org/abs/2504.06479v2"
+      ]
+    },
+    {
+      "id": "2510.18991",
+      "version": 1,
+      "title": "Underwater Dense Mapping with the First Compact 3D Sonar",
+      "origin": "SVIn+ Related Work [9] and calibration method",
+      "reading_level": "complete abstract + official submission history; no full text",
+      "v1_utc": "2025-10-21T18:15:31Z",
+      "updated_utc": "2025-10-21T18:15:31Z",
+      "history_evidence": {
+        "url": "https://arxiv.org/abs/2510.18991",
+        "retrieved_at": "2026-11-02T15:56:41Z",
+        "status": "success",
+        "bytes": 43065,
+        "path": "core-deep-cross-abs-2510.18991.html",
+        "history_raw": "Submission history From: Marios Xanthidis [ view email ] [v1] Tue, 21 Oct 2025 18:15:31 UTC (14,371 KB)",
+        "version_history": [
+          {
+            "version": 1,
+            "utc": "2025-10-21T18:15:31Z"
+          }
+        ]
+      },
+      "decision": "background_only_outside_window",
+      "reason": "同作者3D声呐前驱，标定与map方法相同问题；最新仍2025v1，无本期更新，不作为新补漏。",
+      "prior_history": {},
+      "source_urls": [
+        "https://arxiv.org/abs/2510.18991v1"
+      ]
+    },
+    {
+      "id": "2604.14141",
+      "version": 3,
+      "title": "LingBot-Map: Geometric Context Transformer for Streaming 3D Reconstruction",
+      "origin": "LingGS Method and Related Work, frozen virtual RGB-D backbone; official Robbyant project page",
+      "reading_level": "complete abstract + official submission history; no full text",
+      "v1_utc": "2026-04-15T17:58:13Z",
+      "updated_utc": "2026-09-08T16:51:09Z",
+      "history_evidence": {
+        "url": "https://arxiv.org/abs/2604.14141",
+        "retrieved_at": "2026-11-02T15:56:41Z",
+        "status": "success",
+        "bytes": 43732,
+        "path": "core-deep-cross-abs-2604.14141.html",
+        "history_raw": "Submission history From: Yinghao Xu [ view email ] [v1] Wed, 15 Apr 2026 17:58:13 UTC (19,761 KB) [v2] Thu, 16 Apr 2026 16:44:56 UTC (19,762 KB) [v3] Tue, 8 Sep 2026 16:51:09 UTC (18,539 KB)",
+        "version_history": [
+          {
+            "version": 1,
+            "utc": "2026-04-15T17:58:13Z"
+          },
+          {
+            "version": 2,
+            "utc": "2026-04-16T16:44:56Z"
+          },
+          {
+            "version": 3,
+            "utc": "2026-09-08T16:51:09Z"
+          }
+        ]
+      },
+      "decision": "background_only_outside_window",
+      "reason": "旧几何上下文Transformer主干；官方v3在2026-09-08，非期内修订，不把新项目页面访问当新论文。",
+      "prior_history": {},
+      "source_urls": [
+        "https://arxiv.org/abs/2604.14141v3"
+      ]
+    },
+    {
+      "id": "2610.34845",
+      "version": 1,
+      "title": "PosePlaner: Denoising Any Feed-Forward Pose Predictor from Pairwise Planar Geometry",
+      "origin": "LingGS depth/model-pose decoupling problem-neighborhood: test-time correction of feed-forward poses",
+      "discovery_method": "Focused semantic cross-check against already screened official candidate pool; not falsely presented as a direct cited reference",
+      "reading_level": "complete abstract + official submission history, existing core review",
+      "v1_utc": "2026-10-26T04:55:36Z",
+      "updated_utc": "2026-10-26T04:55:36Z",
+      "history_evidence": {
+        "url": "https://arxiv.org/abs/2610.34845",
+        "retrieved_at": "2026-11-01T15:27:55Z",
+        "history_raw": "Submission history From: Yihang Chen [ view email ] [v1] Mon, 26 Oct 2026 04:55:36 UTC (26,723 KB)",
+        "version_history": [
+          {
+            "version": 1,
+            "utc": "2026-10-26T04:55:36Z"
+          }
+        ],
+        "history_verified": true,
+        "raw_path": "core-abs-2610.34845.html",
+        "cached": true
+      },
+      "window_class": "new",
+      "decision": "already_covered_no_duplicate",
+      "reason": "标题不含SLAM但解决相关pose/几何约束问题；本期核心已读并登记，关系链核查不重复新增。",
+      "source_urls": [
+        "https://export.arxiv.org/api/query?id_list=2610.34845%2C2610.34819%2C2610.34632%2C2610.34618%2C2610.34600%2C2610.34597%2C2610.34564%2C2610.34346%2C2610.34344%2C2610.34263%2C2610.34235%2C2610.34233%2C2610.34218%2C2610.34190%2C2610.34037%2C2610.34033%2C2610.34028%2C2610.33988%2C2610.33941%2C2610.33894%2C2610.33868%2C2610.33755%2C2610.33704%2C2610.33695%2C2610.33661%2C2610.33656%2C2610.33589%2C2610.33575%2C2610.33566%2C2610.33504%2C2610.33484%2C2610.33356%2C2610.33169%2C2610.33118%2C2610.33054%2C2610.35529%2C2610.35224%2C2610.34904%2C2610.33127%2C2610.32977%2C2610.32800%2C2610.32792%2C2610.32697%2C2610.32663%2C2610.32381%2C2610.32321%2C2610.32250%2C2610.32182%2C2610.32174%2C2610.32073%2C2610.31950%2C2610.31908%2C2610.31747%2C2610.32816%2C2610.32177%2C2610.32039%2C2610.31892%2C2610.31645%2C2610.31635%2C2610.31623%2C2610.31321%2C2610.31320%2C2610.31293%2C2610.31253%2C2610.31186%2C2610.31140%2C2610.31123%2C2610.31108%2C2610.30974%2C2610.30944%2C2610.30824%2C2610.30814%2C2610.30781%2C2610.30774%2C2610.30724%2C2610.30643%2C2610.30619%2C2610.30609%2C2610.30468%2C2610.30340%2C2610.30326%2C2610.30293%2C2610.30910%2C2610.38953%2C2610.37740%2C2610.35902%2C2610.33256%2C2610.38350%2C2610.37926%2C2610.36555%2C2610.34184%2C2610.33202%2C2610.35813%2C2610.35569%2C2610.32010%2C2610.30683%2C2610.10181%2C2610.12568%2C2610.12624%2C2610.20226&max_results=100&start=0",
+        "https://arxiv.org/abs/2610.34845v1",
+        "https://export.arxiv.org/api/query?search_query=%28%28ti%3ASLAM%29+OR+%28abs%3ASLAM%29+OR+%28ti%3A%22simultaneous+localization%22%29+OR+%28abs%3A%22simultaneous+localization%22%29+OR+%28ti%3A%22simultaneous+localisation%22%29+OR+%28abs%3A%22simultaneous+localisation%22%29+OR+%28ti%3AVIO%29+OR+%28abs%3AVIO%29+OR+%28ti%3A%22visual-inertial%22%29+OR+%28abs%3A%22visual-inertial%22%29+OR+%28ti%3Aodometry%29+OR+%28abs%3Aodometry%29+OR+%28ti%3ASfM%29+OR+%28abs%3ASfM%29+OR+%28ti%3A%22structure+from+motion%22%29+OR+%28abs%3A%22structure+from+motion%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "https://export.arxiv.org/api/query?search_query=%28%28ti%3ASLAM%29+OR+%28abs%3ASLAM%29+OR+%28ti%3A%22simultaneous+localization%22%29+OR+%28abs%3A%22simultaneous+localization%22%29+OR+%28ti%3A%22simultaneous+localisation%22%29+OR+%28abs%3A%22simultaneous+localisation%22%29+OR+%28ti%3AVIO%29+OR+%28abs%3AVIO%29+OR+%28ti%3A%22visual-inertial%22%29+OR+%28abs%3A%22visual-inertial%22%29+OR+%28ti%3Aodometry%29+OR+%28abs%3Aodometry%29+OR+%28ti%3ASfM%29+OR+%28abs%3ASfM%29+OR+%28ti%3A%22structure+from+motion%22%29+OR+%28abs%3A%22structure+from+motion%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "https://export.arxiv.org/api/query?search_query=%28%28ti%3AVGGT%29+OR+%28abs%3AVGGT%29+OR+%28ti%3A%22VGGT-%CE%A9%22%29+OR+%28abs%3A%22VGGT-%CE%A9%22%29+OR+%28ti%3AOmniVGGT%29+OR+%28abs%3AOmniVGGT%29+OR+%28ti%3A%22geometry+foundation%22%29+OR+%28abs%3A%22geometry+foundation%22%29+OR+%28ti%3A%22visual+geometry+transformer%22%29+OR+%28abs%3A%22visual+geometry+transformer%22%29+OR+%28ti%3ADUSt3R%29+OR+%28abs%3ADUSt3R%29+OR+%28ti%3AMASt3R%29+OR+%28abs%3AMASt3R%29+OR+%28ti%3Api3%29+OR+%28abs%3Api3%29+OR+%28ti%3A%22%CF%80%C2%B3%22%29+OR+%28abs%3A%22%CF%80%C2%B3%22%29+OR+%28ti%3ADA3%29+OR+%28abs%3ADA3%29+OR+%28ti%3A%22Depth+Anything%22%29+OR+%28abs%3A%22Depth+Anything%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "https://export.arxiv.org/api/query?search_query=%28%28ti%3AVGGT%29+OR+%28abs%3AVGGT%29+OR+%28ti%3A%22VGGT-%CE%A9%22%29+OR+%28abs%3A%22VGGT-%CE%A9%22%29+OR+%28ti%3AOmniVGGT%29+OR+%28abs%3AOmniVGGT%29+OR+%28ti%3A%22geometry+foundation%22%29+OR+%28abs%3A%22geometry+foundation%22%29+OR+%28ti%3A%22visual+geometry+transformer%22%29+OR+%28abs%3A%22visual+geometry+transformer%22%29+OR+%28ti%3ADUSt3R%29+OR+%28abs%3ADUSt3R%29+OR+%28ti%3AMASt3R%29+OR+%28abs%3AMASt3R%29+OR+%28ti%3Api3%29+OR+%28abs%3Api3%29+OR+%28ti%3A%22%CF%80%C2%B3%22%29+OR+%28abs%3A%22%CF%80%C2%B3%22%29+OR+%28ti%3ADA3%29+OR+%28abs%3ADA3%29+OR+%28ti%3A%22Depth+Anything%22%29+OR+%28abs%3A%22Depth+Anything%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22feed-forward%22%29+OR+%28abs%3A%22feed-forward%22%29+OR+%28ti%3Afeedforward%29+OR+%28abs%3Afeedforward%29+OR+%28ti%3A%223D+reconstruction%22%29+OR+%28abs%3A%223D+reconstruction%22%29+OR+%28ti%3Apointmap%29+OR+%28abs%3Apointmap%29+OR+%28ti%3A%22Gaussian+splatting%22%29+OR+%28abs%3A%22Gaussian+splatting%22%29+OR+%28ti%3A3DGS%29+OR+%28abs%3A3DGS%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22feed-forward%22%29+OR+%28abs%3A%22feed-forward%22%29+OR+%28ti%3Afeedforward%29+OR+%28abs%3Afeedforward%29+OR+%28ti%3A%223D+reconstruction%22%29+OR+%28abs%3A%223D+reconstruction%22%29+OR+%28ti%3Apointmap%29+OR+%28abs%3Apointmap%29+OR+%28ti%3A%22Gaussian+splatting%22%29+OR+%28abs%3A%22Gaussian+splatting%22%29+OR+%28ti%3A3DGS%29+OR+%28abs%3A3DGS%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=200&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=200&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=SLAM&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22simultaneous+localization%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22simultaneous+localisation%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=VIO&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual-inertial%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=odometry&terms-5-field=all&terms-6-operator=OR&terms-6-term=SfM&terms-6-field=all&terms-7-operator=OR&terms-7-term=%22structure+from+motion%22&terms-7-field=all",
+        "https://arxiv.org/abs/2610.34845",
+        "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=SLAM&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22simultaneous+localization%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22simultaneous+localisation%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=VIO&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual-inertial%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=odometry&terms-5-field=all&terms-6-operator=OR&terms-6-term=SfM&terms-6-field=all&terms-7-operator=OR&terms-7-term=%22structure+from+motion%22&terms-7-field=all",
+        "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=VGGT&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22VGGT-%CE%A9%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=OmniVGGT&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometry+foundation%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual+geometry+transformer%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=DUSt3R&terms-5-field=all&terms-6-operator=OR&terms-6-term=MASt3R&terms-6-field=all&terms-7-operator=OR&terms-7-term=pi3&terms-7-field=all&terms-8-operator=OR&terms-8-term=%22%CF%80%C2%B3%22&terms-8-field=all&terms-9-operator=OR&terms-9-term=DA3&terms-9-field=all&terms-10-operator=OR&terms-10-term=%22Depth+Anything%22&terms-10-field=all",
+        "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=VGGT&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22VGGT-%CE%A9%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=OmniVGGT&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometry+foundation%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual+geometry+transformer%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=DUSt3R&terms-5-field=all&terms-6-operator=OR&terms-6-term=MASt3R&terms-6-field=all&terms-7-operator=OR&terms-7-term=pi3&terms-7-field=all&terms-8-operator=OR&terms-8-term=%22%CF%80%C2%B3%22&terms-8-field=all&terms-9-operator=OR&terms-9-term=DA3&terms-9-field=all&terms-10-operator=OR&terms-10-term=%22Depth+Anything%22&terms-10-field=all",
+        "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22feed-forward%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=feedforward&terms-1-field=all&terms-2-operator=OR&terms-2-term=%223D+reconstruction%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=pointmap&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22Gaussian+splatting%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=3DGS&terms-5-field=all",
+        "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22feed-forward%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=feedforward&terms-1-field=all&terms-2-operator=OR&terms-2-term=%223D+reconstruction%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=pointmap&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22Gaussian+splatting%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=3DGS&terms-5-field=all",
+        "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+        "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all"
+      ]
+    },
+    {
+      "id": "2610.35501",
+      "version": 1,
+      "title": "Learning Scene Coordinate Reconstruction from Unposed Images via Pose Graph Optimization",
+      "origin": "LingGS/RESPLE2 geometric consistency problem-neighborhood: scene coordinates plus pose graph",
+      "discovery_method": "Focused semantic cross-check against already screened official candidate pool; not falsely presented as a direct cited reference",
+      "reading_level": "complete abstract + official submission history, existing core review",
+      "v1_utc": "2026-10-26T14:29:13Z",
+      "updated_utc": "2026-10-26T14:29:13Z",
+      "history_evidence": {
+        "url": "https://arxiv.org/abs/2610.35501",
+        "retrieved_at": "2026-11-01T15:27:55Z",
+        "history_raw": "Submission history From: Tze Ho Elden Tse [ view email ] [v1] Mon, 26 Oct 2026 14:29:13 UTC (15,293 KB)",
+        "version_history": [
+          {
+            "version": 1,
+            "utc": "2026-10-26T14:29:13Z"
+          }
+        ],
+        "history_verified": true,
+        "raw_path": "core-abs-2610.35501.html",
+        "cached": true
+      },
+      "window_class": "new",
+      "decision": "already_covered_no_duplicate",
+      "reason": "标题不含SLAM但解决相关pose/几何约束问题；本期核心已读并登记，关系链核查不重复新增。",
+      "source_urls": [
+        "https://export.arxiv.org/api/query?id_list=2610.31476%2C2610.31474%2C2610.31432%2C2610.31384%2C2610.31221%2C2610.31028%2C2610.30994%2C2610.30991%2C2610.30988%2C2610.30839%2C2610.30786%2C2610.30694%2C2610.30605%2C2610.30589%2C2610.30320%2C2610.31194%2C2610.31149%2C2610.40614%2C2610.40607%2C2610.40495%2C2610.40453%2C2610.40191%2C2610.40166%2C2610.40061%2C2610.39868%2C2610.39848%2C2610.39812%2C2610.39721%2C2610.39715%2C2610.39649%2C2610.39585%2C2610.39517%2C2610.39516%2C2610.39399%2C2610.39356%2C2610.39306%2C2610.39201%2C2610.39161%2C2610.39147%2C2610.38951%2C2610.38830%2C2610.38694%2C2610.38587%2C2610.38518%2C2610.38507%2C2610.38499%2C2610.38482%2C2610.38360%2C2610.38358%2C2610.38289%2C2610.38278%2C2610.38007%2C2610.37965%2C2606.15768%2C2610.37668%2C2610.37545%2C2610.37406%2C2610.37326%2C2610.37314%2C2610.37257%2C2610.37202%2C2610.37149%2C2610.37098%2C2610.37046%2C2610.37036%2C2610.37000%2C2610.36876%2C2610.36853%2C2610.36844%2C2610.36760%2C2610.36658%2C2610.36610%2C2610.36462%2C2610.36168%2C2610.36150%2C2610.36022%2C2610.37213%2C2610.36672%2C2610.35806%2C2610.35756%2C2610.35637%2C2610.35621%2C2610.35554%2C2610.35522%2C2610.35516%2C2610.35501%2C2610.35374%2C2610.35361%2C2610.35347%2C2610.35312%2C2610.35152%2C2610.35066%2C2610.35038%2C2610.35018%2C2610.35002%2C2610.34952%2C2610.34901%2C2610.34897%2C2610.34854%2C2610.34850&max_results=100&start=0",
+        "https://arxiv.org/abs/2610.35501v1",
+        "https://export.arxiv.org/api/query?search_query=%28%28ti%3ASLAM%29+OR+%28abs%3ASLAM%29+OR+%28ti%3A%22simultaneous+localization%22%29+OR+%28abs%3A%22simultaneous+localization%22%29+OR+%28ti%3A%22simultaneous+localisation%22%29+OR+%28abs%3A%22simultaneous+localisation%22%29+OR+%28ti%3AVIO%29+OR+%28abs%3AVIO%29+OR+%28ti%3A%22visual-inertial%22%29+OR+%28abs%3A%22visual-inertial%22%29+OR+%28ti%3Aodometry%29+OR+%28abs%3Aodometry%29+OR+%28ti%3ASfM%29+OR+%28abs%3ASfM%29+OR+%28ti%3A%22structure+from+motion%22%29+OR+%28abs%3A%22structure+from+motion%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "https://export.arxiv.org/api/query?search_query=%28%28ti%3ASLAM%29+OR+%28abs%3ASLAM%29+OR+%28ti%3A%22simultaneous+localization%22%29+OR+%28abs%3A%22simultaneous+localization%22%29+OR+%28ti%3A%22simultaneous+localisation%22%29+OR+%28abs%3A%22simultaneous+localisation%22%29+OR+%28ti%3AVIO%29+OR+%28abs%3AVIO%29+OR+%28ti%3A%22visual-inertial%22%29+OR+%28abs%3A%22visual-inertial%22%29+OR+%28ti%3Aodometry%29+OR+%28abs%3Aodometry%29+OR+%28ti%3ASfM%29+OR+%28abs%3ASfM%29+OR+%28ti%3A%22structure+from+motion%22%29+OR+%28abs%3A%22structure+from+motion%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22loop+closure%22%29+OR+%28abs%3A%22loop+closure%22%29+OR+%28ti%3Arelocalization%29+OR+%28abs%3Arelocalization%29+OR+%28ti%3Arelocalisation%29+OR+%28abs%3Arelocalisation%29+OR+%28ti%3Aregistration%29+OR+%28abs%3Aregistration%29+OR+%28ti%3A%22bundle+adjustment%22%29+OR+%28abs%3A%22bundle+adjustment%22%29+OR+%28ti%3A%22pose+graph%22%29+OR+%28abs%3A%22pose+graph%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22loop+closure%22%29+OR+%28abs%3A%22loop+closure%22%29+OR+%28ti%3Arelocalization%29+OR+%28abs%3Arelocalization%29+OR+%28ti%3Arelocalisation%29+OR+%28abs%3Arelocalisation%29+OR+%28ti%3Aregistration%29+OR+%28abs%3Aregistration%29+OR+%28ti%3A%22bundle+adjustment%22%29+OR+%28abs%3A%22bundle+adjustment%22%29+OR+%28ti%3A%22pose+graph%22%29+OR+%28abs%3A%22pose+graph%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=SLAM&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22simultaneous+localization%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22simultaneous+localisation%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=VIO&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual-inertial%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=odometry&terms-5-field=all&terms-6-operator=OR&terms-6-term=SfM&terms-6-field=all&terms-7-operator=OR&terms-7-term=%22structure+from+motion%22&terms-7-field=all",
+        "https://arxiv.org/abs/2610.35501",
+        "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=SLAM&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22simultaneous+localization%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22simultaneous+localisation%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=VIO&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual-inertial%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=odometry&terms-5-field=all&terms-6-operator=OR&terms-6-term=SfM&terms-6-field=all&terms-7-operator=OR&terms-7-term=%22structure+from+motion%22&terms-7-field=all",
+        "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22loop+closure%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=relocalization&terms-1-field=all&terms-2-operator=OR&terms-2-term=relocalisation&terms-2-field=all&terms-3-operator=OR&terms-3-term=registration&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22bundle+adjustment%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22pose+graph%22&terms-5-field=all",
+        "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22loop+closure%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=relocalization&terms-1-field=all&terms-2-operator=OR&terms-2-term=relocalisation&terms-2-field=all&terms-3-operator=OR&terms-3-term=registration&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22bundle+adjustment%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22pose+graph%22&terms-5-field=all"
+      ]
+    },
+    {
+      "id": "2610.35554",
+      "version": 2,
+      "title": "Metric Scale for Insta360 Structure-from-Motion from the Camera's Embedded IMU",
+      "origin": "LingGS virtual depth scale and RESPLE2 inertial metric alignment problem-neighborhood",
+      "discovery_method": "Focused semantic cross-check against already screened official candidate pool; not falsely presented as a direct cited reference",
+      "reading_level": "complete abstract + official submission history, existing core review",
+      "v1_utc": "2026-10-26T14:57:37Z",
+      "updated_utc": "2026-10-27T08:47:21Z",
+      "history_evidence": {
+        "url": "https://arxiv.org/abs/2610.35554",
+        "retrieved_at": "2026-11-01T15:27:55Z",
+        "history_raw": "Submission history From: Diego Di Tommaso [ view email ] [v1] Mon, 26 Oct 2026 14:57:37 UTC (972 KB) [v2] Tue, 27 Oct 2026 08:47:21 UTC (972 KB)",
+        "version_history": [
+          {
+            "version": 1,
+            "utc": "2026-10-26T14:57:37Z"
+          },
+          {
+            "version": 2,
+            "utc": "2026-10-27T08:47:21Z"
+          }
+        ],
+        "history_verified": true,
+        "raw_path": "extension-abs-2610.35554.html",
+        "cached": true
+      },
+      "window_class": "new",
+      "decision": "already_covered_no_duplicate",
+      "reason": "标题不含SLAM但解决相关pose/几何约束问题；本期核心已读并登记，关系链核查不重复新增。",
+      "source_urls": [
+        "https://export.arxiv.org/api/query?id_list=2610.31476%2C2610.31474%2C2610.31432%2C2610.31384%2C2610.31221%2C2610.31028%2C2610.30994%2C2610.30991%2C2610.30988%2C2610.30839%2C2610.30786%2C2610.30694%2C2610.30605%2C2610.30589%2C2610.30320%2C2610.31194%2C2610.31149%2C2610.40614%2C2610.40607%2C2610.40495%2C2610.40453%2C2610.40191%2C2610.40166%2C2610.40061%2C2610.39868%2C2610.39848%2C2610.39812%2C2610.39721%2C2610.39715%2C2610.39649%2C2610.39585%2C2610.39517%2C2610.39516%2C2610.39399%2C2610.39356%2C2610.39306%2C2610.39201%2C2610.39161%2C2610.39147%2C2610.38951%2C2610.38830%2C2610.38694%2C2610.38587%2C2610.38518%2C2610.38507%2C2610.38499%2C2610.38482%2C2610.38360%2C2610.38358%2C2610.38289%2C2610.38278%2C2610.38007%2C2610.37965%2C2606.15768%2C2610.37668%2C2610.37545%2C2610.37406%2C2610.37326%2C2610.37314%2C2610.37257%2C2610.37202%2C2610.37149%2C2610.37098%2C2610.37046%2C2610.37036%2C2610.37000%2C2610.36876%2C2610.36853%2C2610.36844%2C2610.36760%2C2610.36658%2C2610.36610%2C2610.36462%2C2610.36168%2C2610.36150%2C2610.36022%2C2610.37213%2C2610.36672%2C2610.35806%2C2610.35756%2C2610.35637%2C2610.35621%2C2610.35554%2C2610.35522%2C2610.35516%2C2610.35501%2C2610.35374%2C2610.35361%2C2610.35347%2C2610.35312%2C2610.35152%2C2610.35066%2C2610.35038%2C2610.35018%2C2610.35002%2C2610.34952%2C2610.34901%2C2610.34897%2C2610.34854%2C2610.34850&max_results=100&start=0",
+        "https://arxiv.org/abs/2610.35554v2",
+        "https://export.arxiv.org/api/query?search_query=%28%28ti%3ASLAM%29+OR+%28abs%3ASLAM%29+OR+%28ti%3A%22simultaneous+localization%22%29+OR+%28abs%3A%22simultaneous+localization%22%29+OR+%28ti%3A%22simultaneous+localisation%22%29+OR+%28abs%3A%22simultaneous+localisation%22%29+OR+%28ti%3AVIO%29+OR+%28abs%3AVIO%29+OR+%28ti%3A%22visual-inertial%22%29+OR+%28abs%3A%22visual-inertial%22%29+OR+%28ti%3Aodometry%29+OR+%28abs%3Aodometry%29+OR+%28ti%3ASfM%29+OR+%28abs%3ASfM%29+OR+%28ti%3A%22structure+from+motion%22%29+OR+%28abs%3A%22structure+from+motion%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "https://export.arxiv.org/api/query?search_query=%28%28ti%3ASLAM%29+OR+%28abs%3ASLAM%29+OR+%28ti%3A%22simultaneous+localization%22%29+OR+%28abs%3A%22simultaneous+localization%22%29+OR+%28ti%3A%22simultaneous+localisation%22%29+OR+%28abs%3A%22simultaneous+localisation%22%29+OR+%28ti%3AVIO%29+OR+%28abs%3AVIO%29+OR+%28ti%3A%22visual-inertial%22%29+OR+%28abs%3A%22visual-inertial%22%29+OR+%28ti%3Aodometry%29+OR+%28abs%3Aodometry%29+OR+%28ti%3ASfM%29+OR+%28abs%3ASfM%29+OR+%28ti%3A%22structure+from+motion%22%29+OR+%28abs%3A%22structure+from+motion%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=SLAM&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22simultaneous+localization%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22simultaneous+localisation%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=VIO&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual-inertial%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=odometry&terms-5-field=all&terms-6-operator=OR&terms-6-term=SfM&terms-6-field=all&terms-7-operator=OR&terms-7-term=%22structure+from+motion%22&terms-7-field=all",
+        "https://arxiv.org/abs/2610.35554",
+        "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=SLAM&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22simultaneous+localization%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22simultaneous+localisation%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=VIO&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual-inertial%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=odometry&terms-5-field=all&terms-6-operator=OR&terms-6-term=SfM&terms-6-field=all&terms-7-operator=OR&terms-7-term=%22structure+from+motion%22&terms-7-field=all",
+        "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=LiDAR&terms-0-field=all&terms-1-operator=OR&terms-1-term=radar&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22RGB-D%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=monocular&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-camera%22&terms-4-field=all",
+        "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=LiDAR&terms-0-field=all&terms-1-operator=OR&terms-1-term=radar&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22RGB-D%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=monocular&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-camera%22&terms-4-field=all",
+        "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22metric+scale%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22point+map%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22multi-view+stereo%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometric+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22camera+recovery%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22dense+geometry%22&terms-5-field=all"
+      ]
+    }
+  ],
+  "cross_discovery_summary": {
+    "new_untracked_in_window": 0,
+    "already_covered_in_window": 3,
+    "outside_window_background": 3,
+    "boundary": "Nearest-method reference/project chain checked, not every historical citation promoted to backfill."
+  },
+  "project_checks": [
+    {
+      "url": "https://cmburgul.github.io/projects/svin+/",
+      "path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\core-deep-cross-project-svin.html",
+      "reading": "Complete visible project text and outgoing paper/code links",
+      "finding": "Code links cmburgul/SVIn-Plus; dataset/arXiv coming-soon and More Works placeholders remain."
+    },
+    {
+      "url": "https://dartmouthrobotics.github.io/svin-plus/",
+      "path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\core-deep-cross-project-svin-placeholder.html",
+      "reading": "Complete page",
+      "finding": "Placeholder title only."
+    },
+    {
+      "url": "https://technology.robbyant.com/lingbot-map",
+      "reading": "Official project method page via web open",
+      "finding": "GCA anchor/window/trajectory memory agrees with LingGS backbone reference; no new in-window version established."
+    },
+    {
+      "url": "https://api.github.com/repos/cmburgul/SVIn-Plus/contents/README.md",
+      "path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\core-deep-SVIn-Plus-README.md",
+      "reading": "README complete only, via GitHub connector",
+      "finding": "ROS2Jazzy setup/launch exists, merge-conflict marker and Running ToDo; does not verify dataset availability or executability."
+    }
+  ],
+  "acquisition_manifest": [
+    {
+      "id": "2610.37602",
+      "version": 1,
+      "locked_url": "https://arxiv.org/html/2610.37602v1",
+      "attempts": [
+        {
+          "url": "https://arxiv.org/html/2610.37602v1",
+          "retrieved_at": "2026-11-02T15:51:45Z",
+          "bytes": 1039216,
+          "path": "core-deep-2610.37602v1.html",
+          "status": "success"
+        },
+        {
+          "url": "https://arxiv.org/pdf/2610.37602v1",
+          "retrieved_at": "2026-11-02T15:54:27Z",
+          "bytes": 29127434,
+          "path": "core-deep-2610.37602v1.pdf",
+          "status": "success"
+        }
+      ],
+      "read_sections": [
+        {
+          "id": null,
+          "text": "RESPLE2: Inertial-Informed Recursive Non-Uniform Spline Estimation for Multi-Sensor Odometry with Global Refinement"
+        },
+        {
+          "id": "S1",
+          "text": "I Introduction"
+        },
+        {
+          "id": "S1.SSx1",
+          "text": "Contributions"
+        },
+        {
+          "id": "S2",
+          "text": "II Related Work"
+        },
+        {
+          "id": "S2.SS1",
+          "text": "II-A Multi-Sensor Odometry"
+        },
+        {
+          "id": "S2.SS2",
+          "text": "II-B Continuous-Time Motion Estimation"
+        },
+        {
+          "id": "S3",
+          "text": "III Preliminaries"
+        },
+        {
+          "id": "S3.SS1",
+          "text": "III-A Notation Conventions"
+        },
+        {
+          "id": "S3.SS2",
+          "text": "III-B Non-Uniform B-Spline Motion Representation"
+        },
+        {
+          "id": "S3.SS3",
+          "text": "III-C Kinematic Interpolations"
+        },
+        {
+          "id": "S3.SS3.SSS1",
+          "text": "III-C 1 Positions"
+        },
+        {
+          "id": "S3.SS3.SSS2",
+          "text": "III-C 2 Orientations"
+        },
+        {
+          "id": "S3.SS4",
+          "text": "III-D Spline-State-Space Model for Recursive State Estimation"
+        },
+        {
+          "id": "S4",
+          "text": "IV System Overview"
+        },
+        {
+          "id": "S5",
+          "text": "V Generalized Spline State-Space Modeling with Multi-Sensor Measurements"
+        },
+        {
+          "id": "S5.SS1",
+          "text": "V-A Generalized Spline-State-Space Model"
+        },
+        {
+          "id": "S5.SS2",
+          "text": "V-B Process Model"
+        },
+        {
+          "id": "S5.SS2.SSS1",
+          "text": "V-B 1 Knot-Clamping Boundary Property"
+        },
+        {
+          "id": "S5.SS2.SSS2",
+          "text": "V-B 2 Exact Inertial-Informed RCP Propagation"
+        },
+        {
+          "id": "S5.SS3",
+          "text": "V-C Multi-Sensor Measurement Model"
+        },
+        {
+          "id": "S5.SS3.SSS1",
+          "text": "V-C 1 LiDAR Point-to-Plane Metric"
+        },
+        {
+          "id": "S5.SS3.SSS2",
+          "text": "V-C 2 IMU Metric"
+        },
+        {
+          "id": "S5.SS3.SSS3",
+          "text": "V-C 3 Visual Projection Metric"
+        },
+        {
+          "id": "S5.SS3.SSS4",
+          "text": "V-C 4 Legged Kinematics Metric"
+        },
+        {
+          "id": "S6",
+          "text": "VI Inertial-Informed Iterated Extended Kalman Filter on Non-Uniform B-Splines"
+        },
+        {
+          "id": "S6.SS1",
+          "text": "VI-A Inertial-Informed RCP Prediction"
+        },
+        {
+          "id": "S6.SS1.SSSx1",
+          "text": "Knot Extension"
+        },
+        {
+          "id": "S6.SS2",
+          "text": "VI-B RCP Reset for Unclamping"
+        },
+        {
+          "id": "S6.SS2.SSSx1",
+          "text": "Unclamping"
+        },
+        {
+          "id": "S6.SS2.SSSx2",
+          "text": "Position Reset"
+        },
+        {
+          "id": "S6.SS2.SSSx3",
+          "text": "Orientation Reset"
+        },
+        {
+          "id": "S6.SS2.SSSx4",
+          "text": "Covariance Reset"
+        },
+        {
+          "id": "S6.SS3",
+          "text": "VI-C Iterated Update"
+        },
+        {
+          "id": "S6.SS4",
+          "text": "VI-D Filter Setup"
+        },
+        {
+          "id": "S7",
+          "text": "VII Global Refinement"
+        },
+        {
+          "id": "S7.SS1",
+          "text": "VII-A Loop Closure Detection"
+        },
+        {
+          "id": "S7.SS2",
+          "text": "VII-B Global Spline Optimization"
+        },
+        {
+          "id": "S8",
+          "text": "VIII Evaluation"
+        },
+        {
+          "id": "S8.SS1",
+          "text": "VIII-A Implementation"
+        },
+        {
+          "id": "S8.SS2",
+          "text": "VIII-B Benchmarking Setup"
+        },
+        {
+          "id": "S8.SS3",
+          "text": "VIII-C Public Datasets"
+        },
+        {
+          "id": "S8.SS3.SSS1",
+          "text": "VIII-C 1 GrandTour"
+        },
+        {
+          "id": "S8.SS3.SSS2",
+          "text": "VIII-C 2 JEPLO"
+        },
+        {
+          "id": "S8.SS4",
+          "text": "VIII-D Experiments"
+        },
+        {
+          "id": "S8.SS4.SSS1",
+          "text": "VIII-D 1 PPS TV"
+        },
+        {
+          "id": "S8.SS4.SSS2",
+          "text": "VIII-D 2 HOPPER"
+        },
+        {
+          "id": "S8.SS4.SSS3",
+          "text": "VIII-D 3 HANDI"
+        },
+        {
+          "id": "S9",
+          "text": "IX Further Discussions"
+        },
+        {
+          "id": "S9.SS1",
+          "text": "IX-A Ablations"
+        },
+        {
+          "id": "S9.SS1.SSS1",
+          "text": "IX-A 1 Inertial-Informed Prediction"
+        },
+        {
+          "id": "S9.SS1.SSS2",
+          "text": "IX-A 2 Knot Placement"
+        },
+        {
+          "id": "S9.SS2",
+          "text": "IX-B Runtime and Computational Analysis"
+        },
+        {
+          "id": "S10",
+          "text": "X Conclusion"
+        },
+        {
+          "id": "Sx1",
+          "text": "ACKNOWLEDGMENT"
+        },
+        {
+          "id": "A0.SS1",
+          "text": "-A Derivation of the Knot-Clamping Boundary Property"
+        },
+        {
+          "id": "A0.SS2",
+          "text": "-B Derivation of the RCP Reset"
+        },
+        {
+          "id": "A0.SS2.SSS1",
+          "text": "-B 1 Position RCP Reset"
+        },
+        {
+          "id": "A0.SS2.SSS2",
+          "text": "-B 2 Orientation RCP Reset"
+        },
+        {
+          "id": "A0.SS2.SSS3",
+          "text": "-B 3 Covariance Reset"
+        }
+      ],
+      "figures_visually_confirmed": true,
+      "reading_level": "full_main_text_and_available_appendices",
+      "code_executed": false
+    },
+    {
+      "id": "2610.36853",
+      "version": 1,
+      "locked_url": "https://arxiv.org/html/2610.36853v1",
+      "attempts": [
+        {
+          "url": "https://arxiv.org/html/2610.36853v1",
+          "retrieved_at": "2026-11-02T15:51:42Z",
+          "bytes": 368418,
+          "path": "core-deep-2610.36853v1.html",
+          "status": "success"
+        },
+        {
+          "url": "https://arxiv.org/pdf/2610.36853v1",
+          "retrieved_at": "2026-11-02T15:52:14Z",
+          "bytes": 6325010,
+          "path": "core-deep-2610.36853v1.pdf",
+          "status": "success"
+        }
+      ],
+      "read_sections": [
+        {
+          "id": null,
+          "text": "LingGS: Decoupling Feed-Forward Geometry Prediction from Camera Tracking for High-Fidelity Gaussian SLAM"
+        },
+        {
+          "id": "S1",
+          "text": "1 Introduction"
+        },
+        {
+          "id": "S2",
+          "text": "2 Related Work"
+        },
+        {
+          "id": "S2.SS0.SSS0.Px1",
+          "text": "Visual tracking without depth prior."
+        },
+        {
+          "id": "S2.SS0.SSS0.Px2",
+          "text": "Learned geometry for tracking and mapping."
+        },
+        {
+          "id": "S3",
+          "text": "3 Method"
+        },
+        {
+          "id": "S3.SS1",
+          "text": "3.1 Geometry Solver"
+        },
+        {
+          "id": "S3.SS1.SSS0.Px1",
+          "text": "Camera pose estimation with a direct depth observation."
+        },
+        {
+          "id": "S3.SS2",
+          "text": "3.2 Gaussian Mapper"
+        },
+        {
+          "id": "S3.SS2.SSS0.Px1",
+          "text": "Laplacian-guided Gaussian insertion."
+        },
+        {
+          "id": "S3.SS2.SSS0.Px2",
+          "text": "Geometric initialization."
+        },
+        {
+          "id": "S3.SS2.SSS0.Px3",
+          "text": "Refinement with keyframe replay."
+        },
+        {
+          "id": "S4",
+          "text": "4 Experiment"
+        },
+        {
+          "id": "S4.SS1",
+          "text": "4.1 Setup and Evaluation"
+        },
+        {
+          "id": "S4.SS1.SSS0.Px1",
+          "text": "Datasets."
+        },
+        {
+          "id": "S4.SS1.SSS0.Px2",
+          "text": "Evaluation metrics."
+        },
+        {
+          "id": "S4.SS1.SSS0.Px3",
+          "text": "Baselines."
+        },
+        {
+          "id": "S4.SS2",
+          "text": "4.2 Novel View Synthesis and Tracking"
+        },
+        {
+          "id": "S4.SS3",
+          "text": "4.3 Ablation study"
+        },
+        {
+          "id": "S4.SS3.SSS0.Px1",
+          "text": "Ablation on camera tracking."
+        },
+        {
+          "id": "S4.SS3.SSS0.Px2",
+          "text": "Ablation on backbones."
+        },
+        {
+          "id": "S4.SS3.SSS0.Px3",
+          "text": "Ablation on mapping iterations."
+        },
+        {
+          "id": "S5",
+          "text": "5 Conclusion"
+        },
+        {
+          "id": "A1",
+          "text": "Appendix A Appendix"
+        },
+        {
+          "id": "A1.SS1",
+          "text": "A.1 Relation to ORB-SLAM3’s Virtual-Stereo Model"
+        },
+        {
+          "id": "A1.SS1.SSS0.Px1",
+          "text": "Calibrated stereo geometry and observations."
+        },
+        {
+          "id": "A1.SS1.SSS0.Px2",
+          "text": "Explicit weighting in pixel coordinates."
+        },
+        {
+          "id": "A1.SS1.SSS0.Px3",
+          "text": "RGB-D observations and the virtual right coordinate."
+        },
+        {
+          "id": "A1.SS1.SSS0.Px4",
+          "text": "Depth sensitivity induced by the residual."
+        },
+        {
+          "id": "A1.SS1.SSS0.Px5",
+          "text": "Comparison with direct-depth weighting."
+        },
+        {
+          "id": "A1.SSx1",
+          "text": "AI use statement"
+        },
+        {
+          "id": "A1.SSx2",
+          "text": "Ethics statement"
+        },
+        {
+          "id": "A1.SSx3",
+          "text": "Reproducibility statement"
+        },
+        {
+          "id": "Ax1",
+          "text": "Acknowledgements"
+        }
+      ],
+      "figures_visually_confirmed": true,
+      "reading_level": "full_main_text_and_available_appendices",
+      "code_executed": false
+    },
+    {
+      "id": "2610.36454",
+      "version": 1,
+      "locked_url": "https://arxiv.org/html/2610.36454v1",
+      "attempts": [
+        {
+          "url": "https://arxiv.org/html/2610.36454v1",
+          "retrieved_at": "2026-11-02T15:51:43Z",
+          "bytes": 208818,
+          "path": "core-deep-2610.36454v1.html",
+          "status": "success"
+        },
+        {
+          "url": "https://arxiv.org/pdf/2610.36454v1",
+          "retrieved_at": "2026-11-02T15:53:13Z",
+          "bytes": 8232682,
+          "path": "core-deep-2610.36454v1.pdf",
+          "status": "success"
+        }
+      ],
+      "read_sections": [
+        {
+          "id": null,
+          "text": "SVIn+: Multi-Modal Framework for Robust Underwater State Estimation using 3D Sonar, Visual-Inertial, Water-Pressure, and DVL"
+        },
+        {
+          "id": "S1",
+          "text": "I Introduction"
+        },
+        {
+          "id": "S2",
+          "text": "II Related Work"
+        },
+        {
+          "id": "S3",
+          "text": "III Preliminaries"
+        },
+        {
+          "id": "S4",
+          "text": "IV Multi Sensor Odometry"
+        },
+        {
+          "id": "S4.SS1",
+          "text": "IV-A Water-Pressure Sensor Fusion"
+        },
+        {
+          "id": "S4.SS2",
+          "text": "IV-B Doppler Velocity Log (DVL) Fusion"
+        },
+        {
+          "id": "S4.SS3",
+          "text": "IV-C 3D Sonar Fusion"
+        },
+        {
+          "id": "S5",
+          "text": "V Experimental Validation"
+        },
+        {
+          "id": "S5.SS1",
+          "text": "V-A Experimental Setup"
+        },
+        {
+          "id": "S5.SS2",
+          "text": "V-B Dataset Description"
+        },
+        {
+          "id": "S5.SS3",
+          "text": "V-C Evaluation of Return-to-Origin Trajectory"
+        },
+        {
+          "id": "S5.SS4",
+          "text": "V-D Evaluation on Long-Duration Field Sequences"
+        },
+        {
+          "id": "S5.SS5",
+          "text": "V-E Ablation study"
+        },
+        {
+          "id": "S6",
+          "text": "VI Lessons Learned and Future Work"
+        },
+        {
+          "id": "S7",
+          "text": "VII Conclusions"
+        }
+      ],
+      "figures_visually_confirmed": true,
+      "reading_level": "full_main_text_and_available_appendices",
+      "code_executed": false
+    }
+  ],
+  "figure_count_visually_verified": 3
+}

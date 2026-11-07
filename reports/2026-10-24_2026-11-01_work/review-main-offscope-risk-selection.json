@@ -1,0 +1,935 @@
+[
+  {
+    "id": "2610.31567",
+    "version": 1,
+    "title": "Geometry-Dependent Properties of Physically Crosslinked PPy-PVA Hydrogels Enable Tunable Iontophoretic Drug Delivery",
+    "v1_utc": "2026-10-22T17:10:35Z",
+    "updated_utc": "2026-10-22T17:10:35Z",
+    "abstract": "Objective: Iontophoretic drug delivery has primarily relied on current modulation to regulate drug transport. Here, we investigate hydrogel geometry, microstructure, and local electric fields as alternative mechanisms for controlling transdermal delivery. Methods: Bovine serum albumin (BSA) was encapsulated in polypyrrole-polyvinyl alcohol (PPy-PVA) hydrogels. Five geometries, including Hilbert curve-based designs, were fabricated to vary pore architecture and local electric field distributions. We optimized PPy content, drug loading, and current density. Electric fields were evaluated using finite element analysis, and microstructures were characterized by scanning electron microscopy. Drug transport was assessed using Franz diffusion cells with artificial membranes. Results: Hydrogel geometries exhibited distinct microstructures and electric field distributions. Iontophoresis substantially enhanced permeability compared with passive diffusion, while individual geometries produced different cumulative release, flux, and permeability profiles. The average iontophoretic permeability was (3.80 +/- 1.93) x 10^-5, exceeding previously reported values using artificial membranes. Conclusion: Geometry-driven fabrication of drug-loaded hydrogels enables tunable transport characteristics under both iontophoretic and passive conditions. Significance: Geometry-mediated control offers an alternative approach to regulating iontophoretic drug delivery without requiring individual current-density modulation.",
+    "abstract_read": false,
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.40429%2C2610.40401%2C2610.40271%2C2610.40199%2C2610.40050%2C2610.40026%2C2610.39816%2C2610.39708%2C2610.39560%2C2610.39528%2C2610.39446%2C2610.39416%2C2610.39287%2C2610.39267%2C2610.39005%2C2610.38731%2C2610.38569%2C2610.38443%2C2610.38318%2C2610.38248%2C2610.38141%2C2610.38080%2C2610.37929%2C2610.37891%2C2610.40473%2C2610.39691%2C2610.39283%2C2610.39232%2C2610.38047%2C2610.37818%2C2610.37602%2C2610.37543%2C2610.37518%2C2610.37403%2C2610.37350%2C2610.37217%2C2610.37196%2C2610.37111%2C2610.37091%2C2610.36968%2C2610.36840%2C2610.36816%2C2610.36791%2C2610.36726%2C2610.36662%2C2610.36598%2C2610.36507%2C2610.36454%2C2610.36312%2C2610.36285%2C2610.36068%2C2610.36011%2C2610.37219%2C2610.37127%2C2610.35877%2C2610.35626%2C2610.35363%2C2610.35342%2C2610.35231%2C2610.35172%2C2610.34873%2C2610.34674%2C2610.34650%2C2610.34593%2C2610.34583%2C2610.34393%2C2610.34286%2C2610.34085%2C2610.34060%2C2610.34054%2C2610.34041%2C2610.34040%2C2610.33807%2C2610.33794%2C2610.33565%2C2610.33546%2C2610.33471%2C2610.33271%2C2610.33174%2C2610.35850%2C2610.35636%2C2610.35092%2C2610.35044%2C2610.34663%2C2610.34271%2C2610.33158%2C2610.32961%2C2610.32742%2C2610.32645%2C2610.32633%2C2610.32596%2C2610.32554%2C2610.32143%2C2610.32102%2C2610.31920%2C2610.31762%2C2610.31835%2C2610.31716%2C2610.31617%2C2610.31567&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.31567v1"
+    ],
+    "metadata_source": "arXiv Atom id_list; official abs submission history still required for selected versions",
+    "input_files": [
+      "main-cross-metadata.json"
+    ],
+    "screen_index": 0,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于二维医学与生理分析；题名《Geometry-Dependent Properties of Physically Crosslinked PPy-PVA Hydrogels Enable Tunable Iontophoretic Drug Delivery》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "二维医学与生理分析",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.40473",
+    "version": 1,
+    "title": "Fundamental Limits of Sampling-Based Reachability: Geometry and Flow Distortion",
+    "v1_utc": "2026-10-29T17:08:36Z",
+    "updated_utc": "2026-10-29T17:08:36Z",
+    "abstract": "Sampling-based reachability estimates reachable sets from finitely many simulated trajectory endpoints. Existing guarantees often control missed probability mass or approximation error relative to the convex hull of the reachable set, leaving the geometric error relative to the reachable set incompletely characterized. We study this error as a problem of support estimation under flow distortion. Our assumptions combine a uniform lower bound on the local volume density of the initial set, a lower bound on the sampling density, and a one-sided Lipschitz constant $μ$ for the vector field. These conditions admit initial sets with corners and dynamics that may expand or contract. In the fine-accuracy regime, $\\tilde{\\mathcal O}\\bigl(2^ne^{nμT}(R/r)^n/(ρκ)\\bigr)$ independent endpoint samples suffice for Hausdorff accuracy $r$ using the endpoint cloud. Here, $n$ is the state dimension, $T$ is the horizon, $R$ is the volume-equivalent radius, and $ρ$ and $κ$ quantify sampling density and local volume density. For $n\\ge2$ and sufficiently small $κ$, a minimax lower bound over all estimators based only on independent endpoints matches these dependencies up to a dimension-dependent factor $2\\cdot4^n$ and logarithmic factors, within the stated parameter range and when the state domain accommodates the construction. The exponential burden in dimension, and in the horizon for expanding systems, is therefore intrinsic to this observation model. Planar experiments illustrate the predicted effects of corners and contraction; robot-arm experiments show how empirical accuracy deteriorates with dimension.",
+    "abstract_read": false,
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.40429%2C2610.40401%2C2610.40271%2C2610.40199%2C2610.40050%2C2610.40026%2C2610.39816%2C2610.39708%2C2610.39560%2C2610.39528%2C2610.39446%2C2610.39416%2C2610.39287%2C2610.39267%2C2610.39005%2C2610.38731%2C2610.38569%2C2610.38443%2C2610.38318%2C2610.38248%2C2610.38141%2C2610.38080%2C2610.37929%2C2610.37891%2C2610.40473%2C2610.39691%2C2610.39283%2C2610.39232%2C2610.38047%2C2610.37818%2C2610.37602%2C2610.37543%2C2610.37518%2C2610.37403%2C2610.37350%2C2610.37217%2C2610.37196%2C2610.37111%2C2610.37091%2C2610.36968%2C2610.36840%2C2610.36816%2C2610.36791%2C2610.36726%2C2610.36662%2C2610.36598%2C2610.36507%2C2610.36454%2C2610.36312%2C2610.36285%2C2610.36068%2C2610.36011%2C2610.37219%2C2610.37127%2C2610.35877%2C2610.35626%2C2610.35363%2C2610.35342%2C2610.35231%2C2610.35172%2C2610.34873%2C2610.34674%2C2610.34650%2C2610.34593%2C2610.34583%2C2610.34393%2C2610.34286%2C2610.34085%2C2610.34060%2C2610.34054%2C2610.34041%2C2610.34040%2C2610.33807%2C2610.33794%2C2610.33565%2C2610.33546%2C2610.33471%2C2610.33271%2C2610.33174%2C2610.35850%2C2610.35636%2C2610.35092%2C2610.35044%2C2610.34663%2C2610.34271%2C2610.33158%2C2610.32961%2C2610.32742%2C2610.32645%2C2610.32633%2C2610.32596%2C2610.32554%2C2610.32143%2C2610.32102%2C2610.31920%2C2610.31762%2C2610.31835%2C2610.31716%2C2610.31617%2C2610.31567&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.40473v1"
+    ],
+    "metadata_source": "arXiv Atom id_list; official abs submission history still required for selected versions",
+    "input_files": [
+      "main-cross-metadata.json"
+    ],
+    "screen_index": 19,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于一般视觉、时序统计与系统工程；题名《Fundamental Limits of Sampling-Based Reachability: Geometry and Flow Distortion》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "一般视觉、时序统计与系统工程",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.39560",
+    "version": 1,
+    "title": "SimTO-Robust: Automated Design of Soft Grippers Robust to Grasp Pose and Object Geometry",
+    "v1_utc": "2026-10-29T08:00:53Z",
+    "updated_utc": "2026-10-29T08:00:53Z",
+    "abstract": "Robotic grippers operating in unstructured environments must robustly grasp objects of different shapes and sizes despite perception and positioning errors. Soft grippers that can achieve this robustness through intelligent mechanical design rather than sophisticated control software offer a promising solution. However, no existing computational design framework explicitly optimises soft gripper morphology for robustness across object geometries and grasp poses. We introduce SimTO-Robust, a generalisation of simulation-driven topology optimisation (SimTO) that simulates grasps across multiple objects and poses and aggregates their contact forces to guide gripper morphology optimisation. We generate 6,646 designs and physically evaluate 24 of them alongside 10 specialised SimTO designs, two rigid baseline grippers, and a baseline generalist soft gripper produced using conventional topology optimisation. All 37 grippers are tested in a pick-and-place task involving five feature-rich objects and six grasp poses, with external disturbances of increasing magnitude applied during the task. On average, SimTO-Robust designs complete pick-and-place more reliably than specialised SimTO designs and the rigid baselines. The best SimTO-Robust designs also withstood more of the applied disturbances than any other tested gripper. These results show that incorporating diverse grasp conditions into simulation-driven topology optimisation is a simple and effective approach to improving real-world soft gripper robustness. More broadly, they show that robust robotic grasping can be achieved through intelligent mechanical design rather than sophisticated sensing and control.",
+    "abstract_read": true,
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.40429%2C2610.40401%2C2610.40271%2C2610.40199%2C2610.40050%2C2610.40026%2C2610.39816%2C2610.39708%2C2610.39560%2C2610.39528%2C2610.39446%2C2610.39416%2C2610.39287%2C2610.39267%2C2610.39005%2C2610.38731%2C2610.38569%2C2610.38443%2C2610.38318%2C2610.38248%2C2610.38141%2C2610.38080%2C2610.37929%2C2610.37891%2C2610.40473%2C2610.39691%2C2610.39283%2C2610.39232%2C2610.38047%2C2610.37818%2C2610.37602%2C2610.37543%2C2610.37518%2C2610.37403%2C2610.37350%2C2610.37217%2C2610.37196%2C2610.37111%2C2610.37091%2C2610.36968%2C2610.36840%2C2610.36816%2C2610.36791%2C2610.36726%2C2610.36662%2C2610.36598%2C2610.36507%2C2610.36454%2C2610.36312%2C2610.36285%2C2610.36068%2C2610.36011%2C2610.37219%2C2610.37127%2C2610.35877%2C2610.35626%2C2610.35363%2C2610.35342%2C2610.35231%2C2610.35172%2C2610.34873%2C2610.34674%2C2610.34650%2C2610.34593%2C2610.34583%2C2610.34393%2C2610.34286%2C2610.34085%2C2610.34060%2C2610.34054%2C2610.34041%2C2610.34040%2C2610.33807%2C2610.33794%2C2610.33565%2C2610.33546%2C2610.33471%2C2610.33271%2C2610.33174%2C2610.35850%2C2610.35636%2C2610.35092%2C2610.35044%2C2610.34663%2C2610.34271%2C2610.33158%2C2610.32961%2C2610.32742%2C2610.32645%2C2610.32633%2C2610.32596%2C2610.32554%2C2610.32143%2C2610.32102%2C2610.31920%2C2610.31762%2C2610.31835%2C2610.31716%2C2610.31617%2C2610.31567&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.39560v1"
+    ],
+    "metadata_source": "arXiv Atom id_list; official abs submission history still required for selected versions",
+    "input_files": [
+      "main-cross-metadata.json"
+    ],
+    "screen_index": 20,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "已读完整摘要：研究软夹爪机械拓扑优化和抓取鲁棒性，明确依靠机械设计而非感知控制；未提出SLAM、三维视觉重建、导航或机器人世界模型。",
+    "evidence_level": "abstract",
+    "exclusion_topic": "完整摘要确认范围外",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.36844",
+    "version": 1,
+    "title": "AxisQ: Depth-Adaptive Channel--Frequency Quantization for Camouflaged Object Detection",
+    "v1_utc": "2026-10-27T08:41:01Z",
+    "updated_utc": "2026-10-27T08:41:01Z",
+    "abstract": "Camouflaged object detection (COD) depends on weak texture and boundary cues that can be destroyed by aggressive post-training quantization (PTQ). Existing PTQ methods mainly optimize quantizers or reconstruct network blocks, while using a single precision-allocation domain throughout hierarchical backbones. Instead, we introduce AxisQ, a depth-adaptive bit-allocation framework motivated by the observation that the useful allocation axis changes with feature depth. Under a fixed per-layer average activation-bit budget, AxisQ allocates precision in the channel domain for shallow features and in the local-frequency domain for deep features, using COD-aware sensitivity to better preserve subtle foreground regions and ambiguous boundaries. We also formulate a boundary-aware Hessian approximation for reconstruction by incorporating boundary-weighted gradient and error statistics. Experiments across multiple COD models and diverse benchmarks demonstrate improved accuracy over the strongest baselines at low bit widths, with relative weighted F-measure gains of 12.7% for CFRN and 33.3% for CamoFormer-P on CAMO under W2A2 quantization. These results support adapting the allocation domain to feature depth as a transferable quantization strategy for hierarchical COD models.",
+    "abstract_read": false,
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.31476%2C2610.31474%2C2610.31432%2C2610.31384%2C2610.31221%2C2610.31028%2C2610.30994%2C2610.30991%2C2610.30988%2C2610.30839%2C2610.30786%2C2610.30694%2C2610.30605%2C2610.30589%2C2610.30320%2C2610.31194%2C2610.31149%2C2610.40614%2C2610.40607%2C2610.40495%2C2610.40453%2C2610.40191%2C2610.40166%2C2610.40061%2C2610.39868%2C2610.39848%2C2610.39812%2C2610.39721%2C2610.39715%2C2610.39649%2C2610.39585%2C2610.39517%2C2610.39516%2C2610.39399%2C2610.39356%2C2610.39306%2C2610.39201%2C2610.39161%2C2610.39147%2C2610.38951%2C2610.38830%2C2610.38694%2C2610.38587%2C2610.38518%2C2610.38507%2C2610.38499%2C2610.38482%2C2610.38360%2C2610.38358%2C2610.38289%2C2610.38278%2C2610.38007%2C2610.37965%2C2606.15768%2C2610.37668%2C2610.37545%2C2610.37406%2C2610.37326%2C2610.37314%2C2610.37257%2C2610.37202%2C2610.37149%2C2610.37098%2C2610.37046%2C2610.37036%2C2610.37000%2C2610.36876%2C2610.36853%2C2610.36844%2C2610.36760%2C2610.36658%2C2610.36610%2C2610.36462%2C2610.36168%2C2610.36150%2C2610.36022%2C2610.37213%2C2610.36672%2C2610.35806%2C2610.35756%2C2610.35637%2C2610.35621%2C2610.35554%2C2610.35522%2C2610.35516%2C2610.35501%2C2610.35374%2C2610.35361%2C2610.35347%2C2610.35312%2C2610.35152%2C2610.35066%2C2610.35038%2C2610.35018%2C2610.35002%2C2610.34952%2C2610.34901%2C2610.34897%2C2610.34854%2C2610.34850&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.36844v1"
+    ],
+    "metadata_source": "arXiv Atom id_list; official abs submission history still required for selected versions",
+    "input_files": [
+      "main-cross-metadata.json"
+    ],
+    "screen_index": 21,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于语音、音频与通信信号；题名《AxisQ: Depth-Adaptive Channel--Frequency Quantization for Camouflaged Object Detection》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "语音、音频与通信信号",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.38482",
+    "version": 1,
+    "title": "Geometry-Aware Trajectory State Modeling for Few-Shot Action Recognition",
+    "v1_utc": "2026-10-28T08:56:33Z",
+    "updated_utc": "2026-10-28T08:56:33Z",
+    "abstract": "Few-shot action recognition (FSAR) requires representations that expose discriminative motion dynamics from only a few labeled videos. Recent trajectory-based methods leverage long-term point tracks for explicit temporal correspondence, but often treat trajectories as carriers of sampled visual features or summarize their motion with compact 2D displacement-based descriptors. We instead view an action as the ordered evolution of 2.5D trajectory states and their local geometric interactions. Based on this view, we introduce GeoTRAM, a geometry-aware trajectory state modeling framework for FSAR. GeoTRAM lifts sparse tracks into 2.5D trajectories, where StateMotion models ordered intra-trajectory state evolution and RelMotion captures state-conditioned local interactions through time-varying relative geometry and motion. Quality-filtered spectral sampling provides more reliable trajectory initialization; complementary semantic, motion, and depth cues are separately refined and preserved for joint spatio-temporal modeling; action-guided reweighting and top-$ρ$ trajectory selection support complementary frame- and trajectory-level matching. Experiments on five FSAR benchmarks demonstrate strong gains on the motion-centric Something-Something benchmarks while maintaining competitive performance on more appearance-driven benchmarks and a favorable accuracy--efficiency trade-off.",
+    "abstract_read": false,
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.31476%2C2610.31474%2C2610.31432%2C2610.31384%2C2610.31221%2C2610.31028%2C2610.30994%2C2610.30991%2C2610.30988%2C2610.30839%2C2610.30786%2C2610.30694%2C2610.30605%2C2610.30589%2C2610.30320%2C2610.31194%2C2610.31149%2C2610.40614%2C2610.40607%2C2610.40495%2C2610.40453%2C2610.40191%2C2610.40166%2C2610.40061%2C2610.39868%2C2610.39848%2C2610.39812%2C2610.39721%2C2610.39715%2C2610.39649%2C2610.39585%2C2610.39517%2C2610.39516%2C2610.39399%2C2610.39356%2C2610.39306%2C2610.39201%2C2610.39161%2C2610.39147%2C2610.38951%2C2610.38830%2C2610.38694%2C2610.38587%2C2610.38518%2C2610.38507%2C2610.38499%2C2610.38482%2C2610.38360%2C2610.38358%2C2610.38289%2C2610.38278%2C2610.38007%2C2610.37965%2C2606.15768%2C2610.37668%2C2610.37545%2C2610.37406%2C2610.37326%2C2610.37314%2C2610.37257%2C2610.37202%2C2610.37149%2C2610.37098%2C2610.37046%2C2610.37036%2C2610.37000%2C2610.36876%2C2610.36853%2C2610.36844%2C2610.36760%2C2610.36658%2C2610.36610%2C2610.36462%2C2610.36168%2C2610.36150%2C2610.36022%2C2610.37213%2C2610.36672%2C2610.35806%2C2610.35756%2C2610.35637%2C2610.35621%2C2610.35554%2C2610.35522%2C2610.35516%2C2610.35501%2C2610.35374%2C2610.35361%2C2610.35347%2C2610.35312%2C2610.35152%2C2610.35066%2C2610.35038%2C2610.35018%2C2610.35002%2C2610.34952%2C2610.34901%2C2610.34897%2C2610.34854%2C2610.34850&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.38482v1"
+    ],
+    "metadata_source": "arXiv Atom id_list; official abs submission history still required for selected versions",
+    "input_files": [
+      "main-cross-metadata.json"
+    ],
+    "screen_index": 25,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于一般视觉、时序统计与系统工程；题名《Geometry-Aware Trajectory State Modeling for Few-Shot Action Recognition》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "一般视觉、时序统计与系统工程",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.34897",
+    "version": 1,
+    "title": "SGDB: Semantic-Geometric Decoupling and Evidence Binding for Logical Anomaly Detection",
+    "v1_utc": "2026-10-26T06:17:14Z",
+    "updated_utc": "2026-10-26T06:17:14Z",
+    "abstract": "Logical anomaly detection requires recognizing scene components and measuring whether their configuration satisfies task constraints. Correct identities can coexist with inaccurate geometry; clean mask fragments can yield misleading lengths. We propose Semantic-Geometric Decoupling and Evidence Binding (SGDB). A semantic decoder learns object identities from component-annotated normal sources and factual edits; a separate reader supplies final measurements. Partial one-to-one association binds geometric witnesses to identities while retaining unmatched objects in the count. A support-certified reader selects mask-derived axes using line quality and complete component ownership. Explicit task requirements and normal-data references define executable checks, with decision thresholds fixed by independent normal calibration. Execution-grounded explanation traces rule contributions to source objects and measurements, extracting compact sufficient alarm certificates. A frozen language model expresses selected outcomes as cited claims, with numeric evidence retained by the executor. Reports preserve observed deviations and unavailable evidence. SGDB achieves 98.19% AUROC and 94.52% fixed-threshold F1 on five MVTec LOCO logical categories, and 93.56% AUROC and 92.76% F1 across all 50 VID-AD tasks. Frozen-output controls evaluate geometric readout and explanatory sufficiency and compactness.",
+    "abstract_read": false,
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.31476%2C2610.31474%2C2610.31432%2C2610.31384%2C2610.31221%2C2610.31028%2C2610.30994%2C2610.30991%2C2610.30988%2C2610.30839%2C2610.30786%2C2610.30694%2C2610.30605%2C2610.30589%2C2610.30320%2C2610.31194%2C2610.31149%2C2610.40614%2C2610.40607%2C2610.40495%2C2610.40453%2C2610.40191%2C2610.40166%2C2610.40061%2C2610.39868%2C2610.39848%2C2610.39812%2C2610.39721%2C2610.39715%2C2610.39649%2C2610.39585%2C2610.39517%2C2610.39516%2C2610.39399%2C2610.39356%2C2610.39306%2C2610.39201%2C2610.39161%2C2610.39147%2C2610.38951%2C2610.38830%2C2610.38694%2C2610.38587%2C2610.38518%2C2610.38507%2C2610.38499%2C2610.38482%2C2610.38360%2C2610.38358%2C2610.38289%2C2610.38278%2C2610.38007%2C2610.37965%2C2606.15768%2C2610.37668%2C2610.37545%2C2610.37406%2C2610.37326%2C2610.37314%2C2610.37257%2C2610.37202%2C2610.37149%2C2610.37098%2C2610.37046%2C2610.37036%2C2610.37000%2C2610.36876%2C2610.36853%2C2610.36844%2C2610.36760%2C2610.36658%2C2610.36610%2C2610.36462%2C2610.36168%2C2610.36150%2C2610.36022%2C2610.37213%2C2610.36672%2C2610.35806%2C2610.35756%2C2610.35637%2C2610.35621%2C2610.35554%2C2610.35522%2C2610.35516%2C2610.35501%2C2610.35374%2C2610.35361%2C2610.35347%2C2610.35312%2C2610.35152%2C2610.35066%2C2610.35038%2C2610.35018%2C2610.35002%2C2610.34952%2C2610.34901%2C2610.34897%2C2610.34854%2C2610.34850&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.34897v1"
+    ],
+    "metadata_source": "arXiv Atom id_list; official abs submission history still required for selected versions",
+    "input_files": [
+      "main-cross-metadata.json"
+    ],
+    "screen_index": 26,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于一般视觉、时序统计与系统工程；题名《SGDB: Semantic-Geometric Decoupling and Evidence Binding for Logical Anomaly Detection》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "一般视觉、时序统计与系统工程",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.35374",
+    "version": 1,
+    "title": "GIFT: Representation Geometry Matters for Single-Domain Generalized Object Detection",
+    "v1_utc": "2026-10-26T12:58:16Z",
+    "updated_utc": "2026-10-26T12:58:16Z",
+    "abstract": "Single-Domain Generalized Object Detection (S-DGOD) aims to generalize from a single source domain to unseen domains under distribution shifts. Existing efforts mainly focus on simulating unseen domains or suppressing domain-specific factors. However, they largely overlook the intrinsic generalization capability embedded in Vision Foundation Models (VFMs). In this work, we show that unconstrained fine-tuning disrupts the geometric structure of pre-trained representations, which encodes domain-invariant semantics. Motivated by this, we propose Geometric-Invariance Fine-Tuning (GIFT), a geometric-aware fine-tuning method for VFMs. Specifically, we introduce a series of learnable Householder reflections to the pre-trained weights to encourage geometry-consistent adaptation under domain shift. In addition, we propose a lightweight channel-wise scaling to facilitate effective task-specific adaptation. Extensive experiments demonstrate that GIFT consistently outperforms state-of-the-art (SOTA) approaches on two S-DGOD benchmarks. Notably, by introducing fewer than 1% additional trainable parameters into the frozen backbone, the proposed method achieves improvements of +7.9% and +2.9% in mPC over the previous SOTA on the Cityscapes-C and Diverse Weather Dataset, respectively. This finding highlights that preserving representation geometry is crucial for robust cross-domain generalization, establishing GIFT as a principled and efficient solution to domain shift.",
+    "abstract_read": false,
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.31476%2C2610.31474%2C2610.31432%2C2610.31384%2C2610.31221%2C2610.31028%2C2610.30994%2C2610.30991%2C2610.30988%2C2610.30839%2C2610.30786%2C2610.30694%2C2610.30605%2C2610.30589%2C2610.30320%2C2610.31194%2C2610.31149%2C2610.40614%2C2610.40607%2C2610.40495%2C2610.40453%2C2610.40191%2C2610.40166%2C2610.40061%2C2610.39868%2C2610.39848%2C2610.39812%2C2610.39721%2C2610.39715%2C2610.39649%2C2610.39585%2C2610.39517%2C2610.39516%2C2610.39399%2C2610.39356%2C2610.39306%2C2610.39201%2C2610.39161%2C2610.39147%2C2610.38951%2C2610.38830%2C2610.38694%2C2610.38587%2C2610.38518%2C2610.38507%2C2610.38499%2C2610.38482%2C2610.38360%2C2610.38358%2C2610.38289%2C2610.38278%2C2610.38007%2C2610.37965%2C2606.15768%2C2610.37668%2C2610.37545%2C2610.37406%2C2610.37326%2C2610.37314%2C2610.37257%2C2610.37202%2C2610.37149%2C2610.37098%2C2610.37046%2C2610.37036%2C2610.37000%2C2610.36876%2C2610.36853%2C2610.36844%2C2610.36760%2C2610.36658%2C2610.36610%2C2610.36462%2C2610.36168%2C2610.36150%2C2610.36022%2C2610.37213%2C2610.36672%2C2610.35806%2C2610.35756%2C2610.35637%2C2610.35621%2C2610.35554%2C2610.35522%2C2610.35516%2C2610.35501%2C2610.35374%2C2610.35361%2C2610.35347%2C2610.35312%2C2610.35152%2C2610.35066%2C2610.35038%2C2610.35018%2C2610.35002%2C2610.34952%2C2610.34901%2C2610.34897%2C2610.34854%2C2610.34850&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.35374v1"
+    ],
+    "metadata_source": "arXiv Atom id_list; official abs submission history still required for selected versions",
+    "input_files": [
+      "main-cross-metadata.json"
+    ],
+    "screen_index": 34,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于一般视觉、时序统计与系统工程；题名《GIFT: Representation Geometry Matters for Single-Domain Generalized Object Detection》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "一般视觉、时序统计与系统工程",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.39868",
+    "version": 1,
+    "title": "Parametric Gaussian Noise Mixer (PGNM): Unified Synthesis of Camera Noise and Film Grain",
+    "v1_utc": "2026-10-29T11:43:18Z",
+    "updated_utc": "2026-10-29T11:43:18Z",
+    "abstract": "Noise synthesis is commonly approached through physical models of image formation or neural networks trained to generate noisy images. We explore a middle ground: an explicit statistical model fitted directly from paired clean and noisy images. A normalized convolution correlates a Gaussian field across pixels and color channels, and a lookup maps each Gaussian value to a residual given the clean intensity. Because the field stays standard Gaussian, the two components are fitted separately, without reproducing the physical process or training a neural generator. With one formulation for camera noise from SIDD and simulated film grain from Newson, the model has the lowest average distribution and correlation errors on SIDD among the evaluated methods and remains competitive on film grain. A denoiser trained on its noise comes closest to one trained on real noise, and a 1080p frame renders in 10 ms on GPU.",
+    "abstract_read": false,
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.31476%2C2610.31474%2C2610.31432%2C2610.31384%2C2610.31221%2C2610.31028%2C2610.30994%2C2610.30991%2C2610.30988%2C2610.30839%2C2610.30786%2C2610.30694%2C2610.30605%2C2610.30589%2C2610.30320%2C2610.31194%2C2610.31149%2C2610.40614%2C2610.40607%2C2610.40495%2C2610.40453%2C2610.40191%2C2610.40166%2C2610.40061%2C2610.39868%2C2610.39848%2C2610.39812%2C2610.39721%2C2610.39715%2C2610.39649%2C2610.39585%2C2610.39517%2C2610.39516%2C2610.39399%2C2610.39356%2C2610.39306%2C2610.39201%2C2610.39161%2C2610.39147%2C2610.38951%2C2610.38830%2C2610.38694%2C2610.38587%2C2610.38518%2C2610.38507%2C2610.38499%2C2610.38482%2C2610.38360%2C2610.38358%2C2610.38289%2C2610.38278%2C2610.38007%2C2610.37965%2C2606.15768%2C2610.37668%2C2610.37545%2C2610.37406%2C2610.37326%2C2610.37314%2C2610.37257%2C2610.37202%2C2610.37149%2C2610.37098%2C2610.37046%2C2610.37036%2C2610.37000%2C2610.36876%2C2610.36853%2C2610.36844%2C2610.36760%2C2610.36658%2C2610.36610%2C2610.36462%2C2610.36168%2C2610.36150%2C2610.36022%2C2610.37213%2C2610.36672%2C2610.35806%2C2610.35756%2C2610.35637%2C2610.35621%2C2610.35554%2C2610.35522%2C2610.35516%2C2610.35501%2C2610.35374%2C2610.35361%2C2610.35347%2C2610.35312%2C2610.35152%2C2610.35066%2C2610.35038%2C2610.35018%2C2610.35002%2C2610.34952%2C2610.34901%2C2610.34897%2C2610.34854%2C2610.34850&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.39868v1"
+    ],
+    "metadata_source": "arXiv Atom id_list; official abs submission history still required for selected versions",
+    "input_files": [
+      "main-cross-metadata.json"
+    ],
+    "screen_index": 40,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于一般视觉、时序统计与系统工程；题名《Parametric Gaussian Noise Mixer (PGNM): Unified Synthesis of Camera Noise and Film Grain》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "一般视觉、时序统计与系统工程",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.30824",
+    "version": 1,
+    "title": "Loop to Look Better: Learning Adaptive Depth for Question-Guided Perception in Vision-Language Models",
+    "v1_utc": "2026-10-22T06:53:13Z",
+    "updated_utc": "2026-10-22T06:53:13Z",
+    "abstract": "Visual perception should be iterative and task-directed, with representations refined in response to the question and the need for further processing. While Vision-Language Models (VLMs) increasingly support extended reasoning, their visual tokens are still typically acquired in a single, task-agnostic encoder pass. This creates an evidence-acquisition bottleneck: models may reason longer without refining the visual evidence needed to answer the question. We propose LoopLook, a lightweight encoder-side recurrent perception framework that equips pretrained VLMs with adaptive visual depth. LoopLook recurrently revisits a middle-to-late window of the vision encoder, injecting question representations at each loop to guide visual refinement. A learned stopping mechanism adaptively determines the recurrent depth, while a token-wise Mixture-of-Looks (MoL) combines representations from different loops, allowing each visual token to selectively integrate information acquired across recurrent steps. Across four backbones and eight benchmarks, LoopLook consistently improves performance over the baseline, yielding gains of up to 8.6% on MMStar and 8.1% on HallusionBench. Our analysis shows that LoopLook progressively refines visual attention and adaptively allocates depth according to task difficulty. It also better preserves task-relevant visual information under reduced input resolution, while increasing time to first token (TTFT) by only 5.1-6.5%. By bringing recurrence from reasoning back into perception, LoopLook transforms visual perception from a one-shot glimpse into an adaptive process of recurrent refinement.",
+    "abstract_read": false,
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.34845%2C2610.34819%2C2610.34632%2C2610.34618%2C2610.34600%2C2610.34597%2C2610.34564%2C2610.34346%2C2610.34344%2C2610.34263%2C2610.34235%2C2610.34233%2C2610.34218%2C2610.34190%2C2610.34037%2C2610.34033%2C2610.34028%2C2610.33988%2C2610.33941%2C2610.33894%2C2610.33868%2C2610.33755%2C2610.33704%2C2610.33695%2C2610.33661%2C2610.33656%2C2610.33589%2C2610.33575%2C2610.33566%2C2610.33504%2C2610.33484%2C2610.33356%2C2610.33169%2C2610.33118%2C2610.33054%2C2610.35529%2C2610.35224%2C2610.34904%2C2610.33127%2C2610.32977%2C2610.32800%2C2610.32792%2C2610.32697%2C2610.32663%2C2610.32381%2C2610.32321%2C2610.32250%2C2610.32182%2C2610.32174%2C2610.32073%2C2610.31950%2C2610.31908%2C2610.31747%2C2610.32816%2C2610.32177%2C2610.32039%2C2610.31892%2C2610.31645%2C2610.31635%2C2610.31623%2C2610.31321%2C2610.31320%2C2610.31293%2C2610.31253%2C2610.31186%2C2610.31140%2C2610.31123%2C2610.31108%2C2610.30974%2C2610.30944%2C2610.30824%2C2610.30814%2C2610.30781%2C2610.30774%2C2610.30724%2C2610.30643%2C2610.30619%2C2610.30609%2C2610.30468%2C2610.30340%2C2610.30326%2C2610.30293%2C2610.30910%2C2610.38953%2C2610.37740%2C2610.35902%2C2610.33256%2C2610.38350%2C2610.37926%2C2610.36555%2C2610.34184%2C2610.33202%2C2610.35813%2C2610.35569%2C2610.32010%2C2610.30683%2C2610.10181%2C2610.12568%2C2610.12624%2C2610.20226&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.30824v1"
+    ],
+    "metadata_source": "arXiv Atom id_list; official abs submission history still required for selected versions",
+    "input_files": [
+      "main-cross-metadata.json"
+    ],
+    "screen_index": 44,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于语言模型、软件与非具身代理；题名《Loop to Look Better: Learning Adaptive Depth for Question-Guided Perception in Vision-Language Models》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "语言模型、软件与非具身代理",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.33202",
+    "version": 1,
+    "title": "Terra-Fi: Decoupling Sensing and Wireless Depths for Sustainable Deep Underground Monitoring",
+    "v1_utc": "2026-10-23T18:49:01Z",
+    "updated_utc": "2026-10-23T18:49:01Z",
+    "abstract": "Wireless underground sensor networks (WUSNs) enable in-situ monitoring of subsurface processes and buried assets to deliver substantial social and economic benefits across diverse verticals. However, meter-scale underground monitoring remains challenging since conventional WUSNs place the entire underground device at the target sensing depth, where severe soil-induced attenuation significantly degrades communication reliability and makes wireless energy transfer (WET) inefficient and even impractical. To address this limitation, we propose Terra-Fi, a novel shallow-hub and deep-sensing architecture that decouples the sensing depth from the wireless communication and energy-replenishment depth. In Terra-Fi, a shallow wireless hub is deployed at a depth favorable for communication, WET, and maintenance, while application-specific sensing probes are extended to meter-scale target layers through power-and-signal feeders. On this basis, we first examine the depth limitations of underground communication and WET and compare representative monitoring architectures. Then, we present its system architecture, operation flow, and potential benefits. Through a precision agriculture case study, our numerical results reveal that Terra-Fi establishes more robust wireless connectivity and a longer operational lifetime than conventional fully buried WUSN architectures, particularly at greater sensing depths and higher volumetric water content. Moreover, its performance gain can be enhanced through time allocation and transmission-configuration optimization. Finally, we pinpoint practical challenges and future research directions for deploying Terra-Fi into WUSN systems.",
+    "abstract_read": false,
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.34845%2C2610.34819%2C2610.34632%2C2610.34618%2C2610.34600%2C2610.34597%2C2610.34564%2C2610.34346%2C2610.34344%2C2610.34263%2C2610.34235%2C2610.34233%2C2610.34218%2C2610.34190%2C2610.34037%2C2610.34033%2C2610.34028%2C2610.33988%2C2610.33941%2C2610.33894%2C2610.33868%2C2610.33755%2C2610.33704%2C2610.33695%2C2610.33661%2C2610.33656%2C2610.33589%2C2610.33575%2C2610.33566%2C2610.33504%2C2610.33484%2C2610.33356%2C2610.33169%2C2610.33118%2C2610.33054%2C2610.35529%2C2610.35224%2C2610.34904%2C2610.33127%2C2610.32977%2C2610.32800%2C2610.32792%2C2610.32697%2C2610.32663%2C2610.32381%2C2610.32321%2C2610.32250%2C2610.32182%2C2610.32174%2C2610.32073%2C2610.31950%2C2610.31908%2C2610.31747%2C2610.32816%2C2610.32177%2C2610.32039%2C2610.31892%2C2610.31645%2C2610.31635%2C2610.31623%2C2610.31321%2C2610.31320%2C2610.31293%2C2610.31253%2C2610.31186%2C2610.31140%2C2610.31123%2C2610.31108%2C2610.30974%2C2610.30944%2C2610.30824%2C2610.30814%2C2610.30781%2C2610.30774%2C2610.30724%2C2610.30643%2C2610.30619%2C2610.30609%2C2610.30468%2C2610.30340%2C2610.30326%2C2610.30293%2C2610.30910%2C2610.38953%2C2610.37740%2C2610.35902%2C2610.33256%2C2610.38350%2C2610.37926%2C2610.36555%2C2610.34184%2C2610.33202%2C2610.35813%2C2610.35569%2C2610.32010%2C2610.30683%2C2610.10181%2C2610.12568%2C2610.12624%2C2610.20226&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.33202v1"
+    ],
+    "metadata_source": "arXiv Atom id_list; official abs submission history still required for selected versions",
+    "input_files": [
+      "main-cross-metadata.json"
+    ],
+    "screen_index": 49,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于语音、音频与通信信号；题名《Terra-Fi: Decoupling Sensing and Wireless Depths for Sustainable Deep Underground Monitoring》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "语音、音频与通信信号",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.32792",
+    "version": 1,
+    "title": "SREdit: Scene Response Guided Appearance Editing for Projection Mapping",
+    "v1_utc": "2026-10-23T15:37:12Z",
+    "updated_utc": "2026-10-23T15:37:12Z",
+    "abstract": "Projection-based appearance editing changes selected visual attributes of a physical object through projection mapping (PM). To display a desired appearance, PM typically uses projector compensation, which computes a projector input that counteracts the geometric and photometric distortions of the scene. Compensation can only approximate this appearance within the available projection range, and it cannot revise the appearance itself. Pretrained LLM-based image editors provide a direct way to produce the desired appearance from a text prompt or reference image; projector compensation can then attempt to reproduce the edited result through projection. However, these editors do not have an accurate measure of the scene geometry or scene response. Therefore, their outputs may contain geometric misalignment, inconsistent shading, or changes outside the available projection range, which downstream projector compensation cannot correct. To address this problem, we introduce SREdit, an efficient response-guided framework for projection-based appearance editing. SREdit estimates a scene response map from the reconstructed scene that reflects how strongly projected illumination can affect different surface regions. SREdit uses the source appearance to constrain the early sampling process and preserve registration with the fixed physical object, while the scene response map adapts the amount of editing across surface regions. Experiments across two pretrained image editors show that SREdit improves projected appearance quality and reproduction fidelity. It adds less than one second per image with negligible VRAM overhead. Participants also consistently preferred the results produced with SREdit in our user study.",
+    "abstract_read": false,
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.34845%2C2610.34819%2C2610.34632%2C2610.34618%2C2610.34600%2C2610.34597%2C2610.34564%2C2610.34346%2C2610.34344%2C2610.34263%2C2610.34235%2C2610.34233%2C2610.34218%2C2610.34190%2C2610.34037%2C2610.34033%2C2610.34028%2C2610.33988%2C2610.33941%2C2610.33894%2C2610.33868%2C2610.33755%2C2610.33704%2C2610.33695%2C2610.33661%2C2610.33656%2C2610.33589%2C2610.33575%2C2610.33566%2C2610.33504%2C2610.33484%2C2610.33356%2C2610.33169%2C2610.33118%2C2610.33054%2C2610.35529%2C2610.35224%2C2610.34904%2C2610.33127%2C2610.32977%2C2610.32800%2C2610.32792%2C2610.32697%2C2610.32663%2C2610.32381%2C2610.32321%2C2610.32250%2C2610.32182%2C2610.32174%2C2610.32073%2C2610.31950%2C2610.31908%2C2610.31747%2C2610.32816%2C2610.32177%2C2610.32039%2C2610.31892%2C2610.31645%2C2610.31635%2C2610.31623%2C2610.31321%2C2610.31320%2C2610.31293%2C2610.31253%2C2610.31186%2C2610.31140%2C2610.31123%2C2610.31108%2C2610.30974%2C2610.30944%2C2610.30824%2C2610.30814%2C2610.30781%2C2610.30774%2C2610.30724%2C2610.30643%2C2610.30619%2C2610.30609%2C2610.30468%2C2610.30340%2C2610.30326%2C2610.30293%2C2610.30910%2C2610.38953%2C2610.37740%2C2610.35902%2C2610.33256%2C2610.38350%2C2610.37926%2C2610.36555%2C2610.34184%2C2610.33202%2C2610.35813%2C2610.35569%2C2610.32010%2C2610.30683%2C2610.10181%2C2610.12568%2C2610.12624%2C2610.20226&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.32792v1",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22loop+closure%22%29+OR+%28abs%3A%22loop+closure%22%29+OR+%28ti%3Arelocalization%29+OR+%28abs%3Arelocalization%29+OR+%28ti%3Arelocalisation%29+OR+%28abs%3Arelocalisation%29+OR+%28ti%3Aregistration%29+OR+%28abs%3Aregistration%29+OR+%28ti%3A%22bundle+adjustment%22%29+OR+%28abs%3A%22bundle+adjustment%22%29+OR+%28ti%3A%22pose+graph%22%29+OR+%28abs%3A%22pose+graph%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22loop+closure%22%29+OR+%28abs%3A%22loop+closure%22%29+OR+%28ti%3Arelocalization%29+OR+%28abs%3Arelocalization%29+OR+%28ti%3Arelocalisation%29+OR+%28abs%3Arelocalisation%29+OR+%28ti%3Aregistration%29+OR+%28abs%3Aregistration%29+OR+%28ti%3A%22bundle+adjustment%22%29+OR+%28abs%3A%22bundle+adjustment%22%29+OR+%28ti%3A%22pose+graph%22%29+OR+%28abs%3A%22pose+graph%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22loop+closure%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=relocalization&terms-1-field=all&terms-2-operator=OR&terms-2-term=relocalisation&terms-2-field=all&terms-3-operator=OR&terms-3-term=registration&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22bundle+adjustment%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22pose+graph%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.32792",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22loop+closure%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=relocalization&terms-1-field=all&terms-2-operator=OR&terms-2-term=relocalisation&terms-2-field=all&terms-3-operator=OR&terms-3-term=registration&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22bundle+adjustment%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22pose+graph%22&terms-5-field=all"
+    ],
+    "metadata_source": "arXiv Atom id_list; official abs submission history still required for selected versions",
+    "input_files": [
+      "main-cross-metadata.json",
+      "main-search-candidates.json",
+      "main-search-candidates.json",
+      "main-advanced-candidates.json",
+      "main-advanced-candidates.json"
+    ],
+    "query_hits": [
+      "main-api-A-backend-submittedDate",
+      "main-api-A-backend-lastUpdatedDate",
+      "main-advanced-A-backend-submitted_date_first",
+      "main-advanced-A-backend-submitted_date"
+    ],
+    "screen_index": 51,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于语言模型、软件与非具身代理；题名《SREdit: Scene Response Guided Appearance Editing for Projection Mapping》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "语言模型、软件与非具身代理",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.31140",
+    "version": 1,
+    "title": "GM-GReFEL: Geometry-Guided Spatiotemporal State-Space Learning for Robust Dynamic Facial Expression Recognition",
+    "v1_utc": "2026-10-22T11:59:56Z",
+    "updated_utc": "2026-10-22T11:59:56Z",
+    "abstract": "Recognizing facial expressions in unconstrained video suffers from two coupled problems: self-attention grows quadratically in cost with clip length, and crowdsourced labels are noisy. We present GM-GReFEL, a spatiotemporal state-space network with a geometry-aware decision stage. Its Modulated GroupMamba backbone replaces a spatiotemporal Vision Transformer. Six channel groups are scanned separately, four over the frame plane and two over time, so the cost grows linearly with sequence length ($\\mathcal{O}(N)$); after each layer, a Channel Affinity Modulation gate mixes the groups again. On top of the backbone, a GReFEL reliability module turns the normalized entropy of each prediction into a mixing weight between the classifier output and a vote from trainable geometric anchors, so that facial geometry counts for more when the network is unsure. The model is initialized by static-to-dynamic weight transfer and trained with a Triple Loss. In five-fold cross-validation, the best fold scores 66.57\\%/76.46\\% UAR/WAR on DFEW, 0.3 points or less below the strongest compared method, and 45.66\\%/62.27\\% on MAFW, ahead of all compared methods; on FERV39k the mean over five splits, 42.30\\%/52.66\\%, is competitive. The five-fold means are 64.07\\%/74.54\\% on DFEW, on par with recent large pre-trained models, and 38.90\\%/54.37\\% on MAFW, below the best of them. A paired $t$-test on DFEW indicates a modest benefit of temporal modeling (+1.61 UAR points, one-sided $p=0.031$). Attention stays on plausible facial regions, and latency is close to a ViT-B/16 baseline (47.4 vs.\\ 46.8 ms per clip). Code: https://github.com/ardiytama/GroupMamba-DFER.",
+    "abstract_read": false,
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.34845%2C2610.34819%2C2610.34632%2C2610.34618%2C2610.34600%2C2610.34597%2C2610.34564%2C2610.34346%2C2610.34344%2C2610.34263%2C2610.34235%2C2610.34233%2C2610.34218%2C2610.34190%2C2610.34037%2C2610.34033%2C2610.34028%2C2610.33988%2C2610.33941%2C2610.33894%2C2610.33868%2C2610.33755%2C2610.33704%2C2610.33695%2C2610.33661%2C2610.33656%2C2610.33589%2C2610.33575%2C2610.33566%2C2610.33504%2C2610.33484%2C2610.33356%2C2610.33169%2C2610.33118%2C2610.33054%2C2610.35529%2C2610.35224%2C2610.34904%2C2610.33127%2C2610.32977%2C2610.32800%2C2610.32792%2C2610.32697%2C2610.32663%2C2610.32381%2C2610.32321%2C2610.32250%2C2610.32182%2C2610.32174%2C2610.32073%2C2610.31950%2C2610.31908%2C2610.31747%2C2610.32816%2C2610.32177%2C2610.32039%2C2610.31892%2C2610.31645%2C2610.31635%2C2610.31623%2C2610.31321%2C2610.31320%2C2610.31293%2C2610.31253%2C2610.31186%2C2610.31140%2C2610.31123%2C2610.31108%2C2610.30974%2C2610.30944%2C2610.30824%2C2610.30814%2C2610.30781%2C2610.30774%2C2610.30724%2C2610.30643%2C2610.30619%2C2610.30609%2C2610.30468%2C2610.30340%2C2610.30326%2C2610.30293%2C2610.30910%2C2610.38953%2C2610.37740%2C2610.35902%2C2610.33256%2C2610.38350%2C2610.37926%2C2610.36555%2C2610.34184%2C2610.33202%2C2610.35813%2C2610.35569%2C2610.32010%2C2610.30683%2C2610.10181%2C2610.12568%2C2610.12624%2C2610.20226&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.31140v1"
+    ],
+    "metadata_source": "arXiv Atom id_list; official abs submission history still required for selected versions",
+    "input_files": [
+      "main-cross-metadata.json"
+    ],
+    "screen_index": 60,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于语言模型、软件与非具身代理；题名《GM-GReFEL: Geometry-Guided Spatiotemporal State-Space Learning for Robust Dynamic Facial Expression Recognition》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "语言模型、软件与非具身代理",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.32039",
+    "version": 1,
+    "title": "Rethinking Representation Geometry in Supervised Contrastive Learning under Long-Tailed Data",
+    "v1_utc": "2026-10-23T01:30:14Z",
+    "updated_utc": "2026-10-23T01:30:14Z",
+    "abstract": "Supervised contrastive learning and its balanced variants have demonstrated their effectiveness for representation learning under long-tailed distributions. However, although prior analyses suggest that their optimal representations may exhibit a regular simplex geometry, whether such a geometry is indeed exhibited remains insufficiently understood. In this work, we present a theoretical framework for these objectives that characterizes whether a regular simplex is formed at the optimum. By applying this to representative objectives, we show that these objectives fail to form a regular simplex at the optimum because they remain dependent on the number of samples per class. Motivated by this analysis, we introduce structural balancing that can be applied to contrastive objectives, and propose a fully balanced contrastive objective that provably forms a regular simplex geometry at its optimum. Both theoretical and empirical results demonstrate that the proposed method yields a more balanced representation space and improves performance on long-tailed recognition and transfer learning tasks.",
+    "abstract_read": false,
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.34845%2C2610.34819%2C2610.34632%2C2610.34618%2C2610.34600%2C2610.34597%2C2610.34564%2C2610.34346%2C2610.34344%2C2610.34263%2C2610.34235%2C2610.34233%2C2610.34218%2C2610.34190%2C2610.34037%2C2610.34033%2C2610.34028%2C2610.33988%2C2610.33941%2C2610.33894%2C2610.33868%2C2610.33755%2C2610.33704%2C2610.33695%2C2610.33661%2C2610.33656%2C2610.33589%2C2610.33575%2C2610.33566%2C2610.33504%2C2610.33484%2C2610.33356%2C2610.33169%2C2610.33118%2C2610.33054%2C2610.35529%2C2610.35224%2C2610.34904%2C2610.33127%2C2610.32977%2C2610.32800%2C2610.32792%2C2610.32697%2C2610.32663%2C2610.32381%2C2610.32321%2C2610.32250%2C2610.32182%2C2610.32174%2C2610.32073%2C2610.31950%2C2610.31908%2C2610.31747%2C2610.32816%2C2610.32177%2C2610.32039%2C2610.31892%2C2610.31645%2C2610.31635%2C2610.31623%2C2610.31321%2C2610.31320%2C2610.31293%2C2610.31253%2C2610.31186%2C2610.31140%2C2610.31123%2C2610.31108%2C2610.30974%2C2610.30944%2C2610.30824%2C2610.30814%2C2610.30781%2C2610.30774%2C2610.30724%2C2610.30643%2C2610.30619%2C2610.30609%2C2610.30468%2C2610.30340%2C2610.30326%2C2610.30293%2C2610.30910%2C2610.38953%2C2610.37740%2C2610.35902%2C2610.33256%2C2610.38350%2C2610.37926%2C2610.36555%2C2610.34184%2C2610.33202%2C2610.35813%2C2610.35569%2C2610.32010%2C2610.30683%2C2610.10181%2C2610.12568%2C2610.12624%2C2610.20226&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.32039v1"
+    ],
+    "metadata_source": "arXiv Atom id_list; official abs submission history still required for selected versions",
+    "input_files": [
+      "main-cross-metadata.json"
+    ],
+    "screen_index": 65,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于一般视觉、时序统计与系统工程；题名《Rethinking Representation Geometry in Supervised Contrastive Learning under Long-Tailed Data》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "一般视觉、时序统计与系统工程",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.31801",
+    "version": 1,
+    "title": "KiRoSe: Using Kinematic Data for Efficient Segmentation of Robot Demonstrations",
+    "abstract": "Segmenting robot demonstration data into disjoint temporal and semantic subsegments is valuable for learning, cleaning, retrieval, and analysis. Segmentation is often performed manually in a tedious and error prone process. Multimodal Large Language Models (MLLMs) have the potential for automating this process, but directly ingesting raw multi camera video streams into MLLMs can be costly and can quickly exhaust context windows. In this paper, we introduce KiRoSe (Kinematics for Robot Segmentation), a novel framework that focuses on the companion stream of robot kinematic data. Inspired by the principle of classical entropy coding, such as Huffman coding, where frequently occurring symbols are represented more compactly, we propose Sparse Motion Tokens (SMTs), a discrete kinematic vocabulary designed to compactly represent recurring, temporally localized motion patterns, which we refer to as kinematic events. SMTs are learned by encoding kinematic trajectories with temporal segment supervision and quantizing the resulting features. We use increasingly available robot demonstration subtask annotations to supervise an open language model to interpret the resulting token sequences. Evaluation against human labeled segmentation shows that KiRoSe can substantially outperform baseline segmentation methods in F1 quality and transfers zero shot to unseen robot embodiments and egocentric human motion, while preserving the language models open vocabulary knowledge. Beyond segmentation, KiRoSe tracks task progress on an unseen robot and detects when an action is being reversed.(website: https://berkeleyautomation.github.io/kirose/)",
+    "v1_utc": "2026-10-22T18:40:43Z",
+    "updated_utc": "2026-10-22T18:40:43Z",
+    "query_hits": [
+      "main-api-A-sensors-submittedDate",
+      "main-api-A-sensors-lastUpdatedDate",
+      "main-api-B-streaming-submittedDate",
+      "main-api-B-streaming-lastUpdatedDate",
+      "main-advanced-A-sensors-submitted_date_first",
+      "main-advanced-A-sensors-submitted_date",
+      "main-advanced-B-streaming-submitted_date_first",
+      "main-advanced-B-streaming-submitted_date"
+    ],
+    "source_urls": [
+      "https://export.arxiv.org/api/query?search_query=%28%28%28ti%3ALiDAR%29+OR+%28abs%3ALiDAR%29+OR+%28ti%3Aradar%29+OR+%28abs%3Aradar%29+OR+%28ti%3A%22RGB-D%22%29+OR+%28abs%3A%22RGB-D%22%29+OR+%28ti%3Amonocular%29+OR+%28abs%3Amonocular%29+OR+%28ti%3A%22multi-camera%22%29+OR+%28abs%3A%22multi-camera%22%29%29+AND+%28ti%3Aodometry+OR+abs%3Aodometry+OR+ti%3ASLAM+OR+abs%3ASLAM+OR+ti%3Alocalization+OR+abs%3Alocalization+OR+ti%3Acalibration+OR+abs%3Acalibration%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/abs/2610.31801v1",
+      "https://export.arxiv.org/api/query?search_query=%28%28%28ti%3ALiDAR%29+OR+%28abs%3ALiDAR%29+OR+%28ti%3Aradar%29+OR+%28abs%3Aradar%29+OR+%28ti%3A%22RGB-D%22%29+OR+%28abs%3A%22RGB-D%22%29+OR+%28ti%3Amonocular%29+OR+%28abs%3Amonocular%29+OR+%28ti%3A%22multi-camera%22%29+OR+%28abs%3A%22multi-camera%22%29%29+AND+%28ti%3Aodometry+OR+abs%3Aodometry+OR+ti%3ASLAM+OR+abs%3ASLAM+OR+ti%3Alocalization+OR+abs%3Alocalization+OR+ti%3Acalibration+OR+abs%3Acalibration%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=200&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=200&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=LiDAR&terms-0-field=all&terms-1-operator=OR&terms-1-term=radar&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22RGB-D%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=monocular&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-camera%22&terms-4-field=all",
+      "https://arxiv.org/abs/2610.31801",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=LiDAR&terms-0-field=all&terms-1-operator=OR&terms-1-term=radar&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22RGB-D%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=monocular&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-camera%22&terms-4-field=all",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=400&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all"
+    ],
+    "abstract_read": false,
+    "input_files": [
+      "main-search-candidates.json",
+      "main-search-candidates.json",
+      "main-search-candidates.json",
+      "main-search-candidates.json",
+      "main-advanced-candidates.json",
+      "main-advanced-candidates.json",
+      "main-advanced-candidates.json",
+      "main-advanced-candidates.json"
+    ],
+    "screen_index": 109,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于一般视觉、时序统计与系统工程；题名《KiRoSe: Using Kinematic Data for Efficient Segmentation of Robot Demonstrations》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "一般视觉、时序统计与系统工程",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.34367",
+    "version": 1,
+    "title": "Sharp diameter estimates via integral geometry",
+    "abstract": "We prove that the diameter of a closed embedded surface in $\\mathbb{R}^3$ is always less than the integral of the magnitude of the mean curvature, divided by $π$. We also prove a sharp variant for surfaces with boundary, and apply it to address a conjecture of Miura.",
+    "v1_utc": "2026-10-25T15:21:18Z",
+    "updated_utc": "2026-10-25T15:21:18Z",
+    "query_hits": [
+      "main-api-B-foundation-submittedDate",
+      "main-api-B-foundation-lastUpdatedDate",
+      "main-advanced-B-foundation-submitted_date_first",
+      "main-advanced-B-foundation-submitted_date"
+    ],
+    "source_urls": [
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3AVGGT%29+OR+%28abs%3AVGGT%29+OR+%28ti%3A%22VGGT-%CE%A9%22%29+OR+%28abs%3A%22VGGT-%CE%A9%22%29+OR+%28ti%3AOmniVGGT%29+OR+%28abs%3AOmniVGGT%29+OR+%28ti%3A%22geometry+foundation%22%29+OR+%28abs%3A%22geometry+foundation%22%29+OR+%28ti%3A%22visual+geometry+transformer%22%29+OR+%28abs%3A%22visual+geometry+transformer%22%29+OR+%28ti%3ADUSt3R%29+OR+%28abs%3ADUSt3R%29+OR+%28ti%3AMASt3R%29+OR+%28abs%3AMASt3R%29+OR+%28ti%3Api3%29+OR+%28abs%3Api3%29+OR+%28ti%3A%22%CF%80%C2%B3%22%29+OR+%28abs%3A%22%CF%80%C2%B3%22%29+OR+%28ti%3ADA3%29+OR+%28abs%3ADA3%29+OR+%28ti%3A%22Depth+Anything%22%29+OR+%28abs%3A%22Depth+Anything%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/abs/2610.34367v1",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3AVGGT%29+OR+%28abs%3AVGGT%29+OR+%28ti%3A%22VGGT-%CE%A9%22%29+OR+%28abs%3A%22VGGT-%CE%A9%22%29+OR+%28ti%3AOmniVGGT%29+OR+%28abs%3AOmniVGGT%29+OR+%28ti%3A%22geometry+foundation%22%29+OR+%28abs%3A%22geometry+foundation%22%29+OR+%28ti%3A%22visual+geometry+transformer%22%29+OR+%28abs%3A%22visual+geometry+transformer%22%29+OR+%28ti%3ADUSt3R%29+OR+%28abs%3ADUSt3R%29+OR+%28ti%3AMASt3R%29+OR+%28abs%3AMASt3R%29+OR+%28ti%3Api3%29+OR+%28abs%3Api3%29+OR+%28ti%3A%22%CF%80%C2%B3%22%29+OR+%28abs%3A%22%CF%80%C2%B3%22%29+OR+%28ti%3ADA3%29+OR+%28abs%3ADA3%29+OR+%28ti%3A%22Depth+Anything%22%29+OR+%28abs%3A%22Depth+Anything%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=VGGT&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22VGGT-%CE%A9%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=OmniVGGT&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometry+foundation%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual+geometry+transformer%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=DUSt3R&terms-5-field=all&terms-6-operator=OR&terms-6-term=MASt3R&terms-6-field=all&terms-7-operator=OR&terms-7-term=pi3&terms-7-field=all&terms-8-operator=OR&terms-8-term=%22%CF%80%C2%B3%22&terms-8-field=all&terms-9-operator=OR&terms-9-term=DA3&terms-9-field=all&terms-10-operator=OR&terms-10-term=%22Depth+Anything%22&terms-10-field=all",
+      "https://arxiv.org/abs/2610.34367",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=VGGT&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22VGGT-%CE%A9%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=OmniVGGT&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometry+foundation%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual+geometry+transformer%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=DUSt3R&terms-5-field=all&terms-6-operator=OR&terms-6-term=MASt3R&terms-6-field=all&terms-7-operator=OR&terms-7-term=pi3&terms-7-field=all&terms-8-operator=OR&terms-8-term=%22%CF%80%C2%B3%22&terms-8-field=all&terms-9-operator=OR&terms-9-term=DA3&terms-9-field=all&terms-10-operator=OR&terms-10-term=%22Depth+Anything%22&terms-10-field=all"
+    ],
+    "abstract_read": false,
+    "input_files": [
+      "main-search-candidates.json",
+      "main-search-candidates.json",
+      "main-advanced-candidates.json",
+      "main-advanced-candidates.json"
+    ],
+    "screen_index": 164,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于纯数学与通用算法理论；题名《Sharp diameter estimates via integral geometry》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "纯数学与通用算法理论",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.38752",
+    "version": 1,
+    "title": "Hardwired Distributed Processing Units at the Sensor: Truly Parallel Vision Pre-Processing that Frees the Host CPU",
+    "abstract": "Conventional vision pipelines route every pixel to a host processor, which must then wait for a complete frame before it can act and devote part of each frame period to routine pre-processing. We examine an alternative organisation in which this work is distributed across hardwired distributed processing units (HDPUs): small, fixed datapaths attached directly to the sensor, each committed to a single always-on task, operating truly in parallel on the same pixel stream and delivering compact results to the host. From one library of 3x3 operators sharing a common two-clock latency, we construct three HDPUs (Canny edges, Harris corners, and a line tracker that issues a steering decision) and run them side by side on a single camera stream in a low-cost Artix-7 FPGA, at a cost of 2,568 LUTs and an estimated 0.318 W. Every stage of every unit is bit-exact with its software model. In a full-system simulation with a datasheet camera model, each decision leaves its HDPU within 11.03 camera lines of the pixel that produced it, 22-67x sooner than the earliest moment at which a frame-based program on the host could respond; the HDPU latency varies by no more than 17 ns, whereas the host's own run times reached 12.5x their median. Offloading the three tasks returns 18-30% of a core to the host in every frame period at 640x480, and 63% of the frame period, with all threads in use, at 1080p. The cost of the units grows with frame width only through their line buffers, and in a closed-loop model of a line-following vehicle the HDPU raises the highest speed at which the line is held from 4.75 to 10.00 m/s.",
+    "v1_utc": "2026-10-28T19:34:54Z",
+    "updated_utc": "2026-10-28T19:34:54Z",
+    "query_hits": [
+      "main-api-B-streaming-submittedDate",
+      "main-api-B-streaming-lastUpdatedDate",
+      "main-advanced-B-streaming-submitted_date_first",
+      "main-advanced-B-streaming-submitted_date"
+    ],
+    "source_urls": [
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/abs/2610.38752v1",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/abs/2610.38752",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all"
+    ],
+    "abstract_read": false,
+    "input_files": [
+      "main-search-candidates.json",
+      "main-search-candidates.json",
+      "main-advanced-candidates.json",
+      "main-advanced-candidates.json"
+    ],
+    "screen_index": 264,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于一般视觉、时序统计与系统工程；题名《Hardwired Distributed Processing Units at the Sensor: Truly Parallel Vision Pre-Processing that Frees the Host CPU》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "一般视觉、时序统计与系统工程",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.38377",
+    "version": 1,
+    "title": "Is Dual Polarization Always Optimal? Unlocking New Spatial Degrees of Freedom",
+    "abstract": "Current wireless communication systems are designed based on channel models obtained under the assumption of far-field operation, where electromagnetic waves can be approximated by a planar wave. In those circumstances, dualpolarized antennas seem to be the optimal solution for maximizing the spectral efficiency. However, the recent research on XLMIMO systems represents a paradigm shift, since communication may take place in the near-field and an additional degree of freedom can be achieved. This work presents a modular, lowcost tripolarized antenna at 2.4 GHz band, that is used to experimentally validate theoretical findings about tripolarized antennas, which are commonly based on orthogonal infinitesimal dipoles. The evaluation is carried out in two indoor scenarios and one outdoor scenario, with transmitter comprising multiple tripolarized antennas and a receiver equipped with a single tripolarized antenna. We show that this type of antenna can increase the number of spatial streams up to three or extend the region where terminals are able to achieve two spatial streams",
+    "v1_utc": "2026-10-28T07:16:31Z",
+    "updated_utc": "2026-10-28T07:16:31Z",
+    "query_hits": [
+      "main-api-B-streaming-submittedDate",
+      "main-api-B-streaming-lastUpdatedDate",
+      "main-advanced-B-streaming-submitted_date_first",
+      "main-advanced-B-streaming-submitted_date"
+    ],
+    "source_urls": [
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/abs/2610.38377v1",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/abs/2610.38377",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all"
+    ],
+    "abstract_read": false,
+    "input_files": [
+      "main-search-candidates.json",
+      "main-search-candidates.json",
+      "main-advanced-candidates.json",
+      "main-advanced-candidates.json"
+    ],
+    "screen_index": 278,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于通用计算、时序与信号系统；题名《Is Dual Polarization Always Optimal? Unlocking New Spatial Degrees of Freedom》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "通用计算、时序与信号系统",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.36956",
+    "version": 1,
+    "title": "Mining the Nineteenth Century for the Thirteenth: Register-Scale Forced Alignment and HTR Bootstrapping via Legacy Regesta and Antiquarian Editions",
+    "abstract": "Handwritten text recognition (HTR) for the registers of Pope Honorius III depends on modern expert transcriptions, which exist only for regnal years 1-2 of Reg. Vat. 9. For the remaining registers, nineteenth-century scholarship offers Pressutti's regesta and partial editions. On fol. 1-203, where both layers exist, we measure what this legacy layer can contribute, on transcriptions that we first audit against it, and find a division of labor across three tiers. At the orthographic tier, raw editions are at best neutral for adapting a recognizer to the second regnal year and harmful without replay, whereas projection onto curial spelling with replay of modern source lines turns them into zero-label adaptation targets: pooled over all 134 year-2 sides, the WER falls by 1.50 points (95% CI -1.84 to -1.15), closing 33% of the gap to an oracle; the spelling changes at the year split, through the scribe or the transcriber, whereas the hand changes visibly only at fol. 191r. At the lexical tier, the corpus-wide legacy lexicon contains 82.2% of the out-of-vocabulary words of unedited entries and flags recognition errors with 66.7% precision, and labels from pre-trained medieval NER models, distilled into the recognizer's NER head, reach F1 82.1% on an expert validated benchmark, level with the best tagger applied after recognition. At the topological tier, Pressutti's regests, the closing datum clauses, and the regests' dates converted to the chancery's Roman form find 73.9% of entry starts in the recognized line stream, and edition agreement estimates a CER of 7.80% beyond fol. 203. Antiquarian scholarship thus cannot replace modern transcription, but it can steer, check, and segment HTR across the untranscribed registers.",
+    "v1_utc": "2026-10-27T10:15:08Z",
+    "updated_utc": "2026-10-27T10:15:08Z",
+    "query_hits": [
+      "main-api-B-streaming-submittedDate",
+      "main-api-B-streaming-lastUpdatedDate",
+      "main-advanced-B-streaming-submitted_date_first",
+      "main-advanced-B-streaming-submitted_date"
+    ],
+    "source_urls": [
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/abs/2610.36956v1",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/abs/2610.36956",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all"
+    ],
+    "abstract_read": false,
+    "input_files": [
+      "main-search-candidates.json",
+      "main-search-candidates.json",
+      "main-advanced-candidates.json",
+      "main-advanced-candidates.json"
+    ],
+    "screen_index": 323,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于语言模型、软件与非具身代理；题名《Mining the Nineteenth Century for the Thirteenth: Register-Scale Forced Alignment and HTR Bootstrapping via Legacy Regesta and Antiquarian Editions》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "语言模型、软件与非具身代理",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.36628",
+    "version": 1,
+    "title": "The Batch Size Can Be One: Test-Time Adaptation from Classifier Geometry",
+    "abstract": "Test-time adaptation updates a deployed model on an unlabeled test stream. In practice this stream often arrives one sample at a time, with the classes in no particular order. A single sample then provides limited information for estimating distribution-level statistics, and selecting samples by confidence can admit predictions that are wrong yet confident. A corruption, however, shifts the features while leaving the decision regions of the frozen classifier unchanged. We therefore propose Origin-recentered Test-Time Adaptation (OriTTA), which constructs fixed geometric targets from the source model and adapts selected features toward them. Seen from the origin of the feature space, the classes lean toward a common direction. We choose a new origin to bring class scores closer together while keeping it near the mean feature of one synthetic prototype per class. From this origin, prototype directions spread more evenly, and each class obtains an axis and an ideal point before any test data arrives. During adaptation, OriTTA aligns selected features with their predicted class axis and penalizes excessive radius, keeps one input per predicted class in memory to limit feature changes for classes absent from the stream, and resets the model when re-classifying this memory reveals collapse. Without tuning for each setting, OriTTA achieves the highest mean accuracy at batch size 1 on CIFAR-10-C, CIFAR-100-C and ImageNet-C in all sixteen combinations of four backbones, two protocols and two stream orders. On ImageNet-C fog, recent methods collapse in up to two thirds of one hundred runs, while OriTTA never does.",
+    "v1_utc": "2026-10-27T04:32:20Z",
+    "updated_utc": "2026-10-27T04:32:20Z",
+    "query_hits": [
+      "main-api-B-streaming-submittedDate",
+      "main-api-B-streaming-lastUpdatedDate",
+      "main-advanced-B-streaming-submitted_date_first",
+      "main-advanced-B-streaming-submitted_date"
+    ],
+    "source_urls": [
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/abs/2610.36628v1",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/abs/2610.36628",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all"
+    ],
+    "abstract_read": false,
+    "input_files": [
+      "main-search-candidates.json",
+      "main-search-candidates.json",
+      "main-advanced-candidates.json",
+      "main-advanced-candidates.json"
+    ],
+    "screen_index": 332,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于一般视觉、时序统计与系统工程；题名《The Batch Size Can Be One: Test-Time Adaptation from Classifier Geometry》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "一般视觉、时序统计与系统工程",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.36574",
+    "version": 1,
+    "title": "ADTGuard: Adaptive Depth-Time Safeguard for Streaming Inference in Large Language Models",
+    "abstract": "Large Language Models (LLMs) can generate fluent responses to diverse user requests, yet streaming may expose users to harmful content before generation is complete. Existing guardrails face two limitations in this setting. First, post-hoc moderation at response or chunk boundaries delays intervention, risking harmful exposure when content is released before verification. Second, even with token-level detection, coarse response-level supervision does not specify when harmful content begins, while fixed-layer readouts may miss relevant safety signals at other depths. To address these limitations, we introduce ADTGuard, which checks each token before release, progressively refines token-level training targets, and adapts layer selection to the current prefix. ADTGuard models risk across depth and time through Depth-Time Safety Dynamics (DTSD), which integrates safety evidence across layers at each token and uses it to guide risk accumulation over successive tokens. To adapt the choice of observation layers to the current prefix, we propose the Causal Depth Router (CDR). With only response-level labels available, we further develop Risk-Onset Target Refinement (RTR) to progressively construct token-level training targets for both components. Through extensive experiments across multiple safety benchmarks, we demonstrate that ADTGuard consistently achieves strong streaming detection performance, matching or surpassing state-of-the-art safeguards while requiring only 16M trainable parameters and maintaining competitive per-token latency.",
+    "v1_utc": "2026-10-27T03:30:28Z",
+    "updated_utc": "2026-10-27T03:30:28Z",
+    "query_hits": [
+      "main-api-B-streaming-submittedDate",
+      "main-api-B-streaming-lastUpdatedDate",
+      "main-advanced-B-streaming-submitted_date_first",
+      "main-advanced-B-streaming-submitted_date"
+    ],
+    "source_urls": [
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/abs/2610.36574v1",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/abs/2610.36574",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all"
+    ],
+    "abstract_read": false,
+    "input_files": [
+      "main-search-candidates.json",
+      "main-search-candidates.json",
+      "main-advanced-candidates.json",
+      "main-advanced-candidates.json"
+    ],
+    "screen_index": 335,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于语言模型、软件与非具身代理；题名《ADTGuard: Adaptive Depth-Time Safeguard for Streaming Inference in Large Language Models》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "语言模型、软件与非具身代理",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.35171",
+    "version": 1,
+    "title": "A Congestion-Aware RDMA Front-End for LST Advanced Camera Readout",
+    "abstract": "The Advanced Camera (AdvCam) upgrade of the Large-Sized Telescopes (LSTs) calls for a fully digital readout in which each front-end board streams data to the event-building servers over commercial 10 Gb/s Ethernet, using an FPGA implementation of Remote Direct Memory Access (RDMA) over Converged Ethernet v2 (RoCEv2). In a previous work, a customized RoCEv2 core integrated with the SLAC SURF UDP/MAC stack was shown to sustain near-line-rate data transfers from a Xilinx KCU105 to a server equipped with a Mellanox ConnectX-5 NIC. However, the AdvCam topology is an incast funnel: many 10 GbE links converge onto a single uplink, and bare Priority Flow Control (PFC) congestion management protocol is known to be unfair and to suffer from head-of-line blocking. This work extends the previous design with the Data Center Quantized Congestion Notification (DCQCN) algorithm. A protocol-level ns-3 simulation is used to validate the DCQCN dynamics and to explore the parameter space; an FPGA rate-limiter integrated into the SURF MAC reacts to incoming Congestion Notification Packets (CNPs) according to the DCQCN state machine; a cocotb testbench with an emulated Python switch verifies the firmware end-to-end against a Soft-RoCE receiver; and a three-sender incast hardware test on a DCQCN-enabled commercial switch reproduces the canonical fair-share, reactive-redistribution, and saw-tooth behaviour expected from a commercial RDMA NIC. The internal rate-limiter register is shown to track the measured RoCEv2 throughput cycle by cycle.",
+    "v1_utc": "2026-10-26T10:34:58Z",
+    "updated_utc": "2026-10-26T10:34:58Z",
+    "query_hits": [
+      "main-api-B-streaming-submittedDate",
+      "main-api-B-streaming-lastUpdatedDate",
+      "main-advanced-B-streaming-submitted_date_first",
+      "main-advanced-B-streaming-submitted_date"
+    ],
+    "source_urls": [
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/abs/2610.35171v1",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/abs/2610.35171",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all"
+    ],
+    "abstract_read": false,
+    "input_files": [
+      "main-search-candidates.json",
+      "main-search-candidates.json",
+      "main-advanced-candidates.json",
+      "main-advanced-candidates.json"
+    ],
+    "screen_index": 374,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于通用计算、时序与信号系统；题名《A Congestion-Aware RDMA Front-End for LST Advanced Camera Readout》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "通用计算、时序与信号系统",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.33324",
+    "version": 1,
+    "title": "Accretion Geometry and Variability in QS Telescopii from multi-epoch Observations",
+    "abstract": "We present phase-resolved photometry, spectroscopy, photopolarimetry, and circular spectropolarimetry of the polar QS Telescopii, obtained between 2017 and 2025 using the South African Astronomical Observatory (SAAO) 1.0-m and 1.9-m telescopes, the Transiting Exoplanet Survey Satellite (TESS), Asteroid Terrestrial-impact Last Alert System (ATLAS) and the Southern African Large Telescope (SALT). From ground-based photometry, we report the first detection of quasi-periodic oscillations (QPOs) in QS Tel, with timescales ranging between 2 and 11 minutes. This makes QS Tel one of only seven polars to show QPOs. The average spectra of QS Tel show broad and strong Balmer ($\\rm Hδ$, $\\rm Hγ$, $\\rm Hβ$ and $\\rm Hα$) and He\\textsc{ii} 4686 Å emission lines, along with weaker emission from He\\textsc{i} at (6678\\,Å, 5017\\,Å, 4921\\,Å, 4712\\,Å, 4471\\,Å, and 4387\\,Å) and the Bowen fluorescence complex C\\textsc{iii}/N\\textsc{iii} at 4650\\,Å. For the first time detailed Doppler tomography of the $\\rm Hα$ and He\\textsc{ii}\\,4686\\,Å\\, lines are presented which reveal emission from the irradiated face of the secondary star, the ballistic stream, the threading region and complex magnetically confined flows. The magnetically confined accretion stream splits into two distinct components coming from the same stream. One component appears near the threading region and the other component is seen along the high velocity in the magnetically confined accretion stream closer to the White Dwarf. Broad band photopolarimetry reveals circular polarisation reaching levels of $+8\\%$, however more detailed circular spectropolarimetry shows polarisation ranging from $-10\\%$ to $+25\\%$, associated with two broad, phase-dependent cyclotron humps centred at $\\sim$4800 Å and $\\sim$6300 Å, consistent with a magnetic field strength of $\\sim$53 MG.",
+    "v1_utc": "2026-10-23T21:55:44Z",
+    "updated_utc": "2026-10-23T21:55:44Z",
+    "query_hits": [
+      "main-api-B-streaming-submittedDate",
+      "main-api-B-streaming-lastUpdatedDate",
+      "main-advanced-B-streaming-submitted_date_first",
+      "main-advanced-B-streaming-submitted_date"
+    ],
+    "source_urls": [
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=200&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/abs/2610.33324v1",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=200&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/abs/2610.33324",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all"
+    ],
+    "abstract_read": false,
+    "input_files": [
+      "main-search-candidates.json",
+      "main-search-candidates.json",
+      "main-advanced-candidates.json",
+      "main-advanced-candidates.json"
+    ],
+    "screen_index": 433,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于天体与空间物理；题名《Accretion Geometry and Variability in QS Telescopii from multi-epoch Observations》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "天体与空间物理",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.32749",
+    "version": 1,
+    "title": "Efficient Streaming Audio-Visual Target Speaker Extraction for Real-World Acoustic Scenes",
+    "abstract": "Streaming audio-visual target speaker extraction (AVTSE) is essential for latency-sensitive applications. However, current causal systems face two coupled gaps. First, standard benchmarks fix the number of speakers at two and ignore the near-/far-field interference, reverberation, and sudden noise of real scenes. Second, high-performance causal architectures are too heavy for edge deployment. Lightweight alternatives try to reclaim capacity by repeatedly invoking a small separator, which offsets the savings. To address the first gap, we release RealSSA, a realistic AVTSE benchmark consisting of RealSSA-Sim and RealSSA-Real. RealSSA-Sim provides controllable simulated scenes with 1--5 dynamic near-field interfering speakers; scenes with far-field interference additionally include 10--15 far-field interfering speakers. RealSSA-Real provides a held-out real-recorded evaluation set. To address the second gap, we propose Falcon, a causal AVTSE method. Its Separator performs multi-scale time-frequency separation in a single encoder--decoder pass. We train Falcon with an encoder-space speaker contrastive loss. This loss suppresses near-field leakage at zero inference cost and transfers across backbones. Falcon achieves state-of-the-art extraction quality on RealSSA-Sim, LRS2-2Mix, LRS3-2Mix, and VoxCeleb2-2Mix. Compared with the causal AV-TFGridNet baseline, it cuts parameters by 91.9%, computation by 20.2 times, and GPU inference latency by 11.1 times. Code and demo are available at https://cslikai.cn/Falcon/.",
+    "v1_utc": "2026-10-23T14:58:04Z",
+    "updated_utc": "2026-10-23T14:58:04Z",
+    "query_hits": [
+      "main-api-B-streaming-submittedDate",
+      "main-api-B-streaming-lastUpdatedDate",
+      "main-advanced-B-streaming-submitted_date_first",
+      "main-advanced-B-streaming-submitted_date"
+    ],
+    "source_urls": [
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=200&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/abs/2610.32749v1",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=200&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/abs/2610.32749",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=400&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all"
+    ],
+    "abstract_read": false,
+    "input_files": [
+      "main-search-candidates.json",
+      "main-search-candidates.json",
+      "main-advanced-candidates.json",
+      "main-advanced-candidates.json"
+    ],
+    "screen_index": 440,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于语音、音频与通信信号；题名《Efficient Streaming Audio-Visual Target Speaker Extraction for Real-World Acoustic Scenes》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "语音、音频与通信信号",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.38042",
+    "title": "Can Event Detectors Leave the Broadcast Camera? Evidence from Tennis",
+    "abstract": "Ball bounces and racket hits are the events from which tennis statistics are derived, and on monocular video the two are easy to confuse. We release a benchmark of 345 bounce and hit annotations at frame level on eight clips that mix broadcast, fixed elevated, phone and court-level viewpoints, with a frozen development and test split, a confusion-aware matcher, clip-level bootstrap intervals and a blind second annotation of three clips. On it we score supervised precise spotters with published broadcast weights, two zero-shot vision-language models, and RallyArb, an arbitration layer over a ball track and player poses that fits no parameter on event labels. The supervised spotters score near-perfectly on broadcast footage and almost nothing on phone and court-level footage, where the pooled bounce F1 of E2E-Spot is 0.130. RallyArb keeps a bounce F1 above 0.8 on the three phone and court-level clips, two of which were used to tune it, and finds 8 of 11 bounces on the held-out one, but it places hits too far from the contact frame to match human timing. The vision-language models detect events on every viewpoint and miss the contact frame by about 0.1 s. Fine-tuned leave-one-clip-out from its broadcast weights, the spotter reaches about 0.8 bounce F1 on two phone and court-level clips and stays at 0.2 on a grazing phone angle. The annotations, the evaluator and the frozen predictions of every scored row are released.",
+    "query_hits": [
+      "main-advanced-A-sensors-submitted_date_first",
+      "main-advanced-A-sensors-submitted_date"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=LiDAR&terms-0-field=all&terms-1-operator=OR&terms-1-term=radar&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22RGB-D%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=monocular&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-camera%22&terms-4-field=all",
+      "https://arxiv.org/abs/2610.38042",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=LiDAR&terms-0-field=all&terms-1-operator=OR&terms-1-term=radar&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22RGB-D%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=monocular&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-camera%22&terms-4-field=all",
+      "https://export.arxiv.org/api/query?id_list=2606.29868%2C2606.14534%2C2605.09383%2C2610.00329%2C2607.08115%2C2510.04883%2C2610.09857%2C2508.04236%2C2602.16870%2C2609.31418%2C2605.30488%2C2601.00705%2C2603.26638%2C2610.06085%2C2604.04554%2C2610.25068%2C2610.10623%2C2503.17668%2C2609.18465%2C2602.18381%2C2609.11472%2C2608.28715%2C2610.13706%2C2608.09837%2C2606.03163%2C2606.03161%2C2609.34015%2C2608.17269%2C2609.30346%2C2607.26292%2C2609.29636%2C2610.29304%2C2610.40640%2C2610.40253%2C2610.40114%2C2610.40107%2C2610.39628%2C2610.35210%2C2610.39110%2C2610.39011%2C2610.38898%2C2610.38794%2C2610.38042%2C2610.37784%2C2610.37519%2C2610.37470%2C2610.37307%2C2610.37216%2C2610.37089%2C2610.37084%2C2610.37067%2C2610.36907%2C2610.36751%2C2610.36622%2C2610.36599%2C2610.36592%2C2610.36546%2C2610.36301%2C2610.36203%2C2610.34869%2C2610.34405%2C2610.34223%2C2610.33916%2C2610.33286%2C2610.32966%2C2610.33142%2C2610.32612%2C2610.32563%2C2610.32277%2C2610.32202%2C2503.15625%2C2606.29976%2C2605.16163%2C2610.23980%2C2606.05506%2C2608.07267%2C2205.12583%2C2610.16959%2C2604.19673%2C2503.18111%2C2608.08285%2C2610.14561%2C2605.08530%2C2602.20317%2C2604.23095%2C2609.06242%2C2606.26854%2C2610.28465%2C2607.13624%2C2605.31217%2C2603.27534%2C2609.11115%2C2609.32596%2C2603.18520%2C2608.27860%2C2606.02366%2C2604.17582%2C2511.22459%2C2605.31177%2C2412.01090&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.38042v1"
+    ],
+    "abstract_read": false,
+    "date_metadata_unverified": true,
+    "input_files": [
+      "main-advanced-candidates.json",
+      "main-advanced-candidates.json"
+    ],
+    "screen_index": 562,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于一般视觉、时序统计与系统工程；题名《Can Event Detectors Leave the Broadcast Camera? Evidence from Tennis》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "version": 1,
+    "v1_utc": "2026-10-27T22:54:45Z",
+    "updated_utc": "2026-10-27T22:54:45Z",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "一般视觉、时序统计与系统工程",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2605.16600",
+    "title": "The Geometry of Learning: Read-Write Asymmetry Across Training",
+    "abstract": "Pretraining and alignment update the same transformer weights, and we ask in which directions each stage changes them. The residual stream gives every matrix a shared coordinate system, in which a weight change can be compared with the principal subspace of the activations the matrix reads and with the prediction subspace of the unembedding. In this frame, alignment updates to the query and key matrices are enriched in the principal input subspace, while its updates to the output matrices are close to random relative to the prediction subspace, and the same signature appears in late pretraining and under every objective we apply to one checkpoint, so it is a property of the training stage rather than of the objective. The gradient of a linear map is a sum of outer products $δ_t a_t^\\top$, and the residual stream enters this product through the activation $a_t$ for matrices that read from it and through the upstream gradient $δ_t$ for matrices that write into it. Read gradients therefore inherit the spectrum of the activations, which is the same under every objective, while write gradients inherit the geometry of the upstream gradients, which point into the prediction subspace only early in pretraining, when the output matrices acquire their prediction geometry. The raw read gradient follows the activation spectrum, the optimiser attenuates the concentration it inherits, and cancellation between tokens sets the scale of the update but not its direction. A write direction derived from the unembedding still changes predictions after alignment, and adaptation restricted to any single group of matrices remains effective, so the signature describes where training places its updates, not which matrices can carry them.",
+    "query_hits": [
+      "main-advanced-B-streaming-submitted_date"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/abs/2605.16600",
+      "https://export.arxiv.org/api/query?id_list=2510.01767%2C2609.34026%2C2609.33795%2C2510.27434%2C2610.05900%2C2602.18020%2C2601.00913%2C2606.01950%2C2604.07279%2C2603.28064%2C2602.13444%2C2504.02321%2C2512.01675%2C2607.21242%2C2607.11183%2C2609.02847%2C2606.03825%2C2510.18714%2C2606.19609%2C2602.14635%2C2610.25113%2C2604.04673%2C2605.23889%2C2607.22483%2C2610.27712%2C2309.10333%2C2610.29959%2C2604.23862%2C2610.03228%2C2506.09856%2C2609.23377%2C2609.00570%2C2603.08588%2C2610.21835%2C2605.12655%2C2608.20084%2C2610.16515%2C2610.00010%2C2609.17419%2C2610.12265%2C2605.18346%2C2510.21767%2C2608.15334%2C2607.27982%2C2605.16679%2C2609.19899%2C2608.04565%2C2607.01804%2C2608.11579%2C2407.05302%2C2603.22016%2C2609.36485%2C2610.22686%2C2603.19813%2C2601.02629%2C2603.11171%2C2609.18635%2C2608.28665%2C2610.30448%2C2610.29123%2C2608.04527%2C2607.11653%2C2603.15213%2C2602.18801%2C2604.12563%2C2607.13429%2C2606.31689%2C2608.09804%2C2608.27562%2C2608.09802%2C2610.03230%2C2508.04189%2C2510.22105%2C2604.18215%2C2610.19115%2C2605.16600%2C2512.04974%2C2610.25459%2C2602.22724%2C2512.04600%2C2608.06745%2C2602.05843%2C2610.13020%2C2506.19846%2C2607.13884%2C2606.04874%2C2606.05158%2C2609.32732%2C2512.16074%2C2606.01621%2C2512.23864%2C2610.19683%2C2606.03385%2C2605.02960%2C2601.02462%2C2609.14087%2C2510.18239%2C2608.16498%2C2606.15796%2C2605.09410&max_results=100&start=0",
+      "https://arxiv.org/abs/2605.16600v2"
+    ],
+    "abstract_read": false,
+    "date_metadata_unverified": true,
+    "input_files": [
+      "main-advanced-candidates.json"
+    ],
+    "screen_index": 741,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于纯数学与通用算法理论；题名《The Geometry of Learning: Read-Write Asymmetry Across Training》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "version": 2,
+    "v1_utc": "2026-05-15T20:00:59Z",
+    "updated_utc": "2026-10-27T13:00:48Z",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "纯数学与通用算法理论",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2605.04971",
+    "title": "Why Geometric Continuity Emerges in Deep Neural Networks: Residual Connections and Rotational Symmetry Breaking",
+    "abstract": "Weight matrices in deep networks exhibit geometric continuity---principal singular vectors of adjacent layers point in similar directions. While this property has been widely observed, its origin remains unexplained. Through experiments on toy MLPs and small transformers, we identify two mechanisms: residual connections create cross-layer gradient coherence that aligns weight updates across layers, and symmetry-breaking nonlinearities constrain all layers to a shared coordinate frame, preventing the rotation drift that would otherwise destabilize weight structure. Crucially, a nonlinear but rotation-equivariant activation reaches less than half of ReLU's continuity, isolating symmetry breaking---not nonlinearity alone---as the active ingredient. Activation and normalization play distinct roles: activation concentrates continuity in the leading singular direction, while normalization distributes it across multiple directions. In transformers, continuity is projection-specific: Q, K, Gate, and Up (which read from the residual stream) develop input-space ($\\mathbf{v}_1$) continuity; O and Down (which write to it) develop output-space ($\\mathbf{u}_1$) continuity; V alone, lacking an adjacent nonlinearity, develops only low continuity.",
+    "query_hits": [
+      "main-advanced-B-streaming-submitted_date"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/abs/2605.04971",
+      "https://export.arxiv.org/api/query?id_list=2607.15198%2C2606.02780%2C2605.03953%2C2610.30089%2C2609.35744%2C2607.22433%2C2610.04906%2C2608.19842%2C2606.20627%2C2605.29483%2C2608.08730%2C2605.29864%2C2605.04971%2C2610.28402%2C2605.24218%2C2605.05549%2C2610.24016%2C2609.05834%2C2610.26931%2C2608.09761%2C2603.16063%2C2606.12019%2C2607.03863%2C2606.29718%2C2609.09860%2C2606.11949%2C2605.22488%2C2610.23334%2C2610.29458%2C2610.27039%2C2606.31179%2C2606.05405%2C2608.24127%2C2606.18048%2C2602.13086%2C1403.7645%2C2605.27138%2C2609.35501%2C2608.05776%2C2604.08362%2C2606.20952%2C2605.18859%2C2505.17152%2C2610.29176%2C2610.15910%2C2610.26179%2C2608.29967%2C2604.16615%2C2604.16657%2C2609.18784%2C2602.01331%2C2609.31868%2C2601.14895%2C2610.29169%2C2606.18778%2C2610.10429%2C2603.16313%2C2510.24410%2C2610.05414%2C2610.25898%2C2607.19913%2C2603.18987%2C2606.22039%2C2607.07128%2C2610.20959%2C2603.25903%2C2610.29720%2C2610.29014%2C2602.16429%2C2606.06473%2C2609.22486%2C2608.16156%2C2604.07993%2C2608.19893%2C2608.28886%2C2509.17401%2C2512.01492%2C2607.22140%2C2609.40003%2C2609.21426%2C2606.12844%2C2610.22008%2C2610.05891%2C2512.02631%2C2602.17700%2C2610.25959%2C2609.20191%2C2606.08666%2C2610.00012%2C2610.29534%2C2503.07338%2C2609.33595%2C2603.29572%2C2610.26844%2C2609.36305%2C2608.23927%2C2606.07687%2C2606.08555%2C2510.19818%2C2609.15113&max_results=100&start=0",
+      "https://arxiv.org/abs/2605.04971v2"
+    ],
+    "abstract_read": false,
+    "date_metadata_unverified": true,
+    "input_files": [
+      "main-advanced-candidates.json"
+    ],
+    "screen_index": 775,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于纯数学与通用算法理论；题名《Why Geometric Continuity Emerges in Deep Neural Networks: Residual Connections and Rotational Symmetry Breaking》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "version": 2,
+    "v1_utc": "2026-05-06T14:27:18Z",
+    "updated_utc": "2026-10-26T05:03:38Z",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "纯数学与通用算法理论",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2606.18778",
+    "title": "Online Distributional Prediction via Latent Cluster Geometry Under Drift and Corruption",
+    "abstract": "Online learning in non-stationary streams is often formulated as tracking a point estimate, although many applications require predicting the full data-generating distribution. We study online distributional prediction under drift and bounded causal adversarial corruption. Candidate laws are represented by variable-size latent cluster configurations that induce predictive distributions. A Gibbs quasi-posterior over configurations yields an online predictor by posterior averaging and can be sampled using reversible-jump MCMC. The method uses no stream likelihood but specifies a kernel-mixture predictive family. We evaluate cumulative Wasserstein-1 regret against the time-varying true law and study periodic restart, sliding-window, and exponential-discounting memory against full history. The bounds separate PAC-Bayesian complexity, corruption-sensitive posterior perturbation, and drift through $A_T^{\\mathrm{OT}}=\\sum_{t=2}^T W_2^2(p_{t-1}^*,p_t^*)$. Under bounded support, latent quadratic growth, predictive-map regularity, and localized-comparator assumptions, restart has sublinear high-probability cumulative regret when $0\\le a<1$, $q,ζ,b<1$, $0\\leγ<β<1$, and $0<h<(1-a)/2$. Here $a,q,ζ,b$ control the polynomial growth of drift, predictive-family approximation error, off-order posterior mass, and oracle-order switch cost; $λ_s\\asymp s^{-β}$ and $H\\asymp T^h$. Corruptions satisfy the segment-local condition $Λ_{r,s}=O(s^γ)$, so a sublinear global budget alone is insufficient. The regime requires oracle-informed tuning, $\\varepsilon_T=o(1)$, and fixed confidence or $\\log(1/δ_0)=T^{o(1)}$. Sliding-window and discounted guarantees additionally require the stated localized-memory condition.",
+    "query_hits": [
+      "main-advanced-B-streaming-submitted_date"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=400&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/abs/2606.18778",
+      "https://export.arxiv.org/api/query?id_list=2607.15198%2C2606.02780%2C2605.03953%2C2610.30089%2C2609.35744%2C2607.22433%2C2610.04906%2C2608.19842%2C2606.20627%2C2605.29483%2C2608.08730%2C2605.29864%2C2605.04971%2C2610.28402%2C2605.24218%2C2605.05549%2C2610.24016%2C2609.05834%2C2610.26931%2C2608.09761%2C2603.16063%2C2606.12019%2C2607.03863%2C2606.29718%2C2609.09860%2C2606.11949%2C2605.22488%2C2610.23334%2C2610.29458%2C2610.27039%2C2606.31179%2C2606.05405%2C2608.24127%2C2606.18048%2C2602.13086%2C1403.7645%2C2605.27138%2C2609.35501%2C2608.05776%2C2604.08362%2C2606.20952%2C2605.18859%2C2505.17152%2C2610.29176%2C2610.15910%2C2610.26179%2C2608.29967%2C2604.16615%2C2604.16657%2C2609.18784%2C2602.01331%2C2609.31868%2C2601.14895%2C2610.29169%2C2606.18778%2C2610.10429%2C2603.16313%2C2510.24410%2C2610.05414%2C2610.25898%2C2607.19913%2C2603.18987%2C2606.22039%2C2607.07128%2C2610.20959%2C2603.25903%2C2610.29720%2C2610.29014%2C2602.16429%2C2606.06473%2C2609.22486%2C2608.16156%2C2604.07993%2C2608.19893%2C2608.28886%2C2509.17401%2C2512.01492%2C2607.22140%2C2609.40003%2C2609.21426%2C2606.12844%2C2610.22008%2C2610.05891%2C2512.02631%2C2602.17700%2C2610.25959%2C2609.20191%2C2606.08666%2C2610.00012%2C2610.29534%2C2503.07338%2C2609.33595%2C2603.29572%2C2610.26844%2C2609.36305%2C2608.23927%2C2606.07687%2C2606.08555%2C2510.19818%2C2609.15113&max_results=100&start=0",
+      "https://arxiv.org/abs/2606.18778v2"
+    ],
+    "abstract_read": false,
+    "date_metadata_unverified": true,
+    "input_files": [
+      "main-advanced-candidates.json"
+    ],
+    "screen_index": 813,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于一般视觉、时序统计与系统工程；题名《Online Distributional Prediction via Latent Cluster Geometry Under Drift and Corruption》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "version": 2,
+    "v1_utc": "2026-06-17T07:41:41Z",
+    "updated_utc": "2026-10-23T13:30:50Z",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "一般视觉、时序统计与系统工程",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.05891",
+    "title": "Spatial Supervision Without Attribution Optimization: Improving Post-Hoc Class Activation Maps via Box-Guided Evidence Routing",
+    "abstract": "Post-hoc class activation maps (CAMs) are a standard tool for inspecting the evidence behind an image classifier's predictions, yet nothing in ordinary training encourages these maps to be spatially appropriate. We study whether inexpensive spatial supervision can improve a classifier's own predicted-class Grad-CAM without ever optimizing an attribution map. Box-Guided Evidence Routing (BGER) trains a lightweight gate on the final feature map under box or mask supervision and routes classification through the gated features, while Grad-CAM is computed separately at the pre-gate representation, so the evaluated map never enters the training objective. With a BCE routing loss, BGER raises MaxBoxAccV2 from $0.584$ to $0.715$ on CUB-200-2011 and from $0.757$ to $0.832$ on Stanford Dogs at comparable accuracy. Matched controls attribute most of the ResNet-50 gain to the spatial supervision reshaping the backbone rather than to routing itself: when classification bypasses the gate, most of the improvement remains, and detaching gradients through the gate leaves the ResNet-50 result nearly unchanged. The same detachment preserves most of the gain in two DenseNet-121 chest X-ray settings but removes the apparent gain on Swin-T, and directly supervising the CAM reaches stronger localization at a larger accuracy cost. Overall, spatial supervision can improve separately evaluated post-hoc CAMs, but both the mechanism and the size of the benefit depend on the architecture and the evaluation setting.",
+    "query_hits": [
+      "main-advanced-C-navigation-submitted_date"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22embodied+navigation%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=VLN&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22vision-language+navigation%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22active+mapping%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+mapping%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22open-vocabulary+mapping%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.05891",
+      "https://export.arxiv.org/api/query?id_list=2607.15198%2C2606.02780%2C2605.03953%2C2610.30089%2C2609.35744%2C2607.22433%2C2610.04906%2C2608.19842%2C2606.20627%2C2605.29483%2C2608.08730%2C2605.29864%2C2605.04971%2C2610.28402%2C2605.24218%2C2605.05549%2C2610.24016%2C2609.05834%2C2610.26931%2C2608.09761%2C2603.16063%2C2606.12019%2C2607.03863%2C2606.29718%2C2609.09860%2C2606.11949%2C2605.22488%2C2610.23334%2C2610.29458%2C2610.27039%2C2606.31179%2C2606.05405%2C2608.24127%2C2606.18048%2C2602.13086%2C1403.7645%2C2605.27138%2C2609.35501%2C2608.05776%2C2604.08362%2C2606.20952%2C2605.18859%2C2505.17152%2C2610.29176%2C2610.15910%2C2610.26179%2C2608.29967%2C2604.16615%2C2604.16657%2C2609.18784%2C2602.01331%2C2609.31868%2C2601.14895%2C2610.29169%2C2606.18778%2C2610.10429%2C2603.16313%2C2510.24410%2C2610.05414%2C2610.25898%2C2607.19913%2C2603.18987%2C2606.22039%2C2607.07128%2C2610.20959%2C2603.25903%2C2610.29720%2C2610.29014%2C2602.16429%2C2606.06473%2C2609.22486%2C2608.16156%2C2604.07993%2C2608.19893%2C2608.28886%2C2509.17401%2C2512.01492%2C2607.22140%2C2609.40003%2C2609.21426%2C2606.12844%2C2610.22008%2C2610.05891%2C2512.02631%2C2602.17700%2C2610.25959%2C2609.20191%2C2606.08666%2C2610.00012%2C2610.29534%2C2503.07338%2C2609.33595%2C2603.29572%2C2610.26844%2C2609.36305%2C2608.23927%2C2606.07687%2C2606.08555%2C2510.19818%2C2609.15113&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.05891v2"
+    ],
+    "abstract_read": false,
+    "date_metadata_unverified": true,
+    "input_files": [
+      "main-advanced-candidates.json"
+    ],
+    "screen_index": 839,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于语言模型、软件与非具身代理；题名《Spatial Supervision Without Attribution Optimization: Improving Post-Hoc Class Activation Maps via Box-Guided Evidence Routing》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "version": 2,
+    "v1_utc": "2026-10-05T07:07:25Z",
+    "updated_utc": "2026-10-28T05:03:20Z",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "语言模型、软件与非具身代理",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  },
+  {
+    "id": "2610.33715",
+    "title": "Quantum Closed Loop Inverse Kinematics Through Hilbert-Space Encoding of Robot Kinematics",
+    "abstract": "The integration of quantum computing into robotics requires mathematical representations that preserve the geometric structure and configuration dependence of robot motion. This paper introduces a structure-preserving quantum representation of rigid-body transformations and serial-manipulator kinematics, establishing a correspondence between classical kinematic models and parameterized quantum circuits. Building on the Bloch-sphere representation, spatial directions are encoded into single-qubit states, while quantum rotations reproduce the ordered composition of reference-frame transformations. Translational contributions are combined through quantum-state aggregation, with their metric scales retained classically, enabling the reconstruction of end-effector position and orientation from Pauli expectation values. The formulation preserves the original joint variables and accommodates different kinematic conventions and joint types. Beyond forward kinematics, we establish that the manipulator geometric Jacobian can be reconstructed from quantum-observable derivatives using the parameter-shift rule, with analytical equivalence to its classical counterpart under ideal readout. To demonstrate the applicability of this representation to robot-level algorithms, we introduce Quantum Closed Loop Inverse Kinematics, a hybrid closed-loop method that exploits quantum-derived pose and Jacobian information. The proposed framework provides a geometrically interpretable foundation for developing and investigating quantum and hybrid computational methods for robotic kinematics and motion.",
+    "queries": [
+      "extension-advanced-B-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22metric+scale%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22point+map%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22multi-view+stereo%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometric+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22camera+recovery%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22dense+geometry%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.33715",
+      "https://export.arxiv.org/api/query?id_list=2605.17912%2C2610.10270%2C2610.22340%2C2506.07450%2C2609.35032%2C2609.22798%2C2609.34826%2C2606.07974%2C2610.18826%2C2609.39135%2C2609.05588%2C2511.18991%2C2602.08032%2C2606.03371%2C2605.13775%2C2608.24885%2C2607.06988%2C2610.20731%2C2609.17210%2C2607.21620%2C2610.38879%2C2610.36881%2C2505.07687%2C2606.01734%2C2610.33669%2C2610.40648%2C2512.24036%2C2610.40066%2C2604.23018%2C2610.33715%2C2602.00414%2C2610.35817%2C2610.36146%2C2601.11460%2C2608.12290%2C2606.04689&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.33715v1"
+    ],
+    "abstract_read": false,
+    "input_files": [
+      "extension-advanced-candidates.json"
+    ],
+    "screen_index": 856,
+    "title_screened": true,
+    "disposition": "excluded",
+    "reason": "题名明确属于量子、凝聚态与粒子物理；题名《Quantum Closed Loop Inverse Kinematics Through Hilbert-Space Encoding of Robot Kinematics》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。",
+    "version": 1,
+    "v1_utc": "2026-10-24T15:02:09Z",
+    "updated_utc": "2026-10-24T15:02:09Z",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "量子、凝聚态与粒子物理",
+    "window_class": null,
+    "report_anchor": null,
+    "follow_up": null
+  }
+]

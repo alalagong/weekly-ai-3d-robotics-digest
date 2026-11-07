@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "validated_at": "2026-11-07T04:24:15.689312+00:00",
+  "browser": "Chrome extension, local read-only HTTP",
+  "counts": {
+    "all": 441,
+    "search_VGGT": 8,
+    "zero_result": 0,
+    "reset": 441,
+    "new": 246,
+    "revised": 121,
+    "historical_backfill": 64,
+    "historical_revision_backfill": 10,
+    "priority": 37,
+    "slam_vio_category": 14
+  },
+  "checks": {
+    "zero_result_message": true,
+    "reset_restores_all": true,
+    "hidden_anchor_opens_paper_and_category_resets_search": true,
+    "all_7_images_loaded": true,
+    "desktop_no_page_overflow": true,
+    "mobile_390_no_page_overflow_tables_scroll": true,
+    "category_counts_sum_441": true,
+    "console_errors": false
+  },
+  "nojs": "静态原生details/summary退化检查，未在禁JS浏览器实测",
+  "screenshot": "report-preview.png"
+}

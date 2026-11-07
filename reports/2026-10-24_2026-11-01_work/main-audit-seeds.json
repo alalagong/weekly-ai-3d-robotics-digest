@@ -1,0 +1,998 @@
+[
+  {
+    "id": "2610.10181",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "deep_read",
+        "evidence_level": "full_text",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-10181",
+        "window_class": "new",
+        "updated_utc": "2026-10-07T14:48:54Z",
+        "read_sections": [
+          "Introduction",
+          "Related Work",
+          "Problem Formulation",
+          "Method 4.1–4.5",
+          "Experiments 5.1–5.6",
+          "Conclusion",
+          "Appendix A.1/A.3/A.4/A.5"
+        ],
+        "follow_up": "训练2×RTX4090约3天；真实机器人D455经ROS2向桌面GPU传图。项目页Code/Datasets仍无有效下载链接；未训练、未运行。需核查跨访问配对失败与大范围变化时的漏检，论文未给独立专节limitations或完整轨迹ATE对比。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.12568",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v2",
+        "status": "deep_read",
+        "evidence_level": "full_text",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-12568",
+        "window_class": "new",
+        "updated_utc": "2026-10-14T06:53:15Z",
+        "read_sections": [
+          "Introduction",
+          "Related Work",
+          "Method 3.1–3.4",
+          "Experiments 4.1–4.5",
+          "Conclusion",
+          "Appendix A.2/A.3/A.5/A.7",
+          "v2主文段落与v1对账"
+        ],
+        "follow_up": "新benchmark为10条静态室内序列、71,536图、1.15km；参考位姿来自MIRAGE本身，并非独立测量真值。采集低速、人工剔除模糊；透明材质和动态场景未充分覆盖。代码入口项目页仍无有效GitHub链接；未运行。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.12624",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "deep_read",
+        "evidence_level": "full_text",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-12624",
+        "window_class": "new",
+        "updated_utc": "2026-10-08T18:44:59Z",
+        "read_sections": [
+          "Introduction",
+          "Related Work",
+          "Method 3.1–3.5",
+          "Experiment 4.1–4.5",
+          "Discussions",
+          "Conclusion",
+          "Appendix B.3/C/D/F"
+        ],
+        "follow_up": "体素0.3m，KITTI采样16,384点，nuScenes8,192；buffer20/10帧。附录指出非时序数据泛化仍待验证。IRMVLab/MemReg目前只有README、1commit，不能计源码深读；未训练、未运行。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.20226",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-20226",
+        "window_class": "new",
+        "updated_utc": "2026-10-14T14:09:42Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "核对按序列划分和自适应决策频率；未深读全文、未核源码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.05757",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-05757",
+        "window_class": "new",
+        "updated_utc": "2026-10-05T04:06:38Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "证据不足，先摘要跟踪；未深读全文，不能称已验证可靠性提升。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.05531",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "deep_read",
+        "evidence_level": "full_text",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-05531",
+        "window_class": "new",
+        "updated_utc": "2026-10-04T20:53:38Z",
+        "read_sections": [
+          "Introduction",
+          "Method",
+          "Experiments",
+          "Ablation/Analysis",
+          "Conclusion",
+          "Limitations",
+          "必要Appendix"
+        ],
+        "follow_up": "PRC零参数，scale分支.447M；24block、10view stride3小固定子集。PRC matched训练3H800约7日；MGA再4H800约3日/2epochs，不能与released baseline作纯架构归因。位姿噪声合成，depth/intrinsics保持GT；MGA无matched ablation/外部metric baseline，未测跨window一致性、闭环或临床；未运行。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.06594",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "deep_read",
+        "evidence_level": "full_text",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-06594",
+        "window_class": "new",
+        "updated_utc": "2026-10-05T16:07:04Z",
+        "read_sections": [
+          "Introduction",
+          "Method",
+          "Experiments",
+          "Ablation/Analysis",
+          "Conclusion",
+          "Limitations",
+          "必要Appendix"
+        ],
+        "follow_up": "固定VGGT检查点；fine B75/O30(KITTI)，coarse stride3 B35/O14、stride5 B25/O10，skip权重0.3，阈值0.7，W60，Cauchyδ2。依赖静态场景与回环可靠性，额外coarse推理增加约50%运行时；未运行。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      {
+        "version": "v2",
+        "status": "revision_tracking",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-18_2026-10-24_BlazeVGGT-HiP3R-CAOS.html",
+        "report_anchor": "paper-2610-06594",
+        "ledger_path": "reports/2026-10-18_2026-10-24_paper-ledger.json",
+        "window_class": "revised",
+        "v1_utc": "2026-10-05T16:07:04Z",
+        "updated_utc": "2026-10-22T13:58:33Z",
+        "read_sections": [
+          "Abstract",
+          "Official Submission history"
+        ],
+        "follow_up": "核全文原表、数据split、相机/内参/pose输入、hardware、runtime是否含全部阶段；确认代码和许可。先前报告仅覆盖旧版本时需保留版本链接并核修订差异。",
+        "reviewed_at": "2026-10-24T16:30:17.216750Z",
+        "source_urls": [
+          "https://arxiv.org/abs/2610.06594",
+          "https://arxiv.org/html/2610.06594",
+          "https://arxiv.org/pdf/2610.06594",
+          "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-16&date-to_date=2026-10-24&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=pointmap&terms-0-field=title&terms-1-operator=OR&terms-1-term=pointmap&terms-1-field=abstract&terms-2-operator=OR&terms-2-term=geometric+foundation&terms-2-field=title&terms-3-operator=OR&terms-3-term=geometric+foundation&terms-3-field=abstract&terms-4-operator=OR&terms-4-term=sparse-view&terms-4-field=title&terms-5-operator=OR&terms-5-term=sparse-view&terms-5-field=abstract",
+          "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=%22bundle+adjustment%22+OR+%22pose+graph%22+OR+%22relocalization%22+OR+%22relocalisation%22+OR+%22visual+odometry%22+OR+%22loop+closure%22+OR+%22scene+coordinate+regression%22&terms-0-field=title&terms-1-operator=OR&terms-1-term=%22bundle+adjustment%22+OR+%22pose+graph%22+OR+%22relocalization%22+OR+%22relocalisation%22+OR+%22visual+odometry%22+OR+%22loop+closure%22+OR+%22scene+coordinate+regression%22&terms-1-field=abstract&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-16&date-to_date=2026-10-24&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0",
+          "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=pointmap+OR+%22unposed+images%22+OR+%22geometric+foundation%22+OR+%22visual+geometry%22+OR+%22feed-forward+reconstruction%22+OR+%22sparse-view+reconstruction%22&terms-0-field=title&terms-1-operator=OR&terms-1-term=pointmap+OR+%22unposed+images%22+OR+%22geometric+foundation%22+OR+%22visual+geometry%22+OR+%22feed-forward+reconstruction%22+OR+%22sparse-view+reconstruction%22&terms-1-field=abstract&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-16&date-to_date=2026-10-24&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0"
+        ]
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.07883",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "deep_read",
+        "evidence_level": "full_text",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-07883",
+        "window_class": "new",
+        "updated_utc": "2026-10-06T07:29:54Z",
+        "read_sections": [
+          "Introduction",
+          "Method",
+          "Experiments",
+          "Ablation/Analysis",
+          "Conclusion",
+          "Limitations",
+          "必要Appendix"
+        ],
+        "follow_up": "core每族N5、共享reference两族需9次模型调用；附录cost表另用~10–11passes，9.09s/set vs Trust3R.919s/pair（约9.9×，protocol单位需警惕），2.91GB vs3.37GB/16GB GPU。内部只用预测valid点、最多8000对应，不用GT mask；校准跨域失效、stable bias漏检、wide-baseline ETH3D可能退化；未运行。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.09274",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-09274",
+        "window_class": "new",
+        "updated_utc": "2026-10-07T01:13:49Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.11612",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "deep_read",
+        "evidence_level": "full_text",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-11612",
+        "window_class": "new",
+        "updated_utc": "2026-10-08T09:54:56Z",
+        "read_sections": [
+          "Introduction",
+          "Methodology3.1–3.4",
+          "Experiments4.1–4.3",
+          "Conclusion"
+        ],
+        "follow_up": "需RGB与metric depth/内参，非RGB-only；indoor voxel .015m/corr .045m，outdoor .05/.15m；40BA迭代。消融TE recall@.05m65.6→73.4%；80迭代14.62s收益小。HTML没有单独Limitations或其声称的Appendix A/B正文，未假称读到；静态零样本评测，未运行。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.12727",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "deep_read",
+        "evidence_level": "full_text",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-12727",
+        "window_class": "new",
+        "updated_utc": "2026-10-08T21:09:21Z",
+        "read_sections": [
+          "Introduction",
+          "Method",
+          "Experiments",
+          "Ablation/Analysis",
+          "Conclusion",
+          "Limitations",
+          "必要Appendix"
+        ],
+        "follow_up": "8MI355X、16views/GPU、teacher额外训练前向；推理无teacher。accuracy inputs518×392、speed harness518×378，CD按bbox对角线归一化，不应当米。8–16view加速有限；固定backbone allocation不自适应输入，跨加速器性能未证，未运行。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.11049",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-11049",
+        "window_class": "new",
+        "updated_utc": "2026-10-08T01:01:46Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      {
+        "version": "v2",
+        "status": "revision_tracking",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-18_2026-10-24_BlazeVGGT-HiP3R-CAOS.html",
+        "report_anchor": "paper-2610-11049",
+        "ledger_path": "reports/2026-10-18_2026-10-24_paper-ledger.json",
+        "window_class": "revised",
+        "v1_utc": "2026-10-08T01:01:46Z",
+        "updated_utc": "2026-10-19T01:41:37Z",
+        "read_sections": [
+          "Abstract",
+          "Official Submission history"
+        ],
+        "follow_up": "核全文原表、数据split、相机/内参/pose输入、hardware、runtime是否含全部阶段；确认代码和许可。先前报告仅覆盖旧版本时需保留版本链接并核修订差异。",
+        "reviewed_at": "2026-10-24T16:30:17.216750Z",
+        "source_urls": [
+          "https://arxiv.org/abs/2610.11049",
+          "https://arxiv.org/html/2610.11049",
+          "https://arxiv.org/pdf/2610.11049"
+        ]
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.14866",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-14866",
+        "window_class": "new",
+        "updated_utc": "2026-10-10T12:35:57Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.16330",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "deep_read",
+        "evidence_level": "full_text",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-16330",
+        "window_class": "new",
+        "updated_utc": "2026-10-12T07:47:47Z",
+        "read_sections": [
+          "Abstract",
+          "1 Introduction",
+          "2 Related Works",
+          "3.1-3.3 Method",
+          "4.1-4.5 Experiments/Ablation",
+          "5 Conclusion",
+          "Appendix A",
+          "Appendix B.1-B.6",
+          "Appendix C.1-C.4"
+        ],
+        "follow_up": "ViT-L encoder24层1024维16头、递归decoder12层768维12头；额外维护每token方差。未运行代码/权重。未见独立Limitations节；需要检查首帧错误锚定、confidence标定、域外动态场景与门控超参。不能将经验长序列收益写成全指标领先或严格概率保证。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.15112",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "deep_read",
+        "evidence_level": "full_text",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-15112",
+        "window_class": "new",
+        "updated_utc": "2026-10-10T18:35:06Z",
+        "read_sections": [
+          "Abstract",
+          "1 Introduction",
+          "2 Related Work",
+          "3.1-3.5 Method",
+          "4.1-4.3 Experiments/Ablations",
+          "5 Conclusion"
+        ],
+        "follow_up": "正文未交代可复核的训练硬件、吞吐/峰值显存精确表；没有独立Appendix/Limitations。依赖rig标定与块级等待，不等同单目即时SLAM；需核查reset阈值、回退帧数、缓存上界、跨域校准与无回环协议。未运行源码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.16272",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "deep_read",
+        "evidence_level": "full_text",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-16272",
+        "window_class": "new",
+        "updated_utc": "2026-10-12T06:50:08Z",
+        "read_sections": [
+          "Abstract",
+          "1 Introduction",
+          "2.1-2.3 Related Work",
+          "3.1-3.4 Method",
+          "4.1-4.4 Experiments/Ablations",
+          "5 Conclusion/limitations",
+          "Appendix A.1-A.10"
+        ],
+        "follow_up": "几何结果对GLUEMAP关闭post-optimization；并非完整SfM系统胜负。附录跨视图AbsRel/MVS不是GT几何精度且各法保留pair不同。GV-Bench零样本pairwise MR LoRA15.79 < DG++25.75 / MegaLoc32.38，表明域外泛化不足。消融checkpoint训练步数不同，不能视为等算力比较。未运行代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      {
+        "version": "v2",
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-18_2026-10-24_BlazeVGGT-HiP3R-CAOS.html",
+        "report_anchor": "paper-2610-16272",
+        "ledger_path": "reports/2026-10-18_2026-10-24_paper-ledger.json",
+        "window_class": "historical_backfill",
+        "v1_utc": "2026-10-12T06:50:08Z",
+        "updated_utc": "2026-10-17T08:44:22Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "仅摘要，未复现；updated项未逐版全文diff；original_report如为无版本旧提及，不能据此断言当前版已覆盖",
+        "reviewed_at": "2026-10-24T16:30:17.216750Z",
+        "source_urls": [
+          "https://arxiv.org/abs/2610.16272",
+          "https://arxiv.org/html/2610.16272",
+          "https://arxiv.org/pdf/2610.16272",
+          "https://arxiv.org/search/advanced?advanced=&terms-0-operator=AND&terms-0-term=pointmap+OR+%22unposed+images%22+OR+%22geometric+foundation%22+OR+%22visual+geometry%22+OR+%22feed-forward+reconstruction%22+OR+%22sparse-view+reconstruction%22&terms-0-field=title&terms-1-operator=OR&terms-1-term=pointmap+OR+%22unposed+images%22+OR+%22geometric+foundation%22+OR+%22visual+geometry%22+OR+%22feed-forward+reconstruction%22+OR+%22sparse-view+reconstruction%22&terms-1-field=abstract&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-16&date-to_date=2026-10-24&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0"
+        ]
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.08978",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-08978",
+        "window_class": "new",
+        "updated_utc": "2026-10-06T18:40:13Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.09720",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-09720",
+        "window_class": "new",
+        "updated_utc": "2026-10-07T09:15:02Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.10960",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-10960",
+        "window_class": "new",
+        "updated_utc": "2026-10-07T22:26:35Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.14698",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-14698",
+        "window_class": "new",
+        "updated_utc": "2026-10-10T08:16:05Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      },
+      {
+        "version": "v2",
+        "status": "revision_tracking",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-18_2026-10-24_BlazeVGGT-HiP3R-CAOS.html",
+        "report_anchor": "paper-2610-14698",
+        "ledger_path": "reports/2026-10-18_2026-10-24_paper-ledger.json",
+        "window_class": "revised",
+        "v1_utc": "2026-10-10T08:16:05Z",
+        "updated_utc": "2026-10-20T09:25:44Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "仅摘要，未复现；updated项未逐版全文diff；original_report如为无版本旧提及，不能据此断言当前版已覆盖",
+        "reviewed_at": "2026-10-24T16:30:17.216750Z",
+        "source_urls": [
+          "https://arxiv.org/abs/2610.14698",
+          "https://arxiv.org/html/2610.14698",
+          "https://arxiv.org/pdf/2610.14698"
+        ]
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.20341",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-20341",
+        "window_class": "new",
+        "updated_utc": "2026-10-14T15:21:57Z",
+        "read_sections": [
+          "Abstract",
+          "Official Atom metadata"
+        ],
+        "follow_up": "摘要级，未深读全文；后续核对全文的协议、baseline、消融、硬件及局限。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.13177",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-13177",
+        "window_class": "new",
+        "updated_utc": "2026-10-09T08:04:45Z",
+        "read_sections": [
+          "Abstract",
+          "Official Atom metadata"
+        ],
+        "follow_up": "摘要级，未深读全文；后续核对全文的协议、baseline、消融、硬件及局限。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.09853",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-09853",
+        "window_class": "new",
+        "updated_utc": "2026-10-07T11:11:22Z",
+        "read_sections": [
+          "Abstract",
+          "Official Atom metadata"
+        ],
+        "follow_up": "摘要级，未深读全文；后续核对全文的协议、baseline、消融、硬件及局限。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.09518",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-09518",
+        "window_class": "new",
+        "updated_utc": "2026-10-07T06:15:39Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "摘要级，需核对不确定性标定、运动预算、观测次数与墙钟成本。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.07110",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-07110",
+        "window_class": "new",
+        "updated_utc": "2026-10-05T15:46:50Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；需核对VGGT变体、合成到真实月面泛化与最佳数字对应baseline。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.06965",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-06965",
+        "window_class": "new",
+        "updated_utc": "2026-10-03T17:52:59Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "摘要级，未深读全文；需查teacher泄漏控制、动作condition消融与实机任务数。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.11577",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-11577",
+        "window_class": "new",
+        "updated_utc": "2026-10-08T09:31:28Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；需查带宽/延迟/标定误差与uncertainty融合假设。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.17625",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-17625",
+        "window_class": "new",
+        "updated_utc": "2026-10-13T02:47:58Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "摘要级；需查cache几何误差、动态运动边界与实际机器人闭环用途。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.11161",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-11161",
+        "window_class": "new",
+        "updated_utc": "2026-10-08T03:20:48Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；需区分几何预测与闭环驾驶控制成绩。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2605.14315",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v2",
+        "status": "revision_tracking",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2605-14315",
+        "window_class": "revised",
+        "updated_utc": "2026-10-14T00:02:13Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2609.33253",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v2",
+        "status": "revision_tracking",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2609-33253",
+        "window_class": "revised",
+        "updated_utc": "2026-10-14T08:33:59Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2606.11326",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v3",
+        "status": "revision_tracking",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2606-11326",
+        "window_class": "revised",
+        "updated_utc": "2026-10-12T20:45:04Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.00970",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v2",
+        "status": "revision_tracking",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-00970",
+        "window_class": "revised",
+        "updated_utc": "2026-10-05T12:14:36Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2609.23961",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v3",
+        "status": "revision_tracking",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2609-23961",
+        "window_class": "revised",
+        "updated_utc": "2026-10-14T09:29:26Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文；未运行。后续核原表、协议与代码。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2303.07308",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v3",
+        "status": "revision_tracking",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2303-07308",
+        "window_class": "revised",
+        "updated_utc": "2026-10-13T03:15:29Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "期内v3；当前摘要／版本核验，未比较新旧正文。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2606.26046",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v3",
+        "status": "revision_tracking",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2606-26046",
+        "window_class": "revised",
+        "updated_utc": "2026-10-15T01:10:32Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "期内v3，仅当前摘要／版本跟踪；与具身agent结果按ID合并。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  },
+  {
+    "id": "2610.04351",
+    "source": "reports/2026-10-18_SLAM-VGGT_论文完整性审计.md",
+    "processed_versions": [
+      {
+        "version": "v1",
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-04351",
+        "window_class": "historical_backfill",
+        "updated_utc": "2026-10-03T07:36:22Z",
+        "read_sections": [
+          "Abstract",
+          "Official Atom metadata"
+        ],
+        "follow_up": "摘要级，未深读全文；后续核对全文的协议、baseline、消融、硬件及局限。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    ],
+    "status": "already-covered-regression-seed",
+    "note": "Do not count same processed version as historical backfill. Fresh current-version searches handled separately."
+  }
+]

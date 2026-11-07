@@ -1,0 +1,3024 @@
+[
+  {
+    "id": "2610.40429",
+    "title": "Optimal Path Planning with Localization constraints",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.40401",
+    "title": "Continuous-Action World Models: Learning Cross-Embodiment Spatiotemporal Dynamics Priors",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.40271",
+    "title": "Gaussian Distillation of Flow Policies",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.40199",
+    "title": "Decision-Level Error Attribution and Depth-Aware Safety Evaluation of Monocular RGB Human Tracking for Autonomous Robot Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.40050",
+    "title": "Don't Risk It!: Trajectory-Conditioned Distributional Risk for LiDAR-Only Crowd Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.40026",
+    "title": "RoboSeed: Multidimensional Evaluation of Vision-Language-Action and World-Action Models: Capability, Resource Affordability, and Research Evidence",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.39816",
+    "title": "PASA-KV: Attacking Action-Facing Visual Routes in World Action Models",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.39708",
+    "title": "AFast Robot Localization Method Based on Monte Carlo Sampling",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.39560",
+    "title": "SimTO-Robust: Automated Design of Soft Grippers Robust to Grasp Pose and Object Geometry",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.39528",
+    "title": "PRIME W0: Physical Priors from World Models for Embodied Manipulation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.39446",
+    "title": "Ask to Evolve: A Unified Harness for Lifelong Embodied Navigation with Hybrid Action Space and Persistent Memory",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.39416",
+    "title": "Decoding Geometry, Not Tokens: Efficient VLMs for Robot Affordance and Trajectory Prediction",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.39287",
+    "title": "OpenFlyV2: An onboard vision-language-action model for aerial perception and navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.39267",
+    "title": "RAIBO-Wagon: Real-Time Navigation System for a Legged Robot Towing a Wagon",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.39005",
+    "title": "Self-Supervised Doppler-Guided RF Odometry",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.38731",
+    "title": "Value Function-Guided MPPI for Hierarchical Planning and Control in Off-Road Autonomous Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.38569",
+    "title": "A Multi-Layer Navigation System for Smart Wheelchairs with a Limited Input Interface",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.38443",
+    "title": "Skeleton-Guided Geometry-Aware Auto-Labeling for Robotic Grasping: From 4-DoF Learning to 6-DoF Execution",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.38318",
+    "title": "What Should a Navigator Remember? Spatiotemporal Memory for Zero-Shot Vision-Language Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.38248",
+    "title": "MATCH: Execution-Aware Hierarchical Reinforcement Learning for Vision-and-Language Navigation in Continuous Environment",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.38141",
+    "title": "SKiD-SLAM: Resource-Aware Distributed Multi-Robot LiDAR SLAM for Planetary Missions with Field Deployments at Analog Sites",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.38080",
+    "title": "Efficacy of Monocular Depth Estimation in Lunar Environments",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.37929",
+    "title": "3D Occupancy-Language Fields from mmWave Radar",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.37891",
+    "title": "When More Planning Hurts: Learned Planners for World Models",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.40473",
+    "title": "Fundamental Limits of Sampling-Based Reachability: Geometry and Flow Distortion",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/eess.SY/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "eess.SY"
+    ]
+  },
+  {
+    "id": "2610.39691",
+    "title": "Smartphone Indoor Localization Enhanced by Hierarchical Multi-Sensor Context Recognition",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.39283",
+    "title": "PriorMaskMap: Robust Online Vectorized Map Construction with Biased Priors",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.39232",
+    "title": "Seeing and Imagining as One: Unified Video Generation and 4D Perception for Embodied World Modeling",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.38047",
+    "title": "Forward-Backward Map Matching for Airborne Magnetic Anomaly Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.37818",
+    "title": "GOFish: Full Field-of-View Gaussian Splatting and Mesh Extraction",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.37602",
+    "title": "RESPLE2: Inertial-Informed Recursive Non-Uniform Spline Estimation for Multi-Sensor Odometry with Global Refinement",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.37543",
+    "title": "Rendering-Free Event Frame Simulation for Fast Reinforcement Learning of Autonomous Robot Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.37518",
+    "title": "World Dreamer v5-lite: A Multi-Robot World Action Model with One Dreamer",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.37403",
+    "title": "AuRaSim: A Ray-Tracing Based Automotive FMCW Radar Simulator for Dynamic Scenarios",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.37350",
+    "title": "Generalizable Target-Less Joint Intrinsic-Extrinsic Camera-LiDAR Calibration using Deep Pixel-Point Correspondences",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.37217",
+    "title": "KEPT: Conformal Keepouts Kept in Planning for Enclosed-Space Navigation in Degraded Sensing",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.37196",
+    "title": "How Much Can Best-of-N Help a World Action Model? Measuring Selectable Headroom and Realizing It in Closed Loop",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.37111",
+    "title": "RAVEN: A Unified Active SLAM System for Rapid Autonomous Visual Exploration with Aerial Robots under Localization Uncertainty",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.37091",
+    "title": "GAWM: A Compact Latent World-Action Model for Multi-Task Robot Manipulation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.36968",
+    "title": "Omni-IGN: Onboard Image-Goal Navigation for Drones with Omnidirectional Vision",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.36840",
+    "title": "Trace-WAM: Learning to Act via 3D Motion Prediction for World Action Models",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.36816",
+    "title": "Integrated Design and Reproducible Feasibility Analysis of a Four-Wheel Rover with Packet-Commanded Imaging, LiDAR Ranging, and Learning-Assisted Target Recognition",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.36791",
+    "title": "RynnWorld-Latent: A Cross-Embodiment World Model Conditioned on Universal Latent Actions",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.36726",
+    "title": "Learning Side-by-Side Navigation for Personal Mobility Vehicles from Human Drivers",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.36662",
+    "title": "SWIM: Learning What Matters from Behaviors for JEPA World Models",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.36598",
+    "title": "OpenJaws: An Open Hardware UMI Framework with Stereo Localization for Generalist Manipulation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.36507",
+    "title": "GRAFT: Geometry-Aware Residual Adaptation for Foundation Trackers",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.36454",
+    "title": "SVIn+: Multi-Modal Framework for Robust Underwater State Estimation using 3D Sonar, Visual-Inertial, Water-Pressure, and DVL",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.36312",
+    "title": "SG^2SLAM: Spatial Geometry-Informed 3D Gaussian Splatting SLAM for Monocular Outdoor Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.36285",
+    "title": "ASPEN: Adaptive Semantic Reasoning via Command Persistence Prediction for Efficient Navigation VLAs",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.36068",
+    "title": "Rollback: Experience Backtracking in World Models for Policy Improvement",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.36011",
+    "title": "E0.5: From Reconstructive to Future-Predictive 3D Foundations for Robotic World-Action Modeling",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.37219",
+    "title": "Vision-Language-Action or World-Action? Just Action Models",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.37127",
+    "title": "MCP-Net: Real-Time Coronary Perception Network and Topological Analysis for Robotic Guidewire Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.35877",
+    "title": "Calibrated for Which Policy? Conformal Uncertainty for Fixed World Models Under Intervention",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.35626",
+    "title": "Robot-Aligned 3D Gaussian Splatting for Precise Reaching with Wrist-Camera VLA Policies",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.35363",
+    "title": "Resilient Decentralized Radar-LiDAR-Inertial Odometry in Challenging Subterranean Environments",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.35342",
+    "title": "VisGeo-PipeTrack: A Visual Geometric Servo Control Framework with MPC-RCAPID Control for UAV-Based Dynamic Pipes Tracking",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.35231",
+    "title": "Thermal-Headroom Routing for Efficient Robot Perception in Extreme Heat",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.35172",
+    "title": "RetroNav: Scene-Grounded Retrospection and Retry for Self-Evolving Lifelong Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.34873",
+    "title": "Localization-Uncertainty-Aware UAV Swarm Search for GNSS-Denied Maritime Surveillance",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.34674",
+    "title": "Benchmarking Obstacle-Conditioned Safety in Household Robot Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34650",
+    "title": "Dream to Assist: Intent-Conditioned World Models for Shared Vehicle Control",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.34593",
+    "title": "What Does World Modeling Actually Improve in Robot Action Learning?",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.34583",
+    "title": "The German Tank Problem & Navigating by Scent",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.34393",
+    "title": "On Distributed Sensing and Adversarial Localization of Narrowband Acoustic Sources for Offshore Data Center Monitoring",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.34286",
+    "title": "ScheNav: Schematic-Guided Object Goal Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.34085",
+    "title": "Doppler-aided Position-Velocity Tracking of Hidden Objects using mmWave Radar",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34060",
+    "title": "Learning Interaction-Aware Path Corrections from Unlabeled Trajectories: A LiDAR-Based Sim-to-Real GNN Framework for Construction Robots",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.34054",
+    "title": "Extended LASMP: Language Aided Subset Sampling Based Motion Planner for Drone Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.34041",
+    "title": "T-ConSG: A LiDAR-Based Real-Time Temporal Construction Scene Graph for Dynamic and Evolving Environments",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.34040",
+    "title": "Cut a Wall, See a Wall: Identity Substitution in Occluded Point-Cloud Perception for Construction Robots",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.33807",
+    "title": "RoboWorM: Evaluating Movement Realism, Consistency and Acceleration Affects in Embodied Video World Models",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.33794",
+    "title": "One Scan is Enough: Demonstration-Free Adaptation for Language-Guided Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.33565",
+    "title": "WorldFailBench: Do World Models Understand Policy Failures?",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.33546",
+    "title": "MOON: Learning When to Forget and How to Move On in Vision-and-Language Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.33471",
+    "title": "SCET-CBF: Speed-Calibrated Soft Guidance for One-Step Dynamic Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.33271",
+    "title": "Neuromorphic Decision Dynamics for Deadlock-free Safe Navigation in Congested Environments",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.33174",
+    "title": "Bracketing Shows the Way: Adaptive Multi-Exposure Policy as Input for Robust Visual SLAM",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.35850",
+    "title": "OSWAM: An Effective World Action Model with One-Step Action Generation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.35636",
+    "title": "Adapt for Planning, Not just Prediction: Optimistic Test-Time World Model Adaptation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.35092",
+    "title": "Uncertainty Evaluation to Support Safety of the Intended Functionality Analysis for Determining the Applicability of Performance Targets Across Triggering Conditions in ML-Based LiDAR Object Detection",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.35044",
+    "title": "DriveUniTok: A Unified Multimodal Tokenizer for Driving World-Action Models",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34663",
+    "title": "Video World Models Need Predictable Latents",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34271",
+    "title": "Robust Single-Parameter Point Cloud Registration using Truncated Lp Functions",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.33158",
+    "title": "Gaussian Episodic Memory for Long-Term Spatiotemporal Reasoning",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.32961",
+    "title": "Robotic Optical Coherence Tomography-Guided Geometric Modeling of Soft Tissue: 3D Representations for Data-Driven Closed-Loop Shape Control",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.32742",
+    "title": "Adaptive World-Models for Anomaly Recognition (AWARE): A Framework for Robot Dynamics Prediction and Introspection",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.32645",
+    "title": "Monte Carlo-Based Indoor UAV Localization in Dynamic Environments Using Only Four Onboard Range Sensors",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.32633",
+    "title": "Natural-Language to Nav2: Operational Policies for Costmap-Based Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.32596",
+    "title": "OWLS: Open-world Language-conditioned Speed Fields for Zero-Shot Rover Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.32554",
+    "title": "HGWM: Hierarchical Graph-Guided World Model for Zero-Shot Object Navigation via Graph Matching",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.32143",
+    "title": "Geometry-Aware Reinforcement Learning for Close-Fitting Wearable Insertion",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.32102",
+    "title": "Coupling Execution Horizon and Sampling Depth in Flow-Matching VLA Policies",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.31920",
+    "title": "Input Bias Correction in Gaussian Process Regression",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.31762",
+    "title": "See What I Need, Dream What I Want: A Navigation Foundation Model on a Self-Constructed Representation Space",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.31835",
+    "title": "SAGE: A hybrid vision-language and geometry framework for work-zone pathway prediction under temporary traffic control",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.31716",
+    "title": "Does LeWorldModel Preserve Local Action Geometry?",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.31617",
+    "title": "DiffDreamer: Coupling World Models with Differentiable Simulation for Agile Quadrotor Control",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.31567",
+    "title": "Geometry-Dependent Properties of Physically Crosslinked PPy-PVA Hydrogels Enable Tunable Iontophoretic Drug Delivery",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.31476",
+    "title": "Point-Level Refinable Semantic Mapping for Spatial Understanding",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.31474",
+    "title": "Skeleton-Grounded Latent Action Model for Robot World Models",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.31432",
+    "title": "A Sparse Topometric Graph for Scalable Cross-Session Indoor Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.31384",
+    "title": "CoHelix: Event-Based Multi-Propeller Rotation-Rate Tracking with Shared Projective Geometry",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.31221",
+    "title": "Consistent Distributed Invariant EKF SLAM with Point and Object Features",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.31028",
+    "title": "Multimodal Progress-Residual Fusion for Anticipating Navigation Retreat in Robotic Flexible Endoscopy",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.30994",
+    "title": "TRACE: Traversability-aware Reactive Navigation via VLM-driven Adaptive Constraints Estimation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.30991",
+    "title": "UniFlowWAM: A Unified World-Action Model with Visual Semantics and 4D Geometry",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.30988",
+    "title": "In-Context Learning World Models for Robot Dual-Arm Manipulation of Soft Garment with Partial Observations",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.30839",
+    "title": "ProTrav: Probabilistic Traversability with Elevation Uncertainty Propagation for Risk-aware Off-road Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.30786",
+    "title": "EBV-CAN: Vision--Language Grounding for Contact-Aided Endoscope Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.30694",
+    "title": "Live Thread Reconstruction for Autonomous Manipulation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.30605",
+    "title": "PATH: Preference-Aware Traversability Estimation for Robotic Teleoperation in Off-Road Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.30589",
+    "title": "OASIS: Online Anchor-centric Scene Inference System for Open-Vocabulary Retrieval and Navigation in Dynamic Environments",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO"
+    ]
+  },
+  {
+    "id": "2610.30320",
+    "title": "Self-Distilling Future Video Representations for World Action Models",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.31194",
+    "title": "Inside-JEPA: From Prediction to Relational Grounding in Latent World Models",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.31149",
+    "title": "Navigating human-robot interaction challenges in private and residential aged care homes",
+    "source_urls": [
+      "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.40614",
+    "title": "L3G-World: Real-Time Infinite World Generation with Latent 3D Gaussian Memory",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.40607",
+    "title": "Fight World Model: Customizable Combat through Visual Interaction Proxies",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.40495",
+    "title": "LucidLyra: Feed-Forward Generative 3D Scene Reconstruction and Joint Understanding via Multi-Task Distillation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.40453",
+    "title": "PhysInsert: Physically Plausible Object Insertion with Geometric Priors and Bidirectional Object-Scene Interactions",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.40191",
+    "title": "Video Generation Meets Agent Harness: Agentic Video Generation, Agentic World Modeling and Recursive Self-Improvement",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.40166",
+    "title": "EventSeeColor: Learning to Reconstruct Color from Monochrome Events",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.40061",
+    "title": "Localizing Concepts in Visual Autoregressive Models",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.39868",
+    "title": "Parametric Gaussian Noise Mixer (PGNM): Unified Synthesis of Camera Noise and Film Grain",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.39848",
+    "title": "LiDAR-SHIELD: A Fully Dockerized Adversarial Robustness Assessment Framework for LiDAR-Based 3D Perception Models",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.39812",
+    "title": "GROME: GROunding Factorized MEmory into Video World Models",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.39721",
+    "title": "WorldProbe: When Video World Models Fall Apart under Long-Horizon Spatial Exploration",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.39715",
+    "title": "NIF: Normal-Intersection Fields for Geometrically Consistent Oriented Box Refinement",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.39649",
+    "title": "Look at Where You Think: Localization-Head Alignment for Fine-Grained Perception in Thinking VLMs",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.39585",
+    "title": "TactoHand: Learning Geometry-Based Dense Hand-Surface Interaction Fields from Video",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.39517",
+    "title": "FFAI: Flow Matching with Feedback Training and Adaptive Initialization for CT Reconstruction",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.39516",
+    "title": "Robust LIDAR Sensor-to-Sensor Domain Generalization via Accumulated-Point Scene Completion",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.39399",
+    "title": "ACD-GS: Asymmetric Curvature-aware Densification for 3D Gaussian Splatting",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.39356",
+    "title": "Semantic Mismapping in Generalized Category Discovery: Evaluation and Mitigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.39306",
+    "title": "CAD-WAM: Anticipating Geometry for Text-to-CAD Generation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.39201",
+    "title": "COGS: A Diagnostic Benchmark for Attribute-Aware Object-Level 3D Gaussian Splatting Perception",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.39161",
+    "title": "Joint Rigid Alignment and Morphable Reconstruction from Partial 3D Face Scans",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.39147",
+    "title": "Kinematic Causal Attribution: Black-Box Explanations of Motion versus Geometry for 4D Point-Cloud Video Models",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.38951",
+    "title": "GradSplat: Gradients Inside the Forward Pass for Feed-Forward 3D Gaussian Splatting",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.38830",
+    "title": "Beyond Region Memory: Local Point Tracking for Vocal Cord Localization in Video Laryngoscopy",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.38694",
+    "title": "Geometry Matters in Packed 3D Attention",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.38587",
+    "title": "RoSAMDepth: Robust Self-supervised Depth Estimation Leveraging Segment Anything Model",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.38518",
+    "title": "Self-Consistency Geometry Injection for Multi-view Consistent Image Generation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.38507",
+    "title": "UnMixMamba: Unmixing Guided State Space Subpixel Mapping of Crops from MODIS Time Series",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.38499",
+    "title": "Residual Motion Splatting for Continuous Space-Time Video Super-Resolution",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.38482",
+    "title": "Geometry-Aware Trajectory State Modeling for Few-Shot Action Recognition",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.38360",
+    "title": "SparseTokenGS: Gaussian-based Sparse-View CBCT Reconstruction via Reusable Token Pool",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.38358",
+    "title": "Volley3D: Unified 3D Full-Sequence Reconstruction from Monocular Broadcasts",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.38289",
+    "title": "PulmoWorld: An Asynchronous Multimodal Medical World Model for Longitudinal Pneumonia Dynamics",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.38278",
+    "title": "BudSplat: Feed-forward 3D Gaussian Splatting under a Rendering Budget",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.38007",
+    "title": "Frequency-Adaptive Gaussian Grids for Efficient Image Representation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.37965",
+    "title": "Meta-Initialization of Implicit Neural Representations to Accelerate Deformable Medical Image Registration",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2606.15768",
+    "title": "LaWAM: Latent World Action Models for Efficient Dynamics-Aware Robot Policies",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.37668",
+    "title": "Honeycomb-Surfels: Compact Hexagonal Primitives for Efficient Scene Rendering and Reconstruction",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.37545",
+    "title": "GroundControl: Satellite-Conditioned Multi-View Diffusion for Reconstruction-Free Novel View Synthesis",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.37406",
+    "title": "CTBakeGS: training-free baking of photorealistic CT volume renderings into 3D Gaussian splats",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.37326",
+    "title": "ScIntBench: Physical Interaction Plausibility in 3D Scene Generation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.37314",
+    "title": "A Lightweight Attention-Based CNN with Saliency-Map Interpretability for Skin Cancer Detection",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.37257",
+    "title": "GameVerse: A Minute-Scale Gameplay Dataset for Long-Horizon Interactive World Modeling",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.37202",
+    "title": "3D-SceneQ: Empowering 3D LLM With Query-Guided Adaptive Pruning and Multi-Modal Feature Enhancement",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.37149",
+    "title": "GCSR-OCC: Geometry Calibration and Semantic Routing for Open-Vocabulary Occupancy Prediction",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.37098",
+    "title": "SplatScout: Query-Driven Part-Level Referring Segmentation in Gaussian Scenes",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.37046",
+    "title": "Learning to Code the World: Harness Evolution for Compositional 3D Reconstruction",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.37036",
+    "title": "GraftRay: Physically Based Mesh Insertion into Gaussian Splatting Scenes via Path Tracing",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.37000",
+    "title": "GPA-VGGT: Geometry-Preserving Acceleration of VGGT",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.36876",
+    "title": "HoloRecon: Incremental Reconstruction of Long-Range Panoramas with Global Consistency",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.36853",
+    "title": "LingGS: Decoupling Feed-Forward Geometry Prediction from Camera Tracking for High-Fidelity Gaussian SLAM",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.36844",
+    "title": "AxisQ: Depth-Adaptive Channel--Frequency Quantization for Camouflaged Object Detection",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.36760",
+    "title": "GeoGSplat: Geometry-Grounded Non-Pixel-Aligned Gaussian Splatting",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.36658",
+    "title": "SAGE: Semantic-Augmented Geometric Experts for Point Cloud Registration",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.36610",
+    "title": "4D Reconstruction with Events & RGB",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.36462",
+    "title": "ClusterSplat: Semantic Cluster Selection for 3D Visual Grounding in Gaussian Splatting",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.36168",
+    "title": "PrinGS: Privacy Preservation in Gaussian Splatting",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.36150",
+    "title": "Any3R: Feedforward 3D Reconstruction from Any Camera Type",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.36022",
+    "title": "Learning and Reasoning with Geometry: How Generation Helps Spatial Understanding",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.37213",
+    "title": "Retrospective macromolecular pool fraction mapping from conventional clinical MRI: a physics-guided self-supervised deep learning framework",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.36672",
+    "title": "Learning Where to Trust: Reliability-Guided Expert Routing and Velocity Gating for 3D Deformable Registration",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.35806",
+    "title": "Does VGGT Know What It Does Not Know?",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.35756",
+    "title": "VidEdit3D: Flexible 3D Gaussian Editing with Video Diffusion",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.35637",
+    "title": "SeeRF: Learning to See Beyond Fields of View via Generative Image Registration and Fusion",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.35621",
+    "title": "Synthetic Deformable Tubular Benchmark: A mechanically annotated dataset for evaluating deformable 3D reconstruction",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.35554",
+    "title": "Metric Scale for Insta360 Structure-from-Motion from the Camera's Embedded IMU",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.35522",
+    "title": "Generative Structure from Motion with Native 3D Diffusion",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.35516",
+    "title": "Learning High-Quality Pseudo-Labels for Point-Supervised Temporal Action Localization",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.35501",
+    "title": "Learning Scene Coordinate Reconstruction from Unposed Images via Pose Graph Optimization",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.35374",
+    "title": "GIFT: Representation Geometry Matters for Single-Domain Generalized Object Detection",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.35361",
+    "title": "SG-Splat: Stable Geometry Learning under Pose Uncertainty for Pose-Free 3D Gaussian Splatting",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.35347",
+    "title": "CVTSplat: Multi-view Reconstruction Using an Adaptive Centroidal Voronoi Tessellation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.35312",
+    "title": "OVM-Occ: Open-Vocabulary Monocular Occupancy Prediction via Geometry-Aware Vision-Language Distillation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.35152",
+    "title": "Complexity-guided Regularization for Generalizable Human Gaussian Splatting",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.35066",
+    "title": "MemVLN: Streaming Episodic Memory for Vision-Language Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.35038",
+    "title": "Revealing Imaging Characteristics of Thermal Wakes from Underwater Vehicles Without Cooling-Water Discharge",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.35018",
+    "title": "Zero-Shot Monocular Depth Estimation for Visual Perception in Lower-Limb Prostheses",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.35002",
+    "title": "DUET4D: Self-Corrective Coupled Guidance for Sparse-View 4D Reconstruction",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34952",
+    "title": "DimFlow: Bidirectional Grid-Expert Learning for Dynamic Gaussian Reconstruction",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34901",
+    "title": "LE-GDA: Layer Ensemble Gaussian Discriminant Analysis for Training-Free Few-Shot CLIP Adaptation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34897",
+    "title": "SGDB: Semantic-Geometric Decoupling and Evidence Binding for Logical Anomaly Detection",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34854",
+    "title": "Learning Dual-Camera Smooth Zoom via Decoupled Geometric-Photometric Data Synthesis",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34850",
+    "title": "Recovering Black-Box Point Cloud Models from Pose Shifts via Derivative-Free Optimization",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34845",
+    "title": "PosePlaner: Denoising Any Feed-Forward Pose Predictor from Pairwise Planar Geometry",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34819",
+    "title": "Selective Monocular Precession Estimation under Geometric and Evaluation Ambiguity: An Auditable Synthetic Study with ORBIT-SCOUT",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34632",
+    "title": "RIDE-Splat: Reflection Removal for In-the-Wild Driving Environments",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34618",
+    "title": "P2P-Former: Bridging the Supervision Gap Between Point and Proposal in Temporal Action Localization",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34600",
+    "title": "FlexiMIND: Combined Pretrained Vision Features and Local Structure for Training-Free Deformable Medical Image Registration",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34597",
+    "title": "Finetuning Prompt-Based Image Editor for Geometry-Consistent Room Defurnishing",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34564",
+    "title": "FlockWorld: Toward Population-Scale Multi-Agent Video World Models through Artificial Life Simulation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34346",
+    "title": "Spatially-Aware Self-Organizing Graph Autoencoders via Localized Hebbian Learning",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34344",
+    "title": "Birth-Death Structural Learning for 3D Gaussian Splatting",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34263",
+    "title": "RacerGS: Residual-Autoregressive Context for 3D Gaussian Splatting Compression",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34235",
+    "title": "ParetoGS: High-Quality Continuous-Budget 3D Gaussian Splatting with Sparse Adapted Anchors",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34233",
+    "title": "BoundedGS: Memory-Efficient High-Resolution Training for 3D Gaussian Splatting",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34218",
+    "title": "From Presence Labels to Bounding Boxes: Can Multimodal Large Language Models Scale Surgical Instrument Localization?",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34190",
+    "title": "GeoPrompt: Geometry-Conditioned Prompt Learning for Underwater Open-Vocabulary Instance Segmentation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34037",
+    "title": "What Sketches Tell Us about LVLMs: Conventions, Grounding, and Localisation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34033",
+    "title": "Fovea-JEPA: Overcoming Geometric Blind Spots in V-JEPA for Camera Motion Recognition",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34028",
+    "title": "Explaining Navigation Decisions: Stage-Aware Visual Attribution for Vision-Language Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.33988",
+    "title": "Hybrid Mamba-Transformer Network for Single-Shot 3D Reconstruction from Fringe Patterns",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.33941",
+    "title": "TurboWAM: Learning What Matters for Fast World Action Models",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.33894",
+    "title": "WMEval: Evaluating Interactive World Models Grounded on Physical Simulations",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.33868",
+    "title": "RelateGS: Reliable Semantic and Relational Evidence for 3D Scene Understanding with Gaussian Splatting",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.33755",
+    "title": "Computer Vision Navigation for an Autonomous Vehicle Model Using Reinforcement Learning",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.33704",
+    "title": "E3tereo: Improving Stereo Matching at Depth Boundaries with Learned Geometric Edges",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.33695",
+    "title": "Scalable Unrolled Chains for MRI Reconstruction",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.33661",
+    "title": "Tracking Is Not Sensing: Artifact-Aware Thermal Video Respiration Estimation in Head-Free Marmosets",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.33656",
+    "title": "FreeView: Robust 3D Reconstruction from Uncurated Views",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.33589",
+    "title": "Mix Forcing: Causal Pre-Training via Mixture Attention for Interactive World Models",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.33575",
+    "title": "CADonatello: Towards Real-World Multi-Part 3D CAD Reconstruction",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.33566",
+    "title": "Distilling Dense Trajectory Teachers For Large-Motion Video World Models",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.33504",
+    "title": "FreqPKC: Frequency-Aware PeakConv for Radar Semantic Segmentation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.33484",
+    "title": "Can One Hear Geometry? Gauge-Invariant Spectral Descriptors for Text-to-B-rep Retrieval",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.33356",
+    "title": "Tight Learned Event-Inertial Odometry (TLEIO): a Transformer-Based Architecture for End-to-End Motion from Event Streams",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.33169",
+    "title": "World-in-Context: Interactive Video World Modeling with In-Context Conditioning",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.33118",
+    "title": "The Paired Thermal Channel Is Two Orthogonal Axes: A Controlled Attribution Study of Calibration Cost and Detection Gain in Infrared Person Detection",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.33054",
+    "title": "Saga: an in silico ontology for a multimodal patient world model",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.35529",
+    "title": "WorldPager: Zero-Stall Tiered Memory for Long-Horizon World Models on a Single Consumer GPU",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.35224",
+    "title": "GaussianSpline: Adaptive Bézier Splines for Highly Dynamic 4D Gaussian Splatting",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.34904",
+    "title": "Accuracy and efficiency of compact foundation models for surface-water mapping during floods",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000",
+      "https://arxiv.org/list/eess.IV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV",
+      "eess.IV"
+    ]
+  },
+  {
+    "id": "2610.33127",
+    "title": "Beyond Visible Speakers: Context-Aware Active Speaker Detection with Speaker Registration",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000",
+      "https://arxiv.org/list/eess.IV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV",
+      "eess.IV"
+    ]
+  },
+  {
+    "id": "2610.32977",
+    "title": "UniAction: Unified Action Conditioning for World Models",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.32800",
+    "title": "CompMVR: Compression-Aware Multi-View Restoration Using Diffusion Models for Geometrically Consistent 3D Reconstruction",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.32792",
+    "title": "SREdit: Scene Response Guided Appearance Editing for Projection Mapping",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.32697",
+    "title": "SP-Guide: Enhancing Aerial Vision-Language Navigation with Spatial Priors",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.32663",
+    "title": "SemGeo-Gen: Unsupervised Generation of Approximate Cross-Instance Semantic-Geometric Correspondences",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.32381",
+    "title": "UniWorld: A Unified World Model for Real-Time Visual World Simulation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.32321",
+    "title": "DeformStruct: Deformable Structure Modeling for Point-Supervised Temporal Action Localization",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.32250",
+    "title": "Easy-3Dfy: Object-Level Geometric Composition for Single-Image 3D Scene Construction",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.32182",
+    "title": "Depth-Dependent Safety Geometry in Vision-Language Models: Layer-Wise Localization and Bidirectional Refusal Control",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.32174",
+    "title": "Real-Time Localisation of Dorsal Anatomical Regions on Dairy Cows in Commercial Rotary Parlours from RGB-D",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.32073",
+    "title": "Guided Zero-Shot Anomaly Explanation for Anonymized Crowd Video Monitoring: Context, Categorization, and Spatial Localization",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.31950",
+    "title": "LOCI: Localized Continuous Control for Multi-Subject Image Editing",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.31908",
+    "title": "PixGR: Pixel-Space Generative Decoding for Fast Feed-Forward 3D Reconstruction",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.31747",
+    "title": "AudioLift: Audio-Driven Single Image to Full-Head Gaussian Avatar via Multi-view Video Generation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.32816",
+    "title": "Sounding Surgical Instrument Localisation through Audio-Visual Correspondence",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.32177",
+    "title": "$Ψ$-0.6: Adaptive Streams of Thought in a Unified Vision-Language World Model",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.32039",
+    "title": "Rethinking Representation Geometry in Supervised Contrastive Learning under Long-Tailed Data",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.31892",
+    "title": "VisFlow: Interpretable Flow Matching for Visibility Reconstruction, Characterization, and Recognition",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.31645",
+    "title": "OmniRay: Camera-Agnostic Monocular 3D Reconstruction with Composite Ray Fields",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.31635",
+    "title": "HiP3R: Hierarchical Pose Graphs for Long-Horizon 3D Reconstruction",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.31623",
+    "title": "F2G-Pose: Geometry-Aware Foundation Feature Lifting for Direct RGB-D Category-Level Object Pose Estimation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.31321",
+    "title": "MVLoMa: Multi-View Local Feature Matching with Any Geometry Foundation Model",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.31320",
+    "title": "Stream4D: Streaming 4D Reconstruction with Training-free Motion Decoupling via Causal KV-Cache Attention",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.31293",
+    "title": "RecallGS: Geometry-Grounded Recall for Online Semantic Gaussian Splatting",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.31253",
+    "title": "Reinforcing intra-operative tumour localisation with weak supervision from pre-operative appearances",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.31186",
+    "title": "RaSFNet: Ray-aligned and Scan-aware Fusion Network for LiDAR Semantic Segmentation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.31140",
+    "title": "GM-GReFEL: Geometry-Guided Spatiotemporal State-Space Learning for Robust Dynamic Facial Expression Recognition",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.31123",
+    "title": "WildDepth-v2: A Synchronized RGB--LiDAR--Radar Dataset and Benchmark for Metric Depth, Motion, and Tracking of Wildlife",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.31108",
+    "title": "DRAFT: Decoding and Reconstructing 3D Room Layouts from fMRI and Camera Trajectories",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.30974",
+    "title": "GraphCAD: Geometry-Aware Diffusion on Edge-Adjacency Graphs for CAD Generation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.30944",
+    "title": "Attention-guided classification and tumor localization of combined hepatocellular-cholangiocarcinoma",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.30824",
+    "title": "Loop to Look Better: Learning Adaptive Depth for Question-Guided Perception in Vision-Language Models",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.30814",
+    "title": "DRILL: Training World Models to Improve Policies, Not Predict Pixels",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.30781",
+    "title": "DeXplicit: Making Physical State Explicit in Dexterous Manipulation World Models",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.30774",
+    "title": "Evaluation of Front-End Feature Matching for Lunar Visual SLAM",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.30724",
+    "title": "Learning from Next-Frame Prediction: Towards Unified and Scalable Visual World Modeling",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.30643",
+    "title": "Asking Less, Adapting Better: Feedback-Efficient Test-Time Adaptation for Vision-and-Language Navigation",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.30619",
+    "title": "GSHeadRelight: Fast Relightability for 3D Gaussian Head Synthesis",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.30609",
+    "title": "KinoUAV: A Benchmark for Safe and Stable UAV Vision-Language Navigation with Kinodynamic Modeling",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.30468",
+    "title": "SplatLab: Autonomous Scientific Discovery for 3DGS Research",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.30340",
+    "title": "Foundation4D: Towards a unified perception and reconstruction model for autonomous vehicles",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.30326",
+    "title": "R4DGS: Referring Segmentation in 4D Gaussian Splatting",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.30293",
+    "title": "EgoHand: Monocular 3D Hand Reconstruction from Egocentric Video",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2610.30910",
+    "title": "H-2DGS: Height-Field Gaussian Splatting for Sharp and Deformable Neurosurgical Surface Reconstruction",
+    "source_urls": [
+      "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000",
+      "https://arxiv.org/list/eess.IV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "cs.CV",
+      "eess.IV"
+    ]
+  },
+  {
+    "id": "2610.38953",
+    "title": "Guidance-Coupled Nullspace Drifting for One-Step Medical Image Reconstruction",
+    "source_urls": [
+      "https://arxiv.org/list/eess.IV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "eess.IV"
+    ]
+  },
+  {
+    "id": "2610.37740",
+    "title": "EUReCA: End-to-End Unified CBCT Reconstruction Across Clinical Acquisitions",
+    "source_urls": [
+      "https://arxiv.org/list/eess.IV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "eess.IV"
+    ]
+  },
+  {
+    "id": "2610.35902",
+    "title": "StereoSplat: Metric-Scale Novel View Synthesis via Stereo-Grounded Gaussian Splatting",
+    "source_urls": [
+      "https://arxiv.org/list/eess.IV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "eess.IV"
+    ]
+  },
+  {
+    "id": "2610.33256",
+    "title": "Fully-Automated Multi-Modal Registration of Timelapse Zebrafish OCT+LS Images",
+    "source_urls": [
+      "https://arxiv.org/list/eess.IV/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "eess.IV"
+    ]
+  },
+  {
+    "id": "2610.38350",
+    "title": "Semantic Anchor Communication System for Point Cloud Transmission in Internet of Vehicles",
+    "source_urls": [
+      "https://arxiv.org/list/eess.SY/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "eess.SY"
+    ]
+  },
+  {
+    "id": "2610.37926",
+    "title": "GARDEN: Generalist Autonomous Reward Design Through Evidence Navigation for Cooperative Multi-Agent Reinforcement Learning",
+    "source_urls": [
+      "https://arxiv.org/list/eess.SY/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "eess.SY"
+    ]
+  },
+  {
+    "id": "2610.36555",
+    "title": "Thermal-Mass Coupled Modeling and Optimal Scheduling of Aluminum Smelting Loads for Safe Demand Response Participation",
+    "source_urls": [
+      "https://arxiv.org/list/eess.SY/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "eess.SY"
+    ]
+  },
+  {
+    "id": "2610.34184",
+    "title": "Evaluating Wi-Fi HaLow for Next-Generation Capsule Endoscopy",
+    "source_urls": [
+      "https://arxiv.org/list/eess.SY/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "eess.SY"
+    ]
+  },
+  {
+    "id": "2610.33202",
+    "title": "Terra-Fi: Decoupling Sensing and Wireless Depths for Sustainable Deep Underground Monitoring",
+    "source_urls": [
+      "https://arxiv.org/list/eess.SY/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "eess.SY"
+    ]
+  },
+  {
+    "id": "2610.35813",
+    "title": "World Model for Energy Efficiency Maximization in Dynamic Metasurface Antennas",
+    "source_urls": [
+      "https://arxiv.org/list/eess.SY/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "eess.SY"
+    ]
+  },
+  {
+    "id": "2610.35569",
+    "title": "ADACT: PDE-Constrained Thermal Hardware/Software Co-Design Adjoint-Driven Optimal Control via Finite Difference Discretization",
+    "source_urls": [
+      "https://arxiv.org/list/eess.SY/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "eess.SY"
+    ]
+  },
+  {
+    "id": "2610.32010",
+    "title": "Scalable Reservoir Computing for Disturbance Localization and Identification in Power Grids",
+    "source_urls": [
+      "https://arxiv.org/list/eess.SY/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "eess.SY"
+    ]
+  },
+  {
+    "id": "2610.30683",
+    "title": "Behavioral Mapping of Hierarchical Dynamical Models Accelerates Bayesian Parameter Inference",
+    "source_urls": [
+      "https://arxiv.org/list/eess.SY/recent?skip=0&show=2000"
+    ],
+    "categories": [
+      "eess.SY"
+    ]
+  }
+]

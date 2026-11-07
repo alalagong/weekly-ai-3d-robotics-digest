@@ -1,0 +1,47 @@
+[
+  {
+    "id": "2605.23889",
+    "version": 2,
+    "figure_id": "S3.F3",
+    "caption": "Figure 3: Overview of HorizonStream. Given an RGB stream, the model causally processes the most recent WW frames. Gated Window Attention handles local matching, Geometric Linear Attention propagates long-range geometry with an O⁡(1)O(1) recurrent geometric state, and Metric Readout Tokens recover stable scale and pose. An optional loop-closure module refines the trajectory.",
+    "url": "https://arxiv.org/html/2605.23889v2/framework_v5.png",
+    "path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-2605.23889v2-overview.png",
+    "visually_verified": true,
+    "status": "downloaded",
+    "verification_tool": "functions.view_image",
+    "visual_description": "原图2035×872，视觉确认：RGB stream/local causal window、pose/MRT/image tokens，GWA与GLA交替，右侧pose/depth/optional LC，下面head/channel gates及persistent state。与Fig3 Overview caption一致。",
+    "width": 2035,
+    "height": 872,
+    "embed_allowed": true
+  },
+  {
+    "id": "2610.36150",
+    "version": 1,
+    "figure_id": "S2.F3",
+    "caption": "Figure 3: Overview. The ray field 𝑹\\bm{R} of each view gives its patches angular coordinates for the rotary encoding in intra-frame attention, and the heads predict the camera poses and a radial distance dd per pixel, decoded as 𝑿=d​𝑹\\bm{X}=d\\bm{R}. In training, the point loss ℒpt\\mathcal{L}_{\\mathrm{pt}} compares 𝑿\\bm{X} with the ground truth 𝑿gt\\bm{X}^{\\mathrm{gt}}, and the solid angle d​Ω\\mathrm{d}\\Omega of the same 𝑹\\bm{R} weighs the error of each pixel, shown here on the panorama, where cells of equal pixel count cover unequal areas of the sphere.",
+    "url": "https://arxiv.org/html/2610.36150v1/any3r_method.png",
+    "path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-2610.36150v1-overview.png",
+    "visually_verified": true,
+    "status": "downloaded",
+    "verification_tool": "functions.view_image",
+    "visual_description": "原图823×281，视觉确认：三类相机与ray sphere→角坐标→intra/inter-frame attention；camera/dense heads输出pose及X=dR；下支路solid-angle训练损失。与Fig3 Overview caption一致。",
+    "width": 823,
+    "height": 281,
+    "embed_allowed": true
+  },
+  {
+    "id": "2610.37000",
+    "version": 2,
+    "figure_id": "S4.F4",
+    "caption": "Figure 4: Overview of GPA-VGGT. Early blocks 00–88 replace global attention with frame attention augmented by a shared cross-frame K/V set containing special tokens and content-adaptive pooled image-token summaries. Later blocks 99–2323 preserve all queries and merge only K/V tokens, using a weaker merge ratio in the core blocks 1313–1616. (a) Pooled summaries are constructed by assigning patch tokens to stride-8 seeds according to cosine similarity and averaging the K/V tokens within each content-adaptive cluster; the summary size determines the +log⁡s+\\log s correction. (b) K/V matching is computed after a 128128-dimensional Gaussian projection, while all queries are retained for global attention.",
+    "url": "https://arxiv.org/html/2610.37000v2/GPA-VGGT_Figure.png",
+    "path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-2610.37000v2-overview.png",
+    "visually_verified": true,
+    "status": "downloaded",
+    "verification_tool": "functions.view_image",
+    "visual_description": "原图1680×889，视觉确认：上部DINOv2输入→0–8共享跨帧KV→9–23仅KV合并，13–16弱合并；下部(a)stride8内容聚类与log s，(b)128D投影与保留Q。与Fig4 Overview caption一致。",
+    "width": 1680,
+    "height": 889,
+    "embed_allowed": true
+  }
+]

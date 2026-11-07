@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/vQfg7UViM1PlZUf8C3juPJXb4Zw</id>
+  <title>arXiv Query: search_query=( (ti:"metric scale") OR (abs:"metric scale") OR (ti:"point map") OR (abs:"point map") OR (ti:"multi-view stereo") OR (abs:"multi-view stereo") OR (ti:"geometric memory") OR (abs:"geometric memory") OR (ti:"camera recovery") OR (abs:"camera recovery") OR (ti:"dense geometry") OR (abs:"dense geometry") ) AND submittedDate:"202610240817 TO 202611011459"&amp;id_list=&amp;start=0&amp;max_results=200</title>
+  <updated>2026-11-01T15:19:41Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(ti:%22metric+scale%22+OR+(abs:%22metric+scale%22+OR+(ti:%22point+map%22+OR+(abs:%22point+map%22+OR+(ti:%22multi-view+stereo%22+OR+(abs:%22multi-view+stereo%22+OR+(ti:%22geometric+memory%22+OR+(abs:%22geometric+memory%22+OR+(ti:%22camera+recovery%22+OR+(abs:%22camera+recovery%22+OR+(ti:%22dense+geometry%22+OR+abs:%22dense+geometry%22)))))))))))+AND+submittedDate:%22202610240817+TO+202611011459%22&amp;start=0&amp;max_results=200&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>200</opensearch:itemsPerPage>
+  <opensearch:totalResults>10</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2610.40648v1</id>
+    <title>Light-Cone Friedel Oscillations: a Window into van Hove Superconductivity</title>
+    <updated>2026-10-29T17:59:26Z</updated>
+    <link href="https://arxiv.org/abs/2610.40648v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.40648v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Van Hove (vH) singularities can enhance superconductivity by generating a large pairing susceptibility. Yet, it remains challenging to experimentally establish whether pairing really occurs near these points. We show that the saddle-point dispersion near a vH point gives rise to a `light-cone' vH-selective behavior of Friedel oscillations, which is drastically different from the familiar concentric circles. Each vH point maps onto its own real-space light-cone sector, allowing STM around a single impurity to measure whether---and how strongly---that saddle-point quasiparticle sector is gapped. A superconducting gap near vH points suppresses the oscillations in the directions corresponding to peaks in the gap function angular dependence, a behavior that provides a signature of vH-related pairing at STM-accessible length scales. This STM protocol, targeting vH superconductivity, is capable of determining whether superconducting pairing emerges near the vH points or elsewhere on the Fermi surface.</summary>
+    <category term="cond-mat.mes-hall" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-29T17:59:26Z</published>
+    <arxiv:primary_category term="cond-mat.mes-hall"/>
+    <author>
+      <name>Archisman Panigrahi</name>
+    </author>
+    <author>
+      <name>Vladislav Poliakov</name>
+    </author>
+    <author>
+      <name>Leonid Levitov</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.40066v1</id>
+    <title>Quantum Metric Scaling and Its Exceptions in Classical Flat Bands</title>
+    <updated>2026-10-29T13:49:36Z</updated>
+    <link href="https://arxiv.org/abs/2610.40066v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.40066v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The quantum metric length has been proposed as the localization length scale in one-dimensional flat bands. Here, we study this quantum metric scaling and the exceptions to it in a classical flat band formed by a locally resonant mass--spring system. We find that the localization length follows the quantum metric length near the flat band but departs from this proportionality at the exact flat-band frequency. Selective mass disorder also produces divergent localization lengths or arbitrarily short tails near the flat-band frequency without changing the clean metric. These exceptions show that disorder can select localization scales beyond those predicted by the quantum metric alone.</summary>
+    <category term="cond-mat.other" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-29T13:49:36Z</published>
+    <arxiv:comment>5 pages, 3 figures</arxiv:comment>
+    <arxiv:primary_category term="cond-mat.other"/>
+    <author>
+      <name>Kin Hung Fung</name>
+    </author>
+    <author>
+      <name>K. T. Law</name>
+    </author>
+    <author>
+      <name>C. T. Chan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.37216v1</id>
+    <title>Zhengrong-Spatial-Aware 1.0: Advancing 3D Multimodal Intelligence</title>
+    <updated>2026-10-27T13:28:34Z</updated>
+    <link href="https://arxiv.org/abs/2610.37216v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.37216v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This report presents the implementation and validation of two end-to-end multimodal adaptation pipelines for 3D-aware visual question answering on a custom spatial dataset. The first pipeline fine-tunes HiSpatial-3B, which augments RGB observations with metric-scale 3D point maps; the second adapts Qwen3-VL through memory-efficient QLoRA-based supervised fine-tuning. The completed engineering stack covers dataset conversion, image-annotation alignment, monocular geometry preprocessing, instruction construction, mixed-domain training, checkpoint management, batch inference, and automated evaluation. On the target spatial benchmark, HiSpatial adaptation increases overall accuracy from 1.73% before fine-tuning to 79.89% at 3,600 steps. On a separately collected styled split, accuracy improves from 14.9% to 55.1%, indicating transfer beyond the original training set. The Qwen3-VL pipeline is likewise implemented end-to-end for both 8B- and 32B-scale models using mixed-domain QLoRA adaptation. The resulting accuracy improves from 20.74% to 45.27% for Qwen3-VL-8B and from 30.79% to 47.60% for Qwen3-VL-32B. Together, these results establish two complementary and reproducible adaptation pipelines for geometry-aware and general-purpose multimodal spatial reasoning. These results establish a reproducible engineering foundation for subsequent work on metric 3D reasoning, spatial grounding, and domain-adapted multimodal systems, while also identifying training-data composition as a central factor in preserving general multimodal capability during specialization.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T13:28:34Z</published>
+    <arxiv:comment>6 pages, 3 figures, 4 tables. Technical report</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Yu Zhang</name>
+    </author>
+    <author>
+      <name>Xiaogang Wang</name>
+    </author>
+    <author>
+      <name>Yuhang Cheng</name>
+    </author>
+    <author>
+      <name>Jingrui Li</name>
+    </author>
+    <author>
+      <name>Wenbo Chen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.37000v2</id>
+    <title>GPA-VGGT: Geometry-Preserving Acceleration of VGGT</title>
+    <updated>2026-10-28T08:53:15Z</updated>
+    <link href="https://arxiv.org/abs/2610.37000v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.37000v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Feed-forward geometry models such as VGGT recover camera parameters, depth maps, and point maps from one to hundreds of views in a single forward pass, making them powerful backbones for multi-view 3D perception. However, VGGT's global attention is quadratic in the number of frames and dominates end-to-end runtime on long sequences, which has motivated a range of training-free efficiency methods such as token merging. These methods, however, come with a drop in accuracy that makes them hard to use in place of VGGT. We propose GPA-VGGT, a training-free acceleration method that replaces global attention in early blocks with frame attention augmented by a shared cross-frame K/V set. In the remaining blocks, we merge only keys and values while preserving all queries, restore the attention mass of the tokens each merged key represents, and randomly project the matching metric to 128 dimensions to reduce matching cost. Across diverse multi-view geometry tasks, GPA-VGGT provides training-free acceleration at speedups comparable to prior work while preserving the information required for precise geometric estimation, retaining over 99% of VGGT's pose accuracy under AUC@3.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T10:46:52Z</published>
+    <arxiv:comment>Accepted to WACV 2027. Project page: https://noheat61.github.io/GPA-VGGT/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Muyeol Sung</name>
+    </author>
+    <author>
+      <name>Jangwon Kim</name>
+    </author>
+    <author>
+      <name>Jongwoo Lim</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.36876v1</id>
+    <title>HoloRecon: Incremental Reconstruction of Long-Range Panoramas with Global Consistency</title>
+    <updated>2026-10-27T09:17:38Z</updated>
+    <link href="https://arxiv.org/abs/2610.36876v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.36876v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Long-sequence panoramic reconstruction requires detailed scene geometry and globally consistent camera poses across distant revisits. Panoramic SLAM and incremental SfM rely on feature correspondences, but repeated, similar structures and small partial overlap make reliable long-range connections difficult to establish, leaving accumulated drift unresolved. Feed-forward models offer detailed local geometry, but their high computational costs limit inference window size, necessitating additional constraints for global consistency. This motivates combining continuous feature-based tracking and sparse mapping with rapid, high-quality local reconstruction from feed-forward models to achieve accurate localization and globally consistent dense mapping over long sequences. We therefore propose a panoramic reconstruction framework that couples an ORB-based sparse panoramic mapping frontend with a fine-tuned feed-forward model. Our key insight is that predicted local geometry enables 3D verification of feature matches across distant revisits, yielding long-range camera constraints even between regions. We calibrate predicted depths with sparse landmarks and use verified connections to optimize the global pose graph, updating dense geometry with the corrected camera poses. We also introduce PanoRecon, a seven-scene benchmark with repetitive architecture, large and small loops, and reference camera poses and LiDAR geometry for evaluating global consistency. Our method achieves the lowest mean absolute trajectory error and high F-1 Score among the evaluated methods. Project Page:https://zhuoxiaoli.github.io/HoloRecon_page/</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T09:17:38Z</published>
+    <arxiv:comment>Project Page:https://zhuoxiaoli.github.io/HoloRecon_page/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Zhuoxiao Li</name>
+    </author>
+    <author>
+      <name>Xinyi Liu</name>
+    </author>
+    <author>
+      <name>Hongye Hou</name>
+    </author>
+    <author>
+      <name>Jing OU</name>
+    </author>
+    <author>
+      <name>Kang Du</name>
+    </author>
+    <author>
+      <name>Shuai Zhang</name>
+    </author>
+    <author>
+      <name>Dongli Wu</name>
+    </author>
+    <author>
+      <name>Taoyu Wu</name>
+    </author>
+    <author>
+      <name>Siyuan Feng</name>
+    </author>
+    <author>
+      <name>Xiaohui Zhu</name>
+    </author>
+    <author>
+      <name>Wufan Zhao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.36150v1</id>
+    <title>Any3R: Feedforward 3D Reconstruction from Any Camera Type</title>
+    <updated>2026-10-26T18:53:14Z</updated>
+    <link href="https://arxiv.org/abs/2610.36150v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.36150v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Geometry foundation models recover camera poses and dense geometry from a set of images with a feed-forward network, but they expect pinhole images. That assumption is inside the backbone too: the positional encoding and the training loss both bind an image position to a direction in space, and both depend on the lens. We condition both on the dense ray field, the unit direction through every pixel, which describes any central camera without a lens type, distortion coefficients or a bound on field of view. Angular coordinates give the rotary encoding the measured ray angle of each patch, evaluated per view, and solid-angle weighting scales the point loss by the area each pixel covers on the sphere, so neither the encoding nor the supervision depends on the lens. Any3R is therefore a feed-forward model that takes any central camera, and is robust to mixing many camera types per scene, with no retraining per lens. On a benchmark of thirteen central cameras across three datasets, where every method reconstructs with its own predicted camera poses, it is the most consistently accurate method. Any3R enables scalable 3D reconstruction from heterogeneous crowdsourced and archival imagery collections sourced across diverse camera types. Project page: https://jingong-chen.github.io/Any3R/</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T18:53:14Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Jingong Chen</name>
+    </author>
+    <author>
+      <name>Qingwen Zhang</name>
+    </author>
+    <author>
+      <name>Youming Deng</name>
+    </author>
+    <author>
+      <name>Chulwoo Pack</name>
+    </author>
+    <author>
+      <name>Olaf Wysocki</name>
+    </author>
+    <author>
+      <name>Boris Jutzi</name>
+    </author>
+    <author>
+      <name>Kwanghee Won</name>
+    </author>
+    <author>
+      <name>Kyle Gao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.35806v1</id>
+    <title>Does VGGT Know What It Does Not Know?</title>
+    <updated>2026-10-26T17:37:39Z</updated>
+    <link href="https://arxiv.org/abs/2610.35806v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.35806v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Feed-forward 3D reconstruction models such as VGGT regress cameras and geometry in a single forward pass, but they report no uncertainty for the camera poses they predict: an incorrect relative pose looks no different from a correct one. We ask whether the frozen model nonetheless knows when its pose is wrong. On HardMatch, a benchmark of 1,000 deliberately difficult image pairs on which VGGT fails on 35% of pairs, a linear probe on VGGT's frozen features predicts pose failure on held-out categories with ROC-AUC 93.5%, compared with 79.7% for VGGT's own point-map confidence and 77.7% for a classifier trained on all of VGGT's outputs. The probe catches failures VGGT is confident about, lets a downstream system abstain on the pairs it distrusts, and transfers without retraining to rotation failures on PhotoTourism and ScanNet-1500, beyond what co-visibility explains. This knowledge is absent from the per-image encoder: it is computed partway through the layers that fuse the two views, and the same holds for a second model, $π^3$. In essence, we find that VGGT knows more about its own failures than it reports.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T17:37:39Z</published>
+    <arxiv:comment>9 pages, 6 figures, 7 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Adityan Thirumani Srinivasan</name>
+    </author>
+    <author>
+      <name>David Nordström</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.35554v2</id>
+    <title>Metric Scale for Insta360 Structure-from-Motion from the Camera's Embedded IMU</title>
+    <updated>2026-10-27T08:47:21Z</updated>
+    <link href="https://arxiv.org/abs/2610.35554v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.35554v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Structure-from-motion (SfM) from the dual-fisheye video of a consumer 360-degree camera recovers geometry only up to a similarity transform; in the pipeline considered here, metric scale is obtained from smartphone ARKit or ARCore poses captured alongside the camera. This paper evaluates a self-contained alternative: the IMU embedded in the Insta360 X5 and X6, recorded at 1 kHz. The sensor is characterised (noise density, camera-IMU synchronisation, accelerometer scale factor, bias stability), the camera-IMU rotation and frame timing are estimated from the data, and the scale is recovered by a linear visual-inertial alignment over the SfM poses of a whole survey. The standard formulation, with gravity and accelerometer bias shared across the survey, overestimates the scale by 3.4% on average; estimating each contiguous segment independently and averaging removes the bias. On nine surveys with a co-mounted LiDAR scanner the inertial scale deviates from the LiDAR by 0.81% in mean absolute error, against 1.94% for the smartphone scale; on printed fiducial markers both agree within the 1% uncertainty of the target. On the reference trajectories of thirty sequences of a public benchmark, brought to scales of 1/40, 1 and 40, the estimator recovers the metric scale with a mean error of -0.07% and a standard deviation of 1.28%. On fifty production surveys where the smartphone is the only reference, the two scales agree to a standard deviation of 2.3%, the inertial scale being 0.3% lower on average; the difference is uncorrelated with run length, grows with the extent of the smartphone anchor, and cannot be attributed to either reference. An ablation over window construction and a comparison with monocular metric-depth networks complete the study.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T14:57:37Z</published>
+    <arxiv:comment>17 pages, 9 figures, 4 tables. Dataset: https://huggingface.co/datasets/OverTheReality/OverMaps360_50</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Davide Cuttini</name>
+    </author>
+    <author>
+      <name>Diego Di Tommaso</name>
+    </author>
+    <author>
+      <name>Alessio Antoniacomi</name>
+    </author>
+    <author>
+      <name>Luca Simonetti</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.35361v1</id>
+    <title>SG-Splat: Stable Geometry Learning under Pose Uncertainty for Pose-Free 3D Gaussian Splatting</title>
+    <updated>2026-10-26T12:50:21Z</updated>
+    <link href="https://arxiv.org/abs/2610.35361v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.35361v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>3D Gaussian Splatting (3DGS) has become a promising representation for real-time novel view synthesis and 3D scene reconstruction. For practical deployment, recent studies have explored pose-free feed-forward 3DGS, which reconstructs Gaussian representations directly from unposed input images. However, these methods remain sensitive to residual pose errors, which perturb canonical-space Gaussian transformation, introducing noisy supervision for geometry and attribute learning. To address this problem, we present SG-Splat, a pose-free feed-forward 3DGS framework that improves robustness to pose uncertainty and stabilizes the learning of Gaussian primitives. SG-Splat decouples geometry estimation and Gaussian attribute prediction into two dedicated branches, reducing error coupling between pose-sensitive geometry and Gaussian attributes. We further introduce a coarse-to-fine refinement pipeline, consisting of Flow-Guided Pose Refinement (FGPR) and Residual-Guided Geometry Correction (RGC), to improve geometric alignment before Gaussian attribute reconstruction. Specifically, FGPR refines camera poses with flow-based correlation features and differentiable bundle adjustment. RGC then corrects initial point maps using depth residuals derived from FGPR, producing more reliable Gaussian centers. To stabilize training, we introduce a dual-path strategy that mixes ground-truth and predicted poses for canonical transformation. It provides clean supervision for Gaussian attributes while improving geometry robustness to residual pose errors. Extensive experiments on DL3DV and RealEstate10K show that SG-Splat achieves state-of-the-art performance in both novel view synthesis and pose estimation.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T12:50:21Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Xiaohan Lu</name>
+    </author>
+    <author>
+      <name>Jiaqi Zhang</name>
+    </author>
+    <author>
+      <name>Weijia Jiang</name>
+    </author>
+    <author>
+      <name>Siwei Ma</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.33715v1</id>
+    <title>Quantum Closed Loop Inverse Kinematics Through Hilbert-Space Encoding of Robot Kinematics</title>
+    <updated>2026-10-24T15:02:09Z</updated>
+    <link href="https://arxiv.org/abs/2610.33715v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.33715v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The integration of quantum computing into robotics requires mathematical representations that preserve the geometric structure and configuration dependence of robot motion. This paper introduces a structure-preserving quantum representation of rigid-body transformations and serial-manipulator kinematics, establishing a correspondence between classical kinematic models and parameterized quantum circuits. Building on the Bloch-sphere representation, spatial directions are encoded into single-qubit states, while quantum rotations reproduce the ordered composition of reference-frame transformations. Translational contributions are combined through quantum-state aggregation, with their metric scales retained classically, enabling the reconstruction of end-effector position and orientation from Pauli expectation values. The formulation preserves the original joint variables and accommodates different kinematic conventions and joint types. Beyond forward kinematics, we establish that the manipulator geometric Jacobian can be reconstructed from quantum-observable derivatives using the parameter-shift rule, with analytical equivalence to its classical counterpart under ideal readout. To demonstrate the applicability of this representation to robot-level algorithms, we introduce Quantum Closed Loop Inverse Kinematics, a hybrid closed-loop method that exploits quantum-derived pose and Jacobian information. The proposed framework provides a geometrically interpretable foundation for developing and investigating quantum and hybrid computational methods for robotic kinematics and motion.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-24T15:02:09Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Andrea Morghen</name>
+    </author>
+    <author>
+      <name>Pierluigi Arpenti</name>
+    </author>
+    <author>
+      <name>Roberto Schiattarella</name>
+    </author>
+    <author>
+      <name>Giovanni Acampora</name>
+    </author>
+    <author>
+      <name>Bruno Siciliano</name>
+    </author>
+  </entry>
+</feed>

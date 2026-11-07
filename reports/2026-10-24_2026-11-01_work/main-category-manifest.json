@@ -1,0 +1,58 @@
+[
+  {
+    "family": "official-category-inventory",
+    "category": "cs.RO",
+    "url": "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000",
+    "field": "official announcement title inventory",
+    "date_predicate": "recent announcement dates; exact submission times verified separately",
+    "retrieved_at": "2026-11-01T15:06:50Z",
+    "exhausted": true,
+    "total": 485,
+    "returned": 485,
+    "skip": 0,
+    "pages_fetched": 1,
+    "raw_path": "reports\\2026-10-24_2026-11-01_work\\main-cs.RO-0.html"
+  },
+  {
+    "family": "official-category-inventory",
+    "category": "cs.CV",
+    "url": "https://arxiv.org/list/cs.CV/recent?skip=0&show=2000",
+    "field": "official announcement title inventory",
+    "date_predicate": "recent announcement dates; exact submission times verified separately",
+    "retrieved_at": "2026-11-01T15:06:50Z",
+    "exhausted": true,
+    "total": 926,
+    "returned": 926,
+    "skip": 0,
+    "pages_fetched": 1,
+    "raw_path": "reports\\2026-10-24_2026-11-01_work\\main-cs.CV-0.html"
+  },
+  {
+    "family": "official-category-inventory",
+    "category": "eess.IV",
+    "url": "https://arxiv.org/list/eess.IV/recent?skip=0&show=2000",
+    "field": "official announcement title inventory",
+    "date_predicate": "recent announcement dates; exact submission times verified separately",
+    "retrieved_at": "2026-11-01T15:07:09Z",
+    "exhausted": true,
+    "total": 64,
+    "returned": 64,
+    "skip": 0,
+    "pages_fetched": 1,
+    "raw_path": "reports\\2026-10-24_2026-11-01_work\\main-eess.IV-0.html"
+  },
+  {
+    "family": "official-category-inventory",
+    "category": "eess.SY",
+    "url": "https://arxiv.org/list/eess.SY/recent?skip=0&show=2000",
+    "field": "official announcement title inventory",
+    "date_predicate": "recent announcement dates; exact submission times verified separately",
+    "retrieved_at": "2026-11-01T15:07:14Z",
+    "exhausted": true,
+    "total": 231,
+    "returned": 231,
+    "skip": 0,
+    "pages_fetched": 1,
+    "raw_path": "reports\\2026-10-24_2026-11-01_work\\main-eess.SY-0.html"
+  }
+]

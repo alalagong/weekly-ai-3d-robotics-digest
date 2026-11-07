@@ -1,0 +1,647 @@
+[None] RESPLE2: Inertial-Informed Recursive Non-Uniform Spline Estimation for Multi-Sensor Odometry with Global Refinement
+
+[abstract1.1] We present RESPLE2, a recursive multi-sensor state estimation framework using non-uniform B-splines for 6-DoF motion representation. By exploiting the knot-clamping boundary property, we propose a theoretically grounded mechanism for exact control-point prediction directly informed by inertial kinematics along the trajectory, with knot placement adapted to motion and measurement availability. Within an iterated extended Kalman filter, we perform this prediction using a subset of inertial measurements. A subsequent reset step preserves trajectory consistency as the knots extend. The update step further incorporates heterogeneous sensor measurements at their native timestamps through continuous-time observation models, supporting flexible combinations of LiDARs, cameras, inertial measurement units, and leg kinematics. We further develop a lightweight global optimization module that directly refines non-uniform B-spline control points by incorporating loop-closure constraints derived from LiDAR-visual cues. We conduct extensive evaluations on public and experimental datasets across handheld, tracked, legged, and hybrid aerial-legged platforms, covering highly dynamic maneuvers with extreme accelerations. Compared with state-of-the-art multi-sensor odometry systems, RESPLE2 achieves competitive or superior estimation accuracy and robustness in the corresponding sensor configurations, particularly under aggressive motion, while maintaining real-time operation. We publicly release our code and experimental datasets at https://github.com/ASIG-X/RESPLE2 .
+
+[S1] I Introduction
+
+[S1.p1.1] Recent advances in high-performance sensing and actuation technologies have enabled mobile robots to operate in increasingly diverse and challenging environments. Emerging platforms, including legged and hybrid locomotion systems equipped with multimodal sensors [ 26 , 22 ] , have been developed for demanding applications spanning search and rescue, logistics, healthcare, entertainment, household assistance, in situ forestry, and environmental monitoring [ 25 , 18 , 35 , 3 , 41 ] .
+
+[S1.F1] Fig. 1: RESPLE2 enables multi-sensor odometry across diverse scenarios on ANYmal D (a, b) and Unitree Go2 (e) legged robots, a tracked vehicle (c), a hybrid legged quadcopter (d), and handheld platforms (f, g, h). The Boxi sensor payload [ 10 ] was deployed for the ANYmal D and tracked vehicle.
+
+[S1.p2.1] Accurate and robust six-degree-of-freedom (6-DoF) egomotion estimation is essential for high-performance autonomy in these emerging scenarios. Odometry systems using cameras and inertial measurement units (IMUs) are well established [ 33 ] . Light detection and ranging (LiDAR) sensors complement cameras by providing accurate, illumination-invariant geometric observations over long ranges and across a wide field of view (FoV), motivating configurations such as LiDAR-inertial odometry (LIO), LiDAR-visual-inertial odometry (LVIO), and LIO augmented with leg kinematics (LKIO) [ 45 , 20 , 2 , 31 ] . Fusing these complementary measurements mitigates modality-specific degradation, improves estimation accuracy and robustness, and enables more informative scene maps. Nevertheless, aggressive platform dynamics, unstructured environments, and limited onboard computational resources continue to challenge reliable egomotion estimation [ 10 , 30 ] . Beyond these operational challenges, most existing odometry systems remain sensor-specific and standalone, with limited extensibility to new modalities. Furthermore, they have been validated primarily on conventional aerial and wheeled platforms rather than on emerging embodiments deployed in demanding real-world mobile scenarios, such as highly dynamic (loco)motion and complex terrain interaction [ 22 , 48 ] .
+
+[S1.p3.1] Conventional multi-sensor estimation methods represent dynamic motion in discrete time and use recursive filtering or nonlinear sliding-window optimization, with motion states associated with specific timestamps at fixed frame rates. During online estimation, asynchronous sensor measurements are typically approximated, e.g., through temporal interpolation [ 33 , 29 ] . This paradigm often scales poorly as sensor rates and the number of sensors vary, particularly when changing sensors without synchronized triggering. Moreover, measurements from many exteroceptive sensors, such as LiDARs and rolling-shutter cameras, exhibit motion distortion during agile maneuvers and require explicit modeling or compensation for undistortion in state estimation. These design choices can compromise the spatiotemporal fidelity of raw observations and alter underlying noise characteristics, potentially degrading estimation accuracy and robustness while increasing both methodological and engineering complexity [ 17 , 45 ] .
+
+[S1.p4.1] Continuous-time motion representations decouple the number and temporal placement of estimates from observations, facilitating the integration of asynchronous multi-sensor readings at their native timestamps without complicating system design. Piecewise-linear models show promise for LiDAR-only odometry, e.g., Traj-LO [ 53 ] , due to simplicity and computational efficiency, but may inadequately capture nonlinear motion during rapid or aggressive maneuvers. A more advanced, well-studied approach uses exactly sparse temporal Gaussian processes (GPs), in which system dynamics are modeled as a Markovian LTV-SDE process, such as white-noise-on-acceleration (WNOA) or white-noise-on-jerk (WNOJ) [ 40 , 27 , 36 , 14 , 4 ] . B-splines, often cubic, represent 6 -DoF motion as piecewise polynomial functions, with each segment defined by a local set of control points blended according to a sequence of chosen scalar times called knots of typically uniform intervals [ 28 , 8 , 16 ] .
+
+[S1.p5.1] Most existing online continuous-time estimators solve maximum likelihood estimation (MLE) or maximum a posteriori (MAP) estimation problems in a sliding-window fashion [ 13 , 28 , 16 , 17 ] . Although these optimization-based methods generally achieve high accuracy and improve robustness to sensor degeneracy, their real-time deployment is challenging and often requires carefully designed solvers, which complicates the integration of additional sensor modalities.
+
+[S1.p6.1] Recursive Bayesian estimators, such as the extended Kalman filter (EKF), offer a methodologically lightweight alternative; however, they remain scarce and underexplored in continuous-time multi-sensor odometry systems and are restricted to a narrow, fixed set of sensor configurations. For example, CTE-MLO performs recursive estimation using a GP-based continuous-time representation for LiDAR-only odometry [ 36 ] . RESPLE is the first 6 -DoF B-spline-based recursive motion estimator, supporting both LiDAR-only and LiDAR-inertial odometry [ 8 ] . But its uniform knot spacing imposes a globally fixed temporal knot interval, where accurate control-point estimation requires knot intervals to be short enough for the polynomial to capture aggressive motions, yet long enough to include sufficient sensor measurements to constrain all degrees of freedom at each update, increasing susceptibility to geometric degeneracy. It is therefore theorized that well-chosen, non-uniform knots can bring both accuracy and computational benefits [ 39 , 16 ] . Despite preliminary efforts to develop non-uniform B-spline LVIO using sliding-window optimization [ 16 ] , the broader methodological and practical potential of this motion-adaptive representation remains underexplored.
+
+[S1.p7.1] More fundamentally, despite its growing adoption in practical systems, the theoretical formulation of B-spline-based odometry systems remains incomplete. Regardless of whether estimation uses filtering or sliding-window optimization, or whether knot spacing is uniform or non-uniform, B-spline control points do not lie on the motion trajectory in general. Consequently, existing theory has not established exact kinematic models for the states (i.e., the control points) analogous to those used in discrete-time or GP-based continuous-time approaches. As a result, new control points have not been predicted or initialized along the trajectory by directly integrating kinematic information, such as IMU measurements. Furthermore, no existing non-uniform B-spline-based odometry system natively supports loop closure for global refinement.
+
+[S1.p8.1] To address these methodological and engineering limitations, we present RESPLE2, a novel recursive Bayesian estimation framework that represents continuous-time 6-DoF motion using non-uniform B-splines within an iterated extended Kalman filter (IEKF). Unlike existing B-spline-based estimators, our framework introduces a inertial-informed process model to guarantee exact prediction of control points located on the motion trajectory. Moreover, RESPLE2 enables a versatile estimation framework supporting a configurable fusion of LiDAR, camera, IMU, and leg joint measurements. Extensive real-world validation spans generic mobile platforms and, particularly, emerging robotic embodiments. More specifically, our key contributions are summarized below.
+
+[S1.SSx1] Contributions
+
+[S1.I1.i1.p1.1] We propose the first recursive continuous-time estimator using non-uniform B-splines for multi-sensor odometry. Using the knot-clamping boundary property, the framework enables exact prediction of control points on the motion trajectory directly informed by inertial measurements and supports efficient and versatile multi-sensor fusion.
+
+[S1.I1.i2.p1.1] A lightweight optimization module is additionally developed for direct global refinement of non-uniform control points for correcting drifts at loop closures detected by LiDAR-visual cues, while preserving the local kinematic consistency of the continuous-time trajectory.
+
+[S1.I1.i3.p1.1] The framework enables diverse multi-sensor odometry systems, including LO, LIO, LVIO, LKIO, and LKVIO, within a unified design. We conduct extensive evaluations on legged, tracked vehicle, and hybrid legged-quadcopter platforms under challenging real-world conditions, including aggressive motion and exteroceptive degradation. Compared with state-of-the-art methods, RESPLE2 achieves comparable or superior odometry robustness and accuracy in real time and supports optional global refinement.
+
+[S1.I1.i4.p1.1] We publicly release the full system implementation and the experimental datasets.
+
+[S2] II Related Work
+
+[S2.SS1] II-A Multi-Sensor Odometry
+
+[S2.SS1.p1.1] Popular multi-sensor odometry systems remain predominantly based on discrete-time formulations, in which tightly coupled filtering-based or optimization-based estimators can fuse disparate sensor modalities more consistently and accurately than their loosely coupled counterparts [ 51 , 30 ] . The most closely related system, FAST-LIVO2 [ 52 ] , uses IMU strapdown integration within an error-state iterated Kalman filter (ESIKF) and VoxelMap for local map management [ 47 ] . The sequential updates adopt LiDAR point-to-plane residuals using planes extracted from the local map and photometric visual residuals computed by warping image patches stored in the map and efficiently retrieved through on-demand voxel raycasting. Point-LIO focuses on robust LIO under dynamic motion and IMU saturation, with point-wise updates for both inertial and LiDAR measurements [ 12 ] . For legged robots, kinematic information from joint encoders and contact sensing provides an additional measurement modality to complement inertial and exteroceptive sensors. Leg-KILO [ 31 ] fuses LiDAR, inertial, and leg joint measurements using an error-state Kalman filter (ESKF) for quadrupedal odometry, with point-wise updates for individual sensors as in Point-LIO [ 12 ] .
+
+[S2.SS1.p2.1] The proposed RESPLE2 adopts VoxelMap [ 47 ] for local map management and uses feature-based visual residuals. These design choices build on the state of the art and place less emphasis on variations in map representation while prioritizing estimation robustness and versatile multi-sensor designs, enabling LVIO, LKIO, and beyond.
+
+[S2.SS2] II-B Continuous-Time Motion Estimation
+
+[S2.SS2.p1.1] We refer readers to [ 39 , 14 ] for comprehensive surveys and comparisons of continuous-time motion estimation methods and their relative advantages in robotics. GP-based methods provide the most theoretically complete alternative, enabling constant-time interpolation of the mean and covariance between state variables and supporting online MAP estimation through sliding-window optimization. Following this strategy, systems fusing inertial measurements with individual modalities, including camera, LiDAR, radar, ultra-wideband, and GNSS, have been reported [ 14 , 6 , 27 , 39 ] . CTE-MLO [ 36 ] further combines the GP representation with an EKF for LiDAR-only odometry. Its filtering-based design makes it a GP-based counterpart to RESPLE2. However, to the best of our knowledge, no LVIO or LKVIO systems using the GP representation have been proposed.
+
+[S2.SS2.p2.1] Recent improvements in interpolation efficiency have promoted the use of B-splines in multi-sensor odometry [ 38 , 19 ] . As with other continuous-time methods, almost all B-spline-based systems perform MAP estimation by optimizing control points over one or more spline segments [ 39 ] . For example, CLINS, SLICT2, and CLIC [ 23 , 28 , 24 ] use sliding-window optimization to estimate uniform B-spline trajectories for LIO or LVIO. RESPLE [ 8 ] was the first to introduce recursive B-spline estimation using an IEKF, supporting LO and LIO within a unified design. This lightweight estimator achieves comparable or superior accuracy and greater robustness under dynamic motion than these optimization-based systems. Its LIO variant provides a direct baseline for assessing RESPLE2’s exact control-point prediction within a non-uniform B-spline framework.
+
+[S2.SS2.p3.1] For online non-uniform B-spline estimation, the knot can be placed by using the maximum magnitudes of IMU-measured angular velocity and acceleration as heuristic indicators of motion complexity, selecting shorter segments when these values are high [ 16 ] . As a non-uniform B-spline LVIO system, Coco-LIC [ 16 ] uses sliding-window MAP estimation and determines knot locations by subdividing a uniform knot distribution based on IMU excitation. Alternatively, the number and local distribution of visual keyframes can guide knot density selection [ 44 ] . A further methodological challenge is that the blending matrix needed for interpolation is no longer constant but depends on future knots to be determined in advance. This is problematic for Coco-LIC [ 16 ] as the approach must wait for future IMU measurements to determine knot placements, inducing optimization delays [ 34 ] . LIO-Mars [ 34 ] sets future knots according to an expected interval, correcting these knots when future LiDAR scans arrive.
+
+[S2.SS2.p4.1] For both uniform and non-uniform B-splines, no existing online estimation scheme enables exact initialization or prediction of new control points by directly integrating kinematic information, such as IMU measurements, along the motion trajectory. For example, RESPLE [ 8 ] uses a process model with a constant transition matrix to predict new control points by carrying forward the velocities at previous knots. SLICT2 [ 28 ] initializes new control points at the trajectory endpoint plus an offset obtained by integrating IMU measurements, causing the resulting B-spline to deviate from the predicted trajectory. Coco-LIC [ 16 ] adopts a simple scheme that copies the most recent control points. This theoretical limitation can compromise estimation performance under challenging conditions, such as aggressive dynamics, particularly with exteroceptive degradation. In comparison, RESPLE2 exploits the knot-clamping boundary property of non-uniform B-splines to ensure that the latest control point always lies on the trajectory, thereby providing a theoretical guarantee for exact control-point prediction using kinematic models informed by inertial measurements, with knot placement guided by both kinematic and exteroceptive cues. This enables significantly more accurate control-point prediction without estimation delays.
+
+[S2.SS2.p5.1] Furthermore, native support for loop closure and global refinement within B-spline estimation remains limited. For loop closure detection, BTC [ 46 ] uses a binary and triangle descriptor to encode global and local point-cloud structure for 3D place recognition. Its extension, iBTC [ 54 ] , incorporates visual information, outperforming geometry-based BTC and bag of visual words in LVIO systems while remaining efficient for online operation. CLINS [ 23 ] adopts a two-stage global correction scheme at loop closures for uniform B-splines in LIO: pose-graph optimization of discrete-time key-scan poses using loop-closure constraints, followed by control-point updates that align the continuous-time trajectory while preserving its local shape. RESPLE2 integrates iBTC [ 54 ] for loop closure detection in the LVIO setting and is the first to provide native global trajectory refinement by directly optimizing non-uniform B-spline control points.
+
+[S3] III Preliminaries
+
+[S3.SS1] III-A Notation Conventions
+
+[S3.SS1.p1.1] Throughout this paper, scalar values are written as lowercase letters, such as a . Vectors are denoted by bold lowercase letters, such as {\bm{a}} , and matrices by bold uppercase letters, such as {\mathbf{A}} . The d -dimensional zero vector and the d\times d zero and identity matrices are denoted by {\bm{0}}_{d\times 1} , {\mathbf{0}}_{d} , and {\mathbf{I}}_{d} , respectively. Specifically, continuous-time functions represented by B-splines are denoted by script letters, such as {{s}}(t) . {\textrm{diag}}(\cdot) assembles a (block-)diagonal matrix from its arguments. Operators \bullet and \otimes denote the Hamilton and Kronecker products, respectively. Rigid-body orientations are represented by unit quaternions on the manifold as {\bm{r}}\in\mathbb{S}^{3} , {{{Q}}}^{\llcorner}(\cdot) and {{{Q}}}^{\lrcorner}(\cdot) denote its left and right matrix expressions, and {{R}}(\cdot):\mathbb{S}^{3}\to\text{SO(}3\text{)} maps a quaternion {\bm{r}} to its corresponding rotation matrix {\mathbf{R}} [ 37 ] . {\bm{a}}_{\times} denotes the skew-symmetric cross-product matrix for vector {\bm{a}}\in\mathbb{R}^{3} . {\mathbf{R}}_{\texttt{L}}^{\texttt{I}} and {\bm{s}}_{\texttt{L}}^{\texttt{I}} denote the rotation matrix and translation vector from the LiDAR ( L ) to the IMU ( I ) frame, respectively. (\cdot)^{\texttt{W}} denotes a vector in the world frame, (\cdot)^{\texttt{V}} in the camera frame, and (\cdot)^{\texttt{B}} in the robot base frame.
+
+[S3.SS2] III-B Non-Uniform B-Spline Motion Representation
+
+[S3.SS2.p1.1] We represent the 6-DoF egomotion trajectory in continuous time with cubic B-splines of non-uniformly spaced knots, decoupled into a translational and a rotational component as
+
+[S3.E1] {{x}}(t)=[{{s}}(t)^{\top},{{r}}(t)^{\top}]^{\top}\in\mathbb{R}^{3}\times\mathbb{S}^{3}\subset\mathbb{R}^{7}\,, (1)
+
+[S3.SS2.p1.2] where {{s}}(t) and {{r}}(t) are the position and quaternion-valued orientation trajectories, respectively. The trajectory in ( 1 ) is defined over a sequence of n knots \{t_{i}\}_{i=1}^{n} with non-uniform intervals \tau_{i}=t_{i+1}-t_{i} , and is determined by translational control points \{{\bm{s}}_{i}\}_{i=1}^{n} and rotational control points \{{\bm{r}}_{i}\}_{i=1}^{n} .
+
+[S3.SS2.p2.1] Given a query time t\in[\,t_{n-1},t_{n}] , the position is obtained from the four local control points according to
+
+[S3.E2] {{s}}(t)=[{\bm{s}}_{n-3}\,,{\bm{s}}_{n-2}\,,{\bm{s}}_{n-1}\,,{\bm{s}}_{n}]\,{\bm{\Omega}}\,{\bm{u}}\,,\quad\text{where}\quad (2)
+
+[S3.Ex1] {\bm{\Omega}}=\Bigg[\begin{smallmatrix}m_{0,0}&-3m_{0,0}&3m_{0,0}&-m_{0,0}\\ 1-m_{0,0}-m_{2,0}&3m_{0,0}-m_{2,1}&-3m_{0,0}-m_{2,2}&m_{0,0}-m_{2,3}-m_{3,3}\\ m_{2,0}&m_{2,1}&m_{2,2}&m_{2,3}\\ 0&0&0&m_{3,3}\end{smallmatrix}\Bigg]
+
+[S3.SS2.p2.2] is the basis matrix for non-uniform cubic B-splines. The entries m_{i,j} depend on local knots \{t_{i}\}_{i=n-3}^{n+2} as detailed in [ 32 ] . Unlike the uniform case, the non-uniform cubic B-spline is locally determined here by six knots while retaining four control points. The vector {\bm{u}}=[\,1,u,u^{2},u^{3}]^{\top} collects the powers of the normalized time u=(t-t_{n-1})/\tau_{n-1}\in[\,0,1] .
+
+[S3.SS2.p3.1] The orientation B-spline has a cumulative expression [ 19 ]
+
+[S3.E3] {{r}}(t)={\bm{r}}_{n-4}\bullet\!\prod_{i=n-3}^{n}\!\mathrm{Exp}(\lambda_{i}\bm{\delta}_{i})\,,\,\text{with}\,\bm{\delta}_{i}=\mathrm{Log}({\bm{r}}_{i-1}^{-1}\bullet{\bm{r}}_{i}) (3)
+
+[S3.SS2.p3.2] being the increment of adjacent control points measured in the tangent space. Here, \mathrm{Exp}(\cdot):\mathbb{R}^{3}\to\mathbb{S}^{3} and \mathrm{Log}(\cdot):\mathbb{S}^{3}\to\mathbb{R}^{3} denote the exponential and logarithm maps at the identity unit quaternion [\,1,0,0,0\,]^{\top} [ 37 ] . \{\lambda_{i}\}_{i=n-3}^{n} are the cumulative basis functions computed by
+
+[S3.E4] [\,\lambda_{n-3},\lambda_{n-2},\lambda_{n-1},\lambda_{n}\,]^{\top}={\bm{\Phi}}\,{\bm{u}}\,, (4)
+
+[S3.SS2.p3.3] where {\bm{\Phi}} is the cumulative basis matrix [ 38 , 32 ]
+
+[S3.Ex2] {\bm{\Phi}}=\Bigg[\begin{smallmatrix}1&0&0&0\\ 1-m_{0,0}&3m_{0,0}&-3m_{0,0}&m_{0,0}\\ m_{2,0}&m_{2,1}&m_{2,2}&m_{2,3}+m_{3,3}\\ 0&0&0&m_{3,3}\end{smallmatrix}\Bigg]\,.
+
+[S3.SS3] III-C Kinematic Interpolations
+
+[S3.SS3.p1.1] We now present the temporal derivatives of the position and orientation B-splines {{s}}(t) and {{r}}(t) defined in ( 2 ) and ( 3 ), yielding the linear velocity, acceleration, and angular velocity used in the proposed continuous-time multi-sensor IEKF.
+
+[S3.SS3.SSS1] III-C 1 Positions
+
+[S3.SS3.SSS1.p1.2] Since {{s}}(t) is linear in the control points, its derivatives follow directly from those of {\bm{u}} :
+
+[S3.E5] \displaystyle{\mathring{{{s}}}}(t) \displaystyle=[{\bm{s}}_{n-3}\,,{\bm{s}}_{n-2}\,,{\bm{s}}_{n-1}\,,{\bm{s}}_{n}]\,{\bm{\Omega}}\,{\mathring{{\bm{u}}}}\,,{\quad\text{with}\quad} (5)
+
+[S3.SS3.SSS1.p1.3] {\mathring{(\cdot)}} denoting any of the zeroth- to second-order time derivatives of the underlying quantity, e.g., position {{s}}(t) , velocity \dot{{s}}(t) , and acceleration \ddot{{s}}(t) [ 21 ] .
+
+[S3.SS3.SSS2] III-C 2 Orientations
+
+[S3.SS3.SSS2.p1.2] The angular velocity {\bm{\omega}}(t) in the body frame satisfies \dot{{r}}(t)=\tfrac{1}{2}{{r}}(t)\bullet{\bm{\omega}}(t) . Differentiating {{r}}(t) in ( 3 ) directly scales quadratically with the spline order. Following [ 19 ] , we instead compute {\bm{\omega}}(t) recursively according to
+
+[S3.E6] \displaystyle{\bm{\omega}}_{1}(t) \displaystyle=2\dot{\lambda}_{n-2}\,\bm{\delta}_{n-2}\,, (6) \displaystyle{\bm{\omega}}_{2}(t) \displaystyle={\bm{e}}_{n-1}^{-1}\bullet{\bm{\omega}}_{1}(t)\bullet{\bm{e}}_{n-1}+2\dot{\lambda}_{n-1}\,\bm{\delta}_{n-1}\,, \displaystyle{\bm{\omega}}(t) \displaystyle={\bm{e}}_{n}^{-1}\bullet{\bm{\omega}}_{2}(t)\bullet{\bm{e}}_{n}+2\dot{\lambda}_{n}\,\bm{\delta}_{n}\,,
+
+[S3.SS3.SSS2.p1.3] with {\bm{e}}_{i}=\mathrm{Exp}(\lambda_{i}\bm{\delta}_{i}) and [\dot{\lambda}_{n-3},\dot{\lambda}_{n-2},\dot{\lambda}_{n-1},\dot{\lambda}_{n}]^{\top}={\bm{\Phi}}\,\dot{\bm{u}} .
+
+[S3.SS3.SSS2.p2.1] The Jacobians of these kinematics w.r.t. the control points are required to linearize sensor measurement models for recursive state estimation. For position, this Jacobian follows directly from the linear relation in ( 5 ). The Jacobians of {{r}}(t) and {\bm{\omega}}(t) w.r.t. the orientation-increment control points follow from the chain rule applied to ( 3 )–( 6 ), as derived in [ 8 ] .
+
+[S3.SS4] III-D Spline-State-Space Model for Recursive State Estimation
+
+[S3.SS4.p1.2] The spline state-space (TriS) model was originally developed for continuous-time estimation in Euclidean space using B-splines of uniform knot intervals [ 21 ] . Given a measurement {\bm{z}}_{k} at timestamp t_{k}\in[\,t_{n-1},t_{n}] , the B-spline within this time interval is determined by the following state comprising a set of recurrent control points (RCPs):
+
+[S3.Ex3] {\bm{x}}_{k}=[\,{\bm{s}}_{n-3}^{\top},{\bm{s}}_{n-2}^{\top},{\bm{s}}_{n-1}^{\top},{\bm{s}}_{n}^{\top}\,]^{\top}\in\mathbb{R}^{12}\,.
+
+[S3.SS4.p1.3] Here, k indexes the time steps within the TriS model, comprising the following process and measurement models
+
+[S3.E7] \displaystyle{\bm{x}}_{k+1} \displaystyle={\mathbf{A}}_{k}{\bm{x}}_{k}+{\bm{w}}_{k}\,, (7) \displaystyle{\bm{z}}_{k} \displaystyle=h({{s}}({\bm{x}}_{k};t_{k}))+{\bm{v}}_{k}\,.
+
+[S3.SS4.p1.4] {\mathbf{A}}_{k} governs linear RCP propagation, and {\bm{w}}_{k} denotes process noise. h({{s}}({\bm{x}}_{k};t_{k})) maps the sensor-relevant kinematic quantities interpolated at t_{k} following Section III-C to the measurement domain, corrupted by measurement noise {\bm{v}}_{k} . Continuous-time trajectory estimation then boils down to recursive estimation of the RCPs via an EKF [ 21 ] .
+
+[S3.SS4.p2.1] Building on this framework, the TriS model was extended in [ 8 ] for 6 -DoF continuous-time LiDAR odometry, where an iterated update step was proposed to handle point cloud association during the measurement update. The TriS model, however, has not yet been extended to non-uniform B-splines for multi-sensor continuous-time motion estimation. More importantly, the transition matrix {\mathbf{A}}_{k} in ( 7 ) typically propagates the RCPs by extrapolating motion from preceding knot intervals, without incorporating current kinematic information. Such propagation can yield inaccurate trajectory priors during rapid changes in motion, compromising data association particularly in perceptually degenerate scenes where weak observational constraints limit subsequent correction.
+
+[S4] IV System Overview
+
+[S4.F2] Fig. 2: System overview of the proposed RESPLE2 framework.
+
+[S4.p1.1] The proposed RESPLE2 framework is illustrated in Fig. 2 in a multi-sensor setting for dynamic egomotion estimation. The basic configuration comprises an IMU and a LiDAR, with optional camera and legged-kinematic measurements (joint positions and velocities). Incoming LiDAR scans are downsampled using voxel-grid filtering, while IMU samples are split by alternating assignment into two disjoint subsets for prediction and measurement update, respectively, over the current knot interval. When camera images are available, they are undistorted, and visual features are tracked across frames using a Kanade-Lucas-Tomasi (KLT) sparse optical-flow tracker [ 33 ] . When available, leg joint measurements are preprocessed using forward kinematics to obtain foot positions and velocities with respect to the robot base frame.
+
+[S4.p2.1] We introduce a generalized spline-state-space model for the non-uniform B-splines, where a new process model is proposed based on the knot-clamping condition that guarantees control point initialization directly informed by inertial measurements on the motion trajectory ( Section V ). Once the criteria for creating a new knot are met, we clamp a new knot to the spline endpoint and initialize its associated control point through exact RCP prediction using the IMU measurement subset ( Section VI-A ). The knot at the previous endpoint is then unclamped to accommodate incoming measurements, for which a reset step is first performed to correct RCPs over the finalized knot spacing together with their covariance ( Section VI-B ). Afterwards, IMU measurements assigned to the update and other sensor measurements falling within the current knot interval are buffered and fused through the iterated update ( Section VI-C ) via kinematic interpolation to construct residuals according to the modality-specific observation models ( Section V-C ). This includes establishing point-to-plane correspondences between LiDAR points and the local voxel map [ 47 ] . After convergence, the voxel map is updated with the undistorted LiDAR points, and new image features are initialized with depth from the co-registered LiDAR points.
+
+[S4.p3.1] The estimated control points from odometry are sent to the global refinement module that maintains the global spline trajectory and map. Loop closures are detected using iBTC [ 54 ] , after which global refinement is performed directly on the non-uniform B-spline control points to correct accumulated drift while preserving local kinematic consistency ( Section VII ).
+
+[S5] V Generalized Spline State-Space Modeling with Multi-Sensor Measurements
+
+[S5.SS1] V-A Generalized Spline-State-Space Model
+
+[S5.SS1.p1.2] In our IMU-centric multi-sensor setting, we parameterize the IMU body trajectory in the world frame using the non-uniform B-splines introduced in Section III-B . The TriS model is extended accordingly. For a spline with n control points, the TriS state at t_{k}\in[\,t_{n-1},t_{n}] is given by
+
+[S5.E8] {\bm{x}}_{k}=[\,{\bm{c}}_{n-3}^{\top}\,,{\bm{c}}_{n-2}^{\top}\,,{\bm{c}}_{n-1}^{\top}\,,{\bm{c}}_{n}^{\top}\,,{\bm{b}}_{\texttt{acc}}^{\top}\,,{\bm{b}}_{\texttt{gyro}}^{\top}\,]^{\top}\in\mathbb{R}^{30}\,, (8)
+
+[S5.SS1.p1.3] where {\bm{c}}_{i}=[{\bm{s}}_{i}^{\top},\bm{\delta}_{i}^{\top}]^{\top}\in\mathbb{R}^{6} comprises the position RCP {\bm{s}}_{i}\in\mathbb{R}^{3} and orientation RCP increment \bm{\delta}_{i}\in\mathbb{R}^{3} , with i\in\{n-3,\ldots,n\} . As in [ 8 ] , we adopt the tangent-space parameterization in ( 3 ) for the orientation RCPs to mitigate nonlinearity during state estimation. {\bm{b}}_{\texttt{acc}}\in\mathbb{R}^{3} and {\bm{b}}_{\texttt{gyro}}\in\mathbb{R}^{3} denote the accelerometer and gyroscope biases over t_{k}\in[\,t_{n-1},t_{n}] , respectively. In the proposed framework, we propagate RCPs by directly integrating IMU readings, thereby generalizing the TriS model to the following form
+
+[S5.E9] \displaystyle{\bm{x}}_{k+1} \displaystyle=f({\bm{x}}_{k},{\bm{u}}_{k},{\bm{w}}_{k})\,, (9) \displaystyle{\bm{z}}_{k} \displaystyle=h({{x}}({\bm{x}}_{k};t_{k}))+{\bm{v}}_{k}\,,
+
+[S5.SS1.p1.4] where f(\cdot) denotes the IMU-predicted transition function that will be derived in Section V-B , and {\bm{u}}_{k} denotes the IMU samples assigned to prediction. {\bm{w}}_{k} and {\bm{v}}_{k} are zero-mean process and measurement noise with covariance {\mathbf{Q}}_{k} and {\bm{\Sigma}}_{k} , respectively. In the remainder of this section, we formulate the process and measurement models within the generalized TriS framework, providing the basis for the recursive non-uniform B-spline estimator derived in the next section.
+
+[S5.SS2] V-B Process Model
+
+[S5.SS2.p1.1] To establish a process model for the RCPs that is directly informed by inertial measurements, we clamp each new knot at the non-uniform B-spline boundary [ 1 , 43 ] , ensuring that the associated control point lies on the motion trajectory and enabling its direct prediction through IMU integration.
+
+[S5.SS2.SSS1] V-B 1 Knot-Clamping Boundary Property
+
+[S5.SS2.SSS1.p1.2] To extend the current B-spline with n-1 control points and terminal knot t_{n-1} , we introduce a new boundary knot t_{n} with multiplicity three, i.e., t_{n}=t_{n+1}=t_{n+2} . Evaluating the position and velocity expressions in ( 2 ) and ( 5 ) at t_{n} (therefore u=1 ) yields
+
+[S5.E10] \mspace{-12mu}\begin{aligned} {{s}}(t_{n})&={\mathbf{S}}\,{\bm{\Omega}}\,{\bm{u}}={\bm{s}}_{n}\,,\\ \dot{{s}}(t_{n})&={\mathbf{S}}\,{\bm{\Omega}}\,\dot{\bm{u}}=3({\bm{s}}_{n}-{\bm{s}}_{n-1})/\tau_{n-1}\,,\\ \ddot{{s}}(t_{n})&={\mathbf{S}}\,{\bm{\Omega}}\,\ddot{\bm{u}}=6(\mu{\bm{s}}_{n-2}-(1+\mu){\bm{s}}_{n-1}+{\bm{s}}_{n})/\tau_{n-1}^{2}\,,\end{aligned}\mspace{-10mu} (10)
+
+[S5.SS2.SSS1.p1.3] with {\mathbf{S}}=[{\bm{s}}_{n-3}\,,{\bm{s}}_{n-2}\,,{\bm{s}}_{n-1}\,,{\bm{s}}_{n}] being the matrix of local control points and \mu a coefficient derived from knots. The orientation kinematics follow analogously:
+
+[S5.E11] \displaystyle{{r}}(t_{n}) \displaystyle={\bm{r}}_{n}{\quad\text{and}\quad}{\bm{\omega}}(t_{n})=6\,\bm{\delta}_{n}/\tau_{n-1}\,. (11)
+
+[S5.SS2.SSS1.p1.4] The full derivations of ( 10 ) and ( 11 ) are given in Appendix -A . Under this clamping property for non-uniform cubic B-splines, the 6 -DoF motion trajectory {{x}}(t) passes exactly through the new control points {\bm{s}}_{n} and {\bm{r}}_{n} at t_{n} , with translational and angular velocities proportional to the final position and orientation control point increments, respectively. As the spline extends, the clamped boundary advances to each new knot, ensuring that the latest control point always lies exactly at the trajectory endpoint. This property further enables control-point prediction by directly integrating IMU measurements along the trajectory, as described next.
+
+[S5.SS2.SSS2] V-B 2 Exact Inertial-Informed RCP Propagation
+
+[S5.SS2.SSS2.p1.1] Given the incoming IMU measurement subset \{{\bm{z}}_{i}^{\texttt{acc}},{\bm{z}}_{i}^{\texttt{gyro}}\}_{i=0}^{M-1} within [\,t_{n-1},t_{n}] , we propagate the position and orientation RCPs progressively, yielding the intermediate states {\bm{s}}_{n,j} and \bm{\delta}_{n,j} across substeps j . We start this procedure off by expressing the continuous-time inertial kinematics as
+
+[S5.E12] \begin{bmatrix}\dot{{\bm{s}}}\\ \dot{{\bm{v}}}\\ \dot{{\bm{r}}}\\ \dot{{\bm{b}}}_{\texttt{acc}}\\ \dot{{\bm{b}}}_{\texttt{gyro}}\end{bmatrix}=\begin{bmatrix}{\bm{v}}\\ {\mathbf{R}}({\bm{z}}_{\texttt{acc}}-{\bm{b}}_{\texttt{acc}}-{\bm{n}}_{\texttt{acc}})-{\bm{g}}\\ \frac{1}{2}\,{\bm{r}}\bullet({\bm{z}}_{\texttt{gyro}}-{\bm{b}}_{\texttt{gyro}}-{\bm{n}}_{\texttt{gyro}})\\ {\bm{n}}_{b_{\texttt{acc}}}\\ {\bm{n}}_{b_{\texttt{gyro}}}\end{bmatrix}\in\mathbb{R}^{16}\,, (12)
+
+[S5.SS2.SSS2.p1.2] with {\bm{n}}_{\texttt{acc}}\,,\,{\bm{n}}_{\texttt{gyro}}\,,\,{\bm{n}}_{b_{\texttt{acc}}} , and {\bm{n}}_{b_{\texttt{gyro}}} being the zero-mean accelerometer, gyroscope, and bias noise terms of covariances {\mathbf{Q}}_{\texttt{acc}}\,,\,{\mathbf{Q}}_{\texttt{gyro}}\,,\,{\mathbf{Q}}_{b_{\texttt{acc}}} , and {\mathbf{Q}}_{b_{\texttt{gyro}}} , respectively. {\bm{g}} denotes gravity. We augment the state vector in ( 8 ) with the substep velocity {\bm{v}}_{j} , leading to the substep state
+
+[S5.E13] \mspace{-5mu}{\breve{\bm{x}}}_{j}=[\,{\bm{c}}_{n-3:n-1}^{\top},{\bm{c}}_{n,j}^{\top},({\bm{b}}_{j}^{\texttt{acc}})^{\top},({\bm{b}}_{j}^{\texttt{gyro}})^{\top},{\bm{v}}_{j}^{\top}]^{\top}\mspace{-5mu}\in\mathbb{R}^{33}\,, (13)
+
+[S5.SS2.SSS2.p1.3] where {\bm{c}}_{n-3:n-1}=[\,{\bm{c}}_{n-3}^{\top},\,{\bm{c}}_{n-2}^{\top},\,{\bm{c}}_{n-1}^{\top}]^{\top} collects the first three RCPs. {\bm{c}}_{n,j}=[\,{\bm{s}}_{n,j}^{\top},\bm{\delta}_{n,j}^{\top}]^{\top} denotes the new control point propagated to substep j , with j\in\{1,\ldots,M\} .
+
+[S5.SS2.SSS2.p2.2] Discretizing ( 12 ) over \Delta{t}=t_{j}-t_{j-1} between consecutive IMU measurements within the current knot interval [\,t_{n-1},t_{n}] yields the process model for the substep state
+
+[S5.E14] \displaystyle{\breve{\bm{x}}}_{j} \displaystyle=f({\breve{\bm{x}}}_{j-1},{\bm{u}}_{j-1},{\bm{w}}_{j-1})\,,{\quad\text{with}\quad} (14) \displaystyle\begin{bmatrix}{\bm{c}}_{n-3:n-1}\\ {\bm{s}}_{n,j}\\ \bm{\delta}_{n,j}\\ {\bm{b}}_{j}^{\texttt{acc}}\\ {\bm{b}}_{j}^{\texttt{gyro}}\\ {\bm{v}}_{j}\end{bmatrix} \displaystyle=\begin{bmatrix}{\bm{c}}_{n-3:n-1}\\ f_{s}({\breve{\bm{x}}}_{j-1},{\bm{u}}_{j-1},{\bm{w}}_{j-1})\\ f_{\delta}({\breve{\bm{x}}}_{j-1},{\bm{u}}_{j-1},{\bm{w}}_{j-1})\\ {\bm{b}}_{j-1}^{\texttt{acc}}+{\bm{n}}_{b_{\texttt{acc}}}\Delta{t}\\ {\bm{b}}_{j-1}^{\texttt{gyro}}+{\bm{n}}_{b_{\texttt{gyro}}}\Delta{t}\\ f_{v}({\breve{\bm{x}}}_{j-1},{\bm{u}}_{j-1},{\bm{w}}_{j-1})\end{bmatrix}\,.
+
+[S5.SS2.SSS2.p2.3] Here, the IMU input and process noise are specified as
+
+[S5.Ex4] \displaystyle{\displaystyle\bm{u}}_{j-1}=[({\bm{z}}_{j-1}^{\texttt{acc}})^{\top},({\bm{z}}_{j-1}^{\texttt{gyro}})^{\top}]^{\top}{\quad\text{and}\quad} \displaystyle{\displaystyle\bm{w}}_{j-1}=[\,{\bm{n}}_{\texttt{acc}}^{\top},\,{\bm{n}}_{\texttt{gyro}}^{\top},\,{\bm{n}}_{b_{\texttt{acc}}}^{\top},\,{\bm{n}}_{b_{\texttt{gyro}}}^{\top}]^{\top}\,,
+
+[S5.SS2.SSS2.p2.4] respectively. Functions f_{s} , f_{v} , and f_{\delta} in ( 14 ) follow the standard IMU strapdown model according to
+
+[S5.Ex5] \displaystyle f_{s}({\breve{\bm{x}}}_{j-1},{\bm{u}}_{j-1},{\bm{w}}_{j-1}) \displaystyle={\bm{s}}_{n,j-1}+{\bm{v}}_{j-1}\Delta{t}+0.5{\bm{a}}^{\texttt{W}}\Delta{t}^{2}\,, \displaystyle f_{v}({\breve{\bm{x}}}_{j-1},{\bm{u}}_{j-1},{\bm{w}}_{j-1}) \displaystyle={\bm{v}}_{j-1}+{\bm{a}}^{\texttt{W}}\Delta{t}\,, \displaystyle f_{\delta}({\breve{\bm{x}}}_{j-1},{\bm{u}}_{j-1},{\bm{w}}_{j-1}) \displaystyle=\mathrm{Log}(\Delta{\bm{r}}_{n,j})\,,{\quad\text{with}\quad} \displaystyle\Delta{\bm{r}}_{n,j} \displaystyle=\mathrm{Exp}(\bm{\delta}_{n,j-1})\bullet\mathrm{Exp}(\Delta{t}{\bm{\omega}}/2)\,,
+
+[S5.SS2.SSS2.p2.5] denoting the accumulated relative rotation obtained by composing the previous accumulated rotation with the rotation increment derived from the bias-compensated angular velocity {\bm{\omega}}={\bm{z}}_{j-1}^{\texttt{gyro}}-{\bm{b}}_{j-1}^{\texttt{gyro}}-{\bm{n}}_{\texttt{gyro}} expressed in the body frame. {\bm{a}}^{\texttt{W}}={\mathbf{R}}_{n,j-1}({\bm{z}}_{j-1}^{\texttt{acc}}-{\bm{b}}_{j-1}^{\texttt{acc}}-{\bm{n}}_{\texttt{acc}})-{\bm{g}} is the gravity- and bias-compensated acceleration in the world frame. Here, {\mathbf{R}}_{n,j-1}={\mathbf{R}}_{n,0}{{R}}(\mathrm{Exp}(\bm{\delta}_{n,j-1})) is the (j-1) -th orientation estimate obtained by composing the initial rotation {\mathbf{R}}_{n,0} with the rotation increment induced by \bm{\delta}_{n,j-1} .
+
+[S5.SS3] V-C Multi-Sensor Measurement Model
+
+[S5.SS3.p1.1] We introduce the following measurement models for LiDAR, IMU, camera, and joint measurements within the proposed RESPLE2 framework. Each model instantiates the observation function h in ( 9 ) with a sensor-specific metric.
+
+[S5.SS3.SSS1] V-C 1 LiDAR Point-to-Plane Metric
+
+[S5.SS3.SSS1.p1.1] Given a raw LiDAR point {\bm{p}}_{i}^{\texttt{L}} at t_{i} , the point-to-plane distance follows
+
+[S5.E15] {h}_{i}^{\texttt{L}}({\bm{x}}_{k},t_{i})={\bm{n}}_{i}^{\top}\big({{R}}({{r}}(t_{i}))\,{\bm{p}}_{i}^{\texttt{I}}+{{s}}(t_{i})-{\bm{\alpha}}_{i}\big)\,. (15)
+
+[S5.SS3.SSS1.p1.2] Here, {\bm{p}}_{i}^{\texttt{I}}={\mathbf{R}}_{\texttt{L}}^{\texttt{I}}\,{\bm{p}}_{i}^{\texttt{L}}+{\bm{s}}_{\texttt{L}}^{\texttt{I}} transforms the LiDAR point into the IMU frame via the extrinsics, and {{r}}(t_{i}) , {{s}}(t_{i}) interpolate the body orientation and position at t_{i} from ( 3 ) and ( 2 ). {\bm{\alpha}}_{i} and {\bm{n}}_{i} are the nearest-neighbor point and normal of the local-map plane associated with the transformed point, obtained via VoxelMap [ 47 ] . Assuming that the transformed LiDAR point lies exactly on this plane, the residual is e_{i}^{\texttt{L}}=-{h}_{i}^{\texttt{L}}({\bm{x}}_{k},t_{i}) .
+
+[S5.SS3.SSS1.p2.1] The measurement noise variance \sigma_{i}^{2} of each point-to-plane residual accounts for both plane and point uncertainties. Following VoxelMap, each map plane carries a covariance {\bm{\Sigma}}_{{\bm{n}},{\bm{\alpha}}}\in\mathbb{R}^{6\times 6} over its normal and center, and each raw LiDAR point carries a covariance {\bm{\Sigma}}_{{\bm{p}}}\in\mathbb{R}^{3\times 3} in the LiDAR frame derived from its range and bearing noise. With the point {\bm{p}}_{i}^{\texttt{W}}={{R}}({{r}}(t_{i}))\,{\bm{p}}_{i}^{\texttt{I}}+{{s}}(t_{i}) in the world frame, a first-order propagation through ( 15 ) yields
+
+[S5.Ex6] \sigma_{i}^{2}=\sigma_{\text{min}}^{2}+{\mathbf{J}}_{i}^{\top}{\bm{\Sigma}}_{{\bm{n}},{\bm{\alpha}}}\,{\mathbf{J}}_{i}+({\bm{n}}_{i}^{\texttt{L}})^{\top}{\bm{\Sigma}}_{{\bm{p}}}\,{\bm{n}}_{i}^{\texttt{L}}\,,\,\text{with}\,\,{\mathbf{J}}_{i}=\big[\begin{smallmatrix}{\bm{\alpha}}_{i}-{\bm{p}}_{i}^{\texttt{W}}\\ {\bm{n}}_{i}\end{smallmatrix}\big]
+
+[S5.SS3.SSS1.p2.2] being the Jacobian of the residual w.r.t. the plane normal and center point. The normal {\bm{n}}_{i}^{\texttt{L}}=({{R}}({{r}}(t_{i})){\mathbf{R}}_{\texttt{L}}^{\texttt{I}})^{\top}{\bm{n}}_{i} is expressed in the LiDAR frame, and \sigma_{\text{min}}^{2} is a constant variance floor that guards against overconfident residuals.
+
+[S5.SS3.SSS2] V-C 2 IMU Metric
+
+[S5.SS3.SSS2.p1.1] Given an IMU measurement {\bm{z}}_{i}^{\texttt{I}}=[({\bm{z}}_{i}^{\texttt{acc}})^{\top},({\bm{z}}_{i}^{\texttt{gyro}})^{\top}]^{\top} at timestamp t_{i} , the corresponding measurement model is
+
+[S5.Ex7] {h}_{i}^{\texttt{I}}({\bm{x}}_{k},t_{i})=\begin{bmatrix}{{R}}({{r}}(t_{i}))^{\top}(\ddot{{{s}}}(t_{i})+{\bm{g}})+{\bm{b}}_{{\texttt{acc}}}\\ {\bm{\omega}}(t_{i})+{\bm{b}}_{{\texttt{gyro}}}\end{bmatrix}\,,
+
+[S5.SS3.SSS2.p1.2] with \ddot{{s}}(t_{i}) and {\bm{\omega}}(t_{i}) being the acceleration and angular velocity interpolated as in Section III . The former is combined with gravity and rotated into the body frame, and both are offset by the current bias estimates. The corresponding residual is {\bm{e}}_{i}^{\texttt{I}}={\bm{z}}_{i}^{\texttt{I}}-{h}_{i}^{\texttt{I}}({\bm{x}}_{k},t_{i}) .
+
+[S5.SS3.SSS2.p2.1] For accelerometer residuals, we opt for an adaptive outlier suppression mechanism in handling sensor noise and potential saturation. Thus, a block-Huber weight \beta_{i} is applied to each three-dimensional acceleration residual [{\bm{e}}_{i}^{\texttt{I}}]_{1:3} . Let {\bm{\Sigma}}_{\texttt{acc}} denote the accelerometer measurement covariance. We compute
+
+[S5.E16] \beta_{i}=\begin{cases}1,&s_{i}\leq\delta_{\texttt{acc}}\,,\\ \delta_{\texttt{acc}}/s_{i},&s_{i}>\delta_{\texttt{acc}}\,,\end{cases} (16)
+
+[S5.SS3.SSS2.p2.2] where s_{i} is the Mahalanobis norm of the residual with respect to {\bm{\Sigma}}_{\texttt{acc}} , and \delta_{\texttt{acc}}>0 is the Huber threshold applied to s_{i} . The same scalar weight scales the precision of all three accelerometer components, yielding the reweighted covariance \tilde{{\bm{\Sigma}}}_{{\texttt{acc}},i}^{-1}=\beta_{i}{\bm{\Sigma}}_{\texttt{acc}}^{-1} .
+
+[S5.SS3.SSS3] V-C 3 Visual Projection Metric
+
+[S5.SS3.SSS3.p1.1] For each visual feature tracked from the previous image via KLT optical flow [ 33 ] and observed at pixel coordinates {\bm{z}}_{i}^{\texttt{V}} at time t_{i} , the observation model is
+
+[S5.Ex8] {h}_{i}^{\texttt{V}}({\bm{x}}_{k},t_{i})=\pi\big({\mathbf{R}}_{\texttt{I}}^{\texttt{V}}{{R}}({{r}}(t_{i}))^{\top}({\bm{p}}_{i}^{\texttt{W}}-{{s}}(t_{i}))+{\bm{s}}_{\texttt{I}}^{\texttt{V}}\big)\,.
+
+[S5.SS3.SSS3.p1.2] Here, we transform the feature position {\bm{p}}_{i}^{\texttt{W}} , obtained using depth from co-registered LiDAR points in previous frames, into the camera frame using the pose interpolated at t_{i} and the IMU-camera extrinsic, and then apply the camera model \pi(\cdot) to obtain the predicted pixel coordinates. The same Huber weighting as in ( 16 ) is applied to the resulting visual residual {\bm{e}}_{i}^{\texttt{V}}={\bm{z}}_{i}^{\texttt{V}}-h_{i}^{\texttt{V}}({\bm{x}}_{k},t_{i}) to suppress association outliers.
+
+[S5.SS3.SSS4] V-C 4 Legged Kinematics Metric
+
+[S5.SS3.SSS4.p1.1] Given joint position and velocity measurements from a legged robot at t_{i} , we compute the foot position {\bm{p}}_{i}^{\texttt{B}} using forward kinematics [ 5 ] and its velocity {\bm{v}}_{i}^{\texttt{B}} using the corresponding kinematic Jacobian, both expressed in the robot base frame. This yields
+
+[S5.E17] {h}_{i}^{\texttt{K}}({\bm{x}}_{k},t_{i})=\begin{bmatrix}\dot{{s}}(t_{i})+{{R}}({{r}}(t_{i}))({\bm{\omega}}(t_{i})_{\times}{\bm{p}}_{i}^{\texttt{I}}+{\mathbf{R}}_{\texttt{B}}^{\texttt{I}}{\bm{v}}_{i}^{\texttt{B}})\\ {\bm{n}}_{i}^{\top}({\mathbf{R}}_{\texttt{B}}^{\texttt{W}}\,{\bm{p}}_{i}^{\texttt{B}}+{\bm{s}}_{\texttt{B}}^{\texttt{W}}-{\bm{\alpha}}_{i})\end{bmatrix}\,. (17)
+
+[S5.SS3.SSS4.p1.2] The first row is a foot-velocity metric that predicts the velocity of the foot in the world frame. Expressing the foot position in the IMU frame as {\bm{p}}_{i}^{\texttt{I}}={\bm{s}}_{\texttt{B}}^{\texttt{I}}+{\mathbf{R}}_{\texttt{B}}^{\texttt{I}}\,{\bm{p}}_{i}^{\texttt{B}} , its world-frame counterpart is {\bm{p}}_{i}^{\texttt{W}}={{s}}(t_{i})+{{R}}({{r}}(t_{i}))\,{\bm{p}}_{i}^{\texttt{I}} . Differentiating {\bm{p}}_{i}^{\texttt{W}} with respect to time yields the first row, which combines the velocity of the IMU body and the foot velocity in the IMU frame rotated into the world frame. The term {\bm{\omega}}(t_{i})_{\times}{\bm{p}}_{i}^{\texttt{I}}+{\mathbf{R}}_{\texttt{B}}^{\texttt{I}}{\bm{v}}_{i}^{\texttt{B}} consists of two contributions: the velocity induced by the angular velocity {\bm{\omega}}(t_{i}) acting on the lever arm {\bm{p}}_{i}^{\texttt{I}} , and the foot velocity {\bm{v}}_{i}^{\texttt{B}} from forward kinematics expressed in the IMU frame. The second element is a point-to-plane metric analogous to ( 15 ). It treats the foot-ground contact as a point observed against the nearest-neighbor plane ({\bm{\alpha}}_{i},{\bm{n}}_{i}) of the local map. The robot base pose in the world frame is obtained by composing the interpolated IMU pose at t_{i} with the fixed robot-to-IMU extrinsics, namely,
+
+[S5.Ex9] {\mathbf{R}}_{\texttt{B}}^{\texttt{W}}={{R}}({{r}}(t_{i})){\mathbf{R}}_{\texttt{B}}^{\texttt{I}}{\quad\text{and}\quad}{\bm{s}}_{\texttt{B}}^{\texttt{W}}={{R}}({{r}}(t_{i})){\bm{s}}_{\texttt{B}}^{\texttt{I}}+{{s}}(t_{i})\,.
+
+[S5.SS3.SSS4.p1.3] Under the assumption of no slippage during contact, the legged kinematics residual is {\bm{e}}_{i}^{\texttt{K}}=-h_{i}^{\texttt{K}}({\bm{x}}_{k},t_{i}) .
+
+[S6] VI Inertial-Informed Iterated Extended Kalman Filter on Non-Uniform B-Splines
+
+[S6.p1.1] Based on the process and measurement models introduced in Section V , we now derive an iterated extended Kalman filter to recursively estimate the state ( 8 ), which comprises the non-uniform B-spline RCPs and IMU biases.
+
+[S6.SS1] VI-A Inertial-Informed RCP Prediction
+
+[S6.SS1.p1.2] At time step k , given the incoming IMU subset for prediction \{{\bm{z}}_{i}^{\texttt{acc}},{\bm{z}}_{i}^{\texttt{gyro}}\}_{i=0}^{M-1} with timestamps after knot t_{n-1} , we first initialize the augmented state ( 13 ) and its covariance at knot t_{n-1} using the clamped boundary property established in Sec. V-B . The initial state is
+
+[S6.Ex10] {\breve{\bm{x}}}_{0}=[\,{\bm{c}}_{n-3}^{\top},\,{\bm{c}}_{n-2}^{\top},\,{\bm{c}}_{n-1}^{\top},\,{\bm{s}}_{n-1}^{\top},\,{\bm{0}}_{3\times 1}^{\top},\,{\bm{b}}_{0}^{\top},\,{\bm{v}}_{0}^{\top}\,]^{\top}\,,
+
+[S6.SS1.p1.3] where {\bm{b}}_{0}\in\mathbb{R}^{6} collects the accelerometer and gyroscope bias estimates from the previous posterior \hat{{\bm{x}}}_{k-1|k-1} , and {\bm{v}}_{0}=\dot{{s}}(t_{n-1})=3({\bm{s}}_{n-1}-{\bm{s}}_{n-2})/\tau_{n-2} . When introducing knot t_{n} , we initialize its position and orientation control points to those at t_{n-1} , giving {{\bm{s}}}_{n,0}={\bm{s}}_{n-1} and {\bm{\delta}}_{n,0}={\bm{0}}_{3\times 1} . The augmented initial state can be thus expressed as a linear transformation of the previous posterior, namely, {\breve{\bm{x}}}_{0}={\mathbf{T}}_{k}\hat{{\bm{x}}}_{k-1|k-1} , where
+
+[S6.Ex11] {\mathbf{T}}_{k}=\begin{bmatrix}{\mathbf{0}}_{18\times 6}&\lx@intercol\hfil{\mathbf{I}}_{18}\hfil\lx@intercol&{\mathbf{0}}_{18\times 6}\\ {\mathbf{0}}_{6}&{\mathbf{0}}_{6}&{\mathbf{0}}_{6}&{\mathbf{D}}^{\top}{\mathbf{D}}&{\mathbf{0}}_{6}\\ {\mathbf{0}}_{6}&{\mathbf{0}}_{6}&{\mathbf{0}}_{6}&{\mathbf{0}}_{6}&{\mathbf{I}}_{6}\\ {\mathbf{0}}_{3\times 6}&{\mathbf{0}}_{3\times 6}&-\alpha{\mathbf{D}}&\alpha{\mathbf{D}}&{\mathbf{0}}_{3\times 6}\end{bmatrix}\in\mathbb{R}^{33\times 30}\,,
+
+[S6.SS1.p1.4] with \alpha=3/\tau_{n-2} and {\mathbf{D}}=[\,{\mathbf{I}}_{3},{\mathbf{0}}_{3}\,]\in\mathbb{R}^{3\times 6} . The augmented covariance is initialized as
+
+[S6.E18] {\breve{\mathbf{P}}}_{0}={\mathbf{T}}_{k}{\mathbf{P}}_{k-1|k-1}{\mathbf{T}}_{k}^{\top}\,. (18)
+
+[S6.SS1.p1.5] The augmented state mean and covariance are propagated recursively via the process model ( 14 ) following
+
+[S6.E19] \displaystyle{\breve{\bm{x}}}_{j} \displaystyle=f({\breve{\bm{x}}}_{j-1},{\bm{u}}_{j-1},{\bm{0}}){\quad\text{and}\quad} (19) \displaystyle{\breve{\mathbf{P}}}_{j} \displaystyle={\mathbf{A}}_{j-1}{\breve{\mathbf{P}}}_{j-1}{\mathbf{A}}_{j-1}^{\top}+{\mathbf{B}}_{j-1}{\mathbf{Q}}_{\texttt{imu}}{\mathbf{B}}_{j-1}^{\top}\,,
+
+[S6.SS1.p1.6] with j indexing the M IMU substeps. The Jacobians of the process model can be derived as
+
+[S6.E20] \mspace{-8mu}\begin{aligned} &{\mathbf{A}}_{j-1}=\frac{\partial{f({\bm{x}},{\bm{u}},{\bm{w}})}}{\partial{{\bm{x}}}}\Bigg|_{{\bm{x}}={\breve{\bm{x}}}_{j-1}\,,{\bm{u}}={\bm{u}}_{j-1}\,,{\bm{w}}={\bm{0}}}\\ &=\begin{bmatrix}{\mathbf{I}}_{18}&{\mathbf{0}}_{18\times 3}&{\mathbf{0}}_{18\times 3}&{\mathbf{0}}_{18\times 3}&{\mathbf{0}}_{18\times 3}&{\mathbf{0}}_{18\times 3}\\ \frac{\Delta{t}^{2}}{2}{\mathbf{F}}_{a,1}&{\mathbf{I}}_{3}&\frac{\Delta{t}^{2}}{2}{\mathbf{F}}_{a,n}&-\frac{\Delta{t}^{2}}{2}{\mathbf{R}}_{n,j-1}&{\mathbf{0}}_{3}&\Delta{t}{\mathbf{I}}_{3}\\ {\mathbf{0}}_{3\times 18}&{\mathbf{0}}_{3}&{\mathbf{F}}_{\delta,n}&{\mathbf{0}}_{3}&{\mathbf{F}}_{b_{\texttt{gyro}}}&{\mathbf{0}}_{3}\\ {\mathbf{0}}_{3\times 18}&{\mathbf{0}}_{3}&{\mathbf{0}}_{3}&{\mathbf{I}}_{3}&{\mathbf{0}}_{3}&{\mathbf{0}}_{3}\\ {\mathbf{0}}_{3\times 18}&{\mathbf{0}}_{3}&{\mathbf{0}}_{3}&{\mathbf{0}}_{3}&{\mathbf{I}}_{3}&{\mathbf{0}}_{3}\\ \Delta{t}{\mathbf{F}}_{a,1}&{\mathbf{0}}_{3}&\Delta{t}{\mathbf{F}}_{a,n}&-\Delta{t}{\mathbf{R}}_{n,j-1}&{\mathbf{0}}_{3}&{\mathbf{I}}_{3}\end{bmatrix}\,,\mspace{-8mu}\\ &{\mathbf{B}}_{j-1}=\frac{\partial{f({\bm{x}},{\bm{u}},{\bm{w}})}}{\partial{{\bm{w}}}}\Bigg|_{{\bm{x}}={\breve{\bm{x}}}_{j-1}\,,{\bm{u}}={\bm{u}}_{j-1}\,,{\bm{w}}={\bm{0}}}\\ &\qquad={\begin{bmatrix}{\mathbf{0}}_{18\times 3}&{\mathbf{0}}_{18\times 9}\\ -\frac{\Delta{t}^{2}}{2}{\mathbf{R}}_{n,j-1}&{\mathbf{0}}_{3\times 9}\\ {\mathbf{0}}_{9\times 3}&{{\textrm{diag}}({\mathbf{F}}_{b_{\texttt{gyro}}},\Delta{t}{\mathbf{I}}_{6})}\\ -\Delta{t}{\mathbf{R}}_{n,j-1}&{\mathbf{0}}_{3\times 9}\end{bmatrix}}\,.\\ \end{aligned} (20)
+
+[S6.SS1.p1.7] The process noise comprises IMU measurement and bias noise, with {\mathbf{Q}}_{\texttt{imu}}={\textrm{diag}}({\mathbf{Q}}_{\texttt{acc}},{\mathbf{Q}}_{\texttt{gyro}},{\mathbf{Q}}_{b_{\texttt{acc}}},{\mathbf{Q}}_{b_{\texttt{gyro}}}) being the covariance. The non-zero blocks in {\mathbf{A}}_{j-1} are obtained by applying the chain rule to functions f_{s} , f_{v} , and f_{\delta} w.r.t. the augmented state components:
+
+[S6.Ex12] \displaystyle{\displaystyle\mathbf{F}}_{a,1}=[\,{\mathbf{0}}_{3}\,,\,{\mathbf{F}}_{a,n-3}\,,{\mathbf{0}}_{3}\,,\,{\mathbf{F}}_{a,n-2}\,,{\mathbf{0}}_{3}\,,\,{\mathbf{F}}_{a,n-1}]\,, \displaystyle{\displaystyle\mathbf{F}}_{a,n-3+\ell}=\frac{\partial{{\mathbf{R}}_{n,j-1}({\bm{z}}_{j-1}^{\texttt{acc}}-{\bm{b}}_{j-1}^{\texttt{acc}})}}{\partial{\bm{\delta}_{n-3+\ell}}}\,,\,\ell=0\,,\ldots\,,3\,, \displaystyle{\displaystyle\mathbf{F}}_{\delta,n}=\frac{\partial{\mathrm{Log}(\Delta{\bm{r}}_{n,j})}}{\partial{\Delta{\bm{r}}_{n,j}}}{{{Q}}}^{\lrcorner}(\mathrm{Exp}(\Delta{t}{\bm{\omega}}/2))\frac{\partial{\mathrm{Exp}(\bm{\delta}_{n,j-1})}}{\partial{\bm{\delta}_{n,j-1}}}\,, \displaystyle{\displaystyle\mathbf{F}}_{b_{\texttt{gyro}}}=-\frac{\partial{\mathrm{Log}(\Delta{\bm{r}}_{n,j})}}{\partial{\Delta{\bm{r}}_{n,j}}}{{{Q}}}^{\llcorner}(\mathrm{Exp}(\bm{\delta}_{n,j-1}))\frac{\partial{\mathrm{Exp}(\Delta{t}{\bm{\omega}}/2)}}{\partial{{\bm{\omega}}}}\,.
+
+[S6.SS1.SSSx1] Knot Extension
+
+[S6.SS1.SSSx1.p1.1] We introduce a new knot t_{n} once any of the following conditions is satisfied after the current knot t_{n-1} :
+
+[S6.I1.i1.p1.1] The LiDAR batch passes the geometric sufficiency check, with point count >N_{1} and IMU sample count >N_{2} ;
+
+[S6.I1.i2.p1.1] The knot interval exceeds \tau_{\text{max}} ;
+
+[S6.I1.i3.p1.1] The position change \|{\bm{s}}_{n,j}-{\bm{s}}_{n-1}\|>d_{\max} ;
+
+[S6.I1.i4.p1.1] The orientation increment \|\bm{\delta}_{n,j}\|>\theta_{\text{max}} ; or
+
+[S6.I1.i5.p1.1] The velocity change \|{\bm{v}}_{j}-{\bm{v}}_{0}\|>v_{\max} .
+
+[S6.SS1.SSSx1.p1.2] The first criterion aims to reduce the risk of geometric degeneracy as LiDAR points accumulate in the current batch by checking both the strength and directional balance of its geometric constraints. We first compute the following weighted normal matrix [ 50 ] :
+
+[S6.Ex13] {\mathbf{G}}=\sum_{i\in\mathcal{C}}\frac{{\bm{n}}_{i}{\bm{n}}_{i}^{\top}}{\sigma_{i}^{2}}\,,
+
+[S6.SS1.SSSx1.p1.3] where \mathcal{C} contains preliminary point-to-plane correspondences obtained by transforming LiDAR points into the world frame using the IMU-predicted poses from substep propagation ( 19 ) and matching the transformed points to planes in the voxel map. For each correspondence, {\bm{n}}_{i} is the matched plane’s normal, and \sigma_{i}^{2} is the residual variance computed from the plane and point uncertainties as in Section V-C1 . Following the eigenvalue-based degeneracy criterion, we require \lambda_{\text{min}}({\mathbf{G}})\geq\gamma>0 to ensure sufficient information in the weakest translational direction. For directional balance, we also require \lambda_{\text{min}}({\mathbf{G}})/\operatorname{tr}({\mathbf{G}})\geq\eta , where the trace measures total information and 0<\eta\leq 1/3 sets the weakest direction’s minimum relative contribution. The batch passes the check only when both conditions are satisfied.
+
+[S6.SS1.SSSx1.p2.1] To evaluate the last three criteria, we recursively propagate the changes in state {\bm{s}}_{n,j} , {\bm{v}}_{j} , and \bm{\delta}_{n,j} at each IMU substep j propagated via ( 19 ). In a LiDAR-inertial configuration, these criteria balance the accumulation of geometric and inertial information for the next RCP update with limits on knot interval duration and accumulated rotation. For additional sensor modalities, they can be adapted or supplemented with sensor-specific heuristics.
+
+[S6.SS2] VI-B RCP Reset for Unclamping
+
+[S6.SS2.SSSx1] Unclamping
+
+[S6.SS2.SSSx1.p1.1] Introducing a new knot at t_{n} during prediction shifts the clamped boundary from t_{n-1} to t_{n} , where ( 10 ) applies. The resulting unclamping at t_{n-1} changes the local spline basis, so the trajectory no longer necessarily interpolates {\bm{s}}_{n-1} and {\bm{r}}_{n-1} at that time. Without correction, this alters the trajectory prior used in the subsequent measurement update over [t_{n-1},t_{n}] , potentially compromising data association. To compensate for unclamping at the previous boundary t_{n-1} , we reset the RCPs after prediction. This restores the position, velocity, acceleration, orientation, and angular velocity at t_{n-1} to their values before unclamping. The joint covariance is transformed accordingly.
+
+[S6.SS2.SSSx2] Position Reset
+
+[S6.SS2.SSSx2.p1.1] We denote quantities before and after the reset using (\cdot)^{-} and (\cdot)^{+} , respectively. The reset preserves position, velocity, and acceleration at t_{n-1} with
+
+[S6.E21] {\mathring{{{s}}}}(t_{n-1})^{-}={\mathring{{{s}}}}(t_{n-1})^{+}\,. (21)
+
+[S6.SS2.SSSx2.p1.2] This yields a closed-form linear transformation
+
+[S6.E22] {\bm{s}}_{n-3:n}^{+}={\mathbf{J}}_{s}{\bm{s}}_{n-3:n}^{-}\in\mathbb{R}^{12}\,, (22)
+
+[S6.SS2.SSSx2.p1.3] with {\bm{s}}_{n-3:n}^{-} and {\bm{s}}_{n-3:n}^{+} being the position RCPs before and after reset, respectively. The derivation of {\mathbf{J}}_{s} is provided in Appendix -B1 .
+
+[S6.SS2.SSSx3] Orientation Reset
+
+[S6.SS2.SSSx3.p1.2] We aim to preserve both the orientation {{r}}(t_{n-1}) and the angular velocity {\bm{\omega}}(t_{n-1}) across the reset
+
+[S6.Ex14] \mspace{-6mu}{{r}}(t_{n-1})^{-}={{r}}(t_{n-1})^{+}{\quad\text{and}\quad}{\bm{\omega}}(t_{n-1})^{-}={\bm{\omega}}(t_{n-1})^{+}\,.
+
+[S6.SS2.SSSx3.p1.3] To enforce this, we define a residual {\bm{z}}_{\bm{\delta}}=[{\bm{z}}_{r}^{\top},{\bm{z}}_{\omega}^{\top}]^{\top}\in\mathbb{R}^{6} , with the orientation and angular velocity components
+
+[S6.E23] \displaystyle{\bm{z}}_{r} \displaystyle=[({{r}}(t_{n-1})^{-})^{-1}\bullet{{r}}(t_{n-1})^{+}]_{2:4}\,,{\quad\text{and}\quad} (23) \displaystyle{\bm{z}}_{\omega} \displaystyle={\bm{\omega}}(t_{n-1})^{+}-{\bm{\omega}}(t_{n-1})^{-}\,,
+
+[S6.SS2.SSSx3.p1.4] respectively. Minimizing the residual {\bm{z}}_{\bm{\delta}} in the sense of least squares does not admit a closed-form solution. We therefore solve it iteratively using Newton’s method. Only \bm{\delta}_{n-2} and \bm{\delta}_{n-1} need to be reset, because the remaining control points do not appear in the residual. To solve this, we derive the residual term and its Jacobian {\mathbf{H}}_{\bm{\delta}}\in\mathbb{R}^{6\times 6} with respect to the reset increments \bm{\delta}^{+}=[(\bm{\delta}_{n-2}^{+})^{\top},(\bm{\delta}_{n-1}^{+})^{\top}]^{\top} , as detailed in Appendix -B2 . Starting at \bm{\delta}_{0}^{+}=\bm{\delta}^{-} , we obtain the increment at iteration m as
+
+[S6.E24] \Delta\bm{\delta}_{m}^{+}=-({\mathbf{H}}_{\bm{\delta},m})^{-1}{\bm{z}}_{\bm{\delta},m} (24)
+
+[S6.SS2.SSSx3.p1.5] and update the solution iteratively. In practice, the cost typically converges within five iterations.
+
+[S6.SS2.SSSx3.p2.2] Furthermore, to preserve the originally predicted endpoint orientation {\bm{r}}_{n} , the latest RCP increment \bm{\delta}_{n} must also be reset after resetting \bm{\delta}_{n-2} and \bm{\delta}_{n-1} . According to {\bm{r}}_{n}={\bm{r}}_{n-4}\bullet\prod_{i=n-3}^{n}\mathrm{Exp}(\bm{\delta}_{i}^{-}) , this is straightforward as
+
+[S6.E25] \displaystyle\bm{\delta}_{n}^{+} \displaystyle=\mathrm{Log}\big(({\bm{r}}_{n-1}^{+})^{-1}\bullet{\bm{r}}_{n}\big) (25) \displaystyle=\mathrm{Log}\bigg(\big(\prod_{i=n-2}^{n-1}\mathrm{Exp}(\bm{\delta}_{i}^{+})\big)^{-1}\bullet\prod_{i=n-2}^{n}\mathrm{Exp}(\bm{\delta}_{i}^{-})\bigg)\,.
+
+[S6.SS2.SSSx4] Covariance Reset
+
+[S6.SS2.SSSx4.p1.1] The RCP covariance must be transformed according to the reset map ( 22 ) and ( 24 ). The bias term in the state remains unchanged during reset, but its cross-covariances with the RCPs must be transformed. The full covariance reset follows {\mathbf{P}}^{+}={\mathbf{J}}{\mathbf{P}}^{-}{\mathbf{J}}^{\top} , with
+
+[S6.Ex15] {\mathbf{P}}^{-}=\begin{bmatrix}{\mathbf{P}}_{ss}^{-}&{\mathbf{P}}_{sr}^{-}&{\mathbf{P}}_{sb}^{-}\\ {\mathbf{P}}_{rs}^{-}&{\mathbf{P}}_{rr}^{-}&{\mathbf{P}}_{rb}^{-}\\ {\mathbf{P}}_{bs}^{-}&{\mathbf{P}}_{br}^{-}&{\mathbf{P}}_{bb}^{-}\end{bmatrix}\in\mathbb{R}^{30\times 30}
+
+[S6.SS2.SSSx4.p1.2] comprising the blocks extracted from the predicted covariance {\mathbf{P}}_{k|k-1} . The reset transformation {\mathbf{J}}={\textrm{diag}}({\mathbf{J}}_{s},{\mathbf{J}}_{r},{\mathbf{I}}_{6}) is the Jacobian of the reset map and is block diagonal, because the position and orientation reset maps depend only on their respective pre-reset variables and biases remain unchanged. We provide complete derivations of {\mathbf{J}}_{s} and {\mathbf{J}}_{r} in Appendix -B .
+
+[S6.SS3] VI-C Iterated Update
+
+[S6.SS3.p1.1] We apply an iterated update for incorporating the multi-sensor measurements introduced in Section V-C . Starting from \hat{{\bm{x}}}_{0}=\hat{{\bm{x}}}_{k|k-1} , the estimate is refined over iterations i=0,1,\ldots,N_{\mathrm{max}}-1 via
+
+[S6.Ex16] \displaystyle\delta{\bm{x}}_{i}={\mathbf{K}}_{i}({\bm{z}}_{k}-h(\hat{{\bm{x}}}_{i}))-({\mathbf{I}}-{\mathbf{K}}_{i}{\mathbf{H}}_{i})(\hat{{\bm{x}}}_{i}-\hat{{\bm{x}}}_{k|k-1})\,, \displaystyle\text{with}\quad{\mathbf{K}}_{i}={\mathbf{P}}_{k|k-1}{\mathbf{H}}_{i}^{\top}({\mathbf{H}}_{i}{\mathbf{P}}_{k|k-1}{\mathbf{H}}_{i}^{\top}+{\bm{\Sigma}}_{k})^{-1}\,.
+
+[S6.SS3.p1.2] We collect all the multi-modal measurements in the current buffer into {\bm{z}}_{k} , with associated covariance {\bm{\Sigma}}_{k} . Here, h(\hat{{\bm{x}}}_{i}) is the observation model evaluated at the current iterate \hat{{\bm{x}}}_{i} . {\mathbf{H}}_{i}=\frac{\partial{h}}{\partial{{\bm{x}}}}\big|_{\hat{{\bm{x}}}_{i}} is the corresponding observation Jacobian. The iteration terminates once \|\delta{\bm{x}}_{i}\| falls below a threshold or a maximum number of iterations is reached, yielding the posterior \hat{{\bm{x}}}_{k|k}=\hat{{\bm{x}}}_{i}+\delta{\bm{x}}_{i} and {\mathbf{P}}_{k|k}=({\mathbf{I}}-{\mathbf{K}}_{i}{\mathbf{H}}_{i}){\mathbf{P}}_{k|k-1} .
+
+[S6.SS4] VI-D Filter Setup
+
+[S6.SS4.p1.1] We summarize the full recursive non-uniform spline filtering in Algorithm 1 , including inertial-informed RCP prediction, reset, and the iterated update. In the update step, the Jacobians for the LiDAR, IMU, and camera measurement models in Section V-C are straightforward to derive [ 8 , 27 ] . For legged joints, we hereby derive the Jacobian of the zero-velocity part of the legged kinematic measurement model in ( 17 ) w.r.t. the position and orientation RCPs as
+
+[S6.Ex17] \displaystyle\frac{\partial{{h}_{i}^{\texttt{K},v}}}{\partial{{\bm{s}}_{n-3:n}}}=({\bm{\Omega}}\,\dot{\bm{u}}\otimes{\mathbf{I}}_{3})^{\top}\,, \displaystyle\frac{\partial{{h}_{i}^{\texttt{K},v}}}{\partial{\bm{\delta}_{n-3:n}}}=\frac{\partial{{h}_{i}^{\texttt{K},v}}}{\partial{{{r}}(t_{i})}}\frac{\partial{{{r}}(t_{i})}}{\partial{\bm{\delta}_{n-3:n}}}+\frac{\partial{{h}_{i}^{\texttt{K},v}}}{\partial{{\bm{\omega}}(t_{i})}}\frac{\partial{{\bm{\omega}}(t_{i})}}{\partial{\bm{\delta}_{n-3:n}}}\,,{\quad\text{with}\quad} \displaystyle\frac{\partial{{h}_{i}^{\texttt{K},v}}}{\partial{{{r}}(t_{i})}}=\frac{\partial{({{R}}({{r}}(t_{i}))\,{\bm{v}}_{i}^{\texttt{I}})}}{\partial{{{r}}(t_{i})}}\,,\,\frac{\partial{{h}_{i}^{\texttt{K},v}}}{\partial{{\bm{\omega}}(t_{i})}}=-{{R}}({{r}}(t_{i}))({\bm{p}}_{i}^{\texttt{I}})_{\times}\,,
+
+[S6.SS4.p1.2] with {\bm{v}}_{i}^{\texttt{I}}={\bm{\omega}}(t_{i})_{\times}{\bm{p}}_{i}^{\texttt{I}}+{\mathbf{R}}_{\texttt{B}}^{\texttt{I}}{\bm{v}}_{i}^{\texttt{B}} . The Jacobians \frac{\partial{{{r}}(t_{i})}}{\partial{\bm{\delta}_{n-3:n}}} and \frac{\partial{{\bm{\omega}}(t_{i})}}{\partial{\bm{\delta}_{n-3:n}}} are available in [ 8 ] as in Section III-C2 . The Jacobian blocks of IMU biases are zero. The Jacobian of the foot position observation in the second row of ( 17 ) resembles that of the LiDAR residual [ 8 ] .
+
+[algorithm1] Algorithm 1 Inertial-Informed Recursive Non-Uniform B-Spline Estimation
+
+[S7] VII Global Refinement
+
+[S7.SS1] VII-A Loop Closure Detection
+
+[S7.SS1.p1.1] The image-assisted binary and triangle descriptor iBTC [ 54 ] combines registered LiDAR point clouds, images, and odometry-estimated camera poses for place recognition. RESPLE2 employs iBTC to detect loop closures between the current LiDAR scan and historical keyframes in the LiDAR-visual-inertial configuration. The module aggregates consecutive scans into keyframe submaps, retrieves historical candidates using geometric and image-assisted descriptors, and verifies matches through geometric registration. Accepted matches provide paired timestamps and relative 6 -DoF transformations as constraints for global spline optimization.
+
+[S7.SS2] VII-B Global Spline Optimization
+
+[S7.SS2.p1.1] Once a loop closure is detected by iBTC, we perform global optimization over the existing non-uniform B-spline trajectory to correct accumulated drift while preserving higher-order kinematics, such as angular and translational velocities, by directly refining the global state {\mathcal{{X}}}_{\text{w}}=[{\bm{s}}_{1}^{\top},{\bm{r}}_{1}^{\top},\cdots,{\bm{s}}_{N}^{\top},{\bm{r}}_{N}^{\top}]^{\top} , comprising N control points from odometry. We obtain the refined state {\mathcal{{X}}}_{\text{w}}^{\star} by minimizing
+
+[S7.E26] \sum_{k=1}^{m}\big\|{{E}}_{\texttt{lc}}({\mathcal{{X}}}_{\text{w}},{\bm{z}}_{\texttt{lc},k})\big\|^{2}_{{\mathbf{C}}_{\texttt{lc}}}+\sum_{i=1}^{N-1}\big\|{{E}}_{\texttt{od}}({\mathcal{{X}}}_{\text{w}},{\bm{z}}_{\texttt{od},i})\big\|^{2}_{{\mathbf{C}}_{\texttt{od}}}\,, (26)
+
+[S7.SS2.p1.2] which combines m loop-closure and N-1 control-point odometry residuals. The former follows
+
+[S7.Ex18] {{E}}_{\texttt{lc}}({\mathcal{{X}}}_{\text{w}},{\bm{z}}_{\texttt{lc},k})=\begin{bmatrix}{{R}}({{r}}(t_{i}))^{\top}\big({{s}}(t_{j})-{{s}}(t_{i})\big)-{\bm{z}}_{ij}^{s}\\ \mathrm{Log}\big(({\bm{z}}_{ij}^{r})^{-1}\bullet{{r}}(t_{i})^{-1}\bullet{{r}}(t_{j})\big)\end{bmatrix}\,,
+
+[S7.SS2.p1.3] with {\bm{z}}_{ij}^{s} and {\bm{z}}_{ij}^{r} denoting the relative translation and rotation, respectively, in the transformation {\bm{z}}_{\texttt{lc},k} between keyframes i and j provided by iBTC. To preserve the local kinematic consistency given by odometry during global optimization, we constrain the relative translation and rotation between adjacent control points according to
+
+[S7.Ex19] {{E}}_{\texttt{od}}({\mathcal{{X}}}_{\text{w}},{\bm{z}}_{\texttt{od},i})=\begin{bmatrix}{{R}}({\bm{r}}_{i})^{\top}\big({\bm{s}}_{i+1}-{\bm{s}}_{i}\big)-{\bm{z}}_{i,i+1}^{s}\\ \mathrm{Log}\big(({\bm{z}}_{i,i+1}^{r})^{-1}\bullet{\bm{r}}_{i}^{-1}\bullet{\bm{r}}_{i+1}\big)\end{bmatrix}\,,
+
+[S7.SS2.p1.4] with {\bm{z}}_{i,i+1}^{s} and {\bm{z}}_{i,i+1}^{r} denoting the relative translation and rotation in {\bm{z}}_{\texttt{od},i} , respectively, between two consecutive control points estimated by odometry. Unlike existing approaches to global B-spline correction [ 23 ] , our formulation in ( 26 ) applies odometry constraints directly to the non-uniform control points, requiring spline interpolation only for the infrequent loop-closure residuals. This limits the Jacobian support of each odometry residual to two control points, preserving sparsity and improving the efficiency of solving the optimization problem at scale via the standard Levenberg-Marquardt algorithm.
+
+[S8] VIII Evaluation
+
+[S8.SS1] VIII-A Implementation
+
+[S8.SS1.p1.1] We implement RESPLE2 as a ROS2 package with separate nodes for multi-sensor odometry and global spline refinement. We use a minimal set of dependencies, including Eigen for numerical computations and OpenMP to parallelize B-spline kinematic interpolation, LiDAR point processing, nearest-neighbor association, and linearization during global optimization. Each node is typically allocated five OpenMP threads. We use Pinocchio for computing leg forward kinematics [ 9 ] . The global refinement solver is implemented from scratch and solves the sparse linear systems using Eigen’s CHOLMOD interface, reusing symbolic factorization across iterations.
+
+[S8.SS1.p2.1] We combine the sensor models in Section V-C to enable LiDAR-inertial (LIO), LiDAR-visual-inertial (LVIO), LiDAR-leg-inertial (LKIO), and LiDAR-leg-visual-inertial (LKVIO) odometry within the same filtering scheme, where multi-modal observations in each knot interval are stacked into a single measurement vector. Additionally, following the system design of RESPLE2, we provide a LiDAR-only variant (RESPLE2-LO) to support platforms without an IMU. Here, the original inertial-informed process model is replaced by a constant-velocity model with the same knot-clamping boundary property, predicting position using the linear velocity estimate and scaling the latest orientation increment by the ratio of successive knot intervals. Accordingly, the reset preserves the position, orientation and linear velocity at the previous endpoint while imposing zero acceleration.
+
+[S8.SS2] VIII-B Benchmarking Setup
+
+[S8.SS2.p1.1] We evaluate RESPLE2 under diverse real-world conditions and sensor configurations using the public datasets GrandTour [ 42 ] and JEPLO [ 49 ] , together with our own experimental datasets PPS Tracked Vehicle ( PPS TV ), HOPPER , and HANDI . These datasets are summarized in Tab. I , along with their sensor configurations and scenarios.
+
+[S8.T1] TABLE I: Public and experimental datasets for benchmarking.
+
+[S8.T1.4] Dataset Deployment Scenario Adopted Sensors ∗ GrandTour [ 42 ] ANYmal D quadruped, indoor, outdoor, and wilderness environments Hesai ( L ), Alpha ( V ), ICM40609 ( I ), leg joints ( K ) JEPLO [ 49 ] Unitree Go2 quadruped, maneuvers over stairs and boxes Mid360 ( L ), ICM40609 ( I ), leg joints ( K ) PPS TV (experiment) Tracked vehicle, high-speed maneuvers in outdoor environments Hesai ( L ), HDR ( V ), ICM40609 ( I ) HOPPER (experiment) Legged quadcopter [ 22 ] , highly dynamic maneuvers in enclosed and open spaces Mid360 ( L ), ICM40609 ( I1 ), BMI088 ( I2 ) HANDI (experiment) Handheld platform, long-distance walking in indoor and outdoor campus environments Mid360 ( L1 ), ICM40609 ( I1 ), Avia ( L2 ), BMI088 ( I2 ), D455 ( V1 ), ZedX1 ( V2 )
+
+[S8.T1.5] ∗ LiDARs: Hesai (Hesai XT32), Mid360 (Livox Mid360), and Avia (Livox Avia LiDAR). IMUs: ICM40609 (built in Mid360 ), BMI088 (Bosch Sensortec BMI088 IMU, and Avia built-in IMU). Cameras: Alpha (Alphasense, front-center), HDR (TierIV C1 HDR, front), D455 (RealSense D455), and ZedX1 (ZED X One).
+
+[S8.SS2.p2.1] Our baselines include state-of-the-art LVIO systems Coco-LIC [ 16 ] (CoLIC) and FAST-LIVO2 [ 52 ] (FLIVO2). We also involve CTE-MLO [ 36 ] (CMLO) for comparison with GP-based continuous-time estimation, Point-LIO [ 12 ] (PLIO) for LIO under highly dynamic motion, and Leg-KILO [ 31 ] (LeKILO) for LKIO on quadrupedal robots. Where applicable, we also evaluate Coco-LIC and FAST-LIVO2 for LIO. In this setting, FAST-LIVO2 has been reported to consistently outperform FAST-LIO2, with the gains attributed to its voxel-based local map and accurate noise modeling of LiDAR points [ 52 ] . Likewise, we include RESPLE [ 8 ] , replacing its ikd-Tree local map [ 7 ] with VoxelMap [ 47 ] to match the local map and LiDAR point noise modeling in RESPLE2, thereby helping to isolate differences in estimation performance.
+
+[S8.SS2.p3.1] All evaluations are performed on a desktop running Ubuntu 24.04 with an AMD Ryzen 9 9950X CPU and 32 GB of RAM. We use a single set of parameters across all sequences for each dataset and sensor setting. Unless otherwise stated, trajectory estimates are compared against the ground truth using the evo package [ 11 ] , with RPEs computed over fixed 0.5\text{\,}\mathrm{m} path-length increments using evo ’s point-distance pose relation. In the following tables of reported results, boldface and underlining indicate the best and second-best results, respectively, while ✗ denotes an error exceeding 50\text{\,}\mathrm{m} .
+
+[S8.SS3] VIII-C Public Datasets
+
+[S8.SS3.SSS1] VIII-C 1 GrandTour
+
+[S8.T2] TABLE II: APE and RPE (RMSE, meters) on GrandTour .
+
+[S8.T2.7] ARC-2 ∗ ARC-7 ∗ CON-4 ∗ EIG-1 ∗ SNOW-2 ∗ SPX-2 ∗ ARC-3 † HIL-1 † LEE-1 † PIL-2 † Method Variant APE RPE APE RPE APE RPE APE RPE APE RPE APE RPE APE RPE APE RPE APE RPE APE RPE CMLO LO 3.090 0.360 0.182 0.061 0.024 \underline{0.015} 0.041 0.023 0.023 0.016 0.104 0.030 ✗ ✗ 0.063 0.025 ✗ ✗ ✗ ✗ CoLIC LVIO 0.095 0.028 0.052 \bf{0.005} 0.027 \bf{0.005} 0.048 \bf{0.006} \bf{0.012} \bf{0.005} 0.040 \bf{0.006} 0.154 \bf{0.019} 0.031 0.009 0.051 \underline{0.006} {0.031} 0.013 FLIVO2 LVIO \bf{0.012} 0.009 \bf{0.013} \underline{0.014} 0.030 \underline{0.015} \underline{0.033} 0.014 0.016 0.016 \underline{0.023} 0.013 ✗ ✗ \bf{0.018} \underline{0.008} 0.037 0.011 0.071 0.025 RESPLE LIO 0.109 0.055 0.347 0.142 0.054 0.024 0.107 0.022 0.026 0.021 0.042 \underline{0.012} ✗ ✗ 0.036 0.009 0.041 0.020 ✗ ✗ LIO \bf{0.012} \bf{0.006} 0.036 0.016 \underline{0.016} 0.021 0.034 0.008 0.014 \underline{0.009} \bf{0.022} 0.013 0.078 0.024 0.022 \bf{0.004} \underline{0.020} \bf{0.005} 0.029 0.010 LVIO \bf{0.012} \underline{0.007} 0.038 0.016 0.018 0.020 \bf{0.032} 0.008 0.014 \underline{0.009} \underline{0.023} 0.013 0.072 0.024 \underline{0.020} \bf{0.004} \bf{0.017} \underline{0.006} \underline{0.028} 0.009 LKIO \underline{0.013} 0.008 0.032 \underline{0.014} \bf{0.015} 0.020 0.034 \underline{0.007} \underline{0.013} \underline{0.009} \bf{0.022} \underline{0.012} \bf{0.056} \underline{0.023} 0.023 \bf{0.004} 0.027 \underline{0.006} \underline{0.028} \bf{0.007} RESPLE2 LKVIO \bf{0.012} \underline{0.007} \underline{0.017} \underline{0.014} \bf{0.015} 0.020 \underline{0.033} \underline{0.007} \underline{0.013} \underline{0.009} \underline{0.023} \underline{0.012} \underline{0.060} \underline{0.023} 0.021 \bf{0.004} {0.023} \underline{0.006} \bf{0.026} \underline{0.008}
+
+[S8.T2.8] ∗ Test sequences: RESPLE2 results are obtained by submitting pose estimates to the COMFORT Localization Benchmark 1 1 1 Available at https://grand-tour.leggedrobotics.com/tasks/localization . Results for the other systems are taken from [ 42 ] and were obtained using the high-end HG4930 MEMS IMU (unavailable to RESPLE2). † Training sequences: All systems are evaluated using the Mid360 built-in IMU.
+
+[S8.SS3.SSS1.p1.1] The GrandTour dataset 2 2 2 Available at https://grand-tour.leggedrobotics.com/dataset was collected using an ANYmal D quadruped equipped with the Boxi multi-sensor rig [ 10 ] , including LiDAR, camera, inertial, and leg-joint measurements for studying legged autonomy across diverse environments. We evaluate all six test sequences covering diverse egomotions. We additionally select four training sequences featuring challenging conditions, including stairs and hills, with potential LiDAR and visual degeneracy.
+
+[S8.SS3.SSS1.p2.1] As summarized in Tab. II , despite using the lower-end Mid360 built-in IMU, RESPLE2 variants achieve overall competitive or superior estimation accuracy. Noticeably, RESPLE2-LIO achieves competitive accuracy compared with Coco-LIC and FAST-LIVO2 in APE without visual input. Within the RESPLE2 framework, adding visual or kinematic measurements to the LIO configuration improves performance, with RESPLE2-LKVIO delivering the best overall performance among our variants. Compared with RESPLE, RESPLE2-LIO achieves lower APE and RPE on nearly all sequences, supporting the benefits of the proposed non-uniform B-spline estimation scheme. Coco-LIC exhibits low RPE, reflecting strong local consistency, which may be attributed to its sliding-window optimization of short-range relative motion. However, the corresponding APEs indicate that this does not translate into superior global accuracy. Examples of running RESPLE2 on GrandTour are shown in Fig. 1 -(a,b).
+
+[S8.F3.2] EIL_Mix EIL_Box (a) RESPLE2 on two sequences of the JEPLO dataset. Black and red curves indicate estimates and ground truth, respectively. (b) Foot position estimates from RESPLE2 during the EIL_Mix sequence.
+
+[S8.F3] Fig. 3: Examples of RESPLE2 tested on JEPLO .
+
+[S8.SS3.SSS2] VIII-C 2 JEPLO
+
+[S8.SS3.SSS2.p1.1] The JEPLO dataset is recorded onboard a Unitree Go2 quadruped driven by a perceptive locomotion policy to perform dynamic maneuvers at approximately 1\text{\,}\mathrm{m} across varying terrains, including long staircases and boxes, in both indoor and outdoor scenarios [ 49 ] , as shown in Fig. 1 -(e) for Outdoor2 and Fig. 3 -(a). A Mid360 is mounted upside down on the robot’s head, providing a limited FoV of the surroundings. In the EIL_Mask1 and EIL_Mask2 sequences, taped masks partially cover the sensor to deliberately restrict its FoV and induce perceptual degeneracy.
+
+[S8.SS3.SSS2.p2.1] As shown in Tab. III , RESPLE2 achieves the best overall APE performance, with its LKIO variant attaining the lowest error on all eight sequences. Incorporating leg kinematic measurements improves or maintains estimation accuracy across all sequences. FAST-LIVO2 performs substantially worse, possibly because its discrete-time formulation is sensitive to abrupt changes in the observed scene within the limited LiDAR FoV and to high-impact landings when the robot steps down from elevated platforms. Leg-KILO follows the filtering-based design of Point-LIO with point-wise measurement update. Like RESPLE2, it uses VoxelMap for local map management and incorporates a foot-velocity measurement model. Despite these shared design choices, RESPLE2-LKIO consistently achieves lower estimation errors than Leg-KILO, even without customization for legged odometry. This supports the benefits of our proposed continuous-time estimation method. Foot position estimation is demonstrated in Fig. 3 -(b).
+
+[S8.T3] TABLE III: APE (RMSE, meters) on JEPLO .
+
+[S8.T3.7] Method CoLIC FLIVO2 RESPLE LeKILO RESPLE2 Variant LIO LIO LIO LKIO LIO LKIO EIL_Box 0.054 3.200 {0.011} 0.032 \underline{0.006} \bf{0.005} EIL_Mask1 0.032 0.551 0.015 0.032 \underline{0.009} \bf{0.008} EIL_Mask2 0.045 0.830 {0.015} 0.040 \underline{0.011} \bf{0.010} EIL_Mix 0.028 1.628 \underline{0.015} 0.028 \bf{0.010} \bf{0.010} EIL_Stairs 0.047 ✗ 0.013 0.052 \underline{0.010} \bf{0.007} Long_Stairs 0.015 ✗ \underline{0.010} 0.027 \bf{0.007} \bf{0.007} Outdoor1 0.017 ✗ {0.010} 0.018 \underline{0.008} \bf{0.007} Outdoor2 0.016 ✗ 0.011 0.026 \underline{0.007} \bf{0.006}
+
+[S8.SS4] VIII-D Experiments
+
+[S8.SS4.SSS1] VIII-D 1 PPS TV
+
+[S8.SS4.SSS1.p1.1] The PPS Tracked Vehicle dataset 3 3 3 Available at https://datasets.leggedrobotics.com/project/f44c68af-6827-4b16-bcd8-abf2d493eebb/missions is recorded onboard a tracked robot equipped with the Boxi multi-sensor rig [ 10 ] as shown in Fig. 4 -(a). It features high translational and angular velocities in unstructured outdoor environments under both daytime and nighttime conditions. The peak angular rate reaches 4.5\text{\,}\mathrm{rad} in night_street , and the accelerometer ( Mid360 built-in IMU) frequently saturates at its \pm 4\,g full-scale limits during aggressive maneuvers.
+
+[S8.SS4.SSS1.p2.1] As summarized in Tab. IV , RESPLE2 achieves strong overall performance, with low APE and RPE across the dataset in both LIO and LVIO configurations. RESPLE-LO fails on day_open , which becomes particularly challenging near the end as the robot climbs a hill and becomes stuck. In the LIO setting, RESPLE2 mostly achieves lower RPE and APE than FAST-LIVO2 and Coco-LIC. Incorporating visual measurements generally reduces odometry errors for RESPLE2 and FAST-LIVO2, whereas it does not improve the reported accuracy of Coco-LIC. In the LVIO setting, RESPLE2 achieves lower APE than Coco-LIC on every sequence, with equal or lower RPE on most sequences. We further show representative runs of RESPLE2 in Fig. 1 -(c) and Fig. 4 -(b).
+
+[S8.T4] TABLE IV: APE and RPE (RMSE, meters) on PPS Tracked Vehicle .
+
+[S8.T4.7] CMLO CoLIC FLIVO2 RESPLE RESPLE2 LO LIO LVIO LIO LVIO LO LIO LIO LVIO DO APE 0.082 0.051 0.051 0.582 {0.046} ✗ 0.066 \underline{0.042} \bf{0.041} RPE 0.079 \underline{0.007} \underline{0.007} 0.044 \underline{0.007} ✗ 0.018 \bf{0.006} \underline{0.007} APE 0.063 {0.026} {0.026} {0.026} 0.028 0.030 \underline{0.024} \underline{0.024} \bf{0.020} DH RPE 0.060 \underline{0.006} \underline{0.006} 0.009 0.009 0.020 0.012 \bf{0.005} \bf{0.005} NH APE 0.071 0.029 0.029 {0.024} \underline{0.023} 0.034 0.025 0.025 \bf{0.022} RPE 0.070 {0.006} {0.006} 0.009 0.008 0.020 0.008 \underline{0.005} \bf{0.004} APE 0.077 0.189 0.202 0.258 0.058 0.225 \bf{0.039} \underline{0.045} 0.059 NL RPE 0.038 \bf{0.006} \bf{0.006} 0.010 \underline{0.008} 0.019 0.012 \bf{0.006} \bf{0.006} NS APE 0.057 0.016 0.016 {0.015} {0.015} 0.032 0.017 \underline{0.013} \bf{0.011} RPE 0.043 \bf{0.005} \bf{0.005} 0.007 0.008 0.023 0.011 \underline{0.006} \bf{0.005} APE 0.058 {0.023} 0.024 0.024 0.024 0.031 0.025 \underline{0.021} \bf{0.019} DS RPE 0.043 \bf{0.005} \bf{0.005} \underline{0.006} 0.007 0.018 0.011 \bf{0.005} \bf{0.005}
+
+[S8.T4.8] Sequence abbreviations: DO ( day_open ), DH ( day_hill ), NH ( night_hill ), NL ( night_loop ), NS ( night_street ), and DS ( day_street ).
+
+[S8.F4.2] (a) (b)
+
+[S8.F4] Fig. 4: (a) Tracked vehicle equipped with Boxi for collecting the PPS TV dataset. (b) RESPLE2 results on the day_street sequence.
+
+[S8.SS4.SSS2] VIII-D 2 HOPPER
+
+[S8.SS4.SSS2.p1.1] The HOPPER dataset comprises 12 indoor sequences recorded onboard a legged quadcopter performing highly aggressive hybrid maneuvers, including vertical and lateral jumps, flight, and flips (Fig. 5 ), in both enclosed and open spaces [ 22 , 15 ] . The robot is equipped with a Mid360 , with inertial measurements recorded by its built-in ICM40609 ( 200\text{\,}\mathrm{Hz} ) and an external BMI088 (range \pm 24 g), which operates at 1000\text{\,}\mathrm{Hz} and 500\text{\,}\mathrm{Hz} in enclosed and open spaces, respectively. The robot undergoes highly aggressive motion, with instantaneous accelerations reaching approximately 25 g and angular rates of up to 18\text{\,}\mathrm{rad} (Fig. 6 ). These acceleration peaks exceed the \pm 4 g measurement range of the Mid360 built-in IMU, highlighting a challenging test of robustness to severe inertial measurement saturation. We calibrate the extrinsic transformation between the external IMU and the LiDAR and compensate for their time offset. Both pose ( 300\text{\,}\mathrm{Hz} ) and velocity ( 100\text{\,}\mathrm{Hz} ) ground truth data are recorded using a Vicon motion capture system equipped with 10 Vantage cameras in a room of $10\text{\,}\mathrm{m}$\times$10\text{\,}\mathrm{m}$ . The enclosed-space sequences take place within this room, while the open-space sequences ( long1 to long3 ) start and end there and cover longer distances through a larger area beyond the room.
+
+[S8.SS4.SSS2.p2.1] In the flip sequences, the robot performs flips, producing high angular velocities and abrupt changes in the LiDAR scans. In the high sequences, the robot jumps higher, generating extreme accelerations exceeding 24 g. In the side sequences, the robot performs large lateral jumps. The three long sequences evaluate performance over longer trajectories of jumps, with long3 shown in Fig. 1 -(d). Fig. 7 provides representative results from RESPLE2 on another four sequences.
+
+[S8.SS4.SSS2.p3.1] Tab. V reports position APE of LIO individually with the external and internal IMUs. RESPLE2 achieves the lowest APE on all sequences under both IMU configurations (except for flip4 using internal IMU). Remarkably, its internal-IMU variant remains competitive with other methods using the external IMU, demonstrating consistent robustness to reduced IMU quality. Using the external IMU, RESPLE and Coco-LIC achieve comparable position accuracy and complete all sequences. FAST-LIVO2 is competitive on successful runs, although it fails on flip1 .
+
+[S8.F5.2] (a) (b) (c)
+
+[S8.F5] Fig. 5: Legged quadcopter (a) used to collect the HOPPER dataset, with examples of flip (b) and lateral jump (c) from flip4 .
+
+[S8.F6] Fig. 6: Acceleration along the z -axis during high2 (left) and angular velocity norms during flip2 (right). Red and black curves correspond to the external and internal IMUs, respectively.
+
+[S8.F7.2] base1 side2 flip2 high2
+
+[S8.F7] Fig. 7: RESPLE2 tested on HOPPER . Black and red curves represent the estimated and ground-truth trajectories, respectively.
+
+[S8.SS4.SSS2.p4.1] Coco-LIC and FAST-LIVO2 fail on all sequences with the internal IMU, highlighting the challenges posed by aggressive motion and severe inertial measurement saturation. Point-LIO completes all sequences with the internal IMU through its dedicated design for handling dynamic motion, using point-wise measurement updates and rejecting accelerometer measurements along saturated axes. However, its errors remain higher than those of RESPLE and RESPLE2, with severe deterioration on the high and flip sequences under more aggressive maneuvers when using the internal IMU. RESPLE2-LO also completes all sequences without IMU measurements, with estimation accuracy similar to or only slightly worse than that of RESPLE2 using the internal IMU. Specifically, it outperforms Point-LIO with the internal IMU on all sequences.
+
+[S8.T5] TABLE V: APE (RMSE, meters) on HOPPER .
+
+[S8.T5.7] Method PLIO CoLIC FLIVO2 RESPLE RESPLE2 Variant ext int ext ext ext int ext int LO base1 0.022 0.178 0.008 \underline{0.007} 0.010 0.016 \bf{0.005} 0.014 0.017 high1 0.022 0.556 0.020 0.019 \underline{0.011} 0.019 \bf{0.005} 0.017 0.021 high2 0.022 0.594 0.017 0.021 \underline{0.011} 0.023 \bf{0.005} 0.020 0.024 side1 0.019 0.178 \underline{0.008} \underline{0.008} \underline{0.008} 0.018 \bf{0.004} 0.016 0.017 side2 0.019 0.149 \underline{0.008} \underline{0.008} \underline{0.008} 0.017 \bf{0.004} 0.015 0.015 flip1 0.024 0.335 0.038 ✗ \underline{0.014} 0.019 \bf{0.008} 0.018 0.022 flip2 0.026 0.314 0.015 \underline{0.012} \underline{0.012} 0.018 \bf{0.008} 0.018 0.019 flip3 0.028 0.361 0.024 0.024 \underline{0.013} 0.020 \bf{0.011} 0.019 0.020 flip4 0.042 0.407 0.017 0.016 \underline{0.013} 0.019 \bf{0.009} 0.020 0.027 long1 0.025 0.102 \underline{0.013} 0.017 \underline{0.013} 0.019 \bf{0.010} 0.015 0.022 long2 0.033 0.087 \underline{0.014} \bf{0.013} 0.016 0.020 \bf{0.013} 0.018 0.019 long3 0.034 0.133 0.017 \underline{0.016} 0.018 0.022 \bf{0.014} 0.020 0.021
+
+[S8.SS4.SSS2.p5.1] We additionally evaluate velocity estimation recorded within enclosed spaces using the instantaneous estimates produced after each measurement update, reflecting their use in online control tasks [ 22 ] . As shown in Tab. VI , all systems exhibit greater sensitivity to IMU quality in velocity estimation than in position estimation. With the external IMU, RESPLE2 achieves the lowest or the second lowest velocity estimation error on all sequences. With the internal IMU, it achieves higher accuracy than all other systems on all sequences under the same IMU configuration. Notably, due to its delayed knot determination, Coco-LIC introduces an additional latency of up to two optimization cycles ( 200\text{\,}\mathrm{ms} ), which may degrade online control performance [ 34 ] .
+
+[S8.T6] TABLE VI: Velocity estimation error (RMSE, \text{\,}\mathrm{m} ) on HOPPER .
+
+[S8.T6.8] Method PLIO CoLIC FLIVO2 RESPLE RESPLE2 IMU ext int ext ext ext int ext int LO base1 0.245 1.674 \bf{0.081} 0.254 0.732 0.798 \underline{0.111} 0.617 1.019 high1 0.294 2.098 \underline{0.123} 0.269 0.683 0.775 \bf{0.097} 0.678 1.079 high2 0.261 2.509 \underline{0.125} 0.353 0.734 0.924 \bf{0.105} 0.809 1.264 side1 0.256 1.836 \bf{0.077} 0.236 0.582 0.756 \underline{0.107} 0.591 0.993 side2 \bf{0.123} 1.757 0.218 0.290 0.705 0.802 \underline{0.210} 0.675 1.068 flip1 \underline{0.252} 2.013 0.288 ✗ 0.789 0.843 \bf{0.227} 0.749 1.176 flip2 0.300 2.000 \underline{0.258} 0.317 0.798 0.881 \bf{0.256} 0.742 1.155 flip3 \bf{0.231} 1.837 0.269 0.332 0.759 0.859 \underline{0.255} 0.708 1.139 flip4 0.316 2.162 \underline{0.204} 0.266 0.707 0.752 \bf{0.166} 0.668 1.245
+
+[S8.SS4.SSS2.p6.1] As depicted in Fig. 8 , we further compare the position and velocity estimates of the systems against the ground truth on flip1 , including a flip maneuver during 26\text{\,} - 27\text{\,}\mathrm{s} . After approximately 29\text{\,}\mathrm{s} , FAST-LIVO2 diverges, and Coco-LIC and Point-LIO deviate substantially from the ground truth, whereas RESPLE2 closely tracks it despite the dynamic maneuver.
+
+[S8.F8] Fig. 8: Position (top) and velocity (bottom) along the z -axis on flip1 .
+
+[S8.SS4.SSS3] VIII-D 3 HANDI
+
+[S8.SS4.SSS3.p1.1] The HANDI dataset comprises 13 sequences recorded in diverse indoor and outdoor environments using different LVI configurations on a handheld platform. The az sequences use Avia and ZedX1 , ar-inout uses Avia and D455 , and mz-inout uses Mid360 and ZedX1 . The az-dyna sequences capture dynamic motion during jumping, running, rapid lateral rotations, and circular arm movements within a 12\text{\,}\mathrm{m} \times 12\text{\,}\mathrm{m} space. The inout and az-corri sequences involve long-distance travel, including scenarios with geometric degeneracy (e.g., in long corridors), as well as transitions between indoor and outdoor environments. The az-out sequences are recorded entirely outdoors, including in wilderness environments, and return to their starting locations, enabling end-to-end error evaluation. For all other sequences, a Qualisys camera tracking system provides ground truth for either the entire trajectory ( az-dyna ) or the initial and final portions of longer trajectories (rest). We enable the proposed global refinement module at loop closures for the long-distance sequences.
+
+[S8.SS4.SSS3.p2.1] As summarized in Tab. VII , RESPLE2 completes all evaluated sequences for both LIO and LVIO, with at least one variant achieving the lowest odometry error on every sequence. RESPLE2-LVIO outperforms all competing systems in geometrically degenerate corridors and during indoor-outdoor transitions, and achieves the lowest end-to-end errors on the outdoor sequences. In general, incorporating visual measurements substantially improves the odometry accuracy in both dynamic and long-distance scenarios. Global refinement of the LVIO trajectories further reduces errors on long-distance sequences, with particularly pronounced gains in unstructured or geometrically degenerate environments, e.g., az-corri and az-out2 . Fig. 9 further illustrates representative runs of RESPLE2 on the az-dyna sequences. The hardware setups and mapping results of ar-inout , az-inout , and mz-inout are shown in Fig. 1 -(f), (g), and (h), respectively.
+
+[S8.SS4.SSS3.p3.1] Fig. 10 further provides a qualitative comparison of mapping consistency before and after global refinement. Fig. 11 shows the quantitative results of global refinement at the first detected loop closure in ar-inout . The proposed global spline optimization reduces position errors along the trajectory by up to nearly 2\text{\,}\mathrm{m} while consistently preserving higher-order continuous-time states such as angular and linear velocities.
+
+[S8.T7] TABLE VII: APE (RMSE, meters) on HANDI .
+
+[S8.T7.7] Method CoLIC FLIVO2 RESPLE RESPLE2 Variant LVIO LVIO LIO LIO LVIO (+LC) az-base1 0.121 0.059 \underline{0.034} {0.036} \bf{0.028} ( N/A ) az-base2 ✗ ✗ 0.085 \underline{0.036} \bf{0.033} ( N/A ) az-dyna1 0.105 {0.080} 0.157 \bf{0.055} \underline{0.059} ( N/A ) az-dyna2 0.074 0.074 1.588 \bf{0.053} \underline{0.054} ( N/A ) az-dyna3 0.141 \underline{0.095} 4.489 15.944 \bf{0.059} ( N/A ) az-dyna4 ✗ 0.097 0.045 \underline{0.044} \bf{0.036} ( N/A ) az-dyna5 0.082 0.067 0.069 \underline{0.056} \bf{0.042} ( N/A ) az-corri 25.236 46.476 44.057 6.166 \underline{1.339} ( \bf{0.044} ) az-inout 2.562 5.122 11.330 1.334 \underline{0.031} ( \bf{0.030} ) mz-inout 2.476 ✗ 36.974 1.491 \underline{0.668} ( \bf{0.026} ) ar-inout {0.808} ✗ 1.122 10.177 \underline{0.394} ( \bf{0.076} ) az-out1 ∗ 1.686 \underline{0.057} 9.605 4.780 \bf{0.009} ( \bf{0.009} ) az-out2 ∗ {3.623} 25.235 ✗ 5.355 \underline{2.767} ( \bf{0.009} )
+
+[S8.T7.8] ∗ Sequences start and end at the same location, for which end-to-end error is reported. For the long-distance sequences below the divider, RESPLE2 applies loop closure detection and global refinement, with resulting errors shown in parentheses.
+
+[S8.F9.2] az-dyna1 az-dyna2 az-dyna4 az-dyna5
+
+[S8.F9] Fig. 9: RESPLE2 on az-dyna sequences. Black and red curves are estimated and ground-truth trajectories, respectively.
+
+[S8.F10] Fig. 10: Comparison before and after global refinement on az-out2 .
+
+[S9] IX Further Discussions
+
+[S9.SS1] IX-A Ablations
+
+[S9.SS1.SSS1] IX-A 1 Inertial-Informed Prediction
+
+[S9.SS1.SSS1.p1.1] To assess the proposed inertial-informed control point prediction, we compare our method with a baseline in which each new RCP is predicted using a constant transition matrix {\mathbf{A}} that copies the most recent position and orientation-increment RCPs, with carefully tuned process noise. This baseline resembles the prediction scheme in RESPLE [ 8 ] or the initialization scheme in Coco-LIC [ 16 ] . Both settings apply the same knot-placement criteria based on Section VI-A , ensuring identical knot intervals and measurement batches at each update step. This isolates the effect of the prediction strategy from that of adaptive knot placement. We use the HOPPER sequences recorded in enclosed spaces for testing under aggressive motion.
+
+[S9.SS1.SSS1.p2.1] As shown in Tab. VIII , the proposed inertial-informed prediction reduces the position APE on all the sequences with relative reductions of approximately 39\% - 76\% . The largest reduction occurs on high1 , which features extremely high accelerations. These consistent improvements support the benefit of incorporating current inertial measurements into control point prediction during highly dynamic motion.
+
+[S9.F11] Fig. 11: Position correction and preservation of body-frame angular (blue) and linear velocities (black) at the first global spline optimization.
+
+[S9.F12] Fig. 12: Ablation of exact RCP prediction on flip1 in (x,y) -coordinates w.r.t. ground truth (red). The IMU-predicted control points and those predicted using the constant transition matrix {\mathbf{A}} in Section IX-A1 are shown in blue and green with the corresponding B-spline estimates, respectively.
+
+[S9.T8] TABLE VIII: Position APE (RMSE, meters) on HOPPER for ablation on inertial-informed prediction.
+
+[S9.T8.7] base1 high1 high2 side1 side2 flip1 flip2 flip3 flip4 Pred. w/o IMU 0.015 0.017 0.012 0.010 0.011 0.015 0.016 0.018 0.017 Pred. w/ IMU \bf{0.005} \bf{0.004} \bf{0.005} \bf{0.004} \bf{0.004} \bf{0.008} \bf{0.008} \bf{0.011} \bf{0.009}
+
+[S9.F13.2] RESPLE2 Coco-LIC (a) Position (black) and velocity (blue) estimates over placed knots (gray) compared with ground truth (red). RESPLE2 Coco-LIC (b) Norms of acceleration (black) and angular velocity (blue) estimates over placed knots (gray) w.r.t. the accelerometer (green) and gyroscope (red) readings, respectively.
+
+[S9.F13] Fig. 13: Comparison of knot placement and motion estimates between RESPLE2 and Coco-LIC on a segment of flip1 , with reference to ground truth (a) and IMU measurements (b). RESPLE2 achieves higher estimation accuracy and fidelity with a knot distribution that better adapts to motion.
+
+[S9.SS1.SSS1.p3.1] Fig. 12 further illustrates the corresponding position control point predictions on a segment of flip1 . The IMU-predicted RCPs generally lie closer to the subsequently estimated trajectory, whereas the baseline predictions exhibit larger deviations. Under knot clamping, the newest control point coincides with the trajectory endpoint, thereby enabling improved control point initialization through direct IMU integration and providing a better endpoint prior for the subsequent iterated measurement update, including data association.
+
+[S9.SS1.SSS2] IX-A 2 Knot Placement
+
+[S9.SS1.SSS2.p1.1] To examine how knot placement adapts to dynamic motion, we compare RESPLE2 and Coco-LIC on a segment of flip1 containing two landing impacts separated by a ballistic phase as shown in Fig. 13 -(a). RESPLE2 concentrates knots around the ground impacts, where velocity changes abruptly, and places sparser knots during the smoother ballistic motion, with the vertical position and velocity estimates closely following the ground truth throughout the segment. Coco-LIC exhibits a nearly uniform knot density over the same interval, with larger position and velocity deviations.
+
+[S9.SS1.SSS2.p2.1] In Coco-LIC’s design, the number of control points in each 0.1\text{\,}\mathrm{s} interval is determined by thresholding the acceleration and angular velocity in the global frame averaged over that interval. We observe that this averaging can reduce the contribution of brief, aggressive motion transitions, such as those during a landing impact lasting about 50\text{\,}\mathrm{ms} , limiting the sensitivity of knot placement to these transient events. Instead, RESPLE2 evaluates changes in position, orientation, and velocity at each IMU propagation substep, together with criteria on interval duration and measurement point counts. In particular, the velocity-change criterion allows rapid changes in translational motion to trigger knot extension without waiting for a fixed averaging interval.
+
+[S9.SS1.SSS2.p3.1] As shown in Fig. 13 -(b), we further examine the consistency of inertial estimation within the same phase. RESPLE2 produces acceleration and angular-velocity estimates that are more closely aligned with the measurements, particularly during pronounced variations near the peaks, whereas Coco-LIC overshoots the acceleration peaks and underestimates the angular-velocity peaks around both ground impacts. These observations further support our motion-adaptive knot placement strategy for estimating dynamic motion.
+
+[S9.SS1.SSS2.p4.1] Furthermore, over the entire flip1 sequence, RESPLE2 uses 2087 control points compared with 2362 for Coco-LIC, a reduction of 11.6\% , while achieving higher estimation accuracy. This also demonstrates the superior representation efficiency of our motion-adaptive knot placement.
+
+[S9.F14] Fig. 14: Runtime profile of global spline optimization on ar-inout , including per-iteration cost, total optimization time, and knot counts.
+
+[S9.SS2] IX-B Runtime and Computational Analysis
+
+[S9.SS2.p1.1] Tab. IX reports the per-frame runtime breakdown on three sequences, one for each operating mode: flip1 (LIO), day_open (LVIO), and Outdoor1 (LKIO). In all three modes, RESPLE2 runs well within real time, consuming only 15.4\% , 18.3\% , and 10.6\% of the available time budget per LiDAR frame, respectively. The IEKF update is the dominant stage throughout, accounting for roughly one third of the per-frame runtime in LIO, one quarter in LVIO, and about half in LKIO, followed by the image preprocessing, VoxelMap maintenance and LiDAR preprocessing. The proposed RCP prediction and reset are lightweight, together requiring at most 0.51\text{\,}\mathrm{m}\mathrm{s} per frame and less than 7\% of the total runtime on every sequence. The LVIO mode incurs the highest cost, as visual processing adds about 4.1\text{\,}\mathrm{ms} per frame and the visual measurements further enlarge the IEKF update.
+
+[S9.T9] TABLE IX: Runtime ( \mathrm{m}\mathrm{s} per LiDAR frame) analysis.
+
+[S9.T9.5] Sequence flip1 day_open Outdoor1 LiDAR preprocessing 1.570 2.765 0.810 Image preprocessing – 3.346 – Visual feature generation – 0.756 – Knot extension 0.372 2.926 0.380 RCP prediction 0.363 0.184 0.107 RCP reset 0.142 0.163 0.090 Iterated update 2.664 4.883 2.644 VoxelMap maintenance 2.291 2.934 1.013 Others 0.290 0.388 0.264 Total / Available \bf 7.7 / \bf 50 \bf 18.3 / \bf 100 \bf 5.3 / \bf 50
+
+[S9.SS2.p2.1] Fig. 14 reports the runtime of the main components of the 16 global optimizations triggered on ar-inout , with optimization windows ranging from 243\text{\,}\mathrm{s} to 853\text{\,}\mathrm{s} . Each linearization evaluates the residuals and Jacobians and accumulates the linear system. Solver setup merges these contributions, assembles the sparse system matrix, and scales the system. The linear solve factorizes the matrix and computes the state increment. Each optimization typically converges within approximately 15 iterations. The latest global spline optimization takes about 2\text{\,}\mathrm{s} , indicating a low overall computational cost.
+
+[S10] X Conclusion
+
+[S10.p1.1] We presented RESPLE2, a recursive continuous-time 6 -DoF state estimation framework using non-uniform B-splines. By exploiting the knot-clamping boundary condition, the framework directly predicts control points from IMU-integrated kinematics on the trajectory and adapts knot placement to motion and measurement availability. A subsequent control point reset preserves local trajectory consistency as the spline is extended. In addition, a lightweight global optimization module is developed to directly refine the non-uniform B-spline control points by combining loop-closure constraints, reducing accumulated global drift and preserving local kinematic consistency. RESPLE2 supports flexible combinations of LiDAR, visual, inertial, and leg-kinematic measurements, as well as LiDAR-only operation. Extensive real-world evaluations across diverse platforms demonstrate accuracy and robustness comparable to or exceeding those of state-of-the-art methods while maintaining real-time operation, with particularly strong performance under aggressive motion and severe IMU saturation. These results highlight the potential of motion-adaptive, recursive B-spline estimation for robust multi-sensor egomotion estimation under challenging conditions. For future work, we plan to investigate adaptive sensor weighting and visual feature constraints that do not depend on LiDAR-derived depth to further improve estimation robustness under sensor degeneracy. Another promising direction is to integrate spline-based state estimation directly with optimization- or learning-based motion planning onboard mobile robots.
+
+[Sx1] ACKNOWLEDGMENT
+
+[Sx1.p1.1] ChatGPT is used for debugging code.
+
+[A0.SS1] -A Derivation of the Knot-Clamping Boundary Property
+
+[A0.SS1.p1.1] Using the general matrix representation of non-uniform cubic B-splines [ 32 ] , we derive the six coefficients in the basis matrix {\bm{\Omega}} ( 2 ) by imposing the clamping condition t_{n}=t_{n+1}=t_{n+2} at the new knot t_{n} :
+
+[A0.Ex20] \displaystyle m_{0,0} \displaystyle=\textstyle\frac{(t_{n}-t_{n-1})^{2}}{(t_{n}-t_{n-2})(t_{n}-t_{n-3})}\,,\,m_{2,0}=\frac{(t_{n-1}-t_{n-2})^{2}}{(t_{n}-t_{n-2})^{2}}\,, \displaystyle m_{2,1} \displaystyle=\textstyle\frac{3(t_{n}-t_{n-1})(t_{n-1}-t_{n-2})}{(t_{n}-t_{n-2})^{2}}\,,\,m_{2,2}=\frac{3(t_{n}-t_{n-1})^{2}}{(t_{n}-t_{n-2})^{2}}\,, \displaystyle m_{2,3} \displaystyle=\textstyle-\frac{1}{3}m_{2,2}-m_{3,3}-\frac{t_{n}-t_{n-1}}{t_{n}-t_{n-2}}\,,\,m_{3,3}=1\,.
+
+[A0.SS1.p1.2] At the boundary t=t_{n} , the normalized time is u=1 , giving {\bm{u}}=[\,1,1,1,1\,]^{\top} , \dot{\bm{u}}=[\,0,1,2,3\,]^{\top}/\tau_{n-1} , and \ddot{\bm{u}}=[\,0,0,2,6\,]^{\top}/\tau_{n-1}^{2} . Substituting these vectors into the kinematic interpolation formula in ( 5 ) yields the following matrix-vector products:
+
+[A0.Ex21] \displaystyle{\bm{\Omega}}{\bm{u}} \displaystyle=\bigg[\begin{smallmatrix}&0\\ &1-m_{2,0}-m_{2,1}-m_{2,2}-m_{2,3}-m_{3,3}\\ &m_{2,0}+m_{2,1}+m_{2,2}+m_{2,3}\\ &m_{3,3}\end{smallmatrix}\bigg]=[\,0,0,0,1\,]^{\top}\,, \displaystyle{\bm{\Omega}}\dot{\bm{u}} \displaystyle=\frac{1}{\tau_{n-1}}\bigg[\begin{smallmatrix}0\\ -m_{2,1}-2m_{2,2}-3m_{2,3}-3m_{3,3}\\ m_{2,1}+2m_{2,2}+3m_{2,3}\\ 3m_{3,3}\end{smallmatrix}\bigg]=\frac{[\,0,0,-3,3\,]^{\top}}{\tau_{n-1}}\,, \displaystyle{\bm{\Omega}}\ddot{\bm{u}} \displaystyle=\frac{1}{\tau_{n-1}^{2}}\bigg[\begin{smallmatrix}0\\ -2m_{2,2}-6m_{2,3}-6m_{3,3}\\ 2m_{2,2}+6m_{2,3}\\ 6m_{3,3}\end{smallmatrix}\bigg]=\frac{[\,0,6\mu,-6-6\mu,6\,]^{\top}}{\tau_{n-1}^{2}}\,,
+
+[A0.SS1.p1.3] with \mu=\textstyle\frac{t_{n}-t_{n-1}}{t_{n}-t_{n-2}} . Since {\mathbf{S}}=[{\bm{s}}_{n-3}\,,{\bm{s}}_{n-2}\,,{\bm{s}}_{n-1}\,,{\bm{s}}_{n}] , this then establishes ( 10 ). For the orientation B-spline, evaluating the cumulative basis functions in ( 4 ) and their time derivatives at the clamped boundary t=t_{n} gives
+
+[A0.Ex22] \displaystyle\lambda_{n-3:n} \displaystyle=\bigg[\begin{smallmatrix}1\\ 1\\ m_{2,0}+m_{2,1}+m_{2,2}+m_{2,3}+m_{3,3}\\ m_{3,3}\end{smallmatrix}\bigg]=[\,1,1,1,1\,]^{\top}\,,\,\text{and} \displaystyle\dot{\lambda}_{n-3:n} \displaystyle=\frac{1}{\tau_{n-1}}\bigg[\begin{smallmatrix}0\\ 0\\ m_{2,1}+2m_{2,2}+3m_{2,3}+3m_{3,3}\\ 3m_{3,3}\end{smallmatrix}\bigg]=\frac{[\,0,0,0,3\,]^{\top}}{\tau_{n-1}}\,,
+
+[A0.SS1.p1.4] with \lambda_{n-3:n}=[\lambda_{n-3},\lambda_{n-2},\lambda_{n-1},\lambda_{n}]^{\top} . Substituting these basis function values into ( 3 ) yields the orientation at the boundary t=t_{n} :
+
+[A0.Ex23] \textstyle{{r}}(t_{n})={\bm{r}}_{n-4}\bullet\prod_{i=n-3}^{n}\big({\bm{r}}_{i-1}^{-1}\bullet{\bm{r}}_{i}\big)={\bm{r}}_{n}\,.
+
+[A0.SS1.p1.5] For angular-velocity interpolation at the clamped boundary t=t_{n}=t_{n+1}=t_{n+2} , we have \dot{\lambda}_{n-3}=\dot{\lambda}_{n-2}=\dot{\lambda}_{n-1}=0 . The recursion in ( 6 ) thus gives {\bm{\omega}}_{1}(t_{n})={\bm{\omega}}_{2}(t_{n})={\bm{0}}_{3\times 1} , yielding
+
+[A0.Ex24] {\bm{\omega}}(t_{n})={\bm{e}}_{n}^{-1}\bullet{\bm{0}}_{3\times 1}\bullet{\bm{e}}_{n}+2\dot{\lambda}_{n}\,\bm{\delta}_{n}=6\,\bm{\delta}_{n}/\tau_{n-1}\,,
+
+[A0.SS1.p1.6] which establishes ( 11 ).
+
+[A0.SS2] -B Derivation of the RCP Reset
+
+[A0.SS2.SSS1] -B 1 Position RCP Reset
+
+[A0.SS2.SSS1.p1.2] In ( 21 ), the pre-reset values are evaluated using ( 10 ) at the right endpoint of [\,t_{n-2},t_{n-1}] with u^{-}=1 . After unclamping, the same instant t_{n-1} corresponds to the left endpoint of [\,t_{n-1},t_{n}] with u^{+}=0 . Hence,
+
+[A0.Ex25] {\mathring{{{s}}}}(t_{n-1})^{+}=\big[{\bm{s}}_{n-3}^{+},{\bm{s}}_{n-2}^{+},{\bm{s}}_{n-1}^{+},{\bm{s}}_{n}^{+}\big]\,{\bm{\Omega}}^{+}{\mathring{{\bm{u}}}}(t_{n-1})^{+}\,,
+
+[A0.SS2.SSS1.p1.3] where {\bm{s}}_{n-3:n}^{+} are the post-reset position control points and {\bm{\Omega}}^{+} is the corresponding basis matrix. The post-reset normalized time vector and its derivatives at t_{n-1} follow
+
+[A0.E27] \displaystyle{\displaystyle\bm{u}}(t_{n-1})^{+}=[\,1,0,0,0\,]^{\top}\,, (27) \displaystyle\dot{\bm{u}}(t_{n-1})^{+}=[\,0,1,0,0\,]^{\top}/\tau_{n-1}\,, \displaystyle\ddot{\bm{u}}(t_{n-1})^{+}=[\,0,0,2,0\,]^{\top}/\tau_{n-1}^{2}\,.
+
+[A0.SS2.SSS1.p1.4] The contributions of {\bm{s}}_{n-4}^{-} and {\bm{s}}_{n}^{+} to ( 21 ) vanish at u^{-}=1 and u^{+}=0 , respectively. {\bm{s}}_{n} is thus left unchanged during the reset, and ( 21 ) reduces to the following linear system:
+
+[A0.Ex26] \displaystyle{\displaystyle\mathbf{M}}^{-}{\bm{s}}_{n-3:n-1}^{-}={\mathbf{M}}^{+}{\bm{s}}_{n-3:n-1}^{+}\,,{\quad\text{with}\quad} \displaystyle{\displaystyle\mathbf{M}}^{-}={\textrm{diag}}(1,3/\tau_{n-2},6/\tau_{n-2}^{2})\Big[\begin{smallmatrix}0&0&1\\ 0&-1&1\\ \mu^{-}&-1-\mu^{-}&1\end{smallmatrix}\Big]\otimes{\mathbf{I}}_{3}{\quad\text{and}\quad} \displaystyle{\displaystyle\mathbf{M}}^{+}={\textrm{diag}}(1,1/\tau_{n-1},2/\tau_{n-1}^{2})({\bm{\Omega}}_{1:3,1:3}^{+})^{\top}\otimes{\mathbf{I}}_{3}\,.
+
+[A0.SS2.SSS1.p1.5] with \mu^{-}=(t_{n-1}-t_{n-2})/(t_{n-1}-t_{n-3}) . Here, {\bm{\Omega}}_{1:3,1:3}^{+} extracts the 3\times 3 top-left corner of the post-reset basis matrix. Since {\mathbf{M}}^{+} is nonsingular, the post-reset RCPs can be obtained in closed form as
+
+[A0.Ex27] {\bm{s}}_{n-3:n-1}^{+}=({\mathbf{M}}^{+})^{-1}{\mathbf{M}}^{-}\,{\bm{s}}_{n-3:n-1}^{-}\,.
+
+[A0.SS2.SSS1.p1.6] Since the latest RCP remains unchanged, this further yields
+
+[A0.Ex28] {\bm{s}}_{n-3:n}^{+}={\mathbf{J}}_{s}{\bm{s}}_{n-3:n}^{-}\in\mathbb{R}^{12}\,,\text{with}\,\,{\mathbf{J}}_{s}={\textrm{diag}}(({\mathbf{M}}^{+})^{-1}{\mathbf{M}}^{-},{\mathbf{I}}_{3})\,,
+
+[A0.SS2.SSS1.p1.7] which establishes the position RCP reset in ( 22 ).
+
+[A0.SS2.SSS2] -B 2 Orientation RCP Reset
+
+[A0.SS2.SSS2.p1.2] We now derive the orientation and angular velocity residuals in ( 23 ). According to ( 4 ), the cumulative basis functions and their derivatives at t_{n-1} follow
+
+[A0.Ex29] {\mathring{{\bm{\lambda}}}}(t_{n-1})^{+}={\bm{\Phi}}^{+}{\mathring{{\bm{u}}}}(t_{n-1})^{+}\,,
+
+[A0.SS2.SSS2.p1.3] with {\mathring{{\bm{u}}}}(t_{n-1})^{+} given by ( 27 ), yielding
+
+[A0.Ex30] \displaystyle{{\displaystyle r}}(t_{n-1})^{+}=\textstyle{\bm{r}}_{n-4}\bullet\mathrm{Exp}(\bm{\delta}_{n-3}^{+})\bullet\prod_{i=n-2}^{n-1}\mathrm{Exp}(\lambda_{i}^{+}\bm{\delta}_{i}^{+})\,, \displaystyle{\displaystyle\bm{\omega}}(t_{n-1})^{+}={{R}}({\bm{e}}_{n-1}^{+})^{\top}(2\dot{\lambda}_{n-2}^{+}\,\bm{\delta}_{n-2}^{+})+2\dot{\lambda}_{n-1}^{+}\,\bm{\delta}_{n-1}^{+}\,.
+
+[A0.SS2.SSS2.p1.4] Here, the orientation component is given by the vector part of the relative quaternion
+
+[A0.Ex31] \displaystyle{\displaystyle\bm{z}}_{r}=[({{r}}(t_{n-1})^{-})^{-1}\bullet{{r}}(t_{n-1})^{+}]_{2:4}=\textstyle[{\bm{r}}^{-}\bullet\prod_{i=n-2}^{n-1}{\bm{e}}_{i}^{+}]_{2:4}\,, \displaystyle\text{with}\,\,{\bm{r}}^{-}=(\mathrm{Exp}(\bm{\delta}_{n-2}^{-})\bullet\mathrm{Exp}(\bm{\delta}_{n-1}^{-}))^{-1}\,,{\bm{e}}_{i}^{+}=\mathrm{Exp}(\lambda_{i}^{+}\bm{\delta}_{i}^{+})\,.
+
+[A0.SS2.SSS2.p1.5] The angular-velocity component is given by the difference between the post-reset and pre-reset angular velocities
+
+[A0.Ex32] \displaystyle{\displaystyle\bm{z}}_{\omega}={\bm{\omega}}(t_{n-1})^{+}-{\bm{\omega}}(t_{n-1})^{-} \displaystyle={{R}}({\bm{e}}_{n-1}^{+})^{\top}(2\dot{\lambda}_{n-2}^{+}\bm{\delta}_{n-2}^{+})+2\dot{\lambda}_{n-1}^{+}\bm{\delta}_{n-1}^{+}-6\bm{\delta}_{n-1}^{-}/\tau_{n-2}\,.
+
+[A0.SS2.SSS2.p1.6] For minimizing the residual in the sense of nonlinear least squares using Newton’s method, we derive its Jacobian with respect to the increments \bm{\delta}^{+}=[(\bm{\delta}_{n-2}^{+})^{\top},(\bm{\delta}_{n-1}^{+})^{\top}]^{\top} as
+
+[A0.E28] \displaystyle{\mathbf{H}}_{\bm{\delta}} \displaystyle=\begin{bmatrix}{\mathbf{L}}_{1}{{{Q}}}^{\lrcorner}({\bm{e}}_{n-1}^{+})\frac{\partial{{\bm{e}}_{n-2}^{+}}}{\partial{\bm{\delta}_{n-2}^{+}}}&{\mathbf{L}}_{1}{{{Q}}}^{\llcorner}({\bm{e}}_{n-2}^{+})\frac{\partial{{\bm{e}}_{n-1}^{+}}}{\partial{\bm{\delta}_{n-1}^{+}}}\\ 2\dot{\lambda}_{n-2}^{+}{{R}}({\bm{e}}_{n-1}^{+})^{\top}&{\mathbf{L}}_{2}\frac{\partial{{\bm{e}}_{n-1}^{+}}}{\partial{\bm{\delta}_{n-1}^{+}}}+2\dot{\lambda}_{n-1}^{+}{\mathbf{I}}_{3}\end{bmatrix}\,,\mspace{-12mu} (28)
+
+[A0.SS2.SSS2.p1.7] with {\mathbf{L}}_{1}=[{\bm{0}}_{3\times 1},{\mathbf{I}}_{3}]\,{{{Q}}}^{\llcorner}({\bm{r}}^{-})\in\mathbb{R}^{3\times 4} . The derivative {\mathbf{L}}_{2}=\frac{\partial{{{R}}({\bm{e}}_{n-1}^{+})^{\top}(2\dot{\lambda}_{n-2}^{+}\bm{\delta}_{n-2}^{+})}}{\partial{{\bm{e}}_{n-1}^{+}}} is evaluated using [ 37 , Eq. 174] . This then enables the iterative solution in ( 24 ).
+
+[A0.SS2.SSS3] -B 3 Covariance Reset
+
+[A0.SS2.SSS3.p1.1] The reset transformation for the position RCP is the Jacobian {\mathbf{J}}_{s} in ( 22 ). The orientation reset is implicitly defined by the zero-residual condition {\bm{z}}_{\bm{\delta}}(\bm{\delta}^{+},\bm{\delta}^{-})={\bm{0}}_{6\times 1} . Linearizing this condition at the converged post-reset solution \bm{\delta}_{*}^{+} leads to
+
+[A0.Ex33] \mathrm{d}{\bm{z}}_{\bm{\delta}}={\mathbf{H}}_{\bm{\delta}}^{*}\,\mathrm{d}\bm{\delta}^{+}+{\mathbf{G}}_{\bm{\delta}}^{*}\,\mathrm{d}\bm{\delta}^{-}={\bm{0}}_{6\times 1}\,,
+
+[A0.SS2.SSS3.p1.2] where {\mathbf{H}}_{\bm{\delta}}^{*} ( 28 ) and {\mathbf{G}}_{\bm{\delta}}^{*} are the Jacobians of the residual {\bm{z}}_{\bm{\delta}} with respect to \bm{\delta}^{+} and \bm{\delta}^{-} , respectively, evaluated at \bm{\delta}_{*}^{+} and \bm{\delta}^{-} . The Jacobian {\mathbf{G}}_{\bm{\delta}}^{*} w.r.t. the pre-reset \bm{\delta}^{-} follows
+
+[A0.Ex34] \displaystyle{\displaystyle\mathbf{G}}_{\bm{\delta}}^{*}=\begin{bmatrix}{\mathbf{L}}_{3}{{\mathbf{Q}}}^{\lrcorner}_{n-1}\frac{\partial{\mathrm{Exp}(\bm{\delta}_{n-2}^{-})}}{\partial{\bm{\delta}_{n-2}^{-}}}&{\mathbf{L}}_{3}{{\mathbf{Q}}}^{\llcorner}_{n-2}\frac{\partial{\mathrm{Exp}(\bm{\delta}_{n-1}^{-})}}{\partial{\bm{\delta}_{n-1}^{-}}}\\ {\mathbf{0}}_{3}&-\frac{6}{\tau_{n-2}}{\mathbf{I}}_{3}\end{bmatrix}\,,{\quad\text{with}\quad} \displaystyle{{\displaystyle\mathbf{Q}}}^{\lrcorner}_{n-1}={{{Q}}}^{\lrcorner}(\mathrm{Exp}(\bm{\delta}_{n-1}^{-})){\quad\text{and}\quad}{{\mathbf{Q}}}^{\llcorner}_{n-2}={{{Q}}}^{\llcorner}(\mathrm{Exp}(\bm{\delta}_{n-2}^{-}))\,.
+
+[A0.SS2.SSS3.p1.3] Here, {\mathbf{L}}_{3}=[{\bm{0}}_{3\times 1},{\mathbf{I}}_{3}]\,{{{Q}}}^{\lrcorner}({\bm{e}}_{n-2}^{+}\bullet{\bm{e}}_{n-1}^{+})\,{\textrm{diag}}(1,-1,-1,-1) , with all post-reset quantities evaluated at \bm{\delta}_{*}^{+} . Therefore, the Jacobian of the reset map for the full set of orientation RCP increments \bm{\delta}_{n-3:n} is given by
+
+[A0.Ex35] \displaystyle{\displaystyle\mathbf{J}}_{r}=\frac{\partial{\bm{\delta}_{n-3:n}^{+}}}{\partial{\bm{\delta}_{n-3:n}^{-}}}=\begin{bmatrix}{\mathbf{I}}_{3}&{\mathbf{0}}_{3\times 6}&{\mathbf{0}}_{3}\\ {\mathbf{0}}_{6\times 3}&-({\mathbf{H}}_{\bm{\delta}}^{*})^{-1}{\mathbf{G}}_{\bm{\delta}}^{*}&{\mathbf{0}}_{6\times 3}\\ {\mathbf{0}}_{3}&{\mathbf{J}}_{n_{1}}&{\mathbf{J}}_{n_{2}}\end{bmatrix}\,,{\quad\text{with}\quad} \displaystyle{\displaystyle\mathbf{J}}_{n_{1}}=\frac{\partial{\bm{\delta}_{n}^{+}}}{\partial{[(\bm{\delta}_{n-2}^{-})^{\top},(\bm{\delta}_{n-1}^{-})^{\top}]^{\top}}}{\quad\text{and}\quad}{\mathbf{J}}_{n_{2}}=\frac{\partial{\bm{\delta}_{n}^{+}}}{\partial{\bm{\delta}_{n}^{-}}}\,.
+
+[A0.SS2.SSS3.p1.4] Here, the identity matrix indicates the unchanged increment \bm{\delta}_{n-3} . {\mathbf{J}}_{n_{1}} and {\mathbf{J}}_{n_{2}} are the Jacobians of \bm{\delta}_{n}^{+} ( 25 ) w.r.t. \bm{\delta}_{n-2:n-1}^{-} and \bm{\delta}_{n}^{-} computed using the chain rule.
+
+[bib] References

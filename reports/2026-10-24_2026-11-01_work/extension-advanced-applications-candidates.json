@@ -1,0 +1,67 @@
+[
+  {
+    "id": "2610.39183",
+    "title": "Multi-level Constrained Learning for Underwater Image Enhancement",
+    "abstract": "Underwater image enhancement aims to correct color and recover detail degraded by wavelength-dependent attenuation, scattering, and noise. Paired-reference supervision constrains output similarity, but does not by itself specify the color mapping , the strength of local detail corrections, or consistency with the degraded observation. We propose MCL-UIE, a paired-supervised framework that addresses these requirements by constraining restoration operations and the training objective. Monotonic Chromatic Transform (MCT) restricts global color mapping in log-LMS space through positive diagonal entries and bounded cross-channel coefficients. Uncertainty-Gated Wavelet Reconstruction (UGWR) modulates high-frequency residuals with a learned confidence gate calibrated against normalized wavelet reconstruction errors. During training, Reference-Anchored Degradation Replay (RADR) renders the enhanced image and its paired reference using shared latent degradation proxies, encouraging both to reproduce the input. The three components share a restoration network that combines structured color correction, locally controlled detail recovery, and reference-anchored replay. MCL-UIE ranks first in thirteen of sixteen full-reference dataset-metric comparisons and produces competitive visual results on no-reference benchmarks. Objective ablations indicate that confidence calibration is most effective when combined with replay supervision. RADR is used only during training and adds no inference-time computation. Our code is available at https://github.com/Wangtao-Bao/MCL-UIE.",
+    "queries": [
+      "extension-advanced-C-underwater-mapping-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=underwater&terms-0-field=all&terms-1-operator=AND&terms-1-term=mapping&terms-1-field=all",
+      "https://arxiv.org/abs/2610.39183"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.36454",
+    "title": "SVIn+: Multi-Modal Framework for Robust Underwater State Estimation using 3D Sonar, Visual-Inertial, Water-Pressure, and DVL",
+    "abstract": "As expansion and scalability in underwater oper- ations becomes more important and challenging, autonomous underwater vehicles (AUVs) become more relevant and the necessity for reliable autonomy more critical. A fundamental challenge in any autonomous underwater operation, from control to safe navigation and mapping , is state estimation; a notorious hard problem to address, especially in low visibility conditions. In this paper, we tackle this problem, by presenting SVIn+, a multi-sensor framework for robust state estimation of AUVs equipped with an IMU, cameras, a water-pressure sensor, a Doppler Velocity Log (DVL), and a compact 3D sonar. This framework extends an established open-source state-of-the-art visual-inertial SLAM, SVIn, by integrating water-pressure and DVL measurements into a tightly-coupled nonlinear optimiza- tion formulation resulting in improved estimates. To leverage the structural information of recently available 3D acoustic sonars while maintaining computational efficiency, we introduce a hierarchical architecture that incorporates estimates from a decoupled front-end via KISS-ICP, treated as relative pose factors within the factor graph. The proposed framework is validated through field deployments in a shipwreck and coral reef, demonstrating drift mitigation and global consistency. To support further research in underwater multi-modal fusion, the code and the datasets can be found on project website https://cmburgul.github.io/projects/svin+/ https://dartmouthrobotics.github.io/svin-plus",
+    "queries": [
+      "extension-advanced-C-underwater-mapping-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=underwater&terms-0-field=all&terms-1-operator=AND&terms-1-term=mapping&terms-1-field=all",
+      "https://arxiv.org/abs/2610.36454"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2509.01107",
+    "title": "FICGen: Frequency-Inspired Contextual Disentanglement for Layout-driven Degraded Image Generation",
+    "abstract": "Layout-to-image (L2I) generation has exhibited promising results in natural domains, but suffers from limited generative fidelity and weak alignment with user-provided layouts when applied to degraded scenes (i.e., low-light, underwater ). We primarily attribute these limitations to the \"contextual illusion dilemma\" in degraded conditions, where foreground instances are overwhelmed by context-dominant frequency distributions. Motivated by this, our paper proposes a new Frequency-Inspired Contextual Disentanglement Generative (FICGen) paradigm, which seeks to transfer frequency knowledge of degraded images into the latent diffusion space, thereby facilitating the rendering of degraded instances and their surroundings via contextual frequency-aware guidance. To be specific, FICGen consists of two major steps. Firstly, we introduce a learnable dual-query mechanism, each paired with a dedicated frequency resampler, to extract contextual frequency prototypes from pre-collected degraded exemplars in the training set. Secondly, a visual-frequency enhanced attention is employed to inject frequency prototypes into the degraded generation process. To alleviate the contextual illusion and attribute leakage, an instance coherence map is developed to regulate latent-space disentanglement between individual instances and their surroundings, coupled with an adaptive spatial-frequency aggregation module to reconstruct spatial-frequency mixed degraded representations. Extensive experiments on 5 benchmarks involving a variety of degraded scenarios-from severe low-light to mild blur-demonstrate that FICGen consistently surpasses existing L2I methods in terms of generative fidelity, alignment and downstream auxiliary trainability.",
+    "queries": [
+      "extension-advanced-C-underwater-mapping-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=underwater&terms-0-field=all&terms-1-operator=AND&terms-1-term=mapping&terms-1-field=all",
+      "https://arxiv.org/abs/2509.01107"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.31028",
+    "title": "Multimodal Progress-Residual Fusion for Anticipating Navigation Retreat in Robotic Flexible Endoscopy",
+    "abstract": "Flexible robotic endoscopes provide access through tortuous anatomy, where friction, deformation, and wall interaction separate commanded insertion from useful distal progress. Operators interpret this mismatch and retreat to recover a navigable configuration. Recognizing the approach to that decision requires relating motor intent to distal response and the local visual scene. We introduce Multimodal Progress-Residual Fusion (MPRF), a causal model that anticipates operator retreat from commands, electromagnetic (EM) tracking, and endoscopic video. A nominal-progress model predicts the response expected in normal or successful navigation; a temporal predictor combines its EM residual with all three observed modalities. In a 150-episode colon-phantom collection, MPRF achieves 0.580 +/- 0.007 AUPRC across three seeds, compared with 0.511 for the strongest reduced-modality control. Complete multimodal histories provide the principal ranking advantage, while the residual adds an explicit intent-response representation with a small, uncertain increment over raw fusion. Analysis of frozen alarms relates warning timing to the behavioral label and explains the increase in event recall under a longer matching window. These results establish a basis for behavioral assistance during operator-controlled navigation.",
+    "queries": [
+      "extension-advanced-C-endoscopic-localization-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=endoscopic&terms-0-field=all&terms-1-operator=AND&terms-1-term=localization&terms-1-field=all",
+      "https://arxiv.org/abs/2610.31028"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.33965",
+    "title": "Accuracy Is Not Enough: An Efficiency- and Statistics-Aware Benchmark of ResNet50 and Vision Transformer for Explainable Multi-Class Gastrointestinal Diseases Classification",
+    "abstract": "Automated classification of gastrointestinal (GI) findings in endoscopic images could support early diagnosis, but architectures are often chosen on accuracy alone. We present a controlled, reproducible benchmark of ResNet50 and ViT-B/16 for eight-class GI classification on the public Kvasir dataset (4,000 images), using a stratified split (400 test images) and stratified group 5-fold cross-validation over all images. In cross-validation, ResNet50 and ViT-B/16 reached 92.12% and 91.70% accuracy, and a two one-sided tests (TOST) procedure showed equivalence within a +/-3 percentage-point margin (difference +0.43 points, 90% CI -0.33 to +1.18; p < 0.001). The architectures differed mainly in cost: ResNet50 had 3.6 times fewer parameters and 4.3 times fewer operations, 2.5-fold lower single-image CPU latency (69 vs. 177 ms) and 3.8-fold higher GPU throughput. Cross-validated calibration was similar (expected calibration error 0.021 vs. 0.023). An edge-oriented transformer, MobileViT-S, was most accurate on the test split (95.5%) but lost 9.4 points when an acquisition artefact present in some classes (the ScopeGuide inset) was occluded, whereas ResNet50 was not significantly affected. On 500 unseen polyp images with expert masks, both models' Grad-CAM maps focused on the lesion (3.6 times chance). On a de-duplicated external subset of GastroVision (1,998 images), accuracy fell to 78-80% for all three models and differences between them remained small. Accuracy differences between architectures were thus small relative to the effects of shortcut learning and domain shift, whereas efficiency differences were large. An efficient CNN is a defensible default for resource-constrained screening, but no model is deployment-ready without local validation.",
+    "queries": [
+      "extension-advanced-C-endoscopic-localization-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=endoscopic&terms-0-field=all&terms-1-operator=AND&terms-1-term=localization&terms-1-field=all",
+      "https://arxiv.org/abs/2610.33965"
+    ],
+    "abstract_read": false
+  }
+]

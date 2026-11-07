@@ -1,0 +1,332 @@
+[
+  {
+    "name": "review-A-localization-submitted_date_first",
+    "family": "A-localization",
+    "channel": "arXiv Advanced Search independent terms",
+    "fields": "all metadata",
+    "terms": [
+      "\"place recognition\"",
+      "\"visual localization\"",
+      "\"view graph\"",
+      "\"camera pose\"",
+      "\"scene change detection\""
+    ],
+    "predicate": "submitted_date_first:2026-10-22..2026-11-01; exact abs history later: (2026-10-24T08:17:58Z,2026-11-01T14:59:32Z]",
+    "retrieved_at": "2026-11-01T15:33:48.763264+00:00",
+    "total": 26,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22place+recognition%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22visual+localization%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22view+graph%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22camera+pose%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22scene+change+detection%22&terms-4-field=all",
+        "start": 0,
+        "returned": 26,
+        "raw_path": "review-A-localization-submitted_date_first-0.html"
+      }
+    ],
+    "fetched": 26,
+    "exhausted": true
+  },
+  {
+    "name": "review-A-localization-submitted_date",
+    "family": "A-localization",
+    "channel": "arXiv Advanced Search independent terms",
+    "fields": "all metadata",
+    "terms": [
+      "\"place recognition\"",
+      "\"visual localization\"",
+      "\"view graph\"",
+      "\"camera pose\"",
+      "\"scene change detection\""
+    ],
+    "predicate": "submitted_date:2026-10-22..2026-11-01; exact abs history later: (2026-10-24T08:17:58Z,2026-11-01T14:59:32Z]",
+    "retrieved_at": "2026-11-01T15:33:48.763264+00:00",
+    "total": 38,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22place+recognition%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22visual+localization%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22view+graph%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22camera+pose%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22scene+change+detection%22&terms-4-field=all",
+        "start": 0,
+        "returned": 38,
+        "raw_path": "review-A-localization-submitted_date-0.html"
+      }
+    ],
+    "fetched": 38,
+    "exhausted": true
+  },
+  {
+    "name": "review-A-geometry-submitted_date_first",
+    "family": "A-geometry",
+    "channel": "arXiv Advanced Search independent terms",
+    "fields": "all metadata",
+    "terms": [
+      "\"geometric prior\"",
+      "correspondence",
+      "\"image registration\"",
+      "\"point cloud registration\"",
+      "\"multi-view geometry\"",
+      "\"ego motion\""
+    ],
+    "predicate": "submitted_date_first:2026-10-22..2026-11-01; exact abs history later: (2026-10-24T08:17:58Z,2026-11-01T14:59:32Z]",
+    "retrieved_at": "2026-11-01T15:33:51.189907+00:00",
+    "total": 854,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22geometric+prior%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=correspondence&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22image+registration%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22point+cloud+registration%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-view+geometry%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22ego+motion%22&terms-5-field=all",
+        "start": 0,
+        "returned": 200,
+        "raw_path": "review-A-geometry-submitted_date_first-0.html"
+      },
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22geometric+prior%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=correspondence&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22image+registration%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22point+cloud+registration%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-view+geometry%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22ego+motion%22&terms-5-field=all",
+        "start": 200,
+        "returned": 200,
+        "raw_path": "review-A-geometry-submitted_date_first-200.html"
+      },
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=400&terms-0-operator=AND&terms-0-term=%22geometric+prior%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=correspondence&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22image+registration%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22point+cloud+registration%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-view+geometry%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22ego+motion%22&terms-5-field=all",
+        "start": 400,
+        "returned": 200,
+        "raw_path": "review-A-geometry-submitted_date_first-400.html"
+      },
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=600&terms-0-operator=AND&terms-0-term=%22geometric+prior%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=correspondence&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22image+registration%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22point+cloud+registration%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-view+geometry%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22ego+motion%22&terms-5-field=all",
+        "start": 600,
+        "returned": 200,
+        "raw_path": "review-A-geometry-submitted_date_first-600.html"
+      },
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=800&terms-0-operator=AND&terms-0-term=%22geometric+prior%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=correspondence&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22image+registration%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22point+cloud+registration%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-view+geometry%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22ego+motion%22&terms-5-field=all",
+        "start": 800,
+        "returned": 54,
+        "raw_path": "review-A-geometry-submitted_date_first-800.html"
+      }
+    ],
+    "fetched": 854,
+    "exhausted": true
+  },
+  {
+    "name": "review-A-geometry-submitted_date",
+    "family": "A-geometry",
+    "channel": "arXiv Advanced Search independent terms",
+    "fields": "all metadata",
+    "terms": [
+      "\"geometric prior\"",
+      "correspondence",
+      "\"image registration\"",
+      "\"point cloud registration\"",
+      "\"multi-view geometry\"",
+      "\"ego motion\""
+    ],
+    "predicate": "submitted_date:2026-10-22..2026-11-01; exact abs history later: (2026-10-24T08:17:58Z,2026-11-01T14:59:32Z]",
+    "retrieved_at": "2026-11-01T15:33:51.847423+00:00",
+    "total": 1309,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22geometric+prior%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=correspondence&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22image+registration%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22point+cloud+registration%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-view+geometry%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22ego+motion%22&terms-5-field=all",
+        "start": 0,
+        "returned": 200,
+        "raw_path": "review-A-geometry-submitted_date-0.html"
+      },
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22geometric+prior%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=correspondence&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22image+registration%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22point+cloud+registration%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-view+geometry%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22ego+motion%22&terms-5-field=all",
+        "start": 200,
+        "returned": 200,
+        "raw_path": "review-A-geometry-submitted_date-200.html"
+      },
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=400&terms-0-operator=AND&terms-0-term=%22geometric+prior%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=correspondence&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22image+registration%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22point+cloud+registration%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-view+geometry%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22ego+motion%22&terms-5-field=all",
+        "start": 400,
+        "returned": 200,
+        "raw_path": "review-A-geometry-submitted_date-400.html"
+      },
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=600&terms-0-operator=AND&terms-0-term=%22geometric+prior%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=correspondence&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22image+registration%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22point+cloud+registration%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-view+geometry%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22ego+motion%22&terms-5-field=all",
+        "start": 600,
+        "returned": 200,
+        "raw_path": "review-A-geometry-submitted_date-600.html"
+      },
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=800&terms-0-operator=AND&terms-0-term=%22geometric+prior%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=correspondence&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22image+registration%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22point+cloud+registration%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-view+geometry%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22ego+motion%22&terms-5-field=all",
+        "start": 800,
+        "returned": 200,
+        "raw_path": "review-A-geometry-submitted_date-800.html"
+      },
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=1000&terms-0-operator=AND&terms-0-term=%22geometric+prior%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=correspondence&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22image+registration%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22point+cloud+registration%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-view+geometry%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22ego+motion%22&terms-5-field=all",
+        "start": 1000,
+        "returned": 200,
+        "raw_path": "review-A-geometry-submitted_date-1000.html"
+      },
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=1200&terms-0-operator=AND&terms-0-term=%22geometric+prior%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=correspondence&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22image+registration%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22point+cloud+registration%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-view+geometry%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22ego+motion%22&terms-5-field=all",
+        "start": 1200,
+        "returned": 109,
+        "raw_path": "review-A-geometry-submitted_date-1200.html"
+      }
+    ],
+    "fetched": 1309,
+    "exhausted": true
+  },
+  {
+    "name": "review-B-dense-submitted_date_first",
+    "family": "B-dense",
+    "channel": "arXiv Advanced Search independent terms",
+    "fields": "all metadata",
+    "terms": [
+      "\"dense geometry\"",
+      "\"geometry foundation\"",
+      "\"geometry prediction\"",
+      "\"3D scene understanding\"",
+      "\"pointmap\"",
+      "\"point map\"",
+      "\"geometry transformer\""
+    ],
+    "predicate": "submitted_date_first:2026-10-22..2026-11-01; exact abs history later: (2026-10-24T08:17:58Z,2026-11-01T14:59:32Z]",
+    "retrieved_at": "2026-11-01T15:34:48.856388+00:00",
+    "total": 13,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22dense+geometry%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22geometry+foundation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22geometry+prediction%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%223D+scene+understanding%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22pointmap%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22point+map%22&terms-5-field=all&terms-6-operator=OR&terms-6-term=%22geometry+transformer%22&terms-6-field=all",
+        "start": 0,
+        "returned": 13,
+        "raw_path": "review-B-dense-submitted_date_first-0.html"
+      }
+    ],
+    "fetched": 13,
+    "exhausted": true
+  },
+  {
+    "name": "review-B-dense-submitted_date",
+    "family": "B-dense",
+    "channel": "arXiv Advanced Search independent terms",
+    "fields": "all metadata",
+    "terms": [
+      "\"dense geometry\"",
+      "\"geometry foundation\"",
+      "\"geometry prediction\"",
+      "\"3D scene understanding\"",
+      "\"pointmap\"",
+      "\"point map\"",
+      "\"geometry transformer\""
+    ],
+    "predicate": "submitted_date:2026-10-22..2026-11-01; exact abs history later: (2026-10-24T08:17:58Z,2026-11-01T14:59:32Z]",
+    "retrieved_at": "2026-11-01T15:34:51.167928+00:00",
+    "total": 22,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22dense+geometry%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22geometry+foundation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22geometry+prediction%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%223D+scene+understanding%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22pointmap%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22point+map%22&terms-5-field=all&terms-6-operator=OR&terms-6-term=%22geometry+transformer%22&terms-6-field=all",
+        "start": 0,
+        "returned": 22,
+        "raw_path": "review-B-dense-submitted_date-0.html"
+      }
+    ],
+    "fetched": 22,
+    "exhausted": true
+  },
+  {
+    "name": "review-C-simulator-submitted_date_first",
+    "family": "C-simulator",
+    "channel": "arXiv Advanced Search independent terms",
+    "fields": "all metadata",
+    "terms": [
+      "\"world simulator\"",
+      "\"world action\"",
+      "\"action world\"",
+      "\"spatial memory\"",
+      "\"embodied mapping\"",
+      "\"semantic map\""
+    ],
+    "predicate": "submitted_date_first:2026-10-22..2026-11-01; exact abs history later: (2026-10-24T08:17:58Z,2026-11-01T14:59:32Z]",
+    "retrieved_at": "2026-11-01T15:34:53.500965+00:00",
+    "total": 38,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22world+simulator%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22world+action%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22action+world%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22spatial+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22embodied+mapping%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22semantic+map%22&terms-5-field=all",
+        "start": 0,
+        "returned": 38,
+        "raw_path": "review-C-simulator-submitted_date_first-0.html"
+      }
+    ],
+    "fetched": 38,
+    "exhausted": true
+  },
+  {
+    "name": "review-C-simulator-submitted_date",
+    "family": "C-simulator",
+    "channel": "arXiv Advanced Search independent terms",
+    "fields": "all metadata",
+    "terms": [
+      "\"world simulator\"",
+      "\"world action\"",
+      "\"action world\"",
+      "\"spatial memory\"",
+      "\"embodied mapping\"",
+      "\"semantic map\""
+    ],
+    "predicate": "submitted_date:2026-10-22..2026-11-01; exact abs history later: (2026-10-24T08:17:58Z,2026-11-01T14:59:32Z]",
+    "retrieved_at": "2026-11-01T15:34:59.294934+00:00",
+    "total": 52,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22world+simulator%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22world+action%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22action+world%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22spatial+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22embodied+mapping%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22semantic+map%22&terms-5-field=all",
+        "start": 0,
+        "returned": 52,
+        "raw_path": "review-C-simulator-submitted_date-0.html"
+      }
+    ],
+    "fetched": 52,
+    "exhausted": true
+  },
+  {
+    "name": "review-C-sensors-submitted_date_first",
+    "family": "C-sensors",
+    "channel": "arXiv Advanced Search independent terms",
+    "fields": "all metadata",
+    "terms": [
+      "\"robot localization\"",
+      "\"radar localization\"",
+      "\"event camera\"",
+      "\"endoscopic reconstruction\"",
+      "\"underwater reconstruction\"",
+      "\"visual navigation\""
+    ],
+    "predicate": "submitted_date_first:2026-10-22..2026-11-01; exact abs history later: (2026-10-24T08:17:58Z,2026-11-01T14:59:32Z]",
+    "retrieved_at": "2026-11-01T15:35:02.590174+00:00",
+    "total": 12,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22robot+localization%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22radar+localization%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22event+camera%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22endoscopic+reconstruction%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22underwater+reconstruction%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22visual+navigation%22&terms-5-field=all",
+        "start": 0,
+        "returned": 12,
+        "raw_path": "review-C-sensors-submitted_date_first-0.html"
+      }
+    ],
+    "fetched": 12,
+    "exhausted": true
+  },
+  {
+    "name": "review-C-sensors-submitted_date",
+    "family": "C-sensors",
+    "channel": "arXiv Advanced Search independent terms",
+    "fields": "all metadata",
+    "terms": [
+      "\"robot localization\"",
+      "\"radar localization\"",
+      "\"event camera\"",
+      "\"endoscopic reconstruction\"",
+      "\"underwater reconstruction\"",
+      "\"visual navigation\""
+    ],
+    "predicate": "submitted_date:2026-10-22..2026-11-01; exact abs history later: (2026-10-24T08:17:58Z,2026-11-01T14:59:32Z]",
+    "retrieved_at": "2026-11-01T15:35:04.736319+00:00",
+    "total": 15,
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22robot+localization%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22radar+localization%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22event+camera%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22endoscopic+reconstruction%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22underwater+reconstruction%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22visual+navigation%22&terms-5-field=all",
+        "start": 0,
+        "returned": 15,
+        "raw_path": "review-C-sensors-submitted_date-0.html"
+      }
+    ],
+    "fetched": 15,
+    "exhausted": true
+  }
+]

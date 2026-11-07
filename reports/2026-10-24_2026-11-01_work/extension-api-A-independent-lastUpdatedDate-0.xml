@@ -1,0 +1,478 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/XWaVIjtdmitpXIqVUcHwfOcAnCk</id>
+  <title>arXiv Query: search_query=( (ti:"place recognition") OR (abs:"place recognition") OR (ti:"pose tracking") OR (abs:"pose tracking") OR (ti:"map merging") OR (abs:"map merging") OR (ti:"global localization") OR (abs:"global localization") OR (ti:"visual localisation") OR (abs:"visual localisation") OR (ti:"inertial navigation") OR (abs:"inertial navigation") ) AND submittedDate:"202610240817 TO 202611011459"&amp;id_list=&amp;start=0&amp;max_results=200</title>
+  <updated>2026-11-01T15:19:38Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(ti:%22place+recognition%22+OR+(abs:%22place+recognition%22+OR+(ti:%22pose+tracking%22+OR+(abs:%22pose+tracking%22+OR+(ti:%22map+merging%22+OR+(abs:%22map+merging%22+OR+(ti:%22global+localization%22+OR+(abs:%22global+localization%22+OR+(ti:%22visual+localisation%22+OR+(abs:%22visual+localisation%22+OR+(ti:%22inertial+navigation%22+OR+abs:%22inertial+navigation%22)))))))))))+AND+submittedDate:%22202610240817+TO+202611011459%22&amp;start=0&amp;max_results=200&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>200</opensearch:itemsPerPage>
+  <opensearch:totalResults>6</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2610.39076v1</id>
+    <title>Tactus: Tactile &amp; Pose Sensing Glove for Natural Dexterity Data Collection</title>
+    <updated>2026-10-29T00:10:55Z</updated>
+    <link href="https://arxiv.org/abs/2610.39076v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.39076v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Collecting naturalistic human manipulation demonstrations with accurate contact force and hand pose is essential for robot dexterous manipulation policy and foundational world model learning - yet no existing wearable platform provides both calibrated fingertip force sensing and occlusion-resilient hand tracking in a form factor that preserves natural manipulation behavior. We present Tactus, a textile-integrated sensing glove that co-optimizes three design pillars: (1) a thin, conformal 3D-knit form factor (1.5 mm fingertip stackup) designed to minimize interference with natural manipulation, (2) strategically placed capacitive tactile sensors at manipulation-relevant regions informed by empirical contact studies, and (3) IMU-fused pose tracking that maintains accuracy through the hand-object occlusions where manipulation data is most valuable. Tactus includes a documented calibration pipeline for cross-glove consistency and per-session calibration for subject-dependent correction. To enable objective comparison, we introduce standardized benchmarking protocols for tactile force regression and hand pose estimation, and apply them to Tactus and two commercially available tactile gloves - to our knowledge the first quantitative cross-platform evaluation of this kind. Tactus resolves a minimum detectable force of 0.59 N at 95% confidence, 1.6 - 2.7x lower than the commercial baselines, and with 0.87 cross-participant consistency, while our pose tracking sustains 11.0 mm fingertip keypoint relative error during manipulation, when occlusion is heaviest. We show that these combined signals support object property estimation, slip detection, and representative recording of hand-object interaction - yielding demonstration data with the fidelity required for contact-aware manipulation policies and world models.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-29T00:10:55Z</published>
+    <arxiv:comment>9 pages</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Li Guan</name>
+    </author>
+    <author>
+      <name>Rachael Granberry</name>
+    </author>
+    <author>
+      <name>Sahar Aseeri</name>
+    </author>
+    <author>
+      <name>Sahar Rostami</name>
+    </author>
+    <author>
+      <name>Taylor Niehues</name>
+    </author>
+    <author>
+      <name>Sai Dhanooshi Marri</name>
+    </author>
+    <author>
+      <name>Mia Huang</name>
+    </author>
+    <author>
+      <name>Dingtian Zhang</name>
+    </author>
+    <author>
+      <name>Ziyi Kou</name>
+    </author>
+    <author>
+      <name>Jason Pursel</name>
+    </author>
+    <author>
+      <name>Eric Whitmire</name>
+    </author>
+    <author>
+      <name>Vatsal Mehta</name>
+    </author>
+    <author>
+      <name>Ashish Deshpande</name>
+    </author>
+    <author>
+      <name>Tristan Trutna</name>
+    </author>
+    <author>
+      <name>Reed Belcher</name>
+    </author>
+    <author>
+      <name>Emelia Black</name>
+    </author>
+    <author>
+      <name>Julian Blake</name>
+    </author>
+    <author>
+      <name>Roger Boldu</name>
+    </author>
+    <author>
+      <name>Sean Bonaventure</name>
+    </author>
+    <author>
+      <name>Einar Boyovich</name>
+    </author>
+    <author>
+      <name>Jordan Brennan</name>
+    </author>
+    <author>
+      <name>Elizabeth Casillas</name>
+    </author>
+    <author>
+      <name>David Christensen</name>
+    </author>
+    <author>
+      <name>Tyler Christensen</name>
+    </author>
+    <author>
+      <name>Nicholas Colonnese</name>
+    </author>
+    <author>
+      <name>Stuart Dealey</name>
+    </author>
+    <author>
+      <name>Gaige DeHaven</name>
+    </author>
+    <author>
+      <name>Katie Doran</name>
+    </author>
+    <author>
+      <name>Chris Doughty</name>
+    </author>
+    <author>
+      <name>Robert Drury</name>
+    </author>
+    <author>
+      <name>Silvia Espino</name>
+    </author>
+    <author>
+      <name>Gabriel Geyne</name>
+    </author>
+    <author>
+      <name>Beth Goodrich</name>
+    </author>
+    <author>
+      <name>Kyra Gould</name>
+    </author>
+    <author>
+      <name>Joe Grisso</name>
+    </author>
+    <author>
+      <name>Susana Guerrero</name>
+    </author>
+    <author>
+      <name>Andrew Gwozdziowski</name>
+    </author>
+    <author>
+      <name>Monica Ha</name>
+    </author>
+    <author>
+      <name>Ehsan Hajiesmaili</name>
+    </author>
+    <author>
+      <name>Kate Healy</name>
+    </author>
+    <author>
+      <name>Rose Hope</name>
+    </author>
+    <author>
+      <name>Michael Hurst</name>
+    </author>
+    <author>
+      <name>Claire Ikemiya</name>
+    </author>
+    <author>
+      <name>Daisy Isibor</name>
+    </author>
+    <author>
+      <name>Rick James</name>
+    </author>
+    <author>
+      <name>Yashasvi Joginapally</name>
+    </author>
+    <author>
+      <name>Samuel Johnson</name>
+    </author>
+    <author>
+      <name>Tyler Jorgensen</name>
+    </author>
+    <author>
+      <name>Kristy Jost</name>
+    </author>
+    <author>
+      <name>Ben Kamath</name>
+    </author>
+    <author>
+      <name>Slava Karulin</name>
+    </author>
+    <author>
+      <name>Alexander Keener</name>
+    </author>
+    <author>
+      <name>Woo Kim</name>
+    </author>
+    <author>
+      <name>Alison Krauskopf</name>
+    </author>
+    <author>
+      <name>Ankit Kumar</name>
+    </author>
+    <author>
+      <name>Joshua Lang</name>
+    </author>
+    <author>
+      <name>Lizzy Li</name>
+    </author>
+    <author>
+      <name>Cameron Lynch</name>
+    </author>
+    <author>
+      <name>Daniel Ma</name>
+    </author>
+    <author>
+      <name>Hector Martinon</name>
+    </author>
+    <author>
+      <name>Christina Matos</name>
+    </author>
+    <author>
+      <name>Keagan McCurdy</name>
+    </author>
+    <author>
+      <name>Lee Mincey</name>
+    </author>
+    <author>
+      <name>Stuart Nezlek</name>
+    </author>
+    <author>
+      <name>Tiffany Nguyen</name>
+    </author>
+    <author>
+      <name>James O'Hara</name>
+    </author>
+    <author>
+      <name>Jason Osborne</name>
+    </author>
+    <author>
+      <name>Jacky Pai</name>
+    </author>
+    <author>
+      <name>Roham Pardakhtim</name>
+    </author>
+    <author>
+      <name>David Perek</name>
+    </author>
+    <author>
+      <name>Alexandre Poulin</name>
+    </author>
+    <author>
+      <name>Nick Raines</name>
+    </author>
+    <author>
+      <name>Salwa Rasheed</name>
+    </author>
+    <author>
+      <name>Leah Resneck</name>
+    </author>
+    <author>
+      <name>Kevin Rhodes</name>
+    </author>
+    <author>
+      <name>Ergys Ristani</name>
+    </author>
+    <author>
+      <name>Douglas Roberts</name>
+    </author>
+    <author>
+      <name>Anik Sarker</name>
+    </author>
+    <author>
+      <name>Harrison Scarborough</name>
+    </author>
+    <author>
+      <name>Jonas Schmidtler</name>
+    </author>
+    <author>
+      <name>Brian Shieh</name>
+    </author>
+    <author>
+      <name>Benjamin Shuman</name>
+    </author>
+    <author>
+      <name>Garrett Simard</name>
+    </author>
+    <author>
+      <name>Forrest Smith</name>
+    </author>
+    <author>
+      <name>Udara Somarathna</name>
+    </author>
+    <author>
+      <name>Eliot Sosin</name>
+    </author>
+    <author>
+      <name>Jonathan Stewart</name>
+    </author>
+    <author>
+      <name>Kristine Strom</name>
+    </author>
+    <author>
+      <name>Adam Swett</name>
+    </author>
+    <author>
+      <name>Hal Talbot-Mantooth</name>
+    </author>
+    <author>
+      <name>Julia Tanner</name>
+    </author>
+    <author>
+      <name>Sai Sharan Thirunagari</name>
+    </author>
+    <author>
+      <name>Curtis Torrey</name>
+    </author>
+    <author>
+      <name>Simge Uzun</name>
+    </author>
+    <author>
+      <name>Eileen Wachs</name>
+    </author>
+    <author>
+      <name>Rylan Wasson</name>
+    </author>
+    <author>
+      <name>Henry Wei</name>
+    </author>
+    <author>
+      <name>Jesse White</name>
+    </author>
+    <author>
+      <name>Beau Woodbyrne</name>
+    </author>
+    <author>
+      <name>Antonio Woods</name>
+    </author>
+    <author>
+      <name>Noah Young</name>
+    </author>
+    <author>
+      <name>Chandler Yount</name>
+    </author>
+    <author>
+      <name>Joseph Zhang</name>
+    </author>
+    <author>
+      <name>Sean Keller</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.38879v1</id>
+    <title>Proximal R2 Priors for Structured Variance Allocation</title>
+    <updated>2026-10-28T20:46:24Z</updated>
+    <link href="https://arxiv.org/abs/2610.38879v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.38879v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Scientific domain knowledge in regression often concerns structural relationships among model terms, which are typically encoded as parameter constraints. Since such relationships rarely hold exactly in practice, prior distributions should encourage them while at the same time retaining support for scientifically plausible departures. Accounting for these relationships becomes more pressing in modern regression, where high-dimensionality is usually present and regularisation is essential. $R^2$ decomposition priors provide an interpretable foundation for regularisation by placing a prior on total explained variance and distributing the implied signal across model terms. We introduce the Proximal R2 prior, which uses proximal relaxations to encode these relationships as soft constraints on the variance allocation. Our formulation yields differentiable posteriors compatible with standard gradient based samplers. Theoretically, we prove that our prior preserves the characteristic marginal properties of global-local shrinkage priors. Moreover, we establish posterior consistency and contraction rates in growing dimensions, showing that the inclusion of structural relationships and proximal methods do not alter the shrinkage properties. Notably, these results demonstrate that the structural constraints in the model do not hinder posterior recovery. Simulation studies and real-data applications to interaction and generalised additive models demonstrate that our prior improves parameter recovery, out-of-sample prediction, and sampling efficiency over existing constrained and unconstrained shrinkage priors, even under structural misspecification.</summary>
+    <category term="stat.ME" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.ST" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-28T20:46:24Z</published>
+    <arxiv:primary_category term="stat.ME"/>
+    <author>
+      <name>Javier Enrique Aguilar</name>
+    </author>
+    <author>
+      <name>David Kohns</name>
+    </author>
+    <author>
+      <name>Eric Yanchenko</name>
+    </author>
+    <author>
+      <name>Shonosuke Sugasawa</name>
+    </author>
+    <author>
+      <name>Kaoru Irie</name>
+    </author>
+    <author>
+      <name>Aki Vehtari</name>
+    </author>
+    <author>
+      <name>Paul-Christian Bürkner</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.38141v1</id>
+    <title>SKiD-SLAM: Resource-Aware Distributed Multi-Robot LiDAR SLAM for Planetary Missions with Field Deployments at Analog Sites</title>
+    <updated>2026-10-28T01:24:37Z</updated>
+    <link href="https://arxiv.org/abs/2610.38141v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.38141v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Future planetary exploration missions require teams of robots to collaboratively map unknown environments under severe communication limits, constrained onboard computation, and no central infrastructure. In this field report, we present SKiD-SLAM, a distributed multi-robot LiDAR simultaneous localization and mapping (SLAM) system for such environments, and report its deployment across two mission concepts: cave exploration and scientific surface exploration. We survey the communication and computation budgets of actual planetary missions and select modules that fit these budgets for inter-robot place recognition, relative pose estimation, and distributed trajectory fusion. Before field deployment, we verify the assembled system on public datasets resembling planetary environments and in a simulator built on NASA JPL's Open Source Rover. We then validate SKiD-SLAM through field deployments in South Korea: a team of wheeled rovers explores the Majang lava-tube cave on Jeju Island, and quadruped robots carry out a crater-and-rock science scenario on a planetary analog terrain at the Korea Institute of Civil Engineering and Building Technology (KICT) in Yeoncheon. Across both deployments, SKiD-SLAM reliably performed distributed multi-robot LiDAR SLAM within a 250 kbps inter-robot communication budget, demonstrating its feasibility under challenging field conditions. Supplementary materials, including code and field data, are available at https://sparolab.github.io/research/skid_slam/.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-28T01:24:37Z</published>
+    <arxiv:comment>31 pages. Published in IEEE Transactions on Field Robotics. Code and field data: https://sparolab.github.io/research/skid_slam/</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <arxiv:journal_ref>IEEE Transactions on Field Robotics, vol. 3, pp. 813-841, 2026</arxiv:journal_ref>
+    <author>
+      <name>Hogyun Kim</name>
+    </author>
+    <author>
+      <name>Juwon Kim</name>
+    </author>
+    <author>
+      <name>Dongjin Cho</name>
+    </author>
+    <author>
+      <name>Jiwon Choi</name>
+    </author>
+    <author>
+      <name>Geonmo Yang</name>
+    </author>
+    <author>
+      <name>Seokhwan Jeong</name>
+    </author>
+    <author>
+      <name>Jiyun Lee</name>
+    </author>
+    <author>
+      <name>Miryeong Park</name>
+    </author>
+    <author>
+      <name>Hyungtae Lim</name>
+    </author>
+    <author>
+      <name>Younggun Cho</name>
+    </author>
+    <arxiv:doi>10.1109/TFR.2026.3721725</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1109/TFR.2026.3721725" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.36881v1</id>
+    <title>RAG-CSI: Global Local Retrieval via Joint State and Dynamics Matching for CSI Prediction</title>
+    <updated>2026-10-27T09:19:16Z</updated>
+    <link href="https://arxiv.org/abs/2610.36881v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.36881v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Channel state information (CSI) prediction forecasts future channel states from historical observations, supporting transceiver design and resource allocation with reduced measurement overhead. However, existing deep learning predictors mainly encode channel knowledge in model parameters, which can limit their ability to represent diverse patterns of channel dynamics across scenes. In this paper, we propose RAG-CSI, a retrieval-enhanced Transformer framework that augments prediction with relevant historical channel knowledge. Specifically, we construct a global--local CSI knowledge store containing representative observations across scenes and historical observations from the current serving scene. We further develop joint state--dynamics retrieval (JSDR), which jointly characterizes channel states, phase dynamics, and amplitude dynamics to retrieve relevant CSI sequences. A Transformer predictor then uses cross-attention to fuse the retrieved knowledge with the current CSI history and predict future CSI with limited additional model parameters. Experiments on a multi-scene CSI dataset show overall improvements exceeding 10\% across all five evaluation metrics over the best baseline for each metric, including a 15.42\% reduction in normalized mean squared error.</summary>
+    <category term="eess.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T09:19:16Z</published>
+    <arxiv:primary_category term="eess.SP"/>
+    <author>
+      <name>Xinyue Jiang</name>
+    </author>
+    <author>
+      <name>Tong Li</name>
+    </author>
+    <author>
+      <name>Shiceng Zhang</name>
+    </author>
+    <author>
+      <name>Ke Chen</name>
+    </author>
+    <author>
+      <name>Zhu Xiao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.35642v1</id>
+    <title>VPR-Space: A Benchmark for Visual Place Recognition in Space Analog Domains</title>
+    <updated>2026-10-26T15:51:30Z</updated>
+    <link href="https://arxiv.org/abs/2610.35642v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.35642v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Visual Place Recognition (VPR) is an important means for loop closure detection in visual Simultaneous Localization and Mapping (SLAM). While state-of-the-art VPR and SLAM approaches excel in urban and feature-rich natural environments, the vast and feature-poor environments of extraterrestrial surfaces like on the Moon or Mars pose severe challenges for existing approaches. This paper presents a novel benchmark, VPR-Space, to evaluate VPR capabilities on extraterrestrial surfaces. There are three contributions: (1) We collected sixteen VPR database-query datasets based on existing data from Space Analog Domains (SAD), terrestrial environments that resemble properties of the Moon or Mars. The collection includes a range of challenges regarding environment, viewpoint change, and illumination conditions. (2) To address the ill-posed nature of VPR, we propose a novel approach to generate the ground-truth information in VPR benchmarks. Instead of defining that a query and datbase image show the same place if and only if their camera poses are within fixed position and viewing direction thresholds, we propose to make the decision dependent on whether the match would be valuable in the downstream SLAM task. To avoid the overhead and restrictions of evaluating VPR in-the-loop within SLAM systems, we provide VPR ground-truth (GT) matrices based on the performance of an ensemble of state-of-the-art Relative Pose Estimators (RPE). Under this GT we require a VPR method to identify exactly those image pairs for which a subsequently applied RPE is expected to provide a valuable pose estimate in a SLAM context. (3) We evaluated nine state-of-the-art VPR approaches. The results show considerable room for improvement and indicate directions for future research. We provide a pre-release version of the dataset on github: $\texttt{https://github.com/rfechner/VPR-Space}$</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T15:51:30Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Richard Fechner</name>
+    </author>
+    <author>
+      <name>Peer Neubert</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.33669v1</id>
+    <title>SoftBART-CORM Models for Density Regression</title>
+    <updated>2026-10-24T13:33:32Z</updated>
+    <link href="https://arxiv.org/abs/2610.33669v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.33669v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Flexible modelling of the conditional distribution of a response given predictors is important in many applications where nonlinear effects, heteroskedasticity, and multimodality may be present. We introduce the SoftBART-CoRM, a predictor-dependent infinite mixture model that combines the interpretable component structure of Compound Random Measures (CoRMs) with SoftBART priors on both mixture weights and component-specific parameters. The model flexibly captures complex distributional features, while global--local shrinkage and predictor-selection priors mitigate overfitting and identify the covariates driving component allocation and kernel parameters. Posterior inference is performed using an efficient Markov chain Monte Carlo algorithm that leverages existing \texttt{R} implementations of SoftBART. Through simulation studies and real-data applications, we show that the proposed approach can adaptively shrink towards simpler mixture representations, provide interpretable inference on the predictors governing different aspects of the conditional distribution, and achieve superior out-of-sample predictive performance relative to benchmark models.</summary>
+    <category term="stat.ME" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-24T13:33:32Z</published>
+    <arxiv:primary_category term="stat.ME"/>
+    <author>
+      <name>Jim E. Griffin</name>
+    </author>
+    <author>
+      <name>Maria Kalli</name>
+    </author>
+  </entry>
+</feed>

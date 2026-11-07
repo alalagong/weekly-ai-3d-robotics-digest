@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- new favicon config and versions by realfavicongenerator.net -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/favicon-16x16.png">
+<link rel="manifest" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/site.webmanifest">
+<link rel="mask-icon" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/safari-pinned-tab.svg" color="#b31b1b">
+<link rel="shortcut icon" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/favicon.ico">
+<meta name="msapplication-TileColor" content="#b31b1b">
+<meta name="msapplication-config" content="images/icons/browserconfig.xml">
+<meta name="theme-color" content="#b31b1b">
+<!-- end favicon config -->
+<title>Advanced Search | arXiv e-print repository</title>
+<script defer src="https://static.arxiv.org/static/base/1.0.0a5/fontawesome-free-5.11.2-web/js/all.js"></script>
+<link rel="stylesheet" href="https://static.arxiv.org/static/base/1.0.0a5/css/arxivstyle.css" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    messageStyle: "none",
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true,
+      ignoreClass: '.*',
+      processClass: 'mathjax.*'
+    },
+    TeX: {
+        extensions: ["AMSmath.js", "AMSsymbols.js", "noErrors.js"],
+        noErrors: {
+          inlineDelimiters: ["$","$"],
+          multiLine: false,
+          style: {
+            "font-size": "normal",
+            "border": ""
+          }
+        }
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script src='//static.arxiv.org/MathJax-2.7.3/MathJax.js'></script>
+<script src="https://static.arxiv.org/static/base/1.0.0a5/js/notification.js"></script>
+
+    
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="https://static.arxiv.org/static/design-system/latest/design-system-components.css">
+<link rel="stylesheet" href="https://static.arxiv.org/static/design-system/latest/fonts.css">
+  <link rel="stylesheet" href="https://static.arxiv.org/static/search/0.5.6/css/bulma-tooltip.min.css" />
+  <link rel="stylesheet" href="https://static.arxiv.org/static/search/0.5.6/css/search.css" />
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+    crossorigin="anonymous"></script>
+
+  <script src="https://static.arxiv.org/static/search/0.5.6/js/fieldset.js"></script>
+  <style>
+  radio#cf-customfield_11400 {
+    display: none;
+  }
+  /* Render the spinout .ds-site-footer standalone / full-bleed. search extends the
+     legacy base, whose bare wrapping <footer> (in base/base.html, outside any
+     overridable block — so it can't be removed from here) is styled by
+     arxivstyle.css with a grey background (hsl(0,0%,95%)) + 1em 2em padding,
+     boxing our warm-wash footer inside a second grey band. display:contents drops
+     the wrapper's box entirely (cleaner than zeroing individual properties) so
+     .ds-site-footer renders in its place; it inherits flex-shrink:0 from the same
+     legacy `footer` rule, so the sticky footer still works. Search-specific
+     legacy-base integration; the shared chrome CSS stays byte-identical to the SSOT. */
+  body > footer {
+    display: contents;
+  }
+  </style>
+
+  </head>
+  <body>
+  
+  
+  <header><a href="#main-container" class="is-sr-only">Skip to main content</a>
+    
+
+<div id="ds-announcement"></div>
+
+<script src="https://static.arxiv.org/static/design-system/latest/chrome/banner.js" defer></script>
+<script src="https://static.arxiv.org/static/design-system/latest/chrome/header.js" defer></script>
+<header class="ds-site-header ">
+  <a aria-hidden="true" tabindex="-1" href="https://arxiv.org/IgnoreMe" class="is-sr-only"></a>
+  <a href="https://arxiv.org/" class="ds-site-header-logo" aria-label="archive home">
+    <img src="https://static.arxiv.org/static/design-system/latest/logos/arxiv-logo.svg" alt="archive">
+  </a>
+  
+  <a id="ds-search-toggle" class="ds-site-header-search-link" href="https://arxiv.org/search" aria-controls="ds-search-overlay" aria-expanded="false">
+    <svg class="ds-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <circle cx="11" cy="11" r="8"/>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    <span>Search</span>
+  </a>
+  
+  <button type="button" id="ds-nav-toggle" class="ds-site-header-nav-toggle"
+    aria-label="Open menu" aria-controls="ds-site-header-nav" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+  
+  <nav class="ds-site-header-nav" id="ds-site-header-nav" aria-label="Main navigation">
+    <a href="https://arxiv.org/submit">Submit</a>
+    <a href="https://info.arxiv.org/about/donate.html">Donate</a>
+    <span class="ds-site-header-divider" aria-hidden="true"></span>
+    
+    <a href="https://arxiv.org/login" class="ds-site-header-login">Log in</a>
+  </nav>
+  
+  
+</header>
+
+<div class="ds-search-overlay" id="ds-search-overlay" hidden>
+  <div class="ds-search-overlay-panel" role="search">
+    <form method="GET" action="https://arxiv.org/search">
+      <label for="ds-search-input" class="is-sr-only">Search arXiv</label>
+      <input type="text" name="query" id="ds-search-input" class="ds-input" autocomplete="off"
+        placeholder="Search papers by title, author, abstract, or ID...">
+      <input type="hidden" name="searchtype" value="all">
+      <input type="hidden" name="source" value="header">
+    </form>
+    <p class="ds-hint">
+      Press Enter to search &middot; <a href="https://arxiv.org/search/advanced">Advanced search</a>
+    </p>
+  </div>
+</div>
+
+
+  </header>
+  <main class="container" id="main-container">
+    
+
+
+    
+  <div class="level is-marginless">
+    <div class="level-left">
+      <h1 class="title is-clearfix">
+    
+        Showing 1&ndash;19 of 19 results
+    
+</h1>
+    </div>
+    <div class="level-right is-hidden-mobile">
+      <!-- feedback for mobile is moved to footer -->
+      <span class="help" style="display: inline-block;"><a href="https://github.com/arXiv/arxiv-search/releases">Search v0.5.6 released 2020-02-24</a>&nbsp;&nbsp;</span>
+    </div>
+  </div>
+    <div class="content">
+      
+  
+    
+
+    <div class="columns">
+      <div class="column is-two-thirds-tablet">
+        <p style="margin-bottom: .5em">Query: <a href="/search/advanced?classification-include_cross_list=include&amp;date-filter_by=date_range&amp;date-from_date=2026-10-24&amp;date-to_date=2026-11-01&amp;date-date_type=submitted_date&amp;abstracts=show&amp;size=200&amp;order=-submitted_date&amp;start=0&amp;terms-0-operator=AND&amp;terms-0-term=%22object-goal%22&amp;terms-0-field=all&amp;terms-1-operator=OR&amp;terms-1-term=%22object+navigation%22&amp;terms-1-field=all&amp;terms-2-operator=OR&amp;terms-2-term=%22scene+graph%22&amp;terms-2-field=all&amp;terms-3-operator=OR&amp;terms-3-term=%22spatial+memory%22&amp;terms-3-field=all&amp;terms-4-operator=OR&amp;terms-4-term=%22semantic+exploration%22&amp;terms-4-field=all&amp;terms-5-operator=OR&amp;terms-5-term=%22language-guided+navigation%22&amp;terms-5-field=all">order: -submitted_date; size: 200; date_range: from 2026-10-24 to 2026-11-01; include_cross_list: True; terms: AND all=&#34;object-goal&#34;; OR all=&#34;object navigation&#34;; OR all=&#34;scene graph&#34;; OR all=&#34;spatial memory&#34;; OR all=&#34;semantic exploration&#34;; OR all=&#34;language-guided navigation&#34;</a></p>
+        <div class="buttons">
+          <a class="button is-link" href="/search/advanced?classification-include_cross_list=include&amp;date-filter_by=date_range&amp;date-from_date=2026-10-24&amp;date-to_date=2026-11-01&amp;date-date_type=submitted_date&amp;abstracts=show&amp;size=200&amp;order=-submitted_date&amp;start=0&amp;terms-0-operator=AND&amp;terms-0-term=%22object-goal%22&amp;terms-0-field=all&amp;terms-1-operator=OR&amp;terms-1-term=%22object+navigation%22&amp;terms-1-field=all&amp;terms-2-operator=OR&amp;terms-2-term=%22scene+graph%22&amp;terms-2-field=all&amp;terms-3-operator=OR&amp;terms-3-term=%22spatial+memory%22&amp;terms-3-field=all&amp;terms-4-operator=OR&amp;terms-4-term=%22semantic+exploration%22&amp;terms-4-field=all&amp;terms-5-operator=OR&amp;terms-5-term=%22language-guided+navigation%22&amp;terms-5-field=all">Refine query</a><a class="button" href="/search/advanced">New search</a>
+        </div>
+      </div>
+      <div class="column is-one-third-tablet is-hidden-mobile">
+        <p class="has-text-right" style="margin-top: 1em">
+          
+          <a href="/search/?order=-submitted_date&amp;size=200">Simple Search</a>
+          
+        </p>
+      </div>
+    </div>
+
+    
+        
+<div class="level breathe-horizontal">
+  <div class="level-left">
+    <form method="GET" action="/search/advanced">
+      <div style="display: none;">
+        
+          
+            <input id="advanced" name="advanced" type="hidden" value="">
+          
+        
+          
+            <ul id="terms"><li><label for="terms-0">Terms-0</label> <table id="terms-0"><tr><th><label for="terms-0-term">Search term...</label></th><td><input id="terms-0-term" name="terms-0-term" type="text" value="&quot;object-goal&quot;"></td></tr><tr><th><label for="terms-0-operator">Operator</label></th><td><select id="terms-0-operator" name="terms-0-operator"><option selected value="AND">AND</option><option value="OR">OR</option><option value="NOT">NOT</option></select></td></tr><tr><th><label for="terms-0-field">Field</label></th><td><select id="terms-0-field" name="terms-0-field"><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="cross_list_category">Cross-list category</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="author_id">arXiv author ID</option><option selected value="all">All fields</option></select></td></tr></table></li><li><label for="terms-1">Terms-1</label> <table id="terms-1"><tr><th><label for="terms-1-term">Search term...</label></th><td><input id="terms-1-term" name="terms-1-term" type="text" value="&quot;object navigation&quot;"></td></tr><tr><th><label for="terms-1-operator">Operator</label></th><td><select id="terms-1-operator" name="terms-1-operator"><option value="AND">AND</option><option selected value="OR">OR</option><option value="NOT">NOT</option></select></td></tr><tr><th><label for="terms-1-field">Field</label></th><td><select id="terms-1-field" name="terms-1-field"><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="cross_list_category">Cross-list category</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="author_id">arXiv author ID</option><option selected value="all">All fields</option></select></td></tr></table></li><li><label for="terms-2">Terms-2</label> <table id="terms-2"><tr><th><label for="terms-2-term">Search term...</label></th><td><input id="terms-2-term" name="terms-2-term" type="text" value="&quot;scene graph&quot;"></td></tr><tr><th><label for="terms-2-operator">Operator</label></th><td><select id="terms-2-operator" name="terms-2-operator"><option value="AND">AND</option><option selected value="OR">OR</option><option value="NOT">NOT</option></select></td></tr><tr><th><label for="terms-2-field">Field</label></th><td><select id="terms-2-field" name="terms-2-field"><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="cross_list_category">Cross-list category</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="author_id">arXiv author ID</option><option selected value="all">All fields</option></select></td></tr></table></li><li><label for="terms-3">Terms-3</label> <table id="terms-3"><tr><th><label for="terms-3-term">Search term...</label></th><td><input id="terms-3-term" name="terms-3-term" type="text" value="&quot;spatial memory&quot;"></td></tr><tr><th><label for="terms-3-operator">Operator</label></th><td><select id="terms-3-operator" name="terms-3-operator"><option value="AND">AND</option><option selected value="OR">OR</option><option value="NOT">NOT</option></select></td></tr><tr><th><label for="terms-3-field">Field</label></th><td><select id="terms-3-field" name="terms-3-field"><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="cross_list_category">Cross-list category</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="author_id">arXiv author ID</option><option selected value="all">All fields</option></select></td></tr></table></li><li><label for="terms-4">Terms-4</label> <table id="terms-4"><tr><th><label for="terms-4-term">Search term...</label></th><td><input id="terms-4-term" name="terms-4-term" type="text" value="&quot;semantic exploration&quot;"></td></tr><tr><th><label for="terms-4-operator">Operator</label></th><td><select id="terms-4-operator" name="terms-4-operator"><option value="AND">AND</option><option selected value="OR">OR</option><option value="NOT">NOT</option></select></td></tr><tr><th><label for="terms-4-field">Field</label></th><td><select id="terms-4-field" name="terms-4-field"><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="cross_list_category">Cross-list category</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="author_id">arXiv author ID</option><option selected value="all">All fields</option></select></td></tr></table></li><li><label for="terms-5">Terms-5</label> <table id="terms-5"><tr><th><label for="terms-5-term">Search term...</label></th><td><input id="terms-5-term" name="terms-5-term" type="text" value="&quot;language-guided navigation&quot;"></td></tr><tr><th><label for="terms-5-operator">Operator</label></th><td><select id="terms-5-operator" name="terms-5-operator"><option value="AND">AND</option><option selected value="OR">OR</option><option value="NOT">NOT</option></select></td></tr><tr><th><label for="terms-5-field">Field</label></th><td><select id="terms-5-field" name="terms-5-field"><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="cross_list_category">Cross-list category</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="author_id">arXiv author ID</option><option selected value="all">All fields</option></select></td></tr></table></li></ul>
+          
+        
+          
+            <table id="classification"><tr><th><label for="classification-computer_science">Computer Science (cs)</label></th><td><input id="classification-computer_science" name="classification-computer_science" type="checkbox" value="y"></td></tr><tr><th><label for="classification-economics">Economics (econ)</label></th><td><input id="classification-economics" name="classification-economics" type="checkbox" value="y"></td></tr><tr><th><label for="classification-eess">Electrical Engineering and Systems Science (eess)</label></th><td><input id="classification-eess" name="classification-eess" type="checkbox" value="y"></td></tr><tr><th><label for="classification-mathematics">Mathematics (math)</label></th><td><input id="classification-mathematics" name="classification-mathematics" type="checkbox" value="y"></td></tr><tr><th><label for="classification-physics">Physics</label></th><td><input id="classification-physics" name="classification-physics" type="checkbox" value="y"></td></tr><tr><th><label for="classification-physics_archives">Physics Archives</label></th><td><select id="classification-physics_archives" name="classification-physics_archives"><option selected value="all">all</option><option value="astro-ph">astro-ph</option><option value="cond-mat">cond-mat</option><option value="gr-qc">gr-qc</option><option value="hep-ex">hep-ex</option><option value="hep-lat">hep-lat</option><option value="hep-ph">hep-ph</option><option value="hep-th">hep-th</option><option value="math-ph">math-ph</option><option value="nlin">nlin</option><option value="nucl-ex">nucl-ex</option><option value="nucl-th">nucl-th</option><option value="physics">physics</option><option value="quant-ph">quant-ph</option></select></td></tr><tr><th><label for="classification-q_biology">Quantitative Biology (q-bio)</label></th><td><input id="classification-q_biology" name="classification-q_biology" type="checkbox" value="y"></td></tr><tr><th><label for="classification-q_finance">Quantitative Finance (q-fin)</label></th><td><input id="classification-q_finance" name="classification-q_finance" type="checkbox" value="y"></td></tr><tr><th><label for="classification-statistics">Statistics (stat)</label></th><td><input id="classification-statistics" name="classification-statistics" type="checkbox" value="y"></td></tr><tr><th><label for="classification-include_cross_list">Include cross-list</label></th><td><ul id="classification-include_cross_list"><li><input checked id="classification-include_cross_list-0" name="classification-include_cross_list" type="radio" value="include"> <label for="classification-include_cross_list-0">Include cross-listed papers</label></li><li><input id="classification-include_cross_list-1" name="classification-include_cross_list" type="radio" value="exclude"> <label for="classification-include_cross_list-1">Exclude cross-listed papers</label></li></ul></td></tr></table>
+          
+        
+          
+            <table id="date"><tr><th><label for="date-filter_by">Filter by</label></th><td><ul id="date-filter_by"><li><input id="date-filter_by-0" name="date-filter_by" type="radio" value="all_dates"> <label for="date-filter_by-0">All dates</label></li><li><input id="date-filter_by-1" name="date-filter_by" type="radio" value="past_12"> <label for="date-filter_by-1">Past 12 months</label></li><li><input id="date-filter_by-2" name="date-filter_by" type="radio" value="specific_year"> <label for="date-filter_by-2">Specific year</label></li><li><input checked id="date-filter_by-3" name="date-filter_by" type="radio" value="date_range"> <label for="date-filter_by-3">Date range</label></li></ul></td></tr><tr><th><label for="date-year">Year</label></th><td><input id="date-year" name="date-year" type="text" value=""></td></tr><tr><th><label for="date-from_date">From</label></th><td><input id="date-from_date" name="date-from_date" type="text" value="2026-10-24"></td></tr><tr><th><label for="date-to_date">to</label></th><td><input id="date-to_date" name="date-to_date" type="text" value="2026-11-01"></td></tr><tr><th><label for="date-date_type">Apply to</label></th><td><ul id="date-date_type"><li><input checked id="date-date_type-0" name="date-date_type" type="radio" value="submitted_date"> <label for="date-date_type-0">Submission date (most recent)</label></li><li><input id="date-date_type-1" name="date-date_type" type="radio" value="submitted_date_first"> <label for="date-date_type-1">Submission date (original)</label></li><li><input id="date-date_type-2" name="date-date_type" type="radio" value="announced_date_first"> <label for="date-date_type-2">Announcement date</label></li></ul></td></tr></table>
+          
+        
+          
+        
+          
+        
+          
+            <input id="include_older_versions" name="include_older_versions" type="checkbox" value="y">
+          
+        
+          
+            <ul id="abstracts"><li><input checked id="abstracts-0" name="abstracts" type="radio" value="show"> <label for="abstracts-0">Show abstracts</label></li><li><input id="abstracts-1" name="abstracts" type="radio" value="hide"> <label for="abstracts-1">Hide abstracts</label></li></ul>
+          
+        
+      </div>
+      <div class="box field is-grouped is-grouped-multiline level-item">
+        <div class="control">
+          <span class="select is-small">
+            <select id="size" name="size"><option value="25">25</option><option value="50">50</option><option value="100">100</option><option selected value="200">200</option></select>
+          </span>
+          <label for="size">results per page</label>.
+        </div>
+        <div class="control">
+          <label for="order">Sort results by</label>
+          <span class="select is-small">
+            <select id="order" name="order"><option value="-announced_date_first">Announcement date (newest first)</option><option value="announced_date_first">Announcement date (oldest first)</option><option selected value="-submitted_date">Submission date (newest first)</option><option value="submitted_date">Submission date (oldest first)</option><option value="">Relevance</option></select>
+          </span>
+        </div>
+        <div class="control">
+          <button class="button is-small is-link">Go</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+        
+
+
+
+
+<ol class="breathe-horizontal" start="1"> 
+
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.39446">arXiv:2610.39446</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.39446">pdf</a>, <a href="https://arxiv.org/ps/2610.39446">ps</a>, <a href="https://arxiv.org/format/2610.39446">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Ask to Evolve: A Unified Harness for Lifelong Embodied Navigation with Hybrid Action Space and Persistent Memory
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Sheng%2C+K">Kai Sheng</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wang%2C+L">Liuyi Wang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Li%2C+J">Jinlong Li</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Dai%2C+H">Haojie Dai</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Liu%2C+C">Chengju Liu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Chen%2C+Q">Qijun Chen</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.39446v1-abstract-short" style="display: inline;">
+        &hellip;and object-directed navigation. Active interaction allows the agent to seek clarification or assistance when it encounters ambiguity or difficulty, while persistent <span class="search-hit mathjax">spatial</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.39446v1-abstract-full').style.display = 'inline'; document.getElementById('2610.39446v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.39446v1-abstract-full" style="display: none;">
+        Giving embodied agents the freedom to act autonomously, initiate interactions, and understand their surroundings through experience is a step toward bringing them to life in the physical world. Realizing this vision requires action, interaction, and memory to work together, so that each encounter can inform current decisions and contribute experience for future tasks. We present EvoLife, a unified navigation harness that enables a multimodal embodied agent to choose how to move, when to ask, and what experience to carry forward. Its hybrid action space supports waypoint navigation, local discrete adjustments, pixel-based navigation, and object-directed navigation. Active interaction allows the agent to seek clarification or assistance when it encounters ambiguity or difficulty, while persistent <span class="search-hit mathjax">spatial</span> <span class="search-hit mathjax">memory</span> binds observations and dialogue to places, retaining useful experience to guide subsequent visits. We evaluate eight benchmarks across four task families: vision-language navigation, <span class="search-hit mathjax">object</span> <span class="search-hit mathjax">navigation</span>, interactive instance navigation, and continuous multi-task navigation. With an average of only 1.87 active interactions per episode, our method achieves a first-visit success rate (SR) of 100% across four 100-episode sets spanning vision-language navigation and <span class="search-hit mathjax">object</span> <span class="search-hit mathjax">navigation</span>. Complete-sequence SR reaches 98% on 50 LHPR-VLN sequences and 94% on 50 GOAT-Bench sequences. In the R2R revisit setting, success weighted by path length (SPL) increases from 82.23% to 93.31% with retained experience. Multi-day physical navigation further demonstrates exploration, proactive help-seeking, and revisiting remembered places. Together, these results advance the vision of bringing embodied agents to life through autonomous action, proactive interaction, and the accumulation and reuse of experience.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.39446v1-abstract-full').style.display = 'none'; document.getElementById('2610.39446v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 29 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2602.00414">arXiv:2602.00414</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2602.00414">pdf</a>, <a href="https://arxiv.org/ps/2602.00414">ps</a>, <a href="https://arxiv.org/format/2602.00414">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Machine Learning">cs.LG</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Toward Autonomous Laboratory Safety Monitoring with Vision Language Models: Learning to See Hazards Through Scene Structure
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Chakraborty%2C+T">Trishna Chakraborty</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ghosh%2C+U">Udita Ghosh</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Gongora%2C+A+E">Aldair Ernesto Gongora</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Glatt%2C+R">Ruben Glatt</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Dong%2C+Y">Yue Dong</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Li%2C+J">Jiachen Li</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Roy-Chowdhury%2C+A+K">Amit K. Roy-Chowdhury</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Song%2C+C">Chengyu Song</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2602.00414v2-abstract-short" style="display: inline;">
+        &hellip;way to study this problem. This motivates us to introduce a structured data generation pipeline that converts textual laboratory scenarios into aligned quadruples using LLM as <span class="search-hit mathjax">scene</span> <span class="search-hit mathjax">graph</span> architect and image generation model as renderer, yielding \dataset: a synthetic dataset of 1,207 $\langle$image,&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2602.00414v2-abstract-full').style.display = 'inline'; document.getElementById('2602.00414v2-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2602.00414v2-abstract-full" style="display: none;">
+        Laboratories are prone to severe injuries from unsafe actions, yet continuous manual safety monitoring, beyond mandatory pre-lab safety training, is infeasible. Vision-language models (VLMs) offer promise for autonomous laboratory safety monitoring, but their effectiveness in realistic settings is unclear due to the lack of visual evaluation data. Safety incidents are mostly documented as text, and existing studies are largely limited to textual understanding. Since hazardous scenes are unsafe to stage or capture, synthetic visual data becomes the only practical way to study this problem. This motivates us to introduce a structured data generation pipeline that converts textual laboratory scenarios into aligned quadruples using LLM as <span class="search-hit mathjax">scene</span> <span class="search-hit mathjax">graph</span> architect and image generation model as renderer, yielding \dataset: a synthetic dataset of 1,207 $\langle$image, <span class="search-hit mathjax">scene</span> <span class="search-hit mathjax">graph</span>, ground truth, hazard relevance mask$\rangle$ quadruples across 362 unique scenarios. Experiments on \dataset and seven open- and closed-source models show that VLMs perform effectively given a textual <span class="search-hit mathjax">scene</span> <span class="search-hit mathjax">graph</span> but degrade substantially in visual-only settings (i.e., where no <span class="search-hit mathjax">scene</span> <span class="search-hit mathjax">graph</span> is involved), indicating difficulty in extracting structured object relationships directly from pixels. We thus propose \saga, a post-training framework that leverages reinforcement learning to first structure the visual scene as a <span class="search-hit mathjax">scene</span> <span class="search-hit mathjax">graph</span>, and then predict hazards while aligning attention with relevant image regions. Evaluations with Qwen 3.5 and Gemma 4 show that our method nearly doubles the $F_1$ score over the baseline on our synthetic dataset and achieves an improvement of $\sim 3\times$ on a mini real-world dataset, while preserving general visual understanding in visual question answering.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2602.00414v2-abstract-full').style.display = 'none'; document.getElementById('2602.00414v2-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 28 October, 2026; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 30 January, 2026;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> February 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.22686">arXiv:2610.22686</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.22686">pdf</a>, <a href="https://arxiv.org/ps/2610.22686">ps</a>, <a href="https://arxiv.org/format/2610.22686">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computation and Language">cs.CL</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Multimodal Filesystem Memory For Long-Horizon Embodied Agents
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Su%2C+C">Chloe Su</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Li%2C+J">Jiahan Li</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Qi%2C+Z">Zhenting Qi</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Cheng%2C+C">Chaoran Cheng</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Chen%2C+H">Haoyu Chen</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Jun%2C+S">Sejoon Jun</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ye%2C+W">Weirui Ye</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Du%2C+Y">Yilun Du</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.22686v2-abstract-short" style="display: inline;">
+        &hellip;multimodal filesystem memory architecture that keeps complementary types of agent memory. \textbf{Episodic memory} stores the observations, actions, and outcomes, and \textbf{<span class="search-hit mathjax">spatial</span> <span class="search-hit mathjax">memory</span>} associates experiences with locations. \textbf{Semantic and procedural memory} build up general knowledge and reusable methods of&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.22686v2-abstract-full').style.display = 'inline'; document.getElementById('2610.22686v2-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.22686v2-abstract-full" style="display: none;">
+        Agents operating over long horizons need an effective memory that allows them to reuse their experience throughout long interactions. If the entire history of an interaction is retained, it becomes difficult to find the relevant experience, while compressing it into summaries may result in the loss of visual and spatial details that are required later on. We present \textbf{MFM}, a multimodal filesystem memory architecture that keeps complementary types of agent memory. \textbf{Episodic memory} stores the observations, actions, and outcomes, and \textbf{<span class="search-hit mathjax">spatial</span> <span class="search-hit mathjax">memory</span>} associates experiences with locations. \textbf{Semantic and procedural memory} build up general knowledge and reusable methods of acting, and \textbf{working memory} holds the current plans. MFM makes use of searchable textual records to connect these different representations to the underlying multimodal episodes. The agents are able to find previous experiences by means of contextual cues and to examine the original observations in order to recover details that are missing from their textual descriptions. Through consolidation, the agents convert experience into higher-level knowledge and procedures while still keeping references to the original episodes. In the case of long-horizon Minecraft and computer-use tasks, MFM leads to improved performance with three base models. With GPT-6-Astra, MFM completes \emph{Mine Diamond from Scratch} and reaches 16 out of 24 milestones on the \emph{Ender Dragon} task, as against 12.7 for the best baseline. On CUABench-KiCad it attains a mean reward of 0.440, as compared to 0.400 for the best baseline and 0.267 in the case of no persistent memory.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.22686v2-abstract-full').style.display = 'none'; document.getElementById('2610.22686v2-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 28 October, 2026; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 15 October, 2026;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.38629">arXiv:2610.38629</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.38629">pdf</a>, <a href="https://arxiv.org/ps/2610.38629">ps</a>, <a href="https://arxiv.org/format/2610.38629">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Human-Computer Interaction">cs.HC</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        ItemCompass: Real-Time Edge-AI Wearable Vision for Tag-Free Domestic Object Retrieval
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Cheung%2C+T+L">Tsz Lok Cheung</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Tang%2C+J+K">Jeff Kai-Tai Tang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Kong%2C+A">Anthony Kong</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Sin%2C+Z+P+T">Zackary P. T. Sin</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.38629v1-abstract-short" style="display: inline;">
+        &hellip;0.40 m localization drift, 97.5% step precision, and mAP@0.5 of 0.874, with users rating Accuracy and Trust at 4.6/5.0. The system highlights always-on sensing, conversational <span class="search-hit mathjax">spatial</span> <span class="search-hit mathjax">memory</span>, and privacy-by-design for wearable computing.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.38629v1-abstract-full').style.display = 'inline'; document.getElementById('2610.38629v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.38629v1-abstract-full" style="display: none;">
+        Misplacing household objects disrupts daily routines, especially for elderly users. ItemCompass addresses this with a real-time, tag-free wearable AR system that builds a persistent digital twin of the home for natural language object retrieval. A custom eyewear node streams visual and inertial data to an edge server, where YOLOv11n detection, Siamese re-identification, and a Pedestrian Dead Reckoning engine log object locations as Spatial Anchors in InfluxDB. Voice queries are resolved by a local Faster-Whisper and Qwen2 LLM pipeline, delivering concise spoken and AR guidance on a heads-up display. Evaluation shows 0.40 m localization drift, 97.5% step precision, and mAP@0.5 of 0.874, with users rating Accuracy and Trust at 4.6/5.0. The system highlights always-on sensing, conversational <span class="search-hit mathjax">spatial</span> <span class="search-hit mathjax">memory</span>, and privacy-by-design for wearable computing.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.38629v1-abstract-full').style.display = 'none'; document.getElementById('2610.38629v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 28 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">Accepted and presented at the ACM UbiComp / ISWC 2026 Workshop on Wearable Design in Games and Entertainment (WDGE), Shanghai, China</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.30448">arXiv:2610.30448</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.30448">pdf</a>, <a href="https://arxiv.org/ps/2610.30448">ps</a>, <a href="https://arxiv.org/format/2610.30448">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Hardware Architecture">cs.AR</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Proba: A High-Performance, Low-Traffic Probabilistic <span class="search-hit mathjax">Spatial</span> <span class="search-hit mathjax">Memory</span> Streaming Prefetcher
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Huang%2C+Y">Yinting Huang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wong%2C+J">Jacky Wong</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ainsworth%2C+S">Sam Ainsworth</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.30448v3-abstract-short" style="display: inline;">
+        <span class="search-hit mathjax">Spatial</span> <span class="search-hit mathjax">Memory</span> Streaming (SMS) prefetchers exploit recurring spatial access patterns across memory regions to predict future accesses. Despite their effectiveness, existing SMS-based designs suffer from coarse control over aggressiveness and limited adaptability to dynamic program behavior and historical patterns. In t&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.30448v3-abstract-full').style.display = 'inline'; document.getElementById('2610.30448v3-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.30448v3-abstract-full" style="display: none;">
+        <span class="search-hit mathjax">Spatial</span> <span class="search-hit mathjax">Memory</span> Streaming (SMS) prefetchers exploit recurring spatial access patterns across memory regions to predict future accesses. Despite their effectiveness, existing SMS-based designs suffer from coarse control over aggressiveness and limited adaptability to dynamic program behavior and historical patterns. In this work, we present Proba, a feedback-directed SMS-based prefetcher that integrates probabilistic pattern updates, marginal accuracy decision-making, and pattern accumulation over several trigger features to achieve fine-grained accuracy-coverage trade-offs. When accuracy deteriorates, Proba moderates its aggressiveness to prioritize accurate prefetches; conversely, when accuracy rises, it expands its coverage. Proba achieves higher speedups than any other SMS-based prefetcher while being vastly more efficient in DRAM traffic. This culminates in a large performance gap between Proba and other techniques in multicore and DRAM-constrained scenarios without harming single-threaded throughput.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.30448v3-abstract-full').style.display = 'none'; document.getElementById('2610.30448v3-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 28 October, 2026; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 21 October, 2026;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">Accepted at PACT 2026</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.32554">arXiv:2610.32554</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.32554">pdf</a>, <a href="https://arxiv.org/ps/2610.32554">ps</a>, <a href="https://arxiv.org/format/2610.32554">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Multiagent Systems">cs.MA</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        HGWM: Hierarchical Graph-Guided World Model for Zero-Shot <span class="search-hit mathjax">Object</span> <span class="search-hit mathjax">Navigation</span> via Graph Matching
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Ieong%2C+I">I-Tak Ieong</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Tang%2C+H">Hao Tang</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.32554v3-abstract-short" style="display: inline;">
+        Zero-shot <span class="search-hit mathjax">object</span> <span class="search-hit mathjax">navigation</span> requires an agent to reason about where a target may be found while retaining evidence from previous observations. We present HGWM, a hierarchical graph-guided world model that combines a category-conditioned room--anchor prior with persistent spatial-semantic memory. A coarse stage uses a v&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.32554v3-abstract-full').style.display = 'inline'; document.getElementById('2610.32554v3-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.32554v3-abstract-full" style="display: none;">
+        Zero-shot <span class="search-hit mathjax">object</span> <span class="search-hit mathjax">navigation</span> requires an agent to reason about where a target may be found while retaining evidence from previous observations. We present HGWM, a hierarchical graph-guided world model that combines a category-conditioned room--anchor prior with persistent spatial-semantic memory. A coarse stage uses a vision-language model to score candidate headings, while a fine stage explicitly compares observed objects and relations with the goal prior. Phase-dependent fusion integrates these signals with a language-model recommendation to guide local navigation. HGWM achieves 62.6\% success rate (SR) and 31.5\% success weighted by path length (SPL) on HM3D v0.1, improving over WMNav by 4.5 and 0.3 percentage points, respectively. On MP3D, it achieves 46.8\% SR and 17.9\% SPL, with gains of 1.4 and 0.7 points. On HM3D v0.2, the full model reaches 74.4\% SR and 31.9\% SPL; removing individual components reduces SR by 0.9--2.3 points and SPL by 0.6--1.5 points. These results support the use of relational priors and persistent graph memory for target-directed search.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.32554v3-abstract-full').style.display = 'none'; document.getElementById('2610.32554v3-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 28 October, 2026; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 23 October, 2026;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.38318">arXiv:2610.38318</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.38318">pdf</a>, <a href="https://arxiv.org/ps/2610.38318">ps</a>, <a href="https://arxiv.org/format/2610.38318">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        What Should a Navigator Remember? Spatiotemporal Memory for Zero-Shot Vision-Language Navigation
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Peng%2C+Y">Yuhang Peng</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wang%2C+Z">Zhikai Wang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wang%2C+Z">Ziyi Wang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhong%2C+J">Jiaru Zhong</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zheng%2C+X">Xiaoji Zheng</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Huang%2C+J">Jingzhi Huang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wang%2C+Y">Yi Wang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Gong%2C+J">Jiangtao Gong</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.38318v1-abstract-short" style="display: inline;">
+        &hellip;Our agent combines instruction progress, hierarchically compressed observation history anchored to poses, and accumulated geometry in complementary task, temporal, and <span class="search-hit mathjax">spatial</span> <span class="search-hit mathjax">memories</span>. An 8B observer summarizes observations, and an 8B reasoner uses the memories to select waypoint intents or request additional views,&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.38318v1-abstract-full').style.display = 'inline'; document.getElementById('2610.38318v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.38318v1-abstract-full" style="display: none;">
+        Zero-shot vision-and-language navigation (VLN) requires an agent to use past observations without navigation-specific training. We study what information an 8B-scale navigation system should retain and how it should be organized for subsequent decisions. Our agent combines instruction progress, hierarchically compressed observation history anchored to poses, and accumulated geometry in complementary task, temporal, and <span class="search-hit mathjax">spatial</span> <span class="search-hit mathjax">memories</span>. An 8B observer summarizes observations, and an 8B reasoner uses the memories to select waypoint intents or request additional views, a geometric controller executes the selected targets. A semantic information perspective motivates the distinction between retaining evidence, making it accessible to the reasoner, and acquiring further observations. On R2R-CE val-unseen, the complete system achieves the highest among the evaluated Qwen3-based zero-shot baselines. Removing temporal memory reduces SR and sharply increases average path length from 16.9 to 39.1m, removing the spatial-map and planning component reduces SR as well. Real-world experiments on a Unitree Go2 show that our zero-shot method achieves higher success rates than the post-trained baseline in both corridor and office environments, suggesting better transfer to the evaluated real-world settings. As a complementary evaluation, LAW2 uses paired instruction interventions to examine behavioral responses, instruction following ability beyond endpoint success. These results support preserving task progress, observation history, and geometry in structured memory for zero-shot navigation with smaller open models.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.38318v1-abstract-full').style.display = 'none'; document.getElementById('2610.38318v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 28 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">20 pages, 3 figures, 8 Tables</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2604.23095">arXiv:2604.23095</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2604.23095">pdf</a>, <a href="https://arxiv.org/ps/2604.23095">ps</a>, <a href="https://arxiv.org/format/2604.23095">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Emerging Technologies">cs.ET</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        INSIGHT: Indoor Scene Intelligence from Geometric-Semantic Hierarchy Transfer for Public~Safety
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Dimopoulos%2C+A+N">Alexander Nikitas Dimopoulos</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Grasso%2C+J">Joseph Grasso</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Beltz%2C+J">John Beltz</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2604.23095v2-abstract-short" style="display: inline;">
+        &hellip;Evaluated on all seven subareas of Stanford 2D-3D-S (70{,}496 images), the pipeline produces Pointcept-schema-compatible labeled point clouds and ISO~19164-compliant <span class="search-hit mathjax">scene</span> <span class="search-hit mathjax">graphs</span> with ${\sim}10^{4}{\times}$ compression; role-filtered payloads transmit in ${&lt;}15$\,s at 1\,Mbps over FirstNet Band~14. We report per-po&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2604.23095v2-abstract-full').style.display = 'inline'; document.getElementById('2604.23095v2-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2604.23095v2-abstract-full" style="display: none;">
+        Indoor environments lack the spatial intelligence infrastructure that GPS provides outdoors; first responders arriving at unfamiliar buildings typically have no machine-readable map of safety equipment. Prior work on 3D semantic segmentation for public safety identified two barriers: scarcity of labeled indoor training data and poor recognition of small safety-critical features by native point-cloud methods. This paper presents INSIGHT, a zero-target-domain-annotation pipeline that projects 2D image understanding into 3D metric space via registered RGB-D data. Two interchangeable vision stacks share a common 3D back end: a SAM3 foundation-model stack for text-prompted segmentation, and a traditional CV stack (open-set detection, VQA, OCR) whose intermediate outputs are independently inspectable. Evaluated on all seven subareas of Stanford 2D-3D-S (70{,}496 images), the pipeline produces Pointcept-schema-compatible labeled point clouds and ISO~19164-compliant <span class="search-hit mathjax">scene</span> <span class="search-hit mathjax">graphs</span> with ${\sim}10^{4}{\times}$ compression; role-filtered payloads transmit in ${&lt;}15$\,s at 1\,Mbps over FirstNet Band~14. We report per-point labeling accuracy on 7 shared classes, detection sensitivity for 15 safety-critical classes absent from public 3D benchmarks alongside code-capped deployable estimates, and inter-pipeline complementarity, demonstrating that 2D-to-3D semantic transfer addresses the labeled-data bottleneck while <span class="search-hit mathjax">scene</span> <span class="search-hit mathjax">graphs</span> provide building intelligence compact enough for field deployment.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2604.23095v2-abstract-full').style.display = 'none'; document.getElementById('2604.23095v2-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 27 October, 2026; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 24 April, 2026;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> April 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.35817">arXiv:2610.35817</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.35817">pdf</a>, <a href="https://arxiv.org/ps/2610.35817">ps</a>, <a href="https://arxiv.org/format/2610.35817">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Machine Learning">cs.LG</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Pretraining Knows What, Simulation Teaches How: Compositional Generalization in a Sim-Trained Robot Agent
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Pikus%2C+B">Benjamin Pikus</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Saunders%2C+D">Daniel Saunders</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Mironenco%2C+M">Mircea Mironenco</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Mohammadi%2C+S">Salman Mohammadi</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Mathew%2C+M">Mathew Mathew</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhu%2C+S">Sirou Zhu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Makkar%2C+D">Divya Makkar</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Huang%2C+X">Xuhua Huang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Li%2C+Q">Qinbo Li</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Narasimhaswamy%2C+S">Supreeth Narasimhaswamy</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Cen%2C+S">Siyuan Cen</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Xu%2C+D">Dejia Xu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Buch%2C+S">Shyamal Buch</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Neff%2C+T">Thomas Neff</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.35817v2-abstract-short" style="display: inline;">
+        &hellip;and outperforming the MolmoAct2 VLA (33.3%), while running 3x faster and 17x cheaper than GPT-6 Astra. Furthermore, ZAP also generalizes to an unseen embodiment as well as new <span class="search-hit mathjax">objects</span>, <span class="search-hit mathjax">goals</span> and strategies never seen during training. On a single-arm Franka, ZAP reaches 55.9% on RoboLab-120, 4.9 percentage points ahead&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.35817v2-abstract-full').style.display = 'inline'; document.getElementById('2610.35817v2-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.35817v2-abstract-full" style="display: none;">
+        A robot policy needs to understand what a task is asking for in a scene, and how to move the robot to accomplish that task. To achieve these two skills, we introduce Zero-real Agent Policy (ZAP), a recipe that teaches a small off-the-shelf vision-language model to control a robot via a simple tool harness. We use a pretrained 27B parameter model to bootstrap world understanding and reasoning, followed by supervised fine-tuning and GRPO on simple simulated tasks to teach it how to move the robot. Without observing real-world robot data during training, ZAP reaches 96.7% success on real-world tasks, matching GPT-6 Astra in our harness and outperforming the MolmoAct2 VLA (33.3%), while running 3x faster and 17x cheaper than GPT-6 Astra. Furthermore, ZAP also generalizes to an unseen embodiment as well as new <span class="search-hit mathjax">objects</span>, <span class="search-hit mathjax">goals</span> and strategies never seen during training. On a single-arm Franka, ZAP reaches 55.9% on RoboLab-120, 4.9 percentage points ahead of the leading VLA/WAM baseline.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.35817v2-abstract-full').style.display = 'none'; document.getElementById('2610.35817v2-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 27 October, 2026; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 26 October, 2026;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.37203">arXiv:2610.37203</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.37203">pdf</a>, <a href="https://arxiv.org/ps/2610.37203">ps</a>, <a href="https://arxiv.org/format/2610.37203">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Remember Where You Walk: Learning <span class="search-hit mathjax">Spatial</span> <span class="search-hit mathjax">Memory</span> for End-to-End Legged Robot Exploration
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Magnus%2C+L">Leon Magnus</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Bohlinger%2C+N">Nico Bohlinger</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Peters%2C+J">Jan Peters</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Arenz%2C+O">Oleg Arenz</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.37203v1-abstract-short" style="display: inline;">
+        Humanoids and other legged robots operating in complex environments must remember information that leaves their field of view and only becomes relevant much later. Reinforcement learning policies address this using memory networks such as LSTMs that are trained end-to-end with the policy to memorize such task-relevant aspects. Yet, such architectures often fail to preserve sufficient information o&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.37203v1-abstract-full').style.display = 'inline'; document.getElementById('2610.37203v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.37203v1-abstract-full" style="display: none;">
+        Humanoids and other legged robots operating in complex environments must remember information that leaves their field of view and only becomes relevant much later. Reinforcement learning policies address this using memory networks such as LSTMs that are trained end-to-end with the policy to memorize such task-relevant aspects. Yet, such architectures often fail to preserve sufficient information over long horizons. In this work, we propose a network architecture based on Hadamard memory that specifically targets robot navigation. Our Local Spatial Matrix Memory (LSMM) enables RL agents to store generic task-relevant information at specific, position-based memory cells, enabling flexible and spatially grounded memorization. We evaluate LSMM on the task of autonomous maze exploration, where it matches the maze coverage of strong recurrent and finite-history baselines while being the only architecture that remembers the maze layout, reducing the reconstruction error threefold.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.37203v1-abstract-full').style.display = 'none'; document.getElementById('2610.37203v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 27 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.36146">arXiv:2610.36146</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.36146">pdf</a>, <a href="https://arxiv.org/ps/2610.36146">ps</a>, <a href="https://arxiv.org/format/2610.36146">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        From Structural Feedback to Prompt Policies: Learning Faithful Text-to-Image Prompt Editors
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Ye%2C+W">Wentao Ye</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ye%2C+Y">Yali Ye</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Xiao%2C+Z">Zhiqing Xiao</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Peng%2C+R">Ru Peng</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ti%2C+X">Xinpeng Ti</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Li%2C+L">Liyao Li</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Shen%2C+Z">Zhanming Shen</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Lu%2C+P">Peng Lu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+J">Jie Zhang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wang%2C+H">Haobo Wang</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.36146v1-abstract-short" style="display: inline;">
+        &hellip;can weaken object attributes and relations even when global text--image similarity remains high. We propose StruPO, a structure-aware prompt editor that uses a calibrated <span class="search-hit mathjax">scene</span> <span class="search-hit mathjax">graph</span> as a shared representation for policy conditioning and image-grounded supervision. The graph exposes what should be preserved, while dele&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.36146v1-abstract-full').style.display = 'inline'; document.getElementById('2610.36146v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.36146v1-abstract-full" style="display: none;">
+        Prompt optimization should improve the image a user receives without changing the scene the user requested. Yet stylistic rewriting can weaken object attributes and relations even when global text--image similarity remains high. We propose StruPO, a structure-aware prompt editor that uses a calibrated <span class="search-hit mathjax">scene</span> <span class="search-hit mathjax">graph</span> as a shared representation for policy conditioning and image-grounded supervision. The graph exposes what should be preserved, while deletion, reordering, and insertion provide a token-aligned way to modify the prompt. This turns structural feedback from an external critique into a training signal for a reusable editing policy. Learning from that signal requires handling both uncertain grounding and stochastic image generation. StruPO retains grounding confidence through smooth reward shaping and averages multiple images for each edit before computing group-relative advantages. Experiments span three disjoint 2K-prompt test sets and four frozen generation backbones, with comparisons to learned prompt optimizers, iterative structural feedback, diffusion-model fine-tuning, and inference-time attention control. StruPO improves the faithfulness--aesthetics trade-off, with consistent gains in relational fidelity. Independent automatic evaluators and a 15-annotator study provide complementary evidence, and human preference margins increase with relation complexity. Controlled ablations connect these gains to graph conditioning, local editing, and image-grounded learning. The resulting policy produces reusable optimized text in one pass after graph calibration, without an iterative critique--rewrite loop.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.36146v1-abstract-full').style.display = 'none'; document.getElementById('2610.36146v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 26 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2601.11460">arXiv:2601.11460</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2601.11460">pdf</a>, <a href="https://arxiv.org/ps/2601.11460">ps</a>, <a href="https://arxiv.org/format/2601.11460">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Machine Learning">cs.LG</span>
+          
+        </div>
+      
+        
+          <div class="is-inline-block" style="margin-left: 0.5rem">
+            <div class="tags has-addons">
+              <span class="tag is-dark is-size-7">doi</span>
+              <span class="tag is-light is-size-7"><a class="" href="https://doi.org/10.1109/LRA.2026.3703251">10.1109/LRA.2026.3703251 <i class="fa fa-external-link" aria-hidden="true"></i></a></span>
+            </div>
+          </div>
+        
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Semantic-Geometric Task Representations for Bimanual Manipulation from Human Demonstrations to Robot Action Planning
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Herbert%2C+F">Franziska Herbert</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Prasad%2C+V">Vignesh Prasad</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Liu%2C+H">Han Liu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Koert%2C+D">Dorothea Koert</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Chalvatzaki%2C+G">Georgia Chalvatzaki</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2601.11460v3-abstract-short" style="display: inline;">
+        &hellip;relations, and per-object motion histories, via a Message Passing Neural Network (MPNN) encoder and a Transformer-based decoder. The encoder operates solely on the temporal <span class="search-hit mathjax">scene</span> <span class="search-hit mathjax">graph</span>, producing structured representations decoupled from action labels. The decoder then conditions on action-context to forecast future ac&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2601.11460v3-abstract-full').style.display = 'inline'; document.getElementById('2601.11460v3-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2601.11460v3-abstract-full" style="display: none;">
+        Learning structured task representations from human demonstrations is essential for bimanual manipulation, where action ordering, object involvement, and interaction geometry vary significantly across executions. A key challenge lies in jointly capturing the discrete semantic task structure and the temporal evolution of object-centric geometric relations in a form that supports reasoning over task progression. We introduce a semantic-geometric graph-based task representation that jointly encodes object identities, inter-object semantic relations, and per-object motion histories, via a Message Passing Neural Network (MPNN) encoder and a Transformer-based decoder. The encoder operates solely on the temporal <span class="search-hit mathjax">scene</span> <span class="search-hit mathjax">graph</span>, producing structured representations decoupled from action labels. The decoder then conditions on action-context to forecast future actions, associated objects, and object motions. This decoupling learns task-agnostic representations, enabling encoder reuse across embodiments through decoder-only finetuning on a small robot dataset. Across eleven bimanual tasks from two datasets, we find that the benefit of structured semantic--geometric representations over simpler sequence-based models grows with task variability in action ordering and object involvement. At deployment, a planner couples the action and motion predictions with learned Probabilistic Movement Primitives, achieving full task success on two real-robot bimanual tasks and outperforming graph ablations, Transformer, decoder-only, and finetuned vision-language model baselines.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2601.11460v3-abstract-full').style.display = 'none'; document.getElementById('2601.11460v3-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 26 October, 2026; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 16 January, 2026;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> January 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">9 pages, 7 figures, preprint version of paper accepted at IEEE RA-L 2026</span>
+    </p>
+    
+
+    
+
+    
+      <p class="comments is-size-7">
+        <span class="has-text-black-bis has-text-weight-semibold">Journal ref:</span>
+        IEEE Robotics and Automation Letters (RA-L), 11 (8), 9731-9738, 2026
+      </p>
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2608.12290">arXiv:2608.12290</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2608.12290">pdf</a>, <a href="https://arxiv.org/ps/2608.12290">ps</a>, <a href="https://arxiv.org/format/2608.12290">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Multimedia">cs.MM</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Beyond Trial-and-Error: Agentic Optimization for Image-to-Video Adherence
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Tyagi%2C+A">Aman Tyagi</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Boinpally%2C+H">Hemanth Boinpally</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Chen%2C+J">Jonathan Chen</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Gebert%2C+D">Douglas Gebert</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Hickson%2C+S">Steven Hickson</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2608.12290v2-abstract-short" style="display: inline;">
+        &hellip;an iterative prompt optimization loop uses a multimodal Large Language Model (mLLM) to refine the input prompt. This refinement implements two automated evaluations: Davidsonian <span class="search-hit mathjax">Scene</span> <span class="search-hit mathjax">Graph</span> (DSG) queries ensure semantic adherence, and Common Mistake Questions (CMQ) for artifact detection. At the second stage, we use Ba&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2608.12290v2-abstract-full').style.display = 'inline'; document.getElementById('2608.12290v2-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2608.12290v2-abstract-full" style="display: none;">
+        Modern black-box Image-to-Video (I2V) models offer powerful capabilities in automated content creation, yet their lack of fine-grained control and reliability presents significant challenges in professional workflows. Their inherent stochasticity causes minor variations in textual prompts or hyperparameters to yield drastically different outputs often necessitating inefficient, brute-force trial-and-error processes. To address these limitations, we introduce the ``Agentic Self-Improvement&#34; framework, which reframes video synthesis into a closed-loop, goal-directed optimization. Our framework systematically navigates the generation parameter space using a novel two-stage approach. In the first stage, an iterative prompt optimization loop uses a multimodal Large Language Model (mLLM) to refine the input prompt. This refinement implements two automated evaluations: Davidsonian <span class="search-hit mathjax">Scene</span> <span class="search-hit mathjax">Graph</span> (DSG) queries ensure semantic adherence, and Common Mistake Questions (CMQ) for artifact detection. At the second stage, we use Bayesian optimization to efficiently co-optimize stochastic seeds and CFG scales. This search is guided by a suite of quality metrics, including the novel Video-Text Adherence (VTA) score derived from the DSG and CMQ evaluations. Our framework significantly outperforms unguided search methods: in human preference studies, videos generated via our agentic approach were strongly preferred over baseline outputs, achieving win rates up to 69\%. This work provides a practical and extensible methodology for enhancing the predictability and control of state-of-the-art video generation models, moving the field beyond speculative curiosities toward reliable, production-ready tools.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2608.12290v2-abstract-full').style.display = 'none'; document.getElementById('2608.12290v2-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 26 October, 2026; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 12 August, 2026;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> August 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.34286">arXiv:2610.34286</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.34286">pdf</a>, <a href="https://arxiv.org/ps/2610.34286">ps</a>, <a href="https://arxiv.org/format/2610.34286">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        ScheNav: Schematic-Guided <span class="search-hit mathjax">Object</span> <span class="search-hit mathjax">Goal</span> Navigation
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Huang%2C+G">Guichen Huang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Jing%2C+C">Chenchen Jing</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Sun%2C+C">Che Sun</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wu%2C+Y">Yuwei Wu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Jia%2C+Y">Yunde Jia</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.34286v1-abstract-short" style="display: inline;">
+        <span class="search-hit mathjax">Object</span> <span class="search-hit mathjax">goal</span> navigation requires an embodied agent to locate and reach target objects in complex environments. Humans often rely on low-cost yet informative schematic maps, such as rough sketches or directional annotations. We develop a workflow for schematic-guided embodied navigation with two components: a training-da&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.34286v1-abstract-full').style.display = 'inline'; document.getElementById('2610.34286v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.34286v1-abstract-full" style="display: none;">
+        <span class="search-hit mathjax">Object</span> <span class="search-hit mathjax">goal</span> navigation requires an embodied agent to locate and reach target objects in complex environments. Humans often rely on low-cost yet informative schematic maps, such as rough sketches or directional annotations. We develop a workflow for schematic-guided embodied navigation with two components: a training-data generation pipeline and ScheNav, a closed-loop navigation framework. Our lightweight data-generation pipeline turns 2D floorplans into navigation training environments, yielding Furnished-RPLAN, a dataset of over 33k furnished layouts with paired navigation episodes and noise-controllable schematic maps. ScheNav turns rough schematic guidance into exploration and stopping decisions by using SchemaField, a learned spatial module that fuses the guidance with accumulated observations and predicts spatial value fields. The framework updates these fields as exploration proceeds, with trajectory-based training and a cross-frame consistency objective supporting coherent guidance across changing viewpoints. ScheNav learns to use schematic guidance entirely from simulated floorplans and transfers this ability to unseen embodied environments. Experiments show improved navigation success and path efficiency across schematic maps, goal ellipses, and pointed directions, together with tolerance to the tested schematic perturbations and omissions. Together, these results demonstrate that rough schematic guidance offers a practical way to improve embodied navigation.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.34286v1-abstract-full').style.display = 'none'; document.getElementById('2610.34286v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 25 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.34041">arXiv:2610.34041</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.34041">pdf</a>, <a href="https://arxiv.org/ps/2610.34041">ps</a>, <a href="https://arxiv.org/format/2610.34041">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        T-ConSG: A LiDAR-Based Real-Time Temporal Construction <span class="search-hit mathjax">Scene</span> <span class="search-hit mathjax">Graph</span> for Dynamic and Evolving Environments
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Chen%2C+Y">Yilong Chen</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Cho%2C+Y+K">Yong K. Cho</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.34041v1-abstract-short" style="display: inline;">
+        &hellip;metric representations that provide limited structure for higher-level spatial and temporal reasoning. This paper presents a LiDAR-based real-time temporal construction <span class="search-hit mathjax">scene</span> <span class="search-hit mathjax">graph</span> (T-ConSG) that jointly represents free-space regions, static objects, dynamic objects, and environmental events with spatial-relational and&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.34041v1-abstract-full').style.display = 'inline'; document.getElementById('2610.34041v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.34041v1-abstract-full" style="display: none;">
+        Dynamic and continuously evolving environments present significant challenges for robotic mapping and scene understanding, particularly on construction sites where moving agents, temporary obstacles, and persistent structural changes coexist. While dynamic and long-term SLAM methods can detect motion and environmental changes, their outputs are predominantly metric representations that provide limited structure for higher-level spatial and temporal reasoning. This paper presents a LiDAR-based real-time temporal construction <span class="search-hit mathjax">scene</span> <span class="search-hit mathjax">graph</span> (T-ConSG) that jointly represents free-space regions, static objects, dynamic objects, and environmental events with spatial-relational and event-participation edges. The proposed framework incrementally constructs the graph from LiDAR-derived geometric evidence, maintaining persistent free-space and static-object information while tracking dynamic objects. Changes in accumulated spatial evidence are further represented as explicit installation and removal events, allowing the graph to capture both transient dynamics and persistent environmental evolution. We demonstrate the proposed representation through three complementary application studies: dynamics-aware navigation in a bricklaying testbed, construction progress monitoring on the ConSLAM dataset, and online change detection in a simulated construction environment. The results demonstrate that the proposed T-ConSG provides a unified representation for organizing spatial and temporal information and supports robotic reasoning across environments containing both short-term dynamics and persistent changes.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.34041v1-abstract-full').style.display = 'none'; document.getElementById('2610.34041v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 25 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">8 pages, 7 figures, submitted to IEEE Robotics and Automation Letters (RA-L)</span>
+    </p>
+    
+
+    
+      <p class="comments is-size-7">
+        
+
+        
+          <span class="has-text-black-bis has-text-weight-semibold">MSC Class:</span>
+          68T40; 68T45
+        
+
+        
+          <span class="has-text-black-bis has-text-weight-semibold">ACM Class:</span>
+          I.2.9; I.2.10
+        
+      </p>
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2602.13086">arXiv:2602.13086</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2602.13086">pdf</a>, <a href="https://arxiv.org/ps/2602.13086">ps</a>, <a href="https://arxiv.org/format/2602.13086">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        UniManip: Open-World Robotic Manipulation via Agentic Operational Graphs
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Liu%2C+H">Haichao Liu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Xue%2C+Y">Yuanjiang Xue</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhou%2C+Y">Yuheng Zhou</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Yang%2C+L">Li Yang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Deng%2C+H">Haoyuan Deng</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Liang%2C+Y">Yinan Liang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Xie%2C+L">Lihua Xie</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wang%2C+Z">Ziwei Wang</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2602.13086v2-abstract-short" style="display: inline;">
+        &hellip;state tracking, execution verification, and closed-loop failure recovery. High-level semantic intents are grounded into actionable primitives via a physically grounded <span class="search-hit mathjax">scene</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2602.13086v2-abstract-full').style.display = 'inline'; document.getElementById('2602.13086v2-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2602.13086v2-abstract-full" style="display: none;">
+        Achieving general-purpose robotic manipulation requires robots to bridge high-level semantic intent with low-level physical interaction in unstructured environments. However, zero-shot generalization remains challenging: end-to-end Vision-Language-Action (VLA) models often lack the precision required for long-horizon tasks, while traditional hierarchical planners suffer from semantic rigidity under open-world variations. We present UniManip, a unified framework centered on an Agentic Operational Graph (AOG), an explicit cognitive and operational backbone for task orchestration, state tracking, execution verification, and closed-loop failure recovery. High-level semantic intents are grounded into actionable primitives via a physically grounded <span class="search-hit mathjax">scene</span> <span class="search-hit mathjax">graph</span> that provides geometric affordances, contact-aware interaction parameters, and collision-free trajectory synthesis. By coupling a high-level Agentic Layer for task orchestration with a low-level Scene Layer for dynamic state representation, UniManip continuously aligns abstract planning with geometric constraints, enabling robust execution. Unlike static pipelines, UniManip operates as a dynamic agentic loop: it instantiates object-centric <span class="search-hit mathjax">scene</span> <span class="search-hit mathjax">graphs</span> from unstructured perception, parameterizes these representations into collision-free trajectories via a safety-aware local planner, and exploits structured memory to autonomously diagnose and recover from execution failures. UniManip achieves state-of-the-art performance on LIBERO-Pro, while extensive real-world experiments demonstrate robust zero-shot generalization across diverse tasks, embodiments, and dexterous hands, outperforming leading VLA models and hierarchical baselines by 22.5% and 25.0% in task success rate, respectively. Open-source project page: https://henryhcliu.github.io/unimanip.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2602.13086v2-abstract-full').style.display = 'none'; document.getElementById('2602.13086v2-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 24 October, 2026; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 13 February, 2026;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> February 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">18 pages, 15 figures, 9 tables, project page: https://henryhcliu.github.io/unimanip</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.33794">arXiv:2610.33794</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.33794">pdf</a>, <a href="https://arxiv.org/ps/2610.33794">ps</a>, <a href="https://arxiv.org/format/2610.33794">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Computation and Language">cs.CL</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Machine Learning">cs.LG</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        One Scan is Enough: Demonstration-Free Adaptation for <span class="search-hit mathjax">Language</span>-<span class="search-hit mathjax">Guided</span> <span class="search-hit mathjax">Navigation</span>
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Yu%2C+Z">Zhuoyuan Yu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Long%2C+Y">Yuxing Long</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wang%2C+D">Du Wang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wang%2C+J">Junyang Wang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Fan%2C+H">Hongwei Fan</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Dong%2C+H">Hao Dong</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.33794v1-abstract-short" style="display: inline;">
+        Deploying a <span class="search-hit mathjax">language</span>-&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.33794v1-abstract-full').style.display = 'inline'; document.getElementById('2610.33794v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.33794v1-abstract-full" style="display: none;">
+        Deploying a <span class="search-hit mathjax">language</span>-<span class="search-hit mathjax">guided</span> <span class="search-hit mathjax">navigation</span> policy in a new building usually means watching it fail. Public-benchmark VLAs degrade scene by scene as layout, appearance, and language drift, and the standard fix of teleoperating fresh trajectories on site does not scale. We replace human demonstration with a single brief iPhone scan. Scan2Instruction compiles that scan into a complete training environment, automatically synthesizing executable navigation episodes with grounded instructions. PRPT-KS then adapts the policy through a closed-form Pareto utility read directly off the reconstructed scene, with no learned critic and no human labels. Across five real environments, the two designs together drive our RealNav to an 85% real-robot success rate, compared with 49% for a RealNav baseline post-trained on human demonstrations, and still achieve 82% in unscanned regions of the same buildings, compared with 41% for the same baseline. Our work turns demonstration-free scene adaptation for <span class="search-hit mathjax">language</span>-<span class="search-hit mathjax">guided</span> <span class="search-hit mathjax">navigation</span> from an aspiration into a working reality.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.33794v1-abstract-full').style.display = 'none'; document.getElementById('2610.33794v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 24 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">NeurIPS 2026</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.33546">arXiv:2610.33546</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.33546">pdf</a>, <a href="https://arxiv.org/ps/2610.33546">ps</a>, <a href="https://arxiv.org/format/2610.33546">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        MOON: Learning When to Forget and How to Move On in Vision-and-Language Navigation
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Zhou%2C+J">Jingmeng Zhou</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Sun%2C+S">Seson Sun</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Xu%2C+B">Binyao Xu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+L">Lingming Zhang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wang%2C+H">Hanshi Wang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ge%2C+F">Fudong Ge</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Hu%2C+W">Weiming Hu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Gao%2C+J">Jin Gao</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+Z">Zhipeng Zhang</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.33546v1-abstract-short" style="display: inline;">
+        &hellip;by 5.2 and 6.0 points, and an ablation with a random trigger indicates that this gain depends on when the history is cleared. Without retraining, MOON also improves zero-shot <span class="search-hit mathjax">object</span>-<span class="search-hit mathjax">goal</span> navigation on HM3D-OVON. Together, these results suggest that deviation recovery depends on knowing when to forget, not only how to a&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.33546v1-abstract-full').style.display = 'inline'; document.getElementById('2610.33546v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.33546v1-abstract-full" style="display: none;">
+        Recent vision-and-language navigation (VLN) policies act on their visual history, and an incorrect action can take them off the instructed route. Paired interventions on four VLN policies show that clearing the history doubles pooled success at the onset of a deviation but lowers it on route, while later in a deviation, removing only the off-route frames helps much less. After a deviation, the retained history keeps the policy from turning where a turn is needed, which we call behavioral inertia. We propose MOON, a framework that equips a frozen VLN policy with two lightweight modules, adding less than 1% of its parameters. A deviation judge decides when to forget, raising an alarm that clears the history when it predicts that the agent is off route. A recovery policy, trained with GRPO from alarm states, learns how to move on, turning more of the successes found only by sampling into a single greedy rollout. Experiments on R2R-CE and RxR-CE show that MOON reaches the highest R2R-CE success rate among the compared methods and raises the success rate of its frozen base by 5.2 and 6.0 points, and an ablation with a random trigger indicates that this gain depends on when the history is cleared. Without retraining, MOON also improves zero-shot <span class="search-hit mathjax">object</span>-<span class="search-hit mathjax">goal</span> navigation on HM3D-OVON. Together, these results suggest that deviation recovery depends on knowing when to forget, not only how to act. Code is available at https://github.com/AutoLab-SAI-SJTU/MOON.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.33546v1-abstract-full').style.display = 'none'; document.getElementById('2610.33546v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 24 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2606.04689">arXiv:2606.04689</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2606.04689">pdf</a>, <a href="https://arxiv.org/ps/2606.04689">ps</a>, <a href="https://arxiv.org/format/2606.04689">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Quantum Physics">quant-ph</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Machine Learning">cs.LG</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        QPredSGG: Hybrid Quantum Predicate Learning for Long-Tailed <span class="search-hit mathjax">Scene</span> <span class="search-hit mathjax">Graph</span> Generation
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Ramkumar%2C+P">Prerana Ramkumar</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Innan%2C+N">Nouhaila Innan</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Shafique%2C+M">Muhammad Shafique</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2606.04689v2-abstract-short" style="display: inline;">
+        <span class="search-hit mathjax">Scene</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2606.04689v2-abstract-full').style.display = 'inline'; document.getElementById('2606.04689v2-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2606.04689v2-abstract-full" style="display: none;">
+        <span class="search-hit mathjax">Scene</span> <span class="search-hit mathjax">Graph</span> Generation (SGG) requires relational reasoning over objects and their interactions, but performance is constrained by long-tail predicate imbalance. Classical SGG models rely on dataset statistics, leading to biased predictions toward frequent relations rather than fine-grained semantic predicates. Although debiasing improves mean recall, predicate classification in existing frameworks still relies on high-dimensional classical decision modules with high parameter overhead. This work introduces a resource-efficient hybrid quantum predicate classifier for SGG by replacing the classical predicate head in the CFEN with a QP-Head trained using class-balanced WCE. To the best of our knowledge, this work is among the first evaluations of a hybrid quantum architecture for <span class="search-hit mathjax">scene</span> <span class="search-hit mathjax">graph</span> predicate classification on Visual Genome 150. We evaluate the impact of qubit count, encoding strategy, entangling topology, and circuit depth. Under a 4-qubit configuration using Amplitude Embedding and Strongly Entangling Layers, the QP-Head projects 4096-dimensional pair features into a 16-dimensional quantum input while using 96 trainable quantum parameters. Operating within this compressed representation space under WCE training, it achieves strong long-tail recognition, reaching a peak mR@100 of 57.25% compared to the 41.1% mR@100 reported in the CFEN baseline under standard training. Protocol-matched ablations indicate that the primary advantage of the quantum head lies in extreme representational compactness rather than an accuracy gain over full-dimensional weighted classical heads: it achieves global recall within 0.19pp of the 2048-dimensional WCE classical baseline while operating from a 128x smaller head feature space. Scaling to 8 qubits maintains robust long-tail performance (55.38% mR@100 with 384 quantum parameters), while depth analysis highlights expressibility-latency trade-offs.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2606.04689v2-abstract-full').style.display = 'none'; document.getElementById('2606.04689v2-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 24 October, 2026; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 3 June, 2026;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> June 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">Accepted at the 38th IEEE International Conference on Tools with Artificial Intelligence (ICTAI) 2026</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+</ol>
+
+
+    
+  
+
+      <div class="is-hidden-tablet">
+        <!-- feedback for mobile only -->
+        <span class="help" style="display: inline-block;"><a href="https://github.com/arXiv/arxiv-search/releases">Search v0.5.6 released 2020-02-24</a>&nbsp;&nbsp;</span>
+      </div>
+    </div>
+
+  </main>
+  <footer>
+    <footer class="ds-site-footer">
+  <div class="ds-site-footer-grid">
+    <div class="ds-site-footer-main">
+      <div class="ds-site-footer-ack">
+        We gratefully acknowledge support from our <a href="https://info.arxiv.org/about/major_funders.html"><strong>major funders</strong></a>,
+        <a href="https://info.arxiv.org/about/ourmembers.html"><strong>member institutions</strong></a><span class="ack-member-inline" hidden>, <strong></strong></span>,
+        and all contributors.
+      </div>
+      <nav class="ds-site-footer-links" aria-label="Site navigation">
+        <a href="https://info.arxiv.org/about">About</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help">Help</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/contact.html">Contact</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/subscribe.html">Subscribe</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/license/index.html">Copyright</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/policies/privacy_policy.html">Privacy</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/web_accessibility.html">Accessibility</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://status.arxiv.org/" target="_blank" rel="noopener noreferrer">Operational Status<span class="is-sr-only"> (opens in new tab)</span></a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+  </footer>
+  <script src="https://static.arxiv.org/static/base/1.0.0a5/js/member_acknowledgement.js"></script>
+  </body>
+</html>

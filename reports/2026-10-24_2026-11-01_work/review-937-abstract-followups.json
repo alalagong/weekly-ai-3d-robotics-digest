@@ -1,0 +1,453 @@
+[
+  {
+    "id": "2610.40468",
+    "title": "Rural Readiness: Domain Generalization with Adversarially Chosen Domains",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.40468"
+    ],
+    "reviewed_at": "2026-11-02T15:50:54.600809+00:00",
+    "disposition": "excluded",
+    "reason": "以农村临床诊断为动机的对抗域泛化样本复杂度理论，不是驾驶环境或机器人空间泛化。",
+    "evidence_level": "abstract",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.40468",
+    "original_evidence_level": "metadata_programmatic",
+    "independent_llm_title_read": true,
+    "title_review_index": 7,
+    "title_review_batch": 0,
+    "abstract_read": true,
+    "abstract": "Predictive models trained at well-resourced data-rich institutions often fail when deployed in new populations. Motivated by the goal of building clinical diagnosis and decision-making algorithms for data-scarce rural populations using the general knowledge learned from data-rich hospitals, we formulate the fundamental question of \\emph{domain generalization with adversarially chosen domains}, which asks a learner to perform on any unseen target domain nearly as well as the worst hypothesis consistent with the evidence from the observed source domains. Assuming only that the hypothesis class contains a \"universal\" predictor with small error on all $k$ source domains, we characterize the sample complexity of this objective up to logarithmic factors. Letting $d$ denote the VC dimension of the hypothesis class, we find, somewhat surprisingly, that the sample complexity reduces significantly from $Ω(dk)$ to $O(d)$ under a small relaxation of the learning goal in which, roughly speaking, we allow the learned model to compete with hypotheses that perform well on 99% instead of 100% of the source domains. By applying this insight to the meta-distributional setting, in which source domains are selected according to a distribution on distributions, we obtain a corresponding improvement over known sample complexity upper bounds. We also study the effect of data access to the target domain and show that a small labeled sample from the target domain does not improve the worst-case sample complexity on the source domains.",
+    "read_sections": [
+      "Title (independent LLM review)",
+      "Abstract (complete; ambiguous-title follow-up)"
+    ],
+    "scope_borderline": false
+  },
+  {
+    "id": "2610.33005",
+    "title": "OpenEBFM: Energy-based Foundation Models Are Scalable Architecture",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.33005"
+    ],
+    "reviewed_at": "2026-11-02T15:50:54.600809+00:00",
+    "disposition": "excluded",
+    "reason": "能源模型用于语言token生成及语言预训练，不是视觉几何或物理世界模型。",
+    "evidence_level": "abstract",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.33005",
+    "original_evidence_level": "metadata_programmatic",
+    "independent_llm_title_read": true,
+    "title_review_index": 115,
+    "title_review_batch": 0,
+    "abstract_read": true,
+    "abstract": "Energy-based models have shown promising properties for domain-specific tasks but remain challenging in modeling general-purpose scenarios. To bridge this gap, we design energy-steered models (ESMs) for foundational language modeling. ESMs integrate energy steering and token generation within a single architecture to leverage the energy-guided search to refine token generation. Specifically, ESMs first optimize a latent state over the energy landscape, then leverages the refined latent state for token generation. By performing such energy-guided pre-training on large-scale corpora, ESMs learn generally effective energy landscape where favorable tokens correspond to lower energy values. To explore the scaling behavior of ESMs, we pre-train ESMs on three large-scale corpora, then evaluate across 26 downstream tasks spanning a broad range of domains. Our results demonstrate that ESMs have promising scaling behaviors with increasing model size and training data, and outperform GPTs on most downstream tasks. These findings highlight ESMs as a promising architecture for large-scale pre-training and general purpose problem solving. We fully release the model weights and training infrastructure to enable the community to completely reproduce and extend our results. GitHub: https://github.com/datamllab/openebfm HuggingFace: https://huggingface.co/collections/guan-wang/openebfm",
+    "read_sections": [
+      "Title (independent LLM review)",
+      "Abstract (complete; ambiguous-title follow-up)"
+    ],
+    "scope_borderline": false
+  },
+  {
+    "id": "2603.09138",
+    "title": "Rotation Equivariant Mamba for Vision Tasks",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2603.09138"
+    ],
+    "reviewed_at": "2026-11-02T15:50:54.600809+00:00",
+    "disposition": "excluded",
+    "reason": "p4旋转等变Mamba用于二维分类、语义分割及图像超分辨，未构建物理三维或估计相机位姿。",
+    "evidence_level": "abstract",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2603.09138",
+    "original_evidence_level": "metadata_programmatic",
+    "independent_llm_title_read": true,
+    "title_review_index": 131,
+    "title_review_batch": 0,
+    "abstract_read": true,
+    "abstract": "Rotation equivariance is an important structural prior for a broad range of vision tasks, particularly in domains such as remote sensing and medical imaging where objects have no canonical orientation, yet it remains notably absent from current Mamba-based vision architectures. Despite the success of Mamba in natural language processing and its growing adoption in computer vision, existing visual Mamba models fail to account for rotational symmetry in their design. This omission renders them sensitive to image rotations, thereby constraining their robustness and cross-task generalization. To address this limitation, we incorporate rotation symmetry, an important geometric prior in many visual domains, into Mamba-based architectures. Specifically, we introduce EQ-VMamba, the first rotation equivariant visual Mamba architecture for vision tasks. The core components of EQ-VMamba include a carefully designed rotation equivariant cross-scan strategy and group Mamba blocks. Moreover, we provide a rigorous theoretical analysis of the intrinsic equivariance error, demonstrating that the proposed architecture enforces end-to-end rotation equivariance under the p4 rotation group. Extensive experiments across multiple benchmarks---including high-level image classification, mid-level semantic segmentation, and low-level image super-resolution---demonstrate that EQ-VMamba consistently improves rotation robustness and achieves superior or competitive performance compared to non-equivariant baselines on most benchmarks, while requiring 40-70% fewer parameters. These results indicate that embedding rotation equivariance not only effectively bolsters the robustness of visual Mamba models against rotation transformations, but also improves accuracy on data exhibiting rotational symmetry, with substantially improved parameter efficiency. Code is available at https://github.com/zhongchenzhao/EQ-VMamba.",
+    "read_sections": [
+      "Title (independent LLM review)",
+      "Abstract (complete; ambiguous-title follow-up)"
+    ],
+    "scope_borderline": false
+  },
+  {
+    "id": "2610.33294",
+    "title": "Twirled and swirled worlds: a compositional approach",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.33294"
+    ],
+    "reviewed_at": "2026-11-02T15:50:54.600809+00:00",
+    "disposition": "excluded",
+    "reason": "worlds指受对称性超选择约束的广义概率/量子理论，不是生成物理场景或机器人世界模型。",
+    "evidence_level": "abstract",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.33294",
+    "original_evidence_level": "metadata_programmatic",
+    "independent_llm_title_read": true,
+    "title_review_index": 139,
+    "title_review_batch": 0,
+    "abstract_read": true,
+    "abstract": "Twirled and swirled worlds describe generalised probabilistic theories (GPTs) restricted by symmetry-imposed superselection rules. We extend these constructions to a fully compositional setting for finite-dimensional GPTs and compact groups, treating states, effects, and multipartite transformations uniformly as processes. We distinguish system actions from process-space actions. We define actions on a theory as a whole by requiring the corresponding process-space actions to respect sequential and parallel composition. Averaging physical theory actions defines twirling, while averaging nonphysical theory actions defines swirling. We show that invariant subtheories might not satisfy process tomography, and establish conditions under which they do, involving invariant dynamically faithful states or internal classical reference frames. For locally tomographic parent theories, we prove that every theory symmetry admits a representation by linear system actions and that the invariant subtheory satisfies process tomography. An invariant multipartite process space fails local tomography if and only if some bipartition has sides sharing a non-trivial irreducible representation. We characterise when ancillary systems are necessary, which representations they must carry, and when entanglement is required for ancilla-free process tomography. We develop a framework for unifying twirled subtheories and extend incoherent simulations to compact groups. Finally, we recover bilocal classical theory as a twirled subtheory of classical theory and real quantum theory as a swirled subtheory of complex quantum theory, deriving their tomographic properties from their representation structure.",
+    "read_sections": [
+      "Title (independent LLM review)",
+      "Abstract (complete; ambiguous-title follow-up)"
+    ],
+    "scope_borderline": false
+  },
+  {
+    "id": "2610.32926",
+    "title": "ZENO: Nonlinear filtering with Zakai Equation Neural Operators",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32926"
+    ],
+    "reviewed_at": "2026-11-02T15:50:54.600809+00:00",
+    "disposition": "excluded",
+    "reason": "Zakai神经算子用于合成Double-Well/VDP/Lorenz状态及固定线虫脑信号，不是导航或几何状态估计。",
+    "evidence_level": "abstract",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.32926",
+    "original_evidence_level": "metadata_programmatic",
+    "independent_llm_title_read": true,
+    "title_review_index": 163,
+    "title_review_batch": 0,
+    "abstract_read": true,
+    "abstract": "State inference and parameter learning for nonlinear filters is a core computation for scientific machine learning with varied applications in engineering and neuroscience. The unnormalized filtering distribution is governed by the Zakai equation, a stochastic partial differential equation (SPDE) that combines the forward Kolmogorov operator (known as the Fokker-Planck equation) with observed likelihood updates. Although solving these high-dimensional SPDEs is often impossible analytically and intractable numerically, advances in operator learning and physics-informed machine learning have made it feasible. Harnessing these advances, we introduce the Zakai Equation Neural Operator (ZENO), a model that optimizes a neural operator against a Zakai Equation based physics-informed loss to approximate the exact unnormalized filtering distribution for latent stochastic dynamical systems. We use this ZENO-inferred posterior distribution in an expectation-maximization (EM) framework to perform parameter learning and state inference. We demonstrate ZENO's ability to accurately infer the posterior distribution and learn its corresponding SDE parameters in three simulated stochastic dynamical systems (Double-Well bistable system, Van Der Pol (VDP) oscillator, and Lorenz system) and compare its performance against established methods for latent SDE inference and learning. We show that ZENO recovers previously observed limit cycles representing forward and backward locomotion from a whole-brain imaging dataset of immobilized \\textit{C. elegans} nematodes. ZENO is a novel approach to the problem of nonlinear filtering and dynamical inference through the lens of partial differential equations and operator theory.",
+    "read_sections": [
+      "Title (independent LLM review)",
+      "Abstract (complete; ambiguous-title follow-up)"
+    ],
+    "scope_borderline": false
+  },
+  {
+    "id": "2610.32487",
+    "title": "State Estimation as In-context Tabular Prediction",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32487"
+    ],
+    "reviewed_at": "2026-11-02T15:50:54.600809+00:00",
+    "disposition": "excluded",
+    "reason": "state estimation实际是电网电压与相位估计，14至118-bus电力网络，不是移动机器人状态或SLAM。",
+    "evidence_level": "abstract",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.32487",
+    "original_evidence_level": "metadata_programmatic",
+    "independent_llm_title_read": true,
+    "title_review_index": 191,
+    "title_review_batch": 0,
+    "abstract_read": true,
+    "abstract": "This letter poses state estimation (SE) as an in-context tabular prediction (ICTP) problem. The key idea is a tabular arrangement in which historical measurement vectors and corresponding state estimates serve as the context, and a new measurement vector forms the query for which we predict a state vector. We propose to use tabular foundation models (TFMs), pretrained on synthetic data, whose weights are never updated, so power system data is needed only as context. With frozen TFM weights we estimate the state of 14-, 30-, 33-, 70-, and 118-bus transmission and distribution networks, and do so where weighted least squares (WLS) fails or degrades, under low observability and with bad data. ICTP errors are 11 to 57$\\times$ below the per-bus average of the context at full metering, and 1.3 to 4.0$\\times$ below it with only 5% of measurements available. With measurements at six buses biased by 8$σ$, the ICTP angle error rises 1.8 to 5.0$\\times$ over its bias-free value against 2.5 to 12.7$\\times$ for WLS with bad-data detection. Without retraining, ICTP has lower voltage error than DSS$^2$ on both of its feeders, and lower than a retrained TAPINE on two of three reconfiguration sets.",
+    "read_sections": [
+      "Title (independent LLM review)",
+      "Abstract (complete; ambiguous-title follow-up)"
+    ],
+    "scope_borderline": false
+  },
+  {
+    "id": "2610.32409",
+    "title": "PAFS: Perturbation-Aware Firing Scaffolds for Robust Event-Based SNNs",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32409"
+    ],
+    "reviewed_at": "2026-11-02T15:50:54.600809+00:00",
+    "disposition": "excluded",
+    "reason": "事件SNN分类的扰动鲁棒后校准；输出logits和动作类别，不恢复事件相机运动或场景几何。",
+    "evidence_level": "abstract",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.32409",
+    "original_evidence_level": "metadata_programmatic",
+    "independent_llm_title_read": true,
+    "title_review_index": 199,
+    "title_review_batch": 0,
+    "abstract_read": true,
+    "abstract": "Event-based spiking neural networks (SNNs) encode information through temporal firing dynamics, but the same stateful computation makes their predictions sensitive to event loss, timestamp jitter, and speed variation. These perturbations alter evidence accumulation, yet late-layer firing trajectories can retain error-diagnostic structure that is absent from the final logits alone. We introduce Perturbation-Aware Firing Scaffolds (PAFS), a labeled post-training calibration method that exploits this structure without updating the pretrained backbone. PAFS associates standardized late-layer leaky integrate-and-fire trajectories with the class-probability residuals of an Adapter anchor, then applies singular value decomposition to extract compact residual-aligned channel directions. At inference, firing trajectories from the same backbone pass are projected onto this fixed low-rank scaffold and combined with anchor statistics to predict a residual logit correction. Across four matched dataset-backbone settings spanning three event datasets and two spiking Transformer architectures, PAFS improves corrupted-average and worst-condition accuracy over the corresponding Adapter anchors, with maximum gains of 3.06 and 3.65 percentage points. In the DailyAction-DVS/Spikingformer setting, the added trainable parameters amount to approximately 0.34% of the frozen backbone.",
+    "read_sections": [
+      "Title (independent LLM review)",
+      "Abstract (complete; ambiguous-title follow-up)"
+    ],
+    "scope_borderline": false
+  },
+  {
+    "id": "2610.32372",
+    "title": "A Robust Control Architecture for Multirate Systems and their Interconnections",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32372"
+    ],
+    "reviewed_at": "2026-11-02T15:50:54.600809+00:00",
+    "disposition": "excluded",
+    "reason": "异步多速率线性控制的Lyapunov/LMI稳定和耗散理论，仅数值例子，无感知定位或空间建图。",
+    "evidence_level": "abstract",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.32372",
+    "original_evidence_level": "metadata_programmatic",
+    "independent_llm_title_read": true,
+    "title_review_index": 203,
+    "title_review_batch": 0,
+    "abstract_read": true,
+    "abstract": "We introduce a framework for analyzing and designing linear multirate control systems and their interconnections through the lens of robust control. The proposed approach models multirate systems as impulsive systems with multiple independent jump maps and corresponding jump-time sequences. We tackle analysis and design problems with stability, dissipativity, and robustness objectives, relying on a multi-clock-dependent Lyapunov function parameterization. Further, we develop a compositional approach for analyzing interconnections of multirate systems based on individual dissipativity properties. The theoretical conditions can be verified via linear matrix inequalities and they require weak assumptions on the sampling rates, allowing for asynchronous and time-varying sampling rates with or without separated time scales. The practicality of the framework is demonstrated with numerical examples.",
+    "read_sections": [
+      "Title (independent LLM review)",
+      "Abstract (complete; ambiguous-title follow-up)"
+    ],
+    "scope_borderline": false
+  },
+  {
+    "id": "2610.38662",
+    "title": "Minimum-Time Trajectory for Escort-Assisted Evasion from a Sensing-Limited Pursuer",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.38662"
+    ],
+    "reviewed_at": "2026-11-02T15:50:54.600809+00:00",
+    "disposition": "excluded",
+    "reason": "已知状态的护航追逃最短时间路径解析结构，未涉及定位、三维感知、建图或学习世界动力学。",
+    "evidence_level": "abstract",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.38662",
+    "original_evidence_level": "metadata_programmatic",
+    "independent_llm_title_read": true,
+    "title_review_index": 416,
+    "title_review_batch": 1,
+    "abstract_read": true,
+    "abstract": "This paper studies a minimum-time path-planning problem in which an escort assists a leader by triggering and redirecting a sensing-limited pursuer. For the post-engagement case with equal leader, escort, and pursuer speeds, we show that the minimum-time leader trajectory has a three-phase structure: an initial straight segment, a moving-boundary segment, and a final straight segment to the goal. The boundary-following kinematics and the corresponding entry and exit conditions are derived and used to construct the leader trajectory for a fixed escort engagement direction. The engagement direction is then optimized over the feasible set to obtain the minimum-time solution. Numerical results illustrate the resulting trajectory and the benefits of escort assistance.",
+    "read_sections": [
+      "Title (independent LLM review)",
+      "Abstract (complete; ambiguous-title follow-up)"
+    ],
+    "scope_borderline": false
+  },
+  {
+    "id": "2610.38628",
+    "title": "The Reality Gap in Automated Driving Systems Testing: Landscape, Challenges, and Research Directions",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.38628"
+    ],
+    "reviewed_at": "2026-11-02T15:50:54.600809+00:00",
+    "disposition": "excluded",
+    "reason": "自动驾驶测试sim-to-real现实差距的系统综述，分析测试证据与组件，没有显式三维/地图/定位方法或学习式世界模型；保留仿真邻接边界。",
+    "evidence_level": "abstract",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.38628",
+    "original_evidence_level": "metadata_programmatic",
+    "independent_llm_title_read": true,
+    "title_review_index": 419,
+    "title_review_batch": 1,
+    "abstract_read": true,
+    "abstract": "Simulation is essential for testing automated driving systems (ADS), but discrepancies between simulation and reality can undermine testing conclusions. It remains unclear which discrepancies the literature addresses and what evidence supports correspondence claims. We present a systematic mapping of 235 primary studies that measure or mitigate the reality gap in ADS testing, selected from 4,195 publications. We characterise objectives, targets, approaches, experimental setups, and evaluation evidence. Our classification distinguishes simulated and real-world execution across six ADS test components, separately for each approach and its evaluation reference. This distinguishes real-world information used to construct an approach from evidence used to evaluate its claims. Of the included studies, 76% address mitigation, primarily targeting scenario and actor realism and perception, while 94% report validation or measurement procedures. Only 61 studies report metrics from multiple families covering sensor/perception correspondence, ADS behaviour, vehicle dynamics, or safety outcomes; this coverage does not establish causal links between discrepancies and test verdicts. The synthesis highlights that real-world content and physical execution must be interpreted against the claim evaluated. The findings motivate claim-specific evaluation and component-level reporting to establish which discrepancies affect testing conclusions and when simulation evidence supports conclusions about real-world ADS behaviour.",
+    "read_sections": [
+      "Title (independent LLM review)",
+      "Abstract (complete; ambiguous-title follow-up)"
+    ],
+    "scope_borderline": true
+  },
+  {
+    "id": "2610.38259",
+    "title": "ETA-Motion: Efficient Topology-Agnostic Motion Diffusion via Sparse Joint Learning",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.38259"
+    ],
+    "reviewed_at": "2026-11-02T15:50:54.600809+00:00",
+    "disposition": "excluded",
+    "reason": "任意骨架角色的拓扑无关运动生成，输出骨架动作，不估计观测三维场景或相机轨迹。",
+    "evidence_level": "abstract",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.38259",
+    "original_evidence_level": "metadata_programmatic",
+    "independent_llm_title_read": true,
+    "title_review_index": 457,
+    "title_review_batch": 1,
+    "abstract_read": true,
+    "abstract": "Topology-agnostic motion generation aims to synthesize motions for diverse characters with arbitrary skeletons. Unlike conventional motion generation, which assumes a fixed skeletal template, this setting must handle diverse joint configurations and inconsistent joint semantics across characters. Existing methods address this challenge through dense full-joint modeling, which incurs substantial computational cost and hinders learning transferable motion patterns across diverse skeletal topologies. We present ETA-Motion, a topology-agnostic motion generation framework based on sparse joint learning. Instead of learning motion from all joints, our method uses a compact subset of joints to reduce redundancy and trains the motion generator on the resulting sparse skeleton. To facilitate correspondence across diverse topologies, we introduce semantic joint embeddings that combine textual and visual cues, together with topology-aware training objectives for preserving skeletal structure. Although ETA-Motion is trained only on sparse skeletal observations, it supports full-skeleton motion generation during inference. Experimental results demonstrate that ETA-Motion outperforms existing topology-agnostic baselines while significantly improving efficiency and generalization to unseen motions and unseen topologies.",
+    "read_sections": [
+      "Title (independent LLM review)",
+      "Abstract (complete; ambiguous-title follow-up)"
+    ],
+    "scope_borderline": false
+  },
+  {
+    "id": "2610.37633",
+    "title": "Repurposing Video Diffusion Transformers for Cross-View Temporal Object Correspondence",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.37633"
+    ],
+    "reviewed_at": "2026-11-02T15:50:54.600809+00:00",
+    "disposition": "excluded",
+    "reason": "XTrack由query mask跟踪跨视角跨时间物体身份，输出mask和identity；不恢复位姿、三维、地图或导航，按纯对象关联排除。",
+    "evidence_level": "abstract",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.37633",
+    "original_evidence_level": "metadata_programmatic",
+    "independent_llm_title_read": true,
+    "title_review_index": 510,
+    "title_review_batch": 2,
+    "abstract_read": true,
+    "abstract": "Cross-view object correspondence identifies the same object across views. However, existing methods often rely on frame-wise matching or sequential tracking, which can propagate correspondence errors under appearance changes or occlusions. Therefore, we introduce cross-view temporal object correspondence, which requires preserving object identity across both views and time from a query mask. To address this, we propose XTrack, a unified framework which repurposes a pretrained video DiT with semantic and spatiotemporal priors for RGB-to-mask latent transport, jointly modeling cross-view matching and temporal tracking. However, naive video DiTs do not guarantee accurate cross-view grounding and often attend to semantically similar yet incorrect objects across views. Thus, we introduce focal cross-view attention alignment, hard negative conditioning, and local context crop strategies to ensure reliable grounding. Finally, beyond these architectural enhancements, we also tackle the lack of dense annotation by introducing a pseudo-label curation pipeline that converts sparse Ego-Exo4D annotations into dense supervision to enable effective video-level training. Our results demonstrate the effectiveness of XTrack as a unified framework, ensuring robust temporal consistency and identity preservation.",
+    "read_sections": [
+      "Title (independent LLM review)",
+      "Abstract (complete; ambiguous-title follow-up)"
+    ],
+    "scope_borderline": false
+  },
+  {
+    "id": "2610.35170",
+    "title": "Sparse Target Parameter and Channel Estimation in MIMO-OOFDM-Aided Visible Light Integrated Sensing and Communication Systems",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.35170"
+    ],
+    "reviewed_at": "2026-11-02T15:50:54.600809+00:00",
+    "disposition": "excluded",
+    "reason": "光通信ISAC的目标距离/速度和信道估计理论与仿真，不估计机器人自运动、环境地图或多视图几何；按通信波形感知邻接排除。",
+    "evidence_level": "abstract",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.35170",
+    "original_evidence_level": "metadata_programmatic",
+    "independent_llm_title_read": true,
+    "title_review_index": 752,
+    "title_review_batch": 3,
+    "abstract_read": true,
+    "abstract": "A unified framework is developed for parameter estimation (PE) and channel estimation (CE) in monostatic multiple-input multiple-output (MIMO) direct-current-biased optical orthogonal frequency division multiplexing (DCO-OFDM)-aided visible light integrated sensing and communication (VL-ISAC) systems. A common optical waveform supports sensing and downlink communication while accounting for target reflections, clutter, Doppler effects, and the communication channel. For sensing PE, one-dimensional (1D) and two-dimensional (2D) on-grid and off-grid sparse representations are formulated. The proposed 1D off-grid Bayesian learning (1D-OffGBL) algorithm employs a joint delay-Doppler (DD) dictionary to exploit coupled DD information and achieve high estimation accuracy. In contrast, the proposed 2D off-grid Bayesian learning (2D-OffGBL) algorithm sequentially estimates the Doppler and delay parameters, thereby avoiding a high-dimensional joint dictionary and reducing computational complexity. Both algorithms iteratively refine the continuous-valued delay and Doppler parameters to mitigate off-grid basis mismatch. Furthermore, 1D and 2D sparse channel representations and corresponding CE procedures are developed, followed by range and velocity estimation for both sensing models. Closed-form Bayesian Cramer-Rao bounds (BCRBs) are derived for PE, CE, range, and velocity estimation. Simulations demonstrate that the proposed algorithms outperform conventional sparse recovery schemes in terms of normalized mean-squared error (NMSE). In particular, 1D-OffGBL achieves the highest estimation accuracy, whereas 2D-OffGBL provides a favourable performance-complexity trade-off for practical MIMO DCO-OFDM VL-ISAC systems.",
+    "read_sections": [
+      "Title (independent LLM review)",
+      "Abstract (complete; ambiguous-title follow-up)"
+    ],
+    "scope_borderline": true
+  },
+  {
+    "id": "2610.08533",
+    "title": "Beyond Perturbation Magnitude: Direction-Dependent Responses in Multimodal Geometric Representations",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.08533"
+    ],
+    "reviewed_at": "2026-11-02T15:50:54.600809+00:00",
+    "disposition": "excluded",
+    "reason": "几何为MSR-VTT/DiDeMo音视频模态的Gram表征空间，分析退化方向，不是物理几何。",
+    "evidence_level": "abstract",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.08533",
+    "original_evidence_level": "metadata_programmatic",
+    "independent_llm_title_read": true,
+    "title_review_index": 754,
+    "title_review_batch": 3,
+    "abstract_read": true,
+    "abstract": "Geometric alignment scores based on Gram determinants provide a compact way to model higher-order consistency among modalities, yet how such scores respond to modality degradation is poorly understood. This paper asks whether the response of a multimodal geometric score is determined primarily by the magnitude of the perturbation-induced displacement. Using frozen cohorts from MSR-VTT (N=878) and DiDeMo (N=980), we apply controlled video blur and audio noise and analyze the response in the relational geometry on which the score is defined. Displacement magnitude explains at most 15% of the out-of-sample variance in the absolute response, and magnitude-matched pairs respond systematically differently, so scalar magnitude does not organize the response. The closed-form first-order expansion of the Gramian volume yields the Directional Geometric Response (DGR): the projection of the displacement onto the local volume gradient, which jointly captures the clean operating point, displacement magnitude, and displacement direction. The absolute first-order DGR term explains the observed response with out-of-sample R^2 of 0.838-0.969, matched-magnitude ranking accuracies of 0.864-0.963, and response-sign accuracies of 0.909-0.989, whereas the tested direction-free alternatives remain weak or unstable under the corresponding evaluation protocols. A pre-specified gain-normalization candidate, V/(g_V+eps), fails its predictability and clean-order gates. DGR uses the observed degraded-state displacement and is therefore an explanatory quantity, not a deployment-time predictor: geometric response depends on where the representation operates, how far degradation moves the relational geometry, and in which direction it moves.",
+    "read_sections": [
+      "Title (independent LLM review)",
+      "Abstract (complete; ambiguous-title follow-up)"
+    ],
+    "scope_borderline": false
+  },
+  {
+    "id": "2610.33892",
+    "title": "Residual-Calibrated Multimodal Spatiotemporal Learning for Future Beam Prediction",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.33892"
+    ],
+    "reviewed_at": "2026-11-02T15:50:54.600809+00:00",
+    "disposition": "excluded",
+    "reason": "用给定二维位置、图像和波束历史预测下一波束标签，不估计位置、三维环境或导航。",
+    "evidence_level": "abstract",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.33892",
+    "original_evidence_level": "metadata_programmatic",
+    "independent_llm_title_read": true,
+    "title_review_index": 871,
+    "title_review_batch": 3,
+    "abstract_read": true,
+    "abstract": "We propose a residual calibrated multimodal spatiotemporal framework for future beam prediction on DeepSense 6G Scenario 23. The framework integrates visual observations, location features, and historical beam labels to predict the beam label of the next dataset record. A pretrained Swin-Tiny encoder extracts features from four consecutive RGB frames. Bidirectional cross-attention integrates visual and two dimensional Unit 1 location representations, while a temporal Transformer incorporates historical beam label embeddings to model dependencies across the observation window. A supplementary offline residual head adjusts the frozen supervised logits using immediate correctness rewards and an auxiliary classification loss. A fixed probability mixture of the supervised and residual outputs is selected using validation accuracy. From 11,387 aligned records, we construct 11,255 temporal windows and partition them by capture run into 7,854 training, 1,905 validation, and 1,496 test samples. The supervised predictor achieves Top-1, Top-2, Top-3, and Top-5 test accuracies of 62.83%, 74.80%, 79.75%, and 81.08%, respectively. The residual predictor achieves corresponding accuracies of 61.76%, 75.07%, 79.41%, and 81.02%. Residual adjustment increases Top-2 accuracy by 0.27 percentage points, while the supervised predictor retains higher Top-1, Top-3, and Top-5 accuracies. The validation-selected mixture coincides with the residual predictor. The proposed framework combines cross-modal sensing features with explicit beam-history conditioning and a separately trained residual adjustment stage for one-record-ahead beam prediction. Initial evaluation on held-out capture runs characterizes the candidate-ranking performance of both prediction stages and favors the supervised variant for Top-1 selection. These findings motivate further study of historical conditioning and residual refinement.",
+    "read_sections": [
+      "Title (independent LLM review)",
+      "Abstract (complete; ambiguous-title follow-up)"
+    ],
+    "scope_borderline": false
+  },
+  {
+    "id": "2610.34921",
+    "title": "PhysEvolve: Verifier-grounded Self-evolution for Physical Reasoning with Executable Worlds",
+    "query_hits": [
+      "review-C-simulator-submitted_date-0.html",
+      "review-C-simulator-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.34921"
+    ],
+    "reviewed_at": "2026-11-02T15:50:54.600809+00:00",
+    "disposition": "included",
+    "reason": "主审明确将C范围扩展为可执行物理world simulator/评测训练，按simulation-evaluation纳入，非核心。",
+    "evidence_level": "abstract",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-candidates-screened.json#2610.34921",
+    "original_evidence_level": "metadata_programmatic",
+    "independent_llm_title_read": true,
+    "title_review_index": 936,
+    "title_review_batch": 3,
+    "abstract_read": true,
+    "abstract": "Physical reasoning underpins how embodied systems understand and act in the physical world, yet vision-language models (VLMs) remain unreliable on questions about dynamics and physical causality. Progress is critically constrained by the scarcity of grounded counterfactual training data, as observational videos capture only the factual trajectory that occurred. The self-evolving paradigm offers a route beyond fixed datasets by enabling models to construct their own training problems. Extending this paradigm to physics, however, requires an external source of truth that can both validate model-proposed environments and verify alternative physical outcomes under intervention. We introduce \\physevolve{}, a verifier-grounded self-evolving framework that trains VLMs for causal physical reasoning from model-proposed executable worlds and simulation-authored tasks. At each round, a shared VLM proposes executable world programs and evidence schemas; a deterministic physics engine freezes each valid world, simulates matched baseline and body-elided counterfactual branches, and synthesizes discrete, answer-bound visual tasks. Exact verifier feedback from task solving updates both the shared policy via GRPO and an adaptive curriculum over physical intents. Starting from Qwen3-VL-8B-Instruct, \\physevolve{} achieves targeted gains across PhysBench, CausalPhys, and ContPhy without human intervention data, improving PhysBench Throwing by $8.8$ points and ContPhy Counterfactual Removal and Goal-Pit by $7.4$ and $24.4$ points. These gains concentrate on interaction-sensitive and altered-world questions, demonstrating zero-shot transfer of causal principles to unseen complex dynamics (cloth, fluid, soft bodies) and real-world video.",
+    "read_sections": [
+      "Title (independent LLM review)",
+      "Abstract (complete; ambiguous-title follow-up)"
+    ],
+    "scope_borderline": true,
+    "version": 1,
+    "v1_utc": "2026-10-26T06:50:45Z",
+    "updated_utc": "2026-10-26T06:50:45Z",
+    "window_class": "new",
+    "category": "simulation-evaluation",
+    "scope_decision": "parent clarified C scope after complete abstract review; original prefilter exclusion retained in review-original-programmatic-dispositions.json"
+  }
+]

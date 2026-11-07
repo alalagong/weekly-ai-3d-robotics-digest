@@ -1,0 +1,288 @@
+{
+  "generated_at": "2026-11-07T04:19:39.696676+00:00",
+  "passed": true,
+  "check_count": 70,
+  "errors": [],
+  "checks": [
+    {
+      "check": "exact4papers",
+      "passed": true
+    },
+    {
+      "check": "locked_versions",
+      "passed": true
+    },
+    {
+      "check": "2610.37000 fullmain_sections",
+      "passed": true
+    },
+    {
+      "check": "2610.37000 realhtml",
+      "passed": true
+    },
+    {
+      "check": "2610.37000 frozenversion",
+      "passed": true
+    },
+    {
+      "check": "2610.37000 noexecutionclaim",
+      "passed": true
+    },
+    {
+      "check": "2610.37000 exactnumeric_sources",
+      "passed": true
+    },
+    {
+      "check": "2610.37000 anchor S4.T1",
+      "passed": true
+    },
+    {
+      "check": "2610.37000 anchor S4.T1",
+      "passed": true
+    },
+    {
+      "check": "2610.37000 anchor S5.T2",
+      "passed": true
+    },
+    {
+      "check": "2610.37000 anchor S5.T4",
+      "passed": true
+    },
+    {
+      "check": "2610.37000 anchor S5.T4",
+      "passed": true
+    },
+    {
+      "check": "2610.37000 anchor A2.T1",
+      "passed": true
+    },
+    {
+      "check": "2610.37000 anchor S5.T3",
+      "passed": true
+    },
+    {
+      "check": "2610.37000 anchor A3.T3",
+      "passed": true
+    },
+    {
+      "check": "2610.37000 anchor A7.T5",
+      "passed": true
+    },
+    {
+      "check": "2610.37000 captionqualifies",
+      "passed": true
+    },
+    {
+      "check": "2610.37000 imageviewconfirmed",
+      "passed": true
+    },
+    {
+      "check": "2610.35806 fullmain_sections",
+      "passed": true
+    },
+    {
+      "check": "2610.35806 realhtml",
+      "passed": true
+    },
+    {
+      "check": "2610.35806 frozenversion",
+      "passed": true
+    },
+    {
+      "check": "2610.35806 noexecutionclaim",
+      "passed": true
+    },
+    {
+      "check": "2610.35806 exactnumeric_sources",
+      "passed": true
+    },
+    {
+      "check": "2610.35806 anchor S4.T2",
+      "passed": true
+    },
+    {
+      "check": "2610.35806 anchor S4.T2",
+      "passed": true
+    },
+    {
+      "check": "2610.35806 anchor S4.SS2.SSS0.Px7.p1.1",
+      "passed": true
+    },
+    {
+      "check": "2610.35806 anchor S4.SS2",
+      "passed": true
+    },
+    {
+      "check": "2610.35806 anchor S4.T4",
+      "passed": true
+    },
+    {
+      "check": "2610.35806 anchor S4.T4",
+      "passed": true
+    },
+    {
+      "check": "2610.35806 anchor S4.T5",
+      "passed": true
+    },
+    {
+      "check": "2610.35806 anchor S4.T7",
+      "passed": true
+    },
+    {
+      "check": "2610.35806 anchor S4.T7",
+      "passed": true
+    },
+    {
+      "check": "2610.35806 anchor S4.SS3",
+      "passed": true
+    },
+    {
+      "check": "2610.35806 anchor S4.SS2",
+      "passed": true
+    },
+    {
+      "check": "2610.35806 anchor S4.T6",
+      "passed": true
+    },
+    {
+      "check": "2610.35806 nofakefigure",
+      "passed": true
+    },
+    {
+      "check": "2610.36150 fullmain_sections",
+      "passed": true
+    },
+    {
+      "check": "2610.36150 realhtml",
+      "passed": true
+    },
+    {
+      "check": "2610.36150 frozenversion",
+      "passed": true
+    },
+    {
+      "check": "2610.36150 noexecutionclaim",
+      "passed": true
+    },
+    {
+      "check": "2610.36150 exactnumeric_sources",
+      "passed": true
+    },
+    {
+      "check": "2610.36150 anchor S3.T1",
+      "passed": true
+    },
+    {
+      "check": "2610.36150 anchor S3.T1",
+      "passed": true
+    },
+    {
+      "check": "2610.36150 anchor S4.T3",
+      "passed": true
+    },
+    {
+      "check": "2610.36150 anchor S4.T2",
+      "passed": true
+    },
+    {
+      "check": "2610.36150 anchor S4.T2",
+      "passed": true
+    },
+    {
+      "check": "2610.36150 anchor S4.T4",
+      "passed": true
+    },
+    {
+      "check": "2610.36150 anchor A5.T19",
+      "passed": true
+    },
+    {
+      "check": "2610.36150 anchor A5.T19",
+      "passed": true
+    },
+    {
+      "check": "2610.36150 anchor A5.T20",
+      "passed": true
+    },
+    {
+      "check": "2610.36150 anchor A10.T21",
+      "passed": true
+    },
+    {
+      "check": "2610.36150 captionqualifies",
+      "passed": true
+    },
+    {
+      "check": "2610.36150 imageviewconfirmed",
+      "passed": true
+    },
+    {
+      "check": "2605.23889 fullmain_sections",
+      "passed": true
+    },
+    {
+      "check": "2605.23889 realhtml",
+      "passed": true
+    },
+    {
+      "check": "2605.23889 frozenversion",
+      "passed": true
+    },
+    {
+      "check": "2605.23889 noexecutionclaim",
+      "passed": true
+    },
+    {
+      "check": "2605.23889 exactnumeric_sources",
+      "passed": true
+    },
+    {
+      "check": "2605.23889 anchor S3.T1",
+      "passed": true
+    },
+    {
+      "check": "2605.23889 anchor S4.T3.fig1",
+      "passed": true
+    },
+    {
+      "check": "2605.23889 anchor S4.T3.fig1",
+      "passed": true
+    },
+    {
+      "check": "2605.23889 anchor S4.T2",
+      "passed": true
+    },
+    {
+      "check": "2605.23889 anchor S4.T2",
+      "passed": true
+    },
+    {
+      "check": "2605.23889 anchor S4.T6",
+      "passed": true
+    },
+    {
+      "check": "2605.23889 anchor S4.T5.fig2",
+      "passed": true
+    },
+    {
+      "check": "2605.23889 anchor S4.T5.fig1",
+      "passed": true
+    },
+    {
+      "check": "2605.23889 captionqualifies",
+      "passed": true
+    },
+    {
+      "check": "2605.23889 imageviewconfirmed",
+      "passed": true
+    },
+    {
+      "check": "2605.23889 oldrevisionwindow",
+      "passed": true
+    },
+    {
+      "check": "no_major_revision_claim",
+      "passed": true
+    }
+  ]
+}

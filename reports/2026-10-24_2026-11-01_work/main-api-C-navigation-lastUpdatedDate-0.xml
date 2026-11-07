@@ -1,0 +1,565 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/FxiwIkwlZobnvCmUxXSrWMuGhKE</id>
+  <title>arXiv Query: search_query=( (ti:"embodied navigation") OR (abs:"embodied navigation") OR (ti:VLN) OR (abs:VLN) OR (ti:"vision-language navigation") OR (abs:"vision-language navigation") OR (ti:"active mapping") OR (abs:"active mapping") OR (ti:"semantic mapping") OR (abs:"semantic mapping") OR (ti:"open-vocabulary mapping") OR (abs:"open-vocabulary mapping") ) AND submittedDate:"202610220000 TO 202611011459"&amp;id_list=&amp;start=0&amp;max_results=200</title>
+  <updated>2026-11-01T15:18:17Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(ti:%22embodied+navigation%22+OR+(abs:%22embodied+navigation%22+OR+(ti:VLN+OR+(abs:VLN+OR+(ti:%22vision-language+navigation%22+OR+(abs:%22vision-language+navigation%22+OR+(ti:%22active+mapping%22+OR+(abs:%22active+mapping%22+OR+(ti:%22semantic+mapping%22+OR+(abs:%22semantic+mapping%22+OR+(ti:%22open-vocabulary+mapping%22+OR+abs:%22open-vocabulary+mapping%22)))))))))))+AND+submittedDate:%22202610220000+TO+202611011459%22&amp;start=0&amp;max_results=200&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>200</opensearch:itemsPerPage>
+  <opensearch:totalResults>19</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2610.39446v1</id>
+    <title>Ask to Evolve: A Unified Harness for Lifelong Embodied Navigation with Hybrid Action Space and Persistent Memory</title>
+    <updated>2026-10-29T06:19:44Z</updated>
+    <link href="https://arxiv.org/abs/2610.39446v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.39446v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Giving embodied agents the freedom to act autonomously, initiate interactions, and understand their surroundings through experience is a step toward bringing them to life in the physical world. Realizing this vision requires action, interaction, and memory to work together, so that each encounter can inform current decisions and contribute experience for future tasks. We present EvoLife, a unified navigation harness that enables a multimodal embodied agent to choose how to move, when to ask, and what experience to carry forward. Its hybrid action space supports waypoint navigation, local discrete adjustments, pixel-based navigation, and object-directed navigation. Active interaction allows the agent to seek clarification or assistance when it encounters ambiguity or difficulty, while persistent spatial memory binds observations and dialogue to places, retaining useful experience to guide subsequent visits. We evaluate eight benchmarks across four task families: vision-language navigation, object navigation, interactive instance navigation, and continuous multi-task navigation. With an average of only 1.87 active interactions per episode, our method achieves a first-visit success rate (SR) of 100% across four 100-episode sets spanning vision-language navigation and object navigation. Complete-sequence SR reaches 98% on 50 LHPR-VLN sequences and 94% on 50 GOAT-Bench sequences. In the R2R revisit setting, success weighted by path length (SPL) increases from 82.23% to 93.31% with retained experience. Multi-day physical navigation further demonstrates exploration, proactive help-seeking, and revisiting remembered places. Together, these results advance the vision of bringing embodied agents to life through autonomous action, proactive interaction, and the accumulation and reuse of experience.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-29T06:19:44Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Kai Sheng</name>
+    </author>
+    <author>
+      <name>Liuyi Wang</name>
+    </author>
+    <author>
+      <name>Jinlong Li</name>
+    </author>
+    <author>
+      <name>Haojie Dai</name>
+    </author>
+    <author>
+      <name>Chengju Liu</name>
+    </author>
+    <author>
+      <name>Qijun Chen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.39014v1</id>
+    <title>The Search for Statistical Indistinguishability Between Real and Fake Images</title>
+    <updated>2026-10-28T22:43:39Z</updated>
+    <link href="https://arxiv.org/abs/2610.39014v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.39014v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Images produced by generative models appear strikingly similar to real ones. In this work, we study whether perfection has been reached by generated content in terms of matching the properties of real data. We train deep neural networks to separate real data from fake and observe their test accuracies. Only a chance performance has any scope of proving statistical indistinguishability. However, since generative models are known to sometimes introduce small errors, e.g., low level checkerboard artifacts, we create progressive abstractions of the original real/fake images to potentially bring them to a space where those artifacts get wiped away. These include operations such as blurring, downsizing, cropping, converting RGB images into edge/semantic maps, etc. To our surprise, almost none of the abstractions are able to make fake data indistinguishable from real. The only cases when neural network based classifiers fail to separate the two categories is when the data is abstracted to such an extent that the original content seems mostly lost to the human eye, e.g., downsizing a $256 \times 256$ RGB image of human face to $4 \times 4$ resolution. We observe this trend across four different datasets of varying complexity (MNIST, CelebA, FFHQ and GenImage) and across various types of generative models (GANs, VAEs, diffusion models). This shows that the nature of fake artifacts extends all the way from low level to very high level in images. The simple implication is that fake images are much more different from real than we are used to think.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-28T22:43:39Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Mohaimin Rafi</name>
+    </author>
+    <author>
+      <name>Otavio Moraes Rosa</name>
+    </author>
+    <author>
+      <name>Anshuman Chhabra</name>
+    </author>
+    <author>
+      <name>Utkarsh Ojha</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.38318v1</id>
+    <title>What Should a Navigator Remember? Spatiotemporal Memory for Zero-Shot Vision-Language Navigation</title>
+    <updated>2026-10-28T06:08:29Z</updated>
+    <link href="https://arxiv.org/abs/2610.38318v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.38318v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Zero-shot vision-and-language navigation (VLN) requires an agent to use past observations without navigation-specific training. We study what information an 8B-scale navigation system should retain and how it should be organized for subsequent decisions. Our agent combines instruction progress, hierarchically compressed observation history anchored to poses, and accumulated geometry in complementary task, temporal, and spatial memories. An 8B observer summarizes observations, and an 8B reasoner uses the memories to select waypoint intents or request additional views, a geometric controller executes the selected targets. A semantic information perspective motivates the distinction between retaining evidence, making it accessible to the reasoner, and acquiring further observations. On R2R-CE val-unseen, the complete system achieves the highest among the evaluated Qwen3-based zero-shot baselines. Removing temporal memory reduces SR and sharply increases average path length from 16.9 to 39.1m, removing the spatial-map and planning component reduces SR as well. Real-world experiments on a Unitree Go2 show that our zero-shot method achieves higher success rates than the post-trained baseline in both corridor and office environments, suggesting better transfer to the evaluated real-world settings. As a complementary evaluation, LAW2 uses paired instruction interventions to examine behavioral responses, instruction following ability beyond endpoint success. These results support preserving task progress, observation history, and geometry in structured memory for zero-shot navigation with smaller open models.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-28T06:08:29Z</published>
+    <arxiv:comment>20 pages, 3 figures, 8 Tables</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Yuhang Peng</name>
+    </author>
+    <author>
+      <name>Zhikai Wang</name>
+    </author>
+    <author>
+      <name>Ziyi Wang</name>
+    </author>
+    <author>
+      <name>Jiaru Zhong</name>
+    </author>
+    <author>
+      <name>Xiaoji Zheng</name>
+    </author>
+    <author>
+      <name>Jingzhi Huang</name>
+    </author>
+    <author>
+      <name>Yi Wang</name>
+    </author>
+    <author>
+      <name>Jiangtao Gong</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.38248v1</id>
+    <title>MATCH: Execution-Aware Hierarchical Reinforcement Learning for Vision-and-Language Navigation in Continuous Environment</title>
+    <updated>2026-10-28T03:56:17Z</updated>
+    <link href="https://arxiv.org/abs/2610.38248v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.38248v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Vision-and-Language Navigation in Continuous Environments (VLN-CE) requires instruction-consistent planning and reliable execution under collision constraints. Yet many hierarchical approaches optimize the planner while keeping execution fixed. We introduce MATCH, a framework that jointly learns a language-conditioned planner and a goal-conditioned primitive-action executor. An execution-aware topological graph represents start-dependent execution options and integrates executor value estimates with realized outcome memory, enabling the planner to select execution requests and refine their targets through bounded continuous offsets. A transition-aware dense macro reward balances ordered progress along the reference route against execution residual, encouraging executable requests without substituting local success for instruction following. A staged curriculum culminates in synchronized on-policy updates, with the executor learning on planner-generated requests and the planner adapting its requests to the executor's current behavior. With 0.5B parameters, MATCH achieves state-of-the-art performance on the R2R-CE and RxR-CE benchmarks. Preliminary real-robot deployments further demonstrate its practical potential.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-28T03:56:17Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Shuhao Ye</name>
+    </author>
+    <author>
+      <name>Yufei Wei</name>
+    </author>
+    <author>
+      <name>Demao Wang</name>
+    </author>
+    <author>
+      <name>Shichao Zhai</name>
+    </author>
+    <author>
+      <name>Rong Xiong</name>
+    </author>
+    <author>
+      <name>Yue Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.37937v1</id>
+    <title>You Don't Need Aligned Representations: Knowledge Distillation via Random Prototype Spaces</title>
+    <updated>2026-10-27T20:27:47Z</updated>
+    <link href="https://arxiv.org/abs/2610.37937v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.37937v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A widely held assumption in knowledge distillation is that teacher and student representations must occupy a compatible or explicitly aligned feature space. We propose RPKD (Random Prototype Knowledge Distillation), which discards this assumption by comparing both networks against a shared bank of randomly initialized, frozen prototype vectors. Alignment is therefore carried out in an external reference space rather than in the teacher's native feature coordinates: the teacher side is projected by fixed random maps that carry no trainable parameters, and only the student adapts. Two branches handle the transfer: a logit branch aligning global prototype similarity distributions and a feature branch matching spatially-resolved prototype activation maps. Both operate within the same fixed prototype space, which can be interpreted as a random feature embedding that approximately preserves inter-sample similarity structure, so the prototype bank and the distillation objective stay unchanged across teacher-student pairs while only the input projections are instantiated per architecture. In low-category settings, decoupling the prototype vocabulary from the task label space yields richer supervision than the label space alone, an advantage absent from logit-based methods, whose supervisory signal collapses as class count shrinks. This advantage is especially relevant in real-world scenarios where the label space is typically constrained. Extensive experiments demonstrate the effectiveness of RPKD, achieving a maximum gain of +7.98% over OFA on CIFAR-100, +12.44% on ImageNet-100, and +1.28% on ImageNet-1K. Source code is available at https://github.com/HamzaEtcibasi/RPKD</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T20:27:47Z</published>
+    <arxiv:comment>To appear at NeurIPS 2026. 10 pages main text plus appendices. Code: https://github.com/HamzaEtcibasi/RPKD</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Hamza Etcibasi</name>
+    </author>
+    <author>
+      <name>Ramazan Gokberk Cinbis</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.35576v1</id>
+    <title>Preemptive Instruction Following with Resumption</title>
+    <updated>2026-10-26T15:10:26Z</updated>
+    <link href="https://arxiv.org/abs/2610.35576v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.35576v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Long-horizon embodied navigation may be interrupted by a higher-priority instruction before the current task sequence is complete. The agent must finish its current atomic task, execute the inserted task, and resume the remaining sequence from the updated environment state, where its viewpoint and available navigation candidates may have changed. To evaluate this capability, we introduce PIFR benchmark, a novel task for runtime task preemption and resumption in embodied navigation. PIFR includes single, repeated, and nested interruption settings,with stage-specific metrics for inserted-task completion, resumption of the original task, and completion of the full sequence. Evaluations show that recovery performance varies across interruption conditions, while aggregate success can obscure differences in interruption handling and resumption. We further propose a lightweight candidate-ranking baseline to improve target re-grounding after interruption. Together, PIFR and the baseline provide a systematic framework for studying interruption handling and task recovery in long-horizon embodied navigation.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T15:10:26Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Zerun Liu</name>
+    </author>
+    <author>
+      <name>Lechao Cheng</name>
+    </author>
+    <author>
+      <name>Yimin Liu</name>
+    </author>
+    <author>
+      <name>Shengeng Tang</name>
+    </author>
+    <author>
+      <name>Yaxiong Wang</name>
+    </author>
+    <author>
+      <name>Zhun Zhong</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.35066v2</id>
+    <title>MemVLN: Streaming Episodic Memory for Vision-Language Navigation</title>
+    <updated>2026-10-27T03:47:53Z</updated>
+    <link href="https://arxiv.org/abs/2610.35066v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.35066v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Vision-language navigation (VLN) requires an embodied agent to follow language instructions through 3D environments. Maintaining persistent episodic memory remains a challenge for VLM-based streaming agents in long-horizon navigation. We present MEMVLN, a streaming episodic memory framework that maintains a bounded bank of compressed perceptual features annotated with timesteps and action-derived relative poses, and produces compact memory tokens via cross-attention. We pair the proposed memory with a frozen pretrained geometry encoder. To learn the memory module, we design a masking-based trajectory summarization task with multi-granularity sub-trajectory decomposition, encouraging route reconstruction exclusively from episodic memory. Under navigation training restricted to the official R2R/RxR trajectories, MEMVLN achieves state-of-the-art performance on most reported metrics on standard VLN-CE benchmarks. Long-horizon analyses further characterize when episodic memory is useful. For physical evaluation, we collect 30 instruction-conditioned episodes in one physical scene, use 24 as demonstrations for post-training, and hold out six for testing. On the held-out episodes, MEMVLN improves success over the VLM baseline from 17% to 40%, and post-training further raises it to 47%.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T09:13:13Z</published>
+    <arxiv:comment>Project page: https://memvln.github.io/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Yan Wang</name>
+    </author>
+    <author>
+      <name>Jiangyong Huang</name>
+    </author>
+    <author>
+      <name>Siyuan Huang</name>
+    </author>
+    <author>
+      <name>Baoxiong Jia</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.34943v1</id>
+    <title>Reasoning Patterns for Efficient AI Coding: An Empirical Study</title>
+    <updated>2026-10-26T07:10:58Z</updated>
+    <link href="https://arxiv.org/abs/2610.34943v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.34943v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large Reasoning Models (LRMs) generate long reasoning traces that expose intermediate inference behavior, offering opportunities to study and control reasoning in AI coding. However, the underlying patterns in these traces and their potential for analyzing and guiding coding models remain poorly understood, limiting systematic characterization and inference-time control of LRM reasoning. We conduct an empirical study of reasoning patterns across four representative coding tasks. We transform reasoning traces into structured action sequences and mine recurring fragments using within-task support, cross-task contrasts, and valid--invalid support contrasts. We characterize four general reasoning patterns by coding agents: design-to-implementation for code generation, state tracing for execution reasoning, evidence--fix--recheck for debugging, and semantic mapping for translation. We further identify positive and negative patterns associated with valid and invalid reasoning traces, respectively. Positive patterns reflect verification-driven convergence, whereas negative patterns reflect repeated design revision, reflection, and knowledge recall without closure. To demonstrate their practical utility, we evaluate three pattern-based applications: task identification, pattern-guided prompting, and pattern-aware early stopping. Features capturing general reasoning patterns enable accurate task identification from reasoning traces without accessing task descriptions or final answers. Prompting guided by positive and negative patterns improves the overall accuracy of downstream tasks, while negative pattern-aware early stopping substantially reduces API-reported token usage with only a modest decrease in pass@1. All three applications also generalize to previously unseen models, showing that reasoning patterns can support both the analysis and control of LRM behavior in AI coding.</summary>
+    <category term="cs.SE" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T07:10:58Z</published>
+    <arxiv:primary_category term="cs.SE"/>
+    <author>
+      <name>Zhe Yin</name>
+    </author>
+    <author>
+      <name>Yuling Shi</name>
+    </author>
+    <author>
+      <name>Xiaodong Gu</name>
+    </author>
+    <author>
+      <name>Beijun Shen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.34286v1</id>
+    <title>ScheNav: Schematic-Guided Object Goal Navigation</title>
+    <updated>2026-10-25T13:37:13Z</updated>
+    <link href="https://arxiv.org/abs/2610.34286v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.34286v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Object goal navigation requires an embodied agent to locate and reach target objects in complex environments. Humans often rely on low-cost yet informative schematic maps, such as rough sketches or directional annotations. We develop a workflow for schematic-guided embodied navigation with two components: a training-data generation pipeline and ScheNav, a closed-loop navigation framework. Our lightweight data-generation pipeline turns 2D floorplans into navigation training environments, yielding Furnished-RPLAN, a dataset of over 33k furnished layouts with paired navigation episodes and noise-controllable schematic maps. ScheNav turns rough schematic guidance into exploration and stopping decisions by using SchemaField, a learned spatial module that fuses the guidance with accumulated observations and predicts spatial value fields. The framework updates these fields as exploration proceeds, with trajectory-based training and a cross-frame consistency objective supporting coherent guidance across changing viewpoints. ScheNav learns to use schematic guidance entirely from simulated floorplans and transfers this ability to unseen embodied environments. Experiments show improved navigation success and path efficiency across schematic maps, goal ellipses, and pointed directions, together with tolerance to the tested schematic perturbations and omissions. Together, these results demonstrate that rough schematic guidance offers a practical way to improve embodied navigation.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-25T13:37:13Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Guichen Huang</name>
+    </author>
+    <author>
+      <name>Chenchen Jing</name>
+    </author>
+    <author>
+      <name>Che Sun</name>
+    </author>
+    <author>
+      <name>Yuwei Wu</name>
+    </author>
+    <author>
+      <name>Yunde Jia</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.34028v1</id>
+    <title>Explaining Navigation Decisions: Stage-Aware Visual Attribution for Vision-Language Navigation</title>
+    <updated>2026-10-25T03:33:48Z</updated>
+    <link href="https://arxiv.org/abs/2610.34028v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.34028v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>As Vision-Language Models (VLMs) increasingly enable robots to follow language instructions, understanding their navigation decisions becomes important for reliable deployment. Existing explainability methods overlook a key challenge in Vision-Language Navigation (VLN): evidence for the current action may be distributed across historical and current observations and associated with different instruction stages. We identify instruction-stage insensitivity, where existing methods produce similar explanations despite changes across different navigation stages. To address this issue, we propose a stage-aware attribution framework for VLN. We first construct action-conditioned temporal instruction--visual attributions across observations. These attributions are projected into instruction space to estimate stage associations, which guide the aggregation of relevant historical evidence for refining the current explanation. An instruction-guided spatial filter further suppresses isolated responses while preserving compact, instruction-relevant regions. Experiments across multiple VLN policies and benchmarks show improved attribution quality over existing methods. We further demonstrate that our method acts as a diagnostic tool for analyzing failure cases, and validate its applicability to real-world navigation on a Unitree G1 robot.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-25T03:33:48Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Yiyuan Yao</name>
+    </author>
+    <author>
+      <name>Xinpeng Ding</name>
+    </author>
+    <author>
+      <name>Minglei Chen</name>
+    </author>
+    <author>
+      <name>Fei Gao</name>
+    </author>
+    <author>
+      <name>Lihuo He</name>
+    </author>
+    <author>
+      <name>Jie Yuan</name>
+    </author>
+    <author>
+      <name>Aijun Li</name>
+    </author>
+    <author>
+      <name>Nannan Wang</name>
+    </author>
+    <author>
+      <name>Xinbo Gao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.33616v1</id>
+    <title>Semantic-Guided Frequency Modulation for Learned Image Compression</title>
+    <updated>2026-10-24T11:43:09Z</updated>
+    <link href="https://arxiv.org/abs/2610.33616v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.33616v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>High-frequency attenuation can reduce the rate of learned image codecs but also remove object boundaries and fine detail. We propose Semantic-Guided Adaptive Latent-Frequency Modulation (SG-AFM), which uses a semantic structural prior to guide attenuation of encoder latents. SG-AFM applies a Haar wavelet transform and combines a fixed semantic-frequency multiplier with a bounded learned correction to modulate high-frequency subbands. The semantic prior is computed only at the encoder. No semantic map is transmitted, and no decoder modules are added. Across six datasets, SG-AFM reduces PSNR-based BD-rate relative to TCM by an average of 13.17%. It achieves the best BD-rate among the compared methods on ExDark, NightCity, and OnePlus, with a mean reduction of 16.80%. An ablation on OnePlus demonstrates the benefit of spatially aligned semantic guidance, and visual comparisons illustrate improved reconstruction of local structures.</summary>
+    <category term="eess.IV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-24T11:43:09Z</published>
+    <arxiv:primary_category term="eess.IV"/>
+    <author>
+      <name>Gangyi Tian</name>
+    </author>
+    <author>
+      <name>Wen Ji</name>
+    </author>
+    <author>
+      <name>Alireza Furutanpey</name>
+    </author>
+    <author>
+      <name>Mingxuan Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.33546v1</id>
+    <title>MOON: Learning When to Forget and How to Move On in Vision-and-Language Navigation</title>
+    <updated>2026-10-24T08:50:29Z</updated>
+    <link href="https://arxiv.org/abs/2610.33546v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.33546v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Recent vision-and-language navigation (VLN) policies act on their visual history, and an incorrect action can take them off the instructed route. Paired interventions on four VLN policies show that clearing the history doubles pooled success at the onset of a deviation but lowers it on route, while later in a deviation, removing only the off-route frames helps much less. After a deviation, the retained history keeps the policy from turning where a turn is needed, which we call behavioral inertia. We propose MOON, a framework that equips a frozen VLN policy with two lightweight modules, adding less than 1% of its parameters. A deviation judge decides when to forget, raising an alarm that clears the history when it predicts that the agent is off route. A recovery policy, trained with GRPO from alarm states, learns how to move on, turning more of the successes found only by sampling into a single greedy rollout. Experiments on R2R-CE and RxR-CE show that MOON reaches the highest R2R-CE success rate among the compared methods and raises the success rate of its frozen base by 5.2 and 6.0 points, and an ablation with a random trigger indicates that this gain depends on when the history is cleared. Without retraining, MOON also improves zero-shot object-goal navigation on HM3D-OVON. Together, these results suggest that deviation recovery depends on knowing when to forget, not only how to act. Code is available at https://github.com/AutoLab-SAI-SJTU/MOON.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-24T08:50:29Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Jingmeng Zhou</name>
+    </author>
+    <author>
+      <name>Seson Sun</name>
+    </author>
+    <author>
+      <name>Binyao Xu</name>
+    </author>
+    <author>
+      <name>Lingming Zhang</name>
+    </author>
+    <author>
+      <name>Hanshi Wang</name>
+    </author>
+    <author>
+      <name>Fudong Ge</name>
+    </author>
+    <author>
+      <name>Weiming Hu</name>
+    </author>
+    <author>
+      <name>Jin Gao</name>
+    </author>
+    <author>
+      <name>Zhipeng Zhang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.33263v1</id>
+    <title>Explaining Basketball Shot Classifications with Grad-CAM: An Investigation of Shortcut Reliance with Spatiotemporal Correlations</title>
+    <updated>2026-10-23T20:15:04Z</updated>
+    <link href="https://arxiv.org/abs/2610.33263v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.33263v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Basketball action recognition is used in high-stakes scenarios to inform such tasks as specialized coaching, yet the evidence used by its deep-learning models is poorly understood. This paper investigates whether there is evidence that an R(2+1)D-18 model trained on the Basketball-51 dataset relies on spurious spatiotemporal correlations when classifying basketball shot outcomes. Gradient-weighted Class Activation Mapping (Grad-CAM) was used to generate spatiotemporal saliency maps, whose faithfulness was evaluated by progressively blurring the most salient pixels. Twenty saliency maps were then visually reviewed for recurring salient regions. Grad-CAM highlighted spatially central regions of clips including the shooter, net, and occasionally the courtside crowd. Blurring interventions were conducted to support these patterns. Blurring the central region resulted in an accuracy of 43.7%, compared to the original test accuracy of 69.3% and random-blurred accuracy of 50.9%. The additional 7.2 percentage-point reduction from central blurring compared to random blurring suggests that the model relies on task-relevant visual regions; this highlights the need for continual audits to ensure trustworthy, equitable sports analytics.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-23T20:15:04Z</published>
+    <arxiv:comment>2 pages, 2 figures. Code and data: https://github.com/spicybigmac/basketball</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Hongyi Tian</name>
+    </author>
+    <author>
+      <name>Robin Cohen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.32697v1</id>
+    <title>SP-Guide: Enhancing Aerial Vision-Language Navigation with Spatial Priors</title>
+    <updated>2026-10-23T14:21:58Z</updated>
+    <link href="https://arxiv.org/abs/2610.32697v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.32697v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Aerial vision-language navigation (AVLN) requires a UAV to reach a language-described target from partial egocentric observations while reasoning over large outdoor scenes. Existing approaches typically fuse view-centered RGB observations and globally anchored history maps as generic visual embeddings, leaving cross-modal spatial alignment to be learned from sparse navigation supervision. We present SP-Guide, a transformer- based goal-prediction framework that addresses this weakness of alignment through a Spatial Prior Cross-Modal Encoder, an Instruction Enhanced Decoder, and a Goal Convergence Filter for terminal target refinement. Experiments implemented on the CityNav benchmark show that SP-Guide improves success rate over the representative baselines, with the largest gains on unseen environments. These results indicate that physically grounded spatial priors provide an effective inductive bias for robust AVLN.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-23T14:21:58Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Haoxiang Tang</name>
+    </author>
+    <author>
+      <name>Dong Zhou</name>
+    </author>
+    <author>
+      <name>Shen Tan</name>
+    </author>
+    <author>
+      <name>Minxuan Jiang</name>
+    </author>
+    <author>
+      <name>Xitong Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.31762v1</id>
+    <title>See What I Need, Dream What I Want: A Navigation Foundation Model on a Self-Constructed Representation Space</title>
+    <updated>2026-10-22T18:00:39Z</updated>
+    <link href="https://arxiv.org/abs/2610.31762v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.31762v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>What visual representation should a navigation policy act on? Navigation policies built on vision foundation models largely leave representation design to the encoders' pretraining objectives. We present RepresentNav, a navigation foundation model built on a self-constructed representation space: a visual representation constructed by the policy's own objectives from vision foundation models. RepresentNav builds this space with Representation Residuals, a compact three-layer transformer that attends over features spanning the full depth of multiple complementary vision foundation models, so that the policy learns to see what it needs for navigation. In the same space it dreams what it wants: before every action a latent chain-of-thought predicts the representation of the scene a moment ahead. The dream is trained end-to-end with the policy as a joint-embedding predictive architecture (JEPA), with a next-representation prediction loss and a regularizer on its targets. RepresentNav sets a new state of the art on VLNVerse, VLN-CE R2R, EVT-Bench, and two point-goal benchmarks, and its gains carry over to a physical robot amid clutter and moving people. On VLNVerse fine-grained, RepresentNav achieves 83.80% success, outperforming the previous state of the art by 20.05 percentage points, and on EVT-Bench distracted tracking it reaches 85.5% with a single camera (+10.1). With the same encoders, the self-constructed space clearly outperforms concatenating their outputs and learns to weight their layers unevenly, and a dream in it cuts collisions by a quarter. A single dreamed latent decodes into the depth, semantics, and 3D occupancy of the scene a moment ahead, more accurately than pretrained encoders applied to the real future frame, although occupancy is never supervised, and the rollout tracks the robot's own motion over the next second: the dream emerges as a compact latent world model.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-22T18:00:39Z</published>
+    <arxiv:comment>28 pages. Project page: https://wang-yinxi.github.io/representnav/</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Jiawei Chen</name>
+    </author>
+    <author>
+      <name>Yinxi Wang</name>
+    </author>
+    <author>
+      <name>Zihan Yang</name>
+    </author>
+    <author>
+      <name>Meijun Gao</name>
+    </author>
+    <author>
+      <name>Yaowei Liu</name>
+    </author>
+    <author>
+      <name>Shuming Zhang</name>
+    </author>
+    <author>
+      <name>Zecheng Li</name>
+    </author>
+    <author>
+      <name>Xiangju Mi</name>
+    </author>
+    <author>
+      <name>Yuxuan Liu</name>
+    </author>
+    <author>
+      <name>Runzhong Huang</name>
+    </author>
+    <author>
+      <name>Tianlin Li</name>
+    </author>
+    <author>
+      <name>Xun Zhang</name>
+    </author>
+    <author>
+      <name>Zhengyang Wang</name>
+    </author>
+    <author>
+      <name>Xu Miao</name>
+    </author>
+    <author>
+      <name>Tong Yang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.31476v1</id>
+    <title>Point-Level Refinable Semantic Mapping for Spatial Understanding</title>
+    <updated>2026-10-22T16:02:16Z</updated>
+    <link href="https://arxiv.org/abs/2610.31476v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.31476v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Open-vocabulary 3D semantic maps have emerged as a key spatial memory representation for long-horizon robot autonomy, enabling robots to reason about objects, their spatial relationships, and past observations across time. However, existing object-centric semantic maps are primarily designed for static environments and rely on an append-only point integration strategy, where newly observed points are accumulated but previously integrated points are rarely reevaluated. Consequently, perception errors accumulate over time, and outdated points persist after objects move or disappear. Although recent dynamic mapping methods update object-level representations in changing scenes, they do not explicitly revise noisy or obsolete points within each object. We propose an online refinable semantic mapping framework that continuously refines object representations through probabilistic point-level confidence updating. Each object point maintains a confidence score that is updated online using multi-view temporal evidence: consistent observations reinforce reliable points, while inconsistent segmentation masks, depth measurements, and visibility cues suppress spurious and outdated points. Combined with object tracking and re-identification to preserve instance identities under motion and relocation, our framework enables object-centric semantic maps to be continuously refined rather than monotonically accumulated. Experiments demonstrate improved mapping accuracy over the previous method by 3.46% on Replica and 2.55% on ScanNet, show robustness in dynamic environments and under perception noise, and provide an effective spatial memory for object navigation and embodied question-answering with success rates of 82.4% and 76.7%.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-22T16:02:16Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Taimeng Fu</name>
+    </author>
+    <author>
+      <name>Yi Du</name>
+    </author>
+    <author>
+      <name>Zitong Zhan</name>
+    </author>
+    <author>
+      <name>Qiwei Du</name>
+    </author>
+    <author>
+      <name>Shaoshu Su</name>
+    </author>
+    <author>
+      <name>Zhipeng Zhao</name>
+    </author>
+    <author>
+      <name>Chen Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.31466v3</id>
+    <title>AnyGameRenderer: Entity-Consistent Generative Rendering Across Games and an Entity-Level Benchmark</title>
+    <updated>2026-10-28T08:17:57Z</updated>
+    <link href="https://arxiv.org/abs/2610.31466v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.31466v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>AI coding agents can now build small playable games in minutes, but the results usually look like programmer art: gray blockouts, colored geometric primitives, and flat semantic blobs. We present AnyGameRenderer, a video-to-video generative renderer that turns such footage into high-quality visuals with characters, motion detail, and effects. Throughout, it keeps the layout, camera, and every entity's position and timing intact. Our AnyGameRenderer generalizes across a wide range of genres that agents build, such as tower defense, auto-battlers, top-down survivors, turn-based battles, kart racing, and crowd runners. AnyGameRenderer takes plain video as its game-state input, with no complex representations such as engine G-buffers, per-object class labels, or low-poly proxies. Gray blockouts, colored primitives, semantic maps, and wireframes all work as input. It also preserves entity correspondence: group counts stay correct, and entities appear and disappear on the right frame. We implement AnyGameRenderer by LoRA fine-tuning MiniMax-H3 ref2va, a 33B reference-video-conditioned video generation model. Training uses ~10k paired clips from three sources: (i) multi-stream rendering data from 38 agent-made games; (ii) two-stream rendering data from Unreal Engine, with programmatically controlled crowds, count changes, and entity scales; and (iii) real gameplay recordings, with pairs reconstructed via 3D-box detection. To evaluate the entity correspondence, we propose an entity-level benchmark of 59 held-out cases with 753 entities, scored against ground-truth boxes. Compared with the base model, AnyGameRenderer better preserves entity correspondence: temporal match rises from 50.9% to 62.9%, missed count changes fall from 34.7% to 21.3%, and fewer entities are hallucinated or left unrendered. Project page: https://alaya-lab.github.io/AnyGameRenderer.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-22T15:58:39Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Ruicong Liu</name>
+    </author>
+    <author>
+      <name>Liangyang Ouyang</name>
+    </author>
+    <author>
+      <name>Fengbo Lan</name>
+    </author>
+    <author>
+      <name>Zhixiang Wang</name>
+    </author>
+    <author>
+      <name>Kaipeng Zhang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.30643v1</id>
+    <title>Asking Less, Adapting Better: Feedback-Efficient Test-Time Adaptation for Vision-and-Language Navigation</title>
+    <updated>2026-10-22T03:05:25Z</updated>
+    <link href="https://arxiv.org/abs/2610.30643v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.30643v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Vision-and-Language Navigation (VLN) requires agents to follow instructions and navigate to target locations. However, current VLN agents often suffer severe performance degradation in unseen environments due to distribution shifts. Test-Time Adaptation (TTA) offers a promising paradigm to bridge this gap, yet existing methods that rely on unsupervised entropy minimization can propagate errors through the trajectory, causing cascading failures in navigation. Recent methods mitigate this by incorporating human feedback, but they apply trajectory-level supervision uniformly across all steps without localizing the actions is truly informative, leading to inefficient feedback utilization and mismatched optimization granularity. To address these limitations, we propose FETA, a Feedback-Efficient Test-Time Adaptation method that improves both feedback efficiency and optimization reliability. To reduce unnecessary human interventions, we introduce a hierarchical sample selection strategy to localize informative samples. Specifically, we first filter trajectories whose normalized policy entropy exhibits large fluctuations. Within each selected trajectory, we further select the critical action via an entropy-gradient saliency criterion and query a single binary feedback on its correctness. A discrepancy-aware entropy optimization objective then updates the policy only at the queried step, with adaptive scaling that assigns larger relative weights to samples with greater prediction-feedback discrepancy. Extensive experiments across multiple benchmarks demonstrate that FETA achieves state-of-the-art performance with fewer human interventions, while remaining robust under noisy feedback and continual adaptation settings.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-22T03:05:25Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Zixu Wang</name>
+    </author>
+    <author>
+      <name>Huaquan Zhang</name>
+    </author>
+    <author>
+      <name>Shoukai Xu</name>
+    </author>
+    <author>
+      <name>Jinwu Hu</name>
+    </author>
+    <author>
+      <name>Zhiquan Wen</name>
+    </author>
+    <author>
+      <name>Mingkui Tan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.30609v1</id>
+    <title>KinoUAV: A Benchmark for Safe and Stable UAV Vision-Language Navigation with Kinodynamic Modeling</title>
+    <updated>2026-10-22T02:16:48Z</updated>
+    <link href="https://arxiv.org/abs/2610.30609v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.30609v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Unmanned aerial vehicles (UAVs) have recently emerged as important remote sensing platforms, and UAV navigation has shown great potential in remote sensing applications. However, existing methods do not explicitly incorporate kinodynamic modeling or safety distances into trajectory generation, resulting in high absolute yaw rates, frequent collisions, and low navigation success rates, which limit safety and motion stability. To address this challenge, we introduce KinoUAV, a kinodynamic benchmark comprising a dataset and KinoUAV-Agent. First, we develop a hierarchical kinodynamic trajectory generation pipeline that drives UAV through acceleration actions. It uses waypoint chains from global planning and generates trajectories segment by segment under velocity, acceleration, and jerk constraints, reducing oscillations and improving trajectory stability. Furthermore, we introduce directional free-space distance (DFD) labels into the constructed dataset to describe the available clearance for safe motion decisions. The proposed KinoUAV-Agent predicts DFDs and uses them to generate safe actions, decoupling perception from action decision-making. This design enables autonomous obstacle avoidance and improves navigation safety. The benchmark incorporates the proposed Cruise-Seek task, in which the UAV first enters the target region and then searches for the target, reducing the difficulty of target search and improving navigation success. Experiments on KinoUAV show that KinoUAV-Agent outperforms existing methods, achieving the highest success rate while maintaining lower absolute yaw rates and collision rates. These results demonstrate the effectiveness of kinodynamic modeling for safe and stable UAV navigation.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-22T02:16:48Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Chenyao Yang</name>
+    </author>
+    <author>
+      <name>Peijin Wang</name>
+    </author>
+    <author>
+      <name>Yingchao Feng</name>
+    </author>
+    <author>
+      <name>Wenhui Diao</name>
+    </author>
+  </entry>
+</feed>

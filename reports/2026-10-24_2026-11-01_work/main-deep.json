@@ -1,0 +1,81 @@
+{
+  "papers": [
+    {
+      "id": "2609.03919",
+      "version": 2,
+      "title": "OctWorld: Long-Range World-Consistent Video Generation with Octree-Based 3D Mapping",
+      "evidence_level": "full_text",
+      "full_text_read": true,
+      "source_url": "https://arxiv.org/html/2609.03919v2",
+      "source_path": "main-deep-octworld.html",
+      "read_sections": [
+        "Introduction §1",
+        "Related Work §2",
+        "Method §3.1–3.3 + Algorithm1",
+        "Experiments §4.1–4.5",
+        "Conclusion §5",
+        "Appendix 0.A efficiency/initialization/long-range",
+        "Appendix 0.B architecture/training/data/OctMap",
+        "Appendix 0.C protocols/metrics/user study",
+        "Appendix 0.D failures/limitations",
+        "Appendix 0.E OctWorld-1.5"
+      ],
+      "problem": "跨生成片段的世界模型在重访旧区域时容易改变几何和外观；堆叠点云会累积噪声，固定分辨率TSDF难以同时适应近景细节与不断扩展、尺度不确定的场景。本文接受首图与给定相机轨迹，研究生成世界的持久三维记忆，未估计机器人位姿。",
+      "method": "OctMap以稀疏动态八叉树存TSDF、颜色和融合权重，随深度/像素覆盖选择细分层级；逐块融合生成的RGB-D，Marching Cubes提网格并渲染到未来视点，为扩散模型提供部分观测与可见性mask。FramePack压缩时间历史，Plücker射线控制相机，历史噪声增强减小训练—生成差距。当前v2同时描述FramePack/Hunyuan的RGB+深度联合模型1.0，以及Wan2.1+外部流式DA3估深的1.5；作者称1.5 depth-free仅指生成器不预测深度，整套系统仍用深度。",
+      "insight_math": "像素足迹给目标体素尺度 s=z/√(fx·fy)，八叉树层级体素 ℓd=L/2^d，截断半径τd∝ℓd；TSDF/颜色按 (w旧φ旧+w观测φ观测)/(w旧+w观测) 融合。空间记忆负责重访几何，压缩视频历史负责时间上下文。根节点扩展可扩大边界，但不是整套系统常数内存：所有已分配节点仍缓存GPU。1.5以token级AdaLN区分干净首帧、加噪历史和生成目标。",
+      "experiments": "主文结果均为模型1.0。WorldScore静态摄影子集200场景：总体50.31，Gen3C45.48；3D一致性71.67，Gen3C70.52。Re10K最长80段正向后反向重访：LPIPS0.1633 vs Gen3C0.1933、VMem0.4010；归一化点云L1 Chamfer0.0345 vs0.0457/0.0620，非米制ATE。空间记忆消融36帧chunk：OctMap LPIPS0.1412、CD0.0252，固定TSDF0.1996/0.0345；此处与主表噪声设置不同。附录1.5总体56.02，但3D/光度一致性64.93/70.97低于1.0的71.67/77.01，体现内容对齐权衡。训练1.0用32×H100、80k低帧率+30k全36帧步骤；1.5为16×H100、DL3DV、7k步。",
+      "reproduction": "作者表II首chunk本方法0.136 FPS、51GB，不能把OctMap局部4–6 FPS称为整套实时。各baseline的原生分辨率、chunk长度和轨迹插值不同，VMem相机速度×4；比较是作者协议内比较。附录纠正文中‘两条433帧轨迹’：实际一条433、一条505帧；22人用户偏好53.8% vs Gen3C39.5%。当前限制：静态场景、不保留动态物体、节点持续增长/未剪枝或offload，生成实体遮挡给定未来轨迹会导致漂移。未比较arXiv v1/v2全文，不称重大修订；未运行、未下载模型/数据。",
+      "limitations": "不能把场景生成的重访一致性当真实SLAM定位精度；相机路径为给定输入。无动态世界记忆。模型1.5改backbone、数据、训练，不能将提升归因于一个单变量改动。",
+      "figure": {
+        "figure_id": "S3.F2",
+        "caption": "Figure 2: Training pipeline of OctWorld",
+        "source_url": "https://arxiv.org/html/2609.03919v2/octworld_method.png",
+        "body_url": "https://arxiv.org/html/2609.03919v2#S3.F2",
+        "local_path": "main-deep-octworld-fig2.png",
+        "visual_verified": true,
+        "visual_note": "主agent已看到图中history RGB-D→reprojection/fusion→OctMap→target render→control blocks，与caption训练流程一致；非结果图。"
+      },
+      "quantitative": [
+        {
+          "source": "OctWorld v2 Table2 / Appendix0.C.2",
+          "dataset": "Re10K 80最长测试序列；正反向相机轨迹",
+          "metric": "LPIPS↓（无量纲）；L1 Chamfer↓（点云归一化至[-1,1]）",
+          "result": "OctWorld-1.0 0.1633 / 0.0345；Gen3C 0.1933 / 0.0457；VMem 0.4010 / 0.0620",
+          "boundary": "VGGT重建后采65,536点评估；不是米制ATE；不同方法chunk和采样协议见附录。",
+          "citation": "https://arxiv.org/html/2609.03919v2#S4.T3.fig1"
+        },
+        {
+          "source": "OctWorld v2 TableIV",
+          "dataset": "WorldScore static 200场景（作者模型变体比较）",
+          "metric": "总体↑；3D一致性↑；光度一致性↑",
+          "result": "1.0:50.31/71.67/77.01；1.5:56.02/64.93/70.97",
+          "boundary": "1.5更换backbone/训练及外部深度管线；总体提升同时几何/光度一致性下降。",
+          "citation": "https://arxiv.org/html/2609.03919v2#Pt0.A5.T4"
+        },
+        {
+          "source": "OctWorld v2 Table5 / TableII",
+          "dataset": "100 SpatialVID场景；独立OctMap渲染；另首chunk效率",
+          "metric": "PSNR↑dB；GPU内存GB；时间s",
+          "result": "OctMap23.47dB/7.26GB/17.94s；固定TSDF体素0.002:22.08dB/9.66GB/16.97s；整模型首chunk0.136FPS/51GB",
+          "boundary": "OctMap渲染实验用A10080GB；独立记忆模块与视频生成吞吐分开，不能据此宣称系统实时。",
+          "citation": "https://arxiv.org/html/2609.03919v2#S4.T5"
+        }
+      ],
+      "cross_discovery": {
+        "related_work_read": true,
+        "methods_checked": [
+          "Gen3C",
+          "Voyager",
+          "VMem",
+          "AETHER",
+          "InvisibleStitch",
+          "VGGT",
+          "Pi3",
+          "Depth Anything3",
+          "FramePack"
+        ],
+        "note": "相关工作将短块相机控制、warp-inpaint、帧检索与显式融合记忆作对照；OctWorld由独立world-simulator/3D检索发现后回填，本轮无额外未经处置的核心新ID。相关历史方法不能据引用年份/ID月份当作本期新文。"
+      }
+    }
+  ]
+}

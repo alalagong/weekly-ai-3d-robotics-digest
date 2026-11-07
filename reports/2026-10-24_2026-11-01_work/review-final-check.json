@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-11-07T04:22:37.858941+00:00",
+  "reviewer": "independent_finish_review",
+  "scope": "Final local source/deliverable audit; no new discovery or full search rerun.",
+  "coverage_start_exclusive": "2026-10-24T08:17:58Z",
+  "coverage_end_inclusive": "2026-11-01T14:59:32Z",
+  "passed": true,
+  "checks": {
+    "fixed_window": true,
+    "candidate_count": true,
+    "candidate_ids_unique": true,
+    "all_main_independent_ids_retained": true,
+    "no_unresolved": true,
+    "included449": true,
+    "deep8": true,
+    "presentation441": true,
+    "presentation_exact_set": true,
+    "html_exact_set": true,
+    "included_complete_abstracts": true,
+    "included_official_histories": true,
+    "none_after_cutoff": true,
+    "legacy_inspections_exist": true,
+    "no_template_placeholders": true,
+    "geometry70passes": true,
+    "deep_exact_versions": true
+  },
+  "counts": {
+    "excluded": 2037,
+    "revision_tracking": 121,
+    "supplemental": 320,
+    "deep_read": 8
+  },
+  "window_counts": {
+    "revised": 123,
+    "historical_backfill": 64,
+    "historical_revision_backfill": 10,
+    "new": 252
+  },
+  "category_counts": {
+    "sensor-applications": 71,
+    "geometry-foundation": 47,
+    "world-model": 93,
+    "gaussian-reconstruction": 37,
+    "embodied-navigation": 67,
+    "world-action": 43,
+    "slam-vio": 14,
+    "semantic-mapping": 20,
+    "simulation-evaluation": 11,
+    "localization-registration": 20,
+    "spatial-understanding": 18
+  },
+  "source_integrity": {
+    "official_histories_sha256_checked": 449,
+    "sha256_mismatch": 0,
+    "official_histories_independently_reparsed": 449,
+    "history_parse_mismatch": 0,
+    "deep_source_fragments_checked": 210,
+    "missing_fragments": 0
+  },
+  "paper_checks": [
+    {
+      "id": "2610.37602",
+      "source_read_this_review": "All9 HTML tables plus PDF TableVI unit",
+      "numeric_result": "TablesII–IX match; velocity m/s confirmed in PDF despite HTML m; local ms/frame and global ~2s separate.",
+      "coverage_assessment": "Full main and appendices recorded; this audit does not claim a second full reading."
+    },
+    {
+      "id": "2610.36853",
+      "source_read_this_review": "Tables1–4 and captions",
+      "numeric_result": "ATE cm inTable1/3 vs m inTable4; scale-aligned depth m; counterexamples to universal fastest/best retained.",
+      "coverage_assessment": "Main plus AppendixA recorded."
+    },
+    {
+      "id": "2610.36454",
+      "source_read_this_review": "TableI andV-B/C/D/E,VI paragraphs",
+      "numeric_result": "0.21(0.08)/0.53(0.11) marker deviation distinct from0.52/0.81m endpoint drift;55min/1252s match.",
+      "coverage_assessment": "Full main; noAppendix; VI limitations; README only code evidence."
+    },
+    {
+      "id": "2610.37000",
+      "source_read_this_review": "MainTables1–5 andS1–S6",
+      "numeric_result": "200frames86.78→33.65s;500frames513.78→158.63s;10frameAUC56.94/57.49%;32.69/32.67GiB match.",
+      "coverage_assessment": "Full main and appendices; qualitative captions only; no v1-v2 comparison."
+    },
+    {
+      "id": "2610.35806",
+      "source_read_this_review": "Tables1–7; selectiveprediction/routing andmultiview paragraphs",
+      "numeric_result": "903pairs ROC-AUC93.5/79.7%;ScanNet posefailure44.2/63.6%;rotation79.5/58.7% match.",
+      "coverage_assessment": "Abstract plus all6 main sections; noAppendix; validator>=8 threshold corrected."
+    },
+    {
+      "id": "2610.36150",
+      "source_read_this_review": "MainTables1–4 andselected supplementTables5,19–22",
+      "numeric_result": "ERP0.054m/94.5%;FIORD0.274m/63.8%;ScanNet++0.055m/62.7%;AUCfractions distinct frompercent; calibration/Sim3/ICP caveats preserved.",
+      "coverage_assessment": "Full main plus selected appendices; not every appendix table cell reviewed."
+    },
+    {
+      "id": "2605.23889",
+      "source_read_this_review": "Tables1–4,6–8 andprotocol records",
+      "numeric_result": "KITTI19.75/16.44m;VBR25.30/18.84m;Oxford9.38/8.71m;13.20/10.45FPS match; LCcounterexamples preserved.",
+      "coverage_assessment": "Full main andappendices;v2 only; O(1)corestate excludesLC/outputhistory."
+    },
+    {
+      "id": "2609.03919",
+      "source_read_this_review": "MainTables1,2,4,5 andAppendixI–V",
+      "numeric_result": "Re10K0.1633/0.0345normalized;WorldScore50.31→56.02with3D71.67→64.93;23.47dB/7.26GB/17.94s;whole0.136FPS/51GB match.",
+      "coverage_assessment": "Main plusAppendix0.A–E recorded;static scene andgiven camera path; no v1-v2 comparison."
+    }
+  ],
+  "validation_repair": {
+    "file": "geometry-deep-validate.py",
+    "original_failure": "2610.35806 fullmain_sections",
+    "cause": "Arbitrary len(actual_read_sections)>=8 rejects abstract+six real main sections with no Appendix.",
+    "repair": "Compare numbered main sections present in sourceHTML against declared readsections, plus full_main_text_read=true.",
+    "old_result_preserved": "geometry-deep-validation-before-section-fix.json",
+    "rerun": "70passed;0errors"
+  },
+  "issues": [],
+  "limitations": [
+    "Audit checks original reading records and source correspondence; no independent second full reading of all8papers or experiment reproduction.",
+    "No UI layout audit by this reviewer.",
+    "No paper implementation execution; no weights or datasets downloaded."
+  ],
+  "snapshot_sha256": {
+    "reports\\2026-10-24_2026-11-01_RESPLE2-GPA-VGGT-OctWorld.html": "b3d26c22dd9d3185f048cc6d05bfaf7b56681d4dbd2c30771ba0056fb2936cf0",
+    "reports\\2026-10-24_2026-11-01_paper-ledger.json": "bd6f585c40346e7ea0ca93174ee2e732cee133b5f55ec793e1bfd53032b2f4f7",
+    "reports\\2026-10-24_2026-11-01_presentation.json": "c9f26a7472b91a20c540760ca5c07bbddd6f2763ff61741180cbb99ee3ee1487"
+  }
+}

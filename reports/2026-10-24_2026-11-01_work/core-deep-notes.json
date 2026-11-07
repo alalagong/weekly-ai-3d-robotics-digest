@@ -1,0 +1,106 @@
+{
+ "2610.37602": {
+  "name":"RESPLE2",
+  "takeaway":"把非均匀样条的最新控制点放回真实轨迹端点，用IMU直接给先验，再以状态和协方差重置消除解除clamp带来的轨迹变化；其价值由激烈运动消融支持，而不只是增加传感器。",
+  "problem":{"text":"异步传感器在激烈运动下需要按原始时间建模；一般B样条控制点不在轨迹上，无法直接套IMU运动学预测。滑窗非均匀样条还可能等待未来IMU而延迟。","sources":["S1.p3.1","S1.p6.1","S1.p7.1","S2.SS2.p3.1","S2.SS2.p4.1"]},
+  "method_structure":[
+   {"text":"三次非均匀B样条拆分平移R3和旋转S3。局部4个6维控制点加acc/gyro bias共30维；IMU传播临时增3维速度形成33维状态。","sources":["S3.SS2","S5.E8","S5.E13"]},
+   {"text":"同一knot区间IMU样本交替分成互斥prediction/update两组。以endpoint multiplicity=3实现clamp，使s(t_n)=s_n、r(t_n)=r_n，可沿IMU strapdown直接预测控制点。","sources":["S4.p1.1","S5.E10","S5.E11","S5.E12","S5.E14"]},
+   {"text":"新knot到来会unclamp上一个端点，改变basis。平移closed-form reset保持旧端点位置/速度/加速度；旋转Newton reset保持方向/角速率，通常5迭代；同时P+=J P- J^T变换含bias交叉项的联合协方差。","sources":["S6.SS2","S6.E21","S6.E22","S6.E23","S6.E24","S6.E25","A0.SS2"]},
+   {"text":"逐测量时间插值得到LiDAR点面、IMU加速度/角速率、KLT视觉重投影和足端速度/触地平面残差，堆叠后IEKF迭代。VoxelMap维护平面和点噪声；加速度/视觉用Huber。视觉地图点深度来自LiDAR；足端因子假设接触无滑移。","sources":["S5.SS3","S5.E15","S5.E16","S5.E17","S6.SS3"]},
+   {"text":"knot由信息量/方向平衡、最长间隔、位移/旋转/速度变化共同触发；几何矩阵G=Σ nn^T/σ²的最小特征值与最小值/trace检测弱方向。全局由iBTC生成回环，LM直接优化控制点而非先离散posegraph再拟合spline。","sources":["S6.SS1.SSSx1","S7.SS1","S7.E26"]}
+  ],
+  "math_insight":[
+   {"text":"clamp把控制变量与物理运动状态在端点精确等同：s(t_n)=s_n；v(t_n)=3(s_n-s_{n-1})/τ；ω(t_n)=6δ_n/τ。这里的exact是样条参数化/端点传播关系，不是无噪声真值保证。","sources":["S5.E10","S5.E11","A0.SS1"]},
+   {"text":"unclamp重置不是额外观测更新，而是basis变化下的状态坐标变换，因此必须同步重置协方差；orientation reset的Jacobian由隐函数零残差条件得到。","sources":["S6.SS2.SSSx4","A0.SS2.SSS3"]},
+   {"text":"全局目标由回环和相邻控制点相对里程计残差组成；后者只连接两个控制点，回环才用spline interpolation，维持稀疏性。保持高阶运动一致性是软约束效果，正文Fig11展示速度保持。","sources":["S7.E26","S7.SS2.p1.4","S8.F10","S9.F11"]}
+  ],
+  "experimental_protocol":{"datasets":"GrandTour(ANYmal D)、JEPLO(Unitree Go2)、PPS tracked vehicle、HOPPER飞腿四旋翼、HANDI手持13段。HOPPER有12段，最高约25g/18rad/s；external BMI088±24g 1000/500Hz，对比internal ICM40609±4g 200Hz。","ground_truth":"GrandTour benchmark/公开GT；HOPPER 10台Vicon在10×10m房间提供300Hz pose、100Hz velocity，long段只起止在房间；HANDI长段部分仅起止Qualisys，az-out1/2只报告end-to-end。","metrics":"evo APE/RPE RMSE以m计；RPE固定0.5m路径长度间隔、point-distance pose relation；失败✗定义误差>50m。速度Table VI单位PDF确认m/s，HTML漏掉/s。","hardware":"Ubuntu24.04，AMD Ryzen9 9950X，32GB RAM。ROS2双节点里程计/全局优化，每节点通常5 OpenMP线程；Eigen/Pinocchio/CHOLMOD。","baseline_fairness":"Coco-LIC、FAST-LIVO2、CTE-MLO、Point-LIO、Leg-KILO；RESPLE基线改用相同VoxelMap以减小地图噪声差异。GrandTour六test段他方法数值取原文且使用更高端HG4930 IMU，RESPLE2使用Mid360内置IMU，不能作完全相同传感器对比；四train段均内置IMU。每数据集/传感器配置共用一套参数。","sources":["S8.SS1","S8.SS2","S8.T1","S8.T2.8","S8.SS4.SSS2","S8.SS4.SSS3","core-deep-2610.37602v1-pdf.txt:TABLE VI"]},
+  "table_findings":[
+   {"table":"I","anchor":"S8.T1","finding":"硬件与五数据集配置。GrandTour和PPS用Hesai XT32；HOPPER/JEPLO用Mid360；HANDI混Avia/Mid360、ZED X One/D455。"},
+   {"table":"II","anchor":"S8.T2","finding":"GrandTour ARC-3(train) APE：RESPLE2-LIO0.078、LVIO0.072、LKIO0.056、LKVIO0.060m；Coco-LIC LVIO0.154m，FAST-LIVO2与RESPLE失败。不同模态不逐行单调优胜，Coco-LIC多段RPE仍更低。","units":"m RMSE"},
+   {"table":"III","anchor":"S8.T3","finding":"JEPLO八段LKIO最低/并列：EIL_Box0.005，Mask1/2 0.008/0.010，Mix0.010，Stairs0.007，LongStairs0.007，Outdoor1/2 0.007/0.006m。EIL_Box：Leg-KILO0.032、RESPLE0.011、FLIVO2 3.200m。","units":"m APE RMSE"},
+   {"table":"IV","anchor":"S8.T4","finding":"PPS day_open：RESPLE2-LVIO APE0.041/RPE0.007m，对FLIVO2-LVIO0.046/0.007m；night_loop却是RESPLE LIO0.039、RESPLE2-LIO0.045/LVIO0.059m，不能宣称所有序列最优。","units":"m"},
+   {"table":"V","anchor":"S8.T5","finding":"HOPPER flip1外置IMU：RESPLE2-LIO APE0.008m，RESPLE0.014、Coco-LIC0.038、Point-LIO0.024，FAST-LIVO2失败。内置IMU：RESPLE2 0.018，RESPLE0.019、Point-LIO0.335m；该表CoLIC/FLIVO未列internal列，正文称其全部失败。","units":"m"},
+   {"table":"VI","anchor":"S8.T6","finding":"flip1速度RMSE外置：RESPLE2 0.227，RESPLE0.789、CoLIC0.288、Point-LIO0.252m/s；内置RESPLE2 0.749，对RESPLE0.843/Point-LIO2.013m/s。base1/side1外置Coco-LIC更低，故不是所有速度项第一。","units":"m/s (PDF caption checked)"},
+   {"table":"VII","anchor":"S8.T7","finding":"HANDI az-corri：RESPLE2 LVIO APE1.339→加回环0.044m；mz-inout0.668→0.026m，ar-inout0.394→0.076m。az-out2为end-to-end2.767→0.009m而非全轨迹ATE。az-dyna3 LIO15.944m、LVIO0.059m表明视觉对退化补偿重要。","units":"m; outdoor starred rows end-to-end"},
+   {"table":"VIII","anchor":"S9.T8","finding":"同knot/measurement batch隔离prediction消融：high1不使用IMU预测0.017→0.004m，flip1 0.015→0.008m；九段APE降约39–76%。控制点预测替换有直接因果消融支持。","units":"m APE RMSE"},
+   {"table":"IX","anchor":"S9.T9","finding":"flip1/day_open/Outdoor1里程计总耗时7.7/18.3/5.3ms，对LiDAR帧预算50/100/50ms；RCP预测+reset最大0.505ms。全局优化另外统计，ar-inout后期单次约2s、约15迭代，不能计成同一低延迟里程计帧。","units":"ms per LiDAR frame; global optimization s"}
+  ],
+  "ablation_analysis":{"text":"IMU-prediction同knot消融与自适应knot对Coco-LIC分析分开；flip1控制点2087对2362，少11.6%。Coco-LIC0.1s平均可能漏50ms冲击；RESPLE2逐IMU子步触发。后一项为机制/单段比较，不是独立等预算随机消融。","sources":["S9.SS1.SSS1","S9.T8","S9.SS1.SSS2"]},
+  "limitations":[
+   {"text":"无独立Limitations章节；Conclusion明确未来要自适应sensor weighting、摆脱LiDAR-derived depth的视觉约束和与规划集成。","sources":["S10.p1.1"]},
+   {"text":"视觉需要前帧LiDAR深度；KLT受纹理、足端无滑移假设受接触误判/滑移影响；可靠外参与时间同步仍必要。","sources":["S4.p1.1","S5.SS3.SSS3","S5.SS3.SSS4","S8.SS4.SSS2.p1.1"]},
+   {"text":"图优化用iBTC成功回环作输入；未给错误回环鲁棒性系统评估、长期全局内存上限或机载闭环控制延迟验证。未从约2s异步全局solve推导硬实时保证。","sources":["S7","S9.SS2.p2.1"]},
+   {"text":"GrandTour test异IMU、HOPPER/HANDI部分GT/端点误差协议须保留；桌面5线程每节点性能不等于小型机载平台表现。","sources":["S8.SS2.p3.1","S8.T2.8","S8.T7.8"]}
+  ],
+  "reproduction_insight":"先复现HOPPER同knot预测消融，再复核clamp/unclamp前后kinematics和协方差一致性；按external/internalIMU分组，区分局部odom帧与异步global总成本。主线程已审RESPLE2源码，本次不重复源码审计。",
+  "conclusion":"完整理论推导和多平台强动态实验值得优先跟进，但不能把exact控制点关系或低端IMU成功推成普适的退化/饱和保证。"
+ },
+ "2610.36853": {
+  "name":"LingGS",
+  "takeaway":"流式几何模型保留depth能力，camera head交给显式几何优化；关键增量是对预测深度噪声直接建模，并以低预算Gaussian优化取得渲染/几何收益。",
+  "problem":{"text":"单目Gaussian SLAM同时缺深度和准确pose。学习模型的depth有用，但其camera head误差会让多帧Gaussian相互冲突；单帧深度还可能尺度不一致。","sources":["S1.p2.1","S1.p3.1"]},
+  "method_structure":[
+   {"text":"冻结LingBot-Map用最初RGB帧估计并固定intrinsics K，后续输出一致深度作为虚拟RGB-D；没有新增训练。","sources":["S3.p1.1","S3.SS1.p1.1"]},
+   {"text":"保留ORB-SLAM3提取/匹配/local BA；每帧1200 ORB、8层金字塔，匹配局部map后固定map点优化SE3 pose。四轮优化/离群点重分类，Huber鲁棒核。","sources":["S3.SS1.SSS0.Px1","S3.E1"]},
+   {"text":"残差为(u误差,v误差,直接depth误差)，Σ=diag(σ²,σ²,(0.05z)²)。取代RGB-D虚拟右图像残差并改对应Jacobian和权重。","sources":["S3.E1","S3.E2","S3.E3","S3.E5"]},
+   {"text":"Gaussian插入权由当前图像Laplacian超过render的正差决定；有效depth反投影初始化center，尺度2z/fx、opacity0.07、RGB颜色。每keyframe30步，0.2专门采最新，其余在全部keyframes均匀replay。","sources":["S3.SS2","S3.E7","S3.E8"]},
+   {"text":"优化0.8L1_RGB+0.2(1-SSIM)+0.01L1_inverse_depth，gsplat渲染；depth先验始终是模型预测而非GT深度。","sources":["S3.E9","S3.E10"]}
+  ],
+  "math_insight":[
+   {"text":"虚拟右图像残差r_R=r_u+(fx b/(z_obs z_pred))r_z，因此成本有u-depth交叉项；局部深度平方项系数约z^-4。direct depth按恒定5%相对不确定性给z^-2权重，改变远近深度的约束分配，不能说原ORB-SLAM3信息矩阵显式有z^-4。","sources":["A1.E18","A1.E22","A1.E23","A1.E24","A1.E25","A1.E26"]},
+   {"text":"mapper用inverse-depth L1，近似|Δz|/z²，同样更重近处；Laplacian插入是缺失细节启发式，不覆盖所有photometric disagreement。","sources":["S3.SS2.SSS0.Px1.p1.2","S3.SS2.SSS0.Px3.p2.3"]}
+  ],
+  "experimental_protocol":{"datasets":"7-Scenes七场景；Oxford Spires六段1000–2001帧(Keble02/03/04、Observatory01、ChristChurch02、Bodleian02)；RE10K选择60段71–279帧；TUM-D选择11段。所有518×392输入。","ground_truth":"7Scenes/TUM-D dense depth；Oxford以terrestrial laser scan投影稀疏depth；RE10K无depth参考。","metrics":"held-out NVS PSNR/SSIM/LPIPS；ATE RMSE先Sim3 Umeyama对齐；连续帧RPE_t(cm)/RPE_R(deg)；Table2为scale-aligned rendereddepth meanL1(m)。端到端FPS=帧数/总重建时间。","hardware":"单NVIDIA RTX4090 GPU+AMD Ryzen Threadripper PRO3995WX 64-core CPU。","baseline_fairness":"MonoGS/S3PO-GS/Photo-SLAM/OTF公开实现相同输入帧；Photo-SLAM mapping从8提高到最多200迭代以约6FPS加强画质，非其默认配置；Photo-SLAM Pumpkin失败故7Scenes平均仅6场景。OTF只在有pose的keyframe/heldout子集算轨迹误差，不同于全输入帧。ICP消融是Open3D CPU未优化参考，不能宣称ICP计算极限。","sources":["S4.SS1","S4.T1","S4.F4","S4.T2","S4.T3"]},
+  "table_findings":[
+   {"table":"1","anchor":"S4.T1","finding":"7Scenes：ours PSNR24.48dB/ATE8.58cm/FPS6.99，对Photo21.91/19.78/5.99；S3PO-GS ATE7.30cm更低。Oxford：ours26.35dB/73.81cm/6.40FPS；OTF23.19/624.06/8.24，S3PO21.63/287.81/1.31，Photo22.05/567.71/5.99。","units":"PSNR dB, ATE cm, FPS"},
+   {"table":"1","anchor":"S4.T1","finding":"RE10K：ours25.73dB/ATE2.84cm/7.94FPS；Photo-SLAM tracking1.90cm更低，OTF PSNR25.20/FPS6.35。TUM-D：ours20.89dB/41.33cm/5.01FPS；OTF19.58/88.55/6.54。不是所有方法2–3倍加速、不是所有集tracking第一。","units":"dB/cm/FPS"},
+   {"table":"2","anchor":"S4.T2","finding":"scale-aligned depthL1：7Scenes/TUM-D/Oxford ours0.15/0.33/3.18m，S3PO0.17/0.57/4.47m，Photo0.36/1.66/8.54m，OTF1.00/2.35/14.12m；按表四舍五入较S3PO减少11.8/42.1/28.9%。","units":"m; scale aligned"},
+   {"table":"3","anchor":"S4.T3","finding":"Oxford六段平均directdepth ATE73.8cm/track16.1ms/PSNR26.35；virtualstereo79.5cm/16.2ms/26.35；2Donly162.1cm/13.9ms/22.90；CPU ICP307.2cm/138.6ms/21.37；camerahead598.5cm/9.5ms/20.23。相对camerahead ATE降87.6%，额外6.6ms，端到端7.04→6.40FPS。","units":"cm/ms/dB"},
+   {"table":"4","anchor":"S4.T4","finding":"只KebleCollege02：XStreamVGGT head23.277→solver0.773m，STream3R25.560→2.332，TTT3R10.57→7.29，Lingbot8.224→1.224；ATE降31.0–96.7%，不是四个完整benchmark的通用97%。","units":"ATE m; single sequence"}
+  ],
+  "ablation_analysis":{"text":"Fig2映射20→30步+0.93dB，30→75再约+0.88dB，100后27.11–27.15dB饱和；默认30是速度优先。Table3 directdepth vsvirtualstereo只是ATE79.5→73.8cm且PSNR相同，主要总体收益不能全归功于深度权重替换；geometry vsnativehead幅度更大。","sources":["S4.F2","S4.T3","S4.SS3.SSS0.Px3"]},
+  "limitations":[
+   {"text":"Conclusion明说未处理loop closure和dynamic scenes；ORB在重复/弱纹理退化。不是可长期闭环稠密SLAM的已验证方案。","sources":["S5.p2.1"]},
+   {"text":"误差经过Sim3及depth尺度对齐，不能当未知尺度单目绝对metric能力。固定5%depth噪声是假设，未见模型分布/动态退化的校准验证。","sources":["S3.E2","S4.SS1.SSS0.Px2","S4.T2"]},
+   {"text":"代码/config承诺录用后发布；正文没给initial frames数量n0、完整keyframe选取阈值、held-out拆分细节、长期缓存/显存增长统计。只做跨主干单序列实验不能支持全部场景泛化。","sources":["S3.p1.1","S3.SS2","S4.SS1","S4.T4","A1.SSx3"]},
+   {"text":"约7FPS来自单4090+64核desktop的总序列吞吐，不等于30Hz在线输入时无积压/机载实测。","sources":["S4.SS1","S4.T1"]}
+  ],
+  "reproduction_insight":"先保留相同frame/keyframe/GT对齐协议复现Table3四个pose源，单独统计depth推理、CPU tracking和mapper；直接深度与虚拟stereo差别可作为不重训的简洁适配点。视觉质量与metric geometry分开评估，保留每集depth valid mask。",
+  "conclusion":"有说服力地支持学习depth+显式pose求解的分工，渲染/深度收益清楚；最强泛化和速度宣传需限定到具体基线、序列与对齐协议。"
+ },
+ "2610.36454": {
+  "name":"SVIn+",
+  "takeaway":"海洋专用压力/DVL与视觉惯性紧耦合，稀疏低频3D声呐先解relative pose再进图；部署证据真实，但当前工作重在局部里程计，全球闭环与失败切换仍未解决。",
+  "problem":{"text":"水下视觉受浑浊/光照/回散影响；压力/DVL能约束深度/速度却不提供环境结构。3D声呐5Hz、稀疏且多路径噪声明显，需要低成本地加入估计器。","sources":["S1.p1.1","S1.p2.1","S1.p3.1"]},
+  "method_structure":[
+   {"text":"基于SVIn2/OKVIS slidingwindow非线性最小二乘，紧耦合camera重投影、IMU预积分、压力深度、DVL速度。传感器外参预先标定且固定。","sources":["S3.p1.1","S4.EGx2","S4.E6","S4.p2.1"]},
+   {"text":"压力标定water-surface offset并约束globalZ，假定短实验水面高度/潮汐/环境压力不变；DVL在sensor坐标量测速度，经外参/杠杆臂角速度项变换，采用sensor自带协方差作information。","sources":["S4.SS1","S4.SS2","S4.EGx3","S4.EGx4"]},
+   {"text":"3D声呐以KISS-ICP做scan-to-local-map，但motionprior来自上一SVIn+而非原constantvelocity；声呐world与融合world分离。将相邻声呐pose作SE3插值对齐状态时刻，构造6D相对位姿因子。","sources":["S4.SS3.p1.1","S4.SS3.p2.1","S4.EGx5","S4.EGx6","S4.EGx7"]},
+   {"text":"因此应称视觉/惯性/压力/DVL紧耦合+3D声呐分层或松耦合，不能称raw sonar point factors端到端全紧耦合。Fig2突出局部optimizer；论文末尾把multimodal global place recognition列为未来工作。","sources":["S2.p7.1","S3.F2","S6.p1.1"]}
+  ],
+  "math_insight":[
+   {"text":"总目标Σe_r^TΩ_re_r+e_IMU^TΩ_IMUe_IMU+e_DVL^TΩ_DVLe_DVL+Ω_depth e_depth²+e_sonar^TΩ_sonar e_sonar保持稀疏；用relative sonar motion消除两个world frame的绝对gauge差异。","sources":["S4.E6","S4.EGx5","S4.EGx6","S4.EGx7"]},
+   {"text":"DVL必须加角速度×安装位置的杠杆臂修正，压力也需考虑sensor offset随姿态变化；简单把DVL当body velocity/压力当IMU高度会引入系统误差。","sources":["S4.SS1","S4.EGx4"]},
+   {"text":"论文Eq7虽然介绍当前z_d,k，却只写D0−predicted sensorZ，且D0只用初始z_d,0定义；当前压力量测项未显式出现，HTML与PDF均如此。这是需代码/作者澄清的公式歧义，不据此断言实现错误。","sources":["S4.EGx3","S4.SS1.p1.2","core-deep-2610.36454v1-pdf.txt:Eq7"]}
+  ],
+  "experimental_protocol":{"platform":"Aqua2 AUV，MicroStrain3DM-CV7，硬同步双AR0234 globalshutter，WaterLinked DVL-A50、Bar30压力、WaterLinked3D-15声呐。Fig2标相机25Hz、IMU90Hz、DVL8Hz、压力42Hz、sonar5Hz、pose25Hz。","calibration":"camera-IMU Kalibr；IMU-DVL/pressure由制造商；camera-sonar用水下四个cinder blocks的3D-2D对应做PnP。","datasets":"Barbados BajanQueen01约75m/8min(固定ArUco访问3次)；BajanQueen02在V-B称约600m/55min，但V-D又称215m transit；Folkestone01 V-B约280m/1252s、V-D285m。后两处距离写法未解释。","ground_truth":"无GPS/long-baseline acoustic全局GT。quantitative依据return-to-origin与固定ArUco重访空间偏差，不是全轨迹ATE；Colmap是离线视觉参考且有断裂，不是权威GT。","hardware":"实验Ubuntu24.04/CoreUltra7 155H/64GB/RTX5000Ada；另称i7-10510U/16GB/GTX1050 laptop可实时，无per-stage ms/runtime表。","baselines":"SVIn2 visualinertial、KISS-ICP sonarodom、Colmap offline；比较odom时禁global loopclosure。另TableI含SVIn2-loop作为单独配置。作者称各方法充分调参，但无固定搜索预算/重复运行置信区间。","sources":["S3.F2","S5.SS1","S5.SS2","S5.SS3","S5.SS4","S5.T1"]},
+  "table_findings":[
+   {"table":"I","anchor":"S5.T1","metric":"fixed ArUco revisitation spatial deviation, mean(std), not pixel reprojection RMSE","units":"m","values":{"SVIn2":"0.53 (0.11)","SVIn2_loop":"0.22 (0.11)","SVIn_depth":"0.29 (0.11)","SVIn_dvl":"0.52 (0.23)","SVIn_sonar":"0.29 (0.15)","SVIn_plus":"0.21 (0.08)"},"finding":"作者按0.53→0.21算60.4% reduction；0.21与loopbaseline0.22差0.01m，不足以宣称统计显著优于loopSLAM或普适globalaccuracy。"},
+   {"paragraph":"V-C","anchor":"S5.SS3.p3.1","metric":"return-to-origin end drift","units":"m","finding":"SVIn+0.52m对SVIn2 0.81m；与TableI 0.21/0.53是不同指标，不能互换或平均。"},
+   {"figure":"8","anchor":"S5.F8","finding":"固定深度lawnmower定性消融，DVL主要约束XY、压力约束Z，两者结合最小起止漂移；未提供全轨迹GT误差表。"},
+   {"figure":"6/7","anchor":"S5.SS4","finding":"55min沉船和1252s珊瑚礁主要可视化轨迹/depth/map coherence；无全局定位精度数字或统计失败率。"}
+  ],
+  "ablation_analysis":{"text":"单加depth使tag mean0.53→0.29m，单DVL0.52m，单sonar0.29m，all0.21m；证明该重访/环境下多模态互补。不能仅凭一个数据集和三次tag通过声称全球误差有界。Sonar稀疏失败例Fig12说明质量门控未解决。","sources":["S5.SS5","S5.T1","S6.F12"]},
+  "limitations":[
+   {"text":"独立Limitations节没有，VI Lessons Learned/Future Work明确：传感器退化主动切换、global multimodal relocalization/loopclosure、在线外参标定均未来方向。","sources":["S6.p1.1"]},
+   {"text":"无全局GT、仅有限水下三数据集、长序列距离写法矛盾；不能由定性map coherence推断绝对全局一致或误差有界。","sources":["S5.SS2","S5.SS3","S5.SS4"]},
+   {"text":"声呐odom依赖融合pose prior而后又回灌相对因子；全文没有说明如何处理相关性/registration covariance或失败门控参数，需要实现验证，不能假设因子独立。","sources":["S4.SS3","S4.p3.1","S6.p1.1"]},
+   {"text":"公式7当前深度项书写含糊；window大小K、信息矩阵具体数值/sonar插值缓冲延迟、数据split/下载入口及完整runtime表未给，复现需要补核。","sources":["S4","S4.SS1","S4.SS3","S5.SS1"]},
+   {"text":"获取时作者cmburgul项目页存在，可读paper/code链接，但Dataset与arXiv仍comingsoon、MoreWorks仍模板占位；第二dartmouth项目页基本空白。GitHub README有未解<<<<<<< HEAD标记、Running ToDo，虽给ROS2Jazzy启动例，不能据此说开箱即用。网页/README于2026-11-02获取，不证明冻结截止时完全相同。","sources":["core-deep-cross-project-svin.html","core-deep-cross-project-svin-placeholder.html","core-deep-SVIn-Plus-README.md"]}
+  ],
+  "reproduction_insight":"优先核清pressure Eq7与实际sensor offset/符号；按tag三次重访分别算start-end和TableI空间误差，保留无GT边界；加入sonar稀疏/无回波失败门控和因子相关性检查，再测完整同步/插值延迟。README仅静态阅读，未编译、未下数据。",
+  "conclusion":"可靠的海洋多模态局部估计工程案例，压力/DVL/声呐互补有实地证据，但完整SLAM、故障切换和可复现打包仍待推进。"
+ }
+}

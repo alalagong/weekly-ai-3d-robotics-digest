@@ -1,0 +1,1114 @@
+[
+  {
+    "id": "2610.40525",
+    "title": "CrossWeave: Cross-Modal Scene and Instance Retrieval from Sparse 2D-3D Alignment",
+    "abstract": "Cross-modal scene and instance retrieval aims to retrieve a corresponding 3D environment or object given query 2D images, serving as a foundational mechanism for spatial reasoning in robotics and AR/VR. Existing methods achieve this by learning alignment only at the level of whole scenes or objects, which provides no supervision for the fine-grained local structure within them. In this work, we show that supervision on a set of sparse 2D-3D correspondences, without scene- or instance-level contrastive objectives, is sufficient to train a single model for both scene- and instance-level retrieval. Specifically, we propose $\\textbf{CrossWeave}$, a novel framework for cross-modal retrieval that learns sparse patch-point alignment, which alone outperforms existing methods. An optimal transport-based aggregator over the aligned features gives further gains by clustering structurally redundant regions, freeing descriptor capacity for semantically distinct local features. CrossWeave achieves state-of-the-art performance on both scene- and instance-level retrieval on ScanNet and 3RScan with a $\\textit{single model}$, whereas existing methods require separate models for each task. Our results suggest that whole-scene encoding is unnecessary for cross-modal retrieval and that sparse local correspondence supervision is a more effective and flexible alternative.",
+    "search_date_text": [
+      "Submitted 29 October, 2026; originally announced October 2026.",
+      "Comments: Project Page: https://crossweave3d.github.io/"
+    ],
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.40525",
+      "https://arxiv.org/abs/2610.40525v1"
+    ],
+    "reading_level": "complete abstract + official submission history + official project page / README",
+    "history_evidence": {
+      "url": "https://arxiv.org/abs/2610.40525",
+      "retrieved_at": "2026-11-01T15:36:49Z",
+      "history_raw": "Submission history From: Aadith Warrier [ view email ] [v1] Thu, 29 Oct 2026 17:32:46 UTC (25,993 KB)",
+      "version_history": [
+        {
+          "version": 1,
+          "utc": "2026-10-29T17:32:46Z"
+        }
+      ],
+      "history_verified": true,
+      "raw_path": "review-abs-2610.40525.html"
+    },
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-29T17:32:46Z"
+      }
+    ],
+    "history_verified": true,
+    "evidence_level": "abstract",
+    "abstract_read": true,
+    "read_sections": [
+      "Abstract (complete; independent review)",
+      "Official submission history",
+      "Official project page"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "version": 1,
+    "v1_utc": "2026-10-29T17:32:46Z",
+    "updated_utc": "2026-10-29T17:32:46Z",
+    "original_report": null,
+    "previously_processed_versions": {},
+    "window_class": "new",
+    "category": "semantic-map",
+    "problem": "图像到三维场景和实例检索缺少可共享的局部跨模态对齐。",
+    "method": "稀疏patch-point监督学习共享投影，SALAD最优传输聚合用于场景，局部特征用于实例检索。",
+    "insight": "项目页说明仍使用聚合image-point-cloud对比损失；无场景级标签不等于完全无聚合损失。",
+    "experiments": "摘要及官方项目页：ScanNet/3RScan场景Top-1 61.54/46.50，主要结果使用10个查询视图；实例Top-1 78.77/73.50。未核全文、未复现。",
+    "takeaway": "用稀疏图像块与三维点对应训练共享模型，再按任务采用最优传输聚合或局部特征，实现同一模型的场景与实例跨模态检索。",
+    "priority": true,
+    "priority_reason": "直接连接图像与三维地图检索，可作为重定位前端；检索结果不等于位姿恢复。",
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及semantic-map，纳入摘要跟踪。",
+    "status": "supplemental",
+    "follow_up": "未读论文全文、未运行；核对原表、数据划分、输入、硬件及公开资产。修订项未逐版全文比较。",
+    "project_evidence_file": "review-project-2610.40525.txt"
+  },
+  {
+    "id": "2606.22617",
+    "title": "OmniSpace: Efficient Geometry Awareness for Autonomous Vehicles MLLMs",
+    "abstract": "Multimodal Large Language Models (MLLMs) have achieved remarkable performance on 2D visual tasks, yet enhancing their spatial intelligence for real-world applications such as Autonomous Vehicles (AV) remains an open challenge. Existing geometry-aware MLLMs typically rely on auxiliary 3D models at inference time, introducing pipeline complexity and the risk of cascading failures. In this paper, we present OmniSpace, a simple yet effective plug-and-play paradigm for geometry-aware spatial reasoning from purely 2D observations. Motivated by our finding that current MLLMs are bottlenecked by weak cross-view correspondence and depth estimation, OmniSpace introduces a Camera Pose Injector, a Multi-view Epipolar Attention module, and a 3D Geometric Distillation objective that jointly address these two limitations by transferring geometric knowledge into the model. Extensive experiments show that OmniSpace surpasses existing methods on planning benchmarks (nuScenes, Bench2Drive), risk detection (nuInstruct), language (Omnidrive), and generalization (DriveBench).",
+    "search_date_text": [
+      "Submitted 22 October, 2026; v1 submitted 21 June, 2026; originally announced June 2026."
+    ],
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-localization-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2606.22617",
+      "https://arxiv.org/abs/2606.22617v3"
+    ],
+    "reading_level": "complete abstract + official submission history",
+    "history_evidence": {
+      "url": "https://arxiv.org/abs/2606.22617",
+      "retrieved_at": "2026-11-01T15:36:53Z",
+      "history_raw": "Submission history From: Anh Hao Vo Mr. [ view email ] [v1] Sun, 21 Jun 2026 17:47:31 UTC (4,091 KB) [v2] Sat, 26 Sep 2026 06:18:59 UTC (4,091 KB) [v3] Fri, 23 Oct 2026 00:42:07 UTC (7,588 KB)",
+      "version_history": [
+        {
+          "version": 1,
+          "utc": "2026-06-21T17:47:31Z"
+        },
+        {
+          "version": 2,
+          "utc": "2026-09-26T06:18:59Z"
+        },
+        {
+          "version": 3,
+          "utc": "2026-10-23T00:42:07Z"
+        }
+      ],
+      "history_verified": true,
+      "raw_path": "review-abs-2606.22617.html"
+    },
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-06-21T17:47:31Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-09-26T06:18:59Z"
+      },
+      {
+        "version": 3,
+        "utc": "2026-10-23T00:42:07Z"
+      }
+    ],
+    "history_verified": true,
+    "evidence_level": "abstract",
+    "abstract_read": true,
+    "read_sections": [
+      "Abstract (complete; independent review)",
+      "Official submission history"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "version": 3,
+    "v1_utc": "2026-06-21T17:47:31Z",
+    "updated_utc": "2026-10-23T00:42:07Z",
+    "original_report": null,
+    "previously_processed_versions": {},
+    "window_class": "historical_backfill",
+    "category": "spatial-understanding",
+    "problem": "驾驶MLLM对跨视图对应和深度理解不足，外挂三维流水线增加推理复杂度。",
+    "method": "Camera Pose Injector、多视图极线注意力和三维几何蒸馏，把几何知识迁移到纯二维观察模型。",
+    "insight": "将几何约束写入训练和内部跨视图机制，可减少推理时外挂模型依赖。",
+    "experiments": "摘要：nuScenes、Bench2Drive、nuInstruct、Omnidrive及DriveBench，声称改善，无明确数字。v3在窗口前，历史版本补跟踪；未核全文或运行。",
+    "takeaway": "以相机位姿注入、多视图极线注意力和几何蒸馏补强驾驶多模态模型的对应与深度能力，减少推理时对外挂三维模型的依赖。",
+    "priority": false,
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及spatial-understanding，纳入摘要跟踪。",
+    "status": "supplemental",
+    "follow_up": "未读论文全文、未运行；核对原表、数据划分、输入、硬件及公开资产。修订项未逐版全文比较。"
+  },
+  {
+    "id": "2610.31797",
+    "title": "PnP*: A certifiable solver for Perspective-n-Point",
+    "abstract": "Estimating a camera pose from 3D-2D correspondences - Perspective-n-Point - is one of the most fundamental problems in computer vision. Existing methods either solve a minimal problem or replace the objective with an easier one. Surprisingly, no scalable certifiable solver for the actual Maximum Likelihood Estimation (MLE) exists. We propose PnP*, the first practical solver that guarantees efficient computation and returns a certifiable globally optimal solution. We prove that the underlying convex relaxation is exact under moderate noise, which to our knowledge is the first stability guarantee for any relaxation for the MLE of PnP. Furthermore, we reduce the relaxation by exploiting chordal sparsity pattern and quotient ring reduction such that the relaxation is tractable and scalable. The stability and scalability results are verified numerically, as PnP* returns a provably correct camera pose at over 10 Hz.",
+    "search_date_text": [
+      "Submitted 22 October, 2026; originally announced October 2026.",
+      "Comments: 28 pages, 3 figures"
+    ],
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html",
+      "review-A-localization-submitted_date-0.html",
+      "review-A-localization-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.31797",
+      "https://arxiv.org/abs/2610.31797v1"
+    ],
+    "reading_level": "complete abstract + official submission history",
+    "history_evidence": {
+      "url": "https://arxiv.org/abs/2610.31797",
+      "retrieved_at": "2026-11-01T15:36:53Z",
+      "history_raw": "Submission history From: Bang-Shien Chen [ view email ] [v1] Thu, 22 Oct 2026 18:38:48 UTC (248 KB)",
+      "version_history": [
+        {
+          "version": 1,
+          "utc": "2026-10-22T18:38:48Z"
+        }
+      ],
+      "history_verified": true,
+      "raw_path": "review-abs-2610.31797.html"
+    },
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-22T18:38:48Z"
+      }
+    ],
+    "history_verified": true,
+    "evidence_level": "abstract",
+    "abstract_read": true,
+    "read_sections": [
+      "Abstract (complete; independent review)",
+      "Official submission history"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "version": 1,
+    "v1_utc": "2026-10-22T18:38:48Z",
+    "updated_utc": "2026-10-22T18:38:48Z",
+    "original_report": null,
+    "previously_processed_versions": {},
+    "window_class": "historical_backfill",
+    "category": "matching-registration",
+    "problem": "PnP原始最大似然位姿估计缺少可扩展的全局最优证书。",
+    "method": "证明适度噪声下凸松弛精确，以弦图稀疏和商环约简提高可扩展性。",
+    "insight": "针对实际MLE而非替代损失提供证书，需核对稳定条件和噪声边界。",
+    "experiments": "摘要：数值验证稳定与可扩展，超过10Hz返回带证书相机位姿；硬件点数未给。历史补漏，未核全文或运行。",
+    "takeaway": "围绕PnP的真实最大似然目标构造可证凸松弛，并以弦图稀疏和商环约简降低求解成本，针对适度噪声给出全局最优与稳定性证书。",
+    "priority": true,
+    "priority_reason": "基础相机位姿求解器，v1在窗口前，必须标注历史补漏。",
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及matching-registration，纳入摘要跟踪。",
+    "status": "supplemental",
+    "follow_up": "未读论文全文、未运行；核对原表、数据划分、输入、硬件及公开资产。修订项未逐版全文比较。"
+  },
+  {
+    "id": "2610.38926",
+    "title": "OneScene-Bench: Do Vision-Language Models Integrate Evidence Across Views?",
+    "abstract": "Vision-language models (VLMs) increasingly process multiple views of the same scene, but it remains unclear whether they integrate these observations into a coherent scene-level representation. Existing multi-image evaluations do not isolate this capability, as tasks may admit correct solutions through independent per-view processing without requiring cross-view correspondence. We introduce OneScene-Bench, a controlled benchmark designed to explicitly distinguish when cross-view integration is necessary. Our benchmark evaluates three complementary capabilities on real-world multi-view scenes: unique object counting, cross-view consistency, and spatial reasoning. For counting, we control object overlap across views to separate cases solvable by simple per-view aggregation from those requiring instance-level correspondence. For consistency, we introduce localized edits in shared and view-specific regions, testing whether models distinguish genuine scene contradictions from differences caused by viewpoint and visibility. For spatial reasoning, we construct object relations that require combining spatial evidence across viewpoints to compare physical proximity. We evaluate twelve state-of-the-art open-weight and proprietary VLMs and find that counting accuracy drops substantially on complementary views, ranging from 4.5-50.0%, compared with 45.5-81.5% on complete-overlap examples. Moreover, cross-view consistency remains around 50% across models, including recent proprietary VLMs, despite substantially stronger performance on spatial reasoning. Our results reveal a substantial gap between processing multiple images and integrating evidence across them, highlighting the need for evaluations that explicitly test scene-level multi-view understanding. Code and data are available at https://github.com/swathisuhas/OneScene-Bench.",
+    "search_date_text": [
+      "Submitted 28 October, 2026; originally announced October 2026.",
+      "Comments: Accepted at LM4RWD Workshop, Conference on Neural Information Processing Systems (NeurIPS), 2026"
+    ],
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.38926",
+      "https://arxiv.org/abs/2610.38926v1"
+    ],
+    "reading_level": "complete abstract + official submission history",
+    "history_evidence": {
+      "url": "https://arxiv.org/abs/2610.38926",
+      "retrieved_at": "2026-11-01T15:36:54Z",
+      "history_raw": "Submission history From: Anurag Das [ view email ] [v1] Wed, 28 Oct 2026 21:17:36 UTC (4,093 KB)",
+      "version_history": [
+        {
+          "version": 1,
+          "utc": "2026-10-28T21:17:36Z"
+        }
+      ],
+      "history_verified": true,
+      "raw_path": "review-abs-2610.38926.html"
+    },
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-28T21:17:36Z"
+      }
+    ],
+    "history_verified": true,
+    "evidence_level": "abstract",
+    "abstract_read": true,
+    "read_sections": [
+      "Abstract (complete; independent review)",
+      "Official submission history"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "version": 1,
+    "v1_utc": "2026-10-28T21:17:36Z",
+    "updated_utc": "2026-10-28T21:17:36Z",
+    "original_report": null,
+    "previously_processed_versions": {},
+    "window_class": "new",
+    "category": "spatial-understanding",
+    "problem": "多视图VLM是否真正整合相同三维场景的跨视图证据。",
+    "method": "控制视图重叠、共享或独有区域编辑以及跨视点空间关系，分别评估计数、一致性和空间推理。",
+    "insight": "显式区分单图聚合可解决的样本与必须建立跨视图实例对应的样本。",
+    "experiments": "摘要：12种VLM；互补视图计数4.5–50.0%，全重叠45.5–81.5%；跨视图一致性约50%。未核全文或运行。",
+    "takeaway": "通过控制视图重叠、场景局部编辑和跨视点物体关系，检验模型能否把多张图像整合成一致场景，暴露单图理解与跨视图融合差距。",
+    "priority": false,
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及spatial-understanding，纳入摘要跟踪。",
+    "status": "supplemental",
+    "follow_up": "未读论文全文、未运行；核对原表、数据划分、输入、硬件及公开资产。修订项未逐版全文比较。"
+  },
+  {
+    "id": "2610.30799",
+    "title": "WovenAnchor Matcher: Specialized Intra- and Inter-Image Context Modeling for Feature Matching",
+    "abstract": "Semi-dense local feature matching commonly aggregates contextual information before coarse-to-fine correspondence estimation. However, intra-image and inter-image aggregation serve different roles: the former should propagate spatial evidence within each image while retaining structured two-dimensional dependencies, whereas the latter should gather information from plausible corresponding regions while limiting noise from unrelated locations. We propose WovenAnchor Matcher (WAM), a semi-dense matching framework based on role-specialized context aggregation. WAM introduces two complementary operators. WovenMamba performs intra-image aggregation through horizontal-then-vertical state-space propagation, allowing vertical updates to operate on horizontally contextualized features and thereby encouraging a structured two-dimensional receptive-field bias. AnchorCrossAttention performs inter-image aggregation by using cross-attention to gather context from plausible corresponding regions across the image pair. It performs this exchange over local representative anchors that aggregate feature evidence within each window. On MegaDepth, WAM achieves 66.1 pose AUC@5$^\\circ$, improving on the JamMa baseline by 2.0 AUC points under the same evaluation setup. Ablations show that removing or replacing either specialized component reduces accuracy, providing evidence that intra-image propagation and inter-image retrieval benefit from role-specific aggregation designs. Code and pretrained weights are available at https://github.com/mmaiLab/WovenAnchorMatcher.",
+    "search_date_text": [
+      "Submitted 27 October, 2026; v1 submitted 22 October, 2026; originally announced October 2026.",
+      "Comments: Accepted at NeurIPS 2026"
+    ],
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.30799",
+      "https://arxiv.org/abs/2610.30799v2"
+    ],
+    "reading_level": "complete abstract + official submission history + official project page / README",
+    "history_evidence": {
+      "url": "https://arxiv.org/abs/2610.30799",
+      "retrieved_at": "2026-11-01T15:36:55Z",
+      "history_raw": "Submission history From: Zhiyang Li [ view email ] [v1] Thu, 22 Oct 2026 06:24:39 UTC (23,572 KB) [v2] Wed, 28 Oct 2026 03:05:34 UTC (23,572 KB)",
+      "version_history": [
+        {
+          "version": 1,
+          "utc": "2026-10-22T06:24:39Z"
+        },
+        {
+          "version": 2,
+          "utc": "2026-10-28T03:05:34Z"
+        }
+      ],
+      "history_verified": true,
+      "raw_path": "review-abs-2610.30799.html"
+    },
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-22T06:24:39Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-10-28T03:05:34Z"
+      }
+    ],
+    "history_verified": true,
+    "evidence_level": "abstract",
+    "abstract_read": true,
+    "read_sections": [
+      "Abstract (complete; independent review)",
+      "Official submission history",
+      "Official repository README"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "version": 2,
+    "v1_utc": "2026-10-22T06:24:39Z",
+    "updated_utc": "2026-10-28T03:05:34Z",
+    "original_report": null,
+    "previously_processed_versions": {},
+    "window_class": "revised",
+    "category": "matching-registration",
+    "problem": "半稠密匹配中的图像内传播与图像间检索需要不同上下文算子。",
+    "method": "WovenMamba水平再垂直进行状态空间传播；AnchorCrossAttention通过局部代表锚点交换跨图信息。",
+    "insight": "以角色分工处理空间依赖与候选对应，避免把两类关系强行统一。",
+    "experiments": "摘要：MegaDepth pose AUC@5°为66.1，比同设置JamMa高2.0；替换两种算子均下降。README列出三个基准脚本及权重；代码MIT、权重CC BY-NC 4.0。未运行。",
+    "takeaway": "将图像内上下文交给水平再垂直的状态空间传播，将跨图对应交给局部锚点注意力，以角色分工改善半稠密匹配和相对位姿估计。",
+    "priority": true,
+    "priority_reason": "主池漏掉的核心匹配前端修订，已读官方README并核实权重入口。",
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及matching-registration，纳入摘要跟踪。",
+    "status": "revision_tracking",
+    "follow_up": "未读论文全文、未运行；核对原表、数据划分、输入、硬件及公开资产。修订项未逐版全文比较。",
+    "project_evidence_file": "review-project-2610.30799.txt"
+  },
+  {
+    "id": "2609.03919",
+    "title": "OctWorld: Long-Range World-Consistent Video Generation with Octree-Based 3D Mapping",
+    "abstract": "We present OctWorld, a video diffusion framework with persistent 3D memory for generating explorable, world-consistent, and high-fidelity visual scenes. Given a single image, OctWorld performs stable autoregressive world generation along user-specified camera trajectories. We focus on long-range generation, characterized by extended camera paths and wide viewpoint coverage, where preserving spatial consistency is particularly challenging when previously generated regions are revisited. To address this problem, we introduce OctMap, an extensible and spatially adaptive 3D memory that progressively fuses generated visual observations and their corresponding depth maps into a global representation. OctMap employs TSDF fusion within a dynamic sparse octree whose spatial resolution adapts to image evidence. This design preserves geometric and appearance details across diverse scene scales while maintaining low memory overhead. Experiments demonstrate that OctWorld generates long-range, spatially consistent videos and outperforms prior methods on both existing benchmarks and challenging long-range generation settings. OctMap also provides clear advantages over point-based caches and fixed-resolution TSDF volumes. Project page: https://github.com/microsoft/OctWorld",
+    "search_date_text": [
+      "Submitted 27 October, 2026; v1 submitted 3 September, 2026; originally announced September 2026.",
+      "Comments: Published at ECCV 2026. Project page: https://microsoft.github.io/OctWorld/. Code: https://github.com/microsoft/OctWorld",
+      "Journal ref: ECCV 2026, LNCS 17026 (2026) 287-305"
+    ],
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2609.03919",
+      "https://arxiv.org/abs/2609.03919v2"
+    ],
+    "reading_level": "complete abstract + official submission history + official project page / README",
+    "history_evidence": {
+      "url": "https://arxiv.org/abs/2609.03919",
+      "retrieved_at": "2026-11-01T15:36:55Z",
+      "history_raw": "Submission history From: Zelong Lv [ view email ] [v1] Thu, 3 Sep 2026 14:35:38 UTC (14,124 KB) [v2] Tue, 27 Oct 2026 11:49:31 UTC (14,124 KB)",
+      "version_history": [
+        {
+          "version": 1,
+          "utc": "2026-09-03T14:35:38Z"
+        },
+        {
+          "version": 2,
+          "utc": "2026-10-27T11:49:31Z"
+        }
+      ],
+      "history_verified": true,
+      "raw_path": "review-abs-2609.03919.html"
+    },
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-09-03T14:35:38Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-10-27T11:49:31Z"
+      }
+    ],
+    "history_verified": true,
+    "evidence_level": "abstract",
+    "abstract_read": true,
+    "read_sections": [
+      "Abstract (complete; independent review)",
+      "Official submission history",
+      "Official project page"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "version": 2,
+    "v1_utc": "2026-09-03T14:35:38Z",
+    "updated_utc": "2026-10-27T11:49:31Z",
+    "original_report": null,
+    "previously_processed_versions": {},
+    "window_class": "revised",
+    "category": "world-model",
+    "problem": "长相机轨迹的生成世界在重访区域难以保持空间一致性。",
+    "method": "OctMap将生成RGB-D融合进自适应稀疏八叉树TSDF，再渲染为空间条件引导视频扩散。",
+    "insight": "以持久三维融合记忆替代点缓存或固定分辨率体素，兼顾长程重访与多场景尺度。",
+    "experiments": "摘要及项目页：既有与长程生成设置上改善一致性；项目页说明跨chunk深度归一化。未读全文原表、未复现，无明确摘要数字。",
+    "takeaway": "把生成的RGB-D逐步融合进自适应八叉树TSDF地图，再将地图渲染为扩散条件，针对长相机轨迹和重访提高世界生成的空间一致性。",
+    "priority": true,
+    "priority_reason": "显式TSDF地图与世界模型耦合的直接相关期内修订。",
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及world-model，纳入摘要跟踪。",
+    "status": "revision_tracking",
+    "follow_up": "未读论文全文、未运行；核对原表、数据划分、输入、硬件及公开资产。修订项未逐版全文比较。",
+    "project_evidence_file": "review-project-2609.03919.txt"
+  },
+  {
+    "id": "2610.36625",
+    "title": "Polarity--Time Interaction and Multi-Level Reliability for Event-Based Spacecraft Pose Estimation",
+    "abstract": "Sparse event responses produce uneven keypoint errors whose effects on spacecraft pose depend on correspondence geometry and the reliability of successive observations. We present a reliability-aware framework connecting polarity--time localization, geometric recovery, event--CAD refinement, and trajectory optimization. A three-branch representation combines positive events, negative events, and recent-event timing through cross-branch attention and gating, followed by spatiotemporal aggregation. An ordered semantic-point head estimates relative correspondence precision for geometrically constrained pose recovery. Event-edge and CAD-projection agreement then guide local pose refinement under keypoint-geometry safeguards. At the sequence level, a ten-dimensional descriptor combines heatmap shape, reprojection consistency, and geometric conditioning to set time-aligned observation scales. On the official SPADES challenge test set, the complete system achieves a combined pose score of 0.0474, approximately 5.4\\% below PASAN+IRIS. Validation ablations reduce the score from 0.0772 for base localization with uniform PnP to 0.0514 for the complete cascade; on identical single-frame observations, quality weighting reduces the score from 0.0549 with constant-weight optimization to 0.0514.",
+    "search_date_text": [
+      "Submitted 27 October, 2026; originally announced October 2026."
+    ],
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.36625",
+      "https://arxiv.org/abs/2610.36625v1"
+    ],
+    "reading_level": "complete abstract + official submission history",
+    "history_evidence": {
+      "url": "https://arxiv.org/abs/2610.36625",
+      "retrieved_at": "2026-11-01T15:36:57Z",
+      "history_raw": "Submission history From: Yonglong Zhang [ view email ] [v1] Tue, 27 Oct 2026 04:29:19 UTC (464 KB)",
+      "version_history": [
+        {
+          "version": 1,
+          "utc": "2026-10-27T04:29:19Z"
+        }
+      ],
+      "history_verified": true,
+      "raw_path": "review-abs-2610.36625.html"
+    },
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-27T04:29:19Z"
+      }
+    ],
+    "history_verified": true,
+    "evidence_level": "abstract",
+    "abstract_read": true,
+    "read_sections": [
+      "Abstract (complete; independent review)",
+      "Official submission history"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "version": 1,
+    "v1_utc": "2026-10-27T04:29:19Z",
+    "updated_utc": "2026-10-27T04:29:19Z",
+    "original_report": null,
+    "previously_processed_versions": {},
+    "window_class": "new",
+    "category": "sensor-application",
+    "problem": "事件稀疏带来关键点误差不均，位姿误差还受对应几何和观测时序影响。",
+    "method": "正负极性和最近事件时间三分支交互，预测对应可靠性，连接几何求解、事件边缘与CAD细化和轨迹优化。",
+    "insight": "将感知置信度与几何条件、时间尺度联动，替代均匀关键点和帧权重。",
+    "experiments": "摘要：SPADES测试combined pose score 0.0474，约比PASAN+IRIS低5.4%；验证完整级联0.0514、base 0.0772。未核全文或运行。",
+    "takeaway": "用极性与时间联合事件表征估计关键点可靠性，并联动几何求解、CAD边缘细化和轨迹加权，减轻稀疏事件对航天器位姿恢复的影响。",
+    "priority": false,
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及sensor-application，纳入摘要跟踪。",
+    "status": "supplemental",
+    "follow_up": "未读论文全文、未运行；核对原表、数据划分、输入、硬件及公开资产。修订项未逐版全文比较。"
+  },
+  {
+    "id": "2610.22335",
+    "title": "Illumination-Aware Active Perception for Spacecraft Inspection",
+    "abstract": "Harsh and rapidly varying orbital illumination introduces failure modes during spacecraft inspection. Existing planners rely on line-of-sight inspection metrics which perform occlusion checks against a known target and conflate geometric visibility with task-relevant information. These metrics overlook illumination effects including eclipse, self-shadowing, and specular reflection from spacecraft materials and tend to declare components as inspected despite the corresponding images lacking sufficient information. We propose an inspection-planning framework that replaces geometric visibility with a learned measure of camera information derived from a classifier variational autoencoder (VAE) that operates directly on the captured image. The encoder model is trained to classify spacecraft surface components from rendered patches, and its total latent variance is used to learn the varying illumination of said components, replacing binary visibility checks with a continuous, image-grounded quantity. We evaluate the approach by implementing a Guidance, Navigation, and Control architecture in a photorealistic physics simulator, and vary lighting and viewing geometries with multiple orbits. We show that, although all approaches successfully maximize their own objective, our approach results in better illumination: a mean brightness of $0.57$, with $81.6\\%$ of observations above $0.25$, compared with $0.02$ ($3.0\\%$) for geometric planning with an illumination band and $0.04$ ($6.0\\%$) for purely geometric planning.",
+    "search_date_text": [
+      "Submitted 26 October, 2026; v1 submitted 15 October, 2026; originally announced October 2026."
+    ],
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.22335",
+      "https://arxiv.org/abs/2610.22335v2"
+    ],
+    "reading_level": "complete abstract + official submission history",
+    "history_evidence": {
+      "url": "https://arxiv.org/abs/2610.22335",
+      "retrieved_at": "2026-11-01T15:37:00Z",
+      "history_raw": "Submission history From: Sagarika Valluri [ view email ] [v1] Thu, 15 Oct 2026 17:54:03 UTC (14,262 KB) [v2] Mon, 26 Oct 2026 09:39:07 UTC (14,262 KB)",
+      "version_history": [
+        {
+          "version": 1,
+          "utc": "2026-10-15T17:54:03Z"
+        },
+        {
+          "version": 2,
+          "utc": "2026-10-26T09:39:07Z"
+        }
+      ],
+      "history_verified": true,
+      "raw_path": "review-abs-2610.22335.html"
+    },
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-15T17:54:03Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-10-26T09:39:07Z"
+      }
+    ],
+    "history_verified": true,
+    "evidence_level": "abstract",
+    "abstract_read": true,
+    "read_sections": [
+      "Abstract (complete; independent review)",
+      "Official submission history"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "version": 2,
+    "v1_utc": "2026-10-15T17:54:03Z",
+    "updated_utc": "2026-10-26T09:39:07Z",
+    "original_report": null,
+    "previously_processed_versions": {
+      "v1": {
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html",
+        "report_anchor": "paper-2610-22335",
+        "window_class": "new",
+        "updated_utc": "2026-10-15T17:54:03Z",
+        "read_sections": [
+          "Abstract",
+          "Submission history"
+        ],
+        "follow_up": "未深读全文/未检查源码；需核对实验协议、baseline及公开资产。",
+        "reviewed_at": "2026-10-19T17:10:23.356Z"
+      }
+    },
+    "window_class": "revised",
+    "category": "sensor-application",
+    "problem": "巡检的几何可见性忽略过暗、阴影和镜面反射导致的观测信息不足。",
+    "method": "以分类VAE从图像学习部件信息和照明变化，用潜变量总方差构建连续相机信息指标并接入GNC。",
+    "insight": "可见不等于有用；主动感知规划需匹配实际相机信息质量。",
+    "experiments": "摘要：仿真平均亮度0.57、81.6%观测亮度大于0.25；照明带几何规划0.02/3.0%，纯几何0.04/6.0%。未核全文或运行。",
+    "takeaway": "通过图像分类VAE学习光照下的有效信息，将巡检目标从几何可见改为连续相机信息量，减少航天器阴影与反光导致的无效观测。",
+    "priority": false,
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及sensor-application，纳入摘要跟踪。",
+    "status": "revision_tracking",
+    "follow_up": "未读论文全文、未运行；核对原表、数据划分、输入、硬件及公开资产。修订项未逐版全文比较。"
+  },
+  {
+    "id": "2610.18005",
+    "title": "Surface Reconstruction from Range Scans Under Visibility Constraints",
+    "abstract": "Surface reconstruction from range scans is challenging in the presence of noise and outliers, as fidelity to observations must be balanced against sensitivity to measurement errors. Yet, most neural approaches discard the sensor positions and corresponding visibility information, compensating for this loss with geometric priors or regularization terms. We instead formulate surface reconstruction as robust regression of the predicted first surface intersection along each acquisition ray against its measured depth, which penalizes predicted surface intersections within the segment between the sensor and the observed point. We represent the surface as the zero set of a 1-Lipschitz multi-layer perceptron, allowing the use of linearly convergent sphere tracing to compute the first hit, and use a robust Huber loss for regression. Our formulation requires neither oriented normals, sampled off-surface points, nor an eikonal loss. Comparisons with the state of the art on synthetic and real data with varying levels of noise and outlier contamination demonstrate competitive performance on clean data and much improved fidelity and robustness under even moderate corruption. Our analysis further confirms a trade-off between fidelity and robustness: greater fitting capacity improves data fidelity in the clean case but increases sensitivity to the measurement errors inherent in real acquisitions, with a sweet spot typically emerging at intermediate capacity.",
+    "search_date_text": [
+      "Submitted 26 October, 2026; v1 submitted 13 October, 2026; originally announced October 2026."
+    ],
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.18005",
+      "https://arxiv.org/abs/2610.18005v2"
+    ],
+    "reading_level": "complete abstract + official submission history",
+    "history_evidence": {
+      "url": "https://arxiv.org/abs/2610.18005",
+      "retrieved_at": "2026-11-01T15:36:59Z",
+      "history_raw": "Submission history From: Gabriel Lenain [ view email ] [v1] Tue, 13 Oct 2026 09:05:23 UTC (45,598 KB) [v2] Mon, 26 Oct 2026 09:25:32 UTC (45,598 KB)",
+      "version_history": [
+        {
+          "version": 1,
+          "utc": "2026-10-13T09:05:23Z"
+        },
+        {
+          "version": 2,
+          "utc": "2026-10-26T09:25:32Z"
+        }
+      ],
+      "history_verified": true,
+      "raw_path": "review-abs-2610.18005.html"
+    },
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-13T09:05:23Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-10-26T09:25:32Z"
+      }
+    ],
+    "history_verified": true,
+    "evidence_level": "abstract",
+    "abstract_read": true,
+    "read_sections": [
+      "Abstract (complete; independent review)",
+      "Official submission history"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "version": 2,
+    "v1_utc": "2026-10-13T09:05:23Z",
+    "updated_utc": "2026-10-26T09:25:32Z",
+    "original_report": null,
+    "previously_processed_versions": {},
+    "window_class": "revised",
+    "category": "neural-reconstruction",
+    "problem": "扫描重建的噪声离群点与几何保真冲突，常见神经方法丢弃采集射线和可见性。",
+    "method": "1-Lipschitz MLP零水平集表示表面，sphere tracing求采集射线首交点，Huber损失回归测量深度。",
+    "insight": "约束测量点前不得出现错误表面，减少对法线、离面采样和eikonal损失的依赖。",
+    "experiments": "摘要：合成及真实扫描，比较不同噪声和离群水平；称受污染数据更稳健，未提供明确数字。未读全文或运行。",
+    "takeaway": "保留扫描仪位置与采集射线，用可追踪的Lipschitz隐式表面回归首交点深度，在不依赖法线或离面采样的条件下提升抗噪重建。",
+    "priority": true,
+    "priority_reason": "直接处理真实范围扫描可见性与鲁棒性的期内修订。",
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及neural-reconstruction，纳入摘要跟踪。",
+    "status": "revision_tracking",
+    "follow_up": "未读论文全文、未运行；核对原表、数据划分、输入、硬件及公开资产。修订项未逐版全文比较。"
+  },
+  {
+    "id": "2608.25302",
+    "title": "WAVE: Wavelet-Controlled Coarse-to-Fine Guidance for Depth Super-Resolution",
+    "abstract": "Guided depth super-resolution (GDSR) typically extracts RGB guidance features through convolutional hierarchies, inheriting their fine-to-coarse bias. Thus, low-level spatial cues surface in early layers, leaving the deeper layers to suppress those that do not correspond to true depth boundaries, which risks artifacts and blurred edges. The same fine-to-coarse bias persists in semantics-based methods that consume low-level tokens early and global tokens late. We present WAVE, which introduces a multi-level discrete wavelet transform (ML-DWT) as an explicit and interpretable feature-control mechanism, enabling a coarse-to-fine reconstruction by consuming sub-bands and semantic tokens in reverse of their generation order. WAVE further exploits these sub-bands to treat high- and low-frequency content separately, isolating the misleading RGB color and texture cues before any feature is learned so that their admission can be controlled explicitly, offering an intuitive alternative to the suppression learned implicitly by an opaque network. WAVE separates structure and detail reconstruction into dedicated modules that: i) model interactions within and across wavelet sub-bands, depth features, and semantic priors, ii) apply semantic gating to the high-frequency bands, and iii) fuse modalities through an invertible coupling mechanism that prevents collapse onto a single modality. Extensive experiments across multiple benchmarks demonstrate that WAVE matches or outperforms existing methods, with the largest gains at high upsampling factors, where low-resolution depth contains the least structure.",
+    "search_date_text": [
+      "Submitted 25 October, 2026; v1 submitted 25 August, 2026; originally announced August 2026."
+    ],
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2608.25302",
+      "https://arxiv.org/abs/2608.25302v2"
+    ],
+    "reading_level": "complete abstract + official submission history",
+    "history_evidence": {
+      "url": "https://arxiv.org/abs/2608.25302",
+      "retrieved_at": "2026-11-01T15:37:01Z",
+      "history_raw": "Submission history From: Tayyab Nasir [ view email ] [v1] Wed, 26 Aug 2026 02:16:41 UTC (4,684 KB) [v2] Mon, 26 Oct 2026 03:05:00 UTC (5,593 KB)",
+      "version_history": [
+        {
+          "version": 1,
+          "utc": "2026-08-26T02:16:41Z"
+        },
+        {
+          "version": 2,
+          "utc": "2026-10-26T03:05:00Z"
+        }
+      ],
+      "history_verified": true,
+      "raw_path": "review-abs-2608.25302.html"
+    },
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-08-26T02:16:41Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-10-26T03:05:00Z"
+      }
+    ],
+    "history_verified": true,
+    "evidence_level": "abstract",
+    "abstract_read": true,
+    "read_sections": [
+      "Abstract (complete; independent review)",
+      "Official submission history"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "version": 2,
+    "v1_utc": "2026-08-26T02:16:41Z",
+    "updated_utc": "2026-10-26T03:05:00Z",
+    "original_report": null,
+    "previously_processed_versions": {},
+    "window_class": "revised",
+    "category": "depth-geometry",
+    "problem": "RGB引导深度超分辨易把纹理当作深度边界，常规层级难以显式控制这种干扰。",
+    "method": "多层离散小波分离结构和细节，逆序使用子带和语义token形成由粗到细重建，加入语义门控与可逆融合。",
+    "insight": "在学习前显式分离高低频，引导纹理干扰筛选从隐式抑制转为可解释控制。",
+    "experiments": "摘要：多个基准上有竞争力，高上采样因子收益最大；无明确数值或端到端几何评估。未核全文或运行。",
+    "takeaway": "用多层小波把RGB结构和纹理分频，再以由粗到细的语义门控引导深度超分辨，针对高倍率输入控制伪深度边缘与模态退化。",
+    "priority": false,
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及depth-geometry，纳入摘要跟踪。",
+    "status": "revision_tracking",
+    "follow_up": "未读论文全文、未运行；核对原表、数据划分、输入、硬件及公开资产。修订项未逐版全文比较。"
+  },
+  {
+    "id": "2610.27049",
+    "title": "VitronEdit: Universal Visual Editing across Images, Videos, and 3D Scenes",
+    "abstract": "Recent advances in unified visual editing have begun to consolidate image and video editing within a single model, while 3D scene editing remains largely separate and constrained by scarce paired training data. Given the rich image and video editing supervision now available and the common editing semantics shared across modalities, a natural question is whether this knowledge can be transferred to data-scarce 3D editing. We present VitronEdit, a universal framework for image, video, and 3D scene editing. VitronEdit adopts a shared sequence representation and progressive multimodal training to transfer editing knowledge across modalities. We further introduce geometry-aware post-training, which leverages a pretrained geometry reconstruction model to provide depth and camera-pose supervision. Surprisingly, applying geometric supervision only to 3D samples yields the best overall performance, while image and video editing also improve despite receiving no direct geometric supervision, suggesting that geometric regularization transfers through the shared backbone. Our analysis further shows that image and video training mainly transfers editing semantics to 3D, whereas 3D supervision primarily improves multi-view consistency. The project page: https://vitron-llm.github.io/VitronEdit/.",
+    "search_date_text": [
+      "Submitted 29 October, 2026; v1 submitted 19 October, 2026; originally announced October 2026.",
+      "Comments: 27 pages,9 tables,9 figures"
+    ],
+    "query_hits": [
+      "review-A-localization-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.27049",
+      "https://arxiv.org/abs/2610.27049v2"
+    ],
+    "reading_level": "complete abstract + official submission history",
+    "history_evidence": {
+      "url": "https://arxiv.org/abs/2610.27049",
+      "retrieved_at": "2026-11-01T15:37:03Z",
+      "history_raw": "Submission history From: Shengqiong Wu [ view email ] [v1] Mon, 19 Oct 2026 17:59:55 UTC (5,887 KB) [v2] Thu, 29 Oct 2026 17:32:00 UTC (5,887 KB)",
+      "version_history": [
+        {
+          "version": 1,
+          "utc": "2026-10-19T17:59:55Z"
+        },
+        {
+          "version": 2,
+          "utc": "2026-10-29T17:32:00Z"
+        }
+      ],
+      "history_verified": true,
+      "raw_path": "review-abs-2610.27049.html"
+    },
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-19T17:59:55Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-10-29T17:32:00Z"
+      }
+    ],
+    "history_verified": true,
+    "evidence_level": "abstract",
+    "abstract_read": true,
+    "read_sections": [
+      "Abstract (complete; independent review)",
+      "Official submission history"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "version": 2,
+    "v1_utc": "2026-10-19T17:59:55Z",
+    "updated_utc": "2026-10-29T17:32:00Z",
+    "original_report": null,
+    "previously_processed_versions": {
+      "v1": {
+        "status": "supplemental",
+        "evidence_level": "abstract",
+        "report_path": "reports/2026-10-18_2026-10-24_BlazeVGGT-HiP3R-CAOS.html",
+        "report_anchor": "paper-2610-27049",
+        "ledger_path": "reports/2026-10-18_2026-10-24_paper-ledger.json",
+        "window_class": "new",
+        "v1_utc": "2026-10-19T17:59:55Z",
+        "updated_utc": "2026-10-19T17:59:55Z",
+        "read_sections": [
+          "Abstract (complete; main agent batches of 18)"
+        ],
+        "follow_up": "未深读全文、未检查源码、未运行；需核对原表、baseline、协议及硬件。",
+        "reviewed_at": "2026-10-24T16:30:17.216750Z",
+        "source_urls": [
+          "https://arxiv.org/abs/2610.27049",
+          "https://arxiv.org/abs/2610.27049v1",
+          "https://arxiv.org/list/cs.CV/recent?show=2000"
+        ]
+      }
+    },
+    "window_class": "revised",
+    "category": "world-model",
+    "problem": "三维场景编辑缺少配对数据，难以复用图像和视频编辑监督。",
+    "method": "三模态共享序列表示并渐进训练，在三维样本上用预训练几何模型提供深度与相机位姿监督。",
+    "insight": "三维几何监督可经共享骨干影响二维模态；编辑语义迁移和多视图一致性迁移贡献不同。",
+    "experiments": "摘要：只对三维样本施加几何监督最好，观察二维模态改善；无明确数值。当前v2摘要跟踪，未做版本全文diff。",
+    "takeaway": "用共享序列表示迁移图像与视频的编辑语义，再以三维样本的深度和位姿监督加强多视图一致性，探索几何监督跨模态传播。",
+    "priority": false,
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及world-model，纳入摘要跟踪。",
+    "status": "revision_tracking",
+    "follow_up": "未读论文全文、未运行；核对原表、数据划分、输入、硬件及公开资产。修订项未逐版全文比较。"
+  },
+  {
+    "id": "2604.21926",
+    "title": "IMU4D: 4D Human-Object Understanding from Wearable IMUs",
+    "abstract": "Understanding human activities and the objects they interact with typically relies on visual perception, yet cameras pose persistent challenges in privacy, safety, energy efficiency, and scalability. We explore an alternative: 4D perception without vision. Its goal is to recover human motion and the objects the person interacts with purely from everyday wearable sensors. For this we introduce IMU4D, a framework that repurposes large language models for non-visual spatiotemporal understanding of human-object dynamics. IMU4D uses data from a few inertial sensors from earbuds, watches, or smartphones and predicts detailed 4D human motion together with surrounding objects the person interacts with. Experiments across diverse human motion datasets and human-object datasets show that IMU4D yields more coherent and temporally stable results than SoTA cascaded pipelines, suggesting wearable motion sensors alone can support 4D understanding of human-object interactions.",
+    "search_date_text": [
+      "Submitted 29 October, 2026; v1 submitted 23 April, 2026; originally announced April 2026.",
+      "Comments: Project page: https://tianhang-cheng.github.io/IMU4D"
+    ],
+    "query_hits": [
+      "review-A-localization-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2604.21926",
+      "https://arxiv.org/abs/2604.21926v2"
+    ],
+    "reading_level": "complete abstract + official submission history",
+    "history_evidence": {
+      "url": "https://arxiv.org/abs/2604.21926",
+      "retrieved_at": "2026-11-01T15:37:02Z",
+      "history_raw": "Submission history From: Hao-Yu Hsu [ view email ] [v1] Thu, 23 Apr 2026 17:59:16 UTC (18,187 KB) [v2] Thu, 29 Oct 2026 05:50:44 UTC (16,095 KB)",
+      "version_history": [
+        {
+          "version": 1,
+          "utc": "2026-04-23T17:59:16Z"
+        },
+        {
+          "version": 2,
+          "utc": "2026-10-29T05:50:44Z"
+        }
+      ],
+      "history_verified": true,
+      "raw_path": "review-abs-2604.21926.html"
+    },
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-04-23T17:59:16Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-10-29T05:50:44Z"
+      }
+    ],
+    "history_verified": true,
+    "evidence_level": "abstract",
+    "abstract_read": true,
+    "read_sections": [
+      "Abstract (complete; independent review)",
+      "Official submission history"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "version": 2,
+    "v1_utc": "2026-04-23T17:59:16Z",
+    "updated_utc": "2026-10-29T05:50:44Z",
+    "original_report": null,
+    "previously_processed_versions": {},
+    "window_class": "revised",
+    "category": "sensor-application",
+    "problem": "视觉不可用或受隐私能耗限制时，恢复人与周围交互物体的四维动态。",
+    "method": "以耳机、手表、手机等少量IMU输入复用语言模型，联合预测人体运动和交互物体。",
+    "insight": "惯性运动包含人-物交互场景约束，任务仍与环境SLAM不同。",
+    "experiments": "摘要：多个人体及人-物数据集，称比级联流程更连贯稳定；无明确数值。未读全文或运行，按非视觉四维感知应用跟踪。",
+    "takeaway": "仅以少量日常可穿戴IMU联合恢复人体与交互物体的四维动态，展示非视觉传感的场景约束能力，需区分于相机定位和环境建图。",
+    "priority": false,
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及sensor-application，纳入摘要跟踪。",
+    "status": "revision_tracking",
+    "follow_up": "未读论文全文、未运行；核对原表、数据划分、输入、硬件及公开资产。修订项未逐版全文比较。"
+  },
+  {
+    "id": "2610.33135",
+    "title": "WorldCast: World-Consistent Character Video Generation with Large-Angle Camera Control",
+    "abstract": "Precise camera control is essential for cinematic character video generation, yet existing methods struggle to follow large-angle trajectories with combined rotation, translation, and radius variation from arbitrary initial azimuths. Such viewpoint changes also reveal character regions unseen in the initial frame, causing geometric distortions, appearance degradation, and identity drift. To systematically study these coupled challenges, we introduce CLACT, a large-scale Character-centric dataset and benchmark covering diverse Large-Angle Camera Trajectories, with accurate camera geometry and multi-view character observations for training and evaluation. We further propose WorldCast, a framework for world-consistent character video generation under diverse large-angle camera motions. Specifically, we back-project the initial frame into a 3D point cloud using estimated depth, align the point-cloud scale with the target camera trajectory, and render it along the trajectory to obtain explicit geometric guidance and coverage masks. To complement the incomplete character information, we introduce Geometry-Aligned Memory Attention (GAMA). Using relative camera poses estimated jointly from the initial frame and multi-view character anchors, we express anchor and target-view geometry in a common coordinate frame. GAMA uses this geometric alignment to guide the retrieval and injection of view-relevant character features during generation. Evaluations across diverse large-angle camera trajectories demonstrate accurate trajectory following while preserving character geometry, appearance, and identity.",
+    "search_date_text": [
+      "Submitted 23 October, 2026; originally announced October 2026.",
+      "Comments: 30 pages, 14 figures, 3 tables"
+    ],
+    "query_hits": [
+      "review-A-localization-submitted_date-0.html",
+      "review-A-localization-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.33135",
+      "https://arxiv.org/abs/2610.33135v1"
+    ],
+    "reading_level": "complete abstract + official submission history",
+    "history_evidence": {
+      "url": "https://arxiv.org/abs/2610.33135",
+      "retrieved_at": "2026-11-01T15:37:03Z",
+      "history_raw": "Submission history From: Lei Cao [ view email ] [v1] Fri, 23 Oct 2026 14:15:01 UTC (31,770 KB)",
+      "version_history": [
+        {
+          "version": 1,
+          "utc": "2026-10-23T14:15:01Z"
+        }
+      ],
+      "history_verified": true,
+      "raw_path": "review-abs-2610.33135.html"
+    },
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-23T14:15:01Z"
+      }
+    ],
+    "history_verified": true,
+    "evidence_level": "abstract",
+    "abstract_read": true,
+    "read_sections": [
+      "Abstract (complete; independent review)",
+      "Official submission history"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "version": 1,
+    "v1_utc": "2026-10-23T14:15:01Z",
+    "updated_utc": "2026-10-23T14:15:01Z",
+    "original_report": null,
+    "previously_processed_versions": {},
+    "window_class": "historical_backfill",
+    "category": "world-model",
+    "problem": "大角度相机控制的角色生成同时面临轨迹跟随、未见区域和身份漂移。",
+    "method": "深度反投影初始点云并与目标轨迹对齐，几何对齐记忆注意力利用多视图锚点和相对位姿注入视点相关外观。",
+    "insight": "显式几何控制与外观记忆互补，适用于带几何控制的世界生成邻接方向。",
+    "experiments": "摘要：CLACT数据集与基准，多种大角度轨迹；无明确数字。历史补漏，未读全文或运行。",
+    "takeaway": "把初始图像的深度点云沿目标轨迹投影，再按相对位姿检索多视图角色记忆，兼顾大角度相机控制与未见区域的外观一致性。",
+    "priority": false,
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及world-model，纳入摘要跟踪。",
+    "status": "supplemental",
+    "follow_up": "未读论文全文、未运行；核对原表、数据划分、输入、硬件及公开资产。修订项未逐版全文比较。"
+  },
+  {
+    "id": "2610.31834",
+    "title": "WorldMirror: Agentic Real-to-Sim Generation of Interactive Worlds from In-the-Wild Robot Demonstrations",
+    "abstract": "Existing approaches for robot learning in simulation often require substantial manual effort to construct scenes and specify tasks, limiting training scalability and data diversity. Meanwhile, in-the-wild robot demonstrations naturally provide diverse and realistic observations of real-world interactions. Leveraging these demonstrations for simulation requires both high-fidelity visual reconstruction and physically consistent interactions. General-purpose agents offer flexible adaptation to diverse scenarios and strong reasoning about 3D spatial relationships, while specialized generative models provide high-fidelity reconstruction of scene appearance and geometry. We introduce WorldMirror, an agentic real-to-sim framework that constructs interactive digital twins from in-the-wild robot demonstrations. Our central idea is to formulate real-to-sim construction as the iterative refinement of an executable world program. A coding agent decomposes the observed scene, plans reconstruction steps, and orchestrates specialized image and 3D generation tools, refining the program through verification feedback. A camera-pose-anchored scene representation organizes the world into static visual context, support geometry, and editable interactive assets while preserving spatial relationships among the scene, objects, and robot. The agent uses this representation to diagnose and correct reconstruction errors, enabling physically consistent interaction and trajectory replay. Experiments on DROID demonstrate that WorldMirror can reconstruct visually faithful and geometrically consistent interactive worlds while preserving the physical validity of recorded robot trajectories.",
+    "search_date_text": [
+      "Submitted 22 October, 2026; originally announced October 2026."
+    ],
+    "query_hits": [
+      "review-A-localization-submitted_date-0.html",
+      "review-A-localization-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.31834",
+      "https://arxiv.org/abs/2610.31834v1"
+    ],
+    "reading_level": "complete abstract + official submission history",
+    "history_evidence": {
+      "url": "https://arxiv.org/abs/2610.31834",
+      "retrieved_at": "2026-11-01T15:37:04Z",
+      "history_raw": "Submission history From: Yue Chen [ view email ] [v1] Thu, 22 Oct 2026 19:13:05 UTC (12,520 KB)",
+      "version_history": [
+        {
+          "version": 1,
+          "utc": "2026-10-22T19:13:05Z"
+        }
+      ],
+      "history_verified": true,
+      "raw_path": "review-abs-2610.31834.html"
+    },
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-22T19:13:05Z"
+      }
+    ],
+    "history_verified": true,
+    "evidence_level": "abstract",
+    "abstract_read": true,
+    "read_sections": [
+      "Abstract (complete; independent review)",
+      "Official submission history"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "version": 1,
+    "v1_utc": "2026-10-22T19:13:05Z",
+    "updated_utc": "2026-10-22T19:13:05Z",
+    "original_report": null,
+    "previously_processed_versions": {},
+    "window_class": "historical_backfill",
+    "category": "world-model",
+    "problem": "野外机器人演示到仿真数字孪生，需要同时保持视觉几何与物理交互有效性。",
+    "method": "编码agent迭代修订可执行世界程序，调用图像和三维工具；相机位姿锚定背景、支撑几何和交互资产。",
+    "insight": "用可执行程序和回放验证组织real-to-sim，而非只优化重建外观。",
+    "experiments": "摘要：DROID演示重建，评估视觉几何一致性与轨迹物理有效性；无明确数字。历史补漏，未核全文或运行。",
+    "takeaway": "把机器人演示到仿真的转换写成可执行世界程序的迭代修订，以相机位姿组织背景、支撑几何和交互资产，并用轨迹回放验证物理一致性。",
+    "priority": false,
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及world-model，纳入摘要跟踪。",
+    "status": "supplemental",
+    "follow_up": "未读论文全文、未运行；核对原表、数据划分、输入、硬件及公开资产。修订项未逐版全文比较。"
+  },
+  {
+    "id": "2610.11105",
+    "title": "TKCAM: Text and Keyframe to Camera Trajectory Generation",
+    "abstract": "Generating high-quality and controllable camera motion is essential for AI-assisted cinematography, video synthesis, and 3D scene understanding. We introduce TKCAM, a Text- and Keyframe-conditioned CAMera-motion synthesis framework based on generative masked modeling. We represent camera dynamics using a 12-dimensional kinematic feature comprising position, velocity, and a continuous rotation representation and discretize them into hierarchical motion tokens via a Residual Vector Quantizer (RVQ). A two-stage masked transformer architecture then learns to reconstruct and refine these tokens, utilizing explicit self- and cross-attention modules for multimodal conditioning. A central feature of our framework is sparse visual keyframe conditioning: users can provide free-form text prompts together with RGB observations at selected timestamps, which provide temporally localized visual guidance for generating coherent in-between trajectories. Furthermore, to advance evaluation standards, we curate RealEstate10K-Cap, a large-scale text-camera dataset, and establish a cross-domain benchmark with a Universal CLaTr Evaluator. Extensive experiments demonstrate that TKCAM surpasses recent state-of-the-art baselines on Fréchet distance (FID), text-motion matching scores, and retrieval metrics (R@K), while additional analyses evaluate temporal smoothness and cross-domain generalization. Code and RealEstate10K-Cap dataset are available at https://github.com/linearalgebrayhz/TKCAM.",
+    "search_date_text": [
+      "Submitted 29 October, 2026; v1 submitted 7 October, 2026; originally announced October 2026.",
+      "Comments: 20 pages, 7 figures. Paper accepted to NeurIPS2026 (submission number 15461)"
+    ],
+    "query_hits": [
+      "review-B-dense-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.11105",
+      "https://arxiv.org/abs/2610.11105v2"
+    ],
+    "reading_level": "complete abstract + official submission history",
+    "history_evidence": {
+      "url": "https://arxiv.org/abs/2610.11105",
+      "retrieved_at": "2026-11-01T15:37:05Z",
+      "history_raw": "Submission history From: Haozhe Yang [ view email ] [v1] Thu, 8 Oct 2026 02:20:16 UTC (1,059 KB) [v2] Thu, 29 Oct 2026 06:23:05 UTC (1,060 KB)",
+      "version_history": [
+        {
+          "version": 1,
+          "utc": "2026-10-08T02:20:16Z"
+        },
+        {
+          "version": 2,
+          "utc": "2026-10-29T06:23:05Z"
+        }
+      ],
+      "history_verified": true,
+      "raw_path": "review-abs-2610.11105.html"
+    },
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-08T02:20:16Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-10-29T06:23:05Z"
+      }
+    ],
+    "history_verified": true,
+    "evidence_level": "abstract",
+    "abstract_read": true,
+    "read_sections": [
+      "Abstract (complete; independent review)",
+      "Official submission history"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "version": 2,
+    "v1_utc": "2026-10-08T02:20:16Z",
+    "updated_utc": "2026-10-29T06:23:05Z",
+    "original_report": null,
+    "previously_processed_versions": {},
+    "window_class": "revised",
+    "category": "world-model",
+    "problem": "由文本与稀疏关键帧生成连贯可控的相机轨迹。",
+    "method": "12维位置、速度与连续旋转特征经残差向量量化为分层token，两阶段masked transformer重建并细化运动。",
+    "insight": "关键帧提供时间局部控制，属于世界生成的相机轨迹条件，而非观测位姿估计。",
+    "experiments": "摘要：RealEstate10K-Cap及跨域Universal CLaTr基准，称FID、检索和文本运动匹配改善；无数字。未核全文或运行。",
+    "takeaway": "将相机位置、速度和旋转量化为分层运动token，再由文本与稀疏视觉关键帧引导两阶段生成，为三维世界与视频生成提供可控轨迹。",
+    "priority": false,
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及world-model，纳入摘要跟踪。",
+    "status": "revision_tracking",
+    "follow_up": "未读论文全文、未运行；核对原表、数据划分、输入、硬件及公开资产。修订项未逐版全文比较。"
+  },
+  {
+    "id": "2610.34921",
+    "title": "PhysEvolve: Verifier-grounded Self-evolution for Physical Reasoning with Executable Worlds",
+    "abstract": "Physical reasoning underpins how embodied systems understand and act in the physical world, yet vision-language models (VLMs) remain unreliable on questions about dynamics and physical causality. Progress is critically constrained by the scarcity of grounded counterfactual training data, as observational videos capture only the factual trajectory that occurred. The self-evolving paradigm offers a route beyond fixed datasets by enabling models to construct their own training problems. Extending this paradigm to physics, however, requires an external source of truth that can both validate model-proposed environments and verify alternative physical outcomes under intervention. We introduce \\physevolve{}, a verifier-grounded self-evolving framework that trains VLMs for causal physical reasoning from model-proposed executable worlds and simulation-authored tasks. At each round, a shared VLM proposes executable world programs and evidence schemas; a deterministic physics engine freezes each valid world, simulates matched baseline and body-elided counterfactual branches, and synthesizes discrete, answer-bound visual tasks. Exact verifier feedback from task solving updates both the shared policy via GRPO and an adaptive curriculum over physical intents. Starting from Qwen3-VL-8B-Instruct, \\physevolve{} achieves targeted gains across PhysBench, CausalPhys, and ContPhy without human intervention data, improving PhysBench Throwing by $8.8$ points and ContPhy Counterfactual Removal and Goal-Pit by $7.4$ and $24.4$ points. These gains concentrate on interaction-sensitive and altered-world questions, demonstrating zero-shot transfer of causal principles to unseen complex dynamics (cloth, fluid, soft bodies) and real-world video.",
+    "search_date_text": [
+      "Submitted 26 October, 2026; originally announced October 2026.",
+      "Comments: Preprint"
+    ],
+    "query_hits": [
+      "review-C-simulator-submitted_date-0.html",
+      "review-C-simulator-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.34921",
+      "https://arxiv.org/abs/2610.34921v1"
+    ],
+    "reading_level": "complete abstract + official submission history",
+    "category": "simulation-evaluation",
+    "problem": "观测视频只有事实轨迹，通用VLM物理因果推理缺少可验证的反事实训练数据。",
+    "method": "VLM提出可执行world程序和证据schema；确定性物理引擎冻结有效世界并模拟baseline与body-elided分支，生成答案可验证任务；GRPO与自适应课程迭代更新。",
+    "insight": "以外部物理引擎同时约束训练世界有效性和反事实答案，减少模型自拟题的无依据反馈。",
+    "experiments": "摘要：从Qwen3-VL-8B-Instruct开始，PhysBench Throwing提升8.8点，ContPhy Counterfactual Removal/Goal-Pit提升7.4/24.4点；转移至布料、流体、软体及真实视频。未读全文、未运行。",
+    "takeaway": "由模型提出可执行物理世界，再用确定性引擎生成事实与移除物体的反事实任务，以可验证反馈和课程自演化训练物理因果推理。",
+    "priority": false,
+    "priority_reason": "C层可执行物理模拟与训练评测扩展，非SLAM或几何重建核心。",
+    "version": 1,
+    "v1_utc": "2026-10-26T06:50:45Z",
+    "updated_utc": "2026-10-26T06:50:45Z",
+    "window_class": "new",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-10-26T06:50:45Z"
+      }
+    ],
+    "history_evidence": {
+      "url": "https://arxiv.org/abs/2610.34921",
+      "retrieved_at": "2026-11-02T15:51:17Z",
+      "history_raw": "Submission history From: Yilei Jiang [ view email ] [v1] Mon, 26 Oct 2026 06:50:45 UTC (3,145 KB)",
+      "version_history": [
+        {
+          "version": 1,
+          "utc": "2026-10-26T06:50:45Z"
+        }
+      ],
+      "history_verified": true,
+      "raw_path": "review-abs-2610.34921.html"
+    },
+    "history_verified": true,
+    "evidence_level": "abstract",
+    "abstract_read": true,
+    "read_sections": [
+      "Title (independent LLM review of 937 prefilter exclusions)",
+      "Abstract (complete; ambiguous-title follow-up)",
+      "Official submission history"
+    ],
+    "disposition": "included",
+    "status": "supplemental",
+    "reason": "主审明确将C范围扩展为可执行物理world simulator/评测训练，按simulation-evaluation纳入，非核心。",
+    "scope_decision": "parent clarified C scope after complete abstract review; original prefilter exclusion retained in review-original-programmatic-dispositions.json",
+    "original_report": null,
+    "previously_processed_versions": {},
+    "follow_up": "仅摘要与官方历史；未核全文原表、世界生成验证细节、反事实干预协议或训练代码，未运行。",
+    "reviewed_at": "2026-11-02T15:51:54.642640+00:00"
+  }
+]

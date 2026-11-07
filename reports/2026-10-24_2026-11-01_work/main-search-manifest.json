@@ -1,0 +1,374 @@
+[
+  {
+    "name": "main-api-A-state-submittedDate",
+    "family": "A-state",
+    "source": "arXiv Atom API",
+    "field": "ti OR abs",
+    "query": "((ti:SLAM) OR (abs:SLAM) OR (ti:\"simultaneous localization\") OR (abs:\"simultaneous localization\") OR (ti:\"simultaneous localisation\") OR (abs:\"simultaneous localisation\") OR (ti:VIO) OR (abs:VIO) OR (ti:\"visual-inertial\") OR (abs:\"visual-inertial\") OR (ti:odometry) OR (abs:odometry) OR (ti:SfM) OR (abs:SfM) OR (ti:\"structure from motion\") OR (abs:\"structure from motion\")) AND submittedDate:[202610220000 TO 202611011459]",
+    "date_predicate": "submittedDate:[202610220000 TO 202611011459]",
+    "retrieved_at": "2026-11-01T15:17:56Z",
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3ASLAM%29+OR+%28abs%3ASLAM%29+OR+%28ti%3A%22simultaneous+localization%22%29+OR+%28abs%3A%22simultaneous+localization%22%29+OR+%28ti%3A%22simultaneous+localisation%22%29+OR+%28abs%3A%22simultaneous+localisation%22%29+OR+%28ti%3AVIO%29+OR+%28abs%3AVIO%29+OR+%28ti%3A%22visual-inertial%22%29+OR+%28abs%3A%22visual-inertial%22%29+OR+%28ti%3Aodometry%29+OR+%28abs%3Aodometry%29+OR+%28ti%3ASfM%29+OR+%28abs%3ASfM%29+OR+%28ti%3A%22structure+from+motion%22%29+OR+%28abs%3A%22structure+from+motion%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 34,
+        "raw_path": "main-api-A-state-submittedDate-0.xml"
+      }
+    ],
+    "fetched": 34,
+    "total": 34,
+    "exhausted": true
+  },
+  {
+    "name": "main-api-A-state-lastUpdatedDate",
+    "family": "A-state",
+    "source": "arXiv Atom API",
+    "field": "ti OR abs",
+    "query": "((ti:SLAM) OR (abs:SLAM) OR (ti:\"simultaneous localization\") OR (abs:\"simultaneous localization\") OR (ti:\"simultaneous localisation\") OR (abs:\"simultaneous localisation\") OR (ti:VIO) OR (abs:VIO) OR (ti:\"visual-inertial\") OR (abs:\"visual-inertial\") OR (ti:odometry) OR (abs:odometry) OR (ti:SfM) OR (abs:SfM) OR (ti:\"structure from motion\") OR (abs:\"structure from motion\")) AND lastUpdatedDate:[202610220000 TO 202611011459]",
+    "date_predicate": "lastUpdatedDate:[202610220000 TO 202611011459]",
+    "retrieved_at": "2026-11-01T15:17:56Z",
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3ASLAM%29+OR+%28abs%3ASLAM%29+OR+%28ti%3A%22simultaneous+localization%22%29+OR+%28abs%3A%22simultaneous+localization%22%29+OR+%28ti%3A%22simultaneous+localisation%22%29+OR+%28abs%3A%22simultaneous+localisation%22%29+OR+%28ti%3AVIO%29+OR+%28abs%3AVIO%29+OR+%28ti%3A%22visual-inertial%22%29+OR+%28abs%3A%22visual-inertial%22%29+OR+%28ti%3Aodometry%29+OR+%28abs%3Aodometry%29+OR+%28ti%3ASfM%29+OR+%28abs%3ASfM%29+OR+%28ti%3A%22structure+from+motion%22%29+OR+%28abs%3A%22structure+from+motion%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 34,
+        "raw_path": "main-api-A-state-lastUpdatedDate-0.xml"
+      }
+    ],
+    "fetched": 34,
+    "total": 34,
+    "exhausted": true
+  },
+  {
+    "name": "main-api-A-backend-submittedDate",
+    "family": "A-backend",
+    "source": "arXiv Atom API",
+    "field": "ti OR abs",
+    "query": "((ti:\"loop closure\") OR (abs:\"loop closure\") OR (ti:relocalization) OR (abs:relocalization) OR (ti:relocalisation) OR (abs:relocalisation) OR (ti:registration) OR (abs:registration) OR (ti:\"bundle adjustment\") OR (abs:\"bundle adjustment\") OR (ti:\"pose graph\") OR (abs:\"pose graph\")) AND submittedDate:[202610220000 TO 202611011459]",
+    "date_predicate": "submittedDate:[202610220000 TO 202611011459]",
+    "retrieved_at": "2026-11-01T15:17:58Z",
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22loop+closure%22%29+OR+%28abs%3A%22loop+closure%22%29+OR+%28ti%3Arelocalization%29+OR+%28abs%3Arelocalization%29+OR+%28ti%3Arelocalisation%29+OR+%28abs%3Arelocalisation%29+OR+%28ti%3Aregistration%29+OR+%28abs%3Aregistration%29+OR+%28ti%3A%22bundle+adjustment%22%29+OR+%28abs%3A%22bundle+adjustment%22%29+OR+%28ti%3A%22pose+graph%22%29+OR+%28abs%3A%22pose+graph%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 52,
+        "raw_path": "main-api-A-backend-submittedDate-0.xml"
+      }
+    ],
+    "fetched": 52,
+    "total": 52,
+    "exhausted": true
+  },
+  {
+    "name": "main-api-A-backend-lastUpdatedDate",
+    "family": "A-backend",
+    "source": "arXiv Atom API",
+    "field": "ti OR abs",
+    "query": "((ti:\"loop closure\") OR (abs:\"loop closure\") OR (ti:relocalization) OR (abs:relocalization) OR (ti:relocalisation) OR (abs:relocalisation) OR (ti:registration) OR (abs:registration) OR (ti:\"bundle adjustment\") OR (abs:\"bundle adjustment\") OR (ti:\"pose graph\") OR (abs:\"pose graph\")) AND lastUpdatedDate:[202610220000 TO 202611011459]",
+    "date_predicate": "lastUpdatedDate:[202610220000 TO 202611011459]",
+    "retrieved_at": "2026-11-01T15:17:59Z",
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22loop+closure%22%29+OR+%28abs%3A%22loop+closure%22%29+OR+%28ti%3Arelocalization%29+OR+%28abs%3Arelocalization%29+OR+%28ti%3Arelocalisation%29+OR+%28abs%3Arelocalisation%29+OR+%28ti%3Aregistration%29+OR+%28abs%3Aregistration%29+OR+%28ti%3A%22bundle+adjustment%22%29+OR+%28abs%3A%22bundle+adjustment%22%29+OR+%28ti%3A%22pose+graph%22%29+OR+%28abs%3A%22pose+graph%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 52,
+        "raw_path": "main-api-A-backend-lastUpdatedDate-0.xml"
+      }
+    ],
+    "fetched": 52,
+    "total": 52,
+    "exhausted": true
+  },
+  {
+    "name": "main-api-A-sensors-submittedDate",
+    "family": "A-sensors",
+    "source": "arXiv Atom API",
+    "field": "ti OR abs",
+    "query": "(((ti:LiDAR) OR (abs:LiDAR) OR (ti:radar) OR (abs:radar) OR (ti:\"RGB-D\") OR (abs:\"RGB-D\") OR (ti:monocular) OR (abs:monocular) OR (ti:\"multi-camera\") OR (abs:\"multi-camera\")) AND (ti:odometry OR abs:odometry OR ti:SLAM OR abs:SLAM OR ti:localization OR abs:localization OR ti:calibration OR abs:calibration)) AND submittedDate:[202610220000 TO 202611011459]",
+    "date_predicate": "submittedDate:[202610220000 TO 202611011459]",
+    "retrieved_at": "2026-11-01T15:18:00Z",
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28%28ti%3ALiDAR%29+OR+%28abs%3ALiDAR%29+OR+%28ti%3Aradar%29+OR+%28abs%3Aradar%29+OR+%28ti%3A%22RGB-D%22%29+OR+%28abs%3A%22RGB-D%22%29+OR+%28ti%3Amonocular%29+OR+%28abs%3Amonocular%29+OR+%28ti%3A%22multi-camera%22%29+OR+%28abs%3A%22multi-camera%22%29%29+AND+%28ti%3Aodometry+OR+abs%3Aodometry+OR+ti%3ASLAM+OR+abs%3ASLAM+OR+ti%3Alocalization+OR+abs%3Alocalization+OR+ti%3Acalibration+OR+abs%3Acalibration%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 36,
+        "raw_path": "main-api-A-sensors-submittedDate-0.xml"
+      }
+    ],
+    "fetched": 36,
+    "total": 36,
+    "exhausted": true
+  },
+  {
+    "name": "main-api-A-sensors-lastUpdatedDate",
+    "family": "A-sensors",
+    "source": "arXiv Atom API",
+    "field": "ti OR abs",
+    "query": "(((ti:LiDAR) OR (abs:LiDAR) OR (ti:radar) OR (abs:radar) OR (ti:\"RGB-D\") OR (abs:\"RGB-D\") OR (ti:monocular) OR (abs:monocular) OR (ti:\"multi-camera\") OR (abs:\"multi-camera\")) AND (ti:odometry OR abs:odometry OR ti:SLAM OR abs:SLAM OR ti:localization OR abs:localization OR ti:calibration OR abs:calibration)) AND lastUpdatedDate:[202610220000 TO 202611011459]",
+    "date_predicate": "lastUpdatedDate:[202610220000 TO 202611011459]",
+    "retrieved_at": "2026-11-01T15:18:02Z",
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28%28ti%3ALiDAR%29+OR+%28abs%3ALiDAR%29+OR+%28ti%3Aradar%29+OR+%28abs%3Aradar%29+OR+%28ti%3A%22RGB-D%22%29+OR+%28abs%3A%22RGB-D%22%29+OR+%28ti%3Amonocular%29+OR+%28abs%3Amonocular%29+OR+%28ti%3A%22multi-camera%22%29+OR+%28abs%3A%22multi-camera%22%29%29+AND+%28ti%3Aodometry+OR+abs%3Aodometry+OR+ti%3ASLAM+OR+abs%3ASLAM+OR+ti%3Alocalization+OR+abs%3Alocalization+OR+ti%3Acalibration+OR+abs%3Acalibration%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 36,
+        "raw_path": "main-api-A-sensors-lastUpdatedDate-0.xml"
+      }
+    ],
+    "fetched": 36,
+    "total": 36,
+    "exhausted": true
+  },
+  {
+    "name": "main-api-B-foundation-submittedDate",
+    "family": "B-foundation",
+    "source": "arXiv Atom API",
+    "field": "ti OR abs",
+    "query": "((ti:VGGT) OR (abs:VGGT) OR (ti:\"VGGT-Ω\") OR (abs:\"VGGT-Ω\") OR (ti:OmniVGGT) OR (abs:OmniVGGT) OR (ti:\"geometry foundation\") OR (abs:\"geometry foundation\") OR (ti:\"visual geometry transformer\") OR (abs:\"visual geometry transformer\") OR (ti:DUSt3R) OR (abs:DUSt3R) OR (ti:MASt3R) OR (abs:MASt3R) OR (ti:pi3) OR (abs:pi3) OR (ti:\"π³\") OR (abs:\"π³\") OR (ti:DA3) OR (abs:DA3) OR (ti:\"Depth Anything\") OR (abs:\"Depth Anything\")) AND submittedDate:[202610220000 TO 202611011459]",
+    "date_predicate": "submittedDate:[202610220000 TO 202611011459]",
+    "retrieved_at": "2026-11-01T15:18:03Z",
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3AVGGT%29+OR+%28abs%3AVGGT%29+OR+%28ti%3A%22VGGT-%CE%A9%22%29+OR+%28abs%3A%22VGGT-%CE%A9%22%29+OR+%28ti%3AOmniVGGT%29+OR+%28abs%3AOmniVGGT%29+OR+%28ti%3A%22geometry+foundation%22%29+OR+%28abs%3A%22geometry+foundation%22%29+OR+%28ti%3A%22visual+geometry+transformer%22%29+OR+%28abs%3A%22visual+geometry+transformer%22%29+OR+%28ti%3ADUSt3R%29+OR+%28abs%3ADUSt3R%29+OR+%28ti%3AMASt3R%29+OR+%28abs%3AMASt3R%29+OR+%28ti%3Api3%29+OR+%28abs%3Api3%29+OR+%28ti%3A%22%CF%80%C2%B3%22%29+OR+%28abs%3A%22%CF%80%C2%B3%22%29+OR+%28ti%3ADA3%29+OR+%28abs%3ADA3%29+OR+%28ti%3A%22Depth+Anything%22%29+OR+%28abs%3A%22Depth+Anything%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 89,
+        "raw_path": "main-api-B-foundation-submittedDate-0.xml"
+      }
+    ],
+    "fetched": 89,
+    "total": 89,
+    "exhausted": true
+  },
+  {
+    "name": "main-api-B-foundation-lastUpdatedDate",
+    "family": "B-foundation",
+    "source": "arXiv Atom API",
+    "field": "ti OR abs",
+    "query": "((ti:VGGT) OR (abs:VGGT) OR (ti:\"VGGT-Ω\") OR (abs:\"VGGT-Ω\") OR (ti:OmniVGGT) OR (abs:OmniVGGT) OR (ti:\"geometry foundation\") OR (abs:\"geometry foundation\") OR (ti:\"visual geometry transformer\") OR (abs:\"visual geometry transformer\") OR (ti:DUSt3R) OR (abs:DUSt3R) OR (ti:MASt3R) OR (abs:MASt3R) OR (ti:pi3) OR (abs:pi3) OR (ti:\"π³\") OR (abs:\"π³\") OR (ti:DA3) OR (abs:DA3) OR (ti:\"Depth Anything\") OR (abs:\"Depth Anything\")) AND lastUpdatedDate:[202610220000 TO 202611011459]",
+    "date_predicate": "lastUpdatedDate:[202610220000 TO 202611011459]",
+    "retrieved_at": "2026-11-01T15:18:06Z",
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3AVGGT%29+OR+%28abs%3AVGGT%29+OR+%28ti%3A%22VGGT-%CE%A9%22%29+OR+%28abs%3A%22VGGT-%CE%A9%22%29+OR+%28ti%3AOmniVGGT%29+OR+%28abs%3AOmniVGGT%29+OR+%28ti%3A%22geometry+foundation%22%29+OR+%28abs%3A%22geometry+foundation%22%29+OR+%28ti%3A%22visual+geometry+transformer%22%29+OR+%28abs%3A%22visual+geometry+transformer%22%29+OR+%28ti%3ADUSt3R%29+OR+%28abs%3ADUSt3R%29+OR+%28ti%3AMASt3R%29+OR+%28abs%3AMASt3R%29+OR+%28ti%3Api3%29+OR+%28abs%3Api3%29+OR+%28ti%3A%22%CF%80%C2%B3%22%29+OR+%28abs%3A%22%CF%80%C2%B3%22%29+OR+%28ti%3ADA3%29+OR+%28abs%3ADA3%29+OR+%28ti%3A%22Depth+Anything%22%29+OR+%28abs%3A%22Depth+Anything%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 89,
+        "raw_path": "main-api-B-foundation-lastUpdatedDate-0.xml"
+      }
+    ],
+    "fetched": 89,
+    "total": 89,
+    "exhausted": true
+  },
+  {
+    "name": "main-api-B-reconstruction-submittedDate",
+    "family": "B-reconstruction",
+    "source": "arXiv Atom API",
+    "field": "ti OR abs",
+    "query": "((ti:\"feed-forward\") OR (abs:\"feed-forward\") OR (ti:feedforward) OR (abs:feedforward) OR (ti:\"3D reconstruction\") OR (abs:\"3D reconstruction\") OR (ti:pointmap) OR (abs:pointmap) OR (ti:\"Gaussian splatting\") OR (abs:\"Gaussian splatting\") OR (ti:3DGS) OR (abs:3DGS)) AND submittedDate:[202610220000 TO 202611011459]",
+    "date_predicate": "submittedDate:[202610220000 TO 202611011459]",
+    "retrieved_at": "2026-11-01T15:18:07Z",
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22feed-forward%22%29+OR+%28abs%3A%22feed-forward%22%29+OR+%28ti%3Afeedforward%29+OR+%28abs%3Afeedforward%29+OR+%28ti%3A%223D+reconstruction%22%29+OR+%28abs%3A%223D+reconstruction%22%29+OR+%28ti%3Apointmap%29+OR+%28abs%3Apointmap%29+OR+%28ti%3A%22Gaussian+splatting%22%29+OR+%28abs%3A%22Gaussian+splatting%22%29+OR+%28ti%3A3DGS%29+OR+%28abs%3A3DGS%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 83,
+        "raw_path": "main-api-B-reconstruction-submittedDate-0.xml"
+      }
+    ],
+    "fetched": 83,
+    "total": 83,
+    "exhausted": true
+  },
+  {
+    "name": "main-api-B-reconstruction-lastUpdatedDate",
+    "family": "B-reconstruction",
+    "source": "arXiv Atom API",
+    "field": "ti OR abs",
+    "query": "((ti:\"feed-forward\") OR (abs:\"feed-forward\") OR (ti:feedforward) OR (abs:feedforward) OR (ti:\"3D reconstruction\") OR (abs:\"3D reconstruction\") OR (ti:pointmap) OR (abs:pointmap) OR (ti:\"Gaussian splatting\") OR (abs:\"Gaussian splatting\") OR (ti:3DGS) OR (abs:3DGS)) AND lastUpdatedDate:[202610220000 TO 202611011459]",
+    "date_predicate": "lastUpdatedDate:[202610220000 TO 202611011459]",
+    "retrieved_at": "2026-11-01T15:18:09Z",
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22feed-forward%22%29+OR+%28abs%3A%22feed-forward%22%29+OR+%28ti%3Afeedforward%29+OR+%28abs%3Afeedforward%29+OR+%28ti%3A%223D+reconstruction%22%29+OR+%28abs%3A%223D+reconstruction%22%29+OR+%28ti%3Apointmap%29+OR+%28abs%3Apointmap%29+OR+%28ti%3A%22Gaussian+splatting%22%29+OR+%28abs%3A%22Gaussian+splatting%22%29+OR+%28ti%3A3DGS%29+OR+%28abs%3A3DGS%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 83,
+        "raw_path": "main-api-B-reconstruction-lastUpdatedDate-0.xml"
+      }
+    ],
+    "fetched": 83,
+    "total": 83,
+    "exhausted": true
+  },
+  {
+    "name": "main-api-B-streaming-submittedDate",
+    "family": "B-streaming",
+    "source": "arXiv Atom API",
+    "field": "ti OR abs",
+    "query": "((ti:\"long-sequence\") OR (abs:\"long-sequence\") OR (ti:\"long-horizon\") OR (abs:\"long-horizon\") OR (ti:streaming) OR (abs:streaming) OR (ti:\"efficient attention\") OR (abs:\"efficient attention\") OR (ti:\"online reconstruction\") OR (abs:\"online reconstruction\")) AND submittedDate:[202610220000 TO 202611011459]",
+    "date_predicate": "submittedDate:[202610220000 TO 202611011459]",
+    "retrieved_at": "2026-11-01T15:18:11Z",
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 200,
+        "raw_path": "main-api-B-streaming-submittedDate-0.xml"
+      },
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=200&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 200,
+        "returned": 155,
+        "raw_path": "main-api-B-streaming-submittedDate-200.xml"
+      }
+    ],
+    "fetched": 355,
+    "total": 355,
+    "exhausted": true
+  },
+  {
+    "name": "main-api-B-streaming-lastUpdatedDate",
+    "family": "B-streaming",
+    "source": "arXiv Atom API",
+    "field": "ti OR abs",
+    "query": "((ti:\"long-sequence\") OR (abs:\"long-sequence\") OR (ti:\"long-horizon\") OR (abs:\"long-horizon\") OR (ti:streaming) OR (abs:streaming) OR (ti:\"efficient attention\") OR (abs:\"efficient attention\") OR (ti:\"online reconstruction\") OR (abs:\"online reconstruction\")) AND lastUpdatedDate:[202610220000 TO 202611011459]",
+    "date_predicate": "lastUpdatedDate:[202610220000 TO 202611011459]",
+    "retrieved_at": "2026-11-01T15:18:11Z",
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 200,
+        "raw_path": "main-api-B-streaming-lastUpdatedDate-0.xml"
+      },
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=200&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 200,
+        "returned": 155,
+        "raw_path": "main-api-B-streaming-lastUpdatedDate-200.xml"
+      }
+    ],
+    "fetched": 355,
+    "total": 355,
+    "exhausted": true
+  },
+  {
+    "name": "main-api-C-navigation-submittedDate",
+    "family": "C-navigation",
+    "source": "arXiv Atom API",
+    "field": "ti OR abs",
+    "query": "((ti:\"embodied navigation\") OR (abs:\"embodied navigation\") OR (ti:VLN) OR (abs:VLN) OR (ti:\"vision-language navigation\") OR (abs:\"vision-language navigation\") OR (ti:\"active mapping\") OR (abs:\"active mapping\") OR (ti:\"semantic mapping\") OR (abs:\"semantic mapping\") OR (ti:\"open-vocabulary mapping\") OR (abs:\"open-vocabulary mapping\")) AND submittedDate:[202610220000 TO 202611011459]",
+    "date_predicate": "submittedDate:[202610220000 TO 202611011459]",
+    "retrieved_at": "2026-11-01T15:18:22Z",
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22embodied+navigation%22%29+OR+%28abs%3A%22embodied+navigation%22%29+OR+%28ti%3AVLN%29+OR+%28abs%3AVLN%29+OR+%28ti%3A%22vision-language+navigation%22%29+OR+%28abs%3A%22vision-language+navigation%22%29+OR+%28ti%3A%22active+mapping%22%29+OR+%28abs%3A%22active+mapping%22%29+OR+%28ti%3A%22semantic+mapping%22%29+OR+%28abs%3A%22semantic+mapping%22%29+OR+%28ti%3A%22open-vocabulary+mapping%22%29+OR+%28abs%3A%22open-vocabulary+mapping%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 19,
+        "raw_path": "main-api-C-navigation-submittedDate-0.xml"
+      }
+    ],
+    "fetched": 19,
+    "total": 19,
+    "exhausted": true
+  },
+  {
+    "name": "main-api-C-navigation-lastUpdatedDate",
+    "family": "C-navigation",
+    "source": "arXiv Atom API",
+    "field": "ti OR abs",
+    "query": "((ti:\"embodied navigation\") OR (abs:\"embodied navigation\") OR (ti:VLN) OR (abs:VLN) OR (ti:\"vision-language navigation\") OR (abs:\"vision-language navigation\") OR (ti:\"active mapping\") OR (abs:\"active mapping\") OR (ti:\"semantic mapping\") OR (abs:\"semantic mapping\") OR (ti:\"open-vocabulary mapping\") OR (abs:\"open-vocabulary mapping\")) AND lastUpdatedDate:[202610220000 TO 202611011459]",
+    "date_predicate": "lastUpdatedDate:[202610220000 TO 202611011459]",
+    "retrieved_at": "2026-11-01T15:18:23Z",
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22embodied+navigation%22%29+OR+%28abs%3A%22embodied+navigation%22%29+OR+%28ti%3AVLN%29+OR+%28abs%3AVLN%29+OR+%28ti%3A%22vision-language+navigation%22%29+OR+%28abs%3A%22vision-language+navigation%22%29+OR+%28ti%3A%22active+mapping%22%29+OR+%28abs%3A%22active+mapping%22%29+OR+%28ti%3A%22semantic+mapping%22%29+OR+%28abs%3A%22semantic+mapping%22%29+OR+%28ti%3A%22open-vocabulary+mapping%22%29+OR+%28abs%3A%22open-vocabulary+mapping%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 19,
+        "raw_path": "main-api-C-navigation-lastUpdatedDate-0.xml"
+      }
+    ],
+    "fetched": 19,
+    "total": 19,
+    "exhausted": true
+  },
+  {
+    "name": "main-api-C-world-submittedDate",
+    "family": "C-world",
+    "source": "arXiv Atom API",
+    "field": "ti OR abs",
+    "query": "((ti:\"world model\") OR (abs:\"world model\") OR (ti:\"world-action\") OR (abs:\"world-action\") OR (ti:\"world action\") OR (abs:\"world action\") OR (ti:\"world modeling\") OR (abs:\"world modeling\")) AND submittedDate:[202610220000 TO 202611011459]",
+    "date_predicate": "submittedDate:[202610220000 TO 202611011459]",
+    "retrieved_at": "2026-11-01T15:18:24Z",
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22world+model%22%29+OR+%28abs%3A%22world+model%22%29+OR+%28ti%3A%22world-action%22%29+OR+%28abs%3A%22world-action%22%29+OR+%28ti%3A%22world+action%22%29+OR+%28abs%3A%22world+action%22%29+OR+%28ti%3A%22world+modeling%22%29+OR+%28abs%3A%22world+modeling%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 102,
+        "raw_path": "main-api-C-world-submittedDate-0.xml"
+      }
+    ],
+    "fetched": 102,
+    "total": 102,
+    "exhausted": true
+  },
+  {
+    "name": "main-api-C-world-lastUpdatedDate",
+    "family": "C-world",
+    "source": "arXiv Atom API",
+    "field": "ti OR abs",
+    "query": "((ti:\"world model\") OR (abs:\"world model\") OR (ti:\"world-action\") OR (abs:\"world-action\") OR (ti:\"world action\") OR (abs:\"world action\") OR (ti:\"world modeling\") OR (abs:\"world modeling\")) AND lastUpdatedDate:[202610220000 TO 202611011459]",
+    "date_predicate": "lastUpdatedDate:[202610220000 TO 202611011459]",
+    "retrieved_at": "2026-11-01T15:18:25Z",
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22world+model%22%29+OR+%28abs%3A%22world+model%22%29+OR+%28ti%3A%22world-action%22%29+OR+%28abs%3A%22world-action%22%29+OR+%28ti%3A%22world+action%22%29+OR+%28abs%3A%22world+action%22%29+OR+%28ti%3A%22world+modeling%22%29+OR+%28abs%3A%22world+modeling%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 102,
+        "raw_path": "main-api-C-world-lastUpdatedDate-0.xml"
+      }
+    ],
+    "fetched": 102,
+    "total": 102,
+    "exhausted": true
+  },
+  {
+    "name": "main-api-C-applications-submittedDate",
+    "family": "C-applications",
+    "source": "arXiv Atom API",
+    "field": "ti OR abs",
+    "query": "((ti:\"underwater localization\") OR (abs:\"underwater localization\") OR (ti:\"underwater state estimation\") OR (abs:\"underwater state estimation\") OR (ti:\"thermal localization\") OR (abs:\"thermal localization\") OR (ti:\"endoscopic reconstruction\") OR (abs:\"endoscopic reconstruction\")) AND submittedDate:[202610220000 TO 202611011459]",
+    "date_predicate": "submittedDate:[202610220000 TO 202611011459]",
+    "retrieved_at": "2026-11-01T15:18:27Z",
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22underwater+localization%22%29+OR+%28abs%3A%22underwater+localization%22%29+OR+%28ti%3A%22underwater+state+estimation%22%29+OR+%28abs%3A%22underwater+state+estimation%22%29+OR+%28ti%3A%22thermal+localization%22%29+OR+%28abs%3A%22thermal+localization%22%29+OR+%28ti%3A%22endoscopic+reconstruction%22%29+OR+%28abs%3A%22endoscopic+reconstruction%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 1,
+        "raw_path": "main-api-C-applications-submittedDate-0.xml"
+      }
+    ],
+    "fetched": 1,
+    "total": 1,
+    "exhausted": true
+  },
+  {
+    "name": "main-api-C-applications-lastUpdatedDate",
+    "family": "C-applications",
+    "source": "arXiv Atom API",
+    "field": "ti OR abs",
+    "query": "((ti:\"underwater localization\") OR (abs:\"underwater localization\") OR (ti:\"underwater state estimation\") OR (abs:\"underwater state estimation\") OR (ti:\"thermal localization\") OR (abs:\"thermal localization\") OR (ti:\"endoscopic reconstruction\") OR (abs:\"endoscopic reconstruction\")) AND lastUpdatedDate:[202610220000 TO 202611011459]",
+    "date_predicate": "lastUpdatedDate:[202610220000 TO 202611011459]",
+    "retrieved_at": "2026-11-01T15:18:28Z",
+    "pages": [
+      {
+        "url": "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22underwater+localization%22%29+OR+%28abs%3A%22underwater+localization%22%29+OR+%28ti%3A%22underwater+state+estimation%22%29+OR+%28abs%3A%22underwater+state+estimation%22%29+OR+%28ti%3A%22thermal+localization%22%29+OR+%28abs%3A%22thermal+localization%22%29+OR+%28ti%3A%22endoscopic+reconstruction%22%29+OR+%28abs%3A%22endoscopic+reconstruction%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+        "start": 0,
+        "returned": 1,
+        "raw_path": "main-api-C-applications-lastUpdatedDate-0.xml"
+      }
+    ],
+    "fetched": 1,
+    "total": 1,
+    "exhausted": true
+  }
+]

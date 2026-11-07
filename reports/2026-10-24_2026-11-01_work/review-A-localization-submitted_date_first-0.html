@@ -1,0 +1,1948 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- new favicon config and versions by realfavicongenerator.net -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/favicon-16x16.png">
+<link rel="manifest" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/site.webmanifest">
+<link rel="mask-icon" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/safari-pinned-tab.svg" color="#b31b1b">
+<link rel="shortcut icon" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/favicon.ico">
+<meta name="msapplication-TileColor" content="#b31b1b">
+<meta name="msapplication-config" content="images/icons/browserconfig.xml">
+<meta name="theme-color" content="#b31b1b">
+<!-- end favicon config -->
+<title>Advanced Search | arXiv e-print repository</title>
+<script defer src="https://static.arxiv.org/static/base/1.0.0a5/fontawesome-free-5.11.2-web/js/all.js"></script>
+<link rel="stylesheet" href="https://static.arxiv.org/static/base/1.0.0a5/css/arxivstyle.css" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    messageStyle: "none",
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true,
+      ignoreClass: '.*',
+      processClass: 'mathjax.*'
+    },
+    TeX: {
+        extensions: ["AMSmath.js", "AMSsymbols.js", "noErrors.js"],
+        noErrors: {
+          inlineDelimiters: ["$","$"],
+          multiLine: false,
+          style: {
+            "font-size": "normal",
+            "border": ""
+          }
+        }
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script src='//static.arxiv.org/MathJax-2.7.3/MathJax.js'></script>
+<script src="https://static.arxiv.org/static/base/1.0.0a5/js/notification.js"></script>
+
+    
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="https://static.arxiv.org/static/design-system/latest/design-system-components.css">
+<link rel="stylesheet" href="https://static.arxiv.org/static/design-system/latest/fonts.css">
+  <link rel="stylesheet" href="https://static.arxiv.org/static/search/0.5.6/css/bulma-tooltip.min.css" />
+  <link rel="stylesheet" href="https://static.arxiv.org/static/search/0.5.6/css/search.css" />
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+    crossorigin="anonymous"></script>
+
+  <script src="https://static.arxiv.org/static/search/0.5.6/js/fieldset.js"></script>
+  <style>
+  radio#cf-customfield_11400 {
+    display: none;
+  }
+  /* Render the spinout .ds-site-footer standalone / full-bleed. search extends the
+     legacy base, whose bare wrapping <footer> (in base/base.html, outside any
+     overridable block — so it can't be removed from here) is styled by
+     arxivstyle.css with a grey background (hsl(0,0%,95%)) + 1em 2em padding,
+     boxing our warm-wash footer inside a second grey band. display:contents drops
+     the wrapper's box entirely (cleaner than zeroing individual properties) so
+     .ds-site-footer renders in its place; it inherits flex-shrink:0 from the same
+     legacy `footer` rule, so the sticky footer still works. Search-specific
+     legacy-base integration; the shared chrome CSS stays byte-identical to the SSOT. */
+  body > footer {
+    display: contents;
+  }
+  </style>
+
+  </head>
+  <body>
+  
+  
+  <header><a href="#main-container" class="is-sr-only">Skip to main content</a>
+    
+
+<div id="ds-announcement"></div>
+
+<script src="https://static.arxiv.org/static/design-system/latest/chrome/banner.js" defer></script>
+<script src="https://static.arxiv.org/static/design-system/latest/chrome/header.js" defer></script>
+<header class="ds-site-header ">
+  <a aria-hidden="true" tabindex="-1" href="https://arxiv.org/IgnoreMe" class="is-sr-only"></a>
+  <a href="https://arxiv.org/" class="ds-site-header-logo" aria-label="archive home">
+    <img src="https://static.arxiv.org/static/design-system/latest/logos/arxiv-logo.svg" alt="archive">
+  </a>
+  
+  <a id="ds-search-toggle" class="ds-site-header-search-link" href="https://arxiv.org/search" aria-controls="ds-search-overlay" aria-expanded="false">
+    <svg class="ds-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <circle cx="11" cy="11" r="8"/>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    <span>Search</span>
+  </a>
+  
+  <button type="button" id="ds-nav-toggle" class="ds-site-header-nav-toggle"
+    aria-label="Open menu" aria-controls="ds-site-header-nav" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+  
+  <nav class="ds-site-header-nav" id="ds-site-header-nav" aria-label="Main navigation">
+    <a href="https://arxiv.org/submit">Submit</a>
+    <a href="https://info.arxiv.org/about/donate.html">Donate</a>
+    <span class="ds-site-header-divider" aria-hidden="true"></span>
+    
+    <a href="https://arxiv.org/login" class="ds-site-header-login">Log in</a>
+  </nav>
+  
+  
+</header>
+
+<div class="ds-search-overlay" id="ds-search-overlay" hidden>
+  <div class="ds-search-overlay-panel" role="search">
+    <form method="GET" action="https://arxiv.org/search">
+      <label for="ds-search-input" class="is-sr-only">Search arXiv</label>
+      <input type="text" name="query" id="ds-search-input" class="ds-input" autocomplete="off"
+        placeholder="Search papers by title, author, abstract, or ID...">
+      <input type="hidden" name="searchtype" value="all">
+      <input type="hidden" name="source" value="header">
+    </form>
+    <p class="ds-hint">
+      Press Enter to search &middot; <a href="https://arxiv.org/search/advanced">Advanced search</a>
+    </p>
+  </div>
+</div>
+
+
+  </header>
+  <main class="container" id="main-container">
+    
+
+
+    
+  <div class="level is-marginless">
+    <div class="level-left">
+      <h1 class="title is-clearfix">
+    
+        Showing 1&ndash;26 of 26 results
+    
+</h1>
+    </div>
+    <div class="level-right is-hidden-mobile">
+      <!-- feedback for mobile is moved to footer -->
+      <span class="help" style="display: inline-block;"><a href="https://github.com/arXiv/arxiv-search/releases">Search v0.5.6 released 2020-02-24</a>&nbsp;&nbsp;</span>
+    </div>
+  </div>
+    <div class="content">
+      
+  
+    
+
+    <div class="columns">
+      <div class="column is-two-thirds-tablet">
+        <p style="margin-bottom: .5em">Query: <a href="/search/advanced?classification-include_cross_list=include&amp;date-filter_by=date_range&amp;date-from_date=2026-10-22&amp;date-to_date=2026-11-01&amp;date-date_type=submitted_date_first&amp;abstracts=show&amp;size=200&amp;order=-submitted_date&amp;start=0&amp;terms-0-operator=AND&amp;terms-0-term=%22place+recognition%22&amp;terms-0-field=all&amp;terms-1-operator=OR&amp;terms-1-term=%22visual+localization%22&amp;terms-1-field=all&amp;terms-2-operator=OR&amp;terms-2-term=%22view+graph%22&amp;terms-2-field=all&amp;terms-3-operator=OR&amp;terms-3-term=%22camera+pose%22&amp;terms-3-field=all&amp;terms-4-operator=OR&amp;terms-4-term=%22scene+change+detection%22&amp;terms-4-field=all">order: -submitted_date; size: 200; date_range: from 2026-10-22 to 2026-11-01; include_cross_list: True; terms: AND all=&#34;place recognition&#34;; OR all=&#34;visual localization&#34;; OR all=&#34;view graph&#34;; OR all=&#34;camera pose&#34;; OR all=&#34;scene change detection&#34;</a></p>
+        <div class="buttons">
+          <a class="button is-link" href="/search/advanced?classification-include_cross_list=include&amp;date-filter_by=date_range&amp;date-from_date=2026-10-22&amp;date-to_date=2026-11-01&amp;date-date_type=submitted_date_first&amp;abstracts=show&amp;size=200&amp;order=-submitted_date&amp;start=0&amp;terms-0-operator=AND&amp;terms-0-term=%22place+recognition%22&amp;terms-0-field=all&amp;terms-1-operator=OR&amp;terms-1-term=%22visual+localization%22&amp;terms-1-field=all&amp;terms-2-operator=OR&amp;terms-2-term=%22view+graph%22&amp;terms-2-field=all&amp;terms-3-operator=OR&amp;terms-3-term=%22camera+pose%22&amp;terms-3-field=all&amp;terms-4-operator=OR&amp;terms-4-term=%22scene+change+detection%22&amp;terms-4-field=all">Refine query</a><a class="button" href="/search/advanced">New search</a>
+        </div>
+      </div>
+      <div class="column is-one-third-tablet is-hidden-mobile">
+        <p class="has-text-right" style="margin-top: 1em">
+          
+          <a href="/search/?order=-submitted_date&amp;size=200">Simple Search</a>
+          
+        </p>
+      </div>
+    </div>
+
+    
+        
+<div class="level breathe-horizontal">
+  <div class="level-left">
+    <form method="GET" action="/search/advanced">
+      <div style="display: none;">
+        
+          
+            <input id="advanced" name="advanced" type="hidden" value="">
+          
+        
+          
+            <ul id="terms"><li><label for="terms-0">Terms-0</label> <table id="terms-0"><tr><th><label for="terms-0-term">Search term...</label></th><td><input id="terms-0-term" name="terms-0-term" type="text" value="&quot;place recognition&quot;"></td></tr><tr><th><label for="terms-0-operator">Operator</label></th><td><select id="terms-0-operator" name="terms-0-operator"><option selected value="AND">AND</option><option value="OR">OR</option><option value="NOT">NOT</option></select></td></tr><tr><th><label for="terms-0-field">Field</label></th><td><select id="terms-0-field" name="terms-0-field"><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="cross_list_category">Cross-list category</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="author_id">arXiv author ID</option><option selected value="all">All fields</option></select></td></tr></table></li><li><label for="terms-1">Terms-1</label> <table id="terms-1"><tr><th><label for="terms-1-term">Search term...</label></th><td><input id="terms-1-term" name="terms-1-term" type="text" value="&quot;visual localization&quot;"></td></tr><tr><th><label for="terms-1-operator">Operator</label></th><td><select id="terms-1-operator" name="terms-1-operator"><option value="AND">AND</option><option selected value="OR">OR</option><option value="NOT">NOT</option></select></td></tr><tr><th><label for="terms-1-field">Field</label></th><td><select id="terms-1-field" name="terms-1-field"><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="cross_list_category">Cross-list category</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="author_id">arXiv author ID</option><option selected value="all">All fields</option></select></td></tr></table></li><li><label for="terms-2">Terms-2</label> <table id="terms-2"><tr><th><label for="terms-2-term">Search term...</label></th><td><input id="terms-2-term" name="terms-2-term" type="text" value="&quot;view graph&quot;"></td></tr><tr><th><label for="terms-2-operator">Operator</label></th><td><select id="terms-2-operator" name="terms-2-operator"><option value="AND">AND</option><option selected value="OR">OR</option><option value="NOT">NOT</option></select></td></tr><tr><th><label for="terms-2-field">Field</label></th><td><select id="terms-2-field" name="terms-2-field"><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="cross_list_category">Cross-list category</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="author_id">arXiv author ID</option><option selected value="all">All fields</option></select></td></tr></table></li><li><label for="terms-3">Terms-3</label> <table id="terms-3"><tr><th><label for="terms-3-term">Search term...</label></th><td><input id="terms-3-term" name="terms-3-term" type="text" value="&quot;camera pose&quot;"></td></tr><tr><th><label for="terms-3-operator">Operator</label></th><td><select id="terms-3-operator" name="terms-3-operator"><option value="AND">AND</option><option selected value="OR">OR</option><option value="NOT">NOT</option></select></td></tr><tr><th><label for="terms-3-field">Field</label></th><td><select id="terms-3-field" name="terms-3-field"><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="cross_list_category">Cross-list category</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="author_id">arXiv author ID</option><option selected value="all">All fields</option></select></td></tr></table></li><li><label for="terms-4">Terms-4</label> <table id="terms-4"><tr><th><label for="terms-4-term">Search term...</label></th><td><input id="terms-4-term" name="terms-4-term" type="text" value="&quot;scene change detection&quot;"></td></tr><tr><th><label for="terms-4-operator">Operator</label></th><td><select id="terms-4-operator" name="terms-4-operator"><option value="AND">AND</option><option selected value="OR">OR</option><option value="NOT">NOT</option></select></td></tr><tr><th><label for="terms-4-field">Field</label></th><td><select id="terms-4-field" name="terms-4-field"><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="cross_list_category">Cross-list category</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="author_id">arXiv author ID</option><option selected value="all">All fields</option></select></td></tr></table></li></ul>
+          
+        
+          
+            <table id="classification"><tr><th><label for="classification-computer_science">Computer Science (cs)</label></th><td><input id="classification-computer_science" name="classification-computer_science" type="checkbox" value="y"></td></tr><tr><th><label for="classification-economics">Economics (econ)</label></th><td><input id="classification-economics" name="classification-economics" type="checkbox" value="y"></td></tr><tr><th><label for="classification-eess">Electrical Engineering and Systems Science (eess)</label></th><td><input id="classification-eess" name="classification-eess" type="checkbox" value="y"></td></tr><tr><th><label for="classification-mathematics">Mathematics (math)</label></th><td><input id="classification-mathematics" name="classification-mathematics" type="checkbox" value="y"></td></tr><tr><th><label for="classification-physics">Physics</label></th><td><input id="classification-physics" name="classification-physics" type="checkbox" value="y"></td></tr><tr><th><label for="classification-physics_archives">Physics Archives</label></th><td><select id="classification-physics_archives" name="classification-physics_archives"><option selected value="all">all</option><option value="astro-ph">astro-ph</option><option value="cond-mat">cond-mat</option><option value="gr-qc">gr-qc</option><option value="hep-ex">hep-ex</option><option value="hep-lat">hep-lat</option><option value="hep-ph">hep-ph</option><option value="hep-th">hep-th</option><option value="math-ph">math-ph</option><option value="nlin">nlin</option><option value="nucl-ex">nucl-ex</option><option value="nucl-th">nucl-th</option><option value="physics">physics</option><option value="quant-ph">quant-ph</option></select></td></tr><tr><th><label for="classification-q_biology">Quantitative Biology (q-bio)</label></th><td><input id="classification-q_biology" name="classification-q_biology" type="checkbox" value="y"></td></tr><tr><th><label for="classification-q_finance">Quantitative Finance (q-fin)</label></th><td><input id="classification-q_finance" name="classification-q_finance" type="checkbox" value="y"></td></tr><tr><th><label for="classification-statistics">Statistics (stat)</label></th><td><input id="classification-statistics" name="classification-statistics" type="checkbox" value="y"></td></tr><tr><th><label for="classification-include_cross_list">Include cross-list</label></th><td><ul id="classification-include_cross_list"><li><input checked id="classification-include_cross_list-0" name="classification-include_cross_list" type="radio" value="include"> <label for="classification-include_cross_list-0">Include cross-listed papers</label></li><li><input id="classification-include_cross_list-1" name="classification-include_cross_list" type="radio" value="exclude"> <label for="classification-include_cross_list-1">Exclude cross-listed papers</label></li></ul></td></tr></table>
+          
+        
+          
+            <table id="date"><tr><th><label for="date-filter_by">Filter by</label></th><td><ul id="date-filter_by"><li><input id="date-filter_by-0" name="date-filter_by" type="radio" value="all_dates"> <label for="date-filter_by-0">All dates</label></li><li><input id="date-filter_by-1" name="date-filter_by" type="radio" value="past_12"> <label for="date-filter_by-1">Past 12 months</label></li><li><input id="date-filter_by-2" name="date-filter_by" type="radio" value="specific_year"> <label for="date-filter_by-2">Specific year</label></li><li><input checked id="date-filter_by-3" name="date-filter_by" type="radio" value="date_range"> <label for="date-filter_by-3">Date range</label></li></ul></td></tr><tr><th><label for="date-year">Year</label></th><td><input id="date-year" name="date-year" type="text" value=""></td></tr><tr><th><label for="date-from_date">From</label></th><td><input id="date-from_date" name="date-from_date" type="text" value="2026-10-22"></td></tr><tr><th><label for="date-to_date">to</label></th><td><input id="date-to_date" name="date-to_date" type="text" value="2026-11-01"></td></tr><tr><th><label for="date-date_type">Apply to</label></th><td><ul id="date-date_type"><li><input id="date-date_type-0" name="date-date_type" type="radio" value="submitted_date"> <label for="date-date_type-0">Submission date (most recent)</label></li><li><input checked id="date-date_type-1" name="date-date_type" type="radio" value="submitted_date_first"> <label for="date-date_type-1">Submission date (original)</label></li><li><input id="date-date_type-2" name="date-date_type" type="radio" value="announced_date_first"> <label for="date-date_type-2">Announcement date</label></li></ul></td></tr></table>
+          
+        
+          
+        
+          
+        
+          
+            <input id="include_older_versions" name="include_older_versions" type="checkbox" value="y">
+          
+        
+          
+            <ul id="abstracts"><li><input checked id="abstracts-0" name="abstracts" type="radio" value="show"> <label for="abstracts-0">Show abstracts</label></li><li><input id="abstracts-1" name="abstracts" type="radio" value="hide"> <label for="abstracts-1">Hide abstracts</label></li></ul>
+          
+        
+      </div>
+      <div class="box field is-grouped is-grouped-multiline level-item">
+        <div class="control">
+          <span class="select is-small">
+            <select id="size" name="size"><option value="25">25</option><option value="50">50</option><option value="100">100</option><option selected value="200">200</option></select>
+          </span>
+          <label for="size">results per page</label>.
+        </div>
+        <div class="control">
+          <label for="order">Sort results by</label>
+          <span class="select is-small">
+            <select id="order" name="order"><option value="-announced_date_first">Announcement date (newest first)</option><option value="announced_date_first">Announcement date (oldest first)</option><option selected value="-submitted_date">Submission date (newest first)</option><option value="submitted_date">Submission date (oldest first)</option><option value="">Relevance</option></select>
+          </span>
+        </div>
+        <div class="control">
+          <button class="button is-small is-link">Go</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+        
+
+
+
+
+<ol class="breathe-horizontal" start="1"> 
+
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.40636">arXiv:2610.40636</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.40636">pdf</a>, <a href="https://arxiv.org/ps/2610.40636">ps</a>, <a href="https://arxiv.org/format/2610.40636">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Probing Spatial State Representations in Visual Foundation Models
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Yin%2C+B">Baiqiao Yin</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Cai%2C+Z">Zhongang Cai</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wang%2C+R">Ruisi Wang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Liang%2C+Q">Qiwei Liang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Yang%2C+L">Lei Yang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Liu%2C+Z">Ziwei Liu</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.40636v1-abstract-short" style="display: inline;">
+        &hellip;actions respond to goal changes, yet supplying the correct goal does not reliably improve progress. Across the four levels, object persistence and actionability build on <span class="search-hit mathjax">camera</span>-<span class="search-hit mathjax">pose</span> readout, whereas feature prediction builds on visible-scene readout. Together, these findings motivate evaluating spatial representations&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.40636v1-abstract-full').style.display = 'inline'; document.getElementById('2610.40636v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.40636v1-abstract-full" style="display: none;">
+        An observer sees only part of the surrounding world, yet must keep track of what lies beyond the current view. Spatial perception therefore involves more than recognizing individual images: it calls for a persistent spatial state that is updated under self-motion and used to guide action. Do visual foundation models provide representations that support such a state? We study this question through four levels of spatial capability---spatial structure, object persistence, predictive spatial update, and actionability---using frozen-feature probes on ten representations under streaming egocentric observations of static indoor environments. The resulting capability profiles vary across tasks, network layers, and prefix lengths: strong readout of the visible scene does not ensure accurate object persistence or future-feature retrieval. Matched controls separate readout accuracy from reliance on visual history and motion. Native future prediction retains recoverable spatial structure, but a spatial reader trained on real features does not transfer to predicted features unchanged. Finally, goal-dependent candidate selection does not establish reliable continuous action utility: predicted actions respond to goal changes, yet supplying the correct goal does not reliably improve progress. Across the four levels, object persistence and actionability build on <span class="search-hit mathjax">camera</span>-<span class="search-hit mathjax">pose</span> readout, whereas feature prediction builds on visible-scene readout. Together, these findings motivate evaluating spatial representations not only by what can be decoded from them, but by whether that information is maintained beyond observation, updated predictively, and used for goal-directed action.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.40636v1-abstract-full').style.display = 'none'; document.getElementById('2610.40636v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 29 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.37257">arXiv:2610.37257</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.37257">pdf</a>, <a href="https://arxiv.org/ps/2610.37257">ps</a>, <a href="https://arxiv.org/format/2610.37257">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        GameVerse: A Minute-Scale Gameplay Dataset for Long-Horizon Interactive World Modeling
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=He%2C+K">Kang He</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Peng%2C+W">Wenshuo Peng</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Li%2C+C">Chuanhao Li</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Gao%2C+Z">Zihui Gao</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Xu%2C+X">Xiaojie Xu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Lin%2C+Z">Zhengyuan Lin</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ding%2C+Y">Yuzhe Ding</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ji%2C+D">Donghong Ji</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+K">Kaipeng Zhang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ge%2C+Y">Yongtao Ge</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.37257v2-abstract-short" style="display: inline;">
+        &hellip;of continuous two-minute sequences, an order of magnitude longer than prior datasets. Clips pass through a unified pipeline of scene-consistent segmentation, quality filtering, <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">pose</span> estimation, and event-based caption annotation. Each clip is paired with a temporally stable camera trajectory that remains coheren&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.37257v2-abstract-full').style.display = 'inline'; document.getElementById('2610.37257v2-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.37257v2-abstract-full" style="display: none;">
+        Recent advances in interactive world models have made it possible to generate controllable, dynamic environments from action inputs. Yet current models struggle to maintain coherence beyond roughly one minute of rollout, a limitation rooted not in model capacity but in the scarcity of long-horizon training data. Existing gameplay video datasets typically consist of clips under ten seconds, with captions that describe whole clips in coarse and undifferentiated text, which is insufficient for controllable long-horizon generation. We address this with GameVerse, a minute-scale gameplay video dataset purpose-built for long-horizon interactive world modeling. GameVerse contains 69.7K clips spanning 1,655 hours and 349.6 million frames across diverse first- and third-person gameplay, including 1,358 hours of continuous two-minute sequences, an order of magnitude longer than prior datasets. Clips pass through a unified pipeline of scene-consistent segmentation, quality filtering, <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">pose</span> estimation, and event-based caption annotation. Each clip is paired with a temporally stable camera trajectory that remains coherent across minutes, together with captions that separate static scene context from dynamic foreground events and align to event boundaries rather than fixed time windows. Comprehensive analysis shows that GameVerse surpasses existing public datasets in scale, diversity, and annotation quality. Experiments further demonstrate that training on GameVerse substantially extends the temporal horizon of interactive world models.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.37257v2-abstract-full').style.display = 'none'; document.getElementById('2610.37257v2-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 29 October, 2026; <span class="has-text-black-bis has-text-weight-semibold">v1</span> submitted 27 October, 2026;
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">Accepted by NeurIPS 2026</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.38349">arXiv:2610.38349</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.38349">pdf</a>, <a href="https://arxiv.org/ps/2610.38349">ps</a>, <a href="https://arxiv.org/format/2610.38349">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Aligning Misaligned Benchmarks for Single-View Novel View Synthesis
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Tseng%2C+Y">Yang-Che Tseng</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Dong%2C+E">Erqun Dong</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Kwak%2C+J">Jeong-gi Kwak</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Sharma%2C+G">Gopal Sharma</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Kheradmand%2C+S">Shakiba Kheradmand</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Garbin%2C+S">Stephan Garbin</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Isack%2C+H">Hossam Isack</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Yi%2C+K+M">Kwang Moo Yi</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.38349v1-abstract-short" style="display: inline;">
+        &hellip;Existing methods often rely on test-time optimization of target poses for this alignment, which inherently is ill-posed due to the complexity of the optimization landscape of <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span> vs render accuracy, leading to methods being evaluated at an arbitrary local optimum. Some recognize this limitation and thus rely&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.38349v1-abstract-full').style.display = 'inline'; document.getElementById('2610.38349v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.38349v1-abstract-full" style="display: none;">
+        While single-view novel view synthesis methods have been dramatically enhanced recently, how to quantify their performance has yet to be standardized. In this work, we demonstrate that an important factor lies in how each method&#39;s own reference frame is aligned with the so-called ground-truth pose. Existing methods often rely on test-time optimization of target poses for this alignment, which inherently is ill-posed due to the complexity of the optimization landscape of <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span> vs render accuracy, leading to methods being evaluated at an arbitrary local optimum. Some recognize this limitation and thus rely on 3D reconstructions of entire scenes using training and test views to align poses, which may be infeasible. In this work, instead, we propose to use traditional 2D-to-2D and 2D-to-3D image matching techniques to align 3D reconstructions. We also evaluate only within co-visible regions, between different views, which is the only place where a `correct&#39; ground truth can be defined. Our evaluations show that with proper coordinate alignment, novel-view synthesis methods that use explicit 3D Gaussians achieve the state of the art, despite being previously reported in the literature to be outperformed by pure image-based 2D methods. We further provide a simple baseline that directly utilizes an off-the-shelf video generator and a feed-forward geometry estimator. Our simple baseline is already comparable to state-of-the-art methods specifically trained for novel-view synthesis, without any task-specific training.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.38349v1-abstract-full').style.display = 'none'; document.getElementById('2610.38349v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 28 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.38141">arXiv:2610.38141</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.38141">pdf</a>, <a href="https://arxiv.org/ps/2610.38141">ps</a>, <a href="https://arxiv.org/format/2610.38141">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        </div>
+      
+        
+          <div class="is-inline-block" style="margin-left: 0.5rem">
+            <div class="tags has-addons">
+              <span class="tag is-dark is-size-7">doi</span>
+              <span class="tag is-light is-size-7"><a class="" href="https://doi.org/10.1109/TFR.2026.3721725">10.1109/TFR.2026.3721725 <i class="fa fa-external-link" aria-hidden="true"></i></a></span>
+            </div>
+          </div>
+        
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        SKiD-SLAM: Resource-Aware Distributed Multi-Robot LiDAR SLAM for Planetary Missions with Field Deployments at Analog Sites
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Kim%2C+H">Hogyun Kim</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Kim%2C+J">Juwon Kim</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Cho%2C+D">Dongjin Cho</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Choi%2C+J">Jiwon Choi</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Yang%2C+G">Geonmo Yang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Jeong%2C+S">Seokhwan Jeong</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Lee%2C+J">Jiyun Lee</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Park%2C+M">Miryeong Park</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Lim%2C+H">Hyungtae Lim</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Cho%2C+Y">Younggun Cho</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.38141v1-abstract-short" style="display: inline;">
+        &hellip;and scientific surface exploration. We survey the communication and computation budgets of actual planetary missions and select modules that fit these budgets for inter-robot <span class="search-hit mathjax">place</span> <span class="search-hit mathjax">recognition</span>, relative pose estimation, and distributed trajectory fusion. Before field deployment, we verify the assembled system on public&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.38141v1-abstract-full').style.display = 'inline'; document.getElementById('2610.38141v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.38141v1-abstract-full" style="display: none;">
+        Future planetary exploration missions require teams of robots to collaboratively map unknown environments under severe communication limits, constrained onboard computation, and no central infrastructure. In this field report, we present SKiD-SLAM, a distributed multi-robot LiDAR simultaneous localization and mapping (SLAM) system for such environments, and report its deployment across two mission concepts: cave exploration and scientific surface exploration. We survey the communication and computation budgets of actual planetary missions and select modules that fit these budgets for inter-robot <span class="search-hit mathjax">place</span> <span class="search-hit mathjax">recognition</span>, relative pose estimation, and distributed trajectory fusion. Before field deployment, we verify the assembled system on public datasets resembling planetary environments and in a simulator built on NASA JPL&#39;s Open Source Rover. We then validate SKiD-SLAM through field deployments in South Korea: a team of wheeled rovers explores the Majang lava-tube cave on Jeju Island, and quadruped robots carry out a crater-and-rock science scenario on a planetary analog terrain at the Korea Institute of Civil Engineering and Building Technology (KICT) in Yeoncheon. Across both deployments, SKiD-SLAM reliably performed distributed multi-robot LiDAR SLAM within a 250 kbps inter-robot communication budget, demonstrating its feasibility under challenging field conditions. Supplementary materials, including code and field data, are available at https://sparolab.github.io/research/skid_slam/.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.38141v1-abstract-full').style.display = 'none'; document.getElementById('2610.38141v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 27 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">31 pages. Published in IEEE Transactions on Field Robotics. Code and field data: https://sparolab.github.io/research/skid_slam/</span>
+    </p>
+    
+
+    
+
+    
+      <p class="comments is-size-7">
+        <span class="has-text-black-bis has-text-weight-semibold">Journal ref:</span>
+        IEEE Transactions on Field Robotics, vol. 3, pp. 813-841, 2026
+      </p>
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.37111">arXiv:2610.37111</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.37111">pdf</a>, <a href="https://arxiv.org/ps/2610.37111">ps</a>, <a href="https://arxiv.org/format/2610.37111">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        RAVEN: A Unified Active SLAM System for Rapid Autonomous Visual Exploration with Aerial Robots under Localization Uncertainty
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Chen%2C+X">Xinyi Chen</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+Y">Yichen Zhang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Jiang%2C+C">Chenxing Jiang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Shen%2C+S">Shaojie Shen</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.37111v1-abstract-short" style="display: inline;">
+        &hellip;navigation planner generates smooth execution trajectories that minimize visual state estimation error based on the online Fisher information field that provides <span class="search-hit mathjax">visual</span> <span class="search-hit mathjax">localization</span> information in real-time. Benchmark evaluations demonstrate that RAVEN outperforms state-of-the-art active SLAM methods, highlighting its&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.37111v1-abstract-full').style.display = 'inline'; document.getElementById('2610.37111v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.37111v1-abstract-full" style="display: none;">
+        Active simultaneous localization and mapping (SLAM) addresses the problem of planning robot motion to build complete and accurate maps of unknown environments through efficient exploration while maintaining high localization accuracy. This raises a dilemma between exploring unknown spaces to expand coverage and exploiting visited regions to perform active loop closures. Despite numerous prior works on ground robots, aerial robots with high agility and constrained sensor suites face more significant localization drift and thereby demand dedicated active SLAM planning. Moreover, a unified strategy that adapts performance based on task-specific priorities remains an open question. In this article, we introduce RAVEN, a unified active SLAM framework for Rapid Autonomous Visual ExploratioN using quadrotors, which systematically accounts for localization uncertainty. The framework starts with identifying frontiers and active loop closure candidates, from which global tour candidates are generated. These candidates are evaluated using a utility vector that separately quantifies exploration efficiency and localization accuracy, and the final tour is selected according to a prioritization parameter ranging from $[0,1]$. Finally, a perception-aware navigation planner generates smooth execution trajectories that minimize visual state estimation error based on the online Fisher information field that provides <span class="search-hit mathjax">visual</span> <span class="search-hit mathjax">localization</span> information in real-time. Benchmark evaluations demonstrate that RAVEN outperforms state-of-the-art active SLAM methods, highlighting its advantages in producing a spectrum of performance across prioritizations. Fully onboard field experiments with a customized stereo-inertial quadrotor further validate its practical applicability in challenging environments. The source code will be released to benefit the community.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.37111v1-abstract-full').style.display = 'none'; document.getElementById('2610.37111v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 27 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">Conditionally accepted to the IEEE Transactions on Robotics</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.36876">arXiv:2610.36876</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.36876">pdf</a>, <a href="https://arxiv.org/ps/2610.36876">ps</a>, <a href="https://arxiv.org/format/2610.36876">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        HoloRecon: Incremental Reconstruction of Long-Range Panoramas with Global Consistency
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Li%2C+Z">Zhuoxiao Li</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Liu%2C+X">Xinyi Liu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Hou%2C+H">Hongye Hou</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=OU%2C+J">Jing OU</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Du%2C+K">Kang Du</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+S">Shuai Zhang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wu%2C+D">Dongli Wu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wu%2C+T">Taoyu Wu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Feng%2C+S">Siyuan Feng</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhu%2C+X">Xiaohui Zhu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhao%2C+W">Wufan Zhao</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.36876v1-abstract-short" style="display: inline;">
+        Long-sequence panoramic reconstruction requires detailed scene geometry and globally consistent <span class="search-hit mathjax">camera</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.36876v1-abstract-full').style.display = 'inline'; document.getElementById('2610.36876v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.36876v1-abstract-full" style="display: none;">
+        Long-sequence panoramic reconstruction requires detailed scene geometry and globally consistent <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span> across distant revisits. Panoramic SLAM and incremental SfM rely on feature correspondences, but repeated, similar structures and small partial overlap make reliable long-range connections difficult to establish, leaving accumulated drift unresolved. Feed-forward models offer detailed local geometry, but their high computational costs limit inference window size, necessitating additional constraints for global consistency. This motivates combining continuous feature-based tracking and sparse mapping with rapid, high-quality local reconstruction from feed-forward models to achieve accurate localization and globally consistent dense mapping over long sequences. We therefore propose a panoramic reconstruction framework that couples an ORB-based sparse panoramic mapping frontend with a fine-tuned feed-forward model. Our key insight is that predicted local geometry enables 3D verification of feature matches across distant revisits, yielding long-range camera constraints even between regions. We calibrate predicted depths with sparse landmarks and use verified connections to optimize the global pose graph, updating dense geometry with the corrected <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span>. We also introduce PanoRecon, a seven-scene benchmark with repetitive architecture, large and small loops, and reference <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span> and LiDAR geometry for evaluating global consistency. Our method achieves the lowest mean absolute trajectory error and high F-1 Score among the evaluated methods. Project Page:https://zhuoxiaoli.github.io/HoloRecon_page/
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.36876v1-abstract-full').style.display = 'none'; document.getElementById('2610.36876v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 27 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">Project Page:https://zhuoxiaoli.github.io/HoloRecon_page/</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.36853">arXiv:2610.36853</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.36853">pdf</a>, <a href="https://arxiv.org/ps/2610.36853">ps</a>, <a href="https://arxiv.org/format/2610.36853">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Graphics">cs.GR</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        LingGS: Decoupling Feed-Forward Geometry Prediction from Camera Tracking for High-Fidelity Gaussian SLAM
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Li%2C+D">Da Li</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zang%2C+Y">Yihan Zang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Viola%2C+I">Ivan Viola</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wang%2C+Z">Zeyu Wang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Engel%2C+D">Dominik Engel</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.36853v1-abstract-short" style="display: inline;">
+        &hellip;feature reprojection, and a streaming Gaussian mapper integrates the resulting observations into a dense scene representation. We further show that geometric tracking improves <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">pose</span> accuracy across representative streaming geometry backbones, demonstrating the broader applicability of our approach. Extensive expe&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.36853v1-abstract-full').style.display = 'inline'; document.getElementById('2610.36853v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.36853v1-abstract-full" style="display: none;">
+        Achieving high-quality reconstruction and responsive camera tracking remains challenging for monocular RGB Gaussian splatting SLAM under a limited optimization budget. We present an online system that addresses this challenge by combining learned geometric priors with explicit geometric camera tracking, which can substantially outperform learned camera prediction in terms of tracking accuracy. A frozen streaming 3D foundation model serves as a virtual RGB-D sensor, providing depth estimation from monocular video. An explicit geometric solver then estimates camera motion through feature reprojection, and a streaming Gaussian mapper integrates the resulting observations into a dense scene representation. We further show that geometric tracking improves <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">pose</span> accuracy across representative streaming geometry backbones, demonstrating the broader applicability of our approach. Extensive experiments on indoor and outdoor datasets show that our method significantly improves reconstruction quality over existing approaches, achieving about 7 FPS on a single RTX 4090 and delivering 2-3 times the throughput of the evaluated prior SLAM systems.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.36853v1-abstract-full').style.display = 'none'; document.getElementById('2610.36853v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 27 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">10 pages, 4 figures</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.36150">arXiv:2610.36150</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.36150">pdf</a>, <a href="https://arxiv.org/ps/2610.36150">ps</a>, <a href="https://arxiv.org/format/2610.36150">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Any3R: Feedforward 3D Reconstruction from Any Camera Type
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Chen%2C+J">Jingong Chen</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+Q">Qingwen Zhang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Deng%2C+Y">Youming Deng</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Pack%2C+C">Chulwoo Pack</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wysocki%2C+O">Olaf Wysocki</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Jutzi%2C+B">Boris Jutzi</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Won%2C+K">Kwanghee Won</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Gao%2C+K">Kyle Gao</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.36150v1-abstract-short" style="display: inline;">
+        Geometry foundation models recover <span class="search-hit mathjax">camera</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.36150v1-abstract-full').style.display = 'inline'; document.getElementById('2610.36150v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.36150v1-abstract-full" style="display: none;">
+        Geometry foundation models recover <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span> and dense geometry from a set of images with a feed-forward network, but they expect pinhole images. That assumption is inside the backbone too: the positional encoding and the training loss both bind an image position to a direction in space, and both depend on the lens. We condition both on the dense ray field, the unit direction through every pixel, which describes any central camera without a lens type, distortion coefficients or a bound on field of view. Angular coordinates give the rotary encoding the measured ray angle of each patch, evaluated per view, and solid-angle weighting scales the point loss by the area each pixel covers on the sphere, so neither the encoding nor the supervision depends on the lens. Any3R is therefore a feed-forward model that takes any central camera, and is robust to mixing many camera types per scene, with no retraining per lens. On a benchmark of thirteen central cameras across three datasets, where every method reconstructs with its own predicted <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span>, it is the most consistently accurate method. Any3R enables scalable 3D reconstruction from heterogeneous crowdsourced and archival imagery collections sourced across diverse camera types. Project page: https://jingong-chen.github.io/Any3R/
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.36150v1-abstract-full').style.display = 'none'; document.getElementById('2610.36150v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 26 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.35806">arXiv:2610.35806</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.35806">pdf</a>, <a href="https://arxiv.org/ps/2610.35806">ps</a>, <a href="https://arxiv.org/format/2610.35806">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Machine Learning">cs.LG</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Does VGGT Know What It Does Not Know?
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Srinivasan%2C+A+T">Adityan Thirumani Srinivasan</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Nordstr%C3%B6m%2C+D">David Nordström</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.35806v1-abstract-short" style="display: inline;">
+        Feed-forward 3D reconstruction models such as VGGT regress cameras and geometry in a single forward pass, but they report no uncertainty for the <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span> they predict: an incorrect relative pose looks no different from a correct one. We ask whether the frozen model nonetheless knows when its pose is wrong. On HardM&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.35806v1-abstract-full').style.display = 'inline'; document.getElementById('2610.35806v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.35806v1-abstract-full" style="display: none;">
+        Feed-forward 3D reconstruction models such as VGGT regress cameras and geometry in a single forward pass, but they report no uncertainty for the <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span> they predict: an incorrect relative pose looks no different from a correct one. We ask whether the frozen model nonetheless knows when its pose is wrong. On HardMatch, a benchmark of 1,000 deliberately difficult image pairs on which VGGT fails on 35% of pairs, a linear probe on VGGT&#39;s frozen features predicts pose failure on held-out categories with ROC-AUC 93.5%, compared with 79.7% for VGGT&#39;s own point-map confidence and 77.7% for a classifier trained on all of VGGT&#39;s outputs. The probe catches failures VGGT is confident about, lets a downstream system abstain on the pairs it distrusts, and transfers without retraining to rotation failures on PhotoTourism and ScanNet-1500, beyond what co-visibility explains. This knowledge is absent from the per-image encoder: it is computed partway through the layers that fuse the two views, and the same holds for a second model, $π^3$. In essence, we find that VGGT knows more about its own failures than it reports.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.35806v1-abstract-full').style.display = 'none'; document.getElementById('2610.35806v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 26 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">9 pages, 6 figures, 7 tables</span>
+    </p>
+    
+
+    
+      <p class="comments is-size-7">
+        
+
+        
+
+        
+          <span class="has-text-black-bis has-text-weight-semibold">ACM Class:</span>
+          I.2.10; I.4.8
+        
+      </p>
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.35642">arXiv:2610.35642</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.35642">pdf</a>, <a href="https://arxiv.org/ps/2610.35642">ps</a>, <a href="https://arxiv.org/format/2610.35642">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        VPR-Space: A Benchmark for Visual <span class="search-hit mathjax">Place</span> <span class="search-hit mathjax">Recognition</span> in Space Analog Domains
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Fechner%2C+R">Richard Fechner</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Neubert%2C+P">Peer Neubert</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.35642v1-abstract-short" style="display: inline;">
+        Visual <span class="search-hit mathjax">Place</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.35642v1-abstract-full').style.display = 'inline'; document.getElementById('2610.35642v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.35642v1-abstract-full" style="display: none;">
+        Visual <span class="search-hit mathjax">Place</span> <span class="search-hit mathjax">Recognition</span> (VPR) is an important means for loop closure detection in visual Simultaneous Localization and Mapping (SLAM). While state-of-the-art VPR and SLAM approaches excel in urban and feature-rich natural environments, the vast and feature-poor environments of extraterrestrial surfaces like on the Moon or Mars pose severe challenges for existing approaches. This paper presents a novel benchmark, VPR-Space, to evaluate VPR capabilities on extraterrestrial surfaces. There are three contributions: (1) We collected sixteen VPR database-query datasets based on existing data from Space Analog Domains (SAD), terrestrial environments that resemble properties of the Moon or Mars. The collection includes a range of challenges regarding environment, viewpoint change, and illumination conditions. (2) To address the ill-posed nature of VPR, we propose a novel approach to generate the ground-truth information in VPR benchmarks. Instead of defining that a query and datbase image show the same place if and only if their <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span> are within fixed position and viewing direction thresholds, we propose to make the decision dependent on whether the match would be valuable in the downstream SLAM task. To avoid the overhead and restrictions of evaluating VPR in-the-loop within SLAM systems, we provide VPR ground-truth (GT) matrices based on the performance of an ensemble of state-of-the-art Relative Pose Estimators (RPE). Under this GT we require a VPR method to identify exactly those image pairs for which a subsequently applied RPE is expected to provide a valuable pose estimate in a SLAM context. (3) We evaluated nine state-of-the-art VPR approaches. The results show considerable room for improvement and indicate directions for future research. We provide a pre-release version of the dataset on github: $\texttt{https://github.com/rfechner/VPR-Space}$
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.35642v1-abstract-full').style.display = 'none'; document.getElementById('2610.35642v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 26 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.35621">arXiv:2610.35621</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.35621">pdf</a>, <a href="https://arxiv.org/ps/2610.35621">ps</a>, <a href="https://arxiv.org/format/2610.35621">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Synthetic Deformable Tubular Benchmark: A mechanically annotated dataset for evaluating deformable 3D reconstruction
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Cirauqui-Viloria%2C+%C3%8D">Íñigo Cirauqui-Viloria</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.35621v1-abstract-short" style="display: inline;">
+        &hellip;cameras in six scene families; matched appearance variants cover only moving-camera finite-element actions in four families. Documented public and evaluation interfaces expose <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span>, geometry, depth, deformation fields, persistent material correspondences and discrete finite-element records. Persistent triangle&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.35621v1-abstract-full').style.display = 'inline'; document.getElementById('2610.35621v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.35621v1-abstract-full" style="display: none;">
+        Evaluating deformable 3D reconstruction requires ground truth linking camera motion, surface deformation, material correspondence and image appearance. We introduce the Synthetic Deformable Tubular Benchmark, generated with LumenMorph, an open-source toolkit for creating, annotating and evaluating tubular scenes. The release contains 5,580 RGB images. Its baseline crosses three surface-motion conditions with moving and stationary cameras in six scene families; matched appearance variants cover only moving-camera finite-element actions in four families. Documented public and evaluation interfaces expose <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span>, geometry, depth, deformation fields, persistent material correspondences and discrete finite-element records. Persistent triangle identities and material weights let users track the same surface location across frames and query its three-dimensional trajectory. Separately implemented geometric and mechanical checks assess annotation consistency with the generating models. Structure-from-motion, optical-flow and supplied-geometry displacement-interpolation studies demonstrate how the resource distinguishes registration coverage from geometric accuracy, exposes camera- and surface-motion effects, and tests the benefits and mismatch of mechanical priors. Public readers, evaluation contracts and the configurable generator support reuse and extension. Data integrity, fixed-environment repeatability and retained-prediction score replay have distinct verification scopes. The benchmark provides a controlled synthetic reference without claiming anatomical or clinical realism.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.35621v1-abstract-full').style.display = 'none'; document.getElementById('2610.35621v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 26 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">34 pages, including 5 pages of Supplementary Methods; 10 main-text figures and 1 supplementary figure</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.35529">arXiv:2610.35529</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.35529">pdf</a>, <a href="https://arxiv.org/ps/2610.35529">ps</a>, <a href="https://arxiv.org/format/2610.35529">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Distributed, Parallel, and Cluster Computing">cs.DC</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        WorldPager: Zero-Stall Tiered Memory for Long-Horizon World Models on a Single Consumer GPU
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Liu%2C+B">Bingnan Liu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Xue%2C+R">Ruini Xue</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.35529v1-abstract-short" style="display: inline;">
+        &hellip;positional horizon of 4.3 minutes. We show that this memory is capacity-bound rather than bandwidth-bound and that its access set is known before compute, because the <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">pose</span> is an input. An analytical model built on these observations predicts spill points to within one chunk and classifies zero versus non-zero st&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.35529v1-abstract-full').style.display = 'inline'; document.getElementById('2610.35529v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.35529v1-abstract-full" style="display: none;">
+        Interactive world models keep the KV of past chunks as retrieval memory so that revisited places stay consistent. On a single consumer machine (one RTX 4090, 32 GiB of host memory, one NVMe SSD), long sessions with such memory hit two walls. The first is capacity: the KV of Matrix-Game 2.0 exhausts host memory after 45 seconds of video in bf16 and after 2.8 minutes in int4. The second is the model&#39;s positional horizon of 4.3 minutes. We show that this memory is capacity-bound rather than bandwidth-bound and that its access set is known before compute, because the <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">pose</span> is an input. An analytical model built on these observations predicts spill points to within one chunk and classifies zero versus non-zero stalls correctly on held-out configurations. Guided by it, WorldPager stores int4 KV in a GPU/DRAM/NVMe hierarchy instead of recomputing it, prefetches each chunk&#39;s memory from the extrapolated pose, never waits on a miss, and writes back in the background; to our knowledge, it is the first to place the KV memory of an interactive world model on an NVMe tier with zero-stall prefetching. With training-free position handling, it generates 37.5 minutes of video continuously with zero stalls and constant host memory, at about 9.5 frames per second. On a sealed test set, int4 storage shows no measurable quality loss; on long-gap revisits it lowers image quality by about one MUSIQ point.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.35529v1-abstract-full').style.display = 'none'; document.getElementById('2610.35529v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 26 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">11 pages, 4 figures, 9 tables</span>
+    </p>
+    
+
+    
+      <p class="comments is-size-7">
+        
+
+        
+
+        
+          <span class="has-text-black-bis has-text-weight-semibold">ACM Class:</span>
+          C.4; D.4.2; I.2.10
+        
+      </p>
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.35522">arXiv:2610.35522</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.35522">pdf</a>, <a href="https://arxiv.org/ps/2610.35522">ps</a>, <a href="https://arxiv.org/format/2610.35522">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Generative Structure from Motion with Native 3D Diffusion
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Duan%2C+H">Haobin Duan</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Huang%2C+B">Binbin Huang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Xiang%2C+M">Mochu Xiang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhao%2C+Y">Yiqun Zhao</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhao%2C+Z">Zibo Zhao</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ma%2C+Y">Yi Ma</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Gao%2C+S">Shenghua Gao</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.35522v1-abstract-short" style="display: inline;">
+        &hellip;tokenization keeps the joint sequence small as views are added, and a pose-aware stage refines geometry and texture by sampling per-voxel image features at the recovered <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span>. On Toys4k and GSO, for $4$ uncalibrated views, GenSfM improves novel-view PSNR by $3.2$-$4.5$ dB and reduces median Chamfer distance by&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.35522v1-abstract-full').style.display = 'inline'; document.getElementById('2610.35522v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.35522v1-abstract-full" style="display: none;">
+        Recovering an object&#39;s 3D structure and camera motion from a few uncalibrated views is a fundamental problem in computer vision. Classical structure from motion methods recover 3D geometry consistent with the input images but cannot recover unseen regions; native generation methods produce plausible 3D objects which are related but not necessarily faithful to the input images. Methods simply concatenating reconstruction and generation allow error to cascade across the two stages, instead of producing a 3D object consistent with both the distribution and the input. We propose GenSfM, which integrates image-based 3D reconstruction with a native 3D diffusion model. In particular, we use a multi-modal diffusion transformer to jointly denoise the shape latent and per-view pose latents under shared self-attention, grounding generated geometry in the observed views while using object-level priors to infer unobserved regions. A compact 3D-native UV-volume tokenization keeps the joint sequence small as views are added, and a pose-aware stage refines geometry and texture by sampling per-voxel image features at the recovered <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span>. On Toys4k and GSO, for $4$ uncalibrated views, GenSfM improves novel-view PSNR by $3.2$-$4.5$ dB and reduces median Chamfer distance by $2.8$-$3.8\times$ over a strong native-3D generation baseline, while recovering input-view poses over $96\%$ Acc@$5^\circ$ without any external pose-estimation backbone, post-hoc optimization, or known intrinsics. Project page: https://dotb1ue.github.io/GenSfm/.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.35522v1-abstract-full').style.display = 'none'; document.getElementById('2610.35522v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 26 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">Accepted to NeurIPS 2026. Project page: https://dotb1ue.github.io/GenSfm/</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.35501">arXiv:2610.35501</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.35501">pdf</a>, <a href="https://arxiv.org/ps/2610.35501">ps</a>, <a href="https://arxiv.org/format/2610.35501">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Learning Scene Coordinate Reconstruction from Unposed Images via Pose Graph Optimization
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Tse%2C+T+H+E">Tze Ho Elden Tse</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Peng%2C+J">Jizong Peng</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Yao%2C+A">Angela Yao</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.35501v1-abstract-short" style="display: inline;">
+        &hellip;and misalignment, particularly in complex or ambiguous scenes. In this work, we propose a hybrid framework that integrates pose graph optimization (PGO) into ACE-Zero to refine <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span> and suppress incorrect refinements. We construct pose graphs directly from ACE-Zero outputs by extracting relative pose constraint&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.35501v1-abstract-full').style.display = 'inline'; document.getElementById('2610.35501v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.35501v1-abstract-full" style="display: none;">
+        Learning-based structure-from-motion methods such as ACE-Zero have demonstrated strong performance in estimating cameraposes and scene coordinates from unordered image collections without requiring ground truth supervision. However, the lack of global and multi-view consistency constraints in ACE-Zero can lead to pose drift and misalignment, particularly in complex or ambiguous scenes. In this work, we propose a hybrid framework that integrates pose graph optimization (PGO) into ACE-Zero to refine <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span> and suppress incorrect refinements. We construct pose graphs directly from ACE-Zero outputs by extracting relative pose constraints from predicted scene coordinates. Furthermore, we introduce an uncertainty-aware optimization strategy by estimating confidence scores using geometric priors, including epipolar and optical flow consistencies across views. Our approach improves the robustness and accuracy of pose estimation, demonstrating that global geometric reasoning can effectively complement learning-based inference in structure-from-motion.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.35501v1-abstract-full').style.display = 'none'; document.getElementById('2610.35501v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 26 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">Accepted to CVPR 2026 (Highlight). Project page: https://eldentse.github.io/visual_localization_pgo_public/</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.35361">arXiv:2610.35361</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.35361">pdf</a>, <a href="https://arxiv.org/ps/2610.35361">ps</a>, <a href="https://arxiv.org/format/2610.35361">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        SG-Splat: Stable Geometry Learning under Pose Uncertainty for Pose-Free 3D Gaussian Splatting
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Lu%2C+X">Xiaohan Lu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+J">Jiaqi Zhang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Jiang%2C+W">Weijia Jiang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ma%2C+S">Siwei Ma</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.35361v1-abstract-short" style="display: inline;">
+        &hellip;Pose Refinement (FGPR) and Residual-Guided Geometry Correction (RGC), to improve geometric alignment before Gaussian attribute reconstruction. Specifically, FGPR refines <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span> with flow-based correlation features and differentiable bundle adjustment. RGC then corrects initial point maps using depth residuals der&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.35361v1-abstract-full').style.display = 'inline'; document.getElementById('2610.35361v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.35361v1-abstract-full" style="display: none;">
+        3D Gaussian Splatting (3DGS) has become a promising representation for real-time novel view synthesis and 3D scene reconstruction. For practical deployment, recent studies have explored pose-free feed-forward 3DGS, which reconstructs Gaussian representations directly from unposed input images. However, these methods remain sensitive to residual pose errors, which perturb canonical-space Gaussian transformation, introducing noisy supervision for geometry and attribute learning. To address this problem, we present SG-Splat, a pose-free feed-forward 3DGS framework that improves robustness to pose uncertainty and stabilizes the learning of Gaussian primitives. SG-Splat decouples geometry estimation and Gaussian attribute prediction into two dedicated branches, reducing error coupling between pose-sensitive geometry and Gaussian attributes. We further introduce a coarse-to-fine refinement pipeline, consisting of Flow-Guided Pose Refinement (FGPR) and Residual-Guided Geometry Correction (RGC), to improve geometric alignment before Gaussian attribute reconstruction. Specifically, FGPR refines <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span> with flow-based correlation features and differentiable bundle adjustment. RGC then corrects initial point maps using depth residuals derived from FGPR, producing more reliable Gaussian centers. To stabilize training, we introduce a dual-path strategy that mixes ground-truth and predicted poses for canonical transformation. It provides clean supervision for Gaussian attributes while improving geometry robustness to residual pose errors. Extensive experiments on DL3DV and RealEstate10K show that SG-Splat achieves state-of-the-art performance in both novel view synthesis and pose estimation.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.35361v1-abstract-full').style.display = 'none'; document.getElementById('2610.35361v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 26 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.33566">arXiv:2610.33566</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.33566">pdf</a>, <a href="https://arxiv.org/ps/2610.33566">ps</a>, <a href="https://arxiv.org/format/2610.33566">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Distilling Dense Trajectory Teachers For Large-Motion Video World Models
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Sun%2C+S">Shuofeng Sun</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhao%2C+L">Linqing Zhao</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Yan%2C+H">Haibin Yan</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.33566v1-abstract-short" style="display: inline;">
+        &hellip;framework that transfers a model&#39;s generation capability from dense trajectories to large camera motions. Given a sparse trajectory, DTTD interpolates additional <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span> to construct a dense trajectory covering the same path. The frozen base model then generates reliable teacher videos along this familiar dens&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.33566v1-abstract-full').style.display = 'inline'; document.getElementById('2610.33566v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.33566v1-abstract-full" style="display: none;">
+        Video world models are expected to generate videos that accurately follow specified camera trajectories while maintaining consistent 3D structures. However, existing models are predominantly trained on densely sampled videos with small inter-frame camera motions. When applied to sparse, large step trajectories, they often produce frozen frames, inaccurate camera motion, and severe geometric drift. We attribute this degradation to a mismatch between the gradual viewpoint transitions seen during training and the large viewpoint changes required at inference time. To address this problem, we propose Dense Trajectory Teacher Distillation (DTTD), a post-training framework that transfers a model&#39;s generation capability from dense trajectories to large camera motions. Given a sparse trajectory, DTTD interpolates additional <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span> to construct a dense trajectory covering the same path. The frozen base model then generates reliable teacher videos along this familiar dense trajectory, and pose aligned teacher observations are used to evaluate candidate videos generated under the original sparse trajectory. In this way, the model serves as its own generation teacher, requiring neither additional video data nor a stronger external video generator. We further combine dense teacher supervision with geometry aware rewards that assess cross frame consistency and camera trajectory following, and use the resulting preferences for offline preference optimization. To stably expand the model&#39;s motion range, we introduce a cumulative curriculum that progressively incorporates larger motion steps while retaining simpler trajectories to reduce capability forgetting.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.33566v1-abstract-full').style.display = 'none'; document.getElementById('2610.33566v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 24 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.33413">arXiv:2610.33413</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.33413">pdf</a>, <a href="https://arxiv.org/ps/2610.33413">ps</a>, <a href="https://arxiv.org/format/2610.33413">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Multimedia">cs.MM</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        AV-FABLE: Audio-Visual Manipulation Forensics in Long-Form Videos
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Huang%2C+Y">Yuesheng Huang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Au%2C+H+F">Hoi Fan Au</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Hou%2C+J">Jiaqi Hou</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+R">Ruicheng Zhang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=He%2C+J">Jiarui He</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Yang%2C+H">Haocheng Yang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Hu%2C+B">Bin Hu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+K">Kewei Zhang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Deng%2C+W">Weijian Deng</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhou%2C+J">Jun Zhou</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Li%2C+X">Xiu Li</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.33413v1-abstract-short" style="display: inline;">
+        &hellip;we propose NFSR(Native Forensics via Separated Readouts), which reads frozen AV-LLM features with separate audio and visual temporal decoders. NFSR achieves the best audio-<span class="search-hit mathjax">visual</span> <span class="search-hit mathjax">localization</span> performance in-domain and across all three out-of-distribution settings, including transfer to held-out videos from an external&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.33413v1-abstract-full').style.display = 'inline'; document.getElementById('2610.33413v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.33413v1-abstract-full" style="display: none;">
+        Localized AI manipulations in long-form videos often affect brief events within otherwise authentic content, making video-level classification insufficient for forensic analysis. Existing audio-visual deepfake benchmarks largely focus on short talking-head clips, while long-form temporal forensics remains predominantly visual. We introduce AV-FABLE, a dual-timeline benchmark for sparse manipulations in open-scene long-form audio-visual videos. AV-FABLE contains 16,650 pristine--manipulated twin pairs (998 hours) created with 27 editing configurations, with separate audio and visual timelines that enable modality-specific temporal localization and expose errors hidden by joint-timeline evaluation. On AV-FABLE, zero-shot prompting of audio-visual large language models (AV-LLMs) yields near-chance detection and poor temporal localization. In contrast, supervised readouts of their frozen perception features recover strong forensic signals, suggesting manipulation evidence is encoded in these representations but not effectively exposed through language outputs. Motivated by this observation, we propose NFSR(Native Forensics via Separated Readouts), which reads frozen AV-LLM features with separate audio and visual temporal decoders. NFSR achieves the best audio-<span class="search-hit mathjax">visual</span> <span class="search-hit mathjax">localization</span> performance in-domain and across all three out-of-distribution settings, including transfer to held-out videos from an external long-video forensic benchmark. AV-FABLE, code, and model weights will be publicly released.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.33413v1-abstract-full').style.display = 'none'; document.getElementById('2610.33413v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 23 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">41 pages, 10 figures, including appendices</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.32976">arXiv:2610.32976</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.32976">pdf</a>, <a href="https://arxiv.org/ps/2610.32976">ps</a>, <a href="https://arxiv.org/format/2610.32976">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        FlexGlue: Sparse-to-Dense Feature Matching and Visual Disambiguation
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Lindenberger%2C+P">Philipp Lindenberger</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Sarlin%2C+P">Paul-Edouard Sarlin</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Miksik%2C+O">Ondrej Miksik</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Pollefeys%2C+M">Marc Pollefeys</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.32976v1-abstract-short" style="display: inline;">
+        &hellip;Experiments on multiple datasets show that FlexGlue pushes the Pareto frontier in relative pose estimation and significantly outperforms existing approaches for SfM and <span class="search-hit mathjax">visual</span> <span class="search-hit mathjax">localization</span>. FlexGlue is publicly available at https://github.com/cvg/flexglue .
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.32976v1-abstract-full').style.display = 'inline'; document.getElementById('2610.32976v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.32976v1-abstract-full" style="display: none;">
+        To estimate correspondences across images, existing approaches match either sparse interest points, which is highly efficient but limited by repeatability, or dense pixel grids, which is robust but expensive. Furthermore, these approaches are trained with only matching pairs and thus often fail to reject unrelated pairs that exhibit visual symmetries, which is equally important in applications like Structure-from-Motion (SfM). We bridge these gaps by introducing FlexGlue, a neural network for asymmetric sparse-to-dense matching and disambiguation. Given two images and coordinates of points in the first image, FlexGlue estimates the coordinates of the corresponding points in the second image while simultaneously rejecting the pair if non-matching. By searching for a limited set of correspondences among dense pixels, our approach is both fast and effective at both matching and disambiguation: it combines the sub-pixel accuracy of dense matching with the speed of sparse matching, while rejecting incorrect pairs with high precision. Experiments on multiple datasets show that FlexGlue pushes the Pareto frontier in relative pose estimation and significantly outperforms existing approaches for SfM and <span class="search-hit mathjax">visual</span> <span class="search-hit mathjax">localization</span>. FlexGlue is publicly available at https://github.com/cvg/flexglue .
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.32976v1-abstract-full').style.display = 'none'; document.getElementById('2610.32976v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 23 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.32800">arXiv:2610.32800</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.32800">pdf</a>, <a href="https://arxiv.org/ps/2610.32800">ps</a>, <a href="https://arxiv.org/format/2610.32800">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        CompMVR: Compression-Aware Multi-View Restoration Using Diffusion Models for Geometrically Consistent 3D Reconstruction
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Kim%2C+D">Dong-hwi Kim</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Moon%2C+C">Chaewon Moon</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Song%2C+H">Hojun Song</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Kim%2C+D">Dongbeom Kim</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Jang%2C+J">Junyeong Jang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Kim%2C+A">Aro Kim</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Kim%2C+G">Gahyeon Kim</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Choi%2C+H">Heejung Choi</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Kim%2C+J">Jehee Kim</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Cravioto%2C+G">Gianella Cravioto</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Lee%2C+S">Sohyun Lee</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Choi%2C+G">Gyeongjin Choi</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Jeong%2C+E">EunHye Jeong</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Kim%2C+S+Y">Soo Ye Kim</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Lee%2C+J">Jaehyup Lee</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Park%2C+S">Sang-hyo Park</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.32800v1-abstract-short" style="display: inline;">
+        &hellip;views. Experiments across diverse datasets, codecs, and compression levels demonstrate gains in restoration quality and downstream 3D tasks, including novel-view synthesis, <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">pose</span> estimation, and view matching. These results establish compressed multi-view restoration as a distinct problem and highlight its import&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.32800v1-abstract-full').style.display = 'inline'; document.getElementById('2610.32800v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.32800v1-abstract-full" style="display: none;">
+        Real-world 3D reconstruction pipelines often rely on multi-view images degraded by lossy compression. While compression artifacts have been extensively studied in single-image or video restoration, their impact on multi-view geometry remains largely overlooked. In this work, we identify compression-induced cross-view geometric inconsistency as a critical failure mode, where view-dependent artifacts disrupt feature matching, dense correspondence, camera parameter estimation, and downstream 3D reconstruction tasks such as novel view synthesis. To address this problem, we propose CompMVR, a compression-aware multi-view diffusion restoration framework that jointly refines compressed views while preserving cross-view consistency, and construct compressed datasets for systematic evaluation. Unlike conventional restoration methods that optimize each image independently for 2D perceptual quality, CompMVR leverages learned compression priors and cross-view correspondence to recover visual details while improving geometric reliability across views. Experiments across diverse datasets, codecs, and compression levels demonstrate gains in restoration quality and downstream 3D tasks, including novel-view synthesis, <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">pose</span> estimation, and view matching. These results establish compressed multi-view restoration as a distinct problem and highlight its importance for 3D reconstruction under lossy compression. Code and data for this paper are available at https://mchaewon.github.io/CompMVR-project-page/.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.32800v1-abstract-full').style.display = 'none'; document.getElementById('2610.32800v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 23 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">Accepted to SIGGRAPH Asia 2026 (Technical paper)</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.33135">arXiv:2610.33135</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.33135">pdf</a>, <a href="https://arxiv.org/ps/2610.33135">ps</a>, <a href="https://arxiv.org/format/2610.33135">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        WorldCast: World-Consistent Character Video Generation with Large-Angle Camera Control
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Cao%2C+L">Lei Cao</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Liu%2C+Y">Yu Liu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Liao%2C+W">Wenhua Liao</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+P">Peng Zhang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wang%2C+F">Fei Wang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+H">Hao Zhang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Le%2C+J">Jiajun Le</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhou%2C+D">Daiguo Zhou</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Luan%2C+J">Jian Luan</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ma%2C+J">Jiayi Ma</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.33135v1-abstract-short" style="display: inline;">
+        &hellip;obtain explicit geometric guidance and coverage masks. To complement the incomplete character information, we introduce Geometry-Aligned Memory Attention (GAMA). Using relative <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span> estimated jointly from the initial frame and multi-view character anchors, we express anchor and target-view geometry in a common&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.33135v1-abstract-full').style.display = 'inline'; document.getElementById('2610.33135v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.33135v1-abstract-full" style="display: none;">
+        Precise camera control is essential for cinematic character video generation, yet existing methods struggle to follow large-angle trajectories with combined rotation, translation, and radius variation from arbitrary initial azimuths. Such viewpoint changes also reveal character regions unseen in the initial frame, causing geometric distortions, appearance degradation, and identity drift. To systematically study these coupled challenges, we introduce CLACT, a large-scale Character-centric dataset and benchmark covering diverse Large-Angle Camera Trajectories, with accurate camera geometry and multi-view character observations for training and evaluation. We further propose WorldCast, a framework for world-consistent character video generation under diverse large-angle camera motions. Specifically, we back-project the initial frame into a 3D point cloud using estimated depth, align the point-cloud scale with the target camera trajectory, and render it along the trajectory to obtain explicit geometric guidance and coverage masks. To complement the incomplete character information, we introduce Geometry-Aligned Memory Attention (GAMA). Using relative <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span> estimated jointly from the initial frame and multi-view character anchors, we express anchor and target-view geometry in a common coordinate frame. GAMA uses this geometric alignment to guide the retrieval and injection of view-relevant character features during generation. Evaluations across diverse large-angle camera trajectories demonstrate accurate trajectory following while preserving character geometry, appearance, and identity.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.33135v1-abstract-full').style.display = 'none'; document.getElementById('2610.33135v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 23 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">30 pages, 14 figures, 3 tables</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.32075">arXiv:2610.32075</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.32075">pdf</a>, <a href="https://arxiv.org/ps/2610.32075">ps</a>, <a href="https://arxiv.org/format/2610.32075">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Graphics">cs.GR</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Machine Learning">cs.LG</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        RADIANT: Object-Centric Feed-Forward Global Illumination
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+S">Sarah Zhang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Dou%2C+Z">Zhiyang Dou</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Guo%2C+M">Minghao Guo</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Jones%2C+B+T">Benjamin Tod Jones</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Matusik%2C+W">Wojciech Matusik</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.32075v1-abstract-short" style="display: inline;">
+        &hellip;attention sequence length from polygon counts. In a single network, an inter-object scene transformer models 3D radiative exchange and a view decoder renders images at target <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span>. To capture light transport without materializing O(N^2) bias matrices, invariant form-factor attention embeds geometric distances a&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.32075v1-abstract-full').style.display = 'inline'; document.getElementById('2610.32075v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.32075v1-abstract-full" style="display: none;">
+        Feed-forward neural renderers synthesize global illumination across novel 3D scenes without per-scene optimization or runtime ray tracing. Existing transformer-based renderers tokenize individual triangles, so self-attention scales quadratically with mesh resolution. Yet macroscopic radiative transport is governed by the underlying surface geometry and object arrangements rather than a particular mesh discretization; finer tessellation can thus inflate token counts without changing the underlying transport physics, motivating a discretization-agnostic and object-centric representation. We introduce RADIANT (RADiance-based Inter-Actor Neural Transformer), an object-centric architecture for feed-forward global illumination from point inputs. By representing each object with a compact budget of 32 surface-patch tokens, RADIANT decouples attention sequence length from polygon counts. In a single network, an inter-object scene transformer models 3D radiative exchange and a view decoder renders images at target <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">poses</span>. To capture light transport without materializing O(N^2) bias matrices, invariant form-factor attention embeds geometric distances and surface orientations directly into query-key dot products as SE(3)-invariant inner products weighted by learned area and material gains. For primary visibility without mesh connectivity, camera rays cross-attend scene tokens guided by depth-tested point splats in a shared spherical frame. Across a 1.03M-scene benchmark under matched model capacity, RADIANT reaches 25 dB tone-mapped PSNR in 5x fewer training steps than RenderFormer, and achieves 32.2 dB at 600k steps (+3.3 dB over RenderFormer and +7.6 dB over RenderFormer-V2). We further demonstrate the scalability of RADIANT, which completes a 512x512 forward pass of a 500-object scene in 0.83 s, with computational cost scaling with the number of objects rather than polygons.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.32075v1-abstract-full').style.display = 'none'; document.getElementById('2610.32075v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 22 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.32073">arXiv:2610.32073</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.32073">pdf</a>, <a href="https://arxiv.org/ps/2610.32073">ps</a>, <a href="https://arxiv.org/format/2610.32073">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Guided Zero-Shot Anomaly Explanation for Anonymized Crowd Video Monitoring: Context, Categorization, and Spatial Localization
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Asres%2C+M+W">Mulugeta Weldezgina Asres</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Jiao%2C+L">Lei Jiao</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Omlin%2C+C+W">Christian Walter Omlin</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.32073v1-abstract-short" style="display: inline;">
+        &hellip;study, we present the XAVAD approach, a unified descriptive anomaly XAI for an anonymized VAD, that integrates flexible zero-shot anonymization, anomaly type categorization, <span class="search-hit mathjax">visual</span> <span class="search-hit mathjax">localization</span>, and scene context description. We provide empirical and qualitative assessments of multifaceted explanations integrated with&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.32073v1-abstract-full').style.display = 'inline'; document.getElementById('2610.32073v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.32073v1-abstract-full" style="display: none;">
+        Despite the promising development of deep learning for video anomaly detection (VAD), explainability (XAI) of these models remains a challenge. Explainable and privacy-protecting VAD builds transparency and trust that facilitates adoption of computer vision systems, including safety and security monitoring. However, anomaly explainability in privacy-preserving VAD systems is underexplored. In this study, we present the XAVAD approach, a unified descriptive anomaly XAI for an anonymized VAD, that integrates flexible zero-shot anonymization, anomaly type categorization, <span class="search-hit mathjax">visual</span> <span class="search-hit mathjax">localization</span>, and scene context description. We provide empirical and qualitative assessments of multifaceted explanations integrated with full-body visual anonymization for privacy protection. We adopt a multimodal CLIP embedding for videos, using improved LLM-assisted prompting and pool-scoring mechanisms for anomaly-type identification. We enhance Grad-ECLIP for spatial anomaly heatmap localization, leveraging computation and accuracy through our novel prompt-guided patching autofocus mechanism. We employ VLMs to generate context and reasoning descriptions of detected anomalies through curated prompt engineering. We have evaluated the accuracy and computational cost of XAVAD on several publicly available CCTV and video datasets. Our experiments demonstrate substantial gains of our XAVAD over state-of-the-art benchmark approaches and provide insights into privacy protection trade-offs in XAI for VAD. We further present ablation studies and assessments across diverse configurations and modeling alternatives to demonstrate the efficacy of our proposed methods. Code: https://github.com/muleina/XAVAD}{https://github.com/muleina/XAVAD .
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.32073v1-abstract-full').style.display = 'none'; document.getElementById('2610.32073v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 22 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">21 pages, 12 figures, 13 tables, preprint</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.31834">arXiv:2610.31834</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.31834">pdf</a>, <a href="https://arxiv.org/ps/2610.31834">ps</a>, <a href="https://arxiv.org/format/2610.31834">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        WorldMirror: Agentic Real-to-Sim Generation of Interactive Worlds from In-the-Wild Robot Demonstrations
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Xu%2C+T">Tianling Xu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wan%2C+W">Weijie Wan</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Su%2C+H">Honghao Su</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Su%2C+K">Kailun Su</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Tang%2C+J">Junyuan Tang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhou%2C+H">Huichi Zhou</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+H">Haozheng Zhang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Xiong%2C+Q">Qi Xiong</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Luo%2C+P">Ping Luo</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ding%2C+W">Wenbo Ding</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Chen%2C+T">Tianxing Chen</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Chen%2C+Y">Yue Chen</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.31834v1-abstract-short" style="display: inline;">
+        &hellip;decomposes the observed scene, plans reconstruction steps, and orchestrates specialized image and 3D generation tools, refining the program through verification feedback. A <span class="search-hit mathjax">camera</span>-<span class="search-hit mathjax">pose</span>-anchored scene representation organizes the world into static visual context, support geometry, and editable interactive assets while p&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.31834v1-abstract-full').style.display = 'inline'; document.getElementById('2610.31834v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.31834v1-abstract-full" style="display: none;">
+        Existing approaches for robot learning in simulation often require substantial manual effort to construct scenes and specify tasks, limiting training scalability and data diversity. Meanwhile, in-the-wild robot demonstrations naturally provide diverse and realistic observations of real-world interactions. Leveraging these demonstrations for simulation requires both high-fidelity visual reconstruction and physically consistent interactions. General-purpose agents offer flexible adaptation to diverse scenarios and strong reasoning about 3D spatial relationships, while specialized generative models provide high-fidelity reconstruction of scene appearance and geometry. We introduce WorldMirror, an agentic real-to-sim framework that constructs interactive digital twins from in-the-wild robot demonstrations. Our central idea is to formulate real-to-sim construction as the iterative refinement of an executable world program. A coding agent decomposes the observed scene, plans reconstruction steps, and orchestrates specialized image and 3D generation tools, refining the program through verification feedback. A <span class="search-hit mathjax">camera</span>-<span class="search-hit mathjax">pose</span>-anchored scene representation organizes the world into static visual context, support geometry, and editable interactive assets while preserving spatial relationships among the scene, objects, and robot. The agent uses this representation to diagnose and correct reconstruction errors, enabling physically consistent interaction and trajectory replay. Experiments on DROID demonstrate that WorldMirror can reconstruct visually faithful and geometrically consistent interactive worlds while preserving the physical validity of recorded robot trajectories.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.31834v1-abstract-full').style.display = 'none'; document.getElementById('2610.31834v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 22 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.31797">arXiv:2610.31797</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.31797">pdf</a>, <a href="https://arxiv.org/ps/2610.31797">ps</a>, <a href="https://arxiv.org/format/2610.31797">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Optimization and Control">math.OC</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        PnP*: A certifiable solver for Perspective-n-Point
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Chen%2C+B">Bang-Shien Chen</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Eaton%2C+C+E">Caitrin E. Eaton</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Rosen%2C+D+M">David M. Rosen</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.31797v1-abstract-short" style="display: inline;">
+        Estimating a <span class="search-hit mathjax">camera</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.31797v1-abstract-full').style.display = 'inline'; document.getElementById('2610.31797v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.31797v1-abstract-full" style="display: none;">
+        Estimating a <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">pose</span> from 3D-2D correspondences - Perspective-n-Point - is one of the most fundamental problems in computer vision. Existing methods either solve a minimal problem or replace the objective with an easier one. Surprisingly, no scalable certifiable solver for the actual Maximum Likelihood Estimation (MLE) exists. We propose PnP*, the first practical solver that guarantees efficient computation and returns a certifiable globally optimal solution. We prove that the underlying convex relaxation is exact under moderate noise, which to our knowledge is the first stability guarantee for any relaxation for the MLE of PnP. Furthermore, we reduce the relaxation by exploiting chordal sparsity pattern and quotient ring reduction such that the relaxation is tractable and scalable. The stability and scalability results are verified numerically, as PnP* returns a provably correct <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">pose</span> at over 10 Hz.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.31797v1-abstract-full').style.display = 'none'; document.getElementById('2610.31797v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 22 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">28 pages, 3 figures</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.31321">arXiv:2610.31321</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.31321">pdf</a>, <a href="https://arxiv.org/ps/2610.31321">ps</a>, <a href="https://arxiv.org/format/2610.31321">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        MVLoMa: Multi-View Local Feature Matching with Any Geometry Foundation Model
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Lu%2C+X">Xinyang Lu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wei%2C+S">Shengzhe Wei</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Tang%2C+S">Sheng Tang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+W">Weiqi Zhang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Fang%2C+J">Juntong Fang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Li%2C+Z">Zesong Li</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.31321v1-abstract-short" style="display: inline;">
+        Local feature matching is typically formulated for image pairs, although structure-from-motion and <span class="search-hit mathjax">visual</span> <span class="search-hit mathjax">localization</span> commonly match one reference image against many retrieved or covisible neighbours. Applying a pairwise matcher independently to these centre-neighbour edges duplicates reference-side computation and pr&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.31321v1-abstract-full').style.display = 'inline'; document.getElementById('2610.31321v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.31321v1-abstract-full" style="display: none;">
+        Local feature matching is typically formulated for image pairs, although structure-from-motion and <span class="search-hit mathjax">visual</span> <span class="search-hit mathjax">localization</span> commonly match one reference image against many retrieved or covisible neighbours. Applying a pairwise matcher independently to these centre-neighbour edges duplicates reference-side computation and prevents the matcher from exploiting complementary multi-view geometric evidence from the remaining observations. To address these limitations, we introduce MVLoMa, a sparse star-graph matcher that extends LoMa from image pairs to multiple views. MVLoMa first uses a frozen multi-view geometry model to jointly describe all images in a star, then injects the resulting cross-view geometric context into local descriptors. It then matches the centre image to all neighbours in a single forward pass through per-view self-attention and bidirectional centre-neighbour cross-attention. For supervision, we derive positive correspondences only from depth-valid, mutually visible dense warps and explicitly penalize high-confidence matches that violate epipolar geometry. On 25-view star graphs from HyperSim, ScanNet++, Mip-NeRF 360, and Tanks and Temples, MVLoMa obtains the best macro-average relative-pose AUC among the compared methods at all three thresholds (58.65/85.41/90.99). Its matcher is 2.20 times faster than sequential evaluation of the 24 centre-neighbour edges. The same design supports four tested frozen geometry encoders -- DA3, $π^3$, VGGT, and VGGT-$Ω$ -- with DA3-Giant performing best on all reported encoder-ablation metrics. Controlled ablations further isolate the effects of geometry-aware descriptors, visibility filtering, geometric negative supervision, and joint multi-view inference.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.31321v1-abstract-full').style.display = 'none'; document.getElementById('2610.31321v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 22 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">Project Page:https://kosmoresearch.github.io/MVLoMa/</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.31320">arXiv:2610.31320</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.31320">pdf</a>, <a href="https://arxiv.org/ps/2610.31320">ps</a>, <a href="https://arxiv.org/format/2610.31320">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Stream4D: Streaming 4D Reconstruction with Training-free Motion Decoupling via Causal KV-Cache Attention
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+W">Wei Zhang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Feng%2C+Y">Ying Feng</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wu%2C+M">Mengtong Wu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Gong%2C+S">Shiqiang Gong</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+H">Huaqi Zhang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+Q">Qi Zhang</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.31320v1-abstract-short" style="display: inline;">
+        &hellip;dynamic regions. We then apply a soft key masking scheme that leverages these dynamic masks to suppress interference from dynamic regions in causal attention, thereby improving <span class="search-hit mathjax">camera</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.31320v1-abstract-full').style.display = 'inline'; document.getElementById('2610.31320v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.31320v1-abstract-full" style="display: none;">
+        4D scene reconstruction requires robust handling of dynamic objects, yet existing streaming methods commonly assume static scenes, leading to pose drift and ghosting artifacts over long sequences. We introduce Stream4D, a training-free, motion-decoupled streaming reconstruction framework that can be directly integrated into causal Transformer backbones (e.g., StreamVGGT, Stream3R). Our key observation is that causal attention implicitly encodes rich temporal motion cues within the KV cache. We adaptively aggregate these cues from multiple attention layers and across temporal windows, and fuse them with depth priors to handle challenging cases such as occlusions and textureless regions, producing precise dynamic masks that decouple static and dynamic regions. We then apply a soft key masking scheme that leverages these dynamic masks to suppress interference from dynamic regions in causal attention, thereby improving <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">pose</span> estimation accuracy. Stream4D inherits the efficiency of causal attention and remains compatible with existing streaming architectures. On diverse dynamic-scene benchmarks, Stream4D significantly improves <span class="search-hit mathjax">camera</span> <span class="search-hit mathjax">pose</span> estimation and static-scene reconstruction quality, yields reliable dynamic masks, and effectively mitigates long-sequence ghosting.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.31320v1-abstract-full').style.display = 'none'; document.getElementById('2610.31320v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 22 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">10 pages, 8 figures. Accepted to ACM Multimedia 2026</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+</ol>
+
+
+    
+  
+
+      <div class="is-hidden-tablet">
+        <!-- feedback for mobile only -->
+        <span class="help" style="display: inline-block;"><a href="https://github.com/arXiv/arxiv-search/releases">Search v0.5.6 released 2020-02-24</a>&nbsp;&nbsp;</span>
+      </div>
+    </div>
+
+  </main>
+  <footer>
+    <footer class="ds-site-footer">
+  <div class="ds-site-footer-grid">
+    <div class="ds-site-footer-main">
+      <div class="ds-site-footer-ack">
+        We gratefully acknowledge support from our <a href="https://info.arxiv.org/about/major_funders.html"><strong>major funders</strong></a>,
+        <a href="https://info.arxiv.org/about/ourmembers.html"><strong>member institutions</strong></a><span class="ack-member-inline" hidden>, <strong></strong></span>,
+        and all contributors.
+      </div>
+      <nav class="ds-site-footer-links" aria-label="Site navigation">
+        <a href="https://info.arxiv.org/about">About</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help">Help</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/contact.html">Contact</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/subscribe.html">Subscribe</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/license/index.html">Copyright</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/policies/privacy_policy.html">Privacy</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/web_accessibility.html">Accessibility</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://status.arxiv.org/" target="_blank" rel="noopener noreferrer">Operational Status<span class="is-sr-only"> (opens in new tab)</span></a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+  </footer>
+  <script src="https://static.arxiv.org/static/base/1.0.0a5/js/member_acknowledgement.js"></script>
+  </body>
+</html>

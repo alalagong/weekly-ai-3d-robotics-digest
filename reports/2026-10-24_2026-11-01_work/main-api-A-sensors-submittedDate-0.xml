@@ -1,0 +1,1806 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/shUPuRnmc2zeeEU4y5JvcbdhYRk</id>
+  <title>arXiv Query: search_query=( ( (ti:LiDAR) OR (abs:LiDAR) OR (ti:radar) OR (abs:radar) OR (ti:"RGB-D") OR (abs:"RGB-D") OR (ti:monocular) OR (abs:monocular) OR (ti:"multi-camera") OR (abs:"multi-camera") ) AND (ti:odometry OR abs:odometry OR ti:SLAM OR abs:SLAM OR ti:localization OR abs:localization OR ti:calibration OR abs:calibration) ) AND submittedDate:"202610220000 TO 202611011459"&amp;id_list=&amp;start=0&amp;max_results=200</title>
+  <updated>2026-11-01T15:17:55Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=((ti:LiDAR+OR+(abs:LiDAR+OR+(ti:radar+OR+(abs:radar+OR+(ti:%22RGB-D%22+OR+(abs:%22RGB-D%22+OR+(ti:monocular+OR+(abs:monocular+OR+(ti:%22multi-camera%22+OR+abs:%22multi-camera%22)))))))))+AND+(ti:odometry+OR+(abs:odometry+OR+(ti:SLAM+OR+(abs:SLAM+OR+(ti:localization+OR+(abs:localization+OR+(ti:calibration+OR+abs:calibration))))))))+AND+submittedDate:%22202610220000+TO+202611011459%22&amp;start=0&amp;max_results=200&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>200</opensearch:itemsPerPage>
+  <opensearch:totalResults>36</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2610.40586v1</id>
+    <title>Multistatic ISAC with Deep Learning-Based Clutter Suppression for 5G and Beyond</title>
+    <updated>2026-10-29T17:47:02Z</updated>
+    <link href="https://arxiv.org/abs/2610.40586v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.40586v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Integrated sensing and communications (ISAC) systems using 5G and beyond signals of opportunity enable joint wireless sensing and communication using shared infrastructure and spectrum resources. While multistatic ISAC can increase sensing coverage with spatially distributed receivers, dense and dynamic clutter can significantly degrade bistatic range and Doppler estimation, leading to errors in target localization and velocity estimation. This paper presents a multistatic ISAC framework with clutter suppression for high-fidelity estimation of target position and velocity. Distributed clutter is modeled with randomly located scatterers with varying Doppler spreads and radar cross sections to capture dense and dynamic clutter effects. A broad range of conventional signal processing baselines are evaluated for clutter suppression, showing limited robustness under strong clutter conditions. To address this limitation, deep learning-based clutter suppression methods are introduced to improve robustness against dense and dynamic clutter by employing residual and attention-enhanced deep neural network architectures that directly enhance target responses from clutter-contaminated observations. These methods substantially outperform conventional approaches in target position and velocity estimation across diverse clutter conditions in multistatic ISAC.</summary>
+    <category term="cs.NI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="eess.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-29T17:47:02Z</published>
+    <arxiv:primary_category term="cs.NI"/>
+    <author>
+      <name>Yalin E. Sagduyu</name>
+    </author>
+    <author>
+      <name>Tugba Erpek</name>
+    </author>
+    <author>
+      <name>Sastry Kompella</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.40199v1</id>
+    <title>Decision-Level Error Attribution and Depth-Aware Safety Evaluation of Monocular RGB Human Tracking for Autonomous Robot Navigation</title>
+    <updated>2026-10-29T14:52:38Z</updated>
+    <link href="https://arxiv.org/abs/2610.40199v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.40199v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Monocular RGB tracking is useful for robots operating near people, but perception errors affect binary stop/proceed decisions in ways that geometric accuracy metrics do not capture. We examine how much decision error arises from the safety rule versus perception. We prove that lateral-only distance is a lower bound on planar distance: with accurate positions, it cannot miss dangers identified by the planar rule, but it produces unnecessary stops. We introduce a two-factor Shapley attribution separating rule and perception contributions, and further distinguish missed detections from localization errors. Experiments use ETH and UCY pedestrian videos with simulated stationary robots, disjoint calibration and evaluation pedestrians, and time-block bootstrap intervals. Across 898 pedestrians in three scenes, the lateral rule missed no dangers on annotated positions but achieved only 5.6-31.9% stop precision. In two scenes with RGB perception, calibrated ground-plane localization achieved 0.59 m and 0.51 m planar RMSE, compared with 1.72 m and 1.39 m for a geometric baseline and 0.81 m and 0.68 m for calibrated Depth Anything V2. Detection recall of 0.43 and 0.26 made missed detections the leading source of missed danger. A two-standard-deviation safety margin with ground-plane localization matched or improved on the lateral rule's missed-danger rate in all eight scene-threshold settings and reduced unnecessary stops in seven. All robot interactions are simulated, and outcomes are offline decision classifications, not demonstrations of collision avoidance.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-29T14:52:38Z</published>
+    <arxiv:comment>10 pages, 7 figures, 6 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Abdulahi Taiwo</name>
+    </author>
+    <author>
+      <name>Chijioke Cyriacus Ekechi</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.39691v1</id>
+    <title>Smartphone Indoor Localization Enhanced by Hierarchical Multi-Sensor Context Recognition</title>
+    <updated>2026-10-29T09:31:09Z</updated>
+    <link href="https://arxiv.org/abs/2610.39691v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.39691v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Smartphone indoor localization requires low-cost, robust positioning across scene transitions and phone-use variations. Pedestrian dead reckoning (PDR) enables infrastructure-free deployment but accumulates errors from heading drift, structural transitions, and carrying-mode changes. Existing methods often treat contextual cues as a single event stream or local correction signal, limiting their ability to address distinct localization errors. This paper presents a framework enhanced by hierarchical multi-sensor context recognition. A jointly data- and model-driven recognition model predicts environment, scene, and activity probabilities, which are converted into scene-event and action-context segments. Scene-event segments guide scene-constrained PDR correction through corridor heading constraints, landmark attraction, fixed-lag backtracking, and vertical-transition handling. Action-context segments drive action-aware RoNIN-based position compensation for carrying-mode-dependent drift. Experiments on cross-floor and multi-action trajectories against LiDAR-SLAM references show that the proposed framework outperforms PDR and representative learned inertial odometry baselines, demonstrating that hierarchical semantics provide reliable, localization-specific correction cues.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-29T09:31:09Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Wenhui Feng</name>
+    </author>
+    <author>
+      <name>Muhan Weng</name>
+    </author>
+    <author>
+      <name>Jianyu Liu</name>
+    </author>
+    <author>
+      <name>Xiansheng Yang</name>
+    </author>
+    <author>
+      <name>Hao Zhang</name>
+    </author>
+    <author>
+      <name>Liang Wang</name>
+    </author>
+    <author>
+      <name>Yuan Zhuang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.39385v1</id>
+    <title>UMI-Live for In-The-Wild Bimanual Robotics Data Collection</title>
+    <updated>2026-10-29T05:18:16Z</updated>
+    <link href="https://arxiv.org/abs/2610.39385v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.39385v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Universal Manipulation Interface (UMI) devices allow human experts to demonstrate tasks for robot learning without teleoperating physical robots. Using these demonstrations as training data still requires a consistent hardware setup, calibration, and data processing. We present UMI-Live, a full-stack open-source bimanual UMI system for in-the-wild data collection. We design our custom UMI-Live hardware to integrate camera and LiDAR--inertial sensing, onboard compute, and power, without external tracking equipment or calibration within the collection environment. We implement a simple user interface for recording data while an asynchronous pipeline performs parallel SLAM reconstruction and publishes training-ready datasets. We also release software that supports dual-YAM teleoperation and VLA policy training and inference. We validate UMI-Live data quality by fine-tuning $π_{0.5}$ and MolmoAct2, achieving success rates of 10/10 and 8/10, respectively on a bimanual pick-and-place task. Furthermore, we release 40 hours of UMI-Live data across three tasks, and complete hardware designs, software, and reproduction guides at our $\href{https://umi-live.github.io/}{\text{project website}}$.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-29T05:18:16Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Govind Velamoor</name>
+    </author>
+    <author>
+      <name>Adrian Lin</name>
+    </author>
+    <author>
+      <name>Sam Jung</name>
+    </author>
+    <author>
+      <name>Spencer Mateega</name>
+    </author>
+    <author>
+      <name>Brandon Y. Yang</name>
+    </author>
+    <author>
+      <name>Amish Sethi</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.39258v1</id>
+    <title>Agentic LinkDreamer: Adaptive Neuro-Fuzzy World-Model Decision Making for Intermittent V2X Cooperative Perception</title>
+    <updated>2026-10-29T03:10:15Z</updated>
+    <link href="https://arxiv.org/abs/2610.39258v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.39258v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Intermittent vehicle-to-everything (V2X) communication can remove collaborator information needed for cooperative perception, degrading object detection during link outages. Existing recovery methods reconstruct missing features but rarely determine when to trust predictions, reuse historical observations, or request fresh information. This paper proposes Agentic LinkDreamer, a soft-computing framework integrating a latent world model with an interpretable neuro-fuzzy decision agent. It maintains causal collaborator memory and uses a relative-motion-conditioned recurrent world model to predict unavailable bird's-eye-view (BEV) features. Prediction uncertainty, perceptual complementarity, memory freshness, communication quality, and residual communication budget form a compact decision state. A differentiable Takagi-Sugeno controller selects among five modes: ego-only perception, motion-compensated historical feature reuse, latent imagination, low-rate temporal-summary refresh, and high-rate collaborator-feature refresh. The policy balances detection risk, communication overhead, latency, predictive uncertainty, and action switching. After link recovery, reflection compares predicted and received features to update uncertainty calibration and causal memory. For reproducible evaluation without assuming unavailable physical-layer traces, we construct a geometry-derived V2X degradation protocol using recorded trajectories and LiDAR-derived scene geometry from V2X-Real. On the real-world V2X-Real V2V split, Agentic LinkDreamer achieves 90.95 AP@0.5 on outage frames and recovers 92.9% of the cooperative-perception performance gap. At a high-performance operating point, it remains only 0.65 AP below the cooperative upper reference while reducing communication volume by approximately 31% relative to continuous high-rate cooperation. This improves resilience under V2X outages.</summary>
+    <category term="cs.NI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-29T03:10:15Z</published>
+    <arxiv:comment>This work has been submitted to Elsevier for possible publication. 38 pages, 5 figures, 3 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.NI"/>
+    <author>
+      <name>Zhaoyu Liu</name>
+    </author>
+    <author>
+      <name>Dongmin Wang</name>
+    </author>
+    <author>
+      <name>Liu Cao</name>
+    </author>
+    <author>
+      <name>Jijing Cai</name>
+    </author>
+    <author>
+      <name>Kai Fang</name>
+    </author>
+    <author>
+      <name>Syed Ishtiaque Ahmed</name>
+    </author>
+    <author>
+      <name>Almetwally M. Mostafa</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.38551v1</id>
+    <title>PT$^3$: Prototype-Guided Self-Supervised Pretraining for Generalizable mmWave Human Point Cloud Representation</title>
+    <updated>2026-10-28T09:49:12Z</updated>
+    <link href="https://arxiv.org/abs/2610.38551v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.38551v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Multi-source millimeter-wave (mmWave) observations offer an opportunity to learn human representations reusable across sensing tasks. However, sparse detections and multipath effects make these observations unstable, challenging existing point cloud pretraining methods. We propose PT$^3$, a prototype-guided self-supervised pretraining framework for mmWave human point clouds. PT$^3$ represents local states in spatial regions as sparse compositions of shared prototypes and learns their temporal evolution through autoregressive prediction. Observation consistency further stabilizes representations under radar perturbations. After pretraining on unlabeled sequences from multiple sources, the same frozen encoder supports action classification, dense point generation, joint pose estimation, and future motion prediction on datasets not used for pretraining. Across these tasks, PT$^3$ outperforms the compared pretraining baselines and achieves competitive or superior performance to task-specific models.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-28T09:49:12Z</published>
+    <arxiv:comment>30 pages</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Ziyang Liu</name>
+    </author>
+    <author>
+      <name>Kieren Yu</name>
+    </author>
+    <author>
+      <name>Xiao Yang</name>
+    </author>
+    <author>
+      <name>Xin Yang</name>
+    </author>
+    <author>
+      <name>Kaishun Wu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.38358v1</id>
+    <title>Volley3D: Unified 3D Full-Sequence Reconstruction from Monocular Broadcasts</title>
+    <updated>2026-10-28T06:56:55Z</updated>
+    <link href="https://arxiv.org/abs/2610.38358v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.38358v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>3D reconstruction from single-view sports broadcast is a pivotal capability for automated analytics and immersive AR/VR replays, yet notoriously ill-posed due to difficult-to-calibrate moving cameras and depth ambiguity. Unlike widely studied racket sports, team sports such as volleyball feature unpredictable multi-contact sequences and high altitude jumps. These dynamics categorically invalidate the standard planar projection assumptions relied upon by existing methods. To resolve these limitations without 3D training supervision, we propose a complete, physics-grounded pipeline tailored to monocular broadcast volleyball. First, we include a correction module to the perspective drift induced by ground-plane projection by coupling temporal jump spotting with Newtonian interpolation for 3D player placement. Second, for 3D ball trajectory estimation, we design a dedicated sub-trajectory segmentation architecture alongside a collision-matching algorithm. By anchoring physical equations to reconstructed 3D hand vertices, we lift noisy ball 2D detections into a spatiotemporally coherent 3D scene. Evaluations on multi-camera benchmarks demonstrate our approach significantly reduces 3D spatial drift compared to 2D-reprojection baselines.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-28T06:56:55Z</published>
+    <arxiv:comment>8 pages + 10 pages of supplementary. Videos available on the project webpage: noambsf.github.io/Volley3D</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Noâm Boussouf</name>
+    </author>
+    <author>
+      <name>Adrien Maglo</name>
+    </author>
+    <author>
+      <name>Mohamed Chaouch</name>
+    </author>
+    <author>
+      <name>Hideo Saito</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.38141v1</id>
+    <title>SKiD-SLAM: Resource-Aware Distributed Multi-Robot LiDAR SLAM for Planetary Missions with Field Deployments at Analog Sites</title>
+    <updated>2026-10-28T01:24:37Z</updated>
+    <link href="https://arxiv.org/abs/2610.38141v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.38141v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Future planetary exploration missions require teams of robots to collaboratively map unknown environments under severe communication limits, constrained onboard computation, and no central infrastructure. In this field report, we present SKiD-SLAM, a distributed multi-robot LiDAR simultaneous localization and mapping (SLAM) system for such environments, and report its deployment across two mission concepts: cave exploration and scientific surface exploration. We survey the communication and computation budgets of actual planetary missions and select modules that fit these budgets for inter-robot place recognition, relative pose estimation, and distributed trajectory fusion. Before field deployment, we verify the assembled system on public datasets resembling planetary environments and in a simulator built on NASA JPL's Open Source Rover. We then validate SKiD-SLAM through field deployments in South Korea: a team of wheeled rovers explores the Majang lava-tube cave on Jeju Island, and quadruped robots carry out a crater-and-rock science scenario on a planetary analog terrain at the Korea Institute of Civil Engineering and Building Technology (KICT) in Yeoncheon. Across both deployments, SKiD-SLAM reliably performed distributed multi-robot LiDAR SLAM within a 250 kbps inter-robot communication budget, demonstrating its feasibility under challenging field conditions. Supplementary materials, including code and field data, are available at https://sparolab.github.io/research/skid_slam/.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-28T01:24:37Z</published>
+    <arxiv:comment>31 pages. Published in IEEE Transactions on Field Robotics. Code and field data: https://sparolab.github.io/research/skid_slam/</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <arxiv:journal_ref>IEEE Transactions on Field Robotics, vol. 3, pp. 813-841, 2026</arxiv:journal_ref>
+    <author>
+      <name>Hogyun Kim</name>
+    </author>
+    <author>
+      <name>Juwon Kim</name>
+    </author>
+    <author>
+      <name>Dongjin Cho</name>
+    </author>
+    <author>
+      <name>Jiwon Choi</name>
+    </author>
+    <author>
+      <name>Geonmo Yang</name>
+    </author>
+    <author>
+      <name>Seokhwan Jeong</name>
+    </author>
+    <author>
+      <name>Jiyun Lee</name>
+    </author>
+    <author>
+      <name>Miryeong Park</name>
+    </author>
+    <author>
+      <name>Hyungtae Lim</name>
+    </author>
+    <author>
+      <name>Younggun Cho</name>
+    </author>
+    <arxiv:doi>10.1109/TFR.2026.3721725</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1109/TFR.2026.3721725" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.37818v1</id>
+    <title>GOFish: Full Field-of-View Gaussian Splatting and Mesh Extraction</title>
+    <updated>2026-10-27T18:32:45Z</updated>
+    <link href="https://arxiv.org/abs/2610.37818v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.37818v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Robots, autonomous vehicles, and consumer 360° cameras use fisheye lenses for wide fields of view (FoVs). Simulation-ready digital twins require photorealistic rendering across the full FoV and an aligned collision mesh. However, prior fisheye Gaussian Splatting methods only rasterize up to 180° and do not produce meshes, while Gaussian surface reconstruction methods assume pinhole training images. We present GOFish, the first 3D Gaussian Splatting surface reconstruction method to train directly on fisheye images, rasterize FoVs beyond 180°, and extract an aligned mesh from the same scene. Calibrated densification recovers the surface across the entire FoV, while Calibrated Mip Filtering and Wide-Angle Appearance Modeling keep pixel blur and lens falloff out of the scene and mesh. Across the 200° FIORD and 205° FullCircle benchmarks, GOFish improves PSNR over the best prior method by 2.28 and 1.97 dB, respectively. It also outperforms fisheye rendering baselines within their own FoVs and achieves the highest mesh F-score on FIORD and the main ScanNet++ set. Together, the Gaussian scene and mesh form a LiDAR-free, simulation-ready digital twin that renders in real time, ray traces the full FoV, and provides collision geometry.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.GR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T18:32:45Z</published>
+    <arxiv:comment>Project Page: https://3dgofish.github.io/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Allen Tu</name>
+    </author>
+    <author>
+      <name>Meher Gitika Karumuri</name>
+    </author>
+    <author>
+      <name>Shifan Zhu</name>
+    </author>
+    <author>
+      <name>Hailing Wang</name>
+    </author>
+    <author>
+      <name>Yen-Liang Lin</name>
+    </author>
+    <author>
+      <name>David Held</name>
+    </author>
+    <author>
+      <name>Matthias Zwicker</name>
+    </author>
+    <author>
+      <name>Tom Goldstein</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.37803v1</id>
+    <title>3Dtrees.earth: community research infrastructure for tree and forest analysis using close-range LiDAR data</title>
+    <updated>2026-10-27T18:24:19Z</updated>
+    <link href="https://arxiv.org/abs/2610.37803v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.37803v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>From individual trees to forest stands, three-dimensional structure shapes carbon, water, and energy flows, habitat conditions, and resource availability. Yet tree and forest structural attributes remain difficult to assess consistently across space and time. Close-range LiDAR (light detection and ranging) records detailed 3D structure from branches and trees to forest plots, including trees outside forests. However, broader reuse is constrained when data, acquisition context, processing, computation, and access conditions are maintained separately. We present 3Dtrees.earth, an operational community research infrastructure that brings close-range LiDAR datasets, analysis tools, and computing resources together while linking original observations to their metadata and processing outputs. As of 23 October 2026, the platform comprised 2,760 datasets, including 2,481 publicly visible datasets. These point cloud datasets span 46 countries on all six inhabited continents and include terrestrial, mobile, and uncrewed aerial laser scanning. Users can contribute and discover datasets, run standardized processing workflows on shared computing infrastructure, inspect point clouds and model predictions in the browser, and access data and processing outputs together with citation information. Workflows combine rule-based and machine-learning methods, with tools updated as methods advance. Outputs include raster products, individual-tree and semantic segmentation, and tree- and stand-level metrics. Original point clouds and processing records are retained, enabling reprocessing with improved tools while preserving provenance. With broader coverage, curation, and validation, this shared resource could extend individual surveys into a basis for model evaluation and benchmarking, cross-site synthesis, calibration and validation of larger-scale Earth observation products, and macroecological analysis.</summary>
+    <category term="cs.DL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T18:24:19Z</published>
+    <arxiv:primary_category term="cs.DL"/>
+    <author>
+      <name>Janusch Vajna-Jehle</name>
+    </author>
+    <author>
+      <name>Kilian Gerberding</name>
+    </author>
+    <author>
+      <name>Daniel Lusk</name>
+    </author>
+    <author>
+      <name>Teja Kattenborn</name>
+    </author>
+    <author>
+      <name>Julia Sophie Gäßler</name>
+    </author>
+    <author>
+      <name>Anna Göritz</name>
+    </author>
+    <author>
+      <name>Luis Kremer</name>
+    </author>
+    <author>
+      <name>Charlotte Lange</name>
+    </author>
+    <author>
+      <name>Aaron Sheppard</name>
+    </author>
+    <author>
+      <name>Salim Soltani</name>
+    </author>
+    <author>
+      <name>Jesús Aguirre Gutiérrez</name>
+    </author>
+    <author>
+      <name>Muhammad Ali</name>
+    </author>
+    <author>
+      <name>Thaís Chaves Almeida</name>
+    </author>
+    <author>
+      <name>Dominik Ambs</name>
+    </author>
+    <author>
+      <name>Katharina Anders</name>
+    </author>
+    <author>
+      <name>Alexandre Antonelli</name>
+    </author>
+    <author>
+      <name>Tito Arevalo-Ramirez</name>
+    </author>
+    <author>
+      <name>Rasmus Astrup</name>
+    </author>
+    <author>
+      <name>Andrés Avella</name>
+    </author>
+    <author>
+      <name>Yuchen Bai</name>
+    </author>
+    <author>
+      <name>Harm Bartholomeus</name>
+    </author>
+    <author>
+      <name>Owain Barton</name>
+    </author>
+    <author>
+      <name>Rolf Becker</name>
+    </author>
+    <author>
+      <name>Kevin Beiler</name>
+    </author>
+    <author>
+      <name>Mirela Beloiu</name>
+    </author>
+    <author>
+      <name>Matthias Bode</name>
+    </author>
+    <author>
+      <name>Michał Brach</name>
+    </author>
+    <author>
+      <name>John Brandt</name>
+    </author>
+    <author>
+      <name>Joshua Braun-Wimmer</name>
+    </author>
+    <author>
+      <name>Benjamin Brede</name>
+    </author>
+    <author>
+      <name>Seppe Bresseleers</name>
+    </author>
+    <author>
+      <name>Dominik Brétt</name>
+    </author>
+    <author>
+      <name>Luke A. Brown</name>
+    </author>
+    <author>
+      <name>Julius Steffen Brune</name>
+    </author>
+    <author>
+      <name>Ramazan Bülbül</name>
+    </author>
+    <author>
+      <name>Josafat-Mattias Burmeister</name>
+    </author>
+    <author>
+      <name>James Burridge</name>
+    </author>
+    <author>
+      <name>Carlos Cabo</name>
+    </author>
+    <author>
+      <name>Kim Calders</name>
+    </author>
+    <author>
+      <name>Isaias Caluvino</name>
+    </author>
+    <author>
+      <name>Mariana Campos</name>
+    </author>
+    <author>
+      <name>Anna Candotti</name>
+    </author>
+    <author>
+      <name>Ergin Cagatay Cankaya</name>
+    </author>
+    <author>
+      <name>Juan Pedro Carbonell-Rivera</name>
+    </author>
+    <author>
+      <name>Arnaud Carrara</name>
+    </author>
+    <author>
+      <name>Guilherme Castro</name>
+    </author>
+    <author>
+      <name>Jeannine Cavender-Bares</name>
+    </author>
+    <author>
+      <name>Wout Cherlet</name>
+    </author>
+    <author>
+      <name>Zane Cooper</name>
+    </author>
+    <author>
+      <name>Isamar Cortes</name>
+    </author>
+    <author>
+      <name>Pablo Crespo-Peremarch</name>
+    </author>
+    <author>
+      <name>Darius Culvenor</name>
+    </author>
+    <author>
+      <name>Domingos Fortunato P. F. da Silva</name>
+    </author>
+    <author>
+      <name>Ana Paula Dalla Corte</name>
+    </author>
+    <author>
+      <name>Karun Dayal</name>
+    </author>
+    <author>
+      <name>Cédric de Crousaz</name>
+    </author>
+    <author>
+      <name>Geike De Sloover</name>
+    </author>
+    <author>
+      <name>Carlos Roberto de Souza Filho</name>
+    </author>
+    <author>
+      <name>Jose Delpiano</name>
+    </author>
+    <author>
+      <name>Jan Dempewolf</name>
+    </author>
+    <author>
+      <name>Marius Derenthal</name>
+    </author>
+    <author>
+      <name>Kyle G. Dexter</name>
+    </author>
+    <author>
+      <name>Barbara D'hont</name>
+    </author>
+    <author>
+      <name>Ricardo Díaz-Delgado</name>
+    </author>
+    <author>
+      <name>Mathias Disney</name>
+    </author>
+    <author>
+      <name>Svenja Dobelmann</name>
+    </author>
+    <author>
+      <name>Marcel Dogotari</name>
+    </author>
+    <author>
+      <name>David Michael Drew</name>
+    </author>
+    <author>
+      <name>Simon Ecke</name>
+    </author>
+    <author>
+      <name>Markus P Eichhorn</name>
+    </author>
+    <author>
+      <name>Nico Eisenhauer</name>
+    </author>
+    <author>
+      <name>Paul Michael Eisenschink</name>
+    </author>
+    <author>
+      <name>Jan Eitel</name>
+    </author>
+    <author>
+      <name>Tarek S. El-Madany</name>
+    </author>
+    <author>
+      <name>Anette Eltner</name>
+    </author>
+    <author>
+      <name>Léa Enguehard</name>
+    </author>
+    <author>
+      <name>Anika Erxleben-Eggenhofer</name>
+    </author>
+    <author>
+      <name>Arvin Fakhri</name>
+    </author>
+    <author>
+      <name>Luca Zsofia Farkas</name>
+    </author>
+    <author>
+      <name>Fabian Fassnacht</name>
+    </author>
+    <author>
+      <name>Hannes Feilhauer</name>
+    </author>
+    <author>
+      <name>Tomma Feltgen</name>
+    </author>
+    <author>
+      <name>Jasper Feyen</name>
+    </author>
+    <author>
+      <name>Rico Fischer</name>
+    </author>
+    <author>
+      <name>Donna Fitzgerald</name>
+    </author>
+    <author>
+      <name>Michael Förster</name>
+    </author>
+    <author>
+      <name>Oluwaseun Friday Gakenou</name>
+    </author>
+    <author>
+      <name>Sebastian Ignacio Galaz Trincado</name>
+    </author>
+    <author>
+      <name>Matthias Gassilloud</name>
+    </author>
+    <author>
+      <name>Joschka Geissler</name>
+    </author>
+    <author>
+      <name>Bert Gielen</name>
+    </author>
+    <author>
+      <name>John L. Godlee</name>
+    </author>
+    <author>
+      <name>Roy González-M.</name>
+    </author>
+    <author>
+      <name>Daniel Goss</name>
+    </author>
+    <author>
+      <name>Dirk Gremser</name>
+    </author>
+    <author>
+      <name>Amy Gresham</name>
+    </author>
+    <author>
+      <name>Stuart W. D. Grieve</name>
+    </author>
+    <author>
+      <name>André Große-Stoltenberg</name>
+    </author>
+    <author>
+      <name>Björn Grüning</name>
+    </author>
+    <author>
+      <name>Marcus Guderle</name>
+    </author>
+    <author>
+      <name>Claudia Guimarães-Steinicke</name>
+    </author>
+    <author>
+      <name>Wei Guo</name>
+    </author>
+    <author>
+      <name>J. Antonio Guzmán Q.</name>
+    </author>
+    <author>
+      <name>Tomás Guzmán</name>
+    </author>
+    <author>
+      <name>Peter Hajek</name>
+    </author>
+    <author>
+      <name>Tomáš Hanousek</name>
+    </author>
+    <author>
+      <name>Andreas Hanzl</name>
+    </author>
+    <author>
+      <name>Henrik Hartmann</name>
+    </author>
+    <author>
+      <name>John R. Healey</name>
+    </author>
+    <author>
+      <name>Christine Hechtl</name>
+    </author>
+    <author>
+      <name>Hanne Hendrickx</name>
+    </author>
+    <author>
+      <name>Elkin Hernández</name>
+    </author>
+    <author>
+      <name>Martin Herold</name>
+    </author>
+    <author>
+      <name>Miriam Herrmann</name>
+    </author>
+    <author>
+      <name>Marco Heurich</name>
+    </author>
+    <author>
+      <name>Bruce Hoagland</name>
+    </author>
+    <author>
+      <name>Bernhard Höfle</name>
+    </author>
+    <author>
+      <name>Álvaro Idárraga-Piedrahíta</name>
+    </author>
+    <author>
+      <name>Viorel Ilinca</name>
+    </author>
+    <author>
+      <name>Hiroyoshi Iwata</name>
+    </author>
+    <author>
+      <name>Robert Jackisch</name>
+    </author>
+    <author>
+      <name>Marie Jossé</name>
+    </author>
+    <author>
+      <name>Markus Karppinen</name>
+    </author>
+    <author>
+      <name>Christoph Kasper</name>
+    </author>
+    <author>
+      <name>Marko Kazimirovic</name>
+    </author>
+    <author>
+      <name>Niamh Kelly</name>
+    </author>
+    <author>
+      <name>Milan Kilibarda</name>
+    </author>
+    <author>
+      <name>Till Kleinebecker</name>
+    </author>
+    <author>
+      <name>Hans-Joachim Klemmt</name>
+    </author>
+    <author>
+      <name>Stefan Reder Koithahn</name>
+    </author>
+    <author>
+      <name>Kolmogorov Alexey Ivanovich</name>
+    </author>
+    <author>
+      <name>Michael Körner</name>
+    </author>
+    <author>
+      <name>Nikos Koutsias</name>
+    </author>
+    <author>
+      <name>Kamil Král</name>
+    </author>
+    <author>
+      <name>Bartłomiej Kraszewski</name>
+    </author>
+    <author>
+      <name>Grzegorz Krok</name>
+    </author>
+    <author>
+      <name>Katja Kröner</name>
+    </author>
+    <author>
+      <name>Martin Krůček</name>
+    </author>
+    <author>
+      <name>Robert Krüger</name>
+    </author>
+    <author>
+      <name>Stefan Kruse</name>
+    </author>
+    <author>
+      <name>Daniel Kükenbrink</name>
+    </author>
+    <author>
+      <name>Maksymilian Kulicki</name>
+    </author>
+    <author>
+      <name>Kudzai Ngqabutho Kundishora</name>
+    </author>
+    <author>
+      <name>Mira Kuntz</name>
+    </author>
+    <author>
+      <name>Sunni Kanta Prasad Kushwaha</name>
+    </author>
+    <author>
+      <name>Erico Kutchartt</name>
+    </author>
+    <author>
+      <name>Diego Laino</name>
+    </author>
+    <author>
+      <name>Christian Lanconelli</name>
+    </author>
+    <author>
+      <name>Christa Lang</name>
+    </author>
+    <author>
+      <name>Elena Larysch</name>
+    </author>
+    <author>
+      <name>Guillaume Lassalle</name>
+    </author>
+    <author>
+      <name>Alvaro Lau</name>
+    </author>
+    <author>
+      <name>Sung-Ching Lee</name>
+    </author>
+    <author>
+      <name>Jan RK Lehmann</name>
+    </author>
+    <author>
+      <name>Maurice Leponce</name>
+    </author>
+    <author>
+      <name>Bas Lerink</name>
+    </author>
+    <author>
+      <name>Shaun R. Levick</name>
+    </author>
+    <author>
+      <name>Emily R. Lines</name>
+    </author>
+    <author>
+      <name>Maciej Lisiewicz</name>
+    </author>
+    <author>
+      <name>René López-Camacho</name>
+    </author>
+    <author>
+      <name>Linda Luck</name>
+    </author>
+    <author>
+      <name>Miguel Mahecha</name>
+    </author>
+    <author>
+      <name>Mirko Mälicke</name>
+    </author>
+    <author>
+      <name>Chiara Mansi</name>
+    </author>
+    <author>
+      <name>Usama Manzoor</name>
+    </author>
+    <author>
+      <name>Olivier Martin-Ducup</name>
+    </author>
+    <author>
+      <name>Mauro Marty</name>
+    </author>
+    <author>
+      <name>Simone Massaro</name>
+    </author>
+    <author>
+      <name>Beate Michalzik</name>
+    </author>
+    <author>
+      <name>Mirco Migliavacca</name>
+    </author>
+    <author>
+      <name>Naoko Miura</name>
+    </author>
+    <author>
+      <name>Justin Moat</name>
+    </author>
+    <author>
+      <name>Rohit Mohan</name>
+    </author>
+    <author>
+      <name>Mareike Mohr</name>
+    </author>
+    <author>
+      <name>Martin Mokroš</name>
+    </author>
+    <author>
+      <name>Karl Montalban</name>
+    </author>
+    <author>
+      <name>David Montero</name>
+    </author>
+    <author>
+      <name>Christopher Morhart</name>
+    </author>
+    <author>
+      <name>Clemens Mosig</name>
+    </author>
+    <author>
+      <name>Jana Müllerová</name>
+    </author>
+    <author>
+      <name>Jan-Peter Mund</name>
+    </author>
+    <author>
+      <name>Lena Nahrwold</name>
+    </author>
+    <author>
+      <name>Glenn Newnham</name>
+    </author>
+    <author>
+      <name>Mihai Daniel Nita</name>
+    </author>
+    <author>
+      <name>Justus Nögel</name>
+    </author>
+    <author>
+      <name>Wolfgang Obermeier</name>
+    </author>
+    <author>
+      <name>Tobias Ofner-Graff</name>
+    </author>
+    <author>
+      <name>Mashiro Okada</name>
+    </author>
+    <author>
+      <name>Jente Ottenburghs</name>
+    </author>
+    <author>
+      <name>Harry Owen</name>
+    </author>
+    <author>
+      <name>Charilaos Papathanasiou</name>
+    </author>
+    <author>
+      <name>Milutin Pejovic</name>
+    </author>
+    <author>
+      <name>Cameron Pellett</name>
+    </author>
+    <author>
+      <name>Fabiano Rodrigues Pereira</name>
+    </author>
+    <author>
+      <name>Jordan Luis Campos Modesto Pereira</name>
+    </author>
+    <author>
+      <name>Richard L. Peters</name>
+    </author>
+    <author>
+      <name>Stefan Peters</name>
+    </author>
+    <author>
+      <name>Anže Martin Pintar</name>
+    </author>
+    <author>
+      <name>Francesco Pirotti</name>
+    </author>
+    <author>
+      <name>Camila Pizano</name>
+    </author>
+    <author>
+      <name>George Rohan Pottamkulam</name>
+    </author>
+    <author>
+      <name>Karin Potthast</name>
+    </author>
+    <author>
+      <name>Markéta Potůčková</name>
+    </author>
+    <author>
+      <name>Vasilis Poulis</name>
+    </author>
+    <author>
+      <name>Sebastian Preidl</name>
+    </author>
+    <author>
+      <name>Nicola Puletti</name>
+    </author>
+    <author>
+      <name>Stefano Puliti</name>
+    </author>
+    <author>
+      <name>Eetu Puttonen</name>
+    </author>
+    <author>
+      <name>Birgitta Putzenlechner</name>
+    </author>
+    <author>
+      <name>Soroor Rahmanian</name>
+    </author>
+    <author>
+      <name>Anandakumar M Ramiya</name>
+    </author>
+    <author>
+      <name>Alexander Reiterer</name>
+    </author>
+    <author>
+      <name>Stefan A. Rensing</name>
+    </author>
+    <author>
+      <name>Rico Richter</name>
+    </author>
+    <author>
+      <name>Carolin Rünger</name>
+    </author>
+    <author>
+      <name>Christopher Russell</name>
+    </author>
+    <author>
+      <name>Martin Rutzinger</name>
+    </author>
+    <author>
+      <name>Mojdeh Safaei</name>
+    </author>
+    <author>
+      <name>Ionuţ Şandric</name>
+    </author>
+    <author>
+      <name>Carlos Roberto Sanquetta</name>
+    </author>
+    <author>
+      <name>Valentin Sarkleti</name>
+    </author>
+    <author>
+      <name>Rebecca Del'Papa Moreira Scafutto</name>
+    </author>
+    <author>
+      <name>Michael Scherer-Lorenzen</name>
+    </author>
+    <author>
+      <name>Florian Schill</name>
+    </author>
+    <author>
+      <name>Zoe Schindler</name>
+    </author>
+    <author>
+      <name>Paul Melchior Schliephack</name>
+    </author>
+    <author>
+      <name>Ephraim Schmidt-Riese</name>
+    </author>
+    <author>
+      <name>Gerhard Schmied</name>
+    </author>
+    <author>
+      <name>Florian Schnabel</name>
+    </author>
+    <author>
+      <name>Nico Schumacher</name>
+    </author>
+    <author>
+      <name>Janine Schweier</name>
+    </author>
+    <author>
+      <name>Thomas Seifert</name>
+    </author>
+    <author>
+      <name>Jana Seiler</name>
+    </author>
+    <author>
+      <name>Cornelius Senf</name>
+    </author>
+    <author>
+      <name>Johannes Antenor Senn</name>
+    </author>
+    <author>
+      <name>Graeme Shannon</name>
+    </author>
+    <author>
+      <name>Jonathan Sheppard</name>
+    </author>
+    <author>
+      <name>Caileigh Shoot</name>
+    </author>
+    <author>
+      <name>Andy Smith</name>
+    </author>
+    <author>
+      <name>Laura N. Sotomayor</name>
+    </author>
+    <author>
+      <name>Max Sperlich</name>
+    </author>
+    <author>
+      <name>Alex Šrollerů</name>
+    </author>
+    <author>
+      <name>Marion Stellmes</name>
+    </author>
+    <author>
+      <name>Krzysztof Stereńczak</name>
+    </author>
+    <author>
+      <name>Atticus Stovall</name>
+    </author>
+    <author>
+      <name>José J. Tchamba</name>
+    </author>
+    <author>
+      <name>Jeanne Terragno</name>
+    </author>
+    <author>
+      <name>Louise Terryn</name>
+    </author>
+    <author>
+      <name>Eric Andreas Thurm</name>
+    </author>
+    <author>
+      <name>Andreas Tockner</name>
+    </author>
+    <author>
+      <name>Max Tölle</name>
+    </author>
+    <author>
+      <name>Enrico Tomelleri</name>
+    </author>
+    <author>
+      <name>Jesús Torralba</name>
+    </author>
+    <author>
+      <name>Francisco Torres</name>
+    </author>
+    <author>
+      <name>Susan E. Trumbore</name>
+    </author>
+    <author>
+      <name>Mudassar Umar</name>
+    </author>
+    <author>
+      <name>Abhinav Valada</name>
+    </author>
+    <author>
+      <name>Ruben Valbuena</name>
+    </author>
+    <author>
+      <name>Wouter A. J. Van den Broeck</name>
+    </author>
+    <author>
+      <name>Jens van der Zee</name>
+    </author>
+    <author>
+      <name>Can Vatandaslar</name>
+    </author>
+    <author>
+      <name>Dimitra Veropoulou</name>
+    </author>
+    <author>
+      <name>Grégoire Vincent</name>
+    </author>
+    <author>
+      <name>Vladimir Visacki</name>
+    </author>
+    <author>
+      <name>Dirk von Suchodoletz</name>
+    </author>
+    <author>
+      <name>Christine I. B. Wallis</name>
+    </author>
+    <author>
+      <name>Yunsheng Wang</name>
+    </author>
+    <author>
+      <name>Kai J. Weber</name>
+    </author>
+    <author>
+      <name>Maximilian Weidenfeller</name>
+    </author>
+    <author>
+      <name>Hannah Weiser</name>
+    </author>
+    <author>
+      <name>Maciej Wielgosz</name>
+    </author>
+    <author>
+      <name>Johannes Wilk</name>
+    </author>
+    <author>
+      <name>Jan Wolf</name>
+    </author>
+    <author>
+      <name>Binbin Xiang</name>
+    </author>
+    <author>
+      <name>Lin Xiong</name>
+    </author>
+    <author>
+      <name>Wanxin Yang</name>
+    </author>
+    <author>
+      <name>Yixin Zhou</name>
+    </author>
+    <author>
+      <name>Julian Frey</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.37602v1</id>
+    <title>RESPLE2: Inertial-Informed Recursive Non-Uniform Spline Estimation for Multi-Sensor Odometry with Global Refinement</title>
+    <updated>2026-10-27T17:33:19Z</updated>
+    <link href="https://arxiv.org/abs/2610.37602v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.37602v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present RESPLE2, a recursive multi-sensor state estimation framework using non-uniform B-splines for 6-DoF motion representation. By exploiting the knot-clamping boundary property, we propose a theoretically grounded mechanism for exact control-point prediction directly informed by inertial kinematics along the trajectory, with knot placement adapted to motion and measurement availability. Within an iterated extended Kalman filter, we perform this prediction using a subset of inertial measurements. A subsequent reset step preserves trajectory consistency as the knots extend. The update step further incorporates heterogeneous sensor measurements at their native timestamps through continuous-time observation models, supporting flexible combinations of LiDARs, cameras, inertial measurement units, and leg kinematics. We further develop a lightweight global optimization module that directly refines non-uniform B-spline control points by incorporating loop-closure constraints derived from LiDAR-visual cues. We conduct extensive evaluations on public and experimental datasets across handheld, tracked, legged, and hybrid aerial-legged platforms, covering highly dynamic maneuvers with extreme accelerations. Compared with state-of-the-art multi-sensor odometry systems, RESPLE2 achieves competitive or superior estimation accuracy and robustness in the corresponding sensor configurations, particularly under aggressive motion, while maintaining real-time operation. We publicly release our code and experimental datasets at https://github.com/ASIG-X/RESPLE2.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T17:33:19Z</published>
+    <arxiv:comment>18 pages</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Ziyu Cao</name>
+    </author>
+    <author>
+      <name>William Talbot</name>
+    </author>
+    <author>
+      <name>Song Li</name>
+    </author>
+    <author>
+      <name>Pakpong Chirarattananon</name>
+    </author>
+    <author>
+      <name>Fredrik Gustafsson</name>
+    </author>
+    <author>
+      <name>Marco Hutter</name>
+    </author>
+    <author>
+      <name>Kailai Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.37400v1</id>
+    <title>Assessing BIOMASS Radiometric Stability using Permanent Scatterers</title>
+    <updated>2026-10-27T15:17:58Z</updated>
+    <link href="https://arxiv.org/abs/2610.37400v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.37400v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Monitoring the relative radiometric stability of the European Space Agency's BIOMASS P-band synthetic aperture radar (SAR) requires separating instrumental and processing effects from temporal changes in the scene backscatter. This study investigates the use of permanent scatterers (PSs) as opportunistic references for estimating residual radiometric gains without dedicated calibration targets. The PS-based calibration (PSCal) framework combines amplitude-based scatterer selection with iterative maximum-likelihood gain estimation. Simulations assess detection and estimation performance under the limited number of acquisitions available in BIOMASS stacks, highlighting the importance of stringent selection thresholds and the dependence of estimation accuracy on scatterer abundance and signal-to-noise ratio. The approach is applied to datasets over Nairobi, Kenya, and Cordoba, Argentina. Over Nairobi, PSCal identifies an approximately 1 dB radiometric anomaly subsequently traced to a defect in radio-frequency interference mitigation, while the remaining acquisitions exhibit estimated gain variations generally within 0.1 dB. Over Cordoba, twelve acquisitions spanning two mission phases separated by approximately eight months yield residual gain variations on the order of 0.1 dB despite pronounced changes in the scene backscatter and acquisition geometry. Results were observed to be consistent with measurements from the BIOMASS Calibration Transponder (BCT) installed in New Norcia (Australia). These results demonstrate the potential of carefully selected P-band PSs to complement dedicated calibration infrastructure for relative radiometric monitoring and the detection of processing anomalies.</summary>
+    <category term="eess.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="eess.IV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T15:17:58Z</published>
+    <arxiv:primary_category term="eess.SP"/>
+    <author>
+      <name>Marco Manzoni</name>
+    </author>
+    <author>
+      <name>Francesco Salvaterra</name>
+    </author>
+    <author>
+      <name>Claudio Maria Prati</name>
+    </author>
+    <author>
+      <name>Stefano Tebaldini</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.37389v1</id>
+    <title>How Many and How Much? Contrastive Learning with Negative Samples for Knowledge Graph Embedding</title>
+    <updated>2026-10-27T15:12:54Z</updated>
+    <link href="https://arxiv.org/abs/2610.37389v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.37389v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Knowledge graph embedding (KGE), a fundamental technique for knowledge-centric Web and KG-augmented AI applications, is commonly trained through contrastive learning with negative samples to learn discriminative representations. Despite its empirical success, two crucial questions regarding negative samples remain underexplored: (Q1) how many negative samples should be used for each positive sample and (Q2) how much should each negative sample contribute to learning? To answer these questions, we propose RADAR, a novel contrastive learning framework for KGE models with two effective strategies, respectively: (1) Risk-aware negative budget allocation quantifies false-negative sampling risk by modeling an open-world KG as a stochastic partial observation of its closed-world counterpart and adaptively assigns a negative budget to each positive sample based on its risk; (2) Distribution-calibrated negative weighting assigns negative weights by calibrating the weighting strength for each positive based on two complementary characteristics of the negative-score distribution: dispersion and concentration. Extensive experiments on 3 real-world KGs with 4 KGE models reveal that RADAR achieves the best KGE performance on average across all model--KG combinations and reduces sampled false negatives by over 90% compared with conventional fixed-budget methods.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T15:12:54Z</published>
+    <arxiv:comment>12 pages, 12 figures, 5 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Sooho Moon</name>
+    </author>
+    <author>
+      <name>Yunyong Ko</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.37350v1</id>
+    <title>Generalizable Target-Less Joint Intrinsic-Extrinsic Camera-LiDAR Calibration using Deep Pixel-Point Correspondences</title>
+    <updated>2026-10-27T14:51:03Z</updated>
+    <link href="https://arxiv.org/abs/2610.37350v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.37350v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Accurate camera-LiDAR calibration is an essential prerequisite for robust multi-modal perception in robotics. Recent target-less methods based on learned pixel-point correspondences achieve high extrinsic calibration accuracy and generalize across environments. However, they operate on rectified images with known camera intrinsics, restricting their applicability to systems whose cameras have already been individually calibrated. We present a fully automatic, target-less framework that jointly estimates camera intrinsics, radial-tangential distortion, and camera-LiDAR extrinsics from raw images and LiDAR scans. Our method generalizes deep correspondence-based calibration from rectified images to raw cameras through intrinsic- and distortion-aware correspondence learning via synthetic augmentations. During calibration, we iteratively couple correspondence prediction and nonlinear optimization to jointly refine the camera parameters and relative sensor transformation. We evaluate our approach on an unseen camera-LiDAR configuration from the KITTI dataset and on three real robotic platforms in a zero-shot manner. The results demonstrate that joint calibration with our generalized pixel-point correspondence network improves extrinsic accuracy over correspondence-based methods using pre-calibrated cameras, while additionally recovering accurate intrinsics.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T14:51:03Z</published>
+    <arxiv:comment>8 pages, 5 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Simon Bultmann</name>
+    </author>
+    <author>
+      <name>Daniele Cattaneo</name>
+    </author>
+    <author>
+      <name>Abhinav Valada</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.37153v1</id>
+    <title>FastBEVFusion: Simple Multi-Modal Fusion for 3D Object Detection at 50 FPS</title>
+    <updated>2026-10-27T12:51:36Z</updated>
+    <link href="https://arxiv.org/abs/2610.37153v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.37153v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Reliable real-time 3D object detection based on LiDAR and camera data is critical for safety in autonomous driving, where systems must accurately perceive their surroundings with minimal latency. Many state-of-the-art systems achieve high-quality detection results but fail to meet real-time constraints, limiting their practical use. To address this challenge, we propose FastBEVFusion, a simple, fast, and robust fusion system for 3D object detection. Based on modality-specific features, FastBEVFusion projects these features into semi-aligned modality-specific BEV spaces, without relying on a computationally intensive and potentially error-prone depth estimation. Given these BEV spaces, we propose a light-weight, soft, and dynamic fusion module based on cross-attention, which adapts dynamically to the scene context and enables feature fusion across the entire BEV spaces. Experiments on the complex nuScenes dataset show that FastBEVFusion outperforms state-of-the-art real-time systems, and achieves over 50 FPS without deployment libraries. Additionally, our system shows strong robustness to calibration errors, making FastBEVFusion a powerful 3D object detection system for real-world applications.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T12:51:36Z</published>
+    <arxiv:comment>Accepted at Iberian Robotics Conference (ROBOT2026)</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Tom Sanitz</name>
+    </author>
+    <author>
+      <name>Emre Gülsoylu</name>
+    </author>
+    <author>
+      <name>Simone Frintrop</name>
+    </author>
+    <author>
+      <name>Christian Wilms</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.36876v1</id>
+    <title>HoloRecon: Incremental Reconstruction of Long-Range Panoramas with Global Consistency</title>
+    <updated>2026-10-27T09:17:38Z</updated>
+    <link href="https://arxiv.org/abs/2610.36876v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.36876v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Long-sequence panoramic reconstruction requires detailed scene geometry and globally consistent camera poses across distant revisits. Panoramic SLAM and incremental SfM rely on feature correspondences, but repeated, similar structures and small partial overlap make reliable long-range connections difficult to establish, leaving accumulated drift unresolved. Feed-forward models offer detailed local geometry, but their high computational costs limit inference window size, necessitating additional constraints for global consistency. This motivates combining continuous feature-based tracking and sparse mapping with rapid, high-quality local reconstruction from feed-forward models to achieve accurate localization and globally consistent dense mapping over long sequences. We therefore propose a panoramic reconstruction framework that couples an ORB-based sparse panoramic mapping frontend with a fine-tuned feed-forward model. Our key insight is that predicted local geometry enables 3D verification of feature matches across distant revisits, yielding long-range camera constraints even between regions. We calibrate predicted depths with sparse landmarks and use verified connections to optimize the global pose graph, updating dense geometry with the corrected camera poses. We also introduce PanoRecon, a seven-scene benchmark with repetitive architecture, large and small loops, and reference camera poses and LiDAR geometry for evaluating global consistency. Our method achieves the lowest mean absolute trajectory error and high F-1 Score among the evaluated methods. Project Page:https://zhuoxiaoli.github.io/HoloRecon_page/</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T09:17:38Z</published>
+    <arxiv:comment>Project Page:https://zhuoxiaoli.github.io/HoloRecon_page/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Zhuoxiao Li</name>
+    </author>
+    <author>
+      <name>Xinyi Liu</name>
+    </author>
+    <author>
+      <name>Hongye Hou</name>
+    </author>
+    <author>
+      <name>Jing OU</name>
+    </author>
+    <author>
+      <name>Kang Du</name>
+    </author>
+    <author>
+      <name>Shuai Zhang</name>
+    </author>
+    <author>
+      <name>Dongli Wu</name>
+    </author>
+    <author>
+      <name>Taoyu Wu</name>
+    </author>
+    <author>
+      <name>Siyuan Feng</name>
+    </author>
+    <author>
+      <name>Xiaohui Zhu</name>
+    </author>
+    <author>
+      <name>Wufan Zhao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.36853v1</id>
+    <title>LingGS: Decoupling Feed-Forward Geometry Prediction from Camera Tracking for High-Fidelity Gaussian SLAM</title>
+    <updated>2026-10-27T08:51:00Z</updated>
+    <link href="https://arxiv.org/abs/2610.36853v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.36853v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Achieving high-quality reconstruction and responsive camera tracking remains challenging for monocular RGB Gaussian splatting SLAM under a limited optimization budget. We present an online system that addresses this challenge by combining learned geometric priors with explicit geometric camera tracking, which can substantially outperform learned camera prediction in terms of tracking accuracy. A frozen streaming 3D foundation model serves as a virtual RGB-D sensor, providing depth estimation from monocular video. An explicit geometric solver then estimates camera motion through feature reprojection, and a streaming Gaussian mapper integrates the resulting observations into a dense scene representation. We further show that geometric tracking improves camera pose accuracy across representative streaming geometry backbones, demonstrating the broader applicability of our approach. Extensive experiments on indoor and outdoor datasets show that our method significantly improves reconstruction quality over existing approaches, achieving about 7 FPS on a single RTX 4090 and delivering 2-3 times the throughput of the evaluated prior SLAM systems.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.GR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T08:51:00Z</published>
+    <arxiv:comment>10 pages, 4 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Da Li</name>
+    </author>
+    <author>
+      <name>Yihan Zang</name>
+    </author>
+    <author>
+      <name>Ivan Viola</name>
+    </author>
+    <author>
+      <name>Zeyu Wang</name>
+    </author>
+    <author>
+      <name>Dominik Engel</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.36598v1</id>
+    <title>OpenJaws: An Open Hardware UMI Framework with Stereo Localization for Generalist Manipulation</title>
+    <updated>2026-10-27T03:58:54Z</updated>
+    <link href="https://arxiv.org/abs/2610.36598v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.36598v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Handheld data-collection interfaces such as the Universal Manipulation Interface (UMI) allow manipulation demonstrations to be gathered in the wild without a robot in the loop, but the quality of the resulting action labels is bounded by the accuracy of vision-based localization. Existing systems recover end-effector pose from monocular visual-inertial odometry, which is subject to scale ambiguity and drift, or delegate tracking to closed-source modules and external infrastructure that reintroduce cost and setup burden. We present OpenJaws, a fully open hardware and software framework for sensorized UMI that improves localization and simplifies deployment across robot platforms. OpenJaws pairs a modular, 3D-printed gripper exposing a standardized ISO adapter with a low-cost stereo camera to recover metric camera trajectories. We further introduce UMI-Loc-Bench-v1, a benchmark quantifying real-world localization accuracy for handheld data-collection devices, and show that stereo localization substantially outperforms monocular alternatives. Finally, we demonstrate that policies trained on data collected with OpenJaws can be deployed on a real robot across multiple tasks. Hardware, software, and data are released under a commercially permissive license. Code, data, and videos are available at https://open-jaws.github.io/</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T03:58:54Z</published>
+    <arxiv:comment>Project page: https://open-jaws.github.io/</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Adithyavairavan Murali</name>
+    </author>
+    <author>
+      <name>Yash Oza</name>
+    </author>
+    <author>
+      <name>Karanbir Chahal</name>
+    </author>
+    <author>
+      <name>Neel Jawale</name>
+    </author>
+    <author>
+      <name>Silas De Vries</name>
+    </author>
+    <author>
+      <name>Hesam Rabeti</name>
+    </author>
+    <author>
+      <name>Erwin Coumans</name>
+    </author>
+    <author>
+      <name>Balakumar Sundaralingam</name>
+    </author>
+    <author>
+      <name>Stan Birchfield</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.36312v1</id>
+    <title>SG^2SLAM: Spatial Geometry-Informed 3D Gaussian Splatting SLAM for Monocular Outdoor Navigation</title>
+    <updated>2026-10-26T21:34:06Z</updated>
+    <link href="https://arxiv.org/abs/2610.36312v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.36312v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Monocular outdoor navigation requires robust camera motion estimation and a dense, navigable map, where 3D Gaussian Splatting SLAM serves this task through an explicit differentiable parameterization and closed-form projection. However, typically, the geometry is recovered by associating 2D pixels with 3D points, so a modular SLAM system absorbs tracking error into the map, leading to cascading degradation. To address these gaps, we present SG^2SLAM, which couples streaming spatial geometry with a ray-conditioned 3DGS kernel. Streaming spatial geometry replaces the per- frame cross-dimensional correspondence with a chunk-level metric prior that supervises tracking and mapping from one source. A ray-conditioned kernel extends each primitive with a viewing-direction subspace that senses the monocular camera viewpoints. The joint optimization over spatial geometry and poses ensures a globally consistent map and trajectory outcome. Experiments on the KITTI and Waymo Open datasets show that our SG^2SLAM surpasses the per-frame association baselines in the monocular outdoor navigation task. Code will be made publicly available upon acceptance.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T21:34:06Z</published>
+    <arxiv:comment>9 pages</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Ziang Guo</name>
+    </author>
+    <author>
+      <name>Didar Seyidov</name>
+    </author>
+    <author>
+      <name>Yixiao Zhou</name>
+    </author>
+    <author>
+      <name>Xuefeng Zhang</name>
+    </author>
+    <author>
+      <name>Ali Alridha Abdulkarim</name>
+    </author>
+    <author>
+      <name>Chen Min</name>
+    </author>
+    <author>
+      <name>Zufeng Zhang</name>
+    </author>
+    <author>
+      <name>Dzmitry Tsetserukou</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.35816v1</id>
+    <title>Multimodal Concert Video Editing: System Design and Exploratory Evaluation</title>
+    <updated>2026-10-26T17:43:58Z</updated>
+    <link href="https://arxiv.org/abs/2610.35816v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.35816v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Editing multi-camera concerts requires coordinated decisions about musical relevance, visual quality and cut timing. We present a modular framework that combines instrument activity from multitrack audio, visible instruments and image sharpness with beat-based timing and probabilistic camera selection. An interpretable scoring model links these components to the choice of views over complete shot intervals. Component tests and an exploratory expert study on a four-camera concert yield mixed assessments across the editing variants. The findings motivate extending local audiovisual relevance with contextual and sequence-level criteria. The architecture provides a basis for testing these extensions and studying how component behaviour affects the quality of complete edits.</summary>
+    <category term="cs.MM" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.SD" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T17:43:58Z</published>
+    <arxiv:comment>19 pages, 3 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.MM"/>
+    <author>
+      <name>Lennart Schiweck</name>
+    </author>
+    <author>
+      <name>Adrian Kempf</name>
+    </author>
+    <author>
+      <name>Michelle Retig</name>
+    </author>
+    <author>
+      <name>Moritz Feucht</name>
+    </author>
+    <author>
+      <name>Tim Mangliers</name>
+    </author>
+    <author>
+      <name>Benjamin Himpel</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.35110v1</id>
+    <title>Understanding and Repairing Cooperative Perception under Adverse Weather</title>
+    <updated>2026-10-26T09:49:39Z</updated>
+    <link href="https://arxiv.org/abs/2610.35110v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.35110v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A cooperative 3D detector can miss a vehicle even when the LiDAR points on it remain unchanged. We study this failure under adverse weather as Weather-Induced Context Interference. To our knowledge, this is the first controlled study of how weather-related exterior changes remove cooperative benefits while preserving all points inside annotated objects. Controlled experiments on simulated and real roadside inputs show that exterior loss changes object representations before fusion and removes previously useful assistance. On real inputs, restoring object-neighborhood features recovers 30 of 31 induced failures; three equal-area exterior controls recover none. The failure condition also appears with a second fusion model. These findings motivate Adverse-Weather Cooperative Repair (AWCR), with separate implementations for the available supervision. Point Classifier filters added weather returns in simulation. On real inputs, Local Correction refines candidates and Quality Selection checks them against current measurements, without naturally paired clear/adverse-weather recordings. Candidate tracing shows that correction supplies accurate geometry for some targets that original candidates cannot localize at the evaluation threshold. On natural adverse-weather CoInfra development data, AWCR improves car bird's-eye-view (BEV) AP@0.7 by 4.66 points with V2X-ViT and 5.56 with AttFuse. On simulated V2X-R fog, it improves vehicle BEV AP@0.7 by 4.47 points at a fixed 4,096-candidate budget.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T09:49:39Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Mengxu Ma</name>
+      <arxiv:affiliation>Northwestern Polytechnical University</arxiv:affiliation>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.34819v1</id>
+    <title>Selective Monocular Precession Estimation under Geometric and Evaluation Ambiguity: An Auditable Synthetic Study with ORBIT-SCOUT</title>
+    <updated>2026-10-26T04:04:02Z</updated>
+    <link href="https://arxiv.org/abs/2610.34819v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.34819v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Monocular observations of a tumbling object can support a precise fitted trajectory without establishing that the recovered physical axis is correct. We study this distinction for elongated, approximately cylindrical targets observed by a calibrated stationary camera. ORBIT-SCOUT couples image-derived line and rim geometry to constant-cone and torque-free triaxial trajectory families, then returns a linked momentum-axis and mean-precession-rate estimate only when numerical, geometric, temporal and competing-hypothesis checks pass. We describe the measurement objective, selection policy and limitations, and situate them within spacecraft pose estimation, unknown-target reconstruction, rigid-body identification and selective prediction. An internally preregistered population of 96 new synthetic scenes was processed in two cold passes, retaining all 192 attempts. In the primary pass, 38 scenes produced jointly correct estimates, none produced an incorrect estimate, 57 were withheld and one execution was incomplete. Correct coverage on the 64 supported scenes was 25/64. Ninety-five repeated pairs were scientifically equivalent under a frozen comparison policy; the remaining pair was incomplete. The registered coverage, failure-free execution and all-case repeatability targets were not met. Historical audits also exposed an overly permissive axis metric and motion-dependent acquisition cadence. The contribution is a documented measurement-to-decision implementation and a failure-preserving evaluation case study, not a new rigid-body theory or evidence of state-of-the-art accuracy. Zero observed errors does not establish calibrated risk, and conditional temporal checks do not remove shared image-feature bias. Real-image transfer and external reproduction remain open.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T04:04:02Z</published>
+    <arxiv:comment>29 pages, 4 figures and 7 tables; extended narrative review and ancillary code/data for descriptive arithmetic and physical-metric reproduction</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Carlos Eduardo Sanoja</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.34468v1</id>
+    <title>GNSS Anomaly Detection in Urban Canyons: A Comprehensive Survey of Multimodal Visibility Inference</title>
+    <updated>2026-10-25T17:39:35Z</updated>
+    <link href="https://arxiv.org/abs/2610.34468v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.34468v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Reliable GNSS positioning in dense urban environments depends on assessing satellite visibility and identifying measurements degraded by non-line-of-sight (NLOS) reception and multipath. This survey organizes reception-state inference into three complementary evidence families: receiver-side signals, 3D maps and environmental models, and auxiliary sensors. Receiver-side approaches span antenna/electromagnetic, tracking/baseband, and observable-domain evidence, interpreted through rule-based, statistical, machine-learning, and deep-learning methods. Map-based approaches are examined by reviewing environmental representations and methods such as geometric screening, shadow matching, 3D ray tracing, and neural implicit visibility prediction. IMU, camera, and LiDAR measurements provide complementary kinematic, visual, and geometric evidence for online screening. Across these families, we compare accuracy, interpretability, hardware and calibration requirements, map dependence, computational cost, and suitability for real-time deployment. We identify open challenges in dataset quality and labeling, domain generalization, map freshness, and resource-efficient implementation. The resulting synthesis connects signal processing, environmental modeling, and sensor fusion to guide the design of robust urban GNSS measurement-screening systems.</summary>
+    <category term="eess.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-25T17:39:35Z</published>
+    <arxiv:comment>Accepted for publication in IEEE Aerospace and Electronic Systems Magazine. DOI: 10.1109/MAES.2026.3746915</arxiv:comment>
+    <arxiv:primary_category term="eess.SP"/>
+    <author>
+      <name>Abdelgabar Ahmed</name>
+    </author>
+    <author>
+      <name>Tarig Ballal</name>
+    </author>
+    <author>
+      <name>Nour Kouzayha</name>
+    </author>
+    <author>
+      <name>Tareq Y. Al-Naffouri</name>
+    </author>
+    <arxiv:doi>10.1109/MAES.2026.3746915</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1109/MAES.2026.3746915" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.34130v1</id>
+    <title>StickFigure: Enabling Pose-Only IoT Cameras for Privacy-Preserving Edge Vision</title>
+    <updated>2026-10-25T07:58:48Z</updated>
+    <link href="https://arxiv.org/abs/2610.34130v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.34130v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Indoor IoT cameras can support assisted living and activity-aware spaces, but exporting raw RGB frames raises privacy concerns by exposing facial, clothing, and household details that body-motion tasks often do not require. We present StickFigure, a pose-only IoT camera system that, during real-time monitoring, keeps raw frames local and ephemeral while exporting only compact skeleton streams sufficient for downstream human activity recognition (HAR). While pose estimation has matured on GPUs, extracting accurate pose streams on resource-constrained IoT cameras remains difficult. To overcome these challenges and enable on-device pose streams on (almost) any IoT camera, we present two core designs in StickFigure: an activation-aware pose backbone that allocates channel capacity after spatial downsampling and a lightweight hierarchical MLP refiner that selectively corrects elbow and wrist coordinates using intermediate visual features and kinematic context. We fully implement StickFigure and evaluate it on public benchmarks and real-world deployment. Compared with state-of-the-art MCU pose models, StickFigure achieves the highest pose accuracy and downstream HAR utility on both NTU RGB+D and Penn Action, while using 96.5% fewer parameters and 99.3% fewer MACs per frame than RTMPose-S-based baselines, achieving 0.107 s p95 latency on a representative STM32H753 MCU. We believe StickFigure establishes a new operating point for privacy-aware edge vision on massive IoT cameras.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-25T07:58:48Z</published>
+    <arxiv:comment>14 pages, 9 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Aveline Xiaoyuan Han</name>
+    </author>
+    <author>
+      <name>Chenshu Wu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.34085v1</id>
+    <title>Doppler-aided Position-Velocity Tracking of Hidden Objects using mmWave Radar</title>
+    <updated>2026-10-25T06:05:00Z</updated>
+    <link href="https://arxiv.org/abs/2610.34085v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.34085v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Safe indoor operation requires autonomous tracking of objects that are not directly visible to the robot. Optical non-line-of-sight (NLoS) methods depend on ambient lighting and scene geometry or on weak multi-bounce returns that need long acquisitions. Millimeter-wave (mmWave) radar offers an attractive alternative: walls act as reflectors for mmWave signals, and frequency-modulated continuous-wave (FMCW) radars enable fast, practical measurement of range, angle, and velocity. However, the low resolution of these radars leads to spatially ambiguous observations. The Doppler information, although particularly sensitive to target motion, remains underexplored in indoor NLoS localization: existing methods emphasize spatial representations and either collapse or discard the Doppler dimension before learning. To leverage the complete Range-Azimuth-Doppler (RAD) information, we acquire the first indoor NLoS radar dataset that pairs sequential RAD measurements with synchronized position and velocity ground truth under controlled variations in motion: 576 sequences totaling 720,856 frames across 12 trajectories of a mobile robot moving along varying speeds, starting positions, and material configurations. We then formulate NLoS tracking as sequential position-velocity estimation rather than frame-wise localization: a shared 3-D encoder processes the full RAD representation of consecutive frames, separate recurrent branches estimate position and velocity, and post-inference refinement combines the two into a motion-consistent trajectory. Our method achieves 8.95cm position and 1.75cm/s velocity errors on held-out trajectories and generalizes to unseen scenarios involving a moving human target. Together, our dataset and tracker establish a benchmark for tracking hidden moving targets with a low-cost radar.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-25T06:05:00Z</published>
+    <arxiv:comment>8 pages, 8 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Yerin Cheon</name>
+    </author>
+    <author>
+      <name>Kush Garg</name>
+    </author>
+    <author>
+      <name>Akshat Dave</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.34041v1</id>
+    <title>T-ConSG: A LiDAR-Based Real-Time Temporal Construction Scene Graph for Dynamic and Evolving Environments</title>
+    <updated>2026-10-25T04:10:13Z</updated>
+    <link href="https://arxiv.org/abs/2610.34041v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.34041v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Dynamic and continuously evolving environments present significant challenges for robotic mapping and scene understanding, particularly on construction sites where moving agents, temporary obstacles, and persistent structural changes coexist. While dynamic and long-term SLAM methods can detect motion and environmental changes, their outputs are predominantly metric representations that provide limited structure for higher-level spatial and temporal reasoning. This paper presents a LiDAR-based real-time temporal construction scene graph (T-ConSG) that jointly represents free-space regions, static objects, dynamic objects, and environmental events with spatial-relational and event-participation edges. The proposed framework incrementally constructs the graph from LiDAR-derived geometric evidence, maintaining persistent free-space and static-object information while tracking dynamic objects. Changes in accumulated spatial evidence are further represented as explicit installation and removal events, allowing the graph to capture both transient dynamics and persistent environmental evolution. We demonstrate the proposed representation through three complementary application studies: dynamics-aware navigation in a bricklaying testbed, construction progress monitoring on the ConSLAM dataset, and online change detection in a simulated construction environment. The results demonstrate that the proposed T-ConSG provides a unified representation for organizing spatial and temporal information and supports robotic reasoning across environments containing both short-term dynamics and persistent changes.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-25T04:10:13Z</published>
+    <arxiv:comment>8 pages, 7 figures, submitted to IEEE Robotics and Automation Letters (RA-L)</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Yilong Chen</name>
+    </author>
+    <author>
+      <name>Yong K. Cho</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.33552v2</id>
+    <title>Long-Baseline Phase-Coherent Microwave Reception Using Rydberg Atoms</title>
+    <updated>2026-10-29T00:22:10Z</updated>
+    <link href="https://arxiv.org/abs/2610.33552v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.33552v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A long baseline phase-coherent microwave receiver is demonstrated using a remotely interrogated cesium Rydberg atom sensor over an 8 m free-space optical link. A 3.989 GHz local oscillator (LO) is intensity-modulated onto an 852 nm optical probe and recovered remotely for atomic superheterodyne detection. A 509 nm coupling laser establishes a Rydberg electromagnetically induced transparency (EIT) system addressing the 6S1/2 to 6P3/2 to 56D5/2 ladder, with microwave coupling to 57P3/2. A test signal offset by 5 kHz generates an optically detected intermediate-frequency (IF) response returned to the reference station for centralized coherent acquisition. This eliminates independent remote oscillators, electronic IF acquisition, and distributed clock synchronization. Over 10 min, the differential phase between remote and local reference exhibits a standard deviation of 0.476 deg and a minimum overlapping phase Allan deviation of 0.048 deg at approximately 200 s averaging. Following optical-link interruption, the differential phase recovers without recalibration, with a measured pre- and post-interruption difference of 0.01 deg. These results demonstrate phase coherent remotely interrogated atomic microwave reception with reduced instrumentation, supporting future distributed interferometry, multistatic radar, and coherent sensor arrays.</summary>
+    <category term="physics.atom-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-24T09:10:46Z</published>
+    <arxiv:primary_category term="physics.atom-ph"/>
+    <author>
+      <name>Darmindra Arumugam</name>
+    </author>
+    <author>
+      <name>Brook Feyissa</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.33338v1</id>
+    <title>TinyFlow: Breaking the Warping Bottleneck for Edge Optical Flow</title>
+    <updated>2026-10-23T22:21:29Z</updated>
+    <link href="https://arxiv.org/abs/2610.33338v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.33338v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>High-performance optical flow networks are difficult to deploy on resource-constrained edge accelerators because their iterative refinement warps features by the current flow, which relies on flow-dependent resampling and data-dependent memory access. We present TinyFlow, a 1.26M-parameter warp-free optical flow network that preserves iterative coarse-to-fine refinement by replacing the warp with a fixed-window correlation over constant offsets, so the whole network compiles as a single static INT8 graph. Quantization-aware fine-tuning, warp-teacher distillation, and model souping reduce the Float32-to-INT8 penalty to below 0.2 end-point error (EPE) on MPI-Sintel. TinyFlow outperforms EdgeFlowNet and NanoFlowNet on Sintel Clean, Sintel Final, and FlyingChairs in both Float32 and INT8, while using 54% fewer parameters than EdgeFlowNet, and our INT8 model achieves 6.29/7.13 EPE on Sintel Clean/Final. In flow-only monocular visual odometry on TartanAir and UZH-FPV, the same INT8 model yields the lowest trajectory error on seven of eleven sequences.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-23T22:21:29Z</published>
+    <arxiv:comment>9 Pages, 5 Figures, 4 Tables</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Xiao'ao Song</name>
+    </author>
+    <author>
+      <name>Chahat Deep Singh</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.35363v1</id>
+    <title>Resilient Decentralized Radar-LiDAR-Inertial Odometry in Challenging Subterranean Environments</title>
+    <updated>2026-10-23T15:58:05Z</updated>
+    <link href="https://arxiv.org/abs/2610.35363v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.35363v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Accurate localization in GPS-denied and visually degraded environments affected by smoke, dust, or fog remains a critical challenge for autonomous systems. While LiDAR provides high-resolution spatial perception, its performance deteriorates under particulate occlusion. In contrast, frequency-modulated continuous-wave (FMCW) radar offers robustness under such conditions but suffers from sparse measurements and outliers. This article presents a resilient decentralized LiDAR Radar Inertial Odometry (LRIO) framework that fuses the complementary strengths of LiDAR, radar, and inertial sensing to achieve robust pose estimation in challenging subterranean environments. At the core of the framework is an Adaptive Residual Thresholding (ART) mechanism that autonomously detects temporal sensor degradation and selectively adjusts the fusion process to minimize unreliable measurements. Building on this, a Robust Error-Tolerant Optimal Information Filter (RETOIF) is employed within a decentralized fusion architecture to integrate LiDAR-inertial and multiple radar-inertial odometry estimates in a fault-aware manner, enhancing resilience to environmental disturbances and intermittent sensor failures. The proposed framework is evaluated using real-world sensor data collected in GPS-denied subterranean tunnels under smoke-free and smoke-degraded conditions. In the smoke-free experiment, the proposed RETOIF framework achieves a root mean square localization error (RMSE) of 2.1733, compared with 2.9929 for the conventional centralized LRIO approach, corresponding to a 27.4\% reduction in RMSE. Experimental results further demonstrate the framework's ability to maintain pose estimation under smoke-induced sensor degradation, highlighting its potential for resilient autonomous navigation and mapping in challenging subterranean environments.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-23T15:58:05Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Moumita Mukherjee</name>
+    </author>
+    <author>
+      <name>Avijit Banerjee</name>
+    </author>
+    <author>
+      <name>Anton Koval</name>
+    </author>
+    <author>
+      <name>George Nikolakopoulos</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.31801v1</id>
+    <title>KiRoSe: Using Kinematic Data for Efficient Segmentation of Robot Demonstrations</title>
+    <updated>2026-10-22T18:40:43Z</updated>
+    <link href="https://arxiv.org/abs/2610.31801v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.31801v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Segmenting robot demonstration data into disjoint temporal and semantic subsegments is valuable for learning, cleaning, retrieval, and analysis. Segmentation is often performed manually in a tedious and error prone process. Multimodal Large Language Models (MLLMs) have the potential for automating this process, but directly ingesting raw multi camera video streams into MLLMs can be costly and can quickly exhaust context windows. In this paper, we introduce KiRoSe (Kinematics for Robot Segmentation), a novel framework that focuses on the companion stream of robot kinematic data. Inspired by the principle of classical entropy coding, such as Huffman coding, where frequently occurring symbols are represented more compactly, we propose Sparse Motion Tokens (SMTs), a discrete kinematic vocabulary designed to compactly represent recurring, temporally localized motion patterns, which we refer to as kinematic events. SMTs are learned by encoding kinematic trajectories with temporal segment supervision and quantizing the resulting features. We use increasingly available robot demonstration subtask annotations to supervise an open language model to interpret the resulting token sequences. Evaluation against human labeled segmentation shows that KiRoSe can substantially outperform baseline segmentation methods in F1 quality and transfers zero shot to unseen robot embodiments and egocentric human motion, while preserving the language models open vocabulary knowledge. Beyond segmentation, KiRoSe tracks task progress on an unseen robot and detects when an action is being reversed.(website: https://berkeleyautomation.github.io/kirose/)</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-22T18:40:43Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Shuangyu Xie</name>
+    </author>
+    <author>
+      <name>Kaiyuan Chen</name>
+    </author>
+    <author>
+      <name>Muhammad Zubair Irshad</name>
+    </author>
+    <author>
+      <name>Richard Cheng</name>
+    </author>
+    <author>
+      <name>Sergey Zakharov</name>
+    </author>
+    <author>
+      <name>Ken Goldberg</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.31765v1</id>
+    <title>SyncVid: World-Equivariant Diffusion for Synchronized Video Generation</title>
+    <updated>2026-10-22T18:04:12Z</updated>
+    <link href="https://arxiv.org/abs/2610.31765v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.31765v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Generating multiple videos of a dynamic scene from a single reference video requires synthesizing both observed and unobserved content consistently across viewpoints. Existing camera-control methods for video diffusion typically rely on architectural mechanisms, including camera embeddings, cross-view attention, and geometric conditioning. Although effective for static scene content, these approaches often struggle with the fine-grained, dynamic geometry that must remain coherent across views and over time. We synchronize the diffusion process itself by sampling the Gaussian noise prior in a canonical 3D space derived from the source video and rasterizing it into target cameras, rather than sampling independently in each 2D image plane. Our method, SyncVid, lifts a monocular video into a canonical 4D representation, associates noise with scene geometry and unseen space, and rasterizes the resulting structured noise into arbitrary views. Because rendering can introduce local correlations, we further propose a cross-view-consistent whitening procedure that decorrelates neighboring pixels while preserving correspondence across views. The structured noise serves as the diffusion prior for a LoRA-adapted pretrained video diffusion model, requiring no architectural modifications. By enforcing spatiotemporal and cross-view coherence at the source of stochasticity, SyncVid generates synchronized videos and improves both perceptual quality and cross-view consistency in our experiments. Project page: https://qualcomm-ai-research.github.io/SyncVid-Webpage.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-22T18:04:12Z</published>
+    <arxiv:comment>28 pages, 8 figures, 9 tables. Project page: https://qualcomm-ai-research.github.io/SyncVid-Webpage</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Farhad G. Zanjani</name>
+    </author>
+    <author>
+      <name>Animesh Karnewar</name>
+    </author>
+    <author>
+      <name>Fatih Porikli</name>
+    </author>
+    <author>
+      <name>Amirhossein Habibian</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.31645v1</id>
+    <title>OmniRay: Camera-Agnostic Monocular 3D Reconstruction with Composite Ray Fields</title>
+    <updated>2026-10-22T17:55:30Z</updated>
+    <link href="https://arxiv.org/abs/2610.31645v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.31645v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Monocular models recover 3D geometry from a single image in one pass, but most assume a pinhole camera and produce distorted geometry on the wide-angle imagery produced by fisheye and panoramic lenses. Camera-aware models remove this assumption by predicting a per-pixel ray field. However, they represent different camera geometries using a single fixed basis to capture both the overall camera projection and its finer variations. We argue that camera geometry can be viewed as having a hierarchy of complexity for representing rays. We present OmniRay, a feed-forward model whose Ray Module is composed of three components: a monotone radial base that captures radially symmetric structure, a spherical-harmonic residual for smooth deviations from it, and a free-form residual for remaining local variation. These components are composed as successive rotations on the sphere, allowing the representation to accommodate diverse camera geometries. Given a single image, OmniRay predicts a ray direction and an up-to-scale radial distance for every pixel, from which a 3D point cloud is recovered without needing camera information at inference time. Extensive experiments across different camera configurations demonstrate that OmniRay establishes a new state-of-the-art in camera-agnostic monocular 3D reconstruction.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-22T17:55:30Z</published>
+    <arxiv:comment>Project page: https://nam1410.github.io/omniray/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Namitha Guruprasad</name>
+    </author>
+    <author>
+      <name>Abhay Yadav</name>
+    </author>
+    <author>
+      <name>Cheng Peng</name>
+    </author>
+    <author>
+      <name>Rama Chellappa</name>
+    </author>
+    <author>
+      <name>Anand Bhattad</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.31623v1</id>
+    <title>F2G-Pose: Geometry-Aware Foundation Feature Lifting for Direct RGB-D Category-Level Object Pose Estimation</title>
+    <updated>2026-10-22T17:43:34Z</updated>
+    <link href="https://arxiv.org/abs/2610.31623v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.31623v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper studies category-level RGB-D object pose estimation, which recovers an object's 3D rotation and translation without instance-specific CAD models or reference views. This task is highly ambiguous due to intra-class variations, symmetries, and partial observations. Current solutions struggle to balance reliability and efficiency: methods based on intermediate structures are prone to error propagation, while diffusion models suffer from high inference latency and complex post-hoc candidate extraction. To address this, we present F2G-Pose, a real-time direct, single-pass framework that predicts category-level pose, metric size, and camera-frame completed shape from a single RGB-D observation in one feed-forward pass. F2G-Pose lifts dense visual foundation features to partial point clouds, encodes local geometry with DGCNN tokenization, and integrates object-level structure with a Mixture-of-Experts Transformer. Joint size prediction and camera-frame shape completion encourage metric consistency through dense geometric supervision. With its task-specific network trained only on pose-annotated synthetic SOPE data and its frozen RADIO backbone externally pretrained, F2G-Pose achieves state-of-the-art accuracy on SOPE and ROPE while running at 28 FPS for pose-only inference, and further demonstrates strong camera-frame geometry on HouseCat6D and real-object transfer on HANDAL. Analyses of latency, robustness, shape completion, and GenPose++ candidate behavior further demonstrate the efficiency and reliability of F2G-Pose, with real-world manipulation experiments demonstrating deployment potential under segmented RGB-D inputs. The project page, code, and pretrained models are made available at https://jrryzh.github.io/F2G-Pose/.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-22T17:43:34Z</published>
+    <arxiv:comment>Accepted at NeurIPS 2026. 22 pages, including the complete technical appendix</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Jinyu Zhang</name>
+    </author>
+    <author>
+      <name>Haitao Lin</name>
+    </author>
+    <author>
+      <name>Jiashu Hou</name>
+    </author>
+    <author>
+      <name>Xiangyang Xue</name>
+    </author>
+    <author>
+      <name>Yanwei Fu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.31186v1</id>
+    <title>RaSFNet: Ray-aligned and Scan-aware Fusion Network for LiDAR Semantic Segmentation</title>
+    <updated>2026-10-22T12:35:29Z</updated>
+    <link href="https://arxiv.org/abs/2610.31186v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.31186v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>LiDAR point cloud semantic segmentation is a fundamental component of 3D perception for autonomous driving and robotics. Projection-based methods map 3D point clouds into 2D representations for feature extraction using 2D networks. However, aggregating multiple points during projection can obscure geometric differences within each frustum, while local feature extraction limits the modeling of spatial relationships across scanning regions. Moreover, proximity in the projected representation does not necessarily imply proximity in 3D space, and interactions between point and projected features may mix features from different ranges, reducing semantic discriminability. To address these challenges, we propose the Ray-aligned and Scan-aware Fusion Network (RaSFNet), which incorporates point cloud geometry and LiDAR scanning characteristics into projection-based semantic segmentation. Specifically, the Ray-Aligned Geometric Distribution Encoding (RAGDE) module characterizes point distributions within each frustum using a ray-aligned coordinate system. To model spatial context, a Scan-Topology-Aware Mamba (STAM) block organizes frustum features according to the LiDAR azimuth sampling pattern and captures long-range dependencies across scanning regions. In addition, a Range-Constrained Point-Frustum Fusion (RCPFF) mechanism uses shared range information to guide feature exchange between point and frustum representations while maintaining spatial correspondence. RaSFNet achieves mIoU scores of 70.2% and 77.7% on the SemanticKITTI and nuScenes validation sets, respectively, indicating competitive segmentation performance compared with the evaluated methods.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-22T12:35:29Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Chuang Chen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.31123v1</id>
+    <title>WildDepth-v2: A Synchronized RGB--LiDAR--Radar Dataset and Benchmark for Metric Depth, Motion, and Tracking of Wildlife</title>
+    <updated>2026-10-22T11:40:54Z</updated>
+    <link href="https://arxiv.org/abs/2610.31123v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.31123v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Measuring animal distance and motion in metric units underpins abundance estimation, morphometrics, and movement ecology, yet monocular video lacks metric scale and wildlife datasets lack metric ground truth. We present WildDepth 2, extending the synchronized RGB-LiDAR WildDepth dataset in three directions. (i) Imaging radar: 37 RGB-LiDAR-4D-radar sequences (19,716 frames) with per-point Doppler velocity and a measured error budget, to our knowledge the first imaging-radar wildlife recordings. (ii) Benchmarking: a frozen, checksummed hidden test set for RGB-only distance estimation and RGB+sparse-LiDAR depth completion, evaluated separately on animal and background pixels. (iii) Motion and tracking: metric 3D trajectories obtained by lifting 2D tracks using LiDAR, radar, or monocular depth. Across 48,723 animal frames, object-level radar calibration improves monocular depth over scene-level LiDAR calibration without requiring LiDAR at inference (AbsRel 0.120 vs. 0.198), although animal-level LiDAR remains more accurate (0.052). Across 431 tracks, once-per-track radar scaling reduces 3D position error four-fold (2.20 to 0.58 m) and distance-sampling detection-function bias from -13% to -2%, matching once-per-track LiDAR calibration. Transferring radar Doppler onto LiDAR produces motion masks 3.7 times denser than radar alone at 72% precision, reduces moving-animal LiDAR accumulation error by 37%, and estimates radial speed (r = 0.60), albeit with approximately 50% underestimation.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-22T11:40:54Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Muhammad Aamir</name>
+    </author>
+    <author>
+      <name>Sangyun Shin</name>
+    </author>
+    <author>
+      <name>Naoya Muramatsu</name>
+    </author>
+    <author>
+      <name>Matthew Wijers</name>
+    </author>
+    <author>
+      <name>Amir Patel</name>
+    </author>
+    <author>
+      <name>Andrew Loveridge</name>
+    </author>
+    <author>
+      <name>Andrew Markham</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.31020v1</id>
+    <title>Demonstration-Based Robotic Feeding Using Dynamic Movement Primitives</title>
+    <updated>2026-10-22T09:54:38Z</updated>
+    <link href="https://arxiv.org/abs/2610.31020v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.31020v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper presents a demonstration-based robotic feeding framework that integrates human demonstration, Dynamic Movement Primitive-based motion planning, vision-based scene perception, and robot control. A human operator first demonstrates the scooping and feeding motions while the position and Euler-angle orientation of the spoon are recorded using a motion-capture system. The recorded trajectory is segmented into scooping and feeding motions, which are encoded using separate Dynamic Movement Primitives. Before task execution, an RGB-D camera estimates the participant's mouth position, while two AprilTags are used for robot-frame registration and tray localization. The detected tray pose is used to position the scooping motion, whereas the detected mouth position defines the positional goal of the feeding motion. The approach, scooping, and feeding trajectories are then executed sequentially by a Kinova Gen3 manipulator through a ROS~2-based framework. A real-world experiment demonstrates the feasibility of the integrated pipeline and shows that the learned spoon motions can be reproduced within the detected experimental scene.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-22T09:54:38Z</published>
+    <arxiv:comment>Accepted on RAAI 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Kenzhi Iskandar Wong</name>
+    </author>
+    <author>
+      <name>Kitti Thamrongaphichartkul</name>
+    </author>
+    <author>
+      <name>Sri Harsha Turlapati</name>
+    </author>
+    <author>
+      <name>Yanshuo Lu</name>
+    </author>
+    <author>
+      <name>Kanichi Doi</name>
+    </author>
+    <author>
+      <name>Boyu Ma</name>
+    </author>
+    <author>
+      <name>Bin Zhou</name>
+    </author>
+    <author>
+      <name>Lin Yang</name>
+    </author>
+    <author>
+      <name>Ananda Sidarta</name>
+    </author>
+    <author>
+      <name>Lek Syn Lim</name>
+    </author>
+    <author>
+      <name>Arun-Kumar Kaliya-Perumal</name>
+    </author>
+    <author>
+      <name>Jianfei Yang</name>
+    </author>
+    <author>
+      <name>Domenico Campolo</name>
+    </author>
+  </entry>
+</feed>

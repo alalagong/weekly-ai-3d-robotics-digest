@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "run_at": "2026-11-01T14:59:32Z",
+  "validation_at": "2026-11-02T15:48:46Z",
+  "window_utc": {
+    "left_exclusive": "2026-10-24T08:17:58Z",
+    "right_inclusive": "2026-11-01T14:59:32Z"
+  },
+  "display_timezone": "Asia/Shanghai",
+  "screened_unique": 348,
+  "counts": {
+    "supplemental": 231,
+    "excluded": 85,
+    "already_reported_same_version": 32
+  },
+  "abstract_read_unique": 348,
+  "full_text_read": 0,
+  "set_checks": [
+    {
+      "source_file": "main-route-extension-enriched.json",
+      "source_unique": 161,
+      "missing_ids": [],
+      "closed": true
+    },
+    {
+      "source_file": "main-extra-extension.json",
+      "source_unique": 131,
+      "missing_ids": [],
+      "closed": true
+    },
+    {
+      "source_file": "main-search-candidates.json C-family",
+      "source_unique": 121,
+      "missing_ids": [],
+      "closed": true
+    }
+  ],
+  "unresolved": [],
+  "takeaway_length_errors": [],
+  "required_field_errors": [],
+  "independent_unique": 52,
+  "independent_counts": {
+    "excluded": 17,
+    "supplemental": 35
+  },
+  "independent_first_api_delta_against_initial_search_and_cross": [
+    "2610.33669",
+    "2610.33715",
+    "2610.33965",
+    "2610.35817",
+    "2610.36146",
+    "2610.36881",
+    "2610.37216",
+    "2610.38879",
+    "2610.39183",
+    "2610.40066",
+    "2610.40648"
+  ],
+  "independent_delta_against_current_main_pool": [
+    {
+      "id": "2509.01107",
+      "disposition": "excluded",
+      "reason": "低光水下等退化条件的二维布局到图像生成，mapping指生成分布；无三维、机器人定位建图或导航任务。"
+    },
+    {
+      "id": "2610.33965",
+      "disposition": "excluded",
+      "reason": "内窥镜胃肠疾病二维分类与效率评测，无相机定位、三维重建或路径导航。"
+    },
+    {
+      "id": "2610.39183",
+      "disposition": "excluded",
+      "reason": "水下二维颜色及细节增强，未评价定位、建图、导航或三维重建。"
+    }
+  ],
+  "note": "A/B independent overlap is intentionally retained for parent deduplication; these are unique ID records within this artifact, not additive report counts. Official history checked for all independent IDs; parent retains responsibility for remaining shared main metadata histories. 37330 HTML Abstract only resolved conflict; no Method/Experiments full-text reading."
+}

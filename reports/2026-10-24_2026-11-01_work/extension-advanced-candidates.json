@@ -1,0 +1,613 @@
+[
+  {
+    "id": "2607.21620",
+    "title": "From Profiles to Steering Vectors: Global Sparse Priors and Local Semantic Calibration for Personalized Text Generation",
+    "abstract": "Personalized text generation requires models to capture user-specific writing styles from historical data. Existing approaches based on retrieval, parameter-efficient fine-tuning, or activation steering either introduce inference and storage overhead or struggle to separate stylistic signals from semantic content. We propose GLASS, a training-free framework for personalized generation via Global - Local Activation Steering with Sparse priors. GLASS uses sparse autoencoders to extract a global user-style prior from historical responses and constructs local contrastive style vectors over clustered interaction scenarios. During inference, it jointly injects global and local vectors into different model layers, enabling context-aware personalization without retrieval or parameter updates. Experiments on LaMP and LongLaMP show that GLASS outperforms retrieval-, fine-tuning-, and steering-based baselines across ROUGE metrics and LLM-as-judge evaluations. Further analyses show that SAE-based representations are more robust to topic and length shifts, suggesting better disentanglement of stylistic information from semantic residue.",
+    "queries": [
+      "extension-advanced-A-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22place+recognition%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22pose+tracking%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22map+merging%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22global+localization%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual+localisation%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22inertial+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2607.21620"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.39076",
+    "title": "Tactus: Tactile & Pose Sensing Glove for Natural Dexterity Data Collection",
+    "abstract": "Collecting naturalistic human manipulation demonstrations with accurate contact force and hand pose is essential for robot dexterous manipulation policy and foundational world model learning - yet no existing wearable platform provides both calibrated fingertip force sensing and occlusion-resilient hand tracking in a form factor that preserves natural manipulation behavior. We present Tactus, a textile-integrated sensing glove that co-optimizes three design pillars: (1) a thin, conformal 3D-knit form factor (1.5 mm fingertip stackup) designed to minimize interference with natural manipulation, (2) strategically placed capacitive tactile sensors at manipulation-relevant regions informed by empirical contact studies, and (3) IMU-fused pose tracking that maintains accuracy through the hand-object occlusions where manipulation data is most valuable. Tactus includes a documented calibration pipeline for cross-glove consistency and per-session calibration for subject-dependent correction. To enable objective comparison, we introduce standardized benchmarking protocols for tactile force regression and hand pose estimation, and apply them to Tactus and two commercially available tactile gloves - to our knowledge the first quantitative cross-platform evaluation of this kind. Tactus resolves a minimum detectable force of 0.59 N at 95% confidence, 1.6 - 2.7x lower than the commercial baselines, and with 0.87 cross-participant consistency, while our pose tracking sustains 11.0 mm fingertip keypoint relative error during manipulation, when occlusion is heaviest. We show that these combined signals support object property estimation, slip detection, and representative recording of hand-object interaction - yielding demonstration data with the fidelity required for contact-aware manipulation policies and world models.",
+    "queries": [
+      "extension-advanced-A-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22place+recognition%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22pose+tracking%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22map+merging%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22global+localization%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual+localisation%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22inertial+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.39076"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.38879",
+    "title": "Proximal R2 Priors for Structured Variance Allocation",
+    "abstract": "Scientific domain knowledge in regression often concerns structural relationships among model terms, which are typically encoded as parameter constraints. Since such relationships rarely hold exactly in practice, prior distributions should encourage them while at the same time retaining support for scientifically plausible departures. Accounting for these relationships becomes more pressing in modern regression, where high-dimensionality is usually present and regularisation is essential. $R^2$ decomposition priors provide an interpretable foundation for regularisation by placing a prior on total explained variance and distributing the implied signal across model terms. We introduce the Proximal R2 prior, which uses proximal relaxations to encode these relationships as soft constraints on the variance allocation. Our formulation yields differentiable posteriors compatible with standard gradient based samplers. Theoretically, we prove that our prior preserves the characteristic marginal properties of global - local shrinkage priors. Moreover, we establish posterior consistency and contraction rates in growing dimensions, showing that the inclusion of structural relationships and proximal methods do not alter the shrinkage properties. Notably, these results demonstrate that the structural constraints in the model do not hinder posterior recovery. Simulation studies and real-data applications to interaction and generalised additive models demonstrate that our prior improves parameter recovery, out-of-sample prediction, and sampling efficiency over existing constrained and unconstrained shrinkage priors, even under structural misspecification.",
+    "queries": [
+      "extension-advanced-A-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22place+recognition%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22pose+tracking%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22map+merging%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22global+localization%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual+localisation%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22inertial+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.38879"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2607.08115",
+    "title": "RadLoc: Radar-based 3-DoF Global Localization via Fast, Robust, and Lightweight Spatial Descriptor Across Diverse Environmental Scenarios",
+    "abstract": "While global localization using spinning radar has gained attention for its robustness to adverse weather and challenging environments, many studies have focused on individual components such as place recognition or pose estimation. In this paper, we take a holistic view of radar sensor-based global localization and present RadLoc, a fast, robust, and lightweight end-to-end pipeline from place recognition to 3-DoF pose estimation. RadLoc accelerates pre-processing using 1D CA-CFAR filtering and leverages the near-range dominance in spinning radar images to design a compact descriptor and an efficient hierarchical coarse-to-fine retrieval strategy. Moreover, coupled with phase correlation-based 3-DoF pose estimation, it forms a versatile global localization module applicable to SLAM and multi-session SLAM systems. Extensive experiments on 15 sequences across 5 datasets demonstrate that RadLoc achieves robust performance while maintaining the smallest descriptor size and fastest retrieval time among state-of-the-art approaches. The supplementary materials are available at https://sparolab.github.io/research/radloc/.",
+    "queries": [
+      "extension-advanced-A-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22place+recognition%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22pose+tracking%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22map+merging%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22global+localization%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual+localisation%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22inertial+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2607.08115"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.38141",
+    "title": "SKiD-SLAM: Resource-Aware Distributed Multi-Robot LiDAR SLAM for Planetary Missions with Field Deployments at Analog Sites",
+    "abstract": "Future planetary exploration missions require teams of robots to collaboratively map unknown environments under severe communication limits, constrained onboard computation, and no central infrastructure. In this field report, we present SKiD-SLAM, a distributed multi-robot LiDAR simultaneous localization and mapping (SLAM) system for such environments, and report its deployment across two mission concepts: cave exploration and scientific surface exploration. We survey the communication and computation budgets of actual planetary missions and select modules that fit these budgets for inter-robot place recognition , relative pose estimation, and distributed trajectory fusion. Before field deployment, we verify the assembled system on public datasets resembling planetary environments and in a simulator built on NASA JPL's Open Source Rover. We then validate SKiD-SLAM through field deployments in South Korea: a team of wheeled rovers explores the Majang lava-tube cave on Jeju Island, and quadruped robots carry out a crater-and-rock science scenario on a planetary analog terrain at the Korea Institute of Civil Engineering and Building Technology (KICT) in Yeoncheon. Across both deployments, SKiD-SLAM reliably performed distributed multi-robot LiDAR SLAM within a 250 kbps inter-robot communication budget, demonstrating its feasibility under challenging field conditions. Supplementary materials, including code and field data, are available at https://sparolab.github.io/research/skid_slam/.",
+    "queries": [
+      "extension-advanced-A-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22place+recognition%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22pose+tracking%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22map+merging%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22global+localization%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual+localisation%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22inertial+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.38141"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.36881",
+    "title": "RAG-CSI: Global Local Retrieval via Joint State and Dynamics Matching for CSI Prediction",
+    "abstract": "Channel state information (CSI) prediction forecasts future channel states from historical observations, supporting transceiver design and resource allocation with reduced measurement overhead. However, existing deep learning predictors mainly encode channel knowledge in model parameters, which can limit their ability to represent diverse patterns of channel dynamics across scenes. In this paper, we propose RAG-CSI, a retrieval-enhanced Transformer framework that augments prediction with relevant historical channel knowledge. Specifically, we construct a global -- local CSI knowledge store containing representative observations across scenes and historical observations from the current serving scene. We further develop joint state--dynamics retrieval (JSDR), which jointly characterizes channel states, phase dynamics, and amplitude dynamics to retrieve relevant CSI sequences. A Transformer predictor then uses cross-attention to fuse the retrieved knowledge with the current CSI history and predict future CSI with limited additional model parameters. Experiments on a multi-scene CSI dataset show overall improvements exceeding 10\\% across all five evaluation metrics over the best baseline for each metric, including a 15.42\\% reduction in normalized mean squared error.",
+    "queries": [
+      "extension-advanced-A-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22place+recognition%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22pose+tracking%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22map+merging%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22global+localization%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual+localisation%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22inertial+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.36881"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.35642",
+    "title": "VPR-Space: A Benchmark for Visual Place Recognition in Space Analog Domains",
+    "abstract": "Visual Place Recognition (VPR) is an important means for loop closure detection in visual Simultaneous Localization and Mapping (SLAM). While state-of-the-art VPR and SLAM approaches excel in urban and feature-rich natural environments, the vast and feature-poor environments of extraterrestrial surfaces like on the Moon or Mars pose severe challenges for existing approaches. This paper presents a novel benchmark, VPR-Space, to evaluate VPR capabilities on extraterrestrial surfaces. There are three contributions: (1) We collected sixteen VPR database-query datasets based on existing data from Space Analog Domains (SAD), terrestrial environments that resemble properties of the Moon or Mars. The collection includes a range of challenges regarding environment, viewpoint change, and illumination conditions. (2) To address the ill-posed nature of VPR, we propose a novel approach to generate the ground-truth information in VPR benchmarks. Instead of defining that a query and datbase image show the same place if and only if their camera poses are within fixed position and viewing direction thresholds, we propose to make the decision dependent on whether the match would be valuable in the downstream SLAM task. To avoid the overhead and restrictions of evaluating VPR in-the-loop within SLAM systems, we provide VPR ground-truth (GT) matrices based on the performance of an ensemble of state-of-the-art Relative Pose Estimators (RPE). Under this GT we require a VPR method to identify exactly those image pairs for which a subsequently applied RPE is expected to provide a valuable pose estimate in a SLAM context. (3) We evaluated nine state-of-the-art VPR approaches. The results show considerable room for improvement and indicate directions for future research. We provide a pre-release version of the dataset on github: $\\texttt{https://github.com/rfechner/VPR-Space}$",
+    "queries": [
+      "extension-advanced-A-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22place+recognition%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22pose+tracking%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22map+merging%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22global+localization%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual+localisation%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22inertial+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.35642"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.13706",
+    "title": "GLIMPSE: Global - Local Indexing with Multi-Precision Spectral Encoding for Explorable Video World Models",
+    "abstract": "A camera-controlled video world model must keep a scene consistent when the camera returns to it. Memories that render stored features into the target frame can turn depth and pose errors into ghosting or duplicated structure. Positional transport avoids that resampling by relocating a historical patch's address rather than its content, but assigns full positional precision even to inaccurate projections. We present GLIMPSE, a global - local memory interface with band-wise multi-precision coordinates and geometry-conditioned spectral attenuation to reduce sensitivity to inaccurate projected addresses. Local patch memory supplies view-specific appearance, while recurrent global memory provides scene context. Footprint-guided retrieval selects historical patches under a fixed local read budget. Under matched retrieval and read budgets, GLIMPSE improves geometric correspondence and photometric consistency over deterministic positional transport.",
+    "queries": [
+      "extension-advanced-A-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22place+recognition%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22pose+tracking%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22map+merging%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22global+localization%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual+localisation%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22inertial+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.13706"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2505.07687",
+    "title": "FermatSyn: SAM2-Enhanced Bidirectional Mamba with Isotropic Spiral Scanning for Multi-Modal Medical Image Synthesis",
+    "abstract": "Multi-modal medical image synthesis is pivotal for alleviating clinical data scarcity, yet existing methods fail to reconcile global anatomical consistency with high-fidelity local detail. We propose FermatSyn, which addresses three persistent limitations: (1) SAM2-based Prior Encoder that injects domain-aware anatomical knowledge via LoRA$^{+}$ efficient fine-tuning of a frozen SAM2 Vision Transformer; (2) Hierarchical Residual Downsampling Module (HRDM) coupled with a Cross-scale Integration Network (CIN) that preserves high-frequency lesion details and adaptively fuses global -- local representations; and (3) continuity constrained Fermat Spiral Scanning strategy within a Bidirectional Fermat Scan Mamba (BFS-Mamba), constructing an approximately isotropic receptive field that substantially reduces the directional bias of raster or spiral serialization. Experiments on SynthRAD2023, BraTS2019, BraTS-MEN, and BraTS-MET show FermatSyn surpasses state-of-the-art methods in PSNR, SSIM, FID, and 3D structural consistency. Downstream segmentation on synthesized images yields no significant difference from real-image training ($p{>}0.05$), confirming clinical utility. Code is available at https://github.com/exsinger-hub/ FermatSyn.",
+    "queries": [
+      "extension-advanced-A-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22place+recognition%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22pose+tracking%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22map+merging%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22global+localization%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual+localisation%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22inertial+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2505.07687"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2606.01734",
+    "title": "FlatVPR: Plug-and-play Geo-linear Residual Adapter for Geometric Rectification of Foundation Model Feature Manifolds",
+    "abstract": "This paper proposes ``FlatVPR,'' a novel geometric rectification paradigm that effectively bridges the trade-off between map lightweightness and localization accuracy in visual place recognition (VPR) by enforcing a feature manifold structure where any descriptor between two adjacent anchors $\\mathbf{z}_A$ and $\\mathbf{z}_B$ can be accurately reconstructed via linear interpolation $\\hat{\\mathbf{z}}_{pseudo} = (1-t)\\mathbf{z}_A + t\\mathbf{z}_B$, where $t \\in [0,1]$ denotes the relative position. While state-of-the-art foundation models such as DINOv2-ViT-S/14 provide robust semantic features, their latent manifolds exhibit prominent curvature, projecting uniform linear motion in physical space onto highly non-linear trajectories in the feature space, which hinders reliable reconstruction under sparse anchor conditions. To enable the aforementioned interpolation-based reconstruction, we introduce a residual transformation $\\hat{\\mathbf{z}} = \\mathbf{z} + \\text{Res}(\\mathbf{z})$ to the raw foundation features $\\mathbf{z}$, where $\\text{Res}(\\cdot)$ represents a learnable adapter. Our method explicitly suppresses manifold curvature using a mathematically grounded Pullback Flatness Loss that minimizes the deviation of intermediate features from the linear segment connecting adjacent anchors, thereby minimizing the intrinsic curvature of the manifold. Through this spatial flattening, map construction is formulated within an Expectation-Maximization (EM) framework, decoupled into a continuous M-step for manifold adaptation and a conceptual E-step for optimal anchor selection guidelines. Experiments on the NCLT dataset demonstrate that the application of our adapter leads to significant performance improvements even under extremely sparse anchor conditions with 100m intervals and extreme seasonal changes.",
+    "queries": [
+      "extension-advanced-A-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22place+recognition%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22pose+tracking%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22map+merging%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22global+localization%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual+localisation%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22inertial+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2606.01734"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.33669",
+    "title": "SoftBART-CORM Models for Density Regression",
+    "abstract": "Flexible modelling of the conditional distribution of a response given predictors is important in many applications where nonlinear effects, heteroskedasticity, and multimodality may be present. We introduce the SoftBART-CoRM, a predictor-dependent infinite mixture model that combines the interpretable component structure of Compound Random Measures (CoRMs) with SoftBART priors on both mixture weights and component-specific parameters. The model flexibly captures complex distributional features, while global -- local shrinkage and predictor-selection priors mitigate overfitting and identify the covariates driving component allocation and kernel parameters. Posterior inference is performed using an efficient Markov chain Monte Carlo algorithm that leverages existing \\texttt{R} implementations of SoftBART. Through simulation studies and real-data applications, we show that the proposed approach can adaptively shrink towards simpler mixture representations, provide interpretable inference on the predictors governing different aspects of the conditional distribution, and achieve superior out-of-sample predictive performance relative to benchmark models.",
+    "queries": [
+      "extension-advanced-A-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22place+recognition%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22pose+tracking%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22map+merging%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22global+localization%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual+localisation%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22inertial+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.33669"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.40648",
+    "title": "Light-Cone Friedel Oscillations: a Window into van Hove Superconductivity",
+    "abstract": "Van Hove (vH) singularities can enhance superconductivity by generating a large pairing susceptibility. Yet, it remains challenging to experimentally establish whether pairing really occurs near these points. We show that the saddle-point dispersion near a vH point gives rise to a `light-cone' vH-selective behavior of Friedel oscillations, which is drastically different from the familiar concentric circles. Each vH point maps onto its own real-space light-cone sector, allowing STM around a single impurity to measure whether---and how strongly---that saddle-point quasiparticle sector is gapped. A superconducting gap near vH points suppresses the oscillations in the directions corresponding to peaks in the gap function angular dependence, a behavior that provides a signature of vH-related pairing at STM-accessible length scales. This STM protocol, targeting vH superconductivity, is capable of determining whether superconducting pairing emerges near the vH points or elsewhere on the Fermi surface.",
+    "queries": [
+      "extension-advanced-B-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22metric+scale%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22point+map%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22multi-view+stereo%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometric+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22camera+recovery%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22dense+geometry%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.40648"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2512.24036",
+    "title": "Signatures of Quantum-Corrected Black Holes in Gravitational Waves from Periodic Orbits",
+    "abstract": "Focusing on a Schwarzschild spacetime modified by loop quantum gravity (LQG) holonomy corrections, this work explores the gravitational radiation produced by test masses in bound periodic configurations. The underlying geometry incorporates a quantum-correction parameter $q_c$ that alters the radial metric scaling while maintaining both asymptotic flatness and the classical horizon radius. The bound geodesics are systematically classified using the zoom--whirl representation labelled by three integers $(z,w,v)$. Gravitational waveforms are computed within a numerical framework that combines exact geodesic motion with the quadrupole approximation, which is suitable for extreme mass ratio inspirals. We demonstrate that the quantum corrections lead to distinct phase shifts, amplitude variations, and modifications to the harmonic structure of the waveforms, with increasingly complex features for orbits with larger zoom numbers. The corresponding frequency spectra and characteristic strain peak, which fall within the millihertz band, are within the sensitivity ranges of space-based detectors such as LISA, Taiji, and TianQin. For specific orbital configurations and values of the quantum-correction parameter, the characteristic strain exceeds the projected detector noise, indicating potential observability. Our results demonstrate that gravitational waves from periodic orbits provide a sensitive probe of quantum-corrected black hole spacetimes in the strong-field regime.",
+    "queries": [
+      "extension-advanced-B-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22metric+scale%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22point+map%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22multi-view+stereo%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometric+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22camera+recovery%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22dense+geometry%22&terms-5-field=all",
+      "https://arxiv.org/abs/2512.24036"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.40066",
+    "title": "Quantum Metric Scaling and Its Exceptions in Classical Flat Bands",
+    "abstract": "The quantum metric length has been proposed as the localization length scale in one-dimensional flat bands. Here, we study this quantum metric scaling and the exceptions to it in a classical flat band formed by a locally resonant mass--spring system. We find that the localization length follows the quantum metric length near the flat band but departs from this proportionality at the exact flat-band frequency. Selective mass disorder also produces divergent localization lengths or arbitrarily short tails near the flat-band frequency without changing the clean metric. These exceptions show that disorder can select localization scales beyond those predicted by the quantum metric alone.",
+    "queries": [
+      "extension-advanced-B-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22metric+scale%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22point+map%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22multi-view+stereo%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometric+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22camera+recovery%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22dense+geometry%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.40066"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2609.24850",
+    "title": "Revisiting Multi - View Stereo : A Sequence-to-Sequence Formulation",
+    "abstract": "Computing accurate geometry from multi-view images is a fundamental problem in computer vision. Recent feed-forward (FF) models jointly estimate 3D geometry and camera parameters, but they typically suffer from geometry distortion caused by reconstruction ambiguity, even when ground-truth camera parameters are supplied. In this paper, we study the multi - view stereo (MVS) problem with known camera parameters and propose a novel approach that bridges conventional MVS and FF methods. Rather than casting MVS as a sequence-to-one mapping that predicts depth only for a single reference view, we reformulate it as a sequence-to-sequence task, akin to FF models, that jointly predicts geometry for all input views. We introduce a global transformer-based architecture with two components that explicitly exploit camera-induced priors: ray-map embeddings that inject camera parameters into image patch tokens, making the transformer camera-aware, and a unified global cost volume that replaces conventional per-view cost volumes to jointly capture 3D structure across all views. Extensive experiments on multiple public benchmarks show our approach achieves state-of-the-art performance, surpassing both MVS and FF reconstruction baselines.",
+    "queries": [
+      "extension-advanced-B-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22metric+scale%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22point+map%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22multi-view+stereo%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometric+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22camera+recovery%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22dense+geometry%22&terms-5-field=all",
+      "https://arxiv.org/abs/2609.24850"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2609.18465",
+    "title": "GeoCond: A Conditioning-Aware Reliability Adapter for Feed-Forward 3D Reconstruction",
+    "abstract": "Feed-forward 3D foundation models such as VGGT predict cameras, depth, and point maps in a single pass, but can fail silently under low overlap, low parallax, and extreme relative rotation. Stratified analyses over these factors show that these failures are governed by geometric conditioning and are poorly captured by native aleatoric confidence. We introduce GeoCond, a lightweight reliability adapter for frozen feed-forward 3D backbones. GeoCond reads geometric conditioning cues and the backbone's own stability signals and outputs pose-level uncertainty and a refinement gate. During training, it can be supervised by frame-permutation orbit variance, ground-truth pose error when labels are available, or cycle residuals from unlabelled independent pose graphs. At inference, the default head requires only one backbone pass and a small MLP. On VGGT, GeoCond improves out-of-distribution (OOD) AUSE (area under the sparsification-error curve; lower is better) from $0.32$ to $0.20$ over native confidence on held-out outdoor scenes (and to $0.21$ when trained on indoor data only) and avoids the collapse caused by applying bundle adjustment uniformly, without improving on feed-forward poses there. For three of six backbones, cycle-distilled variants provide a ground-truth-free adaptation route, including cases where permutation variance vanishes on equivariant models. The same reliability signal supports gated refinement, pose-graph weighting, calibration, curation, and capture decisions. Reliable feed-forward 3D reconstruction requires not only predicting geometry, but also knowing when that geometry should be trusted.",
+    "queries": [
+      "extension-advanced-B-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22metric+scale%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22point+map%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22multi-view+stereo%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometric+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22camera+recovery%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22dense+geometry%22&terms-5-field=all",
+      "https://arxiv.org/abs/2609.18465"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2605.07351",
+    "title": "Disambiguating 2D-3D Correspondences in Gaussian Splatting-based Feature Fields for Visual Localization",
+    "abstract": "While Gaussian Splatting-based Feature Fields (GSFFs) have shown promise for visual localization, this paper highlights that photometrically optimized GSFFs are inherently not suitable for 2D-3D matching. The volumetric extent of each Gaussian induces many-to-one pixel-to- point mappings that destabilize PnP-based pose estimation, while photometric optimization gives rise to superfluous Gaussians devoid of multi-view consistency. To address these issues, we propose SplitGS-Loc, a GSFFs construction framework for localization, which disambiguates 2D-3D correspondences by exploiting Gaussian attributes. Our key design, Mixture-of-Gaussians-based splitting, decomposes each Gaussian into smaller Gaussians, replacing ambiguous many-to-one with precise one-to-one correspondences. In parallel, we exploit composition weights from GS rasterization to select Gaussians that significantly and consistently contribute across multiple views and aggregate discriminative features through strong pixel-Gaussian associations. The resulting compact yet discriminative feature fields enable stable PnP convergence, achieving competitive performance on localization benchmarks. Extensive experiments validate that SplitGS-Loc extends the utility of photometric GSFFs to accurate and efficient localization by exploiting Gaussian attributes, without per-scene training for feature fields or iterative pose refinement. The code is available at: https://github.com/misoleekr/SplitGS-Loc.",
+    "queries": [
+      "extension-advanced-B-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22metric+scale%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22point+map%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22multi-view+stereo%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometric+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22camera+recovery%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22dense+geometry%22&terms-5-field=all",
+      "https://arxiv.org/abs/2605.07351"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.37000",
+    "title": "GPA-VGGT: Geometry-Preserving Acceleration of VGGT",
+    "abstract": "Feed-forward geometry models such as VGGT recover camera parameters, depth maps, and point maps from one to hundreds of views in a single forward pass, making them powerful backbones for multi-view 3D perception. However, VGGT's global attention is quadratic in the number of frames and dominates end-to-end runtime on long sequences, which has motivated a range of training-free efficiency methods such as token merging. These methods, however, come with a drop in accuracy that makes them hard to use in place of VGGT. We propose GPA-VGGT, a training-free acceleration method that replaces global attention in early blocks with frame attention augmented by a shared cross-frame K/V set. In the remaining blocks, we merge only keys and values while preserving all queries, restore the attention mass of the tokens each merged key represents, and randomly project the matching metric to 128 dimensions to reduce matching cost. Across diverse multi-view geometry tasks, GPA-VGGT provides training-free acceleration at speedups comparable to prior work while preserving the information required for precise geometric estimation, retaining over 99% of VGGT's pose accuracy under AUC@3.",
+    "queries": [
+      "extension-advanced-B-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22metric+scale%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22point+map%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22multi-view+stereo%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometric+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22camera+recovery%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22dense+geometry%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.37000"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.37216",
+    "title": "Zhengrong-Spatial-Aware 1.0: Advancing 3D Multimodal Intelligence",
+    "abstract": "This report presents the implementation and validation of two end-to-end multimodal adaptation pipelines for 3D-aware visual question answering on a custom spatial dataset. The first pipeline fine-tunes HiSpatial-3B, which augments RGB observations with metric - scale 3D point maps ; the second adapts Qwen3-VL through memory-efficient QLoRA-based supervised fine-tuning. The completed engineering stack covers dataset conversion, image-annotation alignment, monocular geometry preprocessing, instruction construction, mixed-domain training, checkpoint management, batch inference, and automated evaluation. On the target spatial benchmark, HiSpatial adaptation increases overall accuracy from 1.73% before fine-tuning to 79.89% at 3,600 steps. On a separately collected styled split, accuracy improves from 14.9% to 55.1%, indicating transfer beyond the original training set. The Qwen3-VL pipeline is likewise implemented end-to-end for both 8B- and 32B-scale models using mixed-domain QLoRA adaptation. The resulting accuracy improves from 20.74% to 45.27% for Qwen3-VL-8B and from 30.79% to 47.60% for Qwen3-VL-32B. Together, these results establish two complementary and reproducible adaptation pipelines for geometry-aware and general-purpose multimodal spatial reasoning. These results establish a reproducible engineering foundation for subsequent work on metric 3D reasoning, spatial grounding, and domain-adapted multimodal systems, while also identifying training-data composition as a central factor in preserving general multimodal capability during specialization.",
+    "queries": [
+      "extension-advanced-B-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22metric+scale%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22point+map%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22multi-view+stereo%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometric+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22camera+recovery%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22dense+geometry%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.37216"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.36876",
+    "title": "HoloRecon: Incremental Reconstruction of Long-Range Panoramas with Global Consistency",
+    "abstract": "Long-sequence panoramic reconstruction requires detailed scene geometry and globally consistent camera poses across distant revisits. Panoramic SLAM and incremental SfM rely on feature correspondences, but repeated, similar structures and small partial overlap make reliable long-range connections difficult to establish, leaving accumulated drift unresolved. Feed-forward models offer detailed local geometry, but their high computational costs limit inference window size, necessitating additional constraints for global consistency. This motivates combining continuous feature-based tracking and sparse mapping with rapid, high-quality local reconstruction from feed-forward models to achieve accurate localization and globally consistent dense mapping over long sequences. We therefore propose a panoramic reconstruction framework that couples an ORB-based sparse panoramic mapping frontend with a fine-tuned feed-forward model. Our key insight is that predicted local geometry enables 3D verification of feature matches across distant revisits, yielding long-range camera constraints even between regions. We calibrate predicted depths with sparse landmarks and use verified connections to optimize the global pose graph, updating dense geometry with the corrected camera poses. We also introduce PanoRecon, a seven-scene benchmark with repetitive architecture, large and small loops, and reference camera poses and LiDAR geometry for evaluating global consistency. Our method achieves the lowest mean absolute trajectory error and high F-1 Score among the evaluated methods. Project Page:https://zhuoxiaoli.github.io/HoloRecon_page/",
+    "queries": [
+      "extension-advanced-B-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22metric+scale%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22point+map%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22multi-view+stereo%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometric+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22camera+recovery%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22dense+geometry%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.36876"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.35554",
+    "title": "Metric Scale for Insta360 Structure-from-Motion from the Camera's Embedded IMU",
+    "abstract": "Structure-from-motion (SfM) from the dual-fisheye video of a consumer 360-degree camera recovers geometry only up to a similarity transform; in the pipeline considered here, metric scale is obtained from smartphone ARKit or ARCore poses captured alongside the camera. This paper evaluates a self-contained alternative: the IMU embedded in the Insta360 X5 and X6, recorded at 1 kHz. The sensor is characterised (noise density, camera-IMU synchronisation, accelerometer scale factor, bias stability), the camera-IMU rotation and frame timing are estimated from the data, and the scale is recovered by a linear visual-inertial alignment over the SfM poses of a whole survey. The standard formulation, with gravity and accelerometer bias shared across the survey, overestimates the scale by 3.4% on average; estimating each contiguous segment independently and averaging removes the bias. On nine surveys with a co-mounted LiDAR scanner the inertial scale deviates from the LiDAR by 0.81% in mean absolute error, against 1.94% for the smartphone scale; on printed fiducial markers both agree within the 1% uncertainty of the target. On the reference trajectories of thirty sequences of a public benchmark, brought to scales of 1/40, 1 and 40, the estimator recovers the metric scale with a mean error of -0.07% and a standard deviation of 1.28%. On fifty production surveys where the smartphone is the only reference, the two scales agree to a standard deviation of 2.3%, the inertial scale being 0.3% lower on average; the difference is uncorrelated with run length, grows with the extent of the smartphone anchor, and cannot be attributed to either reference. An ablation over window construction and a comparison with monocular metric-depth networks complete the study.",
+    "queries": [
+      "extension-advanced-B-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22metric+scale%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22point+map%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22multi-view+stereo%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometric+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22camera+recovery%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22dense+geometry%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.35554"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2604.23018",
+    "title": "AmaraSpatial-10K: A Spatially and Semantically Aligned 3D Dataset for Spatial Computing and Embodied AI",
+    "abstract": "Web-scale 3D asset collections are abundant but rarely ready to ingest without cleanup, suffering from arbitrary metric scaling , incorrect pivots, brittle geometry, and incomplete textures, defects that limit their use in embodied AI, robotics, and spatial computing. We present AmaraSpatial-10K, a dataset of 10,071 synthetic 3D assets standardised for direct ingestion. Each asset ships as a metric - scaled , deterministically anchored .glb with separated PBR maps, a convex collision hull, a paired reference image, and multi-sentence text metadata. Alongside the dataset we introduce a reusable evaluation suite for 3D asset banks, a continuous Scale Plausibility Score (SPS), a keyword-based Concept Density metric, anchor-error auditing, and a cross-modal CLIP coherence protocol, and apply it to AmaraSpatial-10K alongside matched subsets of Objaverse, HSSD, ABO, and GSO. We check the annotations independently of the LLM/VLM pipeline that produced them: measured ABO object heights fall inside our scale intervals 88.7-90.7% of the time, and three non-author raters auditing a stratified sample of 314 assets judge 95.5% plausibly scaled and 99.7% correctly anchored. AmaraSpatial-10K improves CLIP Recall@5 by 3.4x over Objaverse (0.612 vs. 0.181, median rank 267 -> 3), achieves a 99.1% settling-stability rate under Habitat-Sim in static placement and collision tests, with ~20x lower per-load wall time, and as a drop-in Holodeck asset bank improves planned-scale matching and is preferred by blinded human raters in 27 of 40 paired scenes. Controlled ablations on the same asset bank attribute the retrieval gain to description richness.",
+    "queries": [
+      "extension-advanced-B-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22metric+scale%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22point+map%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22multi-view+stereo%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometric+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22camera+recovery%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22dense+geometry%22&terms-5-field=all",
+      "https://arxiv.org/abs/2604.23018"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.36150",
+    "title": "Any3R: Feedforward 3D Reconstruction from Any Camera Type",
+    "abstract": "Geometry foundation models recover camera poses and dense geometry from a set of images with a feed-forward network, but they expect pinhole images. That assumption is inside the backbone too: the positional encoding and the training loss both bind an image position to a direction in space, and both depend on the lens. We condition both on the dense ray field, the unit direction through every pixel, which describes any central camera without a lens type, distortion coefficients or a bound on field of view. Angular coordinates give the rotary encoding the measured ray angle of each patch, evaluated per view, and solid-angle weighting scales the point loss by the area each pixel covers on the sphere, so neither the encoding nor the supervision depends on the lens. Any3R is therefore a feed-forward model that takes any central camera, and is robust to mixing many camera types per scene, with no retraining per lens. On a benchmark of thirteen central cameras across three datasets, where every method reconstructs with its own predicted camera poses, it is the most consistently accurate method. Any3R enables scalable 3D reconstruction from heterogeneous crowdsourced and archival imagery collections sourced across diverse camera types. Project page: https://jingong-chen.github.io/Any3R/",
+    "queries": [
+      "extension-advanced-B-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22metric+scale%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22point+map%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22multi-view+stereo%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometric+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22camera+recovery%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22dense+geometry%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.36150"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.35806",
+    "title": "Does VGGT Know What It Does Not Know?",
+    "abstract": "Feed-forward 3D reconstruction models such as VGGT regress cameras and geometry in a single forward pass, but they report no uncertainty for the camera poses they predict: an incorrect relative pose looks no different from a correct one. We ask whether the frozen model nonetheless knows when its pose is wrong. On HardMatch, a benchmark of 1,000 deliberately difficult image pairs on which VGGT fails on 35% of pairs, a linear probe on VGGT's frozen features predicts pose failure on held-out categories with ROC-AUC 93.5%, compared with 79.7% for VGGT's own point - map confidence and 77.7% for a classifier trained on all of VGGT's outputs. The probe catches failures VGGT is confident about, lets a downstream system abstain on the pairs it distrusts, and transfers without retraining to rotation failures on PhotoTourism and ScanNet-1500, beyond what co-visibility explains. This knowledge is absent from the per-image encoder: it is computed partway through the layers that fuse the two views, and the same holds for a second model, $π^3$. In essence, we find that VGGT knows more about its own failures than it reports.",
+    "queries": [
+      "extension-advanced-B-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22metric+scale%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22point+map%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22multi-view+stereo%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometric+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22camera+recovery%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22dense+geometry%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.35806"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2511.22459",
+    "title": "Gaussians on Fire: High-Frequency Reconstruction of Flames",
+    "abstract": "We propose a method to reconstruct dynamic fire in 3D from a limited set of camera views with a Gaussian-based spatiotemporal representation. Capturing and reconstructing fire and its dynamics is highly challenging due to its volatile nature, transparent quality, and multitude of high-frequency features. Despite these challenges, we aim to reconstruct fire from only three views, which consequently requires solving for under-constrained geometry. We solve this by separating the static background from the dynamic fire region by combining dense multi - view stereo images with monocular depth priors. The fire is initialized as a 3D flow field, obtained by fusing per-view dense optical flow projections. To capture the high-frequency features of fire, each 3D Gaussian encodes a lifetime and linear velocity to match the dense optical flow. To ensure sub-frame temporal alignment across cameras, we employ a custom hardware synchronization pattern -- allowing us to reconstruct fire with affordable commodity hardware. Our quantitative and qualitative validations across numerous reconstruction experiments demonstrate robust performance for diverse and challenging real and simulated fire scenarios.",
+    "queries": [
+      "extension-advanced-B-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22metric+scale%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22point+map%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22multi-view+stereo%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometric+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22camera+recovery%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22dense+geometry%22&terms-5-field=all",
+      "https://arxiv.org/abs/2511.22459"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.35361",
+    "title": "SG-Splat: Stable Geometry Learning under Pose Uncertainty for Pose-Free 3D Gaussian Splatting",
+    "abstract": "3D Gaussian Splatting (3DGS) has become a promising representation for real-time novel view synthesis and 3D scene reconstruction. For practical deployment, recent studies have explored pose-free feed-forward 3DGS, which reconstructs Gaussian representations directly from unposed input images. However, these methods remain sensitive to residual pose errors, which perturb canonical-space Gaussian transformation, introducing noisy supervision for geometry and attribute learning. To address this problem, we present SG-Splat, a pose-free feed-forward 3DGS framework that improves robustness to pose uncertainty and stabilizes the learning of Gaussian primitives. SG-Splat decouples geometry estimation and Gaussian attribute prediction into two dedicated branches, reducing error coupling between pose-sensitive geometry and Gaussian attributes. We further introduce a coarse-to-fine refinement pipeline, consisting of Flow-Guided Pose Refinement (FGPR) and Residual-Guided Geometry Correction (RGC), to improve geometric alignment before Gaussian attribute reconstruction. Specifically, FGPR refines camera poses with flow-based correlation features and differentiable bundle adjustment. RGC then corrects initial point maps using depth residuals derived from FGPR, producing more reliable Gaussian centers. To stabilize training, we introduce a dual-path strategy that mixes ground-truth and predicted poses for canonical transformation. It provides clean supervision for Gaussian attributes while improving geometry robustness to residual pose errors. Extensive experiments on DL3DV and RealEstate10K show that SG-Splat achieves state-of-the-art performance in both novel view synthesis and pose estimation.",
+    "queries": [
+      "extension-advanced-B-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22metric+scale%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22point+map%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22multi-view+stereo%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometric+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22camera+recovery%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22dense+geometry%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.35361"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2609.02847",
+    "title": "RoGe: Novel View Synthesis via End-to-End Implicit Reconstruction and Generation",
+    "abstract": "Novel view synthesis from sparse inputs requires both geometric grounding from the observed views and generative priors of unobserved regions, motivating recent hybrid methods that combine reconstruction and generation. However, existing methods bridge the two with rendered images or explicit 3D representations such as point maps or 3D Gaussians. Generation is thus conditioned on a lossy and imperfect projection of the scene, inheriting its errors, and reconstruction receives no signal from generation to correct them. We present RoGe, an end-to-end unified reconstruction and generation framework that removes this explicit bridge. It targets roaming within a scene anchored by sparse views: given a few posed images and a camera trajectory, it synthesizes a temporally coherent video along that trajectory. From the sparse input views, RoGe builds an implicit scene representation with a feed-forward reconstruction model, and queries it with camera rays to obtain per-view geometric features. These features are injected into a video diffusion model as conditioning, without any explicit 3D intermediate. Both modules are trained jointly, so the generation objective directly shapes its own geometric conditioning. We conduct extensive experiments, where RoGe outperforms reconstruction-based, generation-based, and hybrid baselines in terms of image-level quality and video-level temporal and geometric consistency. Ablations confirm that ray-queried implicit features outperform both raw reconstruction tokens and rendered RGB as conditioning, and that joint training brings further gains. Our code will be released on https://jerry-locker.github.io/roge/.",
+    "queries": [
+      "extension-advanced-B-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22metric+scale%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22point+map%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22multi-view+stereo%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometric+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22camera+recovery%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22dense+geometry%22&terms-5-field=all",
+      "https://arxiv.org/abs/2609.02847"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.33715",
+    "title": "Quantum Closed Loop Inverse Kinematics Through Hilbert-Space Encoding of Robot Kinematics",
+    "abstract": "The integration of quantum computing into robotics requires mathematical representations that preserve the geometric structure and configuration dependence of robot motion. This paper introduces a structure-preserving quantum representation of rigid-body transformations and serial-manipulator kinematics, establishing a correspondence between classical kinematic models and parameterized quantum circuits. Building on the Bloch-sphere representation, spatial directions are encoded into single-qubit states, while quantum rotations reproduce the ordered composition of reference-frame transformations. Translational contributions are combined through quantum-state aggregation, with their metric scales retained classically, enabling the reconstruction of end-effector position and orientation from Pauli expectation values. The formulation preserves the original joint variables and accommodates different kinematic conventions and joint types. Beyond forward kinematics, we establish that the manipulator geometric Jacobian can be reconstructed from quantum-observable derivatives using the parameter-shift rule, with analytical equivalence to its classical counterpart under ideal readout. To demonstrate the applicability of this representation to robot-level algorithms, we introduce Quantum Closed Loop Inverse Kinematics, a hybrid closed-loop method that exploits quantum-derived pose and Jacobian information. The proposed framework provides a geometrically interpretable foundation for developing and investigating quantum and hybrid computational methods for robotic kinematics and motion.",
+    "queries": [
+      "extension-advanced-B-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22metric+scale%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22point+map%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22multi-view+stereo%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometric+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22camera+recovery%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22dense+geometry%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.33715"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.39446",
+    "title": "Ask to Evolve: A Unified Harness for Lifelong Embodied Navigation with Hybrid Action Space and Persistent Memory",
+    "abstract": "Giving embodied agents the freedom to act autonomously, initiate interactions, and understand their surroundings through experience is a step toward bringing them to life in the physical world. Realizing this vision requires action, interaction, and memory to work together, so that each encounter can inform current decisions and contribute experience for future tasks. We present EvoLife, a unified navigation harness that enables a multimodal embodied agent to choose how to move, when to ask, and what experience to carry forward. Its hybrid action space supports waypoint navigation, local discrete adjustments, pixel-based navigation, and object-directed navigation. Active interaction allows the agent to seek clarification or assistance when it encounters ambiguity or difficulty, while persistent spatial memory binds observations and dialogue to places, retaining useful experience to guide subsequent visits. We evaluate eight benchmarks across four task families: vision-language navigation, object navigation , interactive instance navigation, and continuous multi-task navigation. With an average of only 1.87 active interactions per episode, our method achieves a first-visit success rate (SR) of 100% across four 100-episode sets spanning vision-language navigation and object navigation . Complete-sequence SR reaches 98% on 50 LHPR-VLN sequences and 94% on 50 GOAT-Bench sequences. In the R2R revisit setting, success weighted by path length (SPL) increases from 82.23% to 93.31% with retained experience. Multi-day physical navigation further demonstrates exploration, proactive help-seeking, and revisiting remembered places. Together, these results advance the vision of bringing embodied agents to life through autonomous action, proactive interaction, and the accumulation and reuse of experience.",
+    "queries": [
+      "extension-advanced-C-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22object-goal%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22object+navigation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22scene+graph%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22spatial+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+exploration%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22language-guided+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.39446"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2602.00414",
+    "title": "Toward Autonomous Laboratory Safety Monitoring with Vision Language Models: Learning to See Hazards Through Scene Structure",
+    "abstract": "Laboratories are prone to severe injuries from unsafe actions, yet continuous manual safety monitoring, beyond mandatory pre-lab safety training, is infeasible. Vision-language models (VLMs) offer promise for autonomous laboratory safety monitoring, but their effectiveness in realistic settings is unclear due to the lack of visual evaluation data. Safety incidents are mostly documented as text, and existing studies are largely limited to textual understanding. Since hazardous scenes are unsafe to stage or capture, synthetic visual data becomes the only practical way to study this problem. This motivates us to introduce a structured data generation pipeline that converts textual laboratory scenarios into aligned quadruples using LLM as scene graph architect and image generation model as renderer, yielding \\dataset: a synthetic dataset of 1,207 $\\langle$image, scene graph , ground truth, hazard relevance mask$\\rangle$ quadruples across 362 unique scenarios. Experiments on \\dataset and seven open- and closed-source models show that VLMs perform effectively given a textual scene graph but degrade substantially in visual-only settings (i.e., where no scene graph is involved), indicating difficulty in extracting structured object relationships directly from pixels. We thus propose \\saga, a post-training framework that leverages reinforcement learning to first structure the visual scene as a scene graph , and then predict hazards while aligning attention with relevant image regions. Evaluations with Qwen 3.5 and Gemma 4 show that our method nearly doubles the $F_1$ score over the baseline on our synthetic dataset and achieves an improvement of $\\sim 3\\times$ on a mini real-world dataset, while preserving general visual understanding in visual question answering.",
+    "queries": [
+      "extension-advanced-C-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22object-goal%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22object+navigation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22scene+graph%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22spatial+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+exploration%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22language-guided+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2602.00414"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.22686",
+    "title": "Multimodal Filesystem Memory For Long-Horizon Embodied Agents",
+    "abstract": "Agents operating over long horizons need an effective memory that allows them to reuse their experience throughout long interactions. If the entire history of an interaction is retained, it becomes difficult to find the relevant experience, while compressing it into summaries may result in the loss of visual and spatial details that are required later on. We present \\textbf{MFM}, a multimodal filesystem memory architecture that keeps complementary types of agent memory. \\textbf{Episodic memory} stores the observations, actions, and outcomes, and \\textbf{ spatial memory } associates experiences with locations. \\textbf{Semantic and procedural memory} build up general knowledge and reusable methods of acting, and \\textbf{working memory} holds the current plans. MFM makes use of searchable textual records to connect these different representations to the underlying multimodal episodes. The agents are able to find previous experiences by means of contextual cues and to examine the original observations in order to recover details that are missing from their textual descriptions. Through consolidation, the agents convert experience into higher-level knowledge and procedures while still keeping references to the original episodes. In the case of long-horizon Minecraft and computer-use tasks, MFM leads to improved performance with three base models. With GPT-6-Astra, MFM completes \\emph{Mine Diamond from Scratch} and reaches 16 out of 24 milestones on the \\emph{Ender Dragon} task, as against 12.7 for the best baseline. On CUABench-KiCad it attains a mean reward of 0.440, as compared to 0.400 for the best baseline and 0.267 in the case of no persistent memory.",
+    "queries": [
+      "extension-advanced-C-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22object-goal%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22object+navigation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22scene+graph%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22spatial+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+exploration%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22language-guided+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.22686"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.38629",
+    "title": "ItemCompass: Real-Time Edge-AI Wearable Vision for Tag-Free Domestic Object Retrieval",
+    "abstract": "Misplacing household objects disrupts daily routines, especially for elderly users. ItemCompass addresses this with a real-time, tag-free wearable AR system that builds a persistent digital twin of the home for natural language object retrieval. A custom eyewear node streams visual and inertial data to an edge server, where YOLOv11n detection, Siamese re-identification, and a Pedestrian Dead Reckoning engine log object locations as Spatial Anchors in InfluxDB. Voice queries are resolved by a local Faster-Whisper and Qwen2 LLM pipeline, delivering concise spoken and AR guidance on a heads-up display. Evaluation shows 0.40 m localization drift, 97.5% step precision, and mAP@0.5 of 0.874, with users rating Accuracy and Trust at 4.6/5.0. The system highlights always-on sensing, conversational spatial memory , and privacy-by-design for wearable computing.",
+    "queries": [
+      "extension-advanced-C-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22object-goal%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22object+navigation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22scene+graph%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22spatial+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+exploration%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22language-guided+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.38629"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.30448",
+    "title": "Proba: A High-Performance, Low-Traffic Probabilistic Spatial Memory Streaming Prefetcher",
+    "abstract": "Spatial Memory Streaming (SMS) prefetchers exploit recurring spatial access patterns across memory regions to predict future accesses. Despite their effectiveness, existing SMS-based designs suffer from coarse control over aggressiveness and limited adaptability to dynamic program behavior and historical patterns. In this work, we present Proba, a feedback-directed SMS-based prefetcher that integrates probabilistic pattern updates, marginal accuracy decision-making, and pattern accumulation over several trigger features to achieve fine-grained accuracy-coverage trade-offs. When accuracy deteriorates, Proba moderates its aggressiveness to prioritize accurate prefetches; conversely, when accuracy rises, it expands its coverage. Proba achieves higher speedups than any other SMS-based prefetcher while being vastly more efficient in DRAM traffic. This culminates in a large performance gap between Proba and other techniques in multicore and DRAM-constrained scenarios without harming single-threaded throughput.",
+    "queries": [
+      "extension-advanced-C-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22object-goal%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22object+navigation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22scene+graph%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22spatial+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+exploration%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22language-guided+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.30448"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.32554",
+    "title": "HGWM: Hierarchical Graph-Guided World Model for Zero-Shot Object Navigation via Graph Matching",
+    "abstract": "Zero-shot object navigation requires an agent to reason about where a target may be found while retaining evidence from previous observations. We present HGWM, a hierarchical graph-guided world model that combines a category-conditioned room--anchor prior with persistent spatial-semantic memory. A coarse stage uses a vision-language model to score candidate headings, while a fine stage explicitly compares observed objects and relations with the goal prior. Phase-dependent fusion integrates these signals with a language-model recommendation to guide local navigation. HGWM achieves 62.6\\% success rate (SR) and 31.5\\% success weighted by path length (SPL) on HM3D v0.1, improving over WMNav by 4.5 and 0.3 percentage points, respectively. On MP3D, it achieves 46.8\\% SR and 17.9\\% SPL, with gains of 1.4 and 0.7 points. On HM3D v0.2, the full model reaches 74.4\\% SR and 31.9\\% SPL; removing individual components reduces SR by 0.9--2.3 points and SPL by 0.6--1.5 points. These results support the use of relational priors and persistent graph memory for target-directed search.",
+    "queries": [
+      "extension-advanced-C-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22object-goal%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22object+navigation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22scene+graph%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22spatial+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+exploration%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22language-guided+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.32554"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.38318",
+    "title": "What Should a Navigator Remember? Spatiotemporal Memory for Zero-Shot Vision-Language Navigation",
+    "abstract": "Zero-shot vision-and-language navigation (VLN) requires an agent to use past observations without navigation-specific training. We study what information an 8B-scale navigation system should retain and how it should be organized for subsequent decisions. Our agent combines instruction progress, hierarchically compressed observation history anchored to poses, and accumulated geometry in complementary task, temporal, and spatial memories . An 8B observer summarizes observations, and an 8B reasoner uses the memories to select waypoint intents or request additional views, a geometric controller executes the selected targets. A semantic information perspective motivates the distinction between retaining evidence, making it accessible to the reasoner, and acquiring further observations. On R2R-CE val-unseen, the complete system achieves the highest among the evaluated Qwen3-based zero-shot baselines. Removing temporal memory reduces SR and sharply increases average path length from 16.9 to 39.1m, removing the spatial-map and planning component reduces SR as well. Real-world experiments on a Unitree Go2 show that our zero-shot method achieves higher success rates than the post-trained baseline in both corridor and office environments, suggesting better transfer to the evaluated real-world settings. As a complementary evaluation, LAW2 uses paired instruction interventions to examine behavioral responses, instruction following ability beyond endpoint success. These results support preserving task progress, observation history, and geometry in structured memory for zero-shot navigation with smaller open models.",
+    "queries": [
+      "extension-advanced-C-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22object-goal%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22object+navigation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22scene+graph%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22spatial+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+exploration%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22language-guided+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.38318"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2604.23095",
+    "title": "INSIGHT: Indoor Scene Intelligence from Geometric-Semantic Hierarchy Transfer for Public~Safety",
+    "abstract": "Indoor environments lack the spatial intelligence infrastructure that GPS provides outdoors; first responders arriving at unfamiliar buildings typically have no machine-readable map of safety equipment. Prior work on 3D semantic segmentation for public safety identified two barriers: scarcity of labeled indoor training data and poor recognition of small safety-critical features by native point-cloud methods. This paper presents INSIGHT, a zero-target-domain-annotation pipeline that projects 2D image understanding into 3D metric space via registered RGB-D data. Two interchangeable vision stacks share a common 3D back end: a SAM3 foundation-model stack for text-prompted segmentation, and a traditional CV stack (open-set detection, VQA, OCR) whose intermediate outputs are independently inspectable. Evaluated on all seven subareas of Stanford 2D-3D-S (70{,}496 images), the pipeline produces Pointcept-schema-compatible labeled point clouds and ISO~19164-compliant scene graphs with ${\\sim}10^{4}{\\times}$ compression; role-filtered payloads transmit in ${<}15$\\,s at 1\\,Mbps over FirstNet Band~14. We report per-point labeling accuracy on 7 shared classes, detection sensitivity for 15 safety-critical classes absent from public 3D benchmarks alongside code-capped deployable estimates, and inter-pipeline complementarity, demonstrating that 2D-to-3D semantic transfer addresses the labeled-data bottleneck while scene graphs provide building intelligence compact enough for field deployment.",
+    "queries": [
+      "extension-advanced-C-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22object-goal%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22object+navigation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22scene+graph%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22spatial+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+exploration%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22language-guided+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2604.23095"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.35817",
+    "title": "Pretraining Knows What, Simulation Teaches How: Compositional Generalization in a Sim-Trained Robot Agent",
+    "abstract": "A robot policy needs to understand what a task is asking for in a scene, and how to move the robot to accomplish that task. To achieve these two skills, we introduce Zero-real Agent Policy (ZAP), a recipe that teaches a small off-the-shelf vision-language model to control a robot via a simple tool harness. We use a pretrained 27B parameter model to bootstrap world understanding and reasoning, followed by supervised fine-tuning and GRPO on simple simulated tasks to teach it how to move the robot. Without observing real-world robot data during training, ZAP reaches 96.7% success on real-world tasks, matching GPT-6 Astra in our harness and outperforming the MolmoAct2 VLA (33.3%), while running 3x faster and 17x cheaper than GPT-6 Astra. Furthermore, ZAP also generalizes to an unseen embodiment as well as new objects , goals and strategies never seen during training. On a single-arm Franka, ZAP reaches 55.9% on RoboLab-120, 4.9 percentage points ahead of the leading VLA/WAM baseline.",
+    "queries": [
+      "extension-advanced-C-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22object-goal%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22object+navigation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22scene+graph%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22spatial+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+exploration%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22language-guided+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.35817"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.37203",
+    "title": "Remember Where You Walk: Learning Spatial Memory for End-to-End Legged Robot Exploration",
+    "abstract": "Humanoids and other legged robots operating in complex environments must remember information that leaves their field of view and only becomes relevant much later. Reinforcement learning policies address this using memory networks such as LSTMs that are trained end-to-end with the policy to memorize such task-relevant aspects. Yet, such architectures often fail to preserve sufficient information over long horizons. In this work, we propose a network architecture based on Hadamard memory that specifically targets robot navigation. Our Local Spatial Matrix Memory (LSMM) enables RL agents to store generic task-relevant information at specific, position-based memory cells, enabling flexible and spatially grounded memorization. We evaluate LSMM on the task of autonomous maze exploration, where it matches the maze coverage of strong recurrent and finite-history baselines while being the only architecture that remembers the maze layout, reducing the reconstruction error threefold.",
+    "queries": [
+      "extension-advanced-C-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22object-goal%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22object+navigation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22scene+graph%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22spatial+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+exploration%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22language-guided+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.37203"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.36146",
+    "title": "From Structural Feedback to Prompt Policies: Learning Faithful Text-to-Image Prompt Editors",
+    "abstract": "Prompt optimization should improve the image a user receives without changing the scene the user requested. Yet stylistic rewriting can weaken object attributes and relations even when global text--image similarity remains high. We propose StruPO, a structure-aware prompt editor that uses a calibrated scene graph as a shared representation for policy conditioning and image-grounded supervision. The graph exposes what should be preserved, while deletion, reordering, and insertion provide a token-aligned way to modify the prompt. This turns structural feedback from an external critique into a training signal for a reusable editing policy. Learning from that signal requires handling both uncertain grounding and stochastic image generation. StruPO retains grounding confidence through smooth reward shaping and averages multiple images for each edit before computing group-relative advantages. Experiments span three disjoint 2K-prompt test sets and four frozen generation backbones, with comparisons to learned prompt optimizers, iterative structural feedback, diffusion-model fine-tuning, and inference-time attention control. StruPO improves the faithfulness--aesthetics trade-off, with consistent gains in relational fidelity. Independent automatic evaluators and a 15-annotator study provide complementary evidence, and human preference margins increase with relation complexity. Controlled ablations connect these gains to graph conditioning, local editing, and image-grounded learning. The resulting policy produces reusable optimized text in one pass after graph calibration, without an iterative critique--rewrite loop.",
+    "queries": [
+      "extension-advanced-C-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22object-goal%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22object+navigation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22scene+graph%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22spatial+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+exploration%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22language-guided+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.36146"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2601.11460",
+    "title": "Semantic-Geometric Task Representations for Bimanual Manipulation from Human Demonstrations to Robot Action Planning",
+    "abstract": "Learning structured task representations from human demonstrations is essential for bimanual manipulation, where action ordering, object involvement, and interaction geometry vary significantly across executions. A key challenge lies in jointly capturing the discrete semantic task structure and the temporal evolution of object-centric geometric relations in a form that supports reasoning over task progression. We introduce a semantic-geometric graph-based task representation that jointly encodes object identities, inter-object semantic relations, and per-object motion histories, via a Message Passing Neural Network (MPNN) encoder and a Transformer-based decoder. The encoder operates solely on the temporal scene graph , producing structured representations decoupled from action labels. The decoder then conditions on action-context to forecast future actions, associated objects, and object motions. This decoupling learns task-agnostic representations, enabling encoder reuse across embodiments through decoder-only finetuning on a small robot dataset. Across eleven bimanual tasks from two datasets, we find that the benefit of structured semantic--geometric representations over simpler sequence-based models grows with task variability in action ordering and object involvement. At deployment, a planner couples the action and motion predictions with learned Probabilistic Movement Primitives, achieving full task success on two real-robot bimanual tasks and outperforming graph ablations, Transformer, decoder-only, and finetuned vision-language model baselines.",
+    "queries": [
+      "extension-advanced-C-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22object-goal%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22object+navigation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22scene+graph%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22spatial+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+exploration%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22language-guided+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2601.11460"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2608.12290",
+    "title": "Beyond Trial-and-Error: Agentic Optimization for Image-to-Video Adherence",
+    "abstract": "Modern black-box Image-to-Video (I2V) models offer powerful capabilities in automated content creation, yet their lack of fine-grained control and reliability presents significant challenges in professional workflows. Their inherent stochasticity causes minor variations in textual prompts or hyperparameters to yield drastically different outputs often necessitating inefficient, brute-force trial-and-error processes. To address these limitations, we introduce the ``Agentic Self-Improvement\" framework, which reframes video synthesis into a closed-loop, goal-directed optimization. Our framework systematically navigates the generation parameter space using a novel two-stage approach. In the first stage, an iterative prompt optimization loop uses a multimodal Large Language Model (mLLM) to refine the input prompt. This refinement implements two automated evaluations: Davidsonian Scene Graph (DSG) queries ensure semantic adherence, and Common Mistake Questions (CMQ) for artifact detection. At the second stage, we use Bayesian optimization to efficiently co-optimize stochastic seeds and CFG scales. This search is guided by a suite of quality metrics, including the novel Video-Text Adherence (VTA) score derived from the DSG and CMQ evaluations. Our framework significantly outperforms unguided search methods: in human preference studies, videos generated via our agentic approach were strongly preferred over baseline outputs, achieving win rates up to 69\\%. This work provides a practical and extensible methodology for enhancing the predictability and control of state-of-the-art video generation models, moving the field beyond speculative curiosities toward reliable, production-ready tools.",
+    "queries": [
+      "extension-advanced-C-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22object-goal%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22object+navigation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22scene+graph%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22spatial+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+exploration%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22language-guided+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2608.12290"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.34286",
+    "title": "ScheNav: Schematic-Guided Object Goal Navigation",
+    "abstract": "Object goal navigation requires an embodied agent to locate and reach target objects in complex environments. Humans often rely on low-cost yet informative schematic maps, such as rough sketches or directional annotations. We develop a workflow for schematic-guided embodied navigation with two components: a training-data generation pipeline and ScheNav, a closed-loop navigation framework. Our lightweight data-generation pipeline turns 2D floorplans into navigation training environments, yielding Furnished-RPLAN, a dataset of over 33k furnished layouts with paired navigation episodes and noise-controllable schematic maps. ScheNav turns rough schematic guidance into exploration and stopping decisions by using SchemaField, a learned spatial module that fuses the guidance with accumulated observations and predicts spatial value fields. The framework updates these fields as exploration proceeds, with trajectory-based training and a cross-frame consistency objective supporting coherent guidance across changing viewpoints. ScheNav learns to use schematic guidance entirely from simulated floorplans and transfers this ability to unseen embodied environments. Experiments show improved navigation success and path efficiency across schematic maps, goal ellipses, and pointed directions, together with tolerance to the tested schematic perturbations and omissions. Together, these results demonstrate that rough schematic guidance offers a practical way to improve embodied navigation.",
+    "queries": [
+      "extension-advanced-C-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22object-goal%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22object+navigation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22scene+graph%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22spatial+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+exploration%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22language-guided+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.34286"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.34041",
+    "title": "T-ConSG: A LiDAR-Based Real-Time Temporal Construction Scene Graph for Dynamic and Evolving Environments",
+    "abstract": "Dynamic and continuously evolving environments present significant challenges for robotic mapping and scene understanding, particularly on construction sites where moving agents, temporary obstacles, and persistent structural changes coexist. While dynamic and long-term SLAM methods can detect motion and environmental changes, their outputs are predominantly metric representations that provide limited structure for higher-level spatial and temporal reasoning. This paper presents a LiDAR-based real-time temporal construction scene graph (T-ConSG) that jointly represents free-space regions, static objects, dynamic objects, and environmental events with spatial-relational and event-participation edges. The proposed framework incrementally constructs the graph from LiDAR-derived geometric evidence, maintaining persistent free-space and static-object information while tracking dynamic objects. Changes in accumulated spatial evidence are further represented as explicit installation and removal events, allowing the graph to capture both transient dynamics and persistent environmental evolution. We demonstrate the proposed representation through three complementary application studies: dynamics-aware navigation in a bricklaying testbed, construction progress monitoring on the ConSLAM dataset, and online change detection in a simulated construction environment. The results demonstrate that the proposed T-ConSG provides a unified representation for organizing spatial and temporal information and supports robotic reasoning across environments containing both short-term dynamics and persistent changes.",
+    "queries": [
+      "extension-advanced-C-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22object-goal%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22object+navigation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22scene+graph%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22spatial+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+exploration%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22language-guided+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.34041"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2602.13086",
+    "title": "UniManip: Open-World Robotic Manipulation via Agentic Operational Graphs",
+    "abstract": "Achieving general-purpose robotic manipulation requires robots to bridge high-level semantic intent with low-level physical interaction in unstructured environments. However, zero-shot generalization remains challenging: end-to-end Vision-Language-Action (VLA) models often lack the precision required for long-horizon tasks, while traditional hierarchical planners suffer from semantic rigidity under open-world variations. We present UniManip, a unified framework centered on an Agentic Operational Graph (AOG), an explicit cognitive and operational backbone for task orchestration, state tracking, execution verification, and closed-loop failure recovery. High-level semantic intents are grounded into actionable primitives via a physically grounded scene graph that provides geometric affordances, contact-aware interaction parameters, and collision-free trajectory synthesis. By coupling a high-level Agentic Layer for task orchestration with a low-level Scene Layer for dynamic state representation, UniManip continuously aligns abstract planning with geometric constraints, enabling robust execution. Unlike static pipelines, UniManip operates as a dynamic agentic loop: it instantiates object-centric scene graphs from unstructured perception, parameterizes these representations into collision-free trajectories via a safety-aware local planner, and exploits structured memory to autonomously diagnose and recover from execution failures. UniManip achieves state-of-the-art performance on LIBERO-Pro, while extensive real-world experiments demonstrate robust zero-shot generalization across diverse tasks, embodiments, and dexterous hands, outperforming leading VLA models and hierarchical baselines by 22.5% and 25.0% in task success rate, respectively. Open-source project page: https://henryhcliu.github.io/unimanip.",
+    "queries": [
+      "extension-advanced-C-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22object-goal%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22object+navigation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22scene+graph%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22spatial+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+exploration%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22language-guided+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2602.13086"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.33794",
+    "title": "One Scan is Enough: Demonstration-Free Adaptation for Language - Guided Navigation",
+    "abstract": "Deploying a language - guided navigation policy in a new building usually means watching it fail. Public-benchmark VLAs degrade scene by scene as layout, appearance, and language drift, and the standard fix of teleoperating fresh trajectories on site does not scale. We replace human demonstration with a single brief iPhone scan. Scan2Instruction compiles that scan into a complete training environment, automatically synthesizing executable navigation episodes with grounded instructions. PRPT-KS then adapts the policy through a closed-form Pareto utility read directly off the reconstructed scene, with no learned critic and no human labels. Across five real environments, the two designs together drive our RealNav to an 85% real-robot success rate, compared with 49% for a RealNav baseline post-trained on human demonstrations, and still achieve 82% in unscanned regions of the same buildings, compared with 41% for the same baseline. Our work turns demonstration-free scene adaptation for language - guided navigation from an aspiration into a working reality.",
+    "queries": [
+      "extension-advanced-C-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22object-goal%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22object+navigation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22scene+graph%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22spatial+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+exploration%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22language-guided+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.33794"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2610.33546",
+    "title": "MOON: Learning When to Forget and How to Move On in Vision-and-Language Navigation",
+    "abstract": "Recent vision-and-language navigation (VLN) policies act on their visual history, and an incorrect action can take them off the instructed route. Paired interventions on four VLN policies show that clearing the history doubles pooled success at the onset of a deviation but lowers it on route, while later in a deviation, removing only the off-route frames helps much less. After a deviation, the retained history keeps the policy from turning where a turn is needed, which we call behavioral inertia. We propose MOON, a framework that equips a frozen VLN policy with two lightweight modules, adding less than 1% of its parameters. A deviation judge decides when to forget, raising an alarm that clears the history when it predicts that the agent is off route. A recovery policy, trained with GRPO from alarm states, learns how to move on, turning more of the successes found only by sampling into a single greedy rollout. Experiments on R2R-CE and RxR-CE show that MOON reaches the highest R2R-CE success rate among the compared methods and raises the success rate of its frozen base by 5.2 and 6.0 points, and an ablation with a random trigger indicates that this gain depends on when the history is cleared. Without retraining, MOON also improves zero-shot object - goal navigation on HM3D-OVON. Together, these results suggest that deviation recovery depends on knowing when to forget, not only how to act. Code is available at https://github.com/AutoLab-SAI-SJTU/MOON.",
+    "queries": [
+      "extension-advanced-C-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22object-goal%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22object+navigation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22scene+graph%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22spatial+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+exploration%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22language-guided+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.33546"
+    ],
+    "abstract_read": false
+  },
+  {
+    "id": "2606.04689",
+    "title": "QPredSGG: Hybrid Quantum Predicate Learning for Long-Tailed Scene Graph Generation",
+    "abstract": "Scene Graph Generation (SGG) requires relational reasoning over objects and their interactions, but performance is constrained by long-tail predicate imbalance. Classical SGG models rely on dataset statistics, leading to biased predictions toward frequent relations rather than fine-grained semantic predicates. Although debiasing improves mean recall, predicate classification in existing frameworks still relies on high-dimensional classical decision modules with high parameter overhead. This work introduces a resource-efficient hybrid quantum predicate classifier for SGG by replacing the classical predicate head in the CFEN with a QP-Head trained using class-balanced WCE. To the best of our knowledge, this work is among the first evaluations of a hybrid quantum architecture for scene graph predicate classification on Visual Genome 150. We evaluate the impact of qubit count, encoding strategy, entangling topology, and circuit depth. Under a 4-qubit configuration using Amplitude Embedding and Strongly Entangling Layers, the QP-Head projects 4096-dimensional pair features into a 16-dimensional quantum input while using 96 trainable quantum parameters. Operating within this compressed representation space under WCE training, it achieves strong long-tail recognition, reaching a peak mR@100 of 57.25% compared to the 41.1% mR@100 reported in the CFEN baseline under standard training. Protocol-matched ablations indicate that the primary advantage of the quantum head lies in extreme representational compactness rather than an accuracy gain over full-dimensional weighted classical heads: it achieves global recall within 0.19pp of the 2048-dimensional WCE classical baseline while operating from a 128x smaller head feature space. Scaling to 8 qubits maintains robust long-tail performance (55.38% mR@100 with 384 quantum parameters), while depth analysis highlights expressibility-latency trade-offs.",
+    "queries": [
+      "extension-advanced-C-independent-latest"
+    ],
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22object-goal%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22object+navigation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22scene+graph%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22spatial+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+exploration%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22language-guided+navigation%22&terms-5-field=all",
+      "https://arxiv.org/abs/2606.04689"
+    ],
+    "abstract_read": false
+  }
+]

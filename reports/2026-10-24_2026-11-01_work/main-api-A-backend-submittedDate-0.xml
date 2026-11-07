@@ -1,0 +1,1384 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/Yn+Rkip2naY0ZBUMB2Ys/01Thm8</id>
+  <title>arXiv Query: search_query=( (ti:"loop closure") OR (abs:"loop closure") OR (ti:relocalization) OR (abs:relocalization) OR (ti:relocalisation) OR (abs:relocalisation) OR (ti:registration) OR (abs:registration) OR (ti:"bundle adjustment") OR (abs:"bundle adjustment") OR (ti:"pose graph") OR (abs:"pose graph") ) AND submittedDate:"202610220000 TO 202611011459"&amp;id_list=&amp;start=0&amp;max_results=200</title>
+  <updated>2026-11-01T15:17:51Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(ti:%22loop+closure%22+OR+(abs:%22loop+closure%22+OR+(ti:relocalization+OR+(abs:relocalization+OR+(ti:relocalisation+OR+(abs:relocalisation+OR+(ti:registration+OR+(abs:registration+OR+(ti:%22bundle+adjustment%22+OR+(abs:%22bundle+adjustment%22+OR+(ti:%22pose+graph%22+OR+abs:%22pose+graph%22)))))))))))+AND+submittedDate:%22202610220000+TO+202611011459%22&amp;start=0&amp;max_results=200&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>200</opensearch:itemsPerPage>
+  <opensearch:totalResults>52</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2610.40488v1</id>
+    <title>rTaste: Do Research Agents Have Taste? Evaluating Early Stage Research Judgment</title>
+    <updated>2026-10-29T17:15:53Z</updated>
+    <link href="https://arxiv.org/abs/2610.40488v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.40488v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Do research agents have taste, the judgment of which experiments are worth running before their outcomes are known? We give six frontier models seven recent NLP papers. Each model, working as a research agent alone or as a team, proposes minimum viable experiments (MVEs), forecasts whether each will pass a threshold it sets and ranks them. A separate executor then attempts every MVE, including those ranked last, and three model auditors judge the results. Of 415 MVEs, 194 are judged sound, valuable and new, but fewer than half of these (73) are also judged beyond the seed paper and non obvious. The agents' first choices match the auditors' most valued experiment more often than a random pick, but are not shown to improve on choosing the experiment written first. Their forecasts beat a base rate but are not measurably more accurate than those of a fresh instance of the same model given only the paper and registrations. Teams cost more without a clear overall improvement in proposal quality. The agents produce many worthwhile experiments, but the evidence that their rankings improve the choice of which to run remains limited. The evaluation harness and a dataset of all 415 MVEs, with their forecasts and audited outcomes, are available at https://github.com/ArtKanke/rTaste.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-29T17:15:53Z</published>
+    <arxiv:comment>27 pages, 1 figure, 9 tables. Code and data: https://github.com/ArtKanke/rTaste</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Art Kanke</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.40363v1</id>
+    <title>Measuring Precipitable Water Vapor through Dual-Band GPS at Rubin Observatory</title>
+    <updated>2026-10-29T16:15:13Z</updated>
+    <link href="https://arxiv.org/abs/2610.40363v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.40363v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Precipitable water vapor (PWV) in Earth's atmosphere is a known source of systematic error in ground-based astronomical measurements, particularly at wavelengths greater than 7,000 angstroms. PWV produces wavelength-dependent extinction in the spectral energy distributions of observed sources. For high-precision applications, such as supernova cosmology, the transmission function must be measured accurately and precisely for each observation. The Vera C. Rubin Observatory is located in the Chilean Andes, a region known for dry conditions. However, even at this location, time-variable absorption by water vapor is a factor. Signal delays from Global Navigation Satellite Systems (GNSS) offer a robust, easy, 24-hour monitoring of PWV. In this paper we present measurements from the first six months of GNSS-PWV at Rubin Observatory. We verified our analysis by replicating results from the International GNSS Service (IGS), demonstrating high consistency. We then installed and commissioned a Trimble Net R9 receiver at Allegheny Observatory for a commissioning run before it was relocated to Rubin Observatory. At Rubin Observatory we have been continuously measuring PWV since 2025 September 5. We find average PWV levels of 3.0 kg/m$^2$ in Southern Hemisphere spring (September to November) and 5.4 kg/m$^2$ in summer (December to February). The PWV at Rubin also has a clear daily variation with an amplitude of 1.2-3.8 kg/m$^2$ that is highly correlated with the east-west wind strength. We conclude that the proposed GNSS-based processing method achieves an accuracy of 0.9 kg/m$^2$ with 0.36 kg/m$^2$ precision, confirming the capability for continuous, high-temporal-resolution PWV monitoring to support demanding LSST science cases.</summary>
+    <category term="astro-ph.IM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-29T16:15:13Z</published>
+    <arxiv:comment>25 pages, 15 figures, 5 tables. Submitted to PASP</arxiv:comment>
+    <arxiv:primary_category term="astro-ph.IM"/>
+    <author>
+      <name>Anja Weyant</name>
+    </author>
+    <author>
+      <name>W. M. Wood-Vasey</name>
+    </author>
+    <author>
+      <name>Elana K. Urbach</name>
+    </author>
+    <author>
+      <name>Sara Gelven</name>
+    </author>
+    <author>
+      <name>Marcos Tamargo-Arizmedi</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.39620v1</id>
+    <title>Letting AI Formulate the Research Question: Autonomous Research Agents</title>
+    <updated>2026-10-29T08:48:13Z</updated>
+    <link href="https://arxiv.org/abs/2610.39620v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.39620v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Systems such as The AI Scientist have shown that AI agents can carry out and write up research, but in those demonstrations humans chose the research area and selected the outputs to show. We study letting the AI formulate the research question itself, and we report every run. Our system gives an off-the-shelf coding agent an instruction document and two skills: one for formulating the question, in which the agent diverges from recent technologies into problems of other fields, screens its candidates for known failure modes and obtains a critique from a different model; and one for peer review, in which a reviewer from another model family reruns the study from its records before the agent revises the paper. Over 13 development runs, changes to the one or two sentences that set the research area coincided with large shifts in what the candidate questions and the chosen papers were about, which led us to the area of a new technology applied to a societal problem. We froze the system after a pilot run and report five consecutive runs: the pilot, counted by a disclosed amendment to the pre-registration, and four pre-registered runs. All five runs went from question formulation to a revised, re-computable paper, with local computation on a laptop and no research input from humans, and external AI reviewers reading only the papers judged them at or near workshop level. We release the system, the five papers and the records needed to reproduce them.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-29T08:48:13Z</published>
+    <arxiv:comment>17 pages, 1 figure</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Ko Fujimura</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.39279v1</id>
+    <title>CuBot-STT: Simultaneously Transport and Tighten for Lattice-type Modular Reconfiguration Robot</title>
+    <updated>2026-10-29T03:30:48Z</updated>
+    <link href="https://arxiv.org/abs/2610.39279v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.39279v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Lattice-type modular reconfigurable robots rearrange standardized modules across tasks. Dedicated transport robots reduce module weight and cost by eliminating module level reconfiguration actuators. But existing systems use low capacity connections or internal fastening robots that occupy space for functional components. This paper presents CuBot-STT, which integrates module transport, interface locking, and release in one external robot. Cubic modules provide structural support and $24\,\mathrm{V}$ power distribution. On each face, a gear transmission converts one external input into motion of four helical locking points, preserving internal space. The robot uses alternating foot support, a gripper for module handling, and a tightening head for interface actuation. The controller coordinates two-foot support and module locking through continuous constraint transfers. The planner decomposes relocation costs into an analytical lower bound and a residual learned through expert-guided, goal conditioned Q-learning. Contact face $A^*$ search expands relocation sequences into robot primitives satisfying connectivity, asymmetric manipulation, and foot stance constraints. Experiments demonstrate normal and tangential interface capacities of $300\,\mathrm{N}$ and $490\,\mathrm{N}$, electrical continuity across six modules, and autonomous reconfiguration of an 11-module lattice. Planning benchmarks show superior search efficiency over analytical guidance and bidirectional heuristic search, with generalization beyond training lattice sizes without fine-tuning.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-29T03:30:48Z</published>
+    <arxiv:comment>11 pages. Submitted to IEEE/ASME Transactions on Mechatronics</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Chongxi Meng</name>
+    </author>
+    <author>
+      <name>Da Zhao</name>
+    </author>
+    <author>
+      <name>Yanmin Zhou</name>
+    </author>
+    <author>
+      <name>Runjie Shen</name>
+    </author>
+    <author>
+      <name>Zhipeng Wang</name>
+    </author>
+    <author>
+      <name>Bin He</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.39226v1</id>
+    <title>Beyond Direct Imaging: Quantum Measurement Design for Small-Target Detection in UAV Hyperspectral Sensing</title>
+    <updated>2026-10-29T02:45:44Z</updated>
+    <link href="https://arxiv.org/abs/2610.39226v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.39226v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Small mineral patches can be spectrally distinct yet difficult to detect when diffraction mixes their light with the surrounding rock. Conventional hyperspectral detectors analyze recorded intensities, leaving an opportunity to recover target evidence through the optical measurement itself. We develop a quantum-assisted framework for exploiting this opportunity in prospective unmanned aerial vehicle (UAV) hyperspectral sensing. A common radiometric and diffraction model describes direct imaging and spatial-mode measurements of the same light. The theory identifies target changes that survive background fitting and explains when mode measurements retain more detection information. It quantifies losses from mode mismatch and unresolved outputs, linking the quantum benchmark to finite receiver design. A common-basis result identifies when material spectra can share a spatial measurement at fixed geometry. An adaptive receiver uses an imaging pilot to select candidate modes and combines both stages in a full-region presence test. Simulations based on measured mineral spectra and published UAV acquisition scales demonstrate gains over complete direct imaging at a shared active-exposure budget, including pilot cost and optical loss. At matched empirical 1\% region-level false alarms, detection increases from 62.95\% to 69.65\% for a representative target. Paired analysis supports gains with registration uncertainty and, separately, under controlled nonuniform backgrounds. Calibrated mode errors reveal where measurement losses weaken or reverse the benefit. These results connect background identifiability to receiver choices and their operating conditions. They provide a framework for designing spatial measurements alongside spectral channels to detect small material features.</summary>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-29T02:45:44Z</published>
+    <arxiv:primary_category term="quant-ph"/>
+    <author>
+      <name>Qipeng Qian</name>
+    </author>
+    <author>
+      <name>Jialiang Jin</name>
+    </author>
+    <author>
+      <name>Shihao Wang</name>
+    </author>
+    <author>
+      <name>Yuntao Qian</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.39161v1</id>
+    <title>Joint Rigid Alignment and Morphable Reconstruction from Partial 3D Face Scans</title>
+    <updated>2026-10-29T01:47:54Z</updated>
+    <link href="https://arxiv.org/abs/2610.39161v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.39161v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Aligning a partial, real-world 3D face scan to a canonical representation requires solving two coupled problems at once: estimating the rigid pose that brings the scan into a common frame, and completing the facial shape in regions the scan never observed. Existing pipelines typically decouple these steps, running a generic point-cloud registration front end followed by a separate non-rigid fitting or deformation stage. Building on the GeoTransformer superpoint-matching architecture, we propose a single network that predicts both a rigid pose and a shape-complete point cloud in one forward pass: a cross-attention regressor, conditioned on transformer point features and predicted coarse correspondences, maps a partial scan to per-patch coefficients of a 3D morphable face model learned offline from a corpus of 8,000 identities. The resulting morphed template is then used, in the same forward pass, as the target for fine-grained Sinkhorn matching and rigid pose estimation, supervised purely by geometric alignment to ground-truth morphed geometry, so no hand-labeled coefficients are required. Against six classical and learned non-rigid registration baselines on held-out identities, our method leads the strongest ones by 3-4 times on per-vertex error and baselines that collapse the head onto the visible region by more than an order of magnitude, and is simultaneously the most accurate and fastest method on ground-truth-free scans from two independent real-scan datasets, NoW and NPHM. Code will be made publicly available.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-29T01:47:54Z</published>
+    <arxiv:comment>9 pages, 4 figures, 4 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Eli A. Underwood</name>
+    </author>
+    <author>
+      <name>Nicolas Rondan</name>
+    </author>
+    <author>
+      <name>Angel V. Peterchev</name>
+    </author>
+    <author>
+      <name>J. Matias Di Martino</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.39005v1</id>
+    <title>Self-Supervised Doppler-Guided RF Odometry</title>
+    <updated>2026-10-28T22:32:03Z</updated>
+    <link href="https://arxiv.org/abs/2610.39005v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.39005v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Radio-frequency (RF) sensing enables robot ego-motion estimation in darkness, smoke, and fog, yet RF odometry remains challenging because multipath and moving reflectors make cross-frame matching highly ambiguous. Existing methods often rely on auxiliary inertial sensors or ground-truth pose supervision. We present RFWalk, a self-supervised, RF-only odometry framework that models dense correspondences across range-azimuth frames as random walks on a space-time graph and learns them from unlabeled sequences through temporal cycle consistency. To rule out correspondences that are cycle-consistent but physically implausible, we introduce a Doppler consistency loss that constrains correspondence-induced motion using radial velocity measured by the RF sensor itself. Ego-motion is then recovered through robust $\mathrm{SE}(2)$ registration that suppresses uncertain correspondences and those arising from independently moving objects. Without pose labels or auxiliary sensors, RFWalk remains competitive with supervised baselines in static scenes and reduces absolute trajectory error by 58% in dynamic scenes with moving pedestrians.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-28T22:32:03Z</published>
+    <arxiv:comment>Accepted at NeurIPS 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Kunzhe Song</name>
+    </author>
+    <author>
+      <name>Jialuo Du</name>
+    </author>
+    <author>
+      <name>Jingkai Lin</name>
+    </author>
+    <author>
+      <name>Huacheng Zeng</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.38948v1</id>
+    <title>Open-Source Framework for the Visualization, Quantification, and Analysis of 4D Flow and High-Dimensional Magnetic Resonance Images</title>
+    <updated>2026-10-28T21:34:06Z</updated>
+    <link href="https://arxiv.org/abs/2610.38948v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.38948v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Background: Four-dimensional (4D) flow cardiovascular magnetic resonance (CMR) captures 3D anatomy and blood velocity across the cardiac cycle, but current post-processing software is closed, varies across platforms, and sits outside open-source image-computing frameworks. We developed an open-source framework for the import, visualization, and quantification of 4D flow and other high-dimensional CMR within SlicerHeart, an extension for 3D Slicer. Methods: Import 4D Flow reads vendor DICOM, applies preprocessing, and stores velocities as a time-resolved vector field; Analyze 4D Flow provides measurement planes, streamline and Doppler-like visualization, segmentation propagation, and quantification. Underlying both, we extended the Insight Toolkit to store five- and higher-dimensional arrays. Flow quantification was compared with a commercial package (cvi42) and 2D phase contrast in 13 patients with congenital heart disease across 108 paired regions of interest (Bland-Altman analysis and intraclass correlation coefficients, ICCs). Consensus-recommended processing methods were also implemented as an open-source library with an automated test suite of analytic and CFD phantoms and clinical acquisitions. Results: The modules integrate with 3D Slicer's segmentation, registration, and rendering tools and export velocity fields and geometry for computational modeling. Agreement with cvi42 was close: forward volume bias -0.1 mL (95% limits of agreement 2.2 to -2.3; ICC 0.997), effective volume per minute bias -0.015 L/min (0.21 to -0.24; ICC 0.994). Against 2D phase contrast, forward volume bias (-2.2 mL) and mean absolute percentage error (21.8%) matched cvi42 (-2.1 mL; 21.3%). Conclusions: This open, extensible framework brings 4D flow CMR into an established image-computing ecosystem and agrees closely with a commercial reference; every step can be inspected, reproduced, and improved.</summary>
+    <category term="q-bio.QM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-28T21:34:06Z</published>
+    <arxiv:comment>These authors contributed equally</arxiv:comment>
+    <arxiv:primary_category term="q-bio.QM"/>
+    <author>
+      <name>Andras Lasso</name>
+    </author>
+    <author>
+      <name>Julia Iacovell</name>
+    </author>
+    <author>
+      <name>Csaba Pinter</name>
+    </author>
+    <author>
+      <name>Kevin K. Whitehead</name>
+    </author>
+    <author>
+      <name>Sehdev Pressley</name>
+    </author>
+    <author>
+      <name>Danish Vaiyani</name>
+    </author>
+    <author>
+      <name>Matthew Daemer</name>
+    </author>
+    <author>
+      <name>Katherine Hurm</name>
+    </author>
+    <author>
+      <name>Analise M. Sulentic</name>
+    </author>
+    <author>
+      <name>Christian Herz</name>
+    </author>
+    <author>
+      <name>Ryan T. Black</name>
+    </author>
+    <author>
+      <name>Seda Aslan</name>
+    </author>
+    <author>
+      <name>Christopher W. Roy</name>
+    </author>
+    <author>
+      <name>Mark A. Fogel</name>
+    </author>
+    <author>
+      <name>Jing Huang</name>
+    </author>
+    <author>
+      <name>Matthew A. Jolley</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.38883v1</id>
+    <title>Can Artificial Intelligence Forecast Treatment Effects in Economics?</title>
+    <updated>2026-10-28T20:47:31Z</updated>
+    <link href="https://arxiv.org/abs/2610.38883v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.38883v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>I use LLMs to forecast treatment effects of research studies pre-registered on the AEA RCT Registry and the Open Science Framework. I focus on studies whose results were first publicly released in 2026 and elicit forecasts from models whose training or knowledge cut-off dates were before the relevant set of papers was released. First, LLM models extract forecasting questions from the pre-registrations or pre-analysis plans. These questions elicit forecasted treatment effects; not all resolve in the subsequent papers, but those that do can be used to consider forecast accuracy. Forecasts were elicited for 889 treatment effects from 39 papers with results disclosed in January 2026 or later, or 673 from 33 papers after screening. Forecasts were elicited in raw units but I focus on those that could be standardized and therefore compared across papers. Currently, the median absolute forecast error is 0.054 SD for the best model, the average absolute error is 0.093 SD, and the MSE is 0.0218. The AI forecasts perform substantially better than benchmarks forecasting 0 effect or forecasting the mean effect of other papers' results in that time period. Overall, these results suggest considerable scope for forecasts to be of value in informing policy and research.</summary>
+    <category term="econ.GN" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-28T20:47:31Z</published>
+    <arxiv:primary_category term="econ.GN"/>
+    <author>
+      <name>Eva Vivalt</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.38815v1</id>
+    <title>Response-balanced sampling relocates rather than improves accuracy in slope-stability surrogates under a fixed simulation budget</title>
+    <updated>2026-10-28T20:12:43Z</updated>
+    <link href="https://arxiv.org/abs/2610.38815v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.38815v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Machine-learning surrogates of slope stability learn factors of safety (FOS) that only physics-based analyses produce, so analyses are the budget to allocate. Because Latin hypercube sampling (LHS) of the parameters covers the FOS unevenly, a natural remedy is to choose part of the training points to even out the FOS distribution. We test this response-balanced sampling at a fixed budget. A random-forest screener trained on a 300-point LHS seed predicts the FOS of 200,000 candidates, and 300 further limit-equilibrium analyses are allocated to even out the FOS over the selection range, $[0.5, 6]$. The design is compared with 300 further LHS analyses over five realizations of the added points, on two test sets, under two independently tuned tree-ensemble families, with ablations throughout; an oracle drawing from 22,000 solved analyses meets the intended density exactly. The primary criterion is the log-scale root-mean-square error (log-RMSE) on the decision range, FOS $\in [0.5, 2)$, against continued LHS. Response-balanced sampling does not systematically improve accuracy; it relocates accuracy along the FOS axis, consistently across realizations, from $[1, 2)$ to $[0.5, 1)$, following the training density actually achieved, even when the intended density is met exactly. On the decision range no screener-selected design shows a demonstrated gain, and with known bin membership that verdict stands, in this design. Within the selection range, LHS gives $[0.5, 1)$ 11-12% of the points against a log-uniform target's 27.9%, but $[1, 2)$ already 35-37%: the region that is rare need not be where decisions are made.</summary>
+    <category term="cs.CE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-28T20:12:43Z</published>
+    <arxiv:comment>36 pages, 4 figures, 5 tables, plus 82 pages of supplementary material (10 figures, 33 tables). Submitted to Data-Centric Engineering. Data: https://doi.org/10.5281/zenodo.23618253 ; code: https://github.com/bteodoru/surrogate-guided-slope-stability (release archived at https://doi.org/10.5281/zenodo.23727659)</arxiv:comment>
+    <arxiv:primary_category term="cs.CE"/>
+    <author>
+      <name>Iancu-Bogdan Teodoru</name>
+    </author>
+    <author>
+      <name>Alessia Amelio</name>
+    </author>
+    <author>
+      <name>Mircea Aniculăesi</name>
+    </author>
+    <author>
+      <name>Irina Lungu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.38215v1</id>
+    <title>Disparity Laundering: Consensus Without Fairness in Clinical Multi-Agent Systems</title>
+    <updated>2026-10-28T03:10:28Z</updated>
+    <link href="https://arxiv.org/abs/2610.38215v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.38215v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Clinical large language models are increasingly fielded as multi-agent teams, on the assumption that deliberation averages out individual error. It does not average out bias. Across a full factorial of five model families and four aggregation topologies on 120 real MIMIC-IV emergency cases under counterfactual demographic swaps, no configuration neutralizes the disparity: all 20 cells commit the direction of their agents' independent answers, giving Black patients more acute triage. Every model has a topology that amplifies its baseline gap, but which one varies by model, so no design is reliably safe or reliably amplifying: the disparity is relocated, never removed. Late-stage fixes fail: fairness instructions and demographic masking leave the gap untouched, and per-agent self-debiasing widens it, because the bias is already encoded in the agents' ordinary clinical numbers. We call this disparity laundering; the audits now applied to clinical AI, per model, per output, per version, can certify the parts but never the committed decision. Interventions close the gap exactly when they make counterfactual versions visible inside the system and pool them, through deliberation, into the committed decision. A diverse-perspective ensemble does both while keeping the team, with no retraining or architectural change: the disparity falls by 67 to 94% where all five perspectives pool at every round, and the one topology that never pools them is the one it cannot reliably repair. Medical multi-agent systems do not filter demographic bias; they launder it into plausible decisions no single-version audit can catch, and the only defense is to make the bias visible.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-28T03:10:28Z</published>
+    <arxiv:comment>21 pages, 8 figures. Code: https://github.com/wangxiaoyang0412/disparity-laundering . Committed to EACL 2027</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Xiaoyang Wang</name>
+    </author>
+    <author>
+      <name>Tianrui Wang</name>
+    </author>
+    <author>
+      <name>Christopher C. Yang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.38065v1</id>
+    <title>Vision Tomography: Towards Portable 3D Bidirectional Face-Skull Inference from Visual Data</title>
+    <updated>2026-10-27T23:29:40Z</updated>
+    <link href="https://arxiv.org/abs/2610.38065v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.38065v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Traditional computed tomography (CT) can capture paired 3D face and skull geometry, but it remains costly, fixed in location, and exposes patients to radiation. For applications such as remote diagnostics, digital healthcare, forensic identification, missing-person investigation, and archaeological analysis, there is an urgent need for a portable, safe, and accessible solution to capture 3D skull geometry. In this work, we introduce Vision Tomography (VT), a concept and framework capable of reconstructing paired 3D face-skull geometry from various visual modalities, and also enabling joint manipulation of 3D facial and skull geometry. To achieve this, we first construct a dataset of over 200 samples, where each case includes a CT-based skull, a CT-based face, and a high-fidelity textured face scan. Secondly, we propose a novel dense ray matching registration method that ensures topological consistency across face, skull, and their tissue correspondences. Building on this registration, we introduce the 3D Bidirectional Face-Skull Morphable Model (BFSM) as the foundation of Vision Tomography, which enables shape inference between the face and skull through a shared coefficient space, while also modeling tissue thickness variation to support one-to-many facial reconstructions from the same skull, reflecting individual facial changes such as age or body fat. Finally, we demonstrate the effectiveness of Vision Tomography across various forensic and medical applications, including paired 3D face-skull reconstruction from images or sketches and predicting surgical outcomes with joint face-skull editing. Extensive experiments confirm the robustness and accuracy of our method. Vision Tomography is available at https://github.com/wang-zidu/BFSM</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T23:29:40Z</published>
+    <arxiv:comment>Submitted to TIP, under review</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Zidu Wang</name>
+    </author>
+    <author>
+      <name>Meng Xu</name>
+    </author>
+    <author>
+      <name>Miao Xu</name>
+    </author>
+    <author>
+      <name>Hengyuan Ma</name>
+    </author>
+    <author>
+      <name>Jiankuo Zhao</name>
+    </author>
+    <author>
+      <name>Xutao Li</name>
+    </author>
+    <author>
+      <name>Zhen Lei</name>
+    </author>
+    <author>
+      <name>Xiangyu Zhu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.38040v1</id>
+    <title>EARS-Info: Information-Aware Event-Driven Reallocation for Multi-Robot Exploration</title>
+    <updated>2026-10-27T22:51:53Z</updated>
+    <link href="https://arxiv.org/abs/2610.38040v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.38040v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We introduce EARS-Info, an information-aware extension of Event-Driven Ant Reallocation Search for multi-robot exploration on OpenStreetMap-derived grids. It combines marginal sensing gain, feasible relocation, return-aware routing, sensing reservations, and cached shortest paths. Across 168,000 episodes comparing 30 implementations on eight city maps, EARS-Info achieves the highest mean operational score in every evaluation panel. With eight robots and 3% communication dropout, it improves the score over EARS-Safe by 5.43%, increases weighted discovery from 88.88% to 98.46%, and reduces mean energy use by 2.62%. Score differences are positive in all eight cities ($p=0.0078125$; descriptive 95% city-bootstrap interval $[0.0159,0.0694]$), with no simulated incidents across 5,600 EARS-Info episodes. These results support the complete controller; individual component advantages remain uncertain. Generalization is limited by reused geography, one training replicate, coarse maps, and adapted comparison methods.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T22:51:53Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Kabeh Mohsenzadegan</name>
+    </author>
+    <author>
+      <name>Vahid Tavakkoli</name>
+    </author>
+    <author>
+      <name>Kyandoghere Kyamakya</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.37965v1</id>
+    <title>Meta-Initialization of Implicit Neural Representations to Accelerate Deformable Medical Image Registration</title>
+    <updated>2026-10-27T20:57:39Z</updated>
+    <link href="https://arxiv.org/abs/2610.37965v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.37965v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Implicit neural representation (INR) methods for deformable medical image registration require the network parameters to be optimized for each new image pair, making adaptation speed a practical limitation. This work investigates whether early adaptation can be accelerated using an initialization learned from a collection of previously solved registration tasks. We examine two schemes: Reptile meta-initialization and STRAINER transfer of the shared component of a coordinate network. KAN-IDIR is used as the base INR displacement-field model. Experiments are conducted on OASIS-1, with 364 consecutive pairs used for training and 49 pairs for test-time adaptation. Registration quality is evaluated using mean Dice and HD95, together with the fraction of voxels with a negative Jacobian determinant at iteration 1500. In the configurations studied, both schemes yield higher Dice and lower HD95 at early iterations than random initialization. Reptile numerically outperforms STRAINER under a small iteration budget, although their pretraining budgets are not matched. As the number of iterations increases, the differences between the schemes shrink. STRAINER pretraining takes 39-40 minutes, compared with 44.98 hours for Reptile.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T20:57:39Z</published>
+    <arxiv:comment>14 pages, 5 figures, 2 tables. English-language author version of a paper presented at GraphiCon 2026, Saint Petersburg, Russia, 22-24 September 2026. Russian-language proceedings forthcoming. Related work updated for this version</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Marat O. Zinovev</name>
+    </author>
+    <author>
+      <name>Dmitry V. Sorokin</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.37602v1</id>
+    <title>RESPLE2: Inertial-Informed Recursive Non-Uniform Spline Estimation for Multi-Sensor Odometry with Global Refinement</title>
+    <updated>2026-10-27T17:33:19Z</updated>
+    <link href="https://arxiv.org/abs/2610.37602v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.37602v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present RESPLE2, a recursive multi-sensor state estimation framework using non-uniform B-splines for 6-DoF motion representation. By exploiting the knot-clamping boundary property, we propose a theoretically grounded mechanism for exact control-point prediction directly informed by inertial kinematics along the trajectory, with knot placement adapted to motion and measurement availability. Within an iterated extended Kalman filter, we perform this prediction using a subset of inertial measurements. A subsequent reset step preserves trajectory consistency as the knots extend. The update step further incorporates heterogeneous sensor measurements at their native timestamps through continuous-time observation models, supporting flexible combinations of LiDARs, cameras, inertial measurement units, and leg kinematics. We further develop a lightweight global optimization module that directly refines non-uniform B-spline control points by incorporating loop-closure constraints derived from LiDAR-visual cues. We conduct extensive evaluations on public and experimental datasets across handheld, tracked, legged, and hybrid aerial-legged platforms, covering highly dynamic maneuvers with extreme accelerations. Compared with state-of-the-art multi-sensor odometry systems, RESPLE2 achieves competitive or superior estimation accuracy and robustness in the corresponding sensor configurations, particularly under aggressive motion, while maintaining real-time operation. We publicly release our code and experimental datasets at https://github.com/ASIG-X/RESPLE2.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T17:33:19Z</published>
+    <arxiv:comment>18 pages</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Ziyu Cao</name>
+    </author>
+    <author>
+      <name>William Talbot</name>
+    </author>
+    <author>
+      <name>Song Li</name>
+    </author>
+    <author>
+      <name>Pakpong Chirarattananon</name>
+    </author>
+    <author>
+      <name>Fredrik Gustafsson</name>
+    </author>
+    <author>
+      <name>Marco Hutter</name>
+    </author>
+    <author>
+      <name>Kailai Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.37582v1</id>
+    <title>EgoThumb: A Vision-Driven Supernumerary Robotic Thumb for Autonomous Grasp and Holding Assistance</title>
+    <updated>2026-10-27T17:22:25Z</updated>
+    <link href="https://arxiv.org/abs/2610.37582v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.37582v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Supernumerary robotic fingers augment human dexterity by enabling a single hand to perform complex "hold-and-manipulate" tasks that typically require bimanual coordination. However, existing devices are often hindered by bulky hardware that limits interaction to large objects and rely on explicit hand motion triggers that lack environmental context. To address these challenges, we present EgoThumb, a fully open-source, vision-driven supernumerary robotic thumb. EgoThumb features a compact, dual tendon-driven finger whose actuation is relocated to the forearm, reducing distal weight while enabling precise active joint control. The system utilizes a visual imitation learning policy that maps egocentric images from a palm-facing camera directly to continuous joint positions. By implicitly decoding human intent from visual cues capturing both the hand and the object of interest, EgoThumb achieves robust autonomous manipulation and strong generalization across diverse users and environments. All hardware designs and software implementations are fully open-sourced at https://ego-thumb.github.io.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T17:22:25Z</published>
+    <arxiv:comment>8 pages, 5 figures. Accepted to the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Jianyu Hou</name>
+    </author>
+    <author>
+      <name>Jiawei Fu</name>
+    </author>
+    <author>
+      <name>Weikang Wan</name>
+    </author>
+    <author>
+      <name>Minghui Jiang</name>
+    </author>
+    <author>
+      <name>Jiajun Li</name>
+    </author>
+    <author>
+      <name>Hao Su</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.37271v1</id>
+    <title>An Interactive Mobile Augmented Reality System for Efficient Virtual Model-to-Patient Registration in Thoracic Surgery</title>
+    <updated>2026-10-27T14:02:24Z</updated>
+    <link href="https://arxiv.org/abs/2610.37271v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.37271v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Video-Assisted Thoracoscopic Surgery (VATS) is a minimally invasive procedure, where precise surgical port placement is vital, yet it relies heavily on surgeon experience and mental mapping of pre-operative imaging in the operating room. To address this challenge, we present an accessible, interactive mobile augmented reality (AR) framework, HILMARTS, to enable accurate and efficient pre-operative virtual model-to-patient registration for AR-guided surgical navigation. Our system runs on a commercially available LiDAR-equipped iPad and supports a user-in-the-loop workflow through a two-stage coarse-to-fine registration process. First, the user performs a manual alignment using the AR view on the iPad. This initial maneuver is then refined through automatic point-cloud registration leveraging the LiDAR sensor. We further introduce a novel occupancy-grid-based Surface Coverage Score to provide real-time, actionable feedback to the operator on the geometric completeness of LiDAR data capture for reliable point-cloud-based alignment. In a phantom study with 16 participants, the system achieved a 3.31+/-1.26mm registration accuracy in ~4 min with a mean System Usability Scale (SUS) of 84.1. These findings highlight the system's accuracy, efficiency, robustness, and potential clinical usability, and could support its applicability to other AR-based surgical navigation tasks.</summary>
+    <category term="cs.HC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T14:02:24Z</published>
+    <arxiv:primary_category term="cs.HC"/>
+    <author>
+      <name>Emmanuel Ajaero</name>
+    </author>
+    <author>
+      <name>Pascal Spiegler</name>
+    </author>
+    <author>
+      <name>George Rakovich</name>
+    </author>
+    <author>
+      <name>Marta Kersten-Oertal</name>
+    </author>
+    <author>
+      <name>Yiming Xiao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.37253v1</id>
+    <title>Cerebral Artery Wall Displacement and Strain from 4D MRI</title>
+    <updated>2026-10-27T13:52:06Z</updated>
+    <link href="https://arxiv.org/abs/2610.37253v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.37253v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Arterial stiffness is an established marker of vascular ageing and cardiovascular risk, yet the local, patient-specific mechanics of the cerebral arteries remain difficult to measure in vivo. Wall deformation over the cardiac cycle is sub-millimetre, rapid and spatially heterogeneous, and is superimposed on larger rigid-body motion. This work adapts a registration-based kinematic framework, originally developed for abdominal aortic aneurysms, to cerebral arteries imaged with 7 T 4D phase-contrast MRI. Deformable image registration between diastole and systole was used to measure wall-normal displacement over the cerebral artery network, primarily the Circle of Willis and connected communicating arteries. Following this, transverse centreline motion was removed to separate local wall deformation from rigid-body vessel motion before estimating circumferential strain. Across 17 datasets, the 99th percentile wall-normal displacement was 0.256 +/- 0.037 mm, 35 % of the acquired voxel dimension, and the 99th percentile circumferential strain was 8.67 +/- 2.40 %. Correction of circumferential strain to exclude rigid translation motion reduced the 99th percentile strain estimation in the example case from 28.1 % to 10.6 %, as a significant portion of the apparent wall displacement corresponds to bulk motion of the vessel. The pipeline produces continuous displacement and strain maps of the intracranial arterial network, although the values are sensitive to segmentation accuracy, resampling and registration parameterisation and require future ground-truth verification.</summary>
+    <category term="physics.med-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T13:52:06Z</published>
+    <arxiv:primary_category term="physics.med-ph"/>
+    <author>
+      <name>Anika Paul</name>
+    </author>
+    <author>
+      <name>Sjoerd B. Vos</name>
+    </author>
+    <author>
+      <name>Mostafa Jamshidian</name>
+    </author>
+    <author>
+      <name>Adam Wittek</name>
+    </author>
+    <author>
+      <name>Karol Miller</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.37200v1</id>
+    <title>PipeLink: Contract-Guided Linking of GPU Kernel Components</title>
+    <updated>2026-10-27T13:20:13Z</updated>
+    <link href="https://arxiv.org/abs/2610.37200v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.37200v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The fastest machine-learning kernels are compositions of components, such as loaders, matrix-multiply mainloops, epilogues and communication stages, that run concurrently on one GPU streaming multiprocessor and share its on-chip memory, barriers, warps and registers. Because these components hard-code where they sit in this shared space, they cannot be compiled, shipped or replaced on their own: combining components from different sources means forking them by hand or keeping them in separate kernels. We present PipeLink, a contract-guided linker for GPU kernel components. Each component is compiled separately into an LTO object that carries a contract stating what it requires and what it promises; PipeLink checks the contracts against each other, relocates every component by solving one joint placement of the SM's resources, and generates the transfers between them, and the vendor LTO backend folds the result into constants. Across 51 configurations on Hopper and Blackwell GPUs, linked kernels run within 0.2% of the same sources compiled as one unit. Linking makes new compositions practical: a CuTe attention operator inside a ThunderKittens decode megakernel speeds up decoding by 2.16$\times$, a four-owner MoE training megakernel matches the original monolith, one unchanged attention core yields sparse and context-parallel variants that outperform FlexAttention, vLLM and Transformer Engine, and a GEMM + SwiGLU composition whose consumer serves three GPU architectures runs 1.2$\times$ faster on Blackwell than cuBLAS with a compiled activation.</summary>
+    <category term="cs.DC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T13:20:13Z</published>
+    <arxiv:primary_category term="cs.DC"/>
+    <author>
+      <name>Jize Guo</name>
+    </author>
+    <author>
+      <name>Xupeng Miao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.37134v1</id>
+    <title>MRI-to-CT Translation of Spinal Images via Anatomy-Guided Pseudo-Pairing and Adversarial Diffusion</title>
+    <updated>2026-10-27T12:32:47Z</updated>
+    <link href="https://arxiv.org/abs/2610.37134v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.37134v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Magnetic Resonance Imaging (MRI) is routinely used to diagnose spinal disorders, but surgical planning often requires Computed Tomography (CT) for better visualization of vertebral bone anatomy. Synthesizing CT from MRI could avoid additional radiation exposure and streamline preoperative assessment.
+  We propose a three-stage framework for spine MRI-to-CT synthesis. First, an anatomy-guided vertebral matching system identifies similar sagittal MRI and CT slices using spine segmentations and aligns them through rigid registration, creating pseudo-paired data from unpaired scans. Second, these pairs train an adversarial diffusion model for MRI-to-CT translation. Third, synthesized slices are assembled into 3D volumes and refined by a network that improves inter-slice continuity and structural coherence.
+  The framework was trained on over 10,000 unpaired sagittal MRI and CT slices and evaluated on 1,911 slices from 83 MRI volumes spanning all spinal regions. Assessment combined distribution-based measures with vertebral segmentation metrics. Compared with diffusion alone, the proposed approach increased binary 3D vertebral Dice from 0.666 to 0.739. Volumetric post-processing reduced visible discontinuities between stacked slices and improved vertebral coherence in axial and coronal views.
+  Combining anatomy-guided pseudo-pairing, adversarial diffusion and 3D refinement improves spine MRI-to-CT synthesis. Vertebral matching primarily enhanced anatomical alignment and fidelity, while volumetric refinement improved 3D consistency. These findings support further development of MRI-derived CT-like visualization for preoperative planning, particularly to preserve fine intensity details while maintaining volumetric coherence.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T12:32:47Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Eduardo Nieto</name>
+    </author>
+    <author>
+      <name>Ibai Genua</name>
+    </author>
+    <author>
+      <name>Davide Scorza</name>
+    </author>
+    <author>
+      <name>Karen López-Linares</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.37111v1</id>
+    <title>RAVEN: A Unified Active SLAM System for Rapid Autonomous Visual Exploration with Aerial Robots under Localization Uncertainty</title>
+    <updated>2026-10-27T12:08:37Z</updated>
+    <link href="https://arxiv.org/abs/2610.37111v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.37111v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Active simultaneous localization and mapping (SLAM) addresses the problem of planning robot motion to build complete and accurate maps of unknown environments through efficient exploration while maintaining high localization accuracy. This raises a dilemma between exploring unknown spaces to expand coverage and exploiting visited regions to perform active loop closures. Despite numerous prior works on ground robots, aerial robots with high agility and constrained sensor suites face more significant localization drift and thereby demand dedicated active SLAM planning. Moreover, a unified strategy that adapts performance based on task-specific priorities remains an open question. In this article, we introduce RAVEN, a unified active SLAM framework for Rapid Autonomous Visual ExploratioN using quadrotors, which systematically accounts for localization uncertainty. The framework starts with identifying frontiers and active loop closure candidates, from which global tour candidates are generated. These candidates are evaluated using a utility vector that separately quantifies exploration efficiency and localization accuracy, and the final tour is selected according to a prioritization parameter ranging from $[0,1]$. Finally, a perception-aware navigation planner generates smooth execution trajectories that minimize visual state estimation error based on the online Fisher information field that provides visual localization information in real-time. Benchmark evaluations demonstrate that RAVEN outperforms state-of-the-art active SLAM methods, highlighting its advantages in producing a spectrum of performance across prioritizations. Fully onboard field experiments with a customized stereo-inertial quadrotor further validate its practical applicability in challenging environments. The source code will be released to benefit the community.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T12:08:37Z</published>
+    <arxiv:comment>Conditionally accepted to the IEEE Transactions on Robotics</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Xinyi Chen</name>
+    </author>
+    <author>
+      <name>Yichen Zhang</name>
+    </author>
+    <author>
+      <name>Chenxing Jiang</name>
+    </author>
+    <author>
+      <name>Shaojie Shen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.37097v1</id>
+    <title>TriDifNet: A Unified Three-Task Diffusion Network for End-to-End RGB-T Perception</title>
+    <updated>2026-10-27T12:02:19Z</updated>
+    <link href="https://arxiv.org/abs/2610.37097v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.37097v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Infrared--visible (IR--VIS) multi-modal perception supports robust scene understanding under challenging illumination. Infrared and visible images are often misaligned due to platform motion, viewpoint changes, and modality-dependent distortions, causing registration errors to propagate into subsequent fusion and detection stages. We propose TriDifNet, a unified three-task diffusion network for end-to-end RGB-T perception. To the best of our knowledge, TriDifNet is the first diffusion-based network that jointly optimizes registration, fusion, and detection for misaligned RGB-T pedestrian perception. TriDifNet consists of three diffusion-based modules, i.e., the Registration Diffusion Module (RegDM), the Fusion Diffusion Module (FusDM), and the Detection Diffusion Module (DetDM). RegDM aligns the unaligned infrared image to the optical reference by estimating a dense deformation field. FusDM performs residual conditional diffusion to generate a detection-oriented fused representation with optical structural cues and complementary infrared saliency. DetDM formulates pedestrian detection as an iterative denoising process in bounding-box space. To couple the three tasks, TriDifNet introduces a closed-loop optimization mechanism, where detection semantics guide fusion and registration, and the fusion result further regularizes geometric alignment. A stage-wise progressive training strategy and a lightweight Nash multi-task learning (Nash-MTL)-based late-stage refinement are further adopted to balance registration, fusion, and detection optimization. Extensive experiments on the KAIST multispectral pedestrian benchmark show that TriDifNet achieves superior downstream detection performance under misaligned RGB-T settings. Against strong system-level competitors, TriDifNet achieves 65.44\% Recall, 57.55\% mAP$_{50}$, and 26.83\% mAP$_{50:95}$.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T12:02:19Z</published>
+    <arxiv:comment>16 pages, 6 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Qianchao He</name>
+    </author>
+    <author>
+      <name>Jing Liu</name>
+    </author>
+    <author>
+      <name>Yunhao Li</name>
+    </author>
+    <author>
+      <name>Xiaoqing Tian</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.36876v1</id>
+    <title>HoloRecon: Incremental Reconstruction of Long-Range Panoramas with Global Consistency</title>
+    <updated>2026-10-27T09:17:38Z</updated>
+    <link href="https://arxiv.org/abs/2610.36876v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.36876v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Long-sequence panoramic reconstruction requires detailed scene geometry and globally consistent camera poses across distant revisits. Panoramic SLAM and incremental SfM rely on feature correspondences, but repeated, similar structures and small partial overlap make reliable long-range connections difficult to establish, leaving accumulated drift unresolved. Feed-forward models offer detailed local geometry, but their high computational costs limit inference window size, necessitating additional constraints for global consistency. This motivates combining continuous feature-based tracking and sparse mapping with rapid, high-quality local reconstruction from feed-forward models to achieve accurate localization and globally consistent dense mapping over long sequences. We therefore propose a panoramic reconstruction framework that couples an ORB-based sparse panoramic mapping frontend with a fine-tuned feed-forward model. Our key insight is that predicted local geometry enables 3D verification of feature matches across distant revisits, yielding long-range camera constraints even between regions. We calibrate predicted depths with sparse landmarks and use verified connections to optimize the global pose graph, updating dense geometry with the corrected camera poses. We also introduce PanoRecon, a seven-scene benchmark with repetitive architecture, large and small loops, and reference camera poses and LiDAR geometry for evaluating global consistency. Our method achieves the lowest mean absolute trajectory error and high F-1 Score among the evaluated methods. Project Page:https://zhuoxiaoli.github.io/HoloRecon_page/</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T09:17:38Z</published>
+    <arxiv:comment>Project Page:https://zhuoxiaoli.github.io/HoloRecon_page/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Zhuoxiao Li</name>
+    </author>
+    <author>
+      <name>Xinyi Liu</name>
+    </author>
+    <author>
+      <name>Hongye Hou</name>
+    </author>
+    <author>
+      <name>Jing OU</name>
+    </author>
+    <author>
+      <name>Kang Du</name>
+    </author>
+    <author>
+      <name>Shuai Zhang</name>
+    </author>
+    <author>
+      <name>Dongli Wu</name>
+    </author>
+    <author>
+      <name>Taoyu Wu</name>
+    </author>
+    <author>
+      <name>Siyuan Feng</name>
+    </author>
+    <author>
+      <name>Xiaohui Zhu</name>
+    </author>
+    <author>
+      <name>Wufan Zhao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.36672v1</id>
+    <title>Learning Where to Trust: Reliability-Guided Expert Routing and Velocity Gating for 3D Deformable Registration</title>
+    <updated>2026-10-27T05:43:45Z</updated>
+    <link href="https://arxiv.org/abs/2610.36672v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.36672v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Deformable image registration relies on accurate anatomical correspondences. However, explicitly coupling local matching reliability with spatial context selection and deformation update strength remains insufficiently explored in learning-based registration. This challenge is particularly pronounced in homogeneous, weakly textured, and severely deformed regions, where ambiguous matches may induce erroneous deformation updates. We propose ReliMorph, a reliability-routed symmetric framework for 3D deformable registration that couples correspondence assessment with spatial context selection and update strength.Local correlation distributions characterize correspondence ambiguity using shared anatomical features with modality-specific adaptation. These reliability cues guide spatial expert fusion and gate residual velocities during coarse-to-fine refinement. Updated inverse-inconsistency feedback guides routing and gating at finer pyramid levels. To our knowledge, ReliMorph is the first 3D deformable registration framework to jointly condition spatial expert routing and residual velocity gating on correspondence reliability. Extensive experiments demonstrate that ReliMorph consistently outperforms competing methods in anatomical overlap, highlighting its effectiveness across unimodal and multimodal registration tasks.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T05:43:45Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Chenyu Guo</name>
+    </author>
+    <author>
+      <name>Wenjie Dai</name>
+    </author>
+    <author>
+      <name>Yiqian Chang</name>
+    </author>
+    <author>
+      <name>Zhiyuan Zhang</name>
+    </author>
+    <author>
+      <name>Yunfan Wei</name>
+    </author>
+    <author>
+      <name>Shuhan Qi</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.36658v1</id>
+    <title>SAGE: Semantic-Augmented Geometric Experts for Point Cloud Registration</title>
+    <updated>2026-10-27T05:22:22Z</updated>
+    <link href="https://arxiv.org/abs/2610.36658v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.36658v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Point cloud registration is an essential task for scene reconstruction, requiring the alignment of partially overlapping point clouds. Under low-overlap conditions, this task remains challenging because existing geometry-only methods cannot distinguish geometrically similar but semantically distinct structures (e.g., TV corners vs. desk corners and chair legs vs. table legs), resulting in incorrect correspondences. To address this geometric ambiguity, we present Semantic-Augmented Geometric Experts (SAGE), which integrates frozen pre-trained point cloud semantic representations into the registration pipeline without requiring additional sensors or fine-tuning the semantic encoder. To effectively leverage these semantic distinctions, SAGE employs a Semantic-Guided Mixture of Experts (SG-MoE) architecture. Through semantic-aware routing, SG-MoE enables each expert to specialize in distinct semantic-geometric patterns, reducing mismatches that confound geometry-only methods. With a structure-aware estimator, SAGE achieves the highest registration recall on 3DLoMatch while remaining competitive on 3DMatch. When evaluated with the same number of refinement iterations, SAGE further achieves the highest inlier ratio and registration recall on both benchmarks. These results indicate that frozen semantic representations provide effective cues for resolving geometric ambiguity in low-overlap registration.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T05:22:22Z</published>
+    <arxiv:comment>Accepted to WACV 2027 (Round 1)</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Tomoyasu Shimada</name>
+    </author>
+    <author>
+      <name>Kazuhiko Murasaki</name>
+    </author>
+    <author>
+      <name>Shoichiro Takeda</name>
+    </author>
+    <author>
+      <name>Shogo Sato</name>
+    </author>
+    <author>
+      <name>Riku Inoue</name>
+    </author>
+    <author>
+      <name>Toshihiko Nishimura</name>
+    </author>
+    <author>
+      <name>Ryuichi Tanida</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.36637v1</id>
+    <title>Soft Temporal Alignment Distillation for Camera-to-mmWave Radar Human Activity Recognition</title>
+    <updated>2026-10-27T04:50:50Z</updated>
+    <link href="https://arxiv.org/abs/2610.36637v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.36637v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Millimeter-wave (mmWave) radar provides privacy?preserving human activity recognition (HAR), but sparse point clouds limit its representation of body structure and motion. We propose a cross-modal knowledge distillation framework in which a teacher trained on camera-derived two-dimensional (2D) human keypoints supervises a radar-only student. The stu?dent combines PointNet-based point-set encoding, bidirectional temporal modeling, segment-level aggregation, and lightweight shared latent-channel scaling. The teacher retains contextualized states at every time step, whereas the student summarizes the radar sequence into a small number of segments, making fixed timestamp correspondence unsuitable for feature transfer. Soft Temporal Alignment Distillation lets each student segment adaptively retrieve and aggregate teacher temporal evidence into its distillation target. Alignment denotes student-conditioned representation-space matching rather than chronological or monotonic registration. On the Multi-Modal Non-Intrusive 4D Human Dataset (MM-Fi), the method improves radar-only ac?curacy from 87.04% to 89.17%, achieving the highest mean accuracy among the evaluated established and recent distillation baselines. It also obtains higher mean accuracy and macro?averaged F1 score (macro-F1) than the radar student under most evaluated point- and frame-dropout settings. Adaptation to our independently collected millimeter-wave Office Human Ac?tivity Recognition Dataset (mmO-HAR) improves accuracy from 80.33% to 87.75%, supporting the transferability of the distilled radar representation. The teacher and alignment branch are removed after training, enabling privacy-preserving radar-only inference without additional sensing or computational branches.</summary>
+    <category term="eess.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T04:50:50Z</published>
+    <arxiv:comment>13 pages, 7 figures</arxiv:comment>
+    <arxiv:primary_category term="eess.SP"/>
+    <author>
+      <name>Jiuqi Yan</name>
+    </author>
+    <author>
+      <name>Chengbo Zhu</name>
+    </author>
+    <author>
+      <name>Chengdong Xu</name>
+    </author>
+    <author>
+      <name>Qisong Wu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.35642v1</id>
+    <title>VPR-Space: A Benchmark for Visual Place Recognition in Space Analog Domains</title>
+    <updated>2026-10-26T15:51:30Z</updated>
+    <link href="https://arxiv.org/abs/2610.35642v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.35642v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Visual Place Recognition (VPR) is an important means for loop closure detection in visual Simultaneous Localization and Mapping (SLAM). While state-of-the-art VPR and SLAM approaches excel in urban and feature-rich natural environments, the vast and feature-poor environments of extraterrestrial surfaces like on the Moon or Mars pose severe challenges for existing approaches. This paper presents a novel benchmark, VPR-Space, to evaluate VPR capabilities on extraterrestrial surfaces. There are three contributions: (1) We collected sixteen VPR database-query datasets based on existing data from Space Analog Domains (SAD), terrestrial environments that resemble properties of the Moon or Mars. The collection includes a range of challenges regarding environment, viewpoint change, and illumination conditions. (2) To address the ill-posed nature of VPR, we propose a novel approach to generate the ground-truth information in VPR benchmarks. Instead of defining that a query and datbase image show the same place if and only if their camera poses are within fixed position and viewing direction thresholds, we propose to make the decision dependent on whether the match would be valuable in the downstream SLAM task. To avoid the overhead and restrictions of evaluating VPR in-the-loop within SLAM systems, we provide VPR ground-truth (GT) matrices based on the performance of an ensemble of state-of-the-art Relative Pose Estimators (RPE). Under this GT we require a VPR method to identify exactly those image pairs for which a subsequently applied RPE is expected to provide a valuable pose estimate in a SLAM context. (3) We evaluated nine state-of-the-art VPR approaches. The results show considerable room for improvement and indicate directions for future research. We provide a pre-release version of the dataset on github: $\texttt{https://github.com/rfechner/VPR-Space}$</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T15:51:30Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Richard Fechner</name>
+    </author>
+    <author>
+      <name>Peer Neubert</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.35637v1</id>
+    <title>SeeRF: Learning to See Beyond Fields of View via Generative Image Registration and Fusion</title>
+    <updated>2026-10-26T15:46:35Z</updated>
+    <link href="https://arxiv.org/abs/2610.35637v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.35637v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Due to the inherent discrepancies in imaging viewpoints and field-of-view mismatches among multi-modal sensors, existing fusion methods have long struggled to achieve complete scene-level information integration beyond the limitation in sensor fields of view. Consequently, the generated fusion results often contain modality-specific regions and fusion artifacts, limiting the comprehensive representation of scene structures and semantic information. To address this challenge, we propose a generative registration-fusion framework, termed SeeRF. Specifically, it first introduces a deformation generation strategy based on the diffeomorphic stationary velocity field, combined with visual foundation model-guided feature extraction and a coarse-to-fine progressive multi-modal image registration module, to achieve accurate cross-modal flow estimation and generate valid field-of-view masks. Subsequently, the registration module is tightly coupled with the generative diffusion module for multi-modal completion and fusion, where the cross-modal control encoding module and the control residual feature encoder-decoder mechanism provide effective guidance. By leveraging the powerful prior modeling capability of generative diffusion models, the proposed framework overcomes the limitations imposed by shared fields of view and enables effective completion and natural fusion of non-overlapping field-of-view regions. Extensive experiments on multiple public datasets and real-world scenarios demonstrate that the proposed method achieves superior performance, validating its effectiveness, superiority, and robustness. The code will be available at https://github.com/XunpengYi/SeeRF.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T15:46:35Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Xunpeng Yi</name>
+    </author>
+    <author>
+      <name>Yibing Zhang</name>
+    </author>
+    <author>
+      <name>Qinglong Yan</name>
+    </author>
+    <author>
+      <name>Yifan Lu</name>
+    </author>
+    <author>
+      <name>Han Xu</name>
+    </author>
+    <author>
+      <name>Jiayi Ma</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.35621v1</id>
+    <title>Synthetic Deformable Tubular Benchmark: A mechanically annotated dataset for evaluating deformable 3D reconstruction</title>
+    <updated>2026-10-26T15:36:59Z</updated>
+    <link href="https://arxiv.org/abs/2610.35621v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.35621v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Evaluating deformable 3D reconstruction requires ground truth linking camera motion, surface deformation, material correspondence and image appearance. We introduce the Synthetic Deformable Tubular Benchmark, generated with LumenMorph, an open-source toolkit for creating, annotating and evaluating tubular scenes. The release contains 5,580 RGB images. Its baseline crosses three surface-motion conditions with moving and stationary cameras in six scene families; matched appearance variants cover only moving-camera finite-element actions in four families. Documented public and evaluation interfaces expose camera poses, geometry, depth, deformation fields, persistent material correspondences and discrete finite-element records. Persistent triangle identities and material weights let users track the same surface location across frames and query its three-dimensional trajectory. Separately implemented geometric and mechanical checks assess annotation consistency with the generating models. Structure-from-motion, optical-flow and supplied-geometry displacement-interpolation studies demonstrate how the resource distinguishes registration coverage from geometric accuracy, exposes camera- and surface-motion effects, and tests the benefits and mismatch of mechanical priors. Public readers, evaluation contracts and the configurable generator support reuse and extension. Data integrity, fixed-environment repeatability and retained-prediction score replay have distinct verification scopes. The benchmark provides a controlled synthetic reference without claiming anatomical or clinical realism.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T15:36:59Z</published>
+    <arxiv:comment>34 pages, including 5 pages of Supplementary Methods; 10 main-text figures and 1 supplementary figure</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Íñigo Cirauqui-Viloria</name>
+      <arxiv:affiliation>Universidad de Zaragoza</arxiv:affiliation>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.35501v1</id>
+    <title>Learning Scene Coordinate Reconstruction from Unposed Images via Pose Graph Optimization</title>
+    <updated>2026-10-26T14:29:13Z</updated>
+    <link href="https://arxiv.org/abs/2610.35501v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.35501v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Learning-based structure-from-motion methods such as ACE-Zero have demonstrated strong performance in estimating cameraposes and scene coordinates from unordered image collections without requiring ground truth supervision. However, the lack of global and multi-view consistency constraints in ACE-Zero can lead to pose drift and misalignment, particularly in complex or ambiguous scenes. In this work, we propose a hybrid framework that integrates pose graph optimization (PGO) into ACE-Zero to refine camera poses and suppress incorrect refinements. We construct pose graphs directly from ACE-Zero outputs by extracting relative pose constraints from predicted scene coordinates. Furthermore, we introduce an uncertainty-aware optimization strategy by estimating confidence scores using geometric priors, including epipolar and optical flow consistencies across views. Our approach improves the robustness and accuracy of pose estimation, demonstrating that global geometric reasoning can effectively complement learning-based inference in structure-from-motion.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T14:29:13Z</published>
+    <arxiv:comment>Accepted to CVPR 2026 (Highlight). Project page: https://eldentse.github.io/visual_localization_pgo_public/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Tze Ho Elden Tse</name>
+    </author>
+    <author>
+      <name>Jizong Peng</name>
+    </author>
+    <author>
+      <name>Angela Yao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.35361v1</id>
+    <title>SG-Splat: Stable Geometry Learning under Pose Uncertainty for Pose-Free 3D Gaussian Splatting</title>
+    <updated>2026-10-26T12:50:21Z</updated>
+    <link href="https://arxiv.org/abs/2610.35361v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.35361v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>3D Gaussian Splatting (3DGS) has become a promising representation for real-time novel view synthesis and 3D scene reconstruction. For practical deployment, recent studies have explored pose-free feed-forward 3DGS, which reconstructs Gaussian representations directly from unposed input images. However, these methods remain sensitive to residual pose errors, which perturb canonical-space Gaussian transformation, introducing noisy supervision for geometry and attribute learning. To address this problem, we present SG-Splat, a pose-free feed-forward 3DGS framework that improves robustness to pose uncertainty and stabilizes the learning of Gaussian primitives. SG-Splat decouples geometry estimation and Gaussian attribute prediction into two dedicated branches, reducing error coupling between pose-sensitive geometry and Gaussian attributes. We further introduce a coarse-to-fine refinement pipeline, consisting of Flow-Guided Pose Refinement (FGPR) and Residual-Guided Geometry Correction (RGC), to improve geometric alignment before Gaussian attribute reconstruction. Specifically, FGPR refines camera poses with flow-based correlation features and differentiable bundle adjustment. RGC then corrects initial point maps using depth residuals derived from FGPR, producing more reliable Gaussian centers. To stabilize training, we introduce a dual-path strategy that mixes ground-truth and predicted poses for canonical transformation. It provides clean supervision for Gaussian attributes while improving geometry robustness to residual pose errors. Extensive experiments on DL3DV and RealEstate10K show that SG-Splat achieves state-of-the-art performance in both novel view synthesis and pose estimation.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T12:50:21Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Xiaohan Lu</name>
+    </author>
+    <author>
+      <name>Jiaqi Zhang</name>
+    </author>
+    <author>
+      <name>Weijia Jiang</name>
+    </author>
+    <author>
+      <name>Siwei Ma</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.35339v1</id>
+    <title>Targeted Deep Regression - Initial Applications in Whole-Body Water-Fat MRI in UK Biobank</title>
+    <updated>2026-10-26T12:33:57Z</updated>
+    <link href="https://arxiv.org/abs/2610.35339v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.35339v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>UK Biobank is a British clinical study which, in addition to large amounts of medical data collected, plans to include detailed Magnetic Resonance Imaging (MRI) examina- tions from 100,000 participants. The image data can be analyzed for example by auto- mated analysis with neural networks for image segmentation or classification to expand the collection of image-derived phenotypes for medical research. In this work, we pro- pose, present and evaluate a methodology that uses image-based regression to estimate numerical properties from the collected neck-to-knee water-fat MRI scans. It applies a ResNet50-style network to 2D multi-channel collages that represent targeted and study- specific anatomical sub-regions from the MRI scan. The targeted sub-region sampling is achieved by propagating manually defined subregions from a reference scan to the other &gt;30,000 analyzed scans using image registration. The resulting collages can be compact while retaining high-resolution, for example by providing multiple slices of kidney tissue for a kidney volume regression network. This approach also enables group-wise saliency analysis that highlight image and anatomical regions used by the network for the pre- dictions. The method was applied for the regression endpoints of kidney volume, heart volume, and age. Predictive performance was found between R2 = 0.731-0.984 and the group-wise saliency maps were found to highlight medically relevant regions. We con- clude that the method can be used to standardize and restrict the information presented to a deep regression analysis pipeline, increasing information density and opening up a wide range of future medical inference studies.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T12:33:57Z</published>
+    <arxiv:comment>16 pages, 8 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Filip Marttala</name>
+    </author>
+    <author>
+      <name>Taro Langner</name>
+    </author>
+    <author>
+      <name>Johan Öfverstedt</name>
+    </author>
+    <author>
+      <name>Nouman Ahmad</name>
+    </author>
+    <author>
+      <name>Håkan Ahlström</name>
+    </author>
+    <author>
+      <name>Robin Strand</name>
+    </author>
+    <author>
+      <name>Joel Kullberg</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.35255v1</id>
+    <title>Orbital-selective correlations in kagome flat bands of Co$_3$Sn$_2$S$_2$</title>
+    <updated>2026-10-26T11:38:27Z</updated>
+    <link href="https://arxiv.org/abs/2610.35255v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.35255v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Geometrical flat bands provide an ideal platform for studying electronic correlations and quantum-geometric effects. Although the ferromagnetic Weyl semimetal \CoSnS is generally considered a moderately correlated system, recent spectroscopy experiments have revealed a flat-band feature near the Fermi level ($\EF$) that is absent in conventional density functional theory (DFT) calculations. Using DFT plus dynamical mean-field theory and a minimal kagome model, we show that this feature arises not from heavy-fermion-like dynamical band renormalization, but from the shifting of a $d_{x^2-y^2}$ dominated geometrical kagome flat band toward $\EF$ driven by orbital- and spin-dependent self-energies. The relocated flat band enhances the local Berry curvature near $\EF$, resulting in a strongly energy-dependent anomalous Hall conductivity and a giant anomalous Nernst effect. Our findings establish an orbital-selective correlation mechanism for positioning geometrical flat bands at $\EF$, and propose anomalous thermoelectric transport as a sensitive probe of flat band induced topology.</summary>
+    <category term="cond-mat.str-el" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cond-mat.mtrl-sci" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T11:38:27Z</published>
+    <arxiv:comment>5 pages, 4 figures</arxiv:comment>
+    <arxiv:primary_category term="cond-mat.str-el"/>
+    <author>
+      <name>Rongxiang Zhu</name>
+    </author>
+    <author>
+      <name>Huaiqiang Wang</name>
+    </author>
+    <author>
+      <name>Haijun Zhang</name>
+    </author>
+    <author>
+      <name>Jianzhou Zhao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.34792v2</id>
+    <title>Just-in-time volumetric imaging: Learning 2D-3D thoracic motion models during image-guided interventions</title>
+    <updated>2026-10-28T03:34:22Z</updated>
+    <link href="https://arxiv.org/abs/2610.34792v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.34792v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Despite two decades of innovation, cutting-edge bronchoscopic techniques still fail to yield clear diagnostic decisions in 30% of cases and miss malignancies in 20% of cases. Intraprocedural 3D imaging drastically improves both tool positioning and diagnostic yield. However, each 3D spin represents a static snapshot of an anatomy that is continuously evolving as the patient is ventilated throughout the procedure. Here, we propose just-in-time volumetric imaging, in which a patient-specific 2D--3D motion model is trained on pre-intervention scans before it is needed and then supplies volumetric images from single fluoroscopic projections during sampling. Given the inspiration-hold CBCT already acquired for navigation and an additional motion-inclusive CBCT, our optimization regime named VoxelMap-DualScan (VM-DS), solves a low-rank motion model by alternating least squares and then amortizes it into a projection encoder trained on synthesized projections with known motion, all within a 10-minute window. On eight held-out cases from the public DIR-Lab 4DCT dataset, VM-DS achieved a mean landmark target registration error of 2.8 mm, a structural similarity index of 0.95 and a peak signal-to-noise ratio of 37.7 dB. Accuracy was maintained when reducing the number of projections used for training from 227 to 23. Inference takes 1.5 ms per projection, making the framework suitable for real-time use during image-guided interventions. Code will be made available at https://github.com/Image-X-Institute/Voxelmap/tree/VM-DS</summary>
+    <category term="physics.med-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T03:32:51Z</published>
+    <arxiv:primary_category term="physics.med-ph"/>
+    <author>
+      <name>Nicholas Hindley</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.34600v1</id>
+    <title>FlexiMIND: Combined Pretrained Vision Features and Local Structure for Training-Free Deformable Medical Image Registration</title>
+    <updated>2026-10-25T21:55:46Z</updated>
+    <link href="https://arxiv.org/abs/2610.34600v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.34600v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Objective. Deformable image registration remains challenging because corresponding anatomy may exhibit different intensity relationships. Hand-crafted modality-robust descriptors such as Modality-Independent Neighborhood Descriptor with Self-Similarity Context (MIND-SSC) and features from pretrained vision encoders provide distinct representations for correspondence estimation, but how they should be combined remains unclear. We investigate whether tighter integration improves registration over a sequential, scale-separated design. Approach. We introduce FlexiMIND, a training-free and label-free two-stage framework in which frozen FlexiCT-2D encoder features establish contextual correspondence and MIND-SSC refines the deformation within ConvexAdam. Five alternative feature-coupling strategies were evaluated under a protocol across CT-CT (DIR-Lab 4DCT 4DCT, 10 cases), MR-MR (ACDC, 50 patients), and MR-CT (Learn2Reg Abdomen MR-CT, 8 pairs) registration. Performance was assessed using target registration error (TRE), Dice similarity coefficient (Dice), SDlogJ, and local folding. Main results. FlexiMIND achieved a TRE of 1.27 mm on DIR-Lab 4DCT, a DSC of 0.807 on ACDC, and an organ-averaged DSC of 0.825 on Abdomen MR-CT. Across 15 coupling-strategy dataset comparisons, only four outperformed the reference method, with a maximum absolute improvement of 0.0043 in Dice, whereas degradation reached 20.6 % in TRE and 37.9 % in Dice. Changes in registration accuracy were closely associated with changes in deformation-field regularity, and strategies that better preserved regularity generally remained closest to the reference performance. Landmark-level analysis showed that the pretrained encoder stage primarily reduced large correspondence errors rather than uniformly improving local precision. Code is available upon acceptance at https://github.com/mosaf/FlexiMIND.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="physics.med-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-25T21:55:46Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Mojtaba Safari</name>
+    </author>
+    <author>
+      <name>Mingzhe Hu</name>
+    </author>
+    <author>
+      <name>Shansong Wang</name>
+    </author>
+    <author>
+      <name>Suyang Xi</name>
+    </author>
+    <author>
+      <name>Joshua Lorenz</name>
+    </author>
+    <author>
+      <name>Sean Pitroda</name>
+    </author>
+    <author>
+      <name>Aytekin Oto</name>
+    </author>
+    <author>
+      <name>Ralph R. Weichselbaum</name>
+    </author>
+    <author>
+      <name>Xiaofeng Yang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.34590v1</id>
+    <title>Sparse Sum-of-Squares Layers for Certified Learning</title>
+    <updated>2026-10-25T21:43:27Z</updated>
+    <link href="https://arxiv.org/abs/2610.34590v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.34590v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A central limitation of modern machine learning systems is the lack of formal certificates guaranteeing their behavior beyond empirical, sample-based evaluation. Sum-of-squares (SOS) methods provide such guarantees by certifying polynomial inequalities over continuous domains via semidefinite programming (SDP). While prior work has introduced SDP layers as differentiable components in neural networks, repeated learning calls can lose the computational benefit of the forward program's sparse representation. We propose Sparse SOS Layers, differentiable value layers whose backward passes reuse the local coordinates of the forward solve. Under a fixed template and learned objective coefficients, each layer avoids building dense certificates and reuses its sparse structure across training steps. Compared with existing methods, our approach achieves up to 2.7 times speedup in total warm-call time, with nearly 100 times lower memory usage (1.7 vs. 160 GiB) for relatively large problem sizes for the tested dense parameterization. Experiments cover sparse polynomial certification, pendulum control, combinatorial relaxations, robotics projection, oscillator chains, and pose graph synchronization. A design study achieves zero certified violations across unseen problem instances and sizes, while requiring roughly 7 times fewer optimization solves than estimating gradients by perturbing the objective coefficients and re-solving the problem (finite differences). These results show that sparse certificate values can be effectively integrated into learning pipelines when the backward pass respects the verifier's structure.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.OC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-25T21:43:27Z</published>
+    <arxiv:comment>Accepted to NeurIPS 2026 - Main track</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Ege Gursoy</name>
+    </author>
+    <author>
+      <name>Nicolas Mansard</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.34271v1</id>
+    <title>Robust Single-Parameter Point Cloud Registration using Truncated Lp Functions</title>
+    <updated>2026-10-25T13:02:43Z</updated>
+    <link href="https://arxiv.org/abs/2610.34271v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.34271v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We propose a novel method for robust point cloud registration with only one tunable parameter. Our method, dubbed TLP, uses truncated $L_p$ functions with different values of $p$ to assign priority scores to correspondences, select the hypothesis, and refine the final model. By leveraging the robustness of truncated functions, TLP effectively handles the high outlier rates commonly encountered in real-world 3D feature matching. We also exploit GPU parallelization to evaluate hypotheses efficiently, enabling registration from thousands of correspondences in under a second on average. With only one tunable parameter, our method offers greater practicality than multi-parameter methods that require dataset-specific tuning of several parameters. Evaluations on public benchmark datasets demonstrate that TLP achieves higher accuracy than state-of-the-art single-parameter methods. Furthermore, it outperforms two widely used multi-parameter methods on three of the four evaluated datasets while maintaining competitive runtime.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-25T13:02:43Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Seong Hun Lee</name>
+    </author>
+    <author>
+      <name>Patrick Vandewalle</name>
+    </author>
+    <author>
+      <name>Javier Civera</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.34100v1</id>
+    <title>Post-fragmentation Morphological and Broadband Color Evolution of C/2025 K1 (ATLAS)</title>
+    <updated>2026-10-25T06:55:09Z</updated>
+    <link href="https://arxiv.org/abs/2610.34100v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.34100v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Comet C/2025 K1 (ATLAS) underwent major fragmentation after its 2025 October 8 perihelion passage at q ~ 0.33 au. We present four epochs of Johnson-Cousins BVR imaging obtained with the Mount Laguna Observatory 40-inch reflector on 2025 November 26, November 29, December 5, and December 8, sampling the subsequent evolution of the integrated fragment-coma complex. The images were homogenized to common circular two-dimensional effective point-spread functions before morphology was measured along the projected fragment axis. We evaluated 324 profile-extraction configurations and removed solutions whose localized peak landed on the search-window boundary. The fragment-axis surface-brightness enhancement relocates inward between November 26 and 29 and outward between December 5 and 8; the sign of both changes is recovered in every valid configuration and at all tested common target PSFs from 5.3 to 6.0 arcsec. Calibrated BVR photometry using Gaia DR3 synthetic Johnson-Kron-Cousins standards independently shows a repeatable November 26-29 change in broadband spectral shape: B-V decreases while V-R increases. The curvature index S'_(V-R) - S'_(B-V) changes by +3.47 (+1.50/-1.65) percent per 1000 Angstrom, with 99.1 percent of Monte Carlo realizations positive, while the full B-R reflectivity gradient remains approximately constant. Repeating the color comparison at a fixed projected radius of 2205 km produces nearly identical changes. The combined results are consistent with continued restructuring of the unresolved post-fragmentation inner coma, while broadband imaging alone cannot uniquely separate dust-color evolution, molecular emission, and changing contributions from unresolved fragments.</summary>
+    <category term="astro-ph.EP" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="astro-ph.GA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-25T06:55:09Z</published>
+    <arxiv:comment>16 pages, 9 figures. Submitted to The Planetary Science Journal</arxiv:comment>
+    <arxiv:primary_category term="astro-ph.EP"/>
+    <author>
+      <name>Kody M. Walker</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.33815v1</id>
+    <title>Emergent parafermions with tunable localization in a quantum circuit network</title>
+    <updated>2026-10-24T17:27:18Z</updated>
+    <link href="https://arxiv.org/abs/2610.33815v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.33815v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>\noindent Quantum circuit simulators with hybrid metal-semiconductor dots provide a versatile platform to realize Kondo anyons. These arise at critical points driven by frustrated Kondo screening of dot charge degrees of freedom and have been demonstrated experimentally in linear circuits of one or two dots. Here we study a triangular triple dot device, where geometric frustration gives rise to an emergent $\mathbb{Z}_3$ parafermion shared among the three dots. We show that the parafermion can be tunably relocated to any pair of dots by applying gate voltages, and is supported in both the weak-tunneling `Kondo limit' and the strong transmission `quasiballistic' regime. The critical states survive strong coupling to external leads and other dots, establishing the basis for a scalable and reconfigurable network architecture in which non-Abelian excitations can be realized and manipulated.</summary>
+    <category term="cond-mat.mes-hall" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-24T17:27:18Z</published>
+    <arxiv:comment>4+ pages, 3 figures</arxiv:comment>
+    <arxiv:primary_category term="cond-mat.mes-hall"/>
+    <author>
+      <name>D. B. Karki</name>
+    </author>
+    <author>
+      <name>Andrew K. Mitchell</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.33550v1</id>
+    <title>Cross-View and Cross-Time Tracking of Crack Evolution in Concrete</title>
+    <updated>2026-10-24T09:06:04Z</updated>
+    <link href="https://arxiv.org/abs/2610.33550v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.33550v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Crack propagation provides richer information than static crack observations for evaluating structural conditions of concrete infrastructure and planning maintenance strategies. Unlike static crack detection, which can now be largely automated using computer vision, vision-based crack tracking is a coupled cross-view and cross-time problem: the same physical crack must retain its identity as camera viewpoints change, while newly developed growth must be distinguished from existing crack segments in a unified reference view. Existing segmentation and 3D reconstruction methods can recover crack masks or scene geometry, but they do not preserve crack identity across views or quantify temporal extension. To address this gap, this study formulates crack growth monitoring as a cross-view and cross-time crack-instance tracking task and proposes a geometry-assisted, morphology-aware framework. The framework first uses image-based geometric registration to align observations from different viewpoints into a shared structural reference, then applies morphology-aware instantiation to assign physically interpretable crack identities, and finally performs temporal mapping in the unified view to distinguish newly developed growth from existing crack segments. To enable evaluation, a temporally annotated dataset was established and used, covering three representative cracking scenarios: single dominant crack propagation, mixed-mode branching, and multiple-crack interaction, with pixel-level masks and cross-time instance labels. Experimental results show that the proposed framework can establish loose cross-view identity correspondence under changing viewpoints, while strict spatial overlap and growth localization remain limited by early micro-crack segmentability and projection drift, highlighting directions for future crack-monitoring research.</summary>
+    <category term="eess.IV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-24T09:06:04Z</published>
+    <arxiv:comment>50 pages. Author manuscript</arxiv:comment>
+    <arxiv:primary_category term="eess.IV"/>
+    <author>
+      <name>Pengru Deng</name>
+    </author>
+    <author>
+      <name>Jiapeng Yao</name>
+    </author>
+    <author>
+      <name>Su Wang</name>
+    </author>
+    <author>
+      <name>Xuhui He</name>
+    </author>
+    <author>
+      <name>Zhao Wang</name>
+    </author>
+    <author>
+      <name>Takanori Emaru</name>
+    </author>
+    <author>
+      <name>Takashi Matsumoto</name>
+    </author>
+    <author>
+      <name>Xinrun Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.33256v1</id>
+    <title>Fully-Automated Multi-Modal Registration of Timelapse Zebrafish OCT+LS Images</title>
+    <updated>2026-10-23T20:05:33Z</updated>
+    <link href="https://arxiv.org/abs/2610.33256v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.33256v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Optical coherence tomography (OCT) and light sheet (LS) fluorescence microscopy provide complementary views of tissue morphology and molecular expression, offering a powerful approach for studying embryonic development. However, longitudinal integration of OCT+LS images is challenging because the modalities differ substantially in contrast, spatial resolution, field of view, and visible anatomical features, while embryo growth and movement introduce additional misalignment over time. These challenges stem from both the scale and multimodal nature of the OCT and LS image stacks. We present a fully automated three-dimensional rigid registration framework for aligning OCT and LS volumes of developing zebrafish embryos acquired from 21 to 48 hours post fertilization (HPF). The method does not require pre-existing segmentations or cross-modal feature correspondences, which are often unreliable because OCT and LS capture fundamentally different tissue properties. Registration performance was evaluated across developmental time points using mean target registration error (mTRE) and compared across multiple similarity metrics and optimization methods. Normalized cross-correlation combined with particle swarm optimization produced the most accurate and consistent registration, achieving the lowest mTRE at every evaluated time point compared with the alternative methods. The registration establishes spatial correspondence between OCT tissue morphology and LS fluorescence signals throughout development, enabling integrated longitudinal analysis of structural and molecular changes in living embryos.</summary>
+    <category term="eess.IV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-23T20:05:33Z</published>
+    <arxiv:primary_category term="eess.IV"/>
+    <author>
+      <name>Mahshid Babeli Nia</name>
+    </author>
+    <author>
+      <name>Leah A. Lewis</name>
+    </author>
+    <author>
+      <name>Mohammad Mobarak Karim</name>
+    </author>
+    <author>
+      <name>Manmohan Singh</name>
+    </author>
+    <author>
+      <name>Arne C. Lekven</name>
+    </author>
+    <author>
+      <name>Guoning Chen</name>
+    </author>
+    <author>
+      <name>Kirill V. Larin</name>
+    </author>
+    <author>
+      <name>David Mayerich</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.32792v1</id>
+    <title>SREdit: Scene Response Guided Appearance Editing for Projection Mapping</title>
+    <updated>2026-10-23T15:37:12Z</updated>
+    <link href="https://arxiv.org/abs/2610.32792v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.32792v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Projection-based appearance editing changes selected visual attributes of a physical object through projection mapping (PM). To display a desired appearance, PM typically uses projector compensation, which computes a projector input that counteracts the geometric and photometric distortions of the scene. Compensation can only approximate this appearance within the available projection range, and it cannot revise the appearance itself. Pretrained LLM-based image editors provide a direct way to produce the desired appearance from a text prompt or reference image; projector compensation can then attempt to reproduce the edited result through projection. However, these editors do not have an accurate measure of the scene geometry or scene response. Therefore, their outputs may contain geometric misalignment, inconsistent shading, or changes outside the available projection range, which downstream projector compensation cannot correct. To address this problem, we introduce SREdit, an efficient response-guided framework for projection-based appearance editing. SREdit estimates a scene response map from the reconstructed scene that reflects how strongly projected illumination can affect different surface regions. SREdit uses the source appearance to constrain the early sampling process and preserve registration with the fixed physical object, while the scene response map adapts the amount of editing across surface regions. Experiments across two pretrained image editors show that SREdit improves projected appearance quality and reproduction fidelity. It adds less than one second per image with negligible VRAM overhead. Participants also consistently preferred the results produced with SREdit in our user study.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-23T15:37:12Z</published>
+    <arxiv:comment>28 pages, 65 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Yuqiao Xia</name>
+    </author>
+    <author>
+      <name>Yuchen Deng</name>
+    </author>
+    <author>
+      <name>Ziheng Chang</name>
+    </author>
+    <author>
+      <name>Bingyao Huang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.32720v1</id>
+    <title>Migration as a Steady-State Execution Primitive: A Runtime for Virtual Stationarity in Low-Earth Orbit</title>
+    <updated>2026-10-23T14:39:39Z</updated>
+    <link href="https://arxiv.org/abs/2610.32720v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.32720v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Low Earth Orbit (LEO) satellite mega-constellations enable orbital edge computing for latency-critical geocentric applications, but satellite motion compresses line-of-sight communication windows to mere minutes. To maintain logical geographic proximity, a paradigm termed Virtual Stationarity (VS), applications must continuously migrate across passing satellites in the constellation. Traditional live migration mechanisms optimize individually initiated relocations or replication, but not the continuous handover between successive hosts that orbital motion requires. We reformulate live migration as a steady-state execution model and introduce a novel virtual stationarity runtime paradigm. We formalize the viability of continuous migration through a lightweight model capturing latency and availability service-level objectives (SLOs), continuous migration overhead, and the convergence bound of state replay. To satisfy these constraints, we derive a Virtual Stationarity Runtime (VSR) framework whose Migration Membrane combines Capability Virtualization and Continuous State Projection to rebind host resources and reconstruct evolving execution on a successor. Evaluation on physical heterogeneous hosts shows 95th-percentile downtime below 6 milliseconds across 300 recurrent handovers, migration time effectively invariant to memory-write rate, and no cumulative growth in migration time or continuation state. A 1,600-satellite simulation further confirms completion within orbital handover windows.</summary>
+    <category term="cs.DC" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.NI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-23T14:39:39Z</published>
+    <arxiv:comment>Accepted for publication at the 16th International Conference on the Internet of Things (IoT 2026)</arxiv:comment>
+    <arxiv:primary_category term="cs.DC"/>
+    <author>
+      <name>Daniel Kleebinder</name>
+    </author>
+    <author>
+      <name>Alireza Furutanpey</name>
+    </author>
+    <author>
+      <name>Stefan Nastic</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.32663v1</id>
+    <title>SemGeo-Gen: Unsupervised Generation of Approximate Cross-Instance Semantic-Geometric Correspondences</title>
+    <updated>2026-10-23T14:07:04Z</updated>
+    <link href="https://arxiv.org/abs/2610.32663v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.32663v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We introduce SemGeo-Gen, an unsupervised method for generating approximate cross-instance semantic-geometric supervision from weakly aligned 3D object collections. Our goal is not to recover exact point-level correspondences, which are often ambiguous across different instances and would require expensive, impractical manual supervision at scale. Instead, we automatically produce approximate correspondences that are semantically meaningful, geometrically consistent, and diverse enough to train modern correspondence models. Given only coarse category-level rotation alignment, SemGeo-Gen lifts multi-view DINOv2 features to 3D, aligns object instances using continuous piecewise-affine registration, and prunes candidate matches using semantic consistency. The resulting 3D correspondences can be projected into rendered views, yielding scalable 3D-3D, 3D-2D, and 2D-2D supervision without manual annotation. We validate the generated correspondences against sparse human annotations from KeypointNet, obtaining 93% PCK@0.10 and 97% PCK@0.15. More importantly, we show that using the generated correspondences for synthetic pretraining improves recent state-of-the-art semantic correspondence models on SPair-71k after fine-tuning on real data, with gains of up to 5 PCK@0.10 points. Together, these results indicate that approximate semantic-geometric supervision generated from 3D assets can improve real-image correspondence learning and serve as a scalable alternative to costly manual annotation. Project page: https://bgu-cs-vil.github.io/SemGeo-Gen/.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-23T14:07:04Z</published>
+    <arxiv:comment>Accepted to NeurIPS 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Roy Amoyal</name>
+    </author>
+    <author>
+      <name>Shira Ifergane</name>
+    </author>
+    <author>
+      <name>Oren Freifeld</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.33127v1</id>
+    <title>Beyond Visible Speakers: Context-Aware Active Speaker Detection with Speaker Registration</title>
+    <updated>2026-10-23T12:21:22Z</updated>
+    <link href="https://arxiv.org/abs/2610.33127v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.33127v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Active speaker detection (ASD) relies on audiovisual correspondence between speech and visible faces, yet this correspondence becomes unreliable in crowded scenes, or when visual evidence is unavailable. We introduce ROAM-ASD-C and ROAM-ASD-CR to extend ROAM-ASD with contextual and identity-aware reasoning. ROAM-ASD-C jointly reasons across simultaneously visible candidates, allowing other faces to provide complementary evidence when the target observation is ambiguous or incomplete. ROAM-ASD-CR incorporates registered-speaker representations derived from enrollment speech, allowing detection of whether a speaker is active even when that speaker is not visually observed. ROAM-ASD-C achieves state-of-the-art performance across five ASD benchmarks: 96.8% mAP on AVA, 98.9% on WASD, 88.8% on UniTalk, 98.7% on Talkies, and 99.5% on ASW. It also improves ROAM-ASD by up to 13.3 mAP under 75% target-track visual removal.</summary>
+    <category term="cs.SD" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MM" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="eess.AS" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="eess.IV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-23T12:21:22Z</published>
+    <arxiv:comment>Submitted to IEEE ICASSP 2027</arxiv:comment>
+    <arxiv:primary_category term="cs.SD"/>
+    <author>
+      <name>Pu Wang</name>
+    </author>
+    <author>
+      <name>Hugo Van hamme</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.31635v1</id>
+    <title>HiP3R: Hierarchical Pose Graphs for Long-Horizon 3D Reconstruction</title>
+    <updated>2026-10-22T17:51:10Z</updated>
+    <link href="https://arxiv.org/abs/2610.31635v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.31635v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Feed-forward models accurately estimate camera motion and 3D geometry from short video windows. However, computational and memory costs prevent direct inference on sequences containing thousands of frames. Long videos must therefore be processed as overlapping chunks. This division produces independent local reconstructions with inconsistent coordinate frames and duplicate estimates of shared cameras. Achieving global consistency requires propagating constraints from adjacent overlaps and distant revisits across the sequence. This requirement naturally motivates pose graph optimization. However, the choice of graph level creates a trade-off. Chunk-level graphs efficiently resolve scale drift and close large loops. Yet, their rigid transformations cannot correct internal errors or conflicting frame predictions. Conversely, frame-level optimization offers local flexibility, but scaling it globally is computationally expensive and can break metric scale. HiP3R resolves this trade-off using a hierarchical pose graph. HiP3R first optimizes a robust chunk-level $\mathrm{Sim}(3)$ graph to establish the global layout and scale. It then holds this layout fixed and estimates one shared $\mathrm{SE}(3)$ camera per frame, turning overlapping window predictions into a single trajectory. Experiments across multiple benchmarks demonstrate the effectiveness of HiP3R in improving camera trajectories and 3D reconstruction. Our method applies to both chunk-based and streaming backends without additional training or fine-tuning. The codes are available at https://kkakkkka.github.io/HiP3R.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-22T17:51:10Z</published>
+    <arxiv:comment>Technical Report</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Zunnan Xu</name>
+    </author>
+    <author>
+      <name>Shangchen Zhou</name>
+    </author>
+    <author>
+      <name>Yihang Luo</name>
+    </author>
+    <author>
+      <name>Chen Change Loy</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.31476v1</id>
+    <title>Point-Level Refinable Semantic Mapping for Spatial Understanding</title>
+    <updated>2026-10-22T16:02:16Z</updated>
+    <link href="https://arxiv.org/abs/2610.31476v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.31476v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Open-vocabulary 3D semantic maps have emerged as a key spatial memory representation for long-horizon robot autonomy, enabling robots to reason about objects, their spatial relationships, and past observations across time. However, existing object-centric semantic maps are primarily designed for static environments and rely on an append-only point integration strategy, where newly observed points are accumulated but previously integrated points are rarely reevaluated. Consequently, perception errors accumulate over time, and outdated points persist after objects move or disappear. Although recent dynamic mapping methods update object-level representations in changing scenes, they do not explicitly revise noisy or obsolete points within each object. We propose an online refinable semantic mapping framework that continuously refines object representations through probabilistic point-level confidence updating. Each object point maintains a confidence score that is updated online using multi-view temporal evidence: consistent observations reinforce reliable points, while inconsistent segmentation masks, depth measurements, and visibility cues suppress spurious and outdated points. Combined with object tracking and re-identification to preserve instance identities under motion and relocation, our framework enables object-centric semantic maps to be continuously refined rather than monotonically accumulated. Experiments demonstrate improved mapping accuracy over the previous method by 3.46% on Replica and 2.55% on ScanNet, show robustness in dynamic environments and under perception noise, and provide an effective spatial memory for object navigation and embodied question-answering with success rates of 82.4% and 76.7%.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-22T16:02:16Z</published>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Taimeng Fu</name>
+    </author>
+    <author>
+      <name>Yi Du</name>
+    </author>
+    <author>
+      <name>Zitong Zhan</name>
+    </author>
+    <author>
+      <name>Qiwei Du</name>
+    </author>
+    <author>
+      <name>Shaoshu Su</name>
+    </author>
+    <author>
+      <name>Zhipeng Zhao</name>
+    </author>
+    <author>
+      <name>Chen Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.31253v1</id>
+    <title>Reinforcing intra-operative tumour localisation with weak supervision from pre-operative appearances</title>
+    <updated>2026-10-22T13:33:10Z</updated>
+    <link href="https://arxiv.org/abs/2610.31253v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.31253v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Limited tumour visibility on intra-operative images complicates surgical navigation, including liver hepatocellular carcinoma (HCC) targeting on computed tomography (CT) imaging. This makes labelled datasets difficult to curate for deep learning, and transferring pre-operative delineations through registration remains challenging due to intra-operative deformation and lack of paired pre- and intra-operative data. We propose to transfer tumour appearances learned from pre-operative magnetic resonance (MR) images to guide localisation on intra-operative CT through weak supervision. A classifier is trained to classify tumour presence on pre-operative images. This is applied to windows on intra-operative images, and despite the domain gap, it assigns higher tumour-presence probabilities on average to tumour-containing windows. These weak cross-domain signals guide a reinforcement learning agent to localise tumours on intra-operative images. We compare direct transfer, few-shot adaptation and synthetic transfer (trained using unpaired MR and CT), which translates CT into synthetic MR before localisation. On an external HCC cohort, synthetic transfer outperformed other tested methods and CT-only baselines. Our framework enables cross-modality tumour localisation without paired MR-CT training images.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-22T13:33:10Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Sidhart Sami</name>
+    </author>
+    <author>
+      <name>Ali Sharjeel</name>
+    </author>
+    <author>
+      <name>Sri Atluri</name>
+    </author>
+    <author>
+      <name>Miao Zhao</name>
+    </author>
+    <author>
+      <name>Caroline Roney</name>
+    </author>
+    <author>
+      <name>Eirini Marouli</name>
+    </author>
+    <author>
+      <name>Shaheer U. Saeed</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.31020v1</id>
+    <title>Demonstration-Based Robotic Feeding Using Dynamic Movement Primitives</title>
+    <updated>2026-10-22T09:54:38Z</updated>
+    <link href="https://arxiv.org/abs/2610.31020v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.31020v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper presents a demonstration-based robotic feeding framework that integrates human demonstration, Dynamic Movement Primitive-based motion planning, vision-based scene perception, and robot control. A human operator first demonstrates the scooping and feeding motions while the position and Euler-angle orientation of the spoon are recorded using a motion-capture system. The recorded trajectory is segmented into scooping and feeding motions, which are encoded using separate Dynamic Movement Primitives. Before task execution, an RGB-D camera estimates the participant's mouth position, while two AprilTags are used for robot-frame registration and tray localization. The detected tray pose is used to position the scooping motion, whereas the detected mouth position defines the positional goal of the feeding motion. The approach, scooping, and feeding trajectories are then executed sequentially by a Kinova Gen3 manipulator through a ROS~2-based framework. A real-world experiment demonstrates the feasibility of the integrated pipeline and shows that the learned spoon motions can be reproduced within the detected experimental scene.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-22T09:54:38Z</published>
+    <arxiv:comment>Accepted on RAAI 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Kenzhi Iskandar Wong</name>
+    </author>
+    <author>
+      <name>Kitti Thamrongaphichartkul</name>
+    </author>
+    <author>
+      <name>Sri Harsha Turlapati</name>
+    </author>
+    <author>
+      <name>Yanshuo Lu</name>
+    </author>
+    <author>
+      <name>Kanichi Doi</name>
+    </author>
+    <author>
+      <name>Boyu Ma</name>
+    </author>
+    <author>
+      <name>Bin Zhou</name>
+    </author>
+    <author>
+      <name>Lin Yang</name>
+    </author>
+    <author>
+      <name>Ananda Sidarta</name>
+    </author>
+    <author>
+      <name>Lek Syn Lim</name>
+    </author>
+    <author>
+      <name>Arun-Kumar Kaliya-Perumal</name>
+    </author>
+    <author>
+      <name>Jianfei Yang</name>
+    </author>
+    <author>
+      <name>Domenico Campolo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.30774v1</id>
+    <title>Evaluation of Front-End Feature Matching for Lunar Visual SLAM</title>
+    <updated>2026-10-22T05:52:13Z</updated>
+    <link href="https://arxiv.org/abs/2610.30774v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.30774v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Lunar rovers will primarily rely on cameras for localization until navigation satellite services are deployed, and will continue to need them afterwards for relative navigation, hazard detection, and surface operations. Visual odometry (VO) and Simultaneous Localization and Mapping (SLAM) mostly estimate motion by matching features between frames. However, feature matchers are developed on urban, indoor and driving scenes, planetary studies compare them on orbital registration or within complete SLAM systems, and real lunar imagery with reference poses is scarce, so matching between rover frames on low-texture, harshly lit terrain, and its effect on VO, has not been compared. We benchmark eleven classical and learned detector-matcher combinations on nine synthetic, lunar-testbed, and terrestrial-analogue datasets, and a feature tracker, scoring pairwise pose accuracy against baseline and the trajectory error of the resulting VO. Under a common rotation-only metric, the SuperPoint pairings outperform SIFT with ratio-tested FLANN matching on both lunar testbeds and one analogue site, with smaller or unresolved differences on synthetic data. When rotation and translation direction are scored jointly, this SIFT pairing exceeds both SuperPoint pairings on four synthetic datasets, so synthetic results alone do not establish relative performance on real rover imagery. In stereo VO, the SuperPoint pairings are not consistently more accurate than SIFT, but only they keep tracking on all eight sequential datasets. Pairings with classical detectors depend on lighting while SuperPoint changes little: a low spotlight makes them more accurate than diffuse light on the same testbed views, consistent with more contrast and detected keypoints. SuperPoint with LightGlue is the fastest learned combination (16 ms per frame), and DINOv2 retrieval proposals still need geometric verification.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-22T05:52:13Z</published>
+    <arxiv:comment>16 pages, 8 figures, 5 tables. Submitted to the 2027 IEEE Aerospace Conference</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Guillem Casadesus Vila</name>
+    </author>
+    <author>
+      <name>Grace Gao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.30606v1</id>
+    <title>CMAR-search: Commonsense and Memory Augmented Reasoning for Object Search in Dynamic Interactive Environments</title>
+    <updated>2026-10-22T02:13:52Z</updated>
+    <link href="https://arxiv.org/abs/2610.30606v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.30606v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Dynamic interactive object search in large-scale human environments presents substantial challenges for existing methods. Current scene representations like 3D Scene Graphs (3DSG) only provide coarse-grained spatial segmentation and cannot identify functional areas such as storage or leisure areas. Without functional area understanding, existing methods are constrained to exhaustive sequential exploration at large scales, resulting in inefficient search behaviors -- particularly in open-layout environments with numerous interactive objects such as drawers and cabinets. Moreover, these methods lack adaptability to environmental dynamics such as object relocations. To address these limitations, this paper proposes CMAR-search, a novel framework built upon Commonsense and Memory Augmented Reasoning (CMAR). Our approach leverages commonsense about area functionalities and aggregates environmental memory to construct a Functional 3D Scene Graph (F3DSG), which organizes the environment into functional areas with their associated containers. Through this structured representation, CMAR enables hierarchical action planning at both macro-area and micro-container levels, empowering the system to efficiently identify and inspect semantically relevant areas for effective object search. Notably, CMAR continuously integrates real-time perception, accumulated memory, and commonsense to dynamically relocalize objects in changing environments. Extensive experiments in simulation and real-world settings demonstrate that CMAR-search significantly surpasses state-of-the-art baselines in both success rate and search efficiency for object search in dynamic interactive environments.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-22T02:13:52Z</published>
+    <arxiv:comment>Published in ICRA 2026. 8 pages, 5 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <arxiv:journal_ref>2026 IEEE International Conference on Robotics and Automation (ICRA), pp. 18586-18593, 2026</arxiv:journal_ref>
+    <author>
+      <name>Kaiyao Liao</name>
+    </author>
+    <author>
+      <name>Qingfeng Li</name>
+    </author>
+    <author>
+      <name>Xinlei Zhang</name>
+    </author>
+    <author>
+      <name>Chen Chen</name>
+    </author>
+    <author>
+      <name>Qing Sun</name>
+    </author>
+    <author>
+      <name>Jianwei Niu</name>
+    </author>
+    <arxiv:doi>10.1109/ICRA57385.2026.11697035</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1109/ICRA57385.2026.11697035" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.30589v1</id>
+    <title>OASIS: Online Anchor-centric Scene Inference System for Open-Vocabulary Retrieval and Navigation in Dynamic Environments</title>
+    <updated>2026-10-22T01:44:10Z</updated>
+    <link href="https://arxiv.org/abs/2610.30589v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.30589v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Reliable robotic mapping in dynamic real-world environments is essential for embodied intelligence and long-term autonomy. However, existing methods often involve a trade-off: lightweight online mapping is efficient but captures limited semantic context, while dense mapping provides richer semantics at higher computational cost and is more vulnerable to distractors. They also struggle to relocalize objects after scene changes. To address these challenges, we propose the Online Anchor-centric Scene Inference System (OASIS), a unified system for online mapping, complex open-vocabulary retrieval, and navigation in dynamic environments. Motivated by the observation that indoor scenes are organized around stable semantic anchors, OASIS represents the environment using a sparse set of anchor nodes, each maintaining a unified multimodal representation that integrates semantic descriptions, visual features, and geometric states for reasoning, verification, and navigation. Its compact anchor-centric memory supports on-demand evidence extraction and hierarchical retrieval, reducing redundant storage while improving retrieval reliability. To handle scene dynamics, OASIS further reuses transient observations collected during navigation to relocalize moved objects. Experiments in both simulation and real-world environments, including standard retrieval benchmarks and navigation tasks under both static and dynamic settings, demonstrate that our system can perform complex open-vocabulary retrieval and navigation, while also enabling relocation of displaced objects after scene changes.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-22T01:44:10Z</published>
+    <arxiv:comment>Accepted for oral presentation at ACM Multimedia (ACM MM) 2026. 17 pages, 10 figures, including supplementary material</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Kaiyao Liao</name>
+    </author>
+    <author>
+      <name>Qingfeng Li</name>
+    </author>
+    <author>
+      <name>Chen Chen</name>
+    </author>
+    <author>
+      <name>Xiaoze Wu</name>
+    </author>
+    <author>
+      <name>Qing Sun</name>
+    </author>
+    <author>
+      <name>Jianwei Niu</name>
+    </author>
+    <arxiv:doi>10.1145/3767308.3835228</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1145/3767308.3835228" title="doi"/>
+  </entry>
+</feed>

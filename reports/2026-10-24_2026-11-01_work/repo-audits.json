@@ -1,0 +1,46 @@
+{
+  "snapshot_at": "2026-11-01 15:15:29 UTC",
+  "method": "GitHub connector public file reads pinned to commit; no clone/build/training/inference, datasets or checkpoints downloaded",
+  "repos": [
+    {
+      "name": "ASIG-X/RESPLE2",
+      "url": "https://github.com/ASIG-X/RESPLE2",
+      "sha": "cf9cef2ad82f72097bf5f178d902562688db0cdb",
+      "stars": 35,
+      "forks": 3,
+      "relation": "多传感连续时间里程计；论文2610.37602",
+      "temporal_evidence": "仓库2026-10-27T16:44:13Z创建；最新提交2026-10-29T09:32:51Z fixed a build issue",
+      "goal": "统一LiDAR–IMU、视觉、腿式运动学约束，并提供可选全局样条修正。实时是作者声明，本轮未运行。",
+      "structure": "resple2/src/RESPLE2.cpp为ROS2入口；Estimator.cpp与SplineState.h维护递归非均匀B样条/惯性传播，prepIMU/prepLiDAR/prepCamera/prepKinVel/prepKinPt2Pl构造多模态残差，updateIEKF进行迭代滤波；GlobalRefinement.cpp与Linearizer.h处理回环/里程约束和全局样条优化；VisualFrontend.cpp、voxel_map.cpp分别是视觉前端和体素地图；launch、config与多种ROS消息包分工。",
+      "code_evidence": "实际阅读README、CMakeLists、Estimator.h、GlobalRefinement.h、SplineState.h选段、Estimator.cpp初始状态/IEKF更新/多传感残差与传播选段、GlobalRefinement.cpp优化与地图修正选段、GrandTour launch和config。固定提交树完整（truncated=false）；不声称逐行读完全部仓库。",
+      "insight": "递归估计以4控制点的24维几何状态加IMU偏置为局部状态，非均匀节点间隔让高动态区更密；全局回环修正与实时递归路径分离。源码可见Huber图像权重、少量有效点时恢复先验、协方差对称化与LM步长/非有限值检查。",
+      "dependencies": "Ubuntu22.04/ROS2 Humble或Ubuntu24.04/Jazzy；C++17、Eigen、PCL、OpenCV、Pinocchio3.9、SuiteSparse/CHOLMOD、Ceres、Livox及Anymal/Unitree消息；回环地图刷新另需rviz2_plugin_ser2res。GrandTour示例视觉/腿运动学开启、if_loop_closure默认false。",
+      "maturity": "可见实质源码、数据入口和多传感配置；最新提交修复构建，尚无release或issue记录（所读集合为空）。未编译/回放；依赖、标定和多ROS发行版兼容性仍未充分验证。GPLv3许可。",
+      "evidence_level": "source_static_selected",
+      "files_evidence": "repo-resple2-files.json",
+      "metadata_evidence": [
+        "repo-resple2-0.json",
+        "repo-resple2-1.json",
+        "repo-resple2-2.json",
+        "repo-resple2-3.json"
+      ]
+    },
+    {
+      "name": "noheat61/GPA-VGGT",
+      "url": "https://github.com/noheat61/GPA-VGGT",
+      "sha": "767b172ec2a3feb46609dfc0d9125994b3635fd3",
+      "stars": 7,
+      "forks": 0,
+      "relation": "VGGT免训练注意力加速；论文2610.37000",
+      "temporal_evidence": "仓库10月22日创建时占位，2026-10-24T12:29:50Z提交Release GPA-VGGT code处于本期；10月29日更新README",
+      "goal": "保持query输出分辨率，通过早期帧内+共享跨帧K/V与后期仅合并K/V降低VGGT注意力成本。",
+      "structure": "vggt/models/aggregator.py配置early_frame_split/core_blocks/merge_ratio/metric_dim；vggt/layers/attention.py保留所有Q并对合并K加入log(size)；merging/merge.py实现余弦匹配、固定种子随机投影与二部token合并，fused_attention.py提供含key偏置的Triton在线softmax；eval/bench_e2e.py和eval_co3d.py等承担速度和精度评估。",
+      "code_evidence": "实际阅读README、requirements、merge.py、attention.py、fused_attention.py选段、aggregator.py配置/forward选段、bench_e2e.py；目录树完整（truncated=false）。没有训练脚本并不等于模型已在本机验证，作者方法本身为免训练。",
+      "insight": "聚合key代表s个token时用log s补偿softmax质量；随机投影只用于相似度匹配，原始Q维持；早期跨帧摘要和关键层较弱合并率按层分工。bench_e2e要求每配置独立进程以减轻Triton自动调优/分配器缓存先后偏差。",
+      "dependencies": "Python3.10，仓库固定torch2.11+cu128/torchvision0.26/Triton3.6等；复用VGGT tracker_fixed checkpoint，CO3D等数据需另备；GPU/CUDA路径未本机安装验证。",
+      "maturity": "已由占位变为有实质实现与多任务评估入口，7 stars/0 forks只为快照；无release或issue记录（所读集合为空）。README声称200帧2.58×及AUC@3保留>99%，此处为作者声称，具体硬件/协议待论文核对；未下载权重或数据、未运行。",
+      "evidence_level": "source_static_selected",
+      "files_evidence": "repo-gpa-evidence.json"
+    }
+  ]
+}

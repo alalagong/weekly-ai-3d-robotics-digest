@@ -1,0 +1,586 @@
+[
+  {
+    "id": "2610.31567",
+    "title": "Geometry-Dependent Properties of Physically Crosslinked PPy-PVA Hydrogels Enable Tunable Iontophoretic Drug Delivery",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "水凝胶微结构和电场用于药物输运，几何是材料形状，不是观测几何。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.31567",
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.40429%2C2610.40401%2C2610.40271%2C2610.40199%2C2610.40050%2C2610.40026%2C2610.39816%2C2610.39708%2C2610.39560%2C2610.39528%2C2610.39446%2C2610.39416%2C2610.39287%2C2610.39267%2C2610.39005%2C2610.38731%2C2610.38569%2C2610.38443%2C2610.38318%2C2610.38248%2C2610.38141%2C2610.38080%2C2610.37929%2C2610.37891%2C2610.40473%2C2610.39691%2C2610.39283%2C2610.39232%2C2610.38047%2C2610.37818%2C2610.37602%2C2610.37543%2C2610.37518%2C2610.37403%2C2610.37350%2C2610.37217%2C2610.37196%2C2610.37111%2C2610.37091%2C2610.36968%2C2610.36840%2C2610.36816%2C2610.36791%2C2610.36726%2C2610.36662%2C2610.36598%2C2610.36507%2C2610.36454%2C2610.36312%2C2610.36285%2C2610.36068%2C2610.36011%2C2610.37219%2C2610.37127%2C2610.35877%2C2610.35626%2C2610.35363%2C2610.35342%2C2610.35231%2C2610.35172%2C2610.34873%2C2610.34674%2C2610.34650%2C2610.34593%2C2610.34583%2C2610.34393%2C2610.34286%2C2610.34085%2C2610.34060%2C2610.34054%2C2610.34041%2C2610.34040%2C2610.33807%2C2610.33794%2C2610.33565%2C2610.33546%2C2610.33471%2C2610.33271%2C2610.33174%2C2610.35850%2C2610.35636%2C2610.35092%2C2610.35044%2C2610.34663%2C2610.34271%2C2610.33158%2C2610.32961%2C2610.32742%2C2610.32645%2C2610.32633%2C2610.32596%2C2610.32554%2C2610.32143%2C2610.32102%2C2610.31920%2C2610.31762%2C2610.31835%2C2610.31716%2C2610.31617%2C2610.31567&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.31567v1"
+    ]
+  },
+  {
+    "id": "2610.40473",
+    "title": "Fundamental Limits of Sampling-Based Reachability: Geometry and Flow Distortion",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "可达集的抽样复杂度理论，机器人机械臂只是高维例子，不估计环境或相机位姿。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.40473",
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.40429%2C2610.40401%2C2610.40271%2C2610.40199%2C2610.40050%2C2610.40026%2C2610.39816%2C2610.39708%2C2610.39560%2C2610.39528%2C2610.39446%2C2610.39416%2C2610.39287%2C2610.39267%2C2610.39005%2C2610.38731%2C2610.38569%2C2610.38443%2C2610.38318%2C2610.38248%2C2610.38141%2C2610.38080%2C2610.37929%2C2610.37891%2C2610.40473%2C2610.39691%2C2610.39283%2C2610.39232%2C2610.38047%2C2610.37818%2C2610.37602%2C2610.37543%2C2610.37518%2C2610.37403%2C2610.37350%2C2610.37217%2C2610.37196%2C2610.37111%2C2610.37091%2C2610.36968%2C2610.36840%2C2610.36816%2C2610.36791%2C2610.36726%2C2610.36662%2C2610.36598%2C2610.36507%2C2610.36454%2C2610.36312%2C2610.36285%2C2610.36068%2C2610.36011%2C2610.37219%2C2610.37127%2C2610.35877%2C2610.35626%2C2610.35363%2C2610.35342%2C2610.35231%2C2610.35172%2C2610.34873%2C2610.34674%2C2610.34650%2C2610.34593%2C2610.34583%2C2610.34393%2C2610.34286%2C2610.34085%2C2610.34060%2C2610.34054%2C2610.34041%2C2610.34040%2C2610.33807%2C2610.33794%2C2610.33565%2C2610.33546%2C2610.33471%2C2610.33271%2C2610.33174%2C2610.35850%2C2610.35636%2C2610.35092%2C2610.35044%2C2610.34663%2C2610.34271%2C2610.33158%2C2610.32961%2C2610.32742%2C2610.32645%2C2610.32633%2C2610.32596%2C2610.32554%2C2610.32143%2C2610.32102%2C2610.31920%2C2610.31762%2C2610.31835%2C2610.31716%2C2610.31617%2C2610.31567&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.40473v1"
+    ]
+  },
+  {
+    "id": "2610.39560",
+    "title": "SimTO-Robust: Automated Design of Soft Grippers Robust to Grasp Pose and Object Geometry",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "软夹爪形态拓扑优化，几何是已知物体和抓姿条件，不恢复感知几何。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.39560",
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.40429%2C2610.40401%2C2610.40271%2C2610.40199%2C2610.40050%2C2610.40026%2C2610.39816%2C2610.39708%2C2610.39560%2C2610.39528%2C2610.39446%2C2610.39416%2C2610.39287%2C2610.39267%2C2610.39005%2C2610.38731%2C2610.38569%2C2610.38443%2C2610.38318%2C2610.38248%2C2610.38141%2C2610.38080%2C2610.37929%2C2610.37891%2C2610.40473%2C2610.39691%2C2610.39283%2C2610.39232%2C2610.38047%2C2610.37818%2C2610.37602%2C2610.37543%2C2610.37518%2C2610.37403%2C2610.37350%2C2610.37217%2C2610.37196%2C2610.37111%2C2610.37091%2C2610.36968%2C2610.36840%2C2610.36816%2C2610.36791%2C2610.36726%2C2610.36662%2C2610.36598%2C2610.36507%2C2610.36454%2C2610.36312%2C2610.36285%2C2610.36068%2C2610.36011%2C2610.37219%2C2610.37127%2C2610.35877%2C2610.35626%2C2610.35363%2C2610.35342%2C2610.35231%2C2610.35172%2C2610.34873%2C2610.34674%2C2610.34650%2C2610.34593%2C2610.34583%2C2610.34393%2C2610.34286%2C2610.34085%2C2610.34060%2C2610.34054%2C2610.34041%2C2610.34040%2C2610.33807%2C2610.33794%2C2610.33565%2C2610.33546%2C2610.33471%2C2610.33271%2C2610.33174%2C2610.35850%2C2610.35636%2C2610.35092%2C2610.35044%2C2610.34663%2C2610.34271%2C2610.33158%2C2610.32961%2C2610.32742%2C2610.32645%2C2610.32633%2C2610.32596%2C2610.32554%2C2610.32143%2C2610.32102%2C2610.31920%2C2610.31762%2C2610.31835%2C2610.31716%2C2610.31617%2C2610.31567&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.39560v1"
+    ]
+  },
+  {
+    "id": "2610.36844",
+    "title": "AxisQ: Depth-Adaptive Channel--Frequency Quantization for Camouflaged Object Detection",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "网络层深度相关量化用于伪装目标检测；depth为网络层级。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.36844",
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.31476%2C2610.31474%2C2610.31432%2C2610.31384%2C2610.31221%2C2610.31028%2C2610.30994%2C2610.30991%2C2610.30988%2C2610.30839%2C2610.30786%2C2610.30694%2C2610.30605%2C2610.30589%2C2610.30320%2C2610.31194%2C2610.31149%2C2610.40614%2C2610.40607%2C2610.40495%2C2610.40453%2C2610.40191%2C2610.40166%2C2610.40061%2C2610.39868%2C2610.39848%2C2610.39812%2C2610.39721%2C2610.39715%2C2610.39649%2C2610.39585%2C2610.39517%2C2610.39516%2C2610.39399%2C2610.39356%2C2610.39306%2C2610.39201%2C2610.39161%2C2610.39147%2C2610.38951%2C2610.38830%2C2610.38694%2C2610.38587%2C2610.38518%2C2610.38507%2C2610.38499%2C2610.38482%2C2610.38360%2C2610.38358%2C2610.38289%2C2610.38278%2C2610.38007%2C2610.37965%2C2606.15768%2C2610.37668%2C2610.37545%2C2610.37406%2C2610.37326%2C2610.37314%2C2610.37257%2C2610.37202%2C2610.37149%2C2610.37098%2C2610.37046%2C2610.37036%2C2610.37000%2C2610.36876%2C2610.36853%2C2610.36844%2C2610.36760%2C2610.36658%2C2610.36610%2C2610.36462%2C2610.36168%2C2610.36150%2C2610.36022%2C2610.37213%2C2610.36672%2C2610.35806%2C2610.35756%2C2610.35637%2C2610.35621%2C2610.35554%2C2610.35522%2C2610.35516%2C2610.35501%2C2610.35374%2C2610.35361%2C2610.35347%2C2610.35312%2C2610.35152%2C2610.35066%2C2610.35038%2C2610.35018%2C2610.35002%2C2610.34952%2C2610.34901%2C2610.34897%2C2610.34854%2C2610.34850&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.36844v1"
+    ]
+  },
+  {
+    "id": "2610.38482",
+    "title": "Geometry-Aware Trajectory State Modeling for Few-Shot Action Recognition",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "2.5D轨迹与深度是动作识别特征，主要输出动作类别，不是环境三维或轨迹估计。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.38482",
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.31476%2C2610.31474%2C2610.31432%2C2610.31384%2C2610.31221%2C2610.31028%2C2610.30994%2C2610.30991%2C2610.30988%2C2610.30839%2C2610.30786%2C2610.30694%2C2610.30605%2C2610.30589%2C2610.30320%2C2610.31194%2C2610.31149%2C2610.40614%2C2610.40607%2C2610.40495%2C2610.40453%2C2610.40191%2C2610.40166%2C2610.40061%2C2610.39868%2C2610.39848%2C2610.39812%2C2610.39721%2C2610.39715%2C2610.39649%2C2610.39585%2C2610.39517%2C2610.39516%2C2610.39399%2C2610.39356%2C2610.39306%2C2610.39201%2C2610.39161%2C2610.39147%2C2610.38951%2C2610.38830%2C2610.38694%2C2610.38587%2C2610.38518%2C2610.38507%2C2610.38499%2C2610.38482%2C2610.38360%2C2610.38358%2C2610.38289%2C2610.38278%2C2610.38007%2C2610.37965%2C2606.15768%2C2610.37668%2C2610.37545%2C2610.37406%2C2610.37326%2C2610.37314%2C2610.37257%2C2610.37202%2C2610.37149%2C2610.37098%2C2610.37046%2C2610.37036%2C2610.37000%2C2610.36876%2C2610.36853%2C2610.36844%2C2610.36760%2C2610.36658%2C2610.36610%2C2610.36462%2C2610.36168%2C2610.36150%2C2610.36022%2C2610.37213%2C2610.36672%2C2610.35806%2C2610.35756%2C2610.35637%2C2610.35621%2C2610.35554%2C2610.35522%2C2610.35516%2C2610.35501%2C2610.35374%2C2610.35361%2C2610.35347%2C2610.35312%2C2610.35152%2C2610.35066%2C2610.35038%2C2610.35018%2C2610.35002%2C2610.34952%2C2610.34901%2C2610.34897%2C2610.34854%2C2610.34850&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.38482v1"
+    ]
+  },
+  {
+    "id": "2610.34897",
+    "title": "SGDB: Semantic-Geometric Decoupling and Evidence Binding for Logical Anomaly Detection",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "工业逻辑异常检测使用二维mask长度和身份绑定，不构建三维地图。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.34897",
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.31476%2C2610.31474%2C2610.31432%2C2610.31384%2C2610.31221%2C2610.31028%2C2610.30994%2C2610.30991%2C2610.30988%2C2610.30839%2C2610.30786%2C2610.30694%2C2610.30605%2C2610.30589%2C2610.30320%2C2610.31194%2C2610.31149%2C2610.40614%2C2610.40607%2C2610.40495%2C2610.40453%2C2610.40191%2C2610.40166%2C2610.40061%2C2610.39868%2C2610.39848%2C2610.39812%2C2610.39721%2C2610.39715%2C2610.39649%2C2610.39585%2C2610.39517%2C2610.39516%2C2610.39399%2C2610.39356%2C2610.39306%2C2610.39201%2C2610.39161%2C2610.39147%2C2610.38951%2C2610.38830%2C2610.38694%2C2610.38587%2C2610.38518%2C2610.38507%2C2610.38499%2C2610.38482%2C2610.38360%2C2610.38358%2C2610.38289%2C2610.38278%2C2610.38007%2C2610.37965%2C2606.15768%2C2610.37668%2C2610.37545%2C2610.37406%2C2610.37326%2C2610.37314%2C2610.37257%2C2610.37202%2C2610.37149%2C2610.37098%2C2610.37046%2C2610.37036%2C2610.37000%2C2610.36876%2C2610.36853%2C2610.36844%2C2610.36760%2C2610.36658%2C2610.36610%2C2610.36462%2C2610.36168%2C2610.36150%2C2610.36022%2C2610.37213%2C2610.36672%2C2610.35806%2C2610.35756%2C2610.35637%2C2610.35621%2C2610.35554%2C2610.35522%2C2610.35516%2C2610.35501%2C2610.35374%2C2610.35361%2C2610.35347%2C2610.35312%2C2610.35152%2C2610.35066%2C2610.35038%2C2610.35018%2C2610.35002%2C2610.34952%2C2610.34901%2C2610.34897%2C2610.34854%2C2610.34850&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.34897v1"
+    ]
+  },
+  {
+    "id": "2610.35374",
+    "title": "GIFT: Representation Geometry Matters for Single-Domain Generalized Object Detection",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "预训练表征空间的几何保持服务域泛化目标检测，不是物理三维。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.35374",
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.31476%2C2610.31474%2C2610.31432%2C2610.31384%2C2610.31221%2C2610.31028%2C2610.30994%2C2610.30991%2C2610.30988%2C2610.30839%2C2610.30786%2C2610.30694%2C2610.30605%2C2610.30589%2C2610.30320%2C2610.31194%2C2610.31149%2C2610.40614%2C2610.40607%2C2610.40495%2C2610.40453%2C2610.40191%2C2610.40166%2C2610.40061%2C2610.39868%2C2610.39848%2C2610.39812%2C2610.39721%2C2610.39715%2C2610.39649%2C2610.39585%2C2610.39517%2C2610.39516%2C2610.39399%2C2610.39356%2C2610.39306%2C2610.39201%2C2610.39161%2C2610.39147%2C2610.38951%2C2610.38830%2C2610.38694%2C2610.38587%2C2610.38518%2C2610.38507%2C2610.38499%2C2610.38482%2C2610.38360%2C2610.38358%2C2610.38289%2C2610.38278%2C2610.38007%2C2610.37965%2C2606.15768%2C2610.37668%2C2610.37545%2C2610.37406%2C2610.37326%2C2610.37314%2C2610.37257%2C2610.37202%2C2610.37149%2C2610.37098%2C2610.37046%2C2610.37036%2C2610.37000%2C2610.36876%2C2610.36853%2C2610.36844%2C2610.36760%2C2610.36658%2C2610.36610%2C2610.36462%2C2610.36168%2C2610.36150%2C2610.36022%2C2610.37213%2C2610.36672%2C2610.35806%2C2610.35756%2C2610.35637%2C2610.35621%2C2610.35554%2C2610.35522%2C2610.35516%2C2610.35501%2C2610.35374%2C2610.35361%2C2610.35347%2C2610.35312%2C2610.35152%2C2610.35066%2C2610.35038%2C2610.35018%2C2610.35002%2C2610.34952%2C2610.34901%2C2610.34897%2C2610.34854%2C2610.34850&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.35374v1"
+    ]
+  },
+  {
+    "id": "2610.39868",
+    "title": "Parametric Gaussian Noise Mixer (PGNM): Unified Synthesis of Camera Noise and Film Grain",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "相机噪声与胶片颗粒合成，不估计相机、深度或世界状态。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.39868",
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.31476%2C2610.31474%2C2610.31432%2C2610.31384%2C2610.31221%2C2610.31028%2C2610.30994%2C2610.30991%2C2610.30988%2C2610.30839%2C2610.30786%2C2610.30694%2C2610.30605%2C2610.30589%2C2610.30320%2C2610.31194%2C2610.31149%2C2610.40614%2C2610.40607%2C2610.40495%2C2610.40453%2C2610.40191%2C2610.40166%2C2610.40061%2C2610.39868%2C2610.39848%2C2610.39812%2C2610.39721%2C2610.39715%2C2610.39649%2C2610.39585%2C2610.39517%2C2610.39516%2C2610.39399%2C2610.39356%2C2610.39306%2C2610.39201%2C2610.39161%2C2610.39147%2C2610.38951%2C2610.38830%2C2610.38694%2C2610.38587%2C2610.38518%2C2610.38507%2C2610.38499%2C2610.38482%2C2610.38360%2C2610.38358%2C2610.38289%2C2610.38278%2C2610.38007%2C2610.37965%2C2606.15768%2C2610.37668%2C2610.37545%2C2610.37406%2C2610.37326%2C2610.37314%2C2610.37257%2C2610.37202%2C2610.37149%2C2610.37098%2C2610.37046%2C2610.37036%2C2610.37000%2C2610.36876%2C2610.36853%2C2610.36844%2C2610.36760%2C2610.36658%2C2610.36610%2C2610.36462%2C2610.36168%2C2610.36150%2C2610.36022%2C2610.37213%2C2610.36672%2C2610.35806%2C2610.35756%2C2610.35637%2C2610.35621%2C2610.35554%2C2610.35522%2C2610.35516%2C2610.35501%2C2610.35374%2C2610.35361%2C2610.35347%2C2610.35312%2C2610.35152%2C2610.35066%2C2610.35038%2C2610.35018%2C2610.35002%2C2610.34952%2C2610.34901%2C2610.34897%2C2610.34854%2C2610.34850&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.39868v1"
+    ]
+  },
+  {
+    "id": "2610.30824",
+    "title": "Loop to Look Better: Learning Adaptive Depth for Question-Guided Perception in Vision-Language Models",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "通用VLM反复编码与网络动态深度，不是场景深度或地图。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.30824",
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.34845%2C2610.34819%2C2610.34632%2C2610.34618%2C2610.34600%2C2610.34597%2C2610.34564%2C2610.34346%2C2610.34344%2C2610.34263%2C2610.34235%2C2610.34233%2C2610.34218%2C2610.34190%2C2610.34037%2C2610.34033%2C2610.34028%2C2610.33988%2C2610.33941%2C2610.33894%2C2610.33868%2C2610.33755%2C2610.33704%2C2610.33695%2C2610.33661%2C2610.33656%2C2610.33589%2C2610.33575%2C2610.33566%2C2610.33504%2C2610.33484%2C2610.33356%2C2610.33169%2C2610.33118%2C2610.33054%2C2610.35529%2C2610.35224%2C2610.34904%2C2610.33127%2C2610.32977%2C2610.32800%2C2610.32792%2C2610.32697%2C2610.32663%2C2610.32381%2C2610.32321%2C2610.32250%2C2610.32182%2C2610.32174%2C2610.32073%2C2610.31950%2C2610.31908%2C2610.31747%2C2610.32816%2C2610.32177%2C2610.32039%2C2610.31892%2C2610.31645%2C2610.31635%2C2610.31623%2C2610.31321%2C2610.31320%2C2610.31293%2C2610.31253%2C2610.31186%2C2610.31140%2C2610.31123%2C2610.31108%2C2610.30974%2C2610.30944%2C2610.30824%2C2610.30814%2C2610.30781%2C2610.30774%2C2610.30724%2C2610.30643%2C2610.30619%2C2610.30609%2C2610.30468%2C2610.30340%2C2610.30326%2C2610.30293%2C2610.30910%2C2610.38953%2C2610.37740%2C2610.35902%2C2610.33256%2C2610.38350%2C2610.37926%2C2610.36555%2C2610.34184%2C2610.33202%2C2610.35813%2C2610.35569%2C2610.32010%2C2610.30683%2C2610.10181%2C2610.12568%2C2610.12624%2C2610.20226&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.30824v1"
+    ]
+  },
+  {
+    "id": "2610.33202",
+    "title": "Terra-Fi: Decoupling Sensing and Wireless Depths for Sustainable Deep Underground Monitoring",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "地下无线网络探针与通信深度解耦，不是三维地下感知/定位或导航。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.33202",
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.34845%2C2610.34819%2C2610.34632%2C2610.34618%2C2610.34600%2C2610.34597%2C2610.34564%2C2610.34346%2C2610.34344%2C2610.34263%2C2610.34235%2C2610.34233%2C2610.34218%2C2610.34190%2C2610.34037%2C2610.34033%2C2610.34028%2C2610.33988%2C2610.33941%2C2610.33894%2C2610.33868%2C2610.33755%2C2610.33704%2C2610.33695%2C2610.33661%2C2610.33656%2C2610.33589%2C2610.33575%2C2610.33566%2C2610.33504%2C2610.33484%2C2610.33356%2C2610.33169%2C2610.33118%2C2610.33054%2C2610.35529%2C2610.35224%2C2610.34904%2C2610.33127%2C2610.32977%2C2610.32800%2C2610.32792%2C2610.32697%2C2610.32663%2C2610.32381%2C2610.32321%2C2610.32250%2C2610.32182%2C2610.32174%2C2610.32073%2C2610.31950%2C2610.31908%2C2610.31747%2C2610.32816%2C2610.32177%2C2610.32039%2C2610.31892%2C2610.31645%2C2610.31635%2C2610.31623%2C2610.31321%2C2610.31320%2C2610.31293%2C2610.31253%2C2610.31186%2C2610.31140%2C2610.31123%2C2610.31108%2C2610.30974%2C2610.30944%2C2610.30824%2C2610.30814%2C2610.30781%2C2610.30774%2C2610.30724%2C2610.30643%2C2610.30619%2C2610.30609%2C2610.30468%2C2610.30340%2C2610.30326%2C2610.30293%2C2610.30910%2C2610.38953%2C2610.37740%2C2610.35902%2C2610.33256%2C2610.38350%2C2610.37926%2C2610.36555%2C2610.34184%2C2610.33202%2C2610.35813%2C2610.35569%2C2610.32010%2C2610.30683%2C2610.10181%2C2610.12568%2C2610.12624%2C2610.20226&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.33202v1"
+    ]
+  },
+  {
+    "id": "2610.32792",
+    "title": "SREdit: Scene Response Guided Appearance Editing for Projection Mapping",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "已重建固定物体的投影外观编辑及光照补偿；不提出场景重建、配准或位姿估计方法。是最接近3D应用边界的排除项，保留摘要供主审。",
+    "borderline": true,
+    "original_reference": "main-offscope-decisions.json#2610.32792",
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.34845%2C2610.34819%2C2610.34632%2C2610.34618%2C2610.34600%2C2610.34597%2C2610.34564%2C2610.34346%2C2610.34344%2C2610.34263%2C2610.34235%2C2610.34233%2C2610.34218%2C2610.34190%2C2610.34037%2C2610.34033%2C2610.34028%2C2610.33988%2C2610.33941%2C2610.33894%2C2610.33868%2C2610.33755%2C2610.33704%2C2610.33695%2C2610.33661%2C2610.33656%2C2610.33589%2C2610.33575%2C2610.33566%2C2610.33504%2C2610.33484%2C2610.33356%2C2610.33169%2C2610.33118%2C2610.33054%2C2610.35529%2C2610.35224%2C2610.34904%2C2610.33127%2C2610.32977%2C2610.32800%2C2610.32792%2C2610.32697%2C2610.32663%2C2610.32381%2C2610.32321%2C2610.32250%2C2610.32182%2C2610.32174%2C2610.32073%2C2610.31950%2C2610.31908%2C2610.31747%2C2610.32816%2C2610.32177%2C2610.32039%2C2610.31892%2C2610.31645%2C2610.31635%2C2610.31623%2C2610.31321%2C2610.31320%2C2610.31293%2C2610.31253%2C2610.31186%2C2610.31140%2C2610.31123%2C2610.31108%2C2610.30974%2C2610.30944%2C2610.30824%2C2610.30814%2C2610.30781%2C2610.30774%2C2610.30724%2C2610.30643%2C2610.30619%2C2610.30609%2C2610.30468%2C2610.30340%2C2610.30326%2C2610.30293%2C2610.30910%2C2610.38953%2C2610.37740%2C2610.35902%2C2610.33256%2C2610.38350%2C2610.37926%2C2610.36555%2C2610.34184%2C2610.33202%2C2610.35813%2C2610.35569%2C2610.32010%2C2610.30683%2C2610.10181%2C2610.12568%2C2610.12624%2C2610.20226&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.32792v1",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22loop+closure%22%29+OR+%28abs%3A%22loop+closure%22%29+OR+%28ti%3Arelocalization%29+OR+%28abs%3Arelocalization%29+OR+%28ti%3Arelocalisation%29+OR+%28abs%3Arelocalisation%29+OR+%28ti%3Aregistration%29+OR+%28abs%3Aregistration%29+OR+%28ti%3A%22bundle+adjustment%22%29+OR+%28abs%3A%22bundle+adjustment%22%29+OR+%28ti%3A%22pose+graph%22%29+OR+%28abs%3A%22pose+graph%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22loop+closure%22%29+OR+%28abs%3A%22loop+closure%22%29+OR+%28ti%3Arelocalization%29+OR+%28abs%3Arelocalization%29+OR+%28ti%3Arelocalisation%29+OR+%28abs%3Arelocalisation%29+OR+%28ti%3Aregistration%29+OR+%28abs%3Aregistration%29+OR+%28ti%3A%22bundle+adjustment%22%29+OR+%28abs%3A%22bundle+adjustment%22%29+OR+%28ti%3A%22pose+graph%22%29+OR+%28abs%3A%22pose+graph%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22loop+closure%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=relocalization&terms-1-field=all&terms-2-operator=OR&terms-2-term=relocalisation&terms-2-field=all&terms-3-operator=OR&terms-3-term=registration&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22bundle+adjustment%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22pose+graph%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.32792",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22loop+closure%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=relocalization&terms-1-field=all&terms-2-operator=OR&terms-2-term=relocalisation&terms-2-field=all&terms-3-operator=OR&terms-3-term=registration&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22bundle+adjustment%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22pose+graph%22&terms-5-field=all"
+    ]
+  },
+  {
+    "id": "2610.31140",
+    "title": "GM-GReFEL: Geometry-Guided Spatiotemporal State-Space Learning for Robust Dynamic Facial Expression Recognition",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "面部表情识别的时空网络及分类几何anchors，不恢复三维人脸或相机位姿。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.31140",
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.34845%2C2610.34819%2C2610.34632%2C2610.34618%2C2610.34600%2C2610.34597%2C2610.34564%2C2610.34346%2C2610.34344%2C2610.34263%2C2610.34235%2C2610.34233%2C2610.34218%2C2610.34190%2C2610.34037%2C2610.34033%2C2610.34028%2C2610.33988%2C2610.33941%2C2610.33894%2C2610.33868%2C2610.33755%2C2610.33704%2C2610.33695%2C2610.33661%2C2610.33656%2C2610.33589%2C2610.33575%2C2610.33566%2C2610.33504%2C2610.33484%2C2610.33356%2C2610.33169%2C2610.33118%2C2610.33054%2C2610.35529%2C2610.35224%2C2610.34904%2C2610.33127%2C2610.32977%2C2610.32800%2C2610.32792%2C2610.32697%2C2610.32663%2C2610.32381%2C2610.32321%2C2610.32250%2C2610.32182%2C2610.32174%2C2610.32073%2C2610.31950%2C2610.31908%2C2610.31747%2C2610.32816%2C2610.32177%2C2610.32039%2C2610.31892%2C2610.31645%2C2610.31635%2C2610.31623%2C2610.31321%2C2610.31320%2C2610.31293%2C2610.31253%2C2610.31186%2C2610.31140%2C2610.31123%2C2610.31108%2C2610.30974%2C2610.30944%2C2610.30824%2C2610.30814%2C2610.30781%2C2610.30774%2C2610.30724%2C2610.30643%2C2610.30619%2C2610.30609%2C2610.30468%2C2610.30340%2C2610.30326%2C2610.30293%2C2610.30910%2C2610.38953%2C2610.37740%2C2610.35902%2C2610.33256%2C2610.38350%2C2610.37926%2C2610.36555%2C2610.34184%2C2610.33202%2C2610.35813%2C2610.35569%2C2610.32010%2C2610.30683%2C2610.10181%2C2610.12568%2C2610.12624%2C2610.20226&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.31140v1"
+    ]
+  },
+  {
+    "id": "2610.32039",
+    "title": "Rethinking Representation Geometry in Supervised Contrastive Learning under Long-Tailed Data",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "监督对比学习的特征单纯形理论，不是物理多视图几何。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.32039",
+    "source_urls": [
+      "https://export.arxiv.org/api/query?id_list=2610.34845%2C2610.34819%2C2610.34632%2C2610.34618%2C2610.34600%2C2610.34597%2C2610.34564%2C2610.34346%2C2610.34344%2C2610.34263%2C2610.34235%2C2610.34233%2C2610.34218%2C2610.34190%2C2610.34037%2C2610.34033%2C2610.34028%2C2610.33988%2C2610.33941%2C2610.33894%2C2610.33868%2C2610.33755%2C2610.33704%2C2610.33695%2C2610.33661%2C2610.33656%2C2610.33589%2C2610.33575%2C2610.33566%2C2610.33504%2C2610.33484%2C2610.33356%2C2610.33169%2C2610.33118%2C2610.33054%2C2610.35529%2C2610.35224%2C2610.34904%2C2610.33127%2C2610.32977%2C2610.32800%2C2610.32792%2C2610.32697%2C2610.32663%2C2610.32381%2C2610.32321%2C2610.32250%2C2610.32182%2C2610.32174%2C2610.32073%2C2610.31950%2C2610.31908%2C2610.31747%2C2610.32816%2C2610.32177%2C2610.32039%2C2610.31892%2C2610.31645%2C2610.31635%2C2610.31623%2C2610.31321%2C2610.31320%2C2610.31293%2C2610.31253%2C2610.31186%2C2610.31140%2C2610.31123%2C2610.31108%2C2610.30974%2C2610.30944%2C2610.30824%2C2610.30814%2C2610.30781%2C2610.30774%2C2610.30724%2C2610.30643%2C2610.30619%2C2610.30609%2C2610.30468%2C2610.30340%2C2610.30326%2C2610.30293%2C2610.30910%2C2610.38953%2C2610.37740%2C2610.35902%2C2610.33256%2C2610.38350%2C2610.37926%2C2610.36555%2C2610.34184%2C2610.33202%2C2610.35813%2C2610.35569%2C2610.32010%2C2610.30683%2C2610.10181%2C2610.12568%2C2610.12624%2C2610.20226&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.32039v1"
+    ]
+  },
+  {
+    "id": "2610.31801",
+    "title": "KiRoSe: Using Kinematic Data for Efficient Segmentation of Robot Demonstrations",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "机器人已知运动学轨迹的语义时间切分，不估计机器人位姿或环境地图。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.31801",
+    "source_urls": [
+      "https://export.arxiv.org/api/query?search_query=%28%28%28ti%3ALiDAR%29+OR+%28abs%3ALiDAR%29+OR+%28ti%3Aradar%29+OR+%28abs%3Aradar%29+OR+%28ti%3A%22RGB-D%22%29+OR+%28abs%3A%22RGB-D%22%29+OR+%28ti%3Amonocular%29+OR+%28abs%3Amonocular%29+OR+%28ti%3A%22multi-camera%22%29+OR+%28abs%3A%22multi-camera%22%29%29+AND+%28ti%3Aodometry+OR+abs%3Aodometry+OR+ti%3ASLAM+OR+abs%3ASLAM+OR+ti%3Alocalization+OR+abs%3Alocalization+OR+ti%3Acalibration+OR+abs%3Acalibration%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/abs/2610.31801v1",
+      "https://export.arxiv.org/api/query?search_query=%28%28%28ti%3ALiDAR%29+OR+%28abs%3ALiDAR%29+OR+%28ti%3Aradar%29+OR+%28abs%3Aradar%29+OR+%28ti%3A%22RGB-D%22%29+OR+%28abs%3A%22RGB-D%22%29+OR+%28ti%3Amonocular%29+OR+%28abs%3Amonocular%29+OR+%28ti%3A%22multi-camera%22%29+OR+%28abs%3A%22multi-camera%22%29%29+AND+%28ti%3Aodometry+OR+abs%3Aodometry+OR+ti%3ASLAM+OR+abs%3ASLAM+OR+ti%3Alocalization+OR+abs%3Alocalization+OR+ti%3Acalibration+OR+abs%3Acalibration%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=200&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=200&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=LiDAR&terms-0-field=all&terms-1-operator=OR&terms-1-term=radar&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22RGB-D%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=monocular&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-camera%22&terms-4-field=all",
+      "https://arxiv.org/abs/2610.31801",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=LiDAR&terms-0-field=all&terms-1-operator=OR&terms-1-term=radar&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22RGB-D%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=monocular&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-camera%22&terms-4-field=all",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=400&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all"
+    ]
+  },
+  {
+    "id": "2610.34367",
+    "title": "Sharp diameter estimates via integral geometry",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "嵌入曲面直径与平均曲率的纯数学定理。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.34367",
+    "source_urls": [
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3AVGGT%29+OR+%28abs%3AVGGT%29+OR+%28ti%3A%22VGGT-%CE%A9%22%29+OR+%28abs%3A%22VGGT-%CE%A9%22%29+OR+%28ti%3AOmniVGGT%29+OR+%28abs%3AOmniVGGT%29+OR+%28ti%3A%22geometry+foundation%22%29+OR+%28abs%3A%22geometry+foundation%22%29+OR+%28ti%3A%22visual+geometry+transformer%22%29+OR+%28abs%3A%22visual+geometry+transformer%22%29+OR+%28ti%3ADUSt3R%29+OR+%28abs%3ADUSt3R%29+OR+%28ti%3AMASt3R%29+OR+%28abs%3AMASt3R%29+OR+%28ti%3Api3%29+OR+%28abs%3Api3%29+OR+%28ti%3A%22%CF%80%C2%B3%22%29+OR+%28abs%3A%22%CF%80%C2%B3%22%29+OR+%28ti%3ADA3%29+OR+%28abs%3ADA3%29+OR+%28ti%3A%22Depth+Anything%22%29+OR+%28abs%3A%22Depth+Anything%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/abs/2610.34367v1",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3AVGGT%29+OR+%28abs%3AVGGT%29+OR+%28ti%3A%22VGGT-%CE%A9%22%29+OR+%28abs%3A%22VGGT-%CE%A9%22%29+OR+%28ti%3AOmniVGGT%29+OR+%28abs%3AOmniVGGT%29+OR+%28ti%3A%22geometry+foundation%22%29+OR+%28abs%3A%22geometry+foundation%22%29+OR+%28ti%3A%22visual+geometry+transformer%22%29+OR+%28abs%3A%22visual+geometry+transformer%22%29+OR+%28ti%3ADUSt3R%29+OR+%28abs%3ADUSt3R%29+OR+%28ti%3AMASt3R%29+OR+%28abs%3AMASt3R%29+OR+%28ti%3Api3%29+OR+%28abs%3Api3%29+OR+%28ti%3A%22%CF%80%C2%B3%22%29+OR+%28abs%3A%22%CF%80%C2%B3%22%29+OR+%28ti%3ADA3%29+OR+%28abs%3ADA3%29+OR+%28ti%3A%22Depth+Anything%22%29+OR+%28abs%3A%22Depth+Anything%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=VGGT&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22VGGT-%CE%A9%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=OmniVGGT&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometry+foundation%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual+geometry+transformer%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=DUSt3R&terms-5-field=all&terms-6-operator=OR&terms-6-term=MASt3R&terms-6-field=all&terms-7-operator=OR&terms-7-term=pi3&terms-7-field=all&terms-8-operator=OR&terms-8-term=%22%CF%80%C2%B3%22&terms-8-field=all&terms-9-operator=OR&terms-9-term=DA3&terms-9-field=all&terms-10-operator=OR&terms-10-term=%22Depth+Anything%22&terms-10-field=all",
+      "https://arxiv.org/abs/2610.34367",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=VGGT&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22VGGT-%CE%A9%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=OmniVGGT&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometry+foundation%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22visual+geometry+transformer%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=DUSt3R&terms-5-field=all&terms-6-operator=OR&terms-6-term=MASt3R&terms-6-field=all&terms-7-operator=OR&terms-7-term=pi3&terms-7-field=all&terms-8-operator=OR&terms-8-term=%22%CF%80%C2%B3%22&terms-8-field=all&terms-9-operator=OR&terms-9-term=DA3&terms-9-field=all&terms-10-operator=OR&terms-10-term=%22Depth+Anything%22&terms-10-field=all"
+    ]
+  },
+  {
+    "id": "2610.38752",
+    "title": "Hardwired Distributed Processing Units at the Sensor: Truly Parallel Vision Pre-Processing that Frees the Host CPU",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "FPGA并行Canny/Harris和线跟踪预处理，验证闭环循线车辆；未评估SLAM、位姿、三维建图或空间导航，是传感硬件邻接边界项。",
+    "borderline": true,
+    "original_reference": "main-offscope-decisions.json#2610.38752",
+    "source_urls": [
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/abs/2610.38752v1",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/abs/2610.38752",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all"
+    ]
+  },
+  {
+    "id": "2610.38377",
+    "title": "Is Dual Polarization Always Optimal? Unlocking New Spatial Degrees of Freedom",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "三极化天线通信空间流，不是空间环境估计或地图。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.38377",
+    "source_urls": [
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/abs/2610.38377v1",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/abs/2610.38377",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all"
+    ]
+  },
+  {
+    "id": "2610.36956",
+    "title": "Mining the Nineteenth Century for the Thirteenth: Register-Scale Forced Alignment and HTR Bootstrapping via Legacy Regesta and Antiquarian Editions",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "历史手写文献识别与文本对齐，register是档案册，不是几何配准。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.36956",
+    "source_urls": [
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/abs/2610.36956v1",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/abs/2610.36956",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all"
+    ]
+  },
+  {
+    "id": "2610.36628",
+    "title": "The Batch Size Can Be One: Test-Time Adaptation from Classifier Geometry",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "分类器特征空间的测试时适应，未涉及物理三维任务。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.36628",
+    "source_urls": [
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/abs/2610.36628v1",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/abs/2610.36628",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all"
+    ]
+  },
+  {
+    "id": "2610.36574",
+    "title": "ADTGuard: Adaptive Depth-Time Safeguard for Streaming Inference in Large Language Models",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "LLM流式输出安全检测，深度是网络层，流式不是几何流。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.36574",
+    "source_urls": [
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/abs/2610.36574v1",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/abs/2610.36574",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all"
+    ]
+  },
+  {
+    "id": "2610.35171",
+    "title": "A Congestion-Aware RDMA Front-End for LST Advanced Camera Readout",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "天文望远镜相机数据RDMA传输和拥塞管理，不估计观测几何。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.35171",
+    "source_urls": [
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/abs/2610.35171v1",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/abs/2610.35171",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all"
+    ]
+  },
+  {
+    "id": "2610.33324",
+    "title": "Accretion Geometry and Variability in QS Telescopii from multi-epoch Observations",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "恒星吸积流的天体物理多时相观测及多普勒层析，不是计算机视觉SLAM范围。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.33324",
+    "source_urls": [
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=200&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/abs/2610.33324v1",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=200&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/abs/2610.33324",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all"
+    ]
+  },
+  {
+    "id": "2610.32749",
+    "title": "Efficient Streaming Audio-Visual Target Speaker Extraction for Real-World Acoustic Scenes",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "流式音视频目标说话人提取，未估计三维声源地图或机器人导航。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.32749",
+    "source_urls": [
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+submittedDate%3A%5B202610220000+TO+202611011459%5D&start=200&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/abs/2610.32749v1",
+      "https://export.arxiv.org/api/query?search_query=%28%28ti%3A%22long-sequence%22%29+OR+%28abs%3A%22long-sequence%22%29+OR+%28ti%3A%22long-horizon%22%29+OR+%28abs%3A%22long-horizon%22%29+OR+%28ti%3Astreaming%29+OR+%28abs%3Astreaming%29+OR+%28ti%3A%22efficient+attention%22%29+OR+%28abs%3A%22efficient+attention%22%29+OR+%28ti%3A%22online+reconstruction%22%29+OR+%28abs%3A%22online+reconstruction%22%29%29+AND+lastUpdatedDate%3A%5B202610220000+TO+202611011459%5D&start=200&max_results=200&sortBy=submittedDate&sortOrder=descending",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/abs/2610.32749",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=400&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all"
+    ]
+  },
+  {
+    "id": "2610.38042",
+    "title": "Can Event Detectors Leave the Broadcast Camera? Evidence from Tennis",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "网球广播/手机视角下反弹击球事件定位，event是语义动作事件，不是事件相机几何。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.38042",
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date_first&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=LiDAR&terms-0-field=all&terms-1-operator=OR&terms-1-term=radar&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22RGB-D%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=monocular&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-camera%22&terms-4-field=all",
+      "https://arxiv.org/abs/2610.38042",
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=LiDAR&terms-0-field=all&terms-1-operator=OR&terms-1-term=radar&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22RGB-D%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=monocular&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-camera%22&terms-4-field=all",
+      "https://export.arxiv.org/api/query?id_list=2606.29868%2C2606.14534%2C2605.09383%2C2610.00329%2C2607.08115%2C2510.04883%2C2610.09857%2C2508.04236%2C2602.16870%2C2609.31418%2C2605.30488%2C2601.00705%2C2603.26638%2C2610.06085%2C2604.04554%2C2610.25068%2C2610.10623%2C2503.17668%2C2609.18465%2C2602.18381%2C2609.11472%2C2608.28715%2C2610.13706%2C2608.09837%2C2606.03163%2C2606.03161%2C2609.34015%2C2608.17269%2C2609.30346%2C2607.26292%2C2609.29636%2C2610.29304%2C2610.40640%2C2610.40253%2C2610.40114%2C2610.40107%2C2610.39628%2C2610.35210%2C2610.39110%2C2610.39011%2C2610.38898%2C2610.38794%2C2610.38042%2C2610.37784%2C2610.37519%2C2610.37470%2C2610.37307%2C2610.37216%2C2610.37089%2C2610.37084%2C2610.37067%2C2610.36907%2C2610.36751%2C2610.36622%2C2610.36599%2C2610.36592%2C2610.36546%2C2610.36301%2C2610.36203%2C2610.34869%2C2610.34405%2C2610.34223%2C2610.33916%2C2610.33286%2C2610.32966%2C2610.33142%2C2610.32612%2C2610.32563%2C2610.32277%2C2610.32202%2C2503.15625%2C2606.29976%2C2605.16163%2C2610.23980%2C2606.05506%2C2608.07267%2C2205.12583%2C2610.16959%2C2604.19673%2C2503.18111%2C2608.08285%2C2610.14561%2C2605.08530%2C2602.20317%2C2604.23095%2C2609.06242%2C2606.26854%2C2610.28465%2C2607.13624%2C2605.31217%2C2603.27534%2C2609.11115%2C2609.32596%2C2603.18520%2C2608.27860%2C2606.02366%2C2604.17582%2C2511.22459%2C2605.31177%2C2412.01090&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.38042v1"
+    ]
+  },
+  {
+    "id": "2605.16600",
+    "title": "The Geometry of Learning: Read-Write Asymmetry Across Training",
+    "version": 2,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "Transformer训练权重变化在残差特征空间中的几何，不是物理场景。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2605.16600",
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/abs/2605.16600",
+      "https://export.arxiv.org/api/query?id_list=2510.01767%2C2609.34026%2C2609.33795%2C2510.27434%2C2610.05900%2C2602.18020%2C2601.00913%2C2606.01950%2C2604.07279%2C2603.28064%2C2602.13444%2C2504.02321%2C2512.01675%2C2607.21242%2C2607.11183%2C2609.02847%2C2606.03825%2C2510.18714%2C2606.19609%2C2602.14635%2C2610.25113%2C2604.04673%2C2605.23889%2C2607.22483%2C2610.27712%2C2309.10333%2C2610.29959%2C2604.23862%2C2610.03228%2C2506.09856%2C2609.23377%2C2609.00570%2C2603.08588%2C2610.21835%2C2605.12655%2C2608.20084%2C2610.16515%2C2610.00010%2C2609.17419%2C2610.12265%2C2605.18346%2C2510.21767%2C2608.15334%2C2607.27982%2C2605.16679%2C2609.19899%2C2608.04565%2C2607.01804%2C2608.11579%2C2407.05302%2C2603.22016%2C2609.36485%2C2610.22686%2C2603.19813%2C2601.02629%2C2603.11171%2C2609.18635%2C2608.28665%2C2610.30448%2C2610.29123%2C2608.04527%2C2607.11653%2C2603.15213%2C2602.18801%2C2604.12563%2C2607.13429%2C2606.31689%2C2608.09804%2C2608.27562%2C2608.09802%2C2610.03230%2C2508.04189%2C2510.22105%2C2604.18215%2C2610.19115%2C2605.16600%2C2512.04974%2C2610.25459%2C2602.22724%2C2512.04600%2C2608.06745%2C2602.05843%2C2610.13020%2C2506.19846%2C2607.13884%2C2606.04874%2C2606.05158%2C2609.32732%2C2512.16074%2C2606.01621%2C2512.23864%2C2610.19683%2C2606.03385%2C2605.02960%2C2601.02462%2C2609.14087%2C2510.18239%2C2608.16498%2C2606.15796%2C2605.09410&max_results=100&start=0",
+      "https://arxiv.org/abs/2605.16600v2"
+    ]
+  },
+  {
+    "id": "2605.04971",
+    "title": "Why Geometric Continuity Emerges in Deep Neural Networks: Residual Connections and Rotational Symmetry Breaking",
+    "version": 2,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "神经网络权重奇异向量跨层对齐，不是跨视图几何。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2605.04971",
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=200&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/abs/2605.04971",
+      "https://export.arxiv.org/api/query?id_list=2607.15198%2C2606.02780%2C2605.03953%2C2610.30089%2C2609.35744%2C2607.22433%2C2610.04906%2C2608.19842%2C2606.20627%2C2605.29483%2C2608.08730%2C2605.29864%2C2605.04971%2C2610.28402%2C2605.24218%2C2605.05549%2C2610.24016%2C2609.05834%2C2610.26931%2C2608.09761%2C2603.16063%2C2606.12019%2C2607.03863%2C2606.29718%2C2609.09860%2C2606.11949%2C2605.22488%2C2610.23334%2C2610.29458%2C2610.27039%2C2606.31179%2C2606.05405%2C2608.24127%2C2606.18048%2C2602.13086%2C1403.7645%2C2605.27138%2C2609.35501%2C2608.05776%2C2604.08362%2C2606.20952%2C2605.18859%2C2505.17152%2C2610.29176%2C2610.15910%2C2610.26179%2C2608.29967%2C2604.16615%2C2604.16657%2C2609.18784%2C2602.01331%2C2609.31868%2C2601.14895%2C2610.29169%2C2606.18778%2C2610.10429%2C2603.16313%2C2510.24410%2C2610.05414%2C2610.25898%2C2607.19913%2C2603.18987%2C2606.22039%2C2607.07128%2C2610.20959%2C2603.25903%2C2610.29720%2C2610.29014%2C2602.16429%2C2606.06473%2C2609.22486%2C2608.16156%2C2604.07993%2C2608.19893%2C2608.28886%2C2509.17401%2C2512.01492%2C2607.22140%2C2609.40003%2C2609.21426%2C2606.12844%2C2610.22008%2C2610.05891%2C2512.02631%2C2602.17700%2C2610.25959%2C2609.20191%2C2606.08666%2C2610.00012%2C2610.29534%2C2503.07338%2C2609.33595%2C2603.29572%2C2610.26844%2C2609.36305%2C2608.23927%2C2606.07687%2C2606.08555%2C2510.19818%2C2609.15113&max_results=100&start=0",
+      "https://arxiv.org/abs/2605.04971v2"
+    ]
+  },
+  {
+    "id": "2606.18778",
+    "title": "Online Distributional Prediction via Latent Cluster Geometry Under Drift and Corruption",
+    "version": 2,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "分布漂移下潜在聚类概率预测的理论界，不涉及定位建图。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2606.18778",
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=400&terms-0-operator=AND&terms-0-term=%22long-sequence%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22long-horizon%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=streaming&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22efficient+attention%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22online+reconstruction%22&terms-4-field=all",
+      "https://arxiv.org/abs/2606.18778",
+      "https://export.arxiv.org/api/query?id_list=2607.15198%2C2606.02780%2C2605.03953%2C2610.30089%2C2609.35744%2C2607.22433%2C2610.04906%2C2608.19842%2C2606.20627%2C2605.29483%2C2608.08730%2C2605.29864%2C2605.04971%2C2610.28402%2C2605.24218%2C2605.05549%2C2610.24016%2C2609.05834%2C2610.26931%2C2608.09761%2C2603.16063%2C2606.12019%2C2607.03863%2C2606.29718%2C2609.09860%2C2606.11949%2C2605.22488%2C2610.23334%2C2610.29458%2C2610.27039%2C2606.31179%2C2606.05405%2C2608.24127%2C2606.18048%2C2602.13086%2C1403.7645%2C2605.27138%2C2609.35501%2C2608.05776%2C2604.08362%2C2606.20952%2C2605.18859%2C2505.17152%2C2610.29176%2C2610.15910%2C2610.26179%2C2608.29967%2C2604.16615%2C2604.16657%2C2609.18784%2C2602.01331%2C2609.31868%2C2601.14895%2C2610.29169%2C2606.18778%2C2610.10429%2C2603.16313%2C2510.24410%2C2610.05414%2C2610.25898%2C2607.19913%2C2603.18987%2C2606.22039%2C2607.07128%2C2610.20959%2C2603.25903%2C2610.29720%2C2610.29014%2C2602.16429%2C2606.06473%2C2609.22486%2C2608.16156%2C2604.07993%2C2608.19893%2C2608.28886%2C2509.17401%2C2512.01492%2C2607.22140%2C2609.40003%2C2609.21426%2C2606.12844%2C2610.22008%2C2610.05891%2C2512.02631%2C2602.17700%2C2610.25959%2C2609.20191%2C2606.08666%2C2610.00012%2C2610.29534%2C2503.07338%2C2609.33595%2C2603.29572%2C2610.26844%2C2609.36305%2C2608.23927%2C2606.07687%2C2606.08555%2C2510.19818%2C2609.15113&max_results=100&start=0",
+      "https://arxiv.org/abs/2606.18778v2"
+    ]
+  },
+  {
+    "id": "2610.05891",
+    "title": "Spatial Supervision Without Attribution Optimization: Improving Post-Hoc Class Activation Maps via Box-Guided Evidence Routing",
+    "version": 2,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "二维分类CAM热图监督，spatial是图像区域，不是物理三维或导航。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.05891",
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-22&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22embodied+navigation%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=VLN&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22vision-language+navigation%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22active+mapping%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22semantic+mapping%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22open-vocabulary+mapping%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.05891",
+      "https://export.arxiv.org/api/query?id_list=2607.15198%2C2606.02780%2C2605.03953%2C2610.30089%2C2609.35744%2C2607.22433%2C2610.04906%2C2608.19842%2C2606.20627%2C2605.29483%2C2608.08730%2C2605.29864%2C2605.04971%2C2610.28402%2C2605.24218%2C2605.05549%2C2610.24016%2C2609.05834%2C2610.26931%2C2608.09761%2C2603.16063%2C2606.12019%2C2607.03863%2C2606.29718%2C2609.09860%2C2606.11949%2C2605.22488%2C2610.23334%2C2610.29458%2C2610.27039%2C2606.31179%2C2606.05405%2C2608.24127%2C2606.18048%2C2602.13086%2C1403.7645%2C2605.27138%2C2609.35501%2C2608.05776%2C2604.08362%2C2606.20952%2C2605.18859%2C2505.17152%2C2610.29176%2C2610.15910%2C2610.26179%2C2608.29967%2C2604.16615%2C2604.16657%2C2609.18784%2C2602.01331%2C2609.31868%2C2601.14895%2C2610.29169%2C2606.18778%2C2610.10429%2C2603.16313%2C2510.24410%2C2610.05414%2C2610.25898%2C2607.19913%2C2603.18987%2C2606.22039%2C2607.07128%2C2610.20959%2C2603.25903%2C2610.29720%2C2610.29014%2C2602.16429%2C2606.06473%2C2609.22486%2C2608.16156%2C2604.07993%2C2608.19893%2C2608.28886%2C2509.17401%2C2512.01492%2C2607.22140%2C2609.40003%2C2609.21426%2C2606.12844%2C2610.22008%2C2610.05891%2C2512.02631%2C2602.17700%2C2610.25959%2C2609.20191%2C2606.08666%2C2610.00012%2C2610.29534%2C2503.07338%2C2609.33595%2C2603.29572%2C2610.26844%2C2609.36305%2C2608.23927%2C2606.07687%2C2606.08555%2C2510.19818%2C2609.15113&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.05891v2"
+    ]
+  },
+  {
+    "id": "2610.33715",
+    "title": "Quantum Closed Loop Inverse Kinematics Through Hilbert-Space Encoding of Robot Kinematics",
+    "version": 1,
+    "abstract_read": true,
+    "evidence_level": "abstract",
+    "read_sections": [
+      "Abstract (complete; independent risk audit)"
+    ],
+    "decision": "agree_exclude",
+    "reason": "已知串联机械臂运动学的量子表示与逆运动学，非观测式相机/环境状态估计。",
+    "borderline": false,
+    "original_reference": "main-offscope-decisions.json#2610.33715",
+    "source_urls": [
+      "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22metric+scale%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22point+map%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22multi-view+stereo%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22geometric+memory%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22camera+recovery%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22dense+geometry%22&terms-5-field=all",
+      "https://arxiv.org/abs/2610.33715",
+      "https://export.arxiv.org/api/query?id_list=2605.17912%2C2610.10270%2C2610.22340%2C2506.07450%2C2609.35032%2C2609.22798%2C2609.34826%2C2606.07974%2C2610.18826%2C2609.39135%2C2609.05588%2C2511.18991%2C2602.08032%2C2606.03371%2C2605.13775%2C2608.24885%2C2607.06988%2C2610.20731%2C2609.17210%2C2607.21620%2C2610.38879%2C2610.36881%2C2505.07687%2C2606.01734%2C2610.33669%2C2610.40648%2C2512.24036%2C2610.40066%2C2604.23018%2C2610.33715%2C2602.00414%2C2610.35817%2C2610.36146%2C2601.11460%2C2608.12290%2C2606.04689&max_results=100&start=0",
+      "https://arxiv.org/abs/2610.33715v1"
+    ]
+  }
+]

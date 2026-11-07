@@ -1,0 +1,297 @@
+[p1.2] Journal X (2023) 12:684
+
+[None] LingGS: Decoupling Feed-Forward Geometry Prediction from Camera Tracking for High-Fidelity Gaussian SLAM
+
+[S1] 1 Introduction
+
+[S1.p1.1] Monocular Gaussian SLAM aims to estimate the camera pose and build a renderable scene map online using only an RGB image stream. This capability supports immersive interaction, live scene capture, and remote interaction in AR/VR and robotics. 3D Gaussian splatting (GS) ( Kerbl et al., 2023 ) provides an explicit scene representation with efficient rendering and differentiable mapping, making it a useful representation for dense SLAM. However, unlike RGB-D Gaussian SLAM methods ( Keetha et al., 2024 ; Yan et al., 2024 ; Yugay et al., 2023 ; Peng et al., 2024 ; Ha et al., 2024 ; Zhu et al., 2025 ) , without measured depth, the monocular GS SLAM system must jointly recover camera pose, scene geometry, and the appearance, within a limited computational budget.
+
+[S1.p2.1] Methods that rely on sparse feature points or incremental map optimization struggle to achieve high-fidelity mapping Matsuki et al., 2024 ; Huang et al., 2024 . Learned dense priors help fill this gap, but integrating them into a consistent map introduces further challenges. Dense depth prediction and camera joint optimization add online computational cost ( Homeyer et al., 2025 ; Cheng et al., 2025 ) , while per-frame depth predictions do not ensure cross-frame scale consistency and require additional scale recovery and geometric alignment ( Deng et al., 2025 ; Yu et al., 2026 ) . Consistent depth and camera poses are both essential to this task. Depth determines where Gaussians are initialized, while camera poses determine whether observations from different frames align. Poor initialization requires additional map refinement, and inaccurate poses introduce conflicting observations that can blur the reconstructed scene. The challenge is therefore to obtain consistent dense depth and camera poses together within a limited online computational budget.
+
+[S1.p3.1] Streaming 3D foundation models offer a promising starting point. By maintaining temporal context, they predict consistent dense depth and camera poses as images arrive ( Su et al., 2026 ; Zhuo et al., 2026 ; Chen et al., 2026b ; Chen et al., 2026a ) . Their depth predictions provide dense surface estimates for the Gaussian initialization, reducing the need to recover the scene structure from sparse feature points. Yet this advantage depends on the quality of the accompanying poses. We observe that directly using the models’ predicted poses can lead to cross-frame misalignment, limiting reconstruction quality even when useful depth estimates are available. To this end, we introduce an explicit geometry pose solver that combines 2D feature points with predicted depth and utilizes them to jointly constrain camera pose estimation.
+
+[S1.p4.1] Our system requires no additional training and runs at \sim 7 FPS on a single RTX 4090 GPU. It achieves higher rendering quality than the previous baselines across indoor and outdoor datasets, with the lowest depth error and competitive tracking error. Overall, our main contributions are:
+
+[S1.I1.i1.p1.1] Depth-assisted geometric tracking for streaming 3D models. We introduce an explicit geometry solver for camera tracking that combines 2D feature points with predicted depth. Intensive experiments show that our geometry solver can provide better tracking than the learned streaming camera head.
+
+[S1.I1.i2.p1.1] An efficient monocular Gaussian SLAM system. We build a faster high-fidelity monocular GS SLAM system combining the geometric solver, a frozen streaming model, and a Gaussian mapper, leading to higher appearance quality. Across evaluated datasets, our system can improve rendering PSNR by up to 3.1 dB.
+
+[S1.I1.i3.p1.1] Generalization of geometry solver across streaming models. We apply our geometry solver to multiple representative streaming models. We show that the geometry solver reduces trajectory error by up to \sim 97% relative to the models’ native camera head, demonstrating its effectiveness across different backbones and providing insight for future streaming model design.
+
+[S2] 2 Related Work
+
+[S2.SS0.SSS0.Px1] Visual tracking without depth prior.
+
+[S2.SS0.SSS0.Px1.p1.1] These methods recover scene geometry from RGB observations through visual tracking and map optimization. MonoGS ( Matsuki et al., 2024 ) estimates poses by photometric alignment with the Gaussian map, making tracking dependent on the quality of the evolving reconstruction. Photo-SLAM ( Huang et al., 2024 ) combines ORB-SLAM3 ( Campos et al., 2021 ) with Gaussian mapping. CaRtGS ( Feng et al., 2025 ) , RP-SLAM ( Bai et al., 2026 ) , and SEGS-SLAM ( Wen et al., 2025 ) further develop this architecture through improvements to computation allocation, map updates, and scene modeling. MGSO ( Hu et al., 2025a ) instead initializes Gaussians from geometry recovered by direct photometric odometry. Without learned dense geometric priors, surface recovery relies on multi-view image observations and parallax. Regions with weak visual constraints may remain insufficiently reconstructed at initialization, requiring interpolation or further geometric refinement during mapping.
+
+[S2.SS0.SSS0.Px2] Learned geometry for tracking and mapping.
+
+[S2.SS0.SSS0.Px2.p1.1] Learned depth and pointmap predictions provide richer surface information for tracking and mapping. Splat-SLAM ( Sandström et al., 2024 ) , DROID-Splat ( Homeyer et al., 2025 ) , and HI-SLAM2 ( Zhang et al., 2025 ) integrate learned dense depth and trajectory refinement. MGS-SLAM ( Zhu et al., 2024 ) uses multi-view depth supervision, while SplatMAP ( Hu et al., 2025b ) updates Gaussian positions using refined poses and depths from dense SLAM, and uses reliability masks to prune or add Gaussians. Some methods strengthen geometric consistency through map-to-tracker feedback or optical flow constraints ( Zhu et al., 2026 ; Seo et al., 2026 ) , and suppress unreliable observations in dynamic scenes ( Zheng et al., 2025 ; Li et al., 2025a ) . These designs improve geometric estimation, but dense tracking and iterative refinement add computation to the online pipeline, limiting their application.
+
+[S2.SS0.SSS0.Px2.p2.1] Feed-forward prediction offers a way to reduce this burden. StreamGS ( Li et al., 2025b ) and Flash-Mono ( Zhang et al., 2026 ) predict poses and Gaussian attributes before limited map refinement, but require intensive model retraining. Pointmap and multi-view foundation models also support tracking and mapping in OpenGS-SLAM ( Yu et al., 2025 ) , ARTDECO ( Li et al., 2026 ) and S3PO-GS ( Cheng et al., 2025 ) , but with a high tracking cost. GeoGS-SLAM ( Gao et al., 2026 ) , VGGT-GS SLAM ( Han et al., 2026 ) , and M 3 ( Ren et al., 2026 ) combine learned predictions with geometric or photometric optimization to refine poses and scene estimates by processing frames in batches. OTF ( Meuleman et al., 2025 ) explores efficient incremental Gaussian construction, but loses the consistent geometry reconstruction.
+
+[S2.SS0.SSS0.Px2.p3.1] Combining predicted geometry with explicit pose estimation is particularly relevant to our work. GigaSLAM ( Deng et al., 2025 ) and KiloGS-SLAM ( Yu et al., 2026 ) use predicted depth with geometric solvers, while KiloGS-SLAM additionally activates learned pixel matching when needed, but they suffer from the scale drift. MonoEM-GS ( Kruzhkov and Behnke, 2026 ) uses the iterative closest point (ICP) to align predicted pointmap with the Gaussian representation. These approaches demonstrate the value of learned geometry for explicit camera estimation. Our work focuses on using streaming consistent depth predictions for camera tracking and Gaussian mapping.
+
+[S3] 3 Method
+
+[S3.F1] Figure 1: Overview of our online Gaussian splatting SLAM system. (a) A frozen streaming foundation model estimates camera intrinsics from the initial RGB frames. (b) Predicted depth and image features support geometric camera tracking through correspondence matching and reprojection error minimization. (c) The Gaussian mapper integrates RGB frames, predicted depth, and estimated poses through keyframe selection, Laplacian-guided Gaussian insertion, and 30-step refinement using RGB and depth losses with keyframe replay.
+
+[S3.p1.1] As illustrated in Figure 1 , given a monocular RGB sequence \{{\bm{\mathsfit{I}}}_{t}\}_{t=1}^{N} , our system combines learned geometric priors with explicit geometric camera tracking to incrementally estimate camera poses and build a Gaussian scene representation. The LingBot-Map ( Chen et al., 2026a ) first establishes a fixed camera calibration {\bm{K}} from the initial frames and subsequently provides depth {\bm{\mathsfit{D}}}_{t} as a virtual depth sensor. The geometric solver (Sec. 3.1 ) combines these geometric measurements with image features to estimate camera poses {{\bm{T}}}_{t} by minimizing reprojection error. The Gaussian mapper (Sec. 3.2 ) integrates ({{\bm{\mathsfit{I}}}}_{t},{{\bm{\mathsfit{D}}}}_{t},{{\bm{T}}}_{t},{\bm{K}}) through keyframe selection, Laplacian-guided Gaussian insertion, and 30 refinement steps using RGB and depth losses with keyframe replay.
+
+[S3.SS1] 3.1 Geometry Solver
+
+[S3.SS1.p1.1] Online Gaussian mapping requires a camera pose for each incoming frame to integrate its observations into a common reconstruction. We build our geometry solver on ORB-SLAM3 ( Campos et al., 2021 ; Huang et al., 2024 ) , using the depth predicted by the LingBot-Map as a virtual RGB-D measurement. At frame t , the solver receives the current RGB image {{\bm{\mathsfit{I}}}}_{t} , the predicted depth map {{\bm{\mathsfit{D}}}}_{t} . Together with the sparse map established from previous observations, these inputs are used to estimate the world-to-camera pose {\bm{T}}_{t}\in SE(3) , which transforms a world point {\bm{x}}^{\mathrm{w}}=[x^{\mathrm{w}},y^{\mathrm{w}},z^{\mathrm{w}},1]^{\top} into the current camera frame as {\bm{x}}_{t}^{\mathrm{c}}={\bm{T}}_{t}{\bm{x}}^{\mathrm{w}} , where {\bm{x}}_{t}^{\mathrm{c}}=[x_{t}^{\mathrm{c}},y_{t}^{\mathrm{c}},z_{t}^{\mathrm{c}},1]^{\top} . At initialization, the first camera defines the reconstruction frame, with {{\bm{T}}}_{1}=\mathbf{I}_{4} . Feature locations with valid predicted depth are back-projected to initialize the sparse map. We retain ORB-SLAM3’s feature extraction, matching, and local bundle adjustment, while specifying how predicted depth contributes to pose estimation. In particular, depth enters the tracking objective as a direct observation with a constant relative-error noise model.
+
+[S3.SS1.SSS0.Px1] Camera pose estimation with a direct depth observation.
+
+[S3.SS1.SSS0.Px1.p1.1] Each frame extracts N_{f}{=}1200 oriented FAST and rotated BRIEF (ORB) image features on an 8-level pyramid. Following ORB-SALM3, we obtain a set of 2D–3D correspondences {{\mathbb{M}}}_{t} between image features and local map points using projection-guided matching. Keeping the map points fixed, we refine the current pose by minimizing a robust combination of image reprojection and depth residuals:
+
+[S3.E1] {\bm{T}}_{t}=\arg\min_{{\bm{T}}\in SE(3)}\sum_{j\in{\mathbb{M}}_{t}}\rho\!\left({\bm{r}}_{j}({\bm{T}})^{\top}{\bm{\Sigma}}_{j}^{-1}{\bm{r}}_{j}({\bm{T}})\right),\hskip 18.49988pt{\bm{r}}_{j}({\bm{T}})=\begin{bmatrix}u_{j}-\pi_{u}({\bm{T}}{\bm{x}}_{j}^{\mathrm{w}})\\ v_{j}-\pi_{v}({\bm{T}}{\bm{x}}_{j}^{\mathrm{w}})\\ z_{j}-[{\bm{T}}{\bm{x}}_{j}^{\mathrm{w}}]_{z}\end{bmatrix}. (1)
+
+[S3.SS1.SSS0.Px1.p1.2] where \pi is the pinhole projection with the frozen {\bm{K}} , [\cdot]_{z} extracts the third coordinate, z_{j}={{\bm{\mathsfit{D}}}}_{t}(u_{j},v_{j}) is the model’s depth at the keypoint, \rho is the Huber kernel, and
+
+[S3.E2] {\bm{\Sigma}}_{j}=\operatorname{diag}\!\big(\sigma_{j}^{2},\ \sigma_{j}^{2},\ (\varepsilon\,z_{j})^{2}\big),\hskip 18.49988pt\varepsilon=0.05, (2)
+
+[S3.SS1.SSS0.Px1.p1.3] with \sigma_{j} the pyramid-level pixel standard deviation. Pose estimation alternates between optimization and outlier re-classification. In each of four outer rounds, the solver refines the current pose using the active feature correspondences, recomputes their residuals and updates their inlier status according to the weighted squared errors. This procedure reduces the influence of incorrect matches on subsequent optimization rounds. We retain the image-plane reprojection residuals and their analytical pose Jacobians from ORB-SLAM3. ORB-SLAM3 represents RGB-D measurements as virtual stereo observations, allowing it to reuse the stereo observation model and optimization framework, but this modeling choice becomes less natural when depth is supplied directly by a feed-forward geometry model rather than inferred from stereo disparity; more details are in Appendix A.1 . For the predicted depth, we instead adopt a constant-relative-uncertainty model and use a direct depth residual with the corresponding uncertainty weight. Our modification replaces the third, virtual-stereo residual with a direct depth residual and updates its Jacobian and information weight accordingly. We therefore describe only the modified depth component below.
+
+[S3.SS1.SSS0.Px1.p2.1] For a matched map point {\bm{x}}_{j}^{\mathrm{w}} , let z_{j}={\bm{\mathsfit{D}}}_{t}(u_{j},v_{j}) denote the observed valid depth at its matched 2D image correspondence. Given a camera pose {\bm{T}} , the reprojected camera-space depth is [{\bm{T}}{\bm{x}}_{j}^{\mathrm{w}}]_{z} . The direct depth residual is
+
+[S3.E3] r_{z,j}({\bm{T}})=z_{j}-[{\bm{T}}{\bm{x}}_{j}^{\mathrm{w}}]_{z}. (3)
+
+[S3.SS1.SSS0.Px1.p3.1] To linearize this residual around the current pose, we introduce a local pose increment \delta\bm{\xi}\in\mathbb{R}^{6} and apply a left perturbation {\bm{T}}(\delta\bm{\xi})=\exp\!\left((\delta\bm{\xi})^{\wedge}\right){\bm{T}} , where
+
+[S3.E4] \delta\bm{\xi}=\begin{bmatrix}\delta\bm{\omega}\\ \delta{\bm{v}}\end{bmatrix},\hskip 18.49988pt(\delta\bm{\xi})^{\wedge}=\begin{bmatrix}[\delta\bm{\omega}]_{\times}&\delta{\bm{v}}\\ \mathbf{0}^{\top}&0\end{bmatrix}\in\mathfrak{se}(3). (4)
+
+[S3.SS1.SSS0.Px1.p3.2] Here, \delta\bm{\omega} and \delta\mathbf{v} respectively denote the rotational and translational increments, following ( Solà et al., 2018 ; Campos et al., 2021 ) . The operator (\cdot)^{\wedge} maps a six-dimensional increment to its matrix representation in SE(3) , and [\cdot]_{\times} denotes the skew-symmetric cross-product matrix. The observed depth and map point remain fixed during pose-only optimization, so only the reprojected camera-space depth depends on the increment. The corresponding Jacobian is therefore
+
+[S3.E5] {\bm{J}}_{z,j}=\left.\frac{\partial r_{z,j}\bigl({\bm{T}}(\delta\bm{\xi})\bigr)}{\partial\delta\bm{\xi}}\right|_{\delta\bm{\xi}=\mathbf{0}}=-\left.\frac{\partial[{\bm{T}}(\delta\bm{\xi}){\bm{x}}_{j}^{\mathrm{w}}]_{z}}{\partial\delta\bm{\xi}}\right|_{\delta\bm{\xi}=\mathbf{0}}. (5)
+
+[S3.SS1.SSS0.Px1.p3.3] This Jacobian describes how a small correction to the current pose changes the depth residual. The depth Jacobian is combined with the image-plane reprojection Jacobians to form the full residual Jacobian. Together with the information matrix {\bm{\Sigma}}_{j}^{-1} and the Huber robust weights, these Jacobians define the linearized pose optimization problem. After solving for the increment \delta\bm{\xi} , we update the pose as {\bm{T}}\leftarrow\exp\!\left((\delta\bm{\xi})^{\wedge}\right){\bm{T}} . This update is repeated within the optimization rounds described above, while keeping the map points and depth observations fixed like ORB-SLAM3.
+
+[S3.SS2] 3.2 Gaussian Mapper
+
+[S3.SS2.p1.1] The mapper incrementally reconstructs the scene as a set of 3D Gaussians,
+
+[S3.E6] {\mathbb{G}}=\left\{({\bm{\mu}}_{i},{\bm{q}}_{i},{\bm{s}}_{i},o_{i},{\bm{c}}_{i})\right\}_{i=1}^{N_{\mathrm{G}}}, (6)
+
+[S3.SS2.p1.2] where {\bm{\mu}}_{i}\in\mathbb{R}^{3} is the center, {\bm{q}}_{i}\in\mathbb{R}^{4} is a unit quaternion, {\bm{s}}_{i}\in\mathbb{R}^{3} contains the principal-axis scales, o_{i}\in(0,1) is the opacity, and {\bm{c}}_{i}\in(0,1)^{3} is the RGB color. The map is updated at selected keyframes through render-aware Gaussian insertion followed by joint refinement with keyframe replay following OTF ( Meuleman et al., 2025 ) . All updates use only the current observation and previously stored keyframes.
+
+[S3.SS2.SSS0.Px1] Laplacian-guided Gaussian insertion.
+
+[S3.SS2.SSS0.Px1.p1.1] New Gaussians are allocated preferentially to image structure that is insufficiently represented by the current map. Let \hat{{{\bm{\mathsfit{I}}}}}_{t} denote the rendered RGB image at pose {\bm{T}}_{t} , and {\bm{p}}=(u,v)^{\top} denote the pixel. We use \ell(\hat{{{\bm{\mathsfit{I}}}}}_{t}) to denote the absolute discrete Laplacian of the grayscale image, normalized by its maximum, with a zero output for a zero Laplacian. The insertion weights are
+
+[S3.E7] w_{t}({\bm{p}})=\left[\ell({{\bm{\mathsfit{I}}}}_{t})({\bm{p}})-\ell(\hat{{{\bm{\mathsfit{I}}}}}_{t})({\bm{p}})\right]^{+}, (7)
+
+[S3.SS2.SSS0.Px1.p1.2] where [x]^{+}=\max(0,x) . This score favors valid pixels whose observed high-frequency response exceeds that of the rendering. It therefore provides a heuristic for identifying missing or under-resolved detail, rather than a complete measure of photometric disagreement. For an empty map, \hat{{{\bm{\mathsfit{I}}}}}_{t} is zero, and the weights reduce to the observed image Laplacian restricted to valid depth.
+
+[S3.SS2.SSS0.Px2] Geometric initialization.
+
+[S3.SS2.SSS0.Px2.p1.1] Each sampled pixel {\bm{p}} with depth z={{\bm{\mathsfit{D}}}}_{t}({\bm{p}}) initializes a Gaussian. Let \bar{{\bm{p}}}=(u,v,1)^{\top} denote its homogeneous image coordinate. The Gaussian center is obtained by back-projecting the depth and transforming the resulting point into the reconstruction frame. The remaining attributes are initialized as
+
+[S3.E8] {\bm{q}}=(1,0,0,0)^{\top},\hskip 18.49988pt{\bm{s}}=\frac{\kappa z}{f_{x}}\mathbf{1}_{3},\hskip 18.49988pt\kappa=2,\hskip 18.49988pto=0.07,\hskip 18.49988pt{\bm{c}}={{\bm{\mathsfit{I}}}}_{t}(u,v,:). (8)
+
+[S3.SS2.SSS0.Px2.p1.2] The scale follows the pixel-footprint initialization of OTF, with a nominal image-space scale of two pixels. Although initialized isotropically, the three scale components are optimized independently. The low initial opacity permits newly inserted primitives to make a limited contribution before refinement.
+
+[S3.SS2.SSS0.Px3] Refinement with keyframe replay.
+
+[S3.SS2.SSS0.Px3.p1.1] After inserting new Gaussians, the mapper refines the Gaussian map for n=30 optimization steps. At each step, the newest keyframe is selected with probability p_{\mathrm{last}}=0.2 through a dedicated sampling branch; otherwise, a keyframe is sampled uniformly from all stored keyframes, including the newest.
+
+[S3.SS2.SSS0.Px3.p2.1] For the sampled keyframe j , the differentiable gsplat rasterizer ( Ye et al., 2025 ) produces a color image \hat{{\bm{\mathsfit{I}}}}_{j} and a rendered depth map \hat{{\bm{\mathsfit{D}}}}_{j} . We minimize
+
+[S3.E9] \mathcal{L}_{j}=0.8\,\mathcal{L}_{\mathrm{rgb},j}+0.2\left(1-\operatorname{SSIM}(\hat{{\bm{\mathsfit{I}}}}_{j},{\bm{\mathsfit{I}}}_{j})\right)+\lambda_{d}\mathcal{L}_{\mathrm{depth},j},\hskip 18.49988pt\lambda_{d}=0.01. (9)
+
+[S3.SS2.SSS0.Px3.p2.2] where \mathcal{L}_{\mathrm{rgb},j} is the mean absolute RGB reconstruction error. The depth loss compares the rendered depth with the stored model-predicted depth prior {\bm{\mathsfit{D}}}_{j} in inverse-depth space:
+
+[S3.E10] \mathcal{L}_{\mathrm{depth},j}=\frac{1}{|{\mathbb{V}}_{j}|}\sum_{{\bm{p}}\in{\mathbb{V}}_{j}}\left|\frac{1}{\hat{{\bm{\mathsfit{D}}}}_{j}({\bm{p}})}-\frac{1}{{\bm{\mathsfit{D}}}_{j}({\bm{p}})}\right|, (10)
+
+[S3.SS2.SSS0.Px3.p2.3] where {\mathbb{V}}_{j} denotes the set of valid depth-supervision pixels for keyframe j . For small depth errors, the inverse-depth discrepancy is approximately the absolute depth error divided by the squared reference depth. This emphasizes nearby geometry relative to equally sized absolute depth errors at greater distances. Together with the photometric terms, the depth loss encourages appearance refinement to remain consistent with the predicted scene geometry.
+
+[S4] 4 Experiment
+
+[S4.SS1] 4.1 Setup and Evaluation
+
+[S4.SS1.SSS0.Px1] Datasets.
+
+[S4.SS1.SSS0.Px1.p1.1] We evaluate on four datasets, including indoor and outdoor datasets. 7-Scenes ( Shotton et al., 2013 ) has seven indoor RGB sequences with ground truth Kinect depth. Oxford Spires ( Tao et al., 2026 ) consists of six outdoor clips of 1000–2001 frames selected from outdoor sites: Keble College-(02,03,04), Observatory Quarter-01, Christ Church-02, and Bodleian Library-02, with poses and depth reprojected from the point cloud of a terrestrial laser scan. From RE10K ( Zhou et al., 2018 ) we select 60 short indoor and outdoor real-estate clips with 71–279 frames. Eleven handheld sequences (fr1, fr2, fr3) are selected from the TUM-D ( Sturm et al., 2012 ) dataset. All frames are processed at 518x392 resolution across all datasets. We evaluate all methods using a single NVIDIA RTX4090 GPU with an AMD Ryzen Threadripper PRO 3995WX 64-Cores CPU.
+
+[S4.SS1.SSS0.Px2] Evaluation metrics.
+
+[S4.SS1.SSS0.Px2.p1.1] We evaluate novel-view synthesis (NVS) quality on held-out views using PSNR, SSIM, and LPIPS. We measure global trajectory accuracy using the root-mean-square Absolute Trajectory Error (ATE) after aligning the estimated trajectory to the reference trajectory with a Sim(3) Umeyama alignment ( Umeyama, 1991 ) . We also report the Relative Pose Error (RPE) between consecutive frames, including translational error ( \mathrm{RPE}_{t} ) and rotational error ( \mathrm{RPE}_{R} ). To evaluate reconstruction geometry, we compute the mean L1 error between the rendered and ground-truth depth on held-out views. Finally, we report end-to-end throughput in frames per second (FPS), calculated by dividing the number of frames in each sequence by its total reconstruction time.
+
+[S4.SS1.SSS0.Px3] Baselines.
+
+[S4.SS1.SSS0.Px3.p1.1] We compare against MonoGS ( Matsuki et al., 2024 ) , S3PO-GS ( Cheng et al., 2025 ) , Photo-SLAM ( Huang et al., 2024 ) , and OTF ( Meuleman et al., 2025 ) . MonoGS uses 3D Gaussians for monocular tracking and mapping, while S3PO-GS targets monocular SLAM with globally scale-consistent Gaussian point maps. Photo-SLAM combines feature-based tracking with Gaussian splatting for photorealistic mapping, whereas OTF incrementally reconstructs large-scale scenes from unposed image sequences with large parallax. All baselines are evaluated using their publicly available implementations on identical input frames. To compare with Photo-SLAM fairly, we increase its mapping iterations from 8 to a maximum of 200 while retaining concurrent tracking and mapping, maintaining a processing rate of \sim 6 FPS.
+
+[S4.F2] Figure 2: Ablation on refinement steps per keyframe. Means over the six Oxford Spires sequences. Rendering quality saturates at n{\approx}75 –100 (dashed line). The filled marker is the default n{=}30 used in all main tables.
+
+[S4.SS2] 4.2 Novel View Synthesis and Tracking
+
+[S4.SS2.p1.1] Table 1 shows that our method consistently achieves the best rendering quality on all datasets in terms of NVS metrics. It also maintains competitive trajectory accuracy, obtaining the best ATE on Oxford Spires and TUM-D, and the second-best ATE on 7-Scenes and RE10K. The few cases in which Photo-SLAM or S3PO-GS achieves slightly lower tracking error are consistent with their larger computational budgets for pose estimation: Photo-SLAM performs extensive local-map maintenance when they have larger mapping iterations, whereas S3PO-GS employs a computationally intensive tracking procedure that aligns each frame with its Gaussian point map. The qualitative comparisons in Figure 3 further show that our reconstructions preserve finer structures and sharper appearance, while several baselines exhibit noticeable blurring, artifacts, or geometric inconsistency. For 7-Scenes, Oxford Spires and TUM-D, we additionally visualize rendered depth. The 7-Scenes and TUM-D references provide dense depth, whereas the Oxford Spires reference is obtained by projecting the scanned point cloud and is therefore sparse. For a fair comparison, the same valid-depth mask is applied to all methods. The trajectory examples in Figure 4 confirm that our estimates remain among the most accurate across three datasets, omitting RE10K because it is too short, with particularly clear improvements on the Oxford Spires and TUM-D sequences.
+
+[S4.T1] Table 1: Rendering quality, trajectory accuracy, and efficiency among all datasets. The best results are in bold , and the second-best results are underlined . ATE and \mathrm{RPE}_{t} are reported in centimeters, and \mathrm{RPE}_{R} is reported in degrees. For Photo-SLAM, it fails on the Pumpkin sequence of 7-Scenes and we only use 6 scenes for its average.
+
+[S4.T1.19.1] Method (a) 7-Scenes (b) Oxford Spires PSNR \uparrow SSIM \uparrow LPIPS \downarrow ATE \downarrow \mathrm{RPE}_{t}\downarrow \mathrm{RPE}_{R}\downarrow FPS \uparrow PSNR \uparrow SSIM \uparrow LPIPS \downarrow ATE \downarrow \mathrm{RPE}_{t}\downarrow \mathrm{RPE}_{R}\downarrow FPS \uparrow MonoGS 18.94 0.681 0.501 29.90 0.776 0.290 3.28 20.40 0.635 0.571 595.47 10.58 0.321 3.21 S3PO-GS 19.76 0.713 0.470 7.30 0.480 0.213 1.74 21.63 0.699 0.506 287.81 2.802 0.134 1.31 Photo-SLAM 21.91 0.741 0.400 19.78 0.566 0.205 5.99 22.05 0.717 0.465 567.71 2.308 0.074 5.99 OTF 20.50 0.744 0.443 39.34 0.801 0.269 7.57 23.19 0.713 0.466 624.06 8.592 0.231 8.24 Ours 24.48 0.839 0.293 8.58 0.524 0.189 6.99 26.35 0.817 0.332 73.81 0.943 0.095 6.40
+
+[S4.T1.20.1] Method (c) RE10K (d) TUM-D PSNR \uparrow SSIM \uparrow LPIPS \downarrow ATE \downarrow \mathrm{RPE}_{t}\downarrow \mathrm{RPE}_{R}\downarrow FPS \uparrow PSNR \uparrow SSIM \uparrow LPIPS \downarrow ATE \downarrow \mathrm{RPE}_{t}\downarrow \mathrm{RPE}_{R}\downarrow FPS \uparrow MonoGS 22.97 0.793 0.309 10.56 0.726 0.113 1.21 14.31 0.481 0.601 92.17 0.94 0.571 3.33 S3PO-GS 23.12 0.797 0.298 3.47 0.553 0.130 1.29 17.00 0.621 0.557 56.57 0.74 0.387 1.30 Photo-SLAM 23.86 0.802 0.287 1.90 0.647 0.085 5.94 13.68 0.496 0.601 59.96 0.89 0.330 5.99 OTF 25.20 0.859 0.245 8.79 1.064 0.150 6.35 19.58 0.708 0.462 88.55 0.94 0.323 6.54 Ours 25.73 0.873 0.210 2.84 0.645 0.088 7.94 20.89 0.758 0.387 41.33 0.66 0.288 5.01
+
+[S4.F3] Figure 3: Qualitative rendering and depth comparison. One representative sequence is selected from each dataset. For 7-Scenes, TUM-D and Oxford Spires, we show both novel-view RGB rendering and rendered depth; RE10K is shown only in RGB because reference depth is unavailable. The 7-Scenes and TUM-D datasets provide dense reference depth, whereas the Oxford Spires reference depth is sparsely projected from the scanned point cloud. All methods are compared using the same valid-depth mask.
+
+[S4.F4] Figure 4: Qualitative trajectory comparison. We visualize one representative sequence from three datasets after trajectory alignment. Our estimated trajectories closely follow the ground truth. Because OTF is designed primarily for novel-view synthesis and estimates poses only for keyframes and held-out views, its trajectory error is computed only over this available pose subset rather than over all input frames.
+
+[S4.SS2.p2.1] Depth reconstruction accuracy. Table 2 complements the RGB evaluation by measuring the rendered depth. Our method achieves the lowest mean L1 error on all three datasets, demonstrating consistent geometric improvements across both indoor and outdoor environments.
+
+[S4.T2] Table 2: Scale-aligned rendered-depth accuracy. Mean depth L1 error on 7-Scenes, TUM-D, and Oxford Spires. All values are reported in meters; lower is better.
+
+[S4.T2.8] Method 7-Scenes \downarrow TUM-D \downarrow Oxford Spires \downarrow MonoGS 0.52 1.29 9.12 S3PO-GS 0.17 0.57 4.47 Photo-SLAM 0.36 1.66 8.54 OTF 1.00 2.35 14.12 Ours 0.15 0.33 3.18
+
+[S4.SS2.p3.1] Compared with S3PO-GS, the strongest baseline across all three datasets, our method reduces the depth error by 11.8% on 7-Scenes, 42.1% on TUM-D, and 28.9% on Oxford Spires, based on the rounded values reported in the table. Compared with Photo-SLAM, the error decreases from 0.36 to 0.15 m on 7-Scenes, from 1.66 to 0.33 m on TUM-D, and from 8.54 to 3.18 m on Oxford Spires. Notably, OTF achieves competitive novel-view rendering quality, but exhibits the highest depth error on all three datasets. This discrepancy highlights a limitation of assessing 3D Gaussian maps through RGB rendering alone: visually plausible novel views do not necessarily imply geometrically accurate reconstruction, since the observed appearance can still be explained by Gaussians that are incorrectly distributed in 3D space.
+
+[S4.SS3] 4.3 Ablation study
+
+[S4.SS3.SSS0.Px1] Ablation on camera tracking.
+
+[S4.SS3.SSS0.Px1.p1.1] Table 3 isolates the effect of the pose on the reconstruction. Four alternatives are compared with our solver: (A) Virtual stereo, the RGB-D front-end in ORB-SLAM3, which turns the predicted depth into a virtual right-image coordinate and optimizes the stereo residual shown in Eq. 13 ; (B) 2D reprojection, the same front-end with depth used only to back-project the new map points, so that tracking sees the 2D reprojection residual only, like the monocular RGB ORB-SLAM3; (C) a purely geometric point-to-plane ICP of the predicted depth against a local model and (D) the backbone’s own regressed camera head. Compared with virtual stereo (A), our direct-depth residual produces more accurate camera poses while preserving the same PSNR: ATE decreases from 79.5 to 73.8 cm, while translational RPE decreases from 1.123 to 0.943 cm. This result indicates that directly modeling the uncertainty of predicted depth provides a more effective geometric constraint than encoding it through a virtual-stereo observation. The comparison with 2D reprojection (B) further demonstrates the importance of explicitly including depth in pose optimization. Removing the depth residual reduces PSNR by 3.45 dB, increases ATE from 73.8 to 162.1 cm, and increases translational RPE from 0.943 to 4.723 cm. Predicted depth is therefore useful not only for initializing map points, but also for constraining the camera pose at every frame. The purely unoptimized CPU ICP variant (C) is also substantially less accurate than our solver, increasing ATE from 73.8 to 307.2 cm, translational RPE from 0.943 to 15.14 cm, and rotational RPE from 0.095 ∘ to 0.482 ∘ . This result suggests that point-to-plane alignment alone is less robust to predicted-depth noise and weak geometric constraints. Finally, the backbone camera head (D) is fast but produces substantially less accurate trajectories, with 5.98 m ATE and 15.39 cm translational RPE. This suggests that its regressed poses are not as tightly coupled to the predicted scene geometry as those obtained through explicit geometric optimization. Our solver adds only 6.6 ms of tracking time relative to the camera head, while reducing ATE by 87.6\% and translational RPE by 93.9\% . The end-to-end throughput remains comparable, decreasing only from 7.04 to 6.40 FPS.
+
+[S4.T3] Table 3: Ablation on camera pose estimation over Oxford Spires. For variant C, we use Open3D’s CPU point-to-plane ICP as an unoptimized reference implementation; its runtime does not represent the computational limit of ICP.
+
+[S4.T3.5] Pose source PSNR \uparrow SSIM \uparrow LPIPS \downarrow ATE (cm) \downarrow RPE t (cm) \downarrow RPE R ( ∘ ) \downarrow Track (ms) \downarrow FPS \uparrow A: Virtual stereo 26.35 0.815 0.334 79.5 1.123 0.104 16.2 6.20 B: 2D reprojection 22.90 0.709 0.446 162.1 4.723 0.140 13.9 6.51 C: ICP 21.37 0.648 0.482 307.2 15.14 0.482 138.6 5.47 D: Camera head 20.23 0.629 0.510 598.5 15.39 0.259 9.5 7.04 Ours 26.35 0.817 0.332 73.8 0.943 0.095 16.1 6.40
+
+[S4.SS3.SSS0.Px2] Ablation on backbones.
+
+[S4.T4] Table 4: Geometry-based pose estimation across streaming backbones on Keble College-02.
+
+[S4.T4.5] Backbone Pose source ATE (m) \downarrow RPE t (cm) \downarrow RPE R ( ∘ ) \downarrow Track (ms) \downarrow XStreamVGGT ( Su et al., 2026 ) Camera head 23.277 48.95 0.4 9.6 Geometry solver 0.773 1.44 0.085 16.1 STream3R ( Lan et al., 2026 ) Camera head 25.560 17.67 0.319 10.6 Geometry solver 2.332 1.74 0.098 16.1 TTT3R ( Chen et al., 2026b ) Camera head 10.57 6.52 0.204 4.2 Geometry solver 7.29 2.33 0.09 16.1 Lingbot-map ( Chen et al., 2026a ) Camera head 8.224 13.74 0.202 9.5 Geometry solver 1.224 0.758 0.059 16.1
+
+[S4.SS3.SSS0.Px2.p1.1] Table 4 shows that replacing the regressed camera head with the geometry solver consistently improves all trajectory metrics across the four streaming backbones on Keble College-02. The solver reduces ATE by 31.0–96.7%, translational RPE by 64.3–97.1%, and rotational RPE by 55.9–78.8%. These gains require only 16.1 ms of tracking per frame, corresponding to an additional 5.5–11.9 ms over the camera heads. The results demonstrate that our solver transfers across different backbone architectures and produces camera motion that is more consistent with their predicted scene geometry at modest computational cost.
+
+[S4.SS3.SSS0.Px3] Ablation on mapping iterations.
+
+[S4.SS3.SSS0.Px3.p1.1] The number of synchronous refinement steps per keyframe is the one mapper parameter that trades quality against speed. We show the ablation in Figure 2 . Quality improves quickly and then saturates: 20{\to}30 steps gain 0.93 dB, 30{\to}75 a further \sim 0.88 dB, and everything beyond 100 steps changes only marginally (27.11–27.15 dB). We report n{=}30 throughout as the speed-oriented operating point.
+
+[S5] 5 Conclusion
+
+[S5.p1.1] We present LingGS, an online monocular Gaussian SLAM system that decouples feed-forward geometry prediction from camera tracking. A frozen streaming 3D foundation model serves as a virtual RGB-D sensor, while an explicit geometric solver estimates camera poses by jointly minimizing image reprojection and direct depth residuals. Combined with incremental Gaussian mapping, this design enables high-fidelity reconstruction. Experiments across indoor and outdoor datasets demonstrate improved rendering quality and geometric accuracy while maintaining efficient processing and competitive tracking accuracy. Further experiments across multiple streaming backbones support the broader applicability of our geometric solver.
+
+[S5.p2.1] Our current system does not address loop closure or dynamic scenes. Its reliance on ORB feature extraction and matching can also compromise tracking in repetitive or weakly textured environments, where correspondences may be ambiguous or reliable features scarce. Addressing these limitations with learned prior is an important direction for improving long-term consistency and robustness. More broadly, our findings motivate future streaming 3D models that integrate learned geometric priors with explicit geometric optimization to improve pose accuracy and geometric consistency in online reconstruction.
+
+[A1] Appendix A Appendix
+
+[A1.SS1] A.1 Relation to ORB-SLAM3’s Virtual-Stereo Model
+
+[A1.SS1.p1.1] ORB-SLAM3 handles RGB-D observations by converting depth measurements into virtual right-image coordinates and reusing its stereo reprojection model. Although the information matrix is defined in pixel coordinates and does not explicitly depend on depth, the projection model introduces a depth-dependent sensitivity to depth errors. We first elucidate the visual-stereo mechanism in ORB-SLAM3 and compare it with our direct depth residual.
+
+[A1.SS1.SSS0.Px1] Calibrated stereo geometry and observations.
+
+[A1.SS1.SSS0.Px1.p1.1] Consider a calibrated pinhole stereo pair with shared calibrated intrinsics (f_{x},f_{y},c_{x},c_{y}) and baseline b>0 . The right camera center lies at (b,0,0) in the left camera frame, and the two camera frames have aligned axes.
+
+[A1.SS1.SSS0.Px1.p2.1] Let {\bm{x}}_{j}^{\mathrm{w}} denote a map point in homogeneous world coordinates. Under a world-to-left-camera pose {\bm{T}}\in SE(3) , the point in left camera space is defined as:
+
+[A1.E11] {\bm{x}}_{j}^{\mathrm{c}}={\bm{T}}{\bm{x}}_{j}^{\mathrm{w}}=[x_{c},y_{c},z_{c},1]^{\top},\hskip 18.49988ptz_{c}>0. (11)
+
+[A1.SS1.SSS0.Px1.p2.2] The same point has coordinates [x_{c}-b,y_{c},z_{c},1]^{\top} in the right camera frame. Here, b and (x_{c},y_{c},z_{c}) are expressed in the same length unit.
+
+[A1.SS1.SSS0.Px1.p3.2] The predicted image coordinates are
+
+[A1.E12] \displaystyle\hat{u}_{L,j} \displaystyle=f_{x}\frac{x_{c}}{z_{c}}+c_{x}, (12) \displaystyle\hat{v}_{L,j} \displaystyle=f_{y}\frac{y_{c}}{z_{c}}+c_{y}, \displaystyle\hat{u}_{R,j} \displaystyle=f_{x}\frac{x_{c}-b}{z_{c}}+c_{x}=\hat{u}_{L,j}-\frac{f_{x}b}{z_{c}}.
+
+[A1.SS1.SSS0.Px1.p4.1] For a matched stereo feature, let (u_{L,j},v_{L,j}) denote its observed coordinates in the left image and u_{R,j} its observed horizontal coordinate in the right image. Rectification makes corresponding points share the same vertical coordinate in the ideal model. ORB-SLAM3, therefore, uses the three-component observation (u_{L,j},v_{L,j},u_{R,j}) and the residual
+
+[A1.E13] {\bm{r}}_{j}^{\mathrm{st}}({\bm{T}})=\begin{bmatrix}u_{L,j}-\hat{u}_{L,j}\\ v_{L,j}-\hat{v}_{L,j}\\ u_{R,j}-\hat{u}_{R,j}\end{bmatrix}. (13)
+
+[A1.SS1.SSS0.Px2] Explicit weighting in pixel coordinates.
+
+[A1.SS1.SSS0.Px2.p1.1] ORB-SLAM3 assigns the stereo observation a diagonal covariance model,
+
+[A1.E14] {\bm{\Sigma}}_{j}^{\mathrm{st}}=\sigma_{j}^{2}{\bm{I}}_{3},\hskip 18.49988ptE_{j}^{\mathrm{st}}=\bigl({\bm{r}}_{j}^{\mathrm{st}}\bigr)^{\top}\bigl({\bm{\Sigma}}_{j}^{\mathrm{st}}\bigr)^{-1}{\bm{r}}_{j}^{\mathrm{st}}. (14)
+
+[A1.SS1.SSS0.Px2.p1.2] Here, \sigma_{j} is an assumed pixel localization standard deviation in base-level image coordinates. For a feature detected at pyramid level \ell_{j} ,
+
+[A1.E15] \sigma_{j}^{2}=\sigma_{0}^{2}s^{2\ell_{j}},\hskip 18.49988pt\sigma_{0}=1\text{ pixel}, (15)
+
+[A1.SS1.SSS0.Px2.p1.3] where s>1 is the pyramid scale factor and \ell_{j} is zero-based. We use s=1.2 .
+
+[A1.SS1.SSS0.Px2.p2.1] This covariance is assigned from the feature scale, rather than estimated from its current reprojection residual. It contains no explicit depth-dependent term. The weighted error E_{j}^{\mathrm{st}} is used within the robust optimization and outlier-classification procedure. In particular, ORB-SLAM3 does not compute a separate depth variance and insert it into {\bm{\Sigma}}_{j}^{\mathrm{st}} .
+
+[A1.SS1.SSS0.Px3] RGB-D observations and the virtual right coordinate.
+
+[A1.SS1.SSS0.Px3.p1.1] For RGB-D inputs, the RGB image takes the role of the left image. Given a valid observed depth z_{j}>0 , ORB-SLAM3 constructs a virtual right-image coordinate:
+
+[A1.E16] u_{R,j}=u_{L,j}-\frac{f_{x}b}{z_{j}}. (16)
+
+[A1.SS1.SSS0.Px3.p1.2] The depth z_{j} denotes the coordinate along the camera’s optical axis and uses the same length unit as the baseline. No physical right image is required.
+
+[A1.SS1.SSS0.Px3.p2.2] Define the left-image reprojection residuals and the direct depth residual as
+
+[A1.E17] \displaystyle r_{u,j} \displaystyle=u_{L,j}-\hat{u}_{L,j}, (17) \displaystyle r_{v,j} \displaystyle=v_{L,j}-\hat{v}_{L,j}, \displaystyle r_{z,j} \displaystyle=z_{j}-z_{c}.
+
+[A1.SS1.SSS0.Px3.p2.3] The observed quantities are fixed, whereas the predicted coordinates and z_{c} depend on {\bm{T}} . For readability, this dependence is omitted from the scalar residual notation.
+
+[A1.SS1.SSS0.Px3.p3.2] Substituting Eq. 16 into the right-image reprojection residual gives
+
+[A1.E18] \displaystyle r_{R,j} \displaystyle=\left(u_{L,j}-\frac{f_{x}b}{z_{j}}\right)-\left(\hat{u}_{L,j}-\frac{f_{x}b}{z_{c}}\right) (18) \displaystyle=r_{u,j}+f_{x}b\left(\frac{1}{z_{c}}-\frac{1}{z_{j}}\right) \displaystyle=r_{u,j}+\frac{f_{x}b}{z_{j}z_{c}}\,r_{z,j}.
+
+[A1.SS1.SSS0.Px3.p3.3] Writing
+
+[A1.E19] a_{j}({\bm{T}})=\frac{f_{x}b}{z_{j}z_{c}}, (19)
+
+[A1.SS1.SSS0.Px3.p3.4] the virtual-stereo residual becomes
+
+[A1.E20] {\bm{r}}_{j}^{\mathrm{VS}}({\bm{T}})=\begin{bmatrix}r_{u,j}\\ r_{v,j}\\ r_{u,j}+a_{j}r_{z,j}\end{bmatrix}. (20)
+
+[A1.SS1.SSS0.Px3.p3.5] Its third component combines horizontal reprojection error with an inverse-depth discrepancy. It is not a depth or disparity residual alone.
+
+[A1.SS1.SSS0.Px4] Depth sensitivity induced by the residual.
+
+[A1.SS1.SSS0.Px4.p1.1] Substituting Eq. 20 into the pixel-weighted cost yields the exact expression
+
+[A1.E21] E_{j}^{\mathrm{VS}}=\frac{1}{\sigma_{j}^{2}}\left[r_{u,j}^{2}+r_{v,j}^{2}+(r_{u,j}+a_{j}r_{z,j})^{2}\right]. (21)
+
+[A1.SS1.SSS0.Px4.p1.2] Expanding the square gives
+
+[A1.E22] E_{j}^{\mathrm{VS}}=\frac{2r_{u,j}^{2}+r_{v,j}^{2}+2a_{j}r_{u,j}r_{z,j}+a_{j}^{2}r_{z,j}^{2}}{\sigma_{j}^{2}}. (22)
+
+[A1.SS1.SSS0.Px4.p2.1] This expression explains how depth affects the cost despite the depth-independent pixel information matrix. The depth residual is multiplied by a_{j} before the residual is squared. Near a consistent estimate, z_{c}\approx z_{j}\approx z , so that
+
+[A1.E23] a_{j}\approx\frac{f_{x}b}{z^{2}},\hskip 18.49988pt\frac{a_{j}^{2}}{\sigma_{j}^{2}}\approx\frac{(f_{x}b)^{2}}{\sigma_{j}^{2}z^{4}}. (23)
+
+[A1.SS1.SSS0.Px4.p2.2] Thus, at fixed calibration and feature pyramid level, the coefficient of the squared depth residual scales locally as z^{-4} .
+
+[A1.SS1.SSS0.Px4.p3.1] This is a property induced by the residual parameterization, not an additional information weight explicitly assigned by ORB-SLAM3. Furthermore, Eq. 22 contains a horizontal–depth cross term. The full virtual-stereo cost therefore cannot be identified with an independent scalar depth penalty.
+
+[A1.SS1.SSS0.Px5] Comparison with direct-depth weighting.
+
+[A1.SS1.SSS0.Px5.p1.1] Our per-frame pose-only formulation uses the direct depth residual as the third component:
+
+[A1.E24] {\bm{r}}_{j}^{\mathrm{D}}({\bm{T}})=\begin{bmatrix}r_{u,j}\\ r_{v,j}\\ r_{z,j}\end{bmatrix},\hskip 18.49988pt{\bm{\Sigma}}_{j}^{\mathrm{D}}=\operatorname{diag}\!\left(\sigma_{j}^{2},\sigma_{j}^{2},(\varepsilon z_{j})^{2}\right), (24)
+
+[A1.SS1.SSS0.Px5.p1.2] as defined in Eqs. 1 and 2 . Its nominal weighted cost is
+
+[A1.E25] E_{j}^{\mathrm{D}}=\frac{r_{u,j}^{2}+r_{v,j}^{2}}{\sigma_{j}^{2}}+\frac{r_{z,j}^{2}}{\varepsilon^{2}z_{j}^{2}}. (25)
+
+[A1.SS1.SSS0.Px5.p1.3] Unlike the virtual-stereo formulation, the third residual does not contain the horizontal reprojection residual.
+
+[A1.SS1.SSS0.Px5.p2.1] Here, the depth-dependent information weight is explicitly specified:
+
+[A1.E26] w_{z,j}^{\mathrm{D}}=\frac{1}{\varepsilon^{2}z_{j}^{2}}\propto z_{j}^{-2}. (26)
+
+[A1.SS1.SSS0.Px5.p2.2] It corresponds to an assumed constant relative depth uncertainty, \sigma_{z,j}^{\mathrm{D}}/z_{j}=\varepsilon . We use \varepsilon=0.05 . The observed depth z_{j} remains fixed during pose-only optimization, so this weight is also fixed within each optimization problem.
+
+[A1.SS1.SSS0.Px5.p3.1] Thus, the two formulations introduce depth dependence in different ways. Virtual stereo uses a pixel-domain weight together with a projection sensitivity that induces a local z^{-4} scaling. Our formulation directly penalizes depth error with an explicitly chosen z^{-2} weight. We evaluate direct-depth, virtual-stereo, and reprojection-only tracking in Sec. 4.3 .
+
+[A1.SSx1] AI use statement
+
+[A1.SSx1.p1.1] In this work, we used generative AI tools to provide feedback on research methodology and experiments and to assist with the implementation of methods. Additionally, we used generative AI tools for brainstorming, code editing, literature search, and improving the readability of the manuscript. All AI-assisted methodological suggestions, code, experimental results, and manuscript content were independently reviewed and verified by the authors. We take responsibility for the final content of this work.
+
+[A1.SSx2] Ethics statement
+
+[A1.SSx2.p1.1] This work focuses on visual SLAM and 3D scene reconstruction using publicly available research datasets. It does not involve human-subject studies or the collection of personally identifiable information. We are not aware of any specific ethical concerns beyond the general considerations associated with computer vision and 3D reconstruction technologies.
+
+[A1.SSx3] Reproducibility statement
+
+[A1.SSx3.p1.1] Our source code and configuration files will be publicly released upon acceptance of the paper. To facilitate reproducibility, we provide detailed descriptions of the proposed tracking and mapping pipelines, implementation details, experimental settings, and evaluation protocols in the main paper and appendix. Additional ablations and qualitative results are also provided to support the reported findings.
+
+[Ax1] Acknowledgements
+
+[Ax1.p1.1] This work was supported by the Guangdong Basic and Applied Basic Research Foundation (No. 2026A1515011138) and the King Abdullah University of Science and Technology (KAUST) research fund under grant BAS/1/1680-01-01.
+
+[bib] References

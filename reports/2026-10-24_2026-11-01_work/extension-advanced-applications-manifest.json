@@ -1,0 +1,78 @@
+[
+  {
+    "name": "extension-advanced-C-thermal-SLAM-latest",
+    "source": "arXiv Advanced Search",
+    "field": "all fields conjunction",
+    "date_predicate": "Submission date (most recent), date-date_type=submitted_date, 2026-10-24 through 2026-11-01 inclusive whole days; official history exact postfilter",
+    "requested_at": "2026-11-02T15:45:13Z",
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=thermal&terms-0-field=all&terms-1-operator=AND&terms-1-term=SLAM&terms-1-field=all",
+        "start": 0,
+        "returned": 0,
+        "retrieved_at": "2026-11-02T15:45:17Z",
+        "raw_path": "extension-advanced-C-thermal-SLAM-latest-0.html"
+      }
+    ],
+    "total": 0,
+    "fetched": 0,
+    "exhausted": true
+  },
+  {
+    "name": "extension-advanced-C-underwater-mapping-latest",
+    "source": "arXiv Advanced Search",
+    "field": "all fields conjunction",
+    "date_predicate": "Submission date (most recent), date-date_type=submitted_date, 2026-10-24 through 2026-11-01 inclusive whole days; official history exact postfilter",
+    "requested_at": "2026-11-02T15:45:13Z",
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=underwater&terms-0-field=all&terms-1-operator=AND&terms-1-term=mapping&terms-1-field=all",
+        "start": 0,
+        "returned": 3,
+        "retrieved_at": "2026-11-02T15:45:17Z",
+        "raw_path": "extension-advanced-C-underwater-mapping-latest-0.html"
+      }
+    ],
+    "total": 3,
+    "fetched": 3,
+    "exhausted": true
+  },
+  {
+    "name": "extension-advanced-C-endoscopic-localization-latest",
+    "source": "arXiv Advanced Search",
+    "field": "all fields conjunction",
+    "date_predicate": "Submission date (most recent), date-date_type=submitted_date, 2026-10-24 through 2026-11-01 inclusive whole days; official history exact postfilter",
+    "requested_at": "2026-11-02T15:45:17Z",
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=endoscopic&terms-0-field=all&terms-1-operator=AND&terms-1-term=localization&terms-1-field=all",
+        "start": 0,
+        "returned": 2,
+        "retrieved_at": "2026-11-02T15:45:22Z",
+        "raw_path": "extension-advanced-C-endoscopic-localization-latest-0.html"
+      }
+    ],
+    "total": 2,
+    "fetched": 2,
+    "exhausted": true
+  },
+  {
+    "name": "extension-advanced-C-neural-radiance-robot-latest",
+    "source": "arXiv Advanced Search",
+    "field": "all fields conjunction",
+    "date_predicate": "Submission date (most recent), date-date_type=submitted_date, 2026-10-24 through 2026-11-01 inclusive whole days; official history exact postfilter",
+    "requested_at": "2026-11-02T15:45:17Z",
+    "pages": [
+      {
+        "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-24&date-to_date=2026-11-01&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=%22neural+radiance%22&terms-0-field=all&terms-1-operator=AND&terms-1-term=robot&terms-1-field=all",
+        "start": 0,
+        "returned": 0,
+        "retrieved_at": "2026-11-02T15:45:18Z",
+        "raw_path": "extension-advanced-C-neural-radiance-robot-latest-0.html"
+      }
+    ],
+    "total": 0,
+    "fetched": 0,
+    "exhausted": true
+  }
+]

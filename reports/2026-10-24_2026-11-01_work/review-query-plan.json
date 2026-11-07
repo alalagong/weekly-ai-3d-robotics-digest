@@ -1,0 +1,128 @@
+{
+  "run_at": "2026-11-01T14:59:32Z",
+  "window_open": "2026-10-24T08:17:58Z",
+  "window_closed": "2026-11-01T14:59:32Z",
+  "independent_before_main_pool": true,
+  "jobs": [
+    [
+      "A-localization",
+      [
+        "\"place recognition\"",
+        "\"visual localization\"",
+        "\"view graph\"",
+        "\"camera pose\"",
+        "\"scene change detection\""
+      ],
+      "submitted_date_first"
+    ],
+    [
+      "A-localization",
+      [
+        "\"place recognition\"",
+        "\"visual localization\"",
+        "\"view graph\"",
+        "\"camera pose\"",
+        "\"scene change detection\""
+      ],
+      "submitted_date"
+    ],
+    [
+      "A-geometry",
+      [
+        "\"geometric prior\"",
+        "correspondence",
+        "\"image registration\"",
+        "\"point cloud registration\"",
+        "\"multi-view geometry\"",
+        "\"ego motion\""
+      ],
+      "submitted_date_first"
+    ],
+    [
+      "A-geometry",
+      [
+        "\"geometric prior\"",
+        "correspondence",
+        "\"image registration\"",
+        "\"point cloud registration\"",
+        "\"multi-view geometry\"",
+        "\"ego motion\""
+      ],
+      "submitted_date"
+    ],
+    [
+      "B-dense",
+      [
+        "\"dense geometry\"",
+        "\"geometry foundation\"",
+        "\"geometry prediction\"",
+        "\"3D scene understanding\"",
+        "\"pointmap\"",
+        "\"point map\"",
+        "\"geometry transformer\""
+      ],
+      "submitted_date_first"
+    ],
+    [
+      "B-dense",
+      [
+        "\"dense geometry\"",
+        "\"geometry foundation\"",
+        "\"geometry prediction\"",
+        "\"3D scene understanding\"",
+        "\"pointmap\"",
+        "\"point map\"",
+        "\"geometry transformer\""
+      ],
+      "submitted_date"
+    ],
+    [
+      "C-simulator",
+      [
+        "\"world simulator\"",
+        "\"world action\"",
+        "\"action world\"",
+        "\"spatial memory\"",
+        "\"embodied mapping\"",
+        "\"semantic map\""
+      ],
+      "submitted_date_first"
+    ],
+    [
+      "C-simulator",
+      [
+        "\"world simulator\"",
+        "\"world action\"",
+        "\"action world\"",
+        "\"spatial memory\"",
+        "\"embodied mapping\"",
+        "\"semantic map\""
+      ],
+      "submitted_date"
+    ],
+    [
+      "C-sensors",
+      [
+        "\"robot localization\"",
+        "\"radar localization\"",
+        "\"event camera\"",
+        "\"endoscopic reconstruction\"",
+        "\"underwater reconstruction\"",
+        "\"visual navigation\""
+      ],
+      "submitted_date_first"
+    ],
+    [
+      "C-sensors",
+      [
+        "\"robot localization\"",
+        "\"radar localization\"",
+        "\"event camera\"",
+        "\"endoscopic reconstruction\"",
+        "\"underwater reconstruction\"",
+        "\"visual navigation\""
+      ],
+      "submitted_date"
+    ]
+  ]
+}

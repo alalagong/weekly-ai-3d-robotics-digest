@@ -1,0 +1,4394 @@
+[
+  {
+    "id": "2610.40628",
+    "title": "Locality in Dissipative Ground-State Preparation",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.40628"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Locality in Dissipative Ground-State Preparation》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.40628"
+  },
+  {
+    "id": "2610.40534",
+    "title": "The IRAC Distant Cluster Survey",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.40534"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《The IRAC Distant Cluster Survey》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.40534"
+  },
+  {
+    "id": "2610.40530",
+    "title": "PhysCount: Do MLLMs Count Visual Appearances or Physical Entities?",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.40530"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "PhysCount研究单张图像的外观与物理实体计数，未建立三维重建、地图、位姿或具身导航任务；排除通用二维视觉推理。",
+    "evidence_level": "abstract",
+    "version": 1,
+    "v1_utc": "2026-10-29T17:33:34Z",
+    "updated_utc": "2026-10-29T17:33:34Z",
+    "window_class": "new",
+    "original_report": null,
+    "resolution_reference": "review-candidates-screened.json#2610.40530"
+  },
+  {
+    "id": "2608.09913",
+    "title": "Superselection Rigidity of Topological Calderbank--Shor--Steane Codes: From Koszul-Complex Models to Nonsplit Extensions",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2608.09913"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Superselection Rigidity of Topological Calderbank--Shor--Steane Codes: From Koszul-Complex Models to Nonsplit Extensions》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2608.09913"
+  },
+  {
+    "id": "2610.40525",
+    "title": "CrossWeave: Cross-Modal Scene and Instance Retrieval from Sparse 2D-3D Alignment",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.40525"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及semantic-map，纳入摘要跟踪。",
+    "evidence_level": "abstract",
+    "version": 1,
+    "v1_utc": "2026-10-29T17:32:46Z",
+    "updated_utc": "2026-10-29T17:32:46Z",
+    "window_class": "new",
+    "original_report": null,
+    "resolution_reference": "review-candidates-screened.json#2610.40525"
+  },
+  {
+    "id": "2607.05529",
+    "title": "Ten-dimensional localization",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2607.05529"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Ten-dimensional localization》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2607.05529"
+  },
+  {
+    "id": "2610.40452",
+    "title": "Trajectory sharpening under quantum reference frame transformations",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.40452"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Trajectory sharpening under quantum reference frame transformations》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.40452"
+  },
+  {
+    "id": "2610.40417",
+    "title": "Seeding and Amplification of Chaos in Long-Range Interacting Spin Chains",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.40417"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Seeding and Amplification of Chaos in Long-Range Interacting Spin Chains》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.40417"
+  },
+  {
+    "id": "2608.13110",
+    "title": "Classical Simulation and Design Frontiers for IBM's Doped Clifford Sampling Experiment",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2608.13110"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Classical Simulation and Design Frontiers for IBM's Doped Clifford Sampling Experiment》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2608.13110"
+  },
+  {
+    "id": "2610.40415",
+    "title": "OCCAMS: A Multi-Task Learning-Based Investigation of the CMB Power Spectra",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.40415"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《OCCAMS: A Multi-Task Learning-Based Investigation of the CMB Power Spectra》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.40415"
+  },
+  {
+    "id": "2610.40393",
+    "title": "Quantum Computing through Computational Imaging: Representations, Measurement, and Inference",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.40393"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Quantum Computing through Computational Imaging: Representations, Measurement, and Inference》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.40393"
+  },
+  {
+    "id": "2610.40349",
+    "title": "TouchBridge: Tactile-Conditioned Human-to-Robot Transfer for Dexterous Manipulation",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.40349"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为机器人控制或操作邻接任务；《TouchBridge: Tactile-Conditioned Human-to-Robot Transfer for Dexterous Manipulation》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "机器人控制或操作邻接任务",
+    "resolution_reference": "review-independent-unique.json#2610.40349"
+  },
+  {
+    "id": "2506.02103",
+    "title": "Entanglement Scaling of Motzkin Chains under Spiral Hamiltonian-path Embeddings",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2506.02103"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Entanglement Scaling of Motzkin Chains under Spiral Hamiltonian-path Embeddings》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2506.02103"
+  },
+  {
+    "id": "2610.40313",
+    "title": "Matrix Nearness Problems Revisited",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.40313"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Matrix Nearness Problems Revisited》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.40313"
+  },
+  {
+    "id": "2610.40285",
+    "title": "MUSBRIC: LEGO-Compatible Pneumatic Muscle Bricks for Reconfigurable Musculoskeletal Robots",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.40285"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为机器人控制或操作邻接任务；《MUSBRIC: LEGO-Compatible Pneumatic Muscle Bricks for Reconfigurable Musculoskeletal Robots》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "机器人控制或操作邻接任务",
+    "resolution_reference": "review-independent-unique.json#2610.40285"
+  },
+  {
+    "id": "2610.40284",
+    "title": "LoRe-MIM: Lost-or-Replaced Masked Image Modeling for Self-Supervised Representation Learning in Whole-Body PET/CT",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.40284"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为医学生命与非几何成像；《LoRe-MIM: Lost-or-Replaced Masked Image Modeling for Self-Supervised Representation Learning in Whole-Body PET/CT》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "医学生命与非几何成像",
+    "resolution_reference": "review-independent-unique.json#2610.40284"
+  },
+  {
+    "id": "2610.40272",
+    "title": "posterior-landscape: morphological feature finding in two-dimensional probability densities",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.40272"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《posterior-landscape: morphological feature finding in two-dimensional probability densities》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.40272"
+  },
+  {
+    "id": "2610.40236",
+    "title": "Positive Toeplitz Operators Between Gaussian Mixed-Norm Fock Spaces",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.40236"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Positive Toeplitz Operators Between Gaussian Mixed-Norm Fock Spaces》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.40236"
+  },
+  {
+    "id": "2610.40125",
+    "title": "Scale-free wave localization at topological multicriticality",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.40125"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Scale-free wave localization at topological multicriticality》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.40125"
+  },
+  {
+    "id": "2601.11780",
+    "title": "Observation of a cross-section enhancement near the $t\\bar{t}$ production threshold in $\\sqrt{s}=13$ TeV $pp$ collisions with the ATLAS detector",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2601.11780"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Observation of a cross-section enhancement near the $t\\bar{t}$ production threshold in $\\sqrt{s}=13$ TeV $pp$ collisions with the ATLAS detector》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2601.11780"
+  },
+  {
+    "id": "2510.12118",
+    "title": "Quivers with involutions and shifted twisted Yangians via Coulomb branches",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2510.12118"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Quivers with involutions and shifted twisted Yangians via Coulomb branches》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2510.12118"
+  },
+  {
+    "id": "2406.18215",
+    "title": "Optimizing Incomplete, Large-Scale and Sparse Multi-Graph Matching in Bioimaging",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2406.18215"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Optimizing Incomplete, Large-Scale and Sparse Multi-Graph Matching in Bioimaging》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2406.18215"
+  },
+  {
+    "id": "2610.39956",
+    "title": "Scattering-force-driven light-sheet fluorescence microscopy for scan-free three-dimensional imaging",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.39956"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Scattering-force-driven light-sheet fluorescence microscopy for scan-free three-dimensional imaging》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.39956"
+  },
+  {
+    "id": "2610.39949",
+    "title": "Reconstructing Missing Mandi Prices in North-East India with Regional Factors",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.39949"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Reconstructing Missing Mandi Prices in North-East India with Regional Factors》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.39949"
+  },
+  {
+    "id": "2610.39938",
+    "title": "A Riemann-Hilbert approach to the two-component modified Camassa-Holm system with step-like boundary conditions",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.39938"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《A Riemann-Hilbert approach to the two-component modified Camassa-Holm system with step-like boundary conditions》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.39938"
+  },
+  {
+    "id": "2604.17600",
+    "title": "Activation and Avalanche Length Scales in the Finite-Temperature Creep of an Elastic Interface",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2604.17600"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Activation and Avalanche Length Scales in the Finite-Temperature Creep of an Elastic Interface》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2604.17600"
+  },
+  {
+    "id": "2610.39757",
+    "title": "HWF Analysis of TRN Black Holes",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.39757"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《HWF Analysis of TRN Black Holes》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.39757"
+  },
+  {
+    "id": "2610.39630",
+    "title": "Symbolic depth functions of edge ideals via local graph structure",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.39630"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Symbolic depth functions of edge ideals via local graph structure》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.39630"
+  },
+  {
+    "id": "2610.39609",
+    "title": "DiFuse: Fusing Native Diffusion Representations for Spatial Reasoning in Unified Multimodal Models",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.39609"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "DiFuse融合扩散特征改善通用空间推理，摘要未建立三维几何表示、建图、导航或相关世界动力学；排除通用多模态VQA。",
+    "evidence_level": "abstract",
+    "version": 1,
+    "v1_utc": "2026-10-29T08:43:08Z",
+    "updated_utc": "2026-10-29T08:43:08Z",
+    "window_class": "new",
+    "original_report": null,
+    "resolution_reference": "review-candidates-screened.json#2610.39609"
+  },
+  {
+    "id": "2610.39592",
+    "title": "Operator-Aware Posterior Sampling for Multivariate Weather Downscaling",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.39592"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为气象遥感与地球系统；《Operator-Aware Posterior Sampling for Multivariate Weather Downscaling》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "气象遥感与地球系统",
+    "resolution_reference": "review-independent-unique.json#2610.39592"
+  },
+  {
+    "id": "2610.39572",
+    "title": "RV2GC: Reconstructing the Garbling Boundary in a RISC-V Garbled Processor",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.39572"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《RV2GC: Reconstructing the Garbling Boundary in a RISC-V Garbled Processor》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.39572"
+  },
+  {
+    "id": "2610.39563",
+    "title": "Trajeform: Embedding Crowd Data",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.39563"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Trajeform: Embedding Crowd Data》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.39563"
+  },
+  {
+    "id": "2607.22052",
+    "title": "Norm of resonance states in quantum scattering and electromagnetic systems",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2607.22052"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Norm of resonance states in quantum scattering and electromagnetic systems》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2607.22052"
+  },
+  {
+    "id": "2508.07388",
+    "title": "Invert4TVG: A Temporal Video Grounding Framework with Inversion Tasks Preserving Action Understanding Ability",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2508.07388"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为二维视听感知与通用视觉理解；《Invert4TVG: A Temporal Video Grounding Framework with Inversion Tasks Preserving Action Understanding Ability》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "二维视听感知与通用视觉理解",
+    "resolution_reference": "review-independent-unique.json#2508.07388"
+  },
+  {
+    "id": "2610.39527",
+    "title": "Propagation of Sobolev Regularity for Integral-Invariant Weak Solutions of the Linear Transport Equation",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.39527"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Propagation of Sobolev Regularity for Integral-Invariant Weak Solutions of the Linear Transport Equation》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.39527"
+  },
+  {
+    "id": "2610.39496",
+    "title": "Label-free Monitoring of Nucleoid Dynamics of Bacteria for Drug Screening Using Holography",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.39496"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为医学生命与非几何成像；《Label-free Monitoring of Nucleoid Dynamics of Bacteria for Drug Screening Using Holography》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "医学生命与非几何成像",
+    "resolution_reference": "review-independent-unique.json#2610.39496"
+  },
+  {
+    "id": "2610.39478",
+    "title": "Regional Anchor Routing for Multi-Object Motion Transfer",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.39478"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为二维视听感知与通用视觉理解；《Regional Anchor Routing for Multi-Object Motion Transfer》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "二维视听感知与通用视觉理解",
+    "resolution_reference": "review-independent-unique.json#2610.39478"
+  },
+  {
+    "id": "2610.39378",
+    "title": "Limit Theorems and Optimal Policies for Flock Flight through Poisson Forests",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.39378"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Limit Theorems and Optimal Policies for Flock Flight through Poisson Forests》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.39378"
+  },
+  {
+    "id": "2610.32220",
+    "title": "Angular Supervision for Visual Object Grounding in Autoregressive Vision-Language Models",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32220"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "Angular Supervision研究二维目标grounding和分割热图，摘要不涉及三维几何、地图或导航。",
+    "evidence_level": "abstract",
+    "version": 2,
+    "v1_utc": "2026-10-23T06:16:32Z",
+    "updated_utc": "2026-10-29T04:08:01Z",
+    "window_class": "revised",
+    "original_report": null,
+    "resolution_reference": "review-candidates-screened.json#2610.32220"
+  },
+  {
+    "id": "2609.30238",
+    "title": "SemMSA: Latent Semantic-Aided Robust Multimodal Sentiment Analysis with Incomplete Data",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2609.30238"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为二维视听感知与通用视觉理解；《SemMSA: Latent Semantic-Aided Robust Multimodal Sentiment Analysis with Incomplete Data》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "二维视听感知与通用视觉理解",
+    "resolution_reference": "review-independent-unique.json#2609.30238"
+  },
+  {
+    "id": "2610.39265",
+    "title": "DeCoRL: Decomposed Consistency Reinforcement Learning for Multi-Image Composition",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.39265"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《DeCoRL: Decomposed Consistency Reinforcement Learning for Multi-Image Composition》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.39265"
+  },
+  {
+    "id": "2610.39171",
+    "title": "ACAM-J-MARS: Multi-Atlas Riemannian Spectral Representations for Decoding Advanced Meditation States from fMRI",
+    "query_hits": [
+      "review-A-geometry-submitted_date-0.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.39171"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《ACAM-J-MARS: Multi-Atlas Riemannian Spectral Representations for Decoding Advanced Meditation States from fMRI》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.39171"
+  },
+  {
+    "id": "2603.23794",
+    "title": "Sparse Autoencoders for Interpretable Medical Image Representation Learning",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2603.23794"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为医学生命与非几何成像；《Sparse Autoencoders for Interpretable Medical Image Representation Learning》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "医学生命与非几何成像",
+    "resolution_reference": "review-independent-unique.json#2603.23794"
+  },
+  {
+    "id": "2604.09809",
+    "title": "Particle transformers for identifying Lorentz-boosted Higgs bosons decaying to a pair of W bosons",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2604.09809"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Particle transformers for identifying Lorentz-boosted Higgs bosons decaying to a pair of W bosons》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2604.09809"
+  },
+  {
+    "id": "2603.03669",
+    "title": "Automated Detection and Climatological Analysis of Ripple-Scale Gravity Wave Instabilities Using a Squeeze-and-Excitation Convolutional Neural Network",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2603.03669"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Automated Detection and Climatological Analysis of Ripple-Scale Gravity Wave Instabilities Using a Squeeze-and-Excitation Convolutional Neural Network》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2603.03669"
+  },
+  {
+    "id": "2610.33223",
+    "title": "The Locality Trade-off in Masked Patch Self-Distillation",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.33223"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《The Locality Trade-off in Masked Patch Self-Distillation》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.33223"
+  },
+  {
+    "id": "2609.05412",
+    "title": "Tracing the Cosmic Origins: Machine Learning Reconstruction of the Primordial Density Field from EoR Observations",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2609.05412"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Tracing the Cosmic Origins: Machine Learning Reconstruction of the Primordial Density Field from EoR Observations》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2609.05412"
+  },
+  {
+    "id": "2610.32943",
+    "title": "Knowledge Distillation across Item and Code Spaces for Parallel Generative Recommendation",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32943"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Knowledge Distillation across Item and Code Spaces for Parallel Generative Recommendation》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.32943"
+  },
+  {
+    "id": "2610.33138",
+    "title": "Optimal Correction Sets for Provable Redress of Contestable Causal Discovery",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.33138"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Optimal Correction Sets for Provable Redress of Contestable Causal Discovery》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.33138"
+  },
+  {
+    "id": "2610.32743",
+    "title": "First- and Second-Order Electron Position Correlators Reveal Topological Phase Transitions",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32743"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《First- and Second-Order Electron Position Correlators Reveal Topological Phase Transitions》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.32743"
+  },
+  {
+    "id": "2610.32738",
+    "title": "Agentic Hazard Mapper: Emulating Expert Map-Making with AI Agents for Risk Communication",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32738"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Agentic Hazard Mapper: Emulating Expert Map-Making with AI Agents for Risk Communication》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.32738"
+  },
+  {
+    "id": "2610.32649",
+    "title": "Approximating the Gibbs Measure of Spherical Spin Glasses to Within $o(N^{-1/2})$ in the Replica Symmetric Phase",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32649"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Approximating the Gibbs Measure of Spherical Spin Glasses to Within $o(N^{-1/2})$ in the Replica Symmetric Phase》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.32649"
+  },
+  {
+    "id": "2610.32603",
+    "title": "From kinetic activation dynamics to Holling type reaction-diffusion predator-prey systems",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32603"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《From kinetic activation dynamics to Holling type reaction-diffusion predator-prey systems》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.32603"
+  },
+  {
+    "id": "2606.12698",
+    "title": "Higher Dimensional Loop Quantum Black hole in de Sitter Spacetime: Quasinormal Modes and Shadow Signatures",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2606.12698"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Higher Dimensional Loop Quantum Black hole in de Sitter Spacetime: Quasinormal Modes and Shadow Signatures》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2606.12698"
+  },
+  {
+    "id": "2606.20271",
+    "title": "Interpreting Liouvillian Eigenmodes: Quantized Orbits in Dissipative Systems",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2606.20271"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Interpreting Liouvillian Eigenmodes: Quantized Orbits in Dissipative Systems》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2606.20271"
+  },
+  {
+    "id": "2610.32569",
+    "title": "Cartographing Gravity: Operational Maps, the Conatus of Proper Time, and the Potentia of Matter",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32569"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Cartographing Gravity: Operational Maps, the Conatus of Proper Time, and the Potentia of Matter》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.32569"
+  },
+  {
+    "id": "2610.32516",
+    "title": "Principled Nonlinear Concept Erasure and Steering",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32516"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Principled Nonlinear Concept Erasure and Steering》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.32516"
+  },
+  {
+    "id": "2610.32492",
+    "title": "Accordion: Elastic-Depth Inference via Fixed-Prefix Layer Looping",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32492"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Accordion: Elastic-Depth Inference via Fixed-Prefix Layer Looping》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.32492"
+  },
+  {
+    "id": "2610.32470",
+    "title": "Binary Quadratic Forms, Shintani Lifts, and Twisted L-Values",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32470"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Binary Quadratic Forms, Shintani Lifts, and Twisted L-Values》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.32470"
+  },
+  {
+    "id": "2610.32436",
+    "title": "Luminosity-weighted galaxy and gravitational wave cross-correlations",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32436"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Luminosity-weighted galaxy and gravitational wave cross-correlations》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.32436"
+  },
+  {
+    "id": "2610.32411",
+    "title": "A Broader Look into MLLM's Retrieval Heads",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32411"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《A Broader Look into MLLM's Retrieval Heads》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.32411"
+  },
+  {
+    "id": "2610.32405",
+    "title": "Quantum Landau Lifshitz Gilbert equation in ferromagnetic conductors and magnetic insulators",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32405"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Quantum Landau Lifshitz Gilbert equation in ferromagnetic conductors and magnetic insulators》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.32405"
+  },
+  {
+    "id": "2610.32397",
+    "title": "Integrable turbulence and statistical properties of chaotic wave fields in the complex modified Korteweg-de Vries equation",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32397"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Integrable turbulence and statistical properties of chaotic wave fields in the complex modified Korteweg-de Vries equation》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.32397"
+  },
+  {
+    "id": "2610.32388",
+    "title": "Introducing the GION Lightcone Simulation Suite for Multi-Wavelength Large-Scale Structure Cosmology",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32388"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Introducing the GION Lightcone Simulation Suite for Multi-Wavelength Large-Scale Structure Cosmology》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.32388"
+  },
+  {
+    "id": "2610.32360",
+    "title": "Search-Based Testing of Modality Sensitivity in Vision Language Models",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32360"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Search-Based Testing of Modality Sensitivity in Vision Language Models》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.32360"
+  },
+  {
+    "id": "2610.32279",
+    "title": "TranSAGE: Automating Spatial Accelerator Generation for Large-Scale Transformer Models",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32279"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《TranSAGE: Automating Spatial Accelerator Generation for Large-Scale Transformer Models》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.32279"
+  },
+  {
+    "id": "2610.32218",
+    "title": "Traceable Quantum Secret Sharing",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32218"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Traceable Quantum Secret Sharing》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.32218"
+  },
+  {
+    "id": "2610.32208",
+    "title": "Do VLAs Know They Will Fail? Interpretable Success and Failure Patterns in Physical AI Systems",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32208"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为机器人控制或操作邻接任务；《Do VLAs Know They Will Fail? Interpretable Success and Failure Patterns in Physical AI Systems》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "机器人控制或操作邻接任务",
+    "resolution_reference": "review-independent-unique.json#2610.32208"
+  },
+  {
+    "id": "2610.32194",
+    "title": "Dual-Adaptive Z-Score PPO: Dynamic Clipping Using Action Confidence and Normalized Advantage Magnitude",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32194"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Dual-Adaptive Z-Score PPO: Dynamic Clipping Using Action Confidence and Normalized Advantage Magnitude》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.32194"
+  },
+  {
+    "id": "2610.32148",
+    "title": "Covariance-Informed Ensemble Score Filtering: Embedding Localized Covariance Geometry into Score-Based Transport",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32148"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Covariance-Informed Ensemble Score Filtering: Embedding Localized Covariance Geometry into Score-Based Transport》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.32148"
+  },
+  {
+    "id": "2610.33115",
+    "title": "Spatial symmetry invariance of three-dimensional Navier-Stokes turbulence",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.33115"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Spatial symmetry invariance of three-dimensional Navier-Stokes turbulence》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.33115"
+  },
+  {
+    "id": "2610.32059",
+    "title": "Concept Acupuncturist: An Efficient and Precise Concept Erasure Method for Diffusion Models via Sparse Autoencoders",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.32059"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Concept Acupuncturist: An Efficient and Precise Concept Erasure Method for Diffusion Models via Sparse Autoencoders》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.32059"
+  },
+  {
+    "id": "2606.22617",
+    "title": "OmniSpace: Efficient Geometry Awareness for Autonomous Vehicles MLLMs",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-localization-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2606.22617"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及spatial-understanding，纳入摘要跟踪。",
+    "evidence_level": "abstract",
+    "version": 3,
+    "v1_utc": "2026-06-21T17:47:31Z",
+    "updated_utc": "2026-10-23T00:42:07Z",
+    "window_class": "historical_backfill",
+    "original_report": null,
+    "resolution_reference": "review-candidates-screened.json#2606.22617"
+  },
+  {
+    "id": "2610.31949",
+    "title": "Mean estimation in spatial functional data",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.31949"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Mean estimation in spatial functional data》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.31949"
+  },
+  {
+    "id": "2503.21288",
+    "title": "Haptic bilateral teleoperation system for free-hand dental procedures",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2503.21288"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为机器人控制或操作邻接任务；《Haptic bilateral teleoperation system for free-hand dental procedures》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "机器人控制或操作邻接任务",
+    "resolution_reference": "review-independent-unique.json#2503.21288"
+  },
+  {
+    "id": "2610.31813",
+    "title": "Physics-Informed Neural Networks vs U-Net: Application to thermal dust emission recovery in the microwave",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.31813"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为气象遥感与地球系统；《Physics-Informed Neural Networks vs U-Net: Application to thermal dust emission recovery in the microwave》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "气象遥感与地球系统",
+    "resolution_reference": "review-independent-unique.json#2610.31813"
+  },
+  {
+    "id": "2610.31797",
+    "title": "PnP*: A certifiable solver for Perspective-n-Point",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html",
+      "review-A-localization-submitted_date-0.html",
+      "review-A-localization-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.31797"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及matching-registration，纳入摘要跟踪。",
+    "evidence_level": "abstract",
+    "version": 1,
+    "v1_utc": "2026-10-22T18:38:48Z",
+    "updated_utc": "2026-10-22T18:38:48Z",
+    "window_class": "historical_backfill",
+    "original_report": null,
+    "resolution_reference": "review-candidates-screened.json#2610.31797"
+  },
+  {
+    "id": "2512.01775",
+    "title": "How Does RL Post-training Induce Skill Composition? A Case Study on Countdown",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2512.01775"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为二维视听感知与通用视觉理解；《How Does RL Post-training Induce Skill Composition? A Case Study on Countdown》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "二维视听感知与通用视觉理解",
+    "resolution_reference": "review-independent-unique.json#2512.01775"
+  },
+  {
+    "id": "2610.31600",
+    "title": "SympFormer: Inertial Attention Blocks from Damped Hamiltonian Dynamics on Spaces of Probability Measures",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.31600"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《SympFormer: Inertial Attention Blocks from Damped Hamiltonian Dynamics on Spaces of Probability Measures》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.31600"
+  },
+  {
+    "id": "2610.31494",
+    "title": "AgentVQA: A Unified Benchmark for Agentic Visual Understanding",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.31494"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为二维视听感知与通用视觉理解；《AgentVQA: A Unified Benchmark for Agentic Visual Understanding》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "二维视听感知与通用视觉理解",
+    "resolution_reference": "review-independent-unique.json#2610.31494"
+  },
+  {
+    "id": "2610.31490",
+    "title": "Self-Supervised Multibeam Sonar Restoration via Coherent Forward Modeling",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1000.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.31490"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "多波束声呐去斑去模糊恢复强度图像；虽利用已配准序列，摘要未求解配准、位姿、三维几何或闭环导航，排除传感器图像增强邻接任务。",
+    "evidence_level": "abstract",
+    "version": 1,
+    "v1_utc": "2026-10-22T16:09:32Z",
+    "updated_utc": "2026-10-22T16:09:32Z",
+    "window_class": "historical_backfill",
+    "original_report": null,
+    "resolution_reference": "review-candidates-screened.json#2610.31490"
+  },
+  {
+    "id": "2610.31457",
+    "title": "Unexpected Local Enhancement of Chromospheric Moreton Waves on the Sun",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1200.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.31457"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Unexpected Local Enhancement of Chromospheric Moreton Waves on the Sun》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.31457"
+  },
+  {
+    "id": "2605.30526",
+    "title": "Measuring, Localizing, and Reducing the AI-Like Writing Style of Post-Trained LLMs",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2605.30526"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Measuring, Localizing, and Reducing the AI-Like Writing Style of Post-Trained LLMs》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2605.30526"
+  },
+  {
+    "id": "2610.31371",
+    "title": "Probabilistic Energy Modeling Unifies Versatile Swarm Control",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1200.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.31371"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为机器人控制或操作邻接任务；《Probabilistic Energy Modeling Unifies Versatile Swarm Control》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "机器人控制或操作邻接任务",
+    "resolution_reference": "review-independent-unique.json#2610.31371"
+  },
+  {
+    "id": "2610.31334",
+    "title": "GelSlim 5.0: Unifying Vision and Touch with a Single Fingertip Camera",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1200.html",
+      "review-A-geometry-submitted_date_first-800.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.31334"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《GelSlim 5.0: Unifying Vision and Touch with a Single Fingertip Camera》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.31334"
+  },
+  {
+    "id": "2610.31270",
+    "title": "Continuation and convergence for the higher dimensional conformal Chern--Calabi flow",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1200.html",
+      "review-A-geometry-submitted_date_first-800.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.31270"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Continuation and convergence for the higher dimensional conformal Chern--Calabi flow》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.31270"
+  },
+  {
+    "id": "2610.31167",
+    "title": "Liouville Theorems and Sharp Homogeneity Defects for Weighted Potential Systems",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1200.html",
+      "review-A-geometry-submitted_date_first-800.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.31167"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Liouville Theorems and Sharp Homogeneity Defects for Weighted Potential Systems》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.31167"
+  },
+  {
+    "id": "2610.31057",
+    "title": "Initial-boundary value problems for linear lattice differential equations",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1200.html",
+      "review-A-geometry-submitted_date_first-800.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.31057"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Initial-boundary value problems for linear lattice differential equations》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.31057"
+  },
+  {
+    "id": "2610.31035",
+    "title": "The subcritical accelerating Schwarzschild-Bertotti-Robinson family",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1200.html",
+      "review-A-geometry-submitted_date_first-800.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.31035"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《The subcritical accelerating Schwarzschild-Bertotti-Robinson family》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.31035"
+  },
+  {
+    "id": "2610.30872",
+    "title": "Lip-Focused Audio-Visual Consistency Detects Speech Content Manipulation beyond Coarse Synchronization",
+    "query_hits": [
+      "review-A-geometry-submitted_date-1200.html",
+      "review-A-geometry-submitted_date_first-800.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.30872"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为二维视听感知与通用视觉理解；《Lip-Focused Audio-Visual Consistency Detects Speech Content Manipulation beyond Coarse Synchronization》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "二维视听感知与通用视觉理解",
+    "resolution_reference": "review-independent-unique.json#2610.30872"
+  },
+  {
+    "id": "2610.39136",
+    "title": "Beyond energy bounds: comparing Schrödinger eigenstates",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.39136"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Beyond energy bounds: comparing Schrödinger eigenstates》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.39136"
+  },
+  {
+    "id": "2610.39118",
+    "title": "A Low-Dimensional Chemical Representation of High-Resolution Stellar Disk Spectra: Residual Abundance Signatures",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.39118"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《A Low-Dimensional Chemical Representation of High-Resolution Stellar Disk Spectra: Residual Abundance Signatures》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.39118"
+  },
+  {
+    "id": "2604.27200",
+    "title": "Estimating the Kinetic Energy Spectrum from the Second-Order Velocity Structure Function using a Regularized Fitting Approach",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2604.27200"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Estimating the Kinetic Energy Spectrum from the Second-Order Velocity Structure Function using a Regularized Fitting Approach》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2604.27200"
+  },
+  {
+    "id": "2609.10384",
+    "title": "Wide Field Localization Using Fixed Modulation Collimators",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2609.10384"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Wide Field Localization Using Fixed Modulation Collimators》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2609.10384"
+  },
+  {
+    "id": "2606.17342",
+    "title": "Learning a Maximum Entropy Model for Visual Textures using Diffusion",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2606.17342"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Learning a Maximum Entropy Model for Visual Textures using Diffusion》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2606.17342"
+  },
+  {
+    "id": "2608.26257",
+    "title": "Group Isomorphism and the Polylogarithmic-Time Hierarchy: Depth-2$\\frac{1}{2}$ Circuits and Lower Bounds",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2608.26257"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Group Isomorphism and the Polylogarithmic-Time Hierarchy: Depth-2$\\frac{1}{2}$ Circuits and Lower Bounds》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2608.26257"
+  },
+  {
+    "id": "2610.38926",
+    "title": "OneScene-Bench: Do Vision-Language Models Integrate Evidence Across Views?",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.38926"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及spatial-understanding，纳入摘要跟踪。",
+    "evidence_level": "abstract",
+    "version": 1,
+    "v1_utc": "2026-10-28T21:17:36Z",
+    "updated_utc": "2026-10-28T21:17:36Z",
+    "window_class": "new",
+    "original_report": null,
+    "resolution_reference": "review-candidates-screened.json#2610.38926"
+  },
+  {
+    "id": "2610.38858",
+    "title": "A morpho-kinematic view of the Necklace nebula",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.38858"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《A morpho-kinematic view of the Necklace nebula》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.38858"
+  },
+  {
+    "id": "2610.29218",
+    "title": "Geometry-controlled zeros of resonant Kelvin-wave conversion in four spatial dimensions",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.29218"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Geometry-controlled zeros of resonant Kelvin-wave conversion in four spatial dimensions》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.29218"
+  },
+  {
+    "id": "2610.38769",
+    "title": "From pq-webs to magnetic quivers and back I: dictionary and deformations",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.38769"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《From pq-webs to magnetic quivers and back I: dictionary and deformations》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.38769"
+  },
+  {
+    "id": "2610.38729",
+    "title": "Integrating multi-source local information for global undirected graph reconstruction via integer programming",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.38729"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Integrating multi-source local information for global undirected graph reconstruction via integer programming》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.38729"
+  },
+  {
+    "id": "2610.38652",
+    "title": "Episodic Plasma Flows and Coronal Brightenings in an Arch Filament System Observed with SUNRISE III",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.38652"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Episodic Plasma Flows and Coronal Brightenings in an Arch Filament System Observed with SUNRISE III》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.38652"
+  },
+  {
+    "id": "2610.38636",
+    "title": "Curriculum-Based Deep Reinforcement Learning for Robust Autonomous Rocket Landing under Atmospheric Uncertainty",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.38636"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Curriculum-Based Deep Reinforcement Learning for Robust Autonomous Rocket Landing under Atmospheric Uncertainty》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.38636"
+  },
+  {
+    "id": "2610.38624",
+    "title": "SelectSep: Target-Selective Video Queries for Audio Source Separation",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.38624"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为二维视听感知与通用视觉理解；《SelectSep: Target-Selective Video Queries for Audio Source Separation》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "二维视听感知与通用视觉理解",
+    "resolution_reference": "review-independent-unique.json#2610.38624"
+  },
+  {
+    "id": "2602.21981",
+    "title": "Fractal dimension of singular times for SPDEs: Energy bounds, criticality, and weak-strong uniqueness",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2602.21981"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Fractal dimension of singular times for SPDEs: Energy bounds, criticality, and weak-strong uniqueness》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2602.21981"
+  },
+  {
+    "id": "2610.38589",
+    "title": "GRAVITY-RESOLVE: A comprehensive image reconstruction tool for Galactic Center observations with GRAVITY",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.38589"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《GRAVITY-RESOLVE: A comprehensive image reconstruction tool for Galactic Center observations with GRAVITY》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.38589"
+  },
+  {
+    "id": "2610.38534",
+    "title": "Hydration Free Energies from Local Electronic Structures",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.38534"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Hydration Free Energies from Local Electronic Structures》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.38534"
+  },
+  {
+    "id": "2610.38528",
+    "title": "Giant piezomagnetic response driven by spin reorientation in the topological Kagome magnet TbMn6Sn6",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.38528"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Giant piezomagnetic response driven by spin reorientation in the topological Kagome magnet TbMn6Sn6》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.38528"
+  },
+  {
+    "id": "2610.38461",
+    "title": "Series approximation of discrete-soliton solutions of the DNLS equation",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.38461"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Series approximation of discrete-soliton solutions of the DNLS equation》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.38461"
+  },
+  {
+    "id": "2610.38413",
+    "title": "Structure-retained low-rank adapters for weather synthesis",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.38413"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为气象遥感与地球系统；《Structure-retained low-rank adapters for weather synthesis》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "气象遥感与地球系统",
+    "resolution_reference": "review-independent-unique.json#2610.38413"
+  },
+  {
+    "id": "2610.38322",
+    "title": "Strict Frequency Bandwidths from Causal Light Cones Enable Scalable Exact Gradient Evaluation in Quantum Optimization",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.38322"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Strict Frequency Bandwidths from Causal Light Cones Enable Scalable Exact Gradient Evaluation in Quantum Optimization》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.38322"
+  },
+  {
+    "id": "2610.38281",
+    "title": "A Witnessing Duality for ReLU Network Depth",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.38281"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《A Witnessing Duality for ReLU Network Depth》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.38281"
+  },
+  {
+    "id": "2607.08992",
+    "title": "Vacancy Effect on the Ground-State Energy of a Bose Gas Trapped by 1D Imperfect Artificial Crystal",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2607.08992"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Vacancy Effect on the Ground-State Energy of a Bose Gas Trapped by 1D Imperfect Artificial Crystal》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2607.08992"
+  },
+  {
+    "id": "2601.06620",
+    "title": "Global Well-Posedness of the Vacuum Free Boundary Problem for the Degenerate Compressible Navier-Stokes Equations With Large Data of Spherical Symmetry",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2601.06620"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Global Well-Posedness of the Vacuum Free Boundary Problem for the Degenerate Compressible Navier-Stokes Equations With Large Data of Spherical Symmetry》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2601.06620"
+  },
+  {
+    "id": "2508.20322",
+    "title": "Disentangling Latent Embeddings with Sparse Linear Concept Cones (SLiCC)",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2508.20322"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Disentangling Latent Embeddings with Sparse Linear Concept Cones (SLiCC)》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2508.20322"
+  },
+  {
+    "id": "2610.38219",
+    "title": "Bound-preserving and mass-conserving projection BCFD methods for incompressible miscible displacement in porous media",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.38219"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Bound-preserving and mass-conserving projection BCFD methods for incompressible miscible displacement in porous media》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.38219"
+  },
+  {
+    "id": "2610.30799",
+    "title": "WovenAnchor Matcher: Specialized Intra- and Inter-Image Context Modeling for Feature Matching",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.30799"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及matching-registration，纳入摘要跟踪。",
+    "evidence_level": "abstract",
+    "version": 2,
+    "v1_utc": "2026-10-22T06:24:39Z",
+    "updated_utc": "2026-10-28T03:05:34Z",
+    "window_class": "revised",
+    "original_report": null,
+    "resolution_reference": "review-candidates-screened.json#2610.30799"
+  },
+  {
+    "id": "2610.38009",
+    "title": "Large Language Models for Accurate Medical Chart Abstraction: Enabling Scalable and Secure Artificial Intelligence Deployment in Stroke",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.38009"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为医学生命与非几何成像；《Large Language Models for Accurate Medical Chart Abstraction: Enabling Scalable and Secure Artificial Intelligence Deployment in Stroke》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "医学生命与非几何成像",
+    "resolution_reference": "review-independent-unique.json#2610.38009"
+  },
+  {
+    "id": "2508.13255",
+    "title": "FISH Omics Format: a standard enabling FAIR chromatin tracing data sharing across repositories",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2508.13255"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为医学生命与非几何成像；《FISH Omics Format: a standard enabling FAIR chromatin tracing data sharing across repositories》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "医学生命与非几何成像",
+    "resolution_reference": "review-independent-unique.json#2508.13255"
+  },
+  {
+    "id": "2610.37971",
+    "title": "The Carousel Lens III: Joint lens convergence and source kinematic modeling",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.37971"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《The Carousel Lens III: Joint lens convergence and source kinematic modeling》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.37971"
+  },
+  {
+    "id": "2610.37924",
+    "title": "On End-Semidualizing Modules",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.37924"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《On End-Semidualizing Modules》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.37924"
+  },
+  {
+    "id": "2610.37861",
+    "title": "The Geometry of Quantum Teleportation in Phase Space",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.37861"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《The Geometry of Quantum Teleportation in Phase Space》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.37861"
+  },
+  {
+    "id": "2610.37801",
+    "title": "An Empirical Study of Wrist-Target Construction and Joint-Angle Limits in Humanoid Arm Retargeting",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.37801"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为机器人控制或操作邻接任务；《An Empirical Study of Wrist-Target Construction and Joint-Angle Limits in Humanoid Arm Retargeting》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "机器人控制或操作邻接任务",
+    "resolution_reference": "review-independent-unique.json#2610.37801"
+  },
+  {
+    "id": "2610.37792",
+    "title": "Searching for Circumplanetary Dust in the Cavity of the AB Aurigae Disk with ALMA",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.37792"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Searching for Circumplanetary Dust in the Cavity of the AB Aurigae Disk with ALMA》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.37792"
+  },
+  {
+    "id": "2610.37761",
+    "title": "Field theory of competing phases in the interacting Kitaev chain",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.37761"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Field theory of competing phases in the interacting Kitaev chain》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.37761"
+  },
+  {
+    "id": "2610.37760",
+    "title": "MoireKP: An Automated Workflow for Symmetry-Constrained Moiré Continuum Models",
+    "query_hits": [
+      "review-A-geometry-submitted_date-200.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.37760"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《MoireKP: An Automated Workflow for Symmetry-Constrained Moiré Continuum Models》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.37760"
+  },
+  {
+    "id": "2605.12479",
+    "title": "Cutting rules in strong field QED with application to trident pair production",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2605.12479"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Cutting rules in strong field QED with application to trident pair production》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2605.12479"
+  },
+  {
+    "id": "2610.37525",
+    "title": "Gravitational wave signatures of periodic orbits around a Schwarzschild-like black hole",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.37525"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Gravitational wave signatures of periodic orbits around a Schwarzschild-like black hole》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.37525"
+  },
+  {
+    "id": "2610.37471",
+    "title": "PerceptRL: Making Visual Perception Rewardable in MLLMs from Answers to Interactions",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.37471"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《PerceptRL: Making Visual Perception Rewardable in MLLMs from Answers to Interactions》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.37471"
+  },
+  {
+    "id": "2512.06651",
+    "title": "A Capacitor Model of the Helical Deflector: Revisiting Shamaev's Proposal and the Textbook Model",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2512.06651"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《A Capacitor Model of the Helical Deflector: Revisiting Shamaev's Proposal and the Textbook Model》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2512.06651"
+  },
+  {
+    "id": "2610.29931",
+    "title": "Two-stage Slowdown of Vacancy-mediated Diffusion in a Lattice Gas Model with Quenched Disorder and Spins",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.29931"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Two-stage Slowdown of Vacancy-mediated Diffusion in a Lattice Gas Model with Quenched Disorder and Spins》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.29931"
+  },
+  {
+    "id": "2610.37310",
+    "title": "Spiking Neuromorphic Control for Periodic Orbits Stabilization in Underactuated Robots: A Greedy Lyapunov-Based Approach",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.37310"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为医学生命与非几何成像；《Spiking Neuromorphic Control for Periodic Orbits Stabilization in Underactuated Robots: A Greedy Lyapunov-Based Approach》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "医学生命与非几何成像",
+    "resolution_reference": "review-independent-unique.json#2610.37310"
+  },
+  {
+    "id": "2610.37264",
+    "title": "A Posteriori Error Analysis of Finite Element Approximation to an Evolution Equation with a Positive-Type Memory Term",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.37264"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《A Posteriori Error Analysis of Finite Element Approximation to an Evolution Equation with a Positive-Type Memory Term》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.37264"
+  },
+  {
+    "id": "2610.37215",
+    "title": "Retrieve to Act: Motion Primitive Graph Retrieval for Robust VLA Execution",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.37215"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为机器人控制或操作邻接任务；《Retrieve to Act: Motion Primitive Graph Retrieval for Robust VLA Execution》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "机器人控制或操作邻接任务",
+    "resolution_reference": "review-independent-unique.json#2610.37215"
+  },
+  {
+    "id": "2510.23265",
+    "title": "Minimal depth $K$-types for wild double covers and Shimura correspondences",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2510.23265"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Minimal depth $K$-types for wild double covers and Shimura correspondences》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2510.23265"
+  },
+  {
+    "id": "2610.37131",
+    "title": "Science-Fiction Transformation as a Design Lens for Visualization Transformation",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.37131"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Science-Fiction Transformation as a Design Lens for Visualization Transformation》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.37131"
+  },
+  {
+    "id": "2607.21397",
+    "title": "Wilson Towers as Local Bulk Fields",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2607.21397"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Wilson Towers as Local Bulk Fields》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2607.21397"
+  },
+  {
+    "id": "2610.37093",
+    "title": "Learning to Look Beyond Screens: Transferable Visual Observation from GUI Grounding",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.37093"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为二维视听感知与通用视觉理解；《Learning to Look Beyond Screens: Transferable Visual Observation from GUI Grounding》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "二维视听感知与通用视觉理解",
+    "resolution_reference": "review-independent-unique.json#2610.37093"
+  },
+  {
+    "id": "2609.03919",
+    "title": "OctWorld: Long-Range World-Consistent Video Generation with Octree-Based 3D Mapping",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2609.03919"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及world-model，纳入摘要跟踪。",
+    "evidence_level": "abstract",
+    "version": 2,
+    "v1_utc": "2026-09-03T14:35:38Z",
+    "updated_utc": "2026-10-27T11:49:31Z",
+    "window_class": "revised",
+    "original_report": null,
+    "resolution_reference": "review-candidates-screened.json#2609.03919"
+  },
+  {
+    "id": "2601.00528",
+    "title": "Complexity of deep computations via topology of function spaces",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2601.00528"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Complexity of deep computations via topology of function spaces》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2601.00528"
+  },
+  {
+    "id": "2606.28086",
+    "title": "The QCD phase diagram for three-flavor Möbius domain-wall fermions",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2606.28086"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《The QCD phase diagram for three-flavor Möbius domain-wall fermions》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2606.28086"
+  },
+  {
+    "id": "2610.36969",
+    "title": "Sharp global \\(L^2\\) estimates for oscillatory integral operators with quasi-homogeneous phases",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.36969"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Sharp global \\(L^2\\) estimates for oscillatory integral operators with quasi-homogeneous phases》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.36969"
+  },
+  {
+    "id": "2610.17842",
+    "title": "Theoretical and Computational Advances in Birkhoff Pseudospectral Transcription for Aerospace Optimal Control",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.17842"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Theoretical and Computational Advances in Birkhoff Pseudospectral Transcription for Aerospace Optimal Control》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.17842"
+  },
+  {
+    "id": "2610.36819",
+    "title": "Dissipative weak solutions to the three-dimensional stochastic Euler equations",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.36819"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Dissipative weak solutions to the three-dimensional stochastic Euler equations》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.36819"
+  },
+  {
+    "id": "2610.36811",
+    "title": "Weakness Localization Is Not Enough: State-Aware Recursive Knowledge Improvement for Large Language Models",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.36811"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Weakness Localization Is Not Enough: State-Aware Recursive Knowledge Improvement for Large Language Models》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.36811"
+  },
+  {
+    "id": "2610.36789",
+    "title": "A fully articulated humanoid dexterous hand with human-level joint structure enabled by linkage-based actuation",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.36789"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为机器人控制或操作邻接任务；《A fully articulated humanoid dexterous hand with human-level joint structure enabled by linkage-based actuation》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "机器人控制或操作邻接任务",
+    "resolution_reference": "review-independent-unique.json#2610.36789"
+  },
+  {
+    "id": "2610.36785",
+    "title": "OmniGlimpse: Asymmetric Identity Memory for Online Multi-View Tracking",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.36785"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "OmniGlimpse维护多视图目标身份，明确无需相机标定；摘要不恢复三维位置、几何、相机轨迹或地图，排除纯身份关联。",
+    "evidence_level": "abstract",
+    "version": 1,
+    "v1_utc": "2026-10-27T07:50:52Z",
+    "updated_utc": "2026-10-27T07:50:52Z",
+    "window_class": "new",
+    "original_report": null,
+    "resolution_reference": "review-candidates-screened.json#2610.36785"
+  },
+  {
+    "id": "2610.36784",
+    "title": "Existence of a third self-similar solution of the Yang--Mills equation in high odd dimensions",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.36784"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Existence of a third self-similar solution of the Yang--Mills equation in high odd dimensions》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.36784"
+  },
+  {
+    "id": "2608.05764",
+    "title": "Mirror functor for deformed preprojective algebras",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2608.05764"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Mirror functor for deformed preprojective algebras》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2608.05764"
+  },
+  {
+    "id": "2610.36758",
+    "title": "Frequency-Uniform Log-Regret Reinforcement Learning for Diffusions",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.36758"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Frequency-Uniform Log-Regret Reinforcement Learning for Diffusions》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.36758"
+  },
+  {
+    "id": "2610.36706",
+    "title": "Bright Solitons in Non-Hermitian systems: Exploring the interplay of $\\mathcal{PT}$ Symmetry and Wadati Structure",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.36706"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Bright Solitons in Non-Hermitian systems: Exploring the interplay of $\\mathcal{PT}$ Symmetry and Wadati Structure》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.36706"
+  },
+  {
+    "id": "2608.03145",
+    "title": "AI-guided deep visual proteomics reveals recurrence-associated morpho-molecular signatures within triple-negative breast cancers",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2608.03145"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为医学生命与非几何成像；《AI-guided deep visual proteomics reveals recurrence-associated morpho-molecular signatures within triple-negative breast cancers》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "医学生命与非几何成像",
+    "resolution_reference": "review-independent-unique.json#2608.03145"
+  },
+  {
+    "id": "2610.36677",
+    "title": "An $L^p$ Version of Raeburn's Symmetric Imprimitivity Theorem",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.36677"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《An $L^p$ Version of Raeburn's Symmetric Imprimitivity Theorem》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.36677"
+  },
+  {
+    "id": "2609.11219",
+    "title": "Multigraded Local Cohomology Categories: Homological Structure and Canonical Sources",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2609.11219"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Multigraded Local Cohomology Categories: Homological Structure and Canonical Sources》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2609.11219"
+  },
+  {
+    "id": "2610.36625",
+    "title": "Polarity--Time Interaction and Multi-Level Reliability for Event-Based Spacecraft Pose Estimation",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.36625"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及sensor-application，纳入摘要跟踪。",
+    "evidence_level": "abstract",
+    "version": 1,
+    "v1_utc": "2026-10-27T04:29:19Z",
+    "updated_utc": "2026-10-27T04:29:19Z",
+    "window_class": "new",
+    "original_report": null,
+    "resolution_reference": "review-candidates-screened.json#2610.36625"
+  },
+  {
+    "id": "2610.36609",
+    "title": "Structured Wavenumber-Domain Channel Estimation for LoS XL-MIMO",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.36609"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Structured Wavenumber-Domain Channel Estimation for LoS XL-MIMO》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.36609"
+  },
+  {
+    "id": "2610.36550",
+    "title": "A Fast Algorithm for Quaternion Tensor Singular Value Decomposition under the QT-Product with Applications to Color Video Processing",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.36550"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《A Fast Algorithm for Quaternion Tensor Singular Value Decomposition under the QT-Product with Applications to Color Video Processing》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.36550"
+  },
+  {
+    "id": "2606.25312",
+    "title": "LEVIRDet: A Million-Scale 159-Category Dataset and Foundation Model for Universal Remote Sensing Object Detection",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2606.25312"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为气象遥感与地球系统；《LEVIRDet: A Million-Scale 159-Category Dataset and Foundation Model for Universal Remote Sensing Object Detection》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "气象遥感与地球系统",
+    "resolution_reference": "review-independent-unique.json#2606.25312"
+  },
+  {
+    "id": "2610.36463",
+    "title": "Stationary Action Principles for Neuronal Growth",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.36463"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为医学生命与非几何成像；《Stationary Action Principles for Neuronal Growth》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "医学生命与非几何成像",
+    "resolution_reference": "review-independent-unique.json#2610.36463"
+  },
+  {
+    "id": "2610.36421",
+    "title": "Radial power-like potentials: from the Bohr-Sommerfeld $\\ell \\neq 0$ state energies to the exact ones",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.36421"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Radial power-like potentials: from the Bohr-Sommerfeld $\\ell \\neq 0$ state energies to the exact ones》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.36421"
+  },
+  {
+    "id": "2610.36316",
+    "title": "Quark Saturation in Magnetized Pure Neutron Matter",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.36316"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Quark Saturation in Magnetized Pure Neutron Matter》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.36316"
+  },
+  {
+    "id": "2610.36294",
+    "title": "Multiplicity One for Unitary Ginzburg--Rallis Models over Local Fields",
+    "query_hits": [
+      "review-A-geometry-submitted_date-400.html",
+      "review-A-geometry-submitted_date_first-200.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.36294"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Multiplicity One for Unitary Ginzburg--Rallis Models over Local Fields》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.36294"
+  },
+  {
+    "id": "2610.36140",
+    "title": "Anisotropic Structural and Magnetic Response in Sm$_2$Ir$_8$Al$_{31}$: Al-Sublattice Reconstruction upon Sm Substitution",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.36140"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Anisotropic Structural and Magnetic Response in Sm$_2$Ir$_8$Al$_{31}$: Al-Sublattice Reconstruction upon Sm Substitution》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.36140"
+  },
+  {
+    "id": "2610.36092",
+    "title": "Efficient regime boundary detection in discontinuous simulation models",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.36092"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Efficient regime boundary detection in discontinuous simulation models》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.36092"
+  },
+  {
+    "id": "2610.36087",
+    "title": "A gaussian-process reconstruction of gravitational-wave friction from dark standard sirens",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.36087"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《A gaussian-process reconstruction of gravitational-wave friction from dark standard sirens》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.36087"
+  },
+  {
+    "id": "2610.28725",
+    "title": "Orientifold and Integrability: $\\mathcal{N}=4$ Super-Yang-Mills on $\\mathbb{RP}^4$",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.28725"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Orientifold and Integrability: $\\mathcal{N}=4$ Super-Yang-Mills on $\\mathbb{RP}^4$》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.28725"
+  },
+  {
+    "id": "2610.36047",
+    "title": "Symmetry-resolved fermionic correlations in iron-oxide ground spaces",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.36047"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Symmetry-resolved fermionic correlations in iron-oxide ground spaces》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.36047"
+  },
+  {
+    "id": "2610.36041",
+    "title": "Phase Transitions in Mismatched Bayesian Inference for the Ising Model",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.36041"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Phase Transitions in Mismatched Bayesian Inference for the Ising Model》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.36041"
+  },
+  {
+    "id": "2610.36035",
+    "title": "BPS Chaos and Fortuity in Higgs Branches I: The Gepner Point",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.36035"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《BPS Chaos and Fortuity in Higgs Branches I: The Gepner Point》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.36035"
+  },
+  {
+    "id": "2610.35790",
+    "title": "Information-theoretic entropy imaging of quantum matter",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.35790"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Information-theoretic entropy imaging of quantum matter》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.35790"
+  },
+  {
+    "id": "2610.35750",
+    "title": "Large Excursions of Reflected Lévy Processes: Local Asymptotics",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.35750"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Large Excursions of Reflected Lévy Processes: Local Asymptotics》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.35750"
+  },
+  {
+    "id": "2610.30126",
+    "title": "Random Euclidean CFT$_2$ from Triangulated dS$_3$ Gravity",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.30126"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Random Euclidean CFT$_2$ from Triangulated dS$_3$ Gravity》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.30126"
+  },
+  {
+    "id": "2506.13571",
+    "title": "Functional second-order Gaussian Poincaré inequalities",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2506.13571"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Functional second-order Gaussian Poincaré inequalities》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2506.13571"
+  },
+  {
+    "id": "2610.35680",
+    "title": "Verse: Semantics and Verification of Hybrid Multi-Agent Scenarios",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.35680"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Verse: Semantics and Verification of Hybrid Multi-Agent Scenarios》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.35680"
+  },
+  {
+    "id": "2511.18969",
+    "title": "Web of Non-invertible Dualities for (2+1) Dimensional Models with Subsystem Symmetries",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2511.18969"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Web of Non-invertible Dualities for (2+1) Dimensional Models with Subsystem Symmetries》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2511.18969"
+  },
+  {
+    "id": "2410.15170",
+    "title": "A Complex Geometric Approach to the Discrete Gabor Transform and Localization Operators on the Flat Torus",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2410.15170"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《A Complex Geometric Approach to the Discrete Gabor Transform and Localization Operators on the Flat Torus》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2410.15170"
+  },
+  {
+    "id": "2606.29924",
+    "title": "DCGrasp: Distance-aware Controllable Grasp Generation",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2606.29924"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为机器人控制或操作邻接任务；《DCGrasp: Distance-aware Controllable Grasp Generation》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "机器人控制或操作邻接任务",
+    "resolution_reference": "review-independent-unique.json#2606.29924"
+  },
+  {
+    "id": "2610.35478",
+    "title": "Benchmarking quantum-annealing-based approaches for factory layout planning",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.35478"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Benchmarking quantum-annealing-based approaches for factory layout planning》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.35478"
+  },
+  {
+    "id": "2610.35476",
+    "title": "Differentiability and Convexity of the Solution Maps for Fully Non-linear Parabolic HJB Equations",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.35476"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Differentiability and Convexity of the Solution Maps for Fully Non-linear Parabolic HJB Equations》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.35476"
+  },
+  {
+    "id": "2610.35417",
+    "title": "Homogeneity Pursuit for 3D Point Clouds",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.35417"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "Homogeneity Pursuit对三维点云做统计组结构估计并应用阿尔茨海默医学影像；不涉及定位重建、空间建图或具身任务。",
+    "evidence_level": "abstract",
+    "version": 1,
+    "v1_utc": "2026-10-26T13:27:24Z",
+    "updated_utc": "2026-10-26T13:27:24Z",
+    "window_class": "new",
+    "original_report": null,
+    "resolution_reference": "review-candidates-screened.json#2610.35417"
+  },
+  {
+    "id": "2610.35404",
+    "title": "Quantitative approximation theorem of neural operators for the Dirichlet-to-Neumann map",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.35404"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Quantitative approximation theorem of neural operators for the Dirichlet-to-Neumann map》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.35404"
+  },
+  {
+    "id": "2610.35358",
+    "title": "Agreement Between Reconstructed and Native GDELT GKG Records: A Field-Level Baseline",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.35358"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Agreement Between Reconstructed and Native GDELT GKG Records: A Field-Level Baseline》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.35358"
+  },
+  {
+    "id": "2605.26561",
+    "title": "Spin-Dependent Nucleon-Nucleus Interactions Constrained by Neutron Observables and Their Impact on Near-Barrier Proton Fusion",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2605.26561"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Spin-Dependent Nucleon-Nucleus Interactions Constrained by Neutron Observables and Their Impact on Near-Barrier Proton Fusion》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2605.26561"
+  },
+  {
+    "id": "2610.35280",
+    "title": "Self-Supervised Pretraining for PHM: What Transfers, What Does Not, and What Federating It Costs",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.35280"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Self-Supervised Pretraining for PHM: What Transfers, What Does Not, and What Federating It Costs》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.35280"
+  },
+  {
+    "id": "2610.35269",
+    "title": "MechAlign: Evaluating Semantic Alignment at the Project Level in Mathematical Formalization",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.35269"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《MechAlign: Evaluating Semantic Alignment at the Project Level in Mathematical Formalization》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.35269"
+  },
+  {
+    "id": "2610.35181",
+    "title": "Investigating supernova-remnant X-ray maps with dendrogram-based techniques",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.35181"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Investigating supernova-remnant X-ray maps with dendrogram-based techniques》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.35181"
+  },
+  {
+    "id": "2604.18298",
+    "title": "Phonon number relaxation in a 3D superfluid with a concave acoustic branch",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2604.18298"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为二维视听感知与通用视觉理解；《Phonon number relaxation in a 3D superfluid with a concave acoustic branch》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "二维视听感知与通用视觉理解",
+    "resolution_reference": "review-independent-unique.json#2604.18298"
+  },
+  {
+    "id": "2610.35116",
+    "title": "Analysis of C-point and V-point Inhomogeneous Vector Beams Stability under Anisotropic Turbulence in Ground-to-Air Transmission",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.35116"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Analysis of C-point and V-point Inhomogeneous Vector Beams Stability under Anisotropic Turbulence in Ground-to-Air Transmission》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.35116"
+  },
+  {
+    "id": "2610.22335",
+    "title": "Illumination-Aware Active Perception for Spacecraft Inspection",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.22335"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及sensor-application，纳入摘要跟踪。",
+    "evidence_level": "abstract",
+    "version": 2,
+    "v1_utc": "2026-10-15T17:54:03Z",
+    "updated_utc": "2026-10-26T09:39:07Z",
+    "window_class": "revised",
+    "original_report": null,
+    "resolution_reference": "review-candidates-screened.json#2610.22335"
+  },
+  {
+    "id": "2610.18005",
+    "title": "Surface Reconstruction from Range Scans Under Visibility Constraints",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.18005"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及neural-reconstruction，纳入摘要跟踪。",
+    "evidence_level": "abstract",
+    "version": 2,
+    "v1_utc": "2026-10-13T09:05:23Z",
+    "updated_utc": "2026-10-26T09:25:32Z",
+    "window_class": "revised",
+    "original_report": null,
+    "resolution_reference": "review-candidates-screened.json#2610.18005"
+  },
+  {
+    "id": "2610.35065",
+    "title": "Kronecker-Structured Video Completion with Cross-Fitted Self-Supervised Residual Learning",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.35065"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Kronecker-Structured Video Completion with Cross-Fitted Self-Supervised Residual Learning》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.35065"
+  },
+  {
+    "id": "2202.03252",
+    "title": "Trivial topology-entailed states at interfaces between identical topological phases",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2202.03252"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Trivial topology-entailed states at interfaces between identical topological phases》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2202.03252"
+  },
+  {
+    "id": "2610.35014",
+    "title": "Inverse heat source problem from terminal data on a set of low Hausdorff dimension",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.35014"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Inverse heat source problem from terminal data on a set of low Hausdorff dimension》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.35014"
+  },
+  {
+    "id": "2610.34962",
+    "title": "Beyond feature attribution: Recovering latent interaction structures in machine learning models via localized CBFI",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.34962"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Beyond feature attribution: Recovering latent interaction structures in machine learning models via localized CBFI》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.34962"
+  },
+  {
+    "id": "2610.14048",
+    "title": "Real-Space Interference from Quantum Metric",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.14048"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Real-Space Interference from Quantum Metric》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.14048"
+  },
+  {
+    "id": "2610.34953",
+    "title": "Faithful Localization of Vertex Algebra Modules",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.34953"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Faithful Localization of Vertex Algebra Modules》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.34953"
+  },
+  {
+    "id": "2610.34931",
+    "title": "A Hierarchical Method for Environmental Sounds Recognition in Complex Acoustic Scenes",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.34931"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为二维视听感知与通用视觉理解；《A Hierarchical Method for Environmental Sounds Recognition in Complex Acoustic Scenes》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "二维视听感知与通用视觉理解",
+    "resolution_reference": "review-independent-unique.json#2610.34931"
+  },
+  {
+    "id": "2610.30337",
+    "title": "MoRE: Motion-Regularized Encoding for Articulated 3D Generation",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.30337"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物体资产生成或非场景三维任务；《MoRE: Motion-Regularized Encoding for Articulated 3D Generation》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物体资产生成或非场景三维任务",
+    "resolution_reference": "review-independent-unique.json#2610.30337"
+  },
+  {
+    "id": "2610.34870",
+    "title": "Power spectrum of longitudinal-velocity residuals in the Galactic disk from Gaia DR3 red-giant-branch stars",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.34870"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Power spectrum of longitudinal-velocity residuals in the Galactic disk from Gaia DR3 red-giant-branch stars》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.34870"
+  },
+  {
+    "id": "2610.34839",
+    "title": "Behavioural Quality Is Not Learning Utility: Objective Mismatch in Human Behaviour Models for Robot Learning",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.34839"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为机器人控制或操作邻接任务；《Behavioural Quality Is Not Learning Utility: Objective Mismatch in Human Behaviour Models for Robot Learning》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "机器人控制或操作邻接任务",
+    "resolution_reference": "review-independent-unique.json#2610.34839"
+  },
+  {
+    "id": "2610.30729",
+    "title": "Width and Depth Limits Commute During Training in Linear Residual Networks",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.30729"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Width and Depth Limits Commute During Training in Linear Residual Networks》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.30729"
+  },
+  {
+    "id": "2610.34760",
+    "title": "Experimental Validation of Double-Blind Fourier Holography in an HWO-Like Segmented Aperture",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.34760"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为医学生命与非几何成像；《Experimental Validation of Double-Blind Fourier Holography in an HWO-Like Segmented Aperture》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "医学生命与非几何成像",
+    "resolution_reference": "review-independent-unique.json#2610.34760"
+  },
+  {
+    "id": "2608.25302",
+    "title": "WAVE: Wavelet-Controlled Coarse-to-Fine Guidance for Depth Super-Resolution",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2608.25302"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及depth-geometry，纳入摘要跟踪。",
+    "evidence_level": "abstract",
+    "version": 2,
+    "v1_utc": "2026-08-26T02:16:41Z",
+    "updated_utc": "2026-10-26T03:05:00Z",
+    "window_class": "revised",
+    "original_report": null,
+    "resolution_reference": "review-candidates-screened.json#2608.25302"
+  },
+  {
+    "id": "2610.34757",
+    "title": "Exceptional times of compact support for $α$-stable superprocesses",
+    "query_hits": [
+      "review-A-geometry-submitted_date-600.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.34757"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Exceptional times of compact support for $α$-stable superprocesses》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.34757"
+  },
+  {
+    "id": "2610.34708",
+    "title": "Resource-Performance Trade-offs in Intra-Aisle Robotic Picking: A Discrete-Event Simulation Comparison of Shuttle Configurations With and Without an Onboard Tote Lift",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.34708"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为机器人控制或操作邻接任务；《Resource-Performance Trade-offs in Intra-Aisle Robotic Picking: A Discrete-Event Simulation Comparison of Shuttle Configurations With and Without an Onboard Tote Lift》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "机器人控制或操作邻接任务",
+    "resolution_reference": "review-independent-unique.json#2610.34708"
+  },
+  {
+    "id": "2610.29205",
+    "title": "Reconstruction differences rival individual differences in the fly compass connectome and break trained circuit models",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.29205"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为医学生命与非几何成像；《Reconstruction differences rival individual differences in the fly compass connectome and break trained circuit models》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "医学生命与非几何成像",
+    "resolution_reference": "review-independent-unique.json#2610.29205"
+  },
+  {
+    "id": "2610.34621",
+    "title": "Dynamics-Aware Sampling and Recovery for Tensor-Valued Dynamical Systems",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.34621"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Dynamics-Aware Sampling and Recovery for Tensor-Valued Dynamical Systems》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.34621"
+  },
+  {
+    "id": "2604.10766",
+    "title": "At FullTilt: Real-Time Open-Set 3D Macromolecule Detection Directly from Tilted 2D Projections",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2604.10766"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物体资产生成或非场景三维任务；《At FullTilt: Real-Time Open-Set 3D Macromolecule Detection Directly from Tilted 2D Projections》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物体资产生成或非场景三维任务",
+    "resolution_reference": "review-independent-unique.json#2604.10766"
+  },
+  {
+    "id": "2610.34527",
+    "title": "How High Can GPT-6 Astra Climb in Contact-Rich Manipulation? PhysLadder: A Hierarchical, Matched Sim-Real Benchmark for Physical Interaction",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.34527"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为机器人控制或操作邻接任务；《How High Can GPT-6 Astra Climb in Contact-Rich Manipulation? PhysLadder: A Hierarchical, Matched Sim-Real Benchmark for Physical Interaction》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "机器人控制或操作邻接任务",
+    "resolution_reference": "review-independent-unique.json#2610.34527"
+  },
+  {
+    "id": "2610.34469",
+    "title": "Spectra, Growth, and Localization in Half-Bounded Tensor Triangular Geometry",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.34469"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Spectra, Growth, and Localization in Half-Bounded Tensor Triangular Geometry》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.34469"
+  },
+  {
+    "id": "2610.34351",
+    "title": "Amplitude-Dependent Damping of Gravity--Capillary Waves in Power-Law Fluids: An Energy-Dissipation Framework",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.34351"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Amplitude-Dependent Damping of Gravity--Capillary Waves in Power-Law Fluids: An Energy-Dissipation Framework》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.34351"
+  },
+  {
+    "id": "2603.00479",
+    "title": "U-VLM: Hierarchical Vision Language Modeling for Report Generation",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2603.00479"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《U-VLM: Hierarchical Vision Language Modeling for Report Generation》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2603.00479"
+  },
+  {
+    "id": "2601.11990",
+    "title": "DAOS: A Multimodal In-cabin Behavior Monitoring with Driver Action-Object Synergy Dataset",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2601.11990"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《DAOS: A Multimodal In-cabin Behavior Monitoring with Driver Action-Object Synergy Dataset》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2601.11990"
+  },
+  {
+    "id": "2610.34287",
+    "title": "Robust Observability for Schrödinger Equations with Singular Potentials on 2D Compact Hyperbolic Surfaces",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.34287"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物理天体与量子系统；《Robust Observability for Schrödinger Equations with Singular Potentials on 2D Compact Hyperbolic Surfaces》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物理天体与量子系统",
+    "resolution_reference": "review-independent-unique.json#2610.34287"
+  },
+  {
+    "id": "2610.34284",
+    "title": "Recovering fractal boundary dimensions from Robin eigenvalues",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.34284"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Recovering fractal boundary dimensions from Robin eigenvalues》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.34284"
+  },
+  {
+    "id": "2604.18379",
+    "title": "Forecasting Ionospheric Irregularities on GNSS Lines of Sight Using Dynamic Graphs with Ephemeris Conditioning",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2604.18379"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为气象遥感与地球系统；《Forecasting Ionospheric Irregularities on GNSS Lines of Sight Using Dynamic Graphs with Ephemeris Conditioning》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "气象遥感与地球系统",
+    "resolution_reference": "review-independent-unique.json#2604.18379"
+  },
+  {
+    "id": "2604.27066",
+    "title": "Perturbative Coulomb branches on $\\mathbb{R}^3\\times S^1$: the global D-term potential",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2604.27066"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Perturbative Coulomb branches on $\\mathbb{R}^3\\times S^1$: the global D-term potential》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2604.27066"
+  },
+  {
+    "id": "2610.34228",
+    "title": "Bistable fronts in periodic media: phase reduction and realization of circle flows",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.34228"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Bistable fronts in periodic media: phase reduction and realization of circle flows》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.34228"
+  },
+  {
+    "id": "2610.35960",
+    "title": "From Slices to Volumes: Comparing 2D, 2.5D, and 3D Residual Networks for Pulmonary Nodule Malignancy-Risk Classification",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.35960"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为医学生命与非几何成像；《From Slices to Volumes: Comparing 2D, 2.5D, and 3D Residual Networks for Pulmonary Nodule Malignancy-Risk Classification》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "医学生命与非几何成像",
+    "resolution_reference": "review-independent-unique.json#2610.35960"
+  },
+  {
+    "id": "2610.34183",
+    "title": "AudioFM: Towards General Purpose Audio Representation Learning",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.34183"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为二维视听感知与通用视觉理解；《AudioFM: Towards General Purpose Audio Representation Learning》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "二维视听感知与通用视觉理解",
+    "resolution_reference": "review-independent-unique.json#2610.34183"
+  },
+  {
+    "id": "2511.19784",
+    "title": "Structured Continuity Equations in Fibred Wasserstein Spaces",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2511.19784"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Structured Continuity Equations in Fibred Wasserstein Spaces》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2511.19784"
+  },
+  {
+    "id": "2610.34111",
+    "title": "Functional Superoscillations in a Wave Processor",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.34111"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Functional Superoscillations in a Wave Processor》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.34111"
+  },
+  {
+    "id": "2610.34078",
+    "title": "Bi-Objective Receding-Horizon Scheduling of Nurses and Hospital Service Robots",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.34078"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为机器人控制或操作邻接任务；《Bi-Objective Receding-Horizon Scheduling of Nurses and Hospital Service Robots》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "机器人控制或操作邻接任务",
+    "resolution_reference": "review-independent-unique.json#2610.34078"
+  },
+  {
+    "id": "2605.21034",
+    "title": "Impurity-induced loss bursts from anomalous scale-free localization in a non-Hermitian dissipative lattice",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2605.21034"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Impurity-induced loss bursts from anomalous scale-free localization in a non-Hermitian dissipative lattice》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2605.21034"
+  },
+  {
+    "id": "2610.33938",
+    "title": "Meta-Mathematics of Algebraic Complexity",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.33938"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Meta-Mathematics of Algebraic Complexity》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.33938"
+  },
+  {
+    "id": "2607.05893",
+    "title": "Sharp Asymptotic Minimaxity of the Gavrilov-Benjamini-Sarkar Step-Down Testing Procedure in Sparse Gaussian Sequence Models",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2607.05893"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Sharp Asymptotic Minimaxity of the Gavrilov-Benjamini-Sarkar Step-Down Testing Procedure in Sparse Gaussian Sequence Models》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2607.05893"
+  },
+  {
+    "id": "2607.03719",
+    "title": "Asymptotic Bayes Optimality Under Sparsity of the Gavrilov-Benjamini-Sarkar Step-Down Testing Procedure",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2607.03719"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Asymptotic Bayes Optimality Under Sparsity of the Gavrilov-Benjamini-Sarkar Step-Down Testing Procedure》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2607.03719"
+  },
+  {
+    "id": "2603.15539",
+    "title": "Vib2ECG: A Co-Located Chest-Lead SCG-ECG Dataset and Benchmark for ECG Reconstruction",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2603.15539"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Vib2ECG: A Co-Located Chest-Lead SCG-ECG Dataset and Benchmark for ECG Reconstruction》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2603.15539"
+  },
+  {
+    "id": "2609.16199",
+    "title": "A Sentinel-2 benchmark dataset for deep-learning active-fire segmentation across 25 California wildfires, July 2020-August 2026",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2609.16199"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为气象遥感与地球系统；《A Sentinel-2 benchmark dataset for deep-learning active-fire segmentation across 25 California wildfires, July 2020-August 2026》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "气象遥感与地球系统",
+    "resolution_reference": "review-independent-unique.json#2609.16199"
+  },
+  {
+    "id": "2610.33764",
+    "title": "All the Facts, Still the Wrong Answer: Integration Gaps in Vision-Language Models",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-400.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.33764"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "视觉子集选择与网格寻路的多证据整合诊断，摘要未涉及真实三维、相机几何、导航感知或地图构建。",
+    "evidence_level": "abstract",
+    "version": 1,
+    "v1_utc": "2026-10-24T16:14:52Z",
+    "updated_utc": "2026-10-24T16:14:52Z",
+    "window_class": "new",
+    "original_report": null,
+    "resolution_reference": "review-candidates-screened.json#2610.33764"
+  },
+  {
+    "id": "2610.33709",
+    "title": "Deep-Microscopic Photonic Bandstructure of a Two-Dimensional Honeycomb Lattice",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.33709"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Deep-Microscopic Photonic Bandstructure of a Two-Dimensional Honeycomb Lattice》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.33709"
+  },
+  {
+    "id": "2610.33668",
+    "title": "Beyond Affine Reconstruction: Multi-Resolution Transformer DeepONets for the Radiative Transfer Equation",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.33668"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Beyond Affine Reconstruction: Multi-Resolution Transformer DeepONets for the Radiative Transfer Equation》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.33668"
+  },
+  {
+    "id": "2610.33658",
+    "title": "Power-of-Two Leaky Integrate-and-Fire Neurons for Event-Driven Vision-Language-Action Inference",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.33658"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为医学生命与非几何成像；《Power-of-Two Leaky Integrate-and-Fire Neurons for Event-Driven Vision-Language-Action Inference》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "医学生命与非几何成像",
+    "resolution_reference": "review-independent-unique.json#2610.33658"
+  },
+  {
+    "id": "2610.27172",
+    "title": "Structure-Preserving Numerical Schemes for a Time-Fractional Porous Medium Equation with Nonlocal Pressure",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.27172"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Structure-Preserving Numerical Schemes for a Time-Fractional Porous Medium Equation with Nonlocal Pressure》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.27172"
+  },
+  {
+    "id": "2610.33554",
+    "title": "End-to-end prostate lesion segmentation and detection from undersampled diffusion-weighted MRI",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.33554"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为医学生命与非几何成像；《End-to-end prostate lesion segmentation and detection from undersampled diffusion-weighted MRI》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "医学生命与非几何成像",
+    "resolution_reference": "review-independent-unique.json#2610.33554"
+  },
+  {
+    "id": "2603.26758",
+    "title": "A Density--Delay Law for Event-Driven State Progression in Open Distributed Systems",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2603.26758"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《A Density--Delay Law for Event-Driven State Progression in Open Distributed Systems》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2603.26758"
+  },
+  {
+    "id": "2610.33523",
+    "title": "Large spin large deviations for interacting particle systems",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.33523"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Large spin large deviations for interacting particle systems》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.33523"
+  },
+  {
+    "id": "2610.33495",
+    "title": "Five Architectures, One Shared Space Cross-Model Representational Alignment Without Weight Merging",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.33495"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Five Architectures, One Shared Space Cross-Model Representational Alignment Without Weight Merging》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.33495"
+  },
+  {
+    "id": "2610.11685",
+    "title": "HI3D 3.0 (Twinkle3D): Object-specific 3D Asset Generation with High Resolution",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.11685"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为物体资产生成或非场景三维任务；《HI3D 3.0 (Twinkle3D): Object-specific 3D Asset Generation with High Resolution》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "物体资产生成或非场景三维任务",
+    "resolution_reference": "review-independent-unique.json#2610.11685"
+  },
+  {
+    "id": "2606.08258",
+    "title": "MS-COOT: Comparing Morse-Smale Complexes with Co-Optimal Transport",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2606.08258"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《MS-COOT: Comparing Morse-Smale Complexes with Co-Optimal Transport》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2606.08258"
+  },
+  {
+    "id": "2610.33351",
+    "title": "Real Time Motion Detection in Video Inspired by Photonic Time Stretch",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.33351"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Real Time Motion Detection in Video Inspired by Photonic Time Stretch》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.33351"
+  },
+  {
+    "id": "2610.33347",
+    "title": "Junction Hook Errors in the Color Code",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.33347"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Junction Hook Errors in the Color Code》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.33347"
+  },
+  {
+    "id": "2610.33327",
+    "title": "Stability of certain elements in the Bernstein center",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.33327"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为数学与连续系统；《Stability of certain elements in the Bernstein center》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "数学与连续系统",
+    "resolution_reference": "review-independent-unique.json#2610.33327"
+  },
+  {
+    "id": "2604.23928",
+    "title": "Wasserstein convergence rates for empirical measures of point processes",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2604.23928"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Wasserstein convergence rates for empirical measures of point processes》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2604.23928"
+  },
+  {
+    "id": "2610.33316",
+    "title": "Optimal Search Strategies under Finite Resource Constraints",
+    "query_hits": [
+      "review-A-geometry-submitted_date-800.html",
+      "review-A-geometry-submitted_date_first-600.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.33316"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《Optimal Search Strategies under Finite Resource Constraints》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2610.33316"
+  },
+  {
+    "id": "2610.27049",
+    "title": "VitronEdit: Universal Visual Editing across Images, Videos, and 3D Scenes",
+    "query_hits": [
+      "review-A-localization-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.27049"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及world-model，纳入摘要跟踪。",
+    "evidence_level": "abstract",
+    "version": 2,
+    "v1_utc": "2026-10-19T17:59:55Z",
+    "updated_utc": "2026-10-29T17:32:00Z",
+    "window_class": "revised",
+    "original_report": null,
+    "resolution_reference": "review-candidates-screened.json#2610.27049"
+  },
+  {
+    "id": "2604.21926",
+    "title": "IMU4D: 4D Human-Object Understanding from Wearable IMUs",
+    "query_hits": [
+      "review-A-localization-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2604.21926"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及sensor-application，纳入摘要跟踪。",
+    "evidence_level": "abstract",
+    "version": 2,
+    "v1_utc": "2026-04-23T17:59:16Z",
+    "updated_utc": "2026-10-29T05:50:44Z",
+    "window_class": "revised",
+    "original_report": null,
+    "resolution_reference": "review-candidates-screened.json#2604.21926"
+  },
+  {
+    "id": "2610.33413",
+    "title": "AV-FABLE: Audio-Visual Manipulation Forensics in Long-Form Videos",
+    "query_hits": [
+      "review-A-localization-submitted_date-0.html",
+      "review-A-localization-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.33413"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为二维视听感知与通用视觉理解；《AV-FABLE: Audio-Visual Manipulation Forensics in Long-Form Videos》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "二维视听感知与通用视觉理解",
+    "resolution_reference": "review-independent-unique.json#2610.33413"
+  },
+  {
+    "id": "2610.33135",
+    "title": "WorldCast: World-Consistent Character Video Generation with Large-Angle Camera Control",
+    "query_hits": [
+      "review-A-localization-submitted_date-0.html",
+      "review-A-localization-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.33135"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及world-model，纳入摘要跟踪。",
+    "evidence_level": "abstract",
+    "version": 1,
+    "v1_utc": "2026-10-23T14:15:01Z",
+    "updated_utc": "2026-10-23T14:15:01Z",
+    "window_class": "historical_backfill",
+    "original_report": null,
+    "resolution_reference": "review-candidates-screened.json#2610.33135"
+  },
+  {
+    "id": "2610.31834",
+    "title": "WorldMirror: Agentic Real-to-Sim Generation of Interactive Worlds from In-the-Wild Robot Demonstrations",
+    "query_hits": [
+      "review-A-localization-submitted_date-0.html",
+      "review-A-localization-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.31834"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及world-model，纳入摘要跟踪。",
+    "evidence_level": "abstract",
+    "version": 1,
+    "v1_utc": "2026-10-22T19:13:05Z",
+    "updated_utc": "2026-10-22T19:13:05Z",
+    "window_class": "historical_backfill",
+    "original_report": null,
+    "resolution_reference": "review-candidates-screened.json#2610.31834"
+  },
+  {
+    "id": "2610.26659",
+    "title": "SpatialScout: Can VLM Agents Actively Explore and Map 3D Scenes?",
+    "query_hits": [
+      "review-A-localization-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.26659"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "already-covered: 当前精确版本已处理；引用原报告，不重复计本期跟踪。",
+    "evidence_level": "abstract",
+    "version": 3,
+    "v1_utc": "2026-10-19T16:17:48Z",
+    "updated_utc": "2026-10-22T08:51:38Z",
+    "window_class": "historical_backfill",
+    "original_report": {
+      "status": "supplemental",
+      "evidence_level": "abstract",
+      "report_path": "reports/2026-10-18_2026-10-24_BlazeVGGT-HiP3R-CAOS.html",
+      "report_anchor": "paper-2610-26659",
+      "ledger_path": "reports/2026-10-18_2026-10-24_paper-ledger.json",
+      "window_class": "new",
+      "v1_utc": "2026-10-19T16:17:48Z",
+      "updated_utc": "2026-10-22T08:51:38Z",
+      "read_sections": [
+        "Abstract (complete)"
+      ],
+      "follow_up": "无运行复现；若纳入详报需明确证据层级。",
+      "reviewed_at": "2026-10-24T16:30:17.216750Z",
+      "source_urls": [
+        "https://arxiv.org/abs/2610.26659",
+        "https://arxiv.org/abs/2610.26659v3",
+        "https://arxiv.org/list/cs.CV/recent?show=2000",
+        "https://arxiv.org/pdf/2610.26659v3",
+        "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-16&date-to_date=2026-10-24&date-date_type=submitted_date&abstracts=show&size=200&order=-submitted_date&start=0&terms-0-operator=AND&terms-0-term=scene+coordinate&terms-0-field=title&terms-1-operator=OR&terms-1-term=scene+coordinate&terms-1-field=abstract&terms-2-operator=OR&terms-2-term=keyframe&terms-2-field=title&terms-3-operator=OR&terms-3-term=keyframe&terms-3-field=abstract&terms-4-operator=OR&terms-4-term=place+recognition&terms-4-field=title&terms-5-operator=OR&terms-5-term=place+recognition&terms-5-field=abstract",
+        "https://export.arxiv.org/api/query?search_query=lastUpdatedDate%3A%5B202610160000+TO+202610240817%5D+AND+%28all%3A%22navigation+world%22+OR+all%3A%22semantic+Gaussian%22+OR+all%3A%223D+mapping%22+OR+all%3A%22visual+inertial%22%29&start=0&max_results=200&sortBy=lastUpdatedDate&sortOrder=descending",
+        "https://github.com/JesseZZZZZ/SpatialScout"
+      ]
+    },
+    "resolution_reference": "review-candidates-screened.json#2610.26659"
+  },
+  {
+    "id": "2610.11105",
+    "title": "TKCAM: Text and Keyframe to Camera Trajectory Generation",
+    "query_hits": [
+      "review-B-dense-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.11105"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "included",
+    "reason": "独立发现的新ID；研究问题直接涉及world-model，纳入摘要跟踪。",
+    "evidence_level": "abstract",
+    "version": 2,
+    "v1_utc": "2026-10-08T02:20:16Z",
+    "updated_utc": "2026-10-29T06:23:05Z",
+    "window_class": "revised",
+    "original_report": null,
+    "resolution_reference": "review-candidates-screened.json#2610.11105"
+  },
+  {
+    "id": "2505.05488",
+    "title": "From Events to Enhancement: A Survey on Event-Based Imaging Technologies",
+    "query_hits": [
+      "review-C-sensors-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2505.05488"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《From Events to Enhancement: A Survey on Event-Based Imaging Technologies》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2505.05488"
+  },
+  {
+    "id": "2610.19731",
+    "title": "What Happens to the Goal? Distinct Failures of Policy Alignment in Goal Misgeneralization",
+    "query_hits": [
+      "review-C-sensors-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.19731"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为机器人控制或操作邻接任务；《What Happens to the Goal? Distinct Failures of Policy Alignment in Goal Misgeneralization》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "机器人控制或操作邻接任务",
+    "resolution_reference": "review-independent-unique.json#2610.19731"
+  },
+  {
+    "id": "2610.37309",
+    "title": "MvT: Event-based Multi-view Projection for Multiple Object Tracking",
+    "query_hits": [
+      "review-C-sensors-submitted_date-0.html",
+      "review-C-sensors-submitted_date_first-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2610.37309"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "MvT的多视图为事件时空投影，统一坐标包含时间轴；摘要目标是二维多目标轨迹关联，不是物理三维重建或多相机几何。",
+    "evidence_level": "abstract",
+    "version": 1,
+    "v1_utc": "2026-10-27T14:26:53Z",
+    "updated_utc": "2026-10-27T14:26:53Z",
+    "window_class": "new",
+    "original_report": null,
+    "resolution_reference": "review-candidates-screened.json#2610.37309"
+  },
+  {
+    "id": "2501.18788",
+    "title": "On the Theory of Bias Tuning in Event Cameras",
+    "query_hits": [
+      "review-C-sensors-submitted_date-0.html"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2501.18788"
+    ],
+    "reviewed_at": "2026-11-02T15:46:55.771548+00:00",
+    "disposition": "excluded",
+    "reason": "题名实质为其他非目标研究对象；《On the Theory of Bias Tuning in Event Cameras》未以相机/机器人定位、环境几何重建、SLAM或直接相关空间地图/世界模型为研究对象。仅题名与元数据排除，不声称全文或完整摘要阅读。",
+    "evidence_level": "metadata_title",
+    "exclusion_topic": "其他非目标研究对象",
+    "resolution_reference": "review-independent-unique.json#2501.18788"
+  }
+]

@@ -1,0 +1,102 @@
+[
+  {
+    "query": "SLAM created:2026-10-24..2026-11-01",
+    "attempted_at": "2026-11-01T15:08:00Z",
+    "source": "GitHub connector repository search",
+    "page": 1,
+    "per_page": 100,
+    "status": "failed",
+    "exhausted": false,
+    "result": {
+      "status": "fulfilled",
+      "value": {
+        "content": [
+          {
+            "type": "text",
+            "text": "ReadTimeout: "
+          }
+        ],
+        "structuredContent": {
+          "error": "ReadTimeout: ",
+          "error_code": "UNKNOWN"
+        },
+        "isError": true
+      }
+    }
+  },
+  {
+    "query": "VGGT pushed:2026-10-24..2026-11-01",
+    "attempted_at": "2026-11-01T15:08:00Z",
+    "source": "GitHub connector repository search",
+    "page": 1,
+    "per_page": 100,
+    "status": "failed",
+    "exhausted": false,
+    "result": {
+      "status": "fulfilled",
+      "value": {
+        "content": [
+          {
+            "type": "text",
+            "text": "ReadTimeout: "
+          }
+        ],
+        "structuredContent": {
+          "error": "ReadTimeout: ",
+          "error_code": "UNKNOWN"
+        },
+        "isError": true
+      }
+    }
+  },
+  {
+    "query": "odometry pushed:2026-10-24..2026-11-01",
+    "attempted_at": "2026-11-01T15:08:00Z",
+    "source": "GitHub connector repository search",
+    "page": 1,
+    "per_page": 100,
+    "status": "failed",
+    "exhausted": false,
+    "result": {
+      "status": "fulfilled",
+      "value": {
+        "content": [
+          {
+            "type": "text",
+            "text": "ReadTimeout: "
+          }
+        ],
+        "structuredContent": {
+          "error": "ReadTimeout: ",
+          "error_code": "UNKNOWN"
+        },
+        "isError": true
+      }
+    }
+  },
+  {
+    "query": "\"3D reconstruction\" created:2026-10-24..2026-11-01",
+    "attempted_at": "2026-11-01T15:08:00Z",
+    "source": "GitHub connector repository search",
+    "page": 1,
+    "per_page": 100,
+    "status": "failed",
+    "exhausted": false,
+    "result": {
+      "status": "fulfilled",
+      "value": {
+        "content": [
+          {
+            "type": "text",
+            "text": "ReadTimeout: "
+          }
+        ],
+        "structuredContent": {
+          "error": "ReadTimeout: ",
+          "error_code": "UNKNOWN"
+        },
+        "isError": true
+      }
+    }
+  }
+]

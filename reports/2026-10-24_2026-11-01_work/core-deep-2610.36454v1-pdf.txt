@@ -1,0 +1,901 @@
+PAGE 1
+SVIn+: Multi-Modal Framework for Robust Underwater State
+Estimation using 3D Sonar, Visual-Inertial, Water-Pressure, and DVL
+Chinmay Burgul1, Xiaoming Zhao 2, Yewei Huang2, Michalis Chatzispyrou 1,
+Marios Xanthidis 3, Ioannis Rekleitis 1, Alberto Quattrini Li 2
+Abstract— As expansion and scalability in underwater oper-
+ations becomes more important and challenging, autonomous
+underwater vehicles (AUVs) become more relevant and the
+necessity for reliable autonomy more critical. A fundamental
+challenge in any autonomous underwater operation, from
+control to safe navigation and mapping, is state estimation; a
+notorious hard problem to address, especially in low visibility
+conditions. In this paper, we tackle this problem, by presenting
+SVIn+, a multi-sensor framework for robust state estimation of
+AUVs equipped with an IMU, cameras, a water-pressure sensor,
+a Doppler Velocity Log (DVL), and a compact 3D sonar. This
+framework extends an established open-source state-of-the-art
+visual-inertial SLAM, SVIn, by integrating water-pressure and
+DVL measurements into a tightly-coupled nonlinear optimiza-
+tion formulation resulting in improved estimates. To leverage
+the structural information of recently available 3D acoustic
+sonars while maintaining computational efficiency, we introduce
+a hierarchical architecture that incorporates estimates from
+a decoupled front-end via KISS-ICP, treated as relative pose
+factors within the factor graph. The proposed framework is
+validated through field deployments in a shipwreck and coral
+reef, demonstrating drift mitigation and global consistency. To
+support further research in underwater multi-modal fusion,
+the code and the datasets can be found on project web-
+sitehttps://cmburgul.github.io/projects/svin+/
+https://dartmouthrobotics.github.io/svin-plus
+I. INTRODUCTION
+Reliable autonomy in underwater robotics needs robust
+Simultaneous Localization and Mapping (SLAM) in per-
+ceptually degraded GNSS-denied environments [1], ranging
+from confined shipwrecks to dynamic coral reefs. These un-
+derwater environments are characterized by many perceptual
+challenges, including light attenuation and limited visibility.
+Despite the plethora of SLAM approaches in the literature,
+robust state estimation in underwater domains remains an
+open problem. Traditional Visual-Inertial Odometry (VIO)
+is prone to catastrophic failure due to feature tracking loss
+in turbid waters or motion-blur artifacts during high-dynamic
+maneuvers [2]. Integrating water-pressure sensors (e.g., [3])
+and Doppler Velocity Logs (DVLs) (e.g., [4]–[6]) can mit-
+igate water-column depth and velocity drift; however, these
+1 Chinmay Burgul, Michalis Chatzispyrou, and Ioannis Rekleitis are with
+the Mechanical Engineering Department, University of Delaware, Newark,
+DE, USA.[cmburgul,michalis,yiannisr]@udel.edu
+2 Xiaoming Zhao, Yewei Huang and Alberto Quattrini Li are
+with Dartmouth College, Hanover, NH, USA{yewei.huang,
+alberto.quattrini.li}@dartmouth.edu
+3 Marios Xanthidis is with the Aquaculture Robotics and Automation
+Group, SINTEF Ocean,marios.xanthidis@sintef.no
+This work was supported by the Research Council of Norway (EchoNav:
+NO-359447), National Science Foundation (NSF 2545370, 1943205,
+2024541, 2144624)
+Fig. 1: The Aqua2 robot equipped with multiple sensors during field
+deployment (top) and proposedSVIn+multi-sensor odometry pose and
+trajectory (green), stereo point-cloud (blue) and the current local 3D sonar
+local map point-cloud (grey) on the Folkestone dataset (bottom).
+sensors provide no environmental context, leaving the system
+unable to perform the loop closures for global consistency.
+Furthermore, although 2D multibeam sonars can offer some
+situational awareness, they suffer from geometric ambiguity
+in complex 3D structures [1].
+While a 3D acoustic sonar capable of generating volumet-
+ric point clouds has recently become available, and initial
+studies have begun to explore its potential, its integration
+into standard multi-sensor SLAM pipelines remains under-
+explored. Although compact 3D sonars conceptually resem-
+ble terrestrial LiDARs, their point clouds are significantly
+sparser, have a lower update rate (5 Hz), and are heavily cor-
+rupted by acoustic multipath noise. The few existing works
+have primarily addressed sonar-inertial configurations [7] or
+visual-inertial-acoustic fusion [8], [9], without considering
+the full suite of sensors commonly used in Autonomous
+Underwater Vehicles (AUV).
+In this paper, we introduce a tightly-coupled multi-modal
+state estimation framework that achieves robust state esti-
+mation in challenging underwater environments. Our frame-
+work fuses inertial, camera vision, DVL, and water column
+depth from water-pressure sensor measurements into the
+factor graph. To provide structural consistency and mitigate
+trajectory drift, we integrate relative pose factors derived
+from a KISS-ICP front-end, which processes the point cloud
+from a recently released 3D acoustic sonar. This decoupled
+arXiv:2610.36454v1  [cs.RO]  27 Oct 2026
+PAGE 2
+approach abstracts 3D sonar data into relative 6D pose
+factors, preserving factor graph sparsity and enabling real-
+time operation on embedded hardware.
+In summary, our main contributions are the following:
+1) Multi-modal state estimation framework, where vision,
+IMU, DVL, and water-pressure measurements are inte-
+grated in a tightly-coupled non-linear optimization for
+robust state estimation.
+2) Hierarchical 3D sonar integration, with a decoupled
+front-end via KISS-ICP for computational efficiency.
+3) Real-world validation in complex environments includ-
+ing shipwrecks and coral reefs, with the release of the
+associated code and datasets to the community.
+II. RELATEDWORK
+Robust localization and mapping in underwater environ-
+ments remains a major challenge due to the absence of
+GNSS signals forcing underwater vehicles to rely heavily
+on onboard sensing and dead reckoning, which leads to drift
+accumulation over time [10]. Furthermore, optical sensing
+is degraded by weak illumination, backscatter and turbidity
+[11], while acoustic sensing suffers from multipath effects
+[12] and limited resolution [13]. As a result, multi-sensor
+integration is essential for achieving reliable, long-duration
+underwater SLAM.
+Early approaches fuse Inertial Measurement Unit (IMU),
+Doppler Velocity Logs (DVL), depth, and acoustic position-
+ing measurements within an Extended Kalman Filter (EKF)
+framework to reduce and manage uncertainties from hetero-
+geneous sensors [10]. While effective at managing short-term
+uncertainty, these systems lacked the dense environmental
+context needed to constrain long-term drift.
+To achieve higher local accuracy, visual-inertial odome-
+try (VIO) emerged as a dominant paradigm. Early vision-
+based underwater localization and mapping methods [14] are
+primarily offline and rely on structure-from-motion (SfM)
+and bundle adjustment. Subsequently, research shifted toward
+online, loosely coupled SLAM solutions. [15] introduce a
+loosely coupled SLAM framework for underwater shipwreck
+inspection using a bag-of-words place recognition module
+and factor graph optimization. [16] investigated the feasi-
+bility of performing underwater SLAM using ORB-SLAM
+[17]. [5], [18], [19] are loosely coupled systems that integrate
+DVL with a visual–inertial SLAM framework.
+More recently, researchers have moved toward tightly
+coupled visual–inertial systems for higher localization ac-
+curacy and estimator consistency. [4] adopts a Multi-State
+Constraint Kalman Filter (MSCKF)-based SLAM frame-
+work for tightly coupled visual–DVL multi-sensor fusion.
+[20], [21] use cameras as the primary sensing modality to
+achieve low-cost and dense reconstruction. Similarly, [22]
+focuses on mitigating perception degradation through multi-
+sensor fusion. AquaSLAM [6] proposes an online SLAM
+framework that jointly estimates the camera–DVL extrinsic
+transformation within the state estimation process. However,
+vision-based approaches remain fundamentally limited by
+restricted field of view, light attenuation, backscatter, and
+turbidity, and therefore typically operate only in relatively
+clear and well-illuminated environments.
+To address these challenges, researchers have also adopted
+sonar as a primary perception modality. Sonar-based, vision-
+free SLAM methods [23]–[27] typically construct 2D maps
+under planar motion assumptions and are constrained by
+relatively low spatial resolution compared to optical sensing.
+There are also methods using a mechanical sonar [28] or
+dual sonars [29]–[31] for 3D mapping. SVIn [28] implements
+a tightly coupled hybrid framework based on OKVIS [32].
+While the incorporation of acoustic sensing improves robust-
+ness, the relatively low spatial resolution and low update
+frequency of the sonar measurements limit their ability to
+support dense reconstruction.
+With the recent development of compact 3D sonar sensors,
+lightweight AUV systems can acquire denser point clouds
+at relatively higher update rates. There emerges hybrid ap-
+proaches that combine the 3D sonar with the visual-inertial
+SLAM pipeline [7]–[9]. [9] presents a loosely coupled fusion
+of visual and 3D sonar measurements for long-distance
+cave mapping. [7] adopts a loosely coupled framework
+that integrates 3D sonar with an inertial navigation system
+(INS) composed of a DVL, Attitude Heading Reference Sys-
+tem(AHRS), and water-pressure sensor for pose estimation
+and mapping. In contrast, [8] proposes a tightly coupled
+visual–inertial–sonar SLAM framework without DVL inte-
+gration, and the system is evaluated only in a relatively small-
+scale (6m×7m) environment.
+Overall, tightly coupled multi-sensor fusion state-
+estimation framework for robots equipped with 3D sonar
+remains an open problem. A reliable and robust long-term
+multi-sensor state estimation solution that enables dense and
+accurate reconstruction in underwater environments, partic-
+ularly in murky water, remains a challenge. In this paper,
+we address this gap by proposing a partially tightly coupled
+visual, sonar, DVL, water pressure framework that jointly
+optimizes measurements from multiple modalities including
+sonar, camera, water-pressure and DVL to address this gap.
+III. PRELIMINARIES
+This section introduces the notation and coordinate frames
+adopted in the paper. The global reference (world) frame is
+denoted byG. The IMU frame is denoted byI, the camera
+frame byC, the sonar frame byL, the Doppler Velocity Log
+(DVL) frame byV, and the water-pressure sensor frame by
+D. All sensor frames are rigidly attached to the robot body,
+and their extrinsic transformations are assumed to be known
+from calibration. The state vector consists of:
+xk =
+x⊤
+Ik x⊤
+Hk x⊤
+Yk
+⊤
+(1)
+xIk =
+h
+G
+Ik ¯q⊤G p⊤
+Ik
+Gv⊤
+Ik b⊤
+g b⊤
+a
+i⊤
+(2)
+xHk =
+
+xIk−1 · · ·x Ik−n
+⊤ (3)
+xYk =
+h
+G
+In−1 ¯q⊤G p⊤
+In91 · · · G
+In−m ¯q⊤G p⊤
+In9m
+i⊤
+(4)
+wherex Ik is the current body/IMU state,x Hk are thenhis-
+torical non-keyframe states in the local optimization sliding
+PAGE 3
+Fig. 2: System pipeline of the proposed framework. Classical camera
+modules are highlighted in green, the sonar processing pipeline in gray, and
+marine-specific components in pink. This paper focuses on the integration
+of the local odometry optimization module.
+window,x Yk are themkeyframe states in the global frame
+{G}for global pose-graph optimization 1. Leti∈ {C,L,V,D}
+denote the sensor modality. The measurement generated by
+sensoriat timetis denoted byz i,t. When the time index is
+clear from context, it is abbreviated asz i for simplicity.
+IV. MULTISENSORODOMETRY
+Our main contribution is the design and implementation of
+a local optimization module that provides high-frequency and
+reliable state estimation through the tightly coupled fusion of
+visual, inertial, water-pressure, DVL, and 3D sonar odometry
+measurements within a nonlinear optimization framework
+(Fig. 2). The local optimizer treats the state estimation
+problem as a nonlinear least-squares optimization over a
+sliding window of sizeK. GivenX={x t , ...,xt+K }, we
+formulate the optimization problem as:
+X=argmin
+X
+J(X).(5)
+The cost functionJ(X)is defined as the sum of squared
+residuals corresponding to multiple sensing modalities, in-
+cluding the camera reprojection residuale r, inertial residual
+es, DVL velocity residuale v, water-depth residuale d, and
+3D sonar residuale t:
+J(x) = 1
+2
+n
+∑
+i
+K
+∑
+k∈K
+∑
+j∈J(i,k)
+ei,j,k
+r
+T
+ΩΩΩk
+r ei,j,k
+r + 1
+2
+K−1
+∑
+k=1
+ek
+s
+T
+ΩΩΩk
+sek
+s
++1
+2
+K−1
+∑
+k
+ek
+v
+T
+ΩΩΩk
+vek
+v + 1
+2
+K−1
+∑
+k
+ΩΩΩk
+d
+ek
+d
+
+2
++ 1
+2
+K−1
+∑
+k
+ek
+L
+T
+ΩΩΩLek
+L
+(6)
+Here,kdenotes the frame index within the set of frames
+Kcontained in the sliding window,irepresents the camera
+index (allowing straightforward extension to anncamera
+system), andj∈Jindexes the visual landmarks observed
+in thek-th frame. For a detailed derivation of the camera
+reprojection residual within a sliding-window nonlinear opti-
+mization framework, readers are referred to OKVIS [32]. The
+1G
+Ik ¯qis the Hamilton unit quaternion corresponding to the rotation G
+Ik R
+from{I}to{G}, GpIk and GvIk are the position and velocity of{I}in
+{G}, andb g andb a are the biases of the gyroscope and accelerometer,
+respectively.
+inertial residuale s is defined based on the IMU preintegration
+model, as described in [33].
+The matricesΩ ΩΩk
+r ,ΩΩΩk
+s ,ΩΩΩk
+v,andΩ ΩΩk
+t are the information
+matrices (inverse covariance matrices) for the visual, IMU,
+DVL, and 3D Sonar measurements at framek, respectively.
+Note that while the visual, inertial, DVL, and sonar residuals
+are vectors, the depth errore d is a scalar, and is therefore
+weighted by the scalarΩ k
+d. The remainder of this section
+introduces the derivation of the DVL velocity residual, the
+depth residual, and the 3D sonar residual in detail.
+A. Water-Pressure Sensor Fusion
+The water-pressure sensor measures the water-pressure,
+which can be converted into water column depthz d relative
+to the water surface. The depth residuale k
+d for a measurement
+zd,k at time stepkcan be formulated similarly to [4] as:
+ek
+d =D 0 −e ⊤
+3 (Ik
+GR⊤I pD + GpIk )(7)
+wheree ⊤
+3 =
+
+0 0 1
+
+extracts the Z-axis position in global
+frame, IpD is the translation from IMU to Water-Pressure
+Sensor.D 0 is the scalar depth of global frame{G}, com-
+puted using the initial depth measurementz d,0 asD 0 =
+zd,0 −e ⊤
+3 (GpI0 + G
+I0RIpD). Jacobians with respect to state can
+be defined as ∂e d
+∂ GpI
+=−e ⊤
+3 , ∂e d
+∂ G
+I R =e ⊤
+3
+G
+I R⌊IpD×⌋. Where
+⌊·×⌋denotes the skew-symmetric matrix operator mapping
+v∈R 3 to its corresponding skew-symmetric matrix in Lie
+algebraso(3). Furthermore, given the short duration of the
+experiments compared to the tidal timescale, we assume a
+constant water surface level, neglecting the effects of tidal
+cycles and variations in ambient pressure.
+B. Doppler Velocity Log (DVL) Fusion
+The DVL provides linear velocity measurementsz v in the
+sensor frame. We relate these velocity to the system state
+velocity, following the approach in [4], [6] to define the DVL
+residuale v,k at time stepkas:
+ev,k =z v,k − V
+I R(Ik
+GRGvIk − ⌊Iωk−1:k×⌋IpV )(8)
+where V
+I Rand IpV are the extrinsic rotation from the IMU
+frame to DVL frame and position of DVL in IMU frame
+respectively.ω k−1:k is the gyroscope angular velocity from
+k−1 toktime steps. The corresponding Jacobians with
+respect to state variables can be analytically derived as
+∂e v
+∂ I
+GR =− V
+I R⌊I
+GRGv×⌋, ∂e v
+∂ Gv =− V
+I RI
+GR. We construct the
+information matrixΩ ΩΩv using the velocity covarianceΣ ΣΣv
+provided by the DVL sensor, allowing us to accurately weigh
+the measurement within the optimization framework.
+C. 3D Sonar Fusion
+To process 3D Sonar measurements, we perform scan
+registration using KISS-ICP [34]. Unlike the original im-
+plementation, which assumes a constant-velocity kinematic
+model for motion prediction, we use the pose estimate of
+previous step from SVIn+ as motion prior to register the
+current scan against a local map, yielding the sonar odometry
+W TL ∈SE(3). Here,Wdenotes the sonar odometry world
+PAGE 4
+frame, which is initialized to align with the first sonar frame
+S0. This frame is distinct from the SVIn+ world frameG.
+To account for the time offsets between the asynchronous
+sonar odometry and SVIn+ states, we performSE(3)interpo-
+lation on the bounding sonar odometry to derive the poses at
+the SVIn+ time stepsk−1 andk. By extracting these time-
+aligned odometry W
+Lk−1Tand W
+LkT, we compute the relative
+transformation Lk−1
+Lk Tm. Then, we construct the relative pose
+measurement defined by the rotation vector Lk−1 θθθ Lk ∈R 3 and
+translation Lk−1pLk ∈R 3:
+Lk−1
+Lk Tm = W
+Lk−1T−1W
+LkT
+=
+W
+Lk−1R⊤W
+LkR W
+Lk−1R⊤(W pLk − W pLk−1 )
+0⊤ 1
+
+(9)
+Lk−1pLk = W
+Lk−1R⊤(W pLk − W pLk−1 )(10)
+θθθ L,k−1:k =log( W
+Lk−1R⊤W
+LkR)∨ (11)
+where log(·) ∨ extracts the rotation vectorθ θθ∈R 3 directly
+from theSO(3)manifold. These components form the rel-
+ative sonar measurement vectorz L,k−1:k, subject to additive
+noisen L ∈R 6:
+zL,k−1:k =
+Lk−1pLk
+Lk−1 θθθ Lk
+
++n L (12)
+To formulate the residual, we predict this relative transfor-
+mation, denoted as Lk−1
+Lk
+ˆT, using corresponding SVIn+ pose
+estimates G
+Ik−1Tand G
+IkTalong with the IMU-Sonar extrinsic
+transformation:
+Lk−1
+Lk
+ˆT= L
+I T G
+Ik−1T−1G
+IkTI
+LT(13)
+Lk−1 ˆpLk = I
+LR⊤[G
+Ik−1R⊤(G
+IkRIpL + GpIk − GpIk−1 )− IpL](14)
+Lk−1 ˆθθθ Lk =log( Lk−1
+Lk R)∨ =log( I
+LR⊤G
+Ik−1R⊤G
+IkRI
+LR)∨ (15)
+Finally, the sonar relative pose residuale L,k−1,k is computed
+as the difference between the interpolated measurement and
+the state prediction:
+eL,k−1,k =
+Lk−1 ˜pLk
+Lk−1 ˜θθθ Lk
+
+=
+"
+Lk−1pLk − Lk−1 ˆpLk
+log(Lk−1
+Lk R⊤Lk−1
+Lk
+ˆR)∨
+#
+(16)
+The corresponding Jacobians with respect to state vari-
+ables can be analytically derived as ∂ Lk−1 ˜pLk
+∂ GpIk
+= I
+LR⊤G
+Ik−1R⊤,
+∂ Lk−1 ˜pLk
+∂ G
+Ik R =− I
+LR⊤G
+Ik−1R⊤G
+IkR⌊IpL⌋.
+V. EXPERIMENTALVALIDATION
+To evaluate the performance and robustness of the pro-
+posed SVIn+, we collected a series of datasets in diverse
+and challenging underwater environments off the coast of
+Barbados. Our experiments aim to demonstrate that the
+integration of 3D sonar constraints into a tightly-coupled
+visual-inertial-DVL estimator mitigates trajectory drift by
+leveraging acoustic structural context. In the following sub-
+sections, we detail our hardware configuration and extrinsic
+calibration procedures, describe the characteristics of our
+shipwreck and coral reef datasets, and provide a quantitative
+comparison against state-of-the-art baselines.
+Fig. 3: A detailed view of the onboard sensor configuration.
+A. Experimental Setup
+We utilize the Aqua2 AUV from independent robotics
+equipped with a MicroStrain 3DM-CV7 AHRS, two AR0234
+global shutter cameras in stereo configuration with hardware
+synchronization, a Water Linked DVL-A50 Doppler Velocity
+Log, a Bar30 pressure sensor, and a Water Linked 3D-15
+sonar (Fig. 3).
+Accurately knowing the extrinsic transformation across
+this multi-sensor suite is critical for robust state estimation.
+The transformation between Camera{C}and IMU{I}
+reference frames is calibrated using Kalibr [35]. The rigid
+extrinsic transformations from IMU to DVL{V}and Water-
+Pressure Sensor{D}frames are provided by the manu-
+facturer of the Aqua2 robot. Finally, the relative rotation
+and translation between 3D Sonar{L}and Camera{C}
+are determined following the approach in [9]. We solve
+the Perspective-n-Point (PnP) problem using 3D-2D corre-
+spondences extracted from four cinder block targets placed
+underwater and visible in both the sonar point clouds and vi-
+sual images. All experiments are conducted on a workstation
+running Ubuntu 24.04, equipped with an Intel Core Ultra 7
+155H CPU, 64 GB of RAM, and an NVIDIA RTX 5000
+Ada Generation GPU. The pipeline was also successfully
+evaluated in real-time on a low-power laptop (Intel Core
+i7-10510U CPU, 16 GB of RAM, NVIDIA GTX 1050),
+demonstrating its suitability for deployment on resource-
+constrained AUV hardware.
+B. Dataset Description
+We collected three datasets in two distinct locations off
+the coast of Barbados using the Aqua2 platform. To the
+best of our knowledge, there are currently no publicly
+available underwater datasets that provide a synchronized
+suite comprising stereo vision, DVL, and 3D sonar data
+in such complex environments. These sequences encompass
+a range of perceptual challenges, from confined structural
+interiors to expansive open-water reefs:
+•BajanQueen-01(Shipwreck Interior): This sequence
+consists of a moderate-distance trajectory∼75 meters
+over about 8 minutes, within the confined, structured
+PAGE 5
+environment of a shipwreck. Both missions start and
+end at a fixed ArUco marker, visited a total of 3 times,
+providing a reliable reference to evaluate start-to-end
+translation and rotation drift.
+•BajanQueen-02(Shipwreck): A longer,∼600-meter
+trajectory over around 55 minutes, which covers the
+entire shipwreck, testing robustness against significant
+depth variations and sparse visual features.
+•Folkestone-01(Shallow Reef): conducted in a natural
+unstructured environment, the trajectory spans∼280
+meters over 1252 seconds, challenging the vision fron-
+tend with dynamic lighting despite a relatively flat
+trajectory.
+C. Evaluation of Return-to-Origin Trajectory
+We evaluate the accumulated trajectory drift using
+BajanQueen-01sequence. Since global ground truth (e.g.,
+GPS or long-baseline acoustic positioning) is unavailable
+in these unstructured underwater environments, we rely
+on a “return-to-origin” metric. We compare our proposed
+SVIn+framework against two baselines:SVIn2visual-
+inertial framework and KISS-ICP as(Sonar Odom). Global
+loop closures were disabled to isolate the performance of
+the underlying continuous odometry, ensuring that compar-
+isons were not confounded by global correction mechanisms.
+In addition to the online baselines, we utilize an offline
+Structure-from-Motion (SfM) pipeline [36]. We performed
+an extensive parameter tuning to get the best results from
+each method for fair comparison.
+Fig. 4 shows the trajectories over a complete start-to-
+end loop, with the initial and final positions denoted by a
+circle and a star, respectively. While Sonar Odom provides
+geometric context, it exhibited significantly higher drift due
+to the low-frequency nature of acoustic updates and noise
+(e.g., coming from multipath effects) in confined shipwreck
+compartments. The offline SfM reference (Colmap) shows
+noticeable discontinuities where visual tracking failed due to
+environmental conditions.
+SVIn+ overall maintains a consistent path throughout the
+dataset, where the start and end are close to each other, com-
+pared to SVIn2. As shown qualitatively in Fig. 9, theSVIn+
+trajectory results in the ArUco marker board being closer
+compared to SVIn2 baselines. Quantifying the accumulated
+drift via the ArUco marker board reveals that the proposed
+SVIn+achieves a return-to-origin error of just 0.52 m,
+representing a substantial improvement over the 0.81 m error
+yielded bySVIn2. This lower drift is further evidenced by
+the resulting point cloud from SVIn+, which clearly shows
+three corridors on the left side of the shipwreck and the
+room on the right side (Fig. 5). These results highlight
+the effectiveness of the proposed multi-sensor fusion in
+bounding global drift and providing a coherent structural
+reconstruction.
+D. Evaluation on Long-Duration Field Sequences
+To evaluate the long-term stability ofSVIn+, we further
+validate the system on two extended sequences characterized
+Fig. 4: Trajectory comparison between the proposedSVIn+and the baseline
+SVIn2,Sonar Odomon theBajanQueen-01dataset. Evaluation of the start-
+to-end loop demonstrates the reduced accumulated drift achieved by the
+proposed multi-sensor fusion.
+Fig. 5: Visualization of the point-cloud from theSVIn+on theBajanQueen-
+01dataset.
+by significantly greater distances and durations.
+Figure 6 illustrates theSVIn+performance on the
+BajanQueen-02shipwreck sequence, while Figure 7 demon-
+strates its capabilities on theFolkestone-01coral reef se-
+quence. Throughout these deployments, the estimator main-
+tains a highly consistent global depth profile. The shipwreck
+side-view (Fig. 6 bottom) demonstrates the ability to capture
+the shipwreck shape. They-zprofile over the coral reef
+(Fig. 7, bottom) shows that the trajectory accurately captures
+the mission profile: the Aqua2 initially descends, executes a
+wide exploratory loop, and gradually ascends as it returns
+toward the shallows. Qualitatively, the visual coherence of
+the reconstructed shipwreck and reef features over their
+respective 215 m and 285 m transits demonstrates that the
+fusion of 3D sonar, water-pressure and DVL measurements
+provides robust constraints. This integration maintains a
+stable state estimate even in the presence of dynamic lighting
+PAGE 6
+Fig. 6: Visualization of the estimated trajectory and corresponding 3D point-cloud generated bySVIn+Odometry on theBajanQueen-02sequence.Top:
+Top-down perspective of the mapped environment.Bottom:Side view illustrating the depth profile as the Aqua2 robot navigates through the interior and
+around the exterior of the shipwreck structure.
+−10
+0
+10
+Y [m]
+−50 −25 0 25 50 75 100 125
+X [m]
+−10
+0
+Z [m]
+SVIn+ Start End
+Fig. 7: Top-down visualization of the trajectory with point-cloud fromSVIn+
+on theFolkestonedataset (circle and star indicate start and end, respectively).
+−10
+−5
+0
+5
+10
+15
+20
+Y [m]
+0 10 20 30 40
+X [m]
+0.0
+2.5Z [m]
+SVIn-DVL-depth SVIn-DVL SVIn-depth SVIn2 start end
+Fig. 8: Comparison of estimated boustrophedon trajectories using the
+baseline SVIn2 framework against the proposed multi-sensor integrations
+(SVIn+Depth, SVIn+DVL, and SVIn+Depth+DVL).
+and repetitive textural characteristics typical of shallow reefs.
+TABLE I: Comparison of tag revisitation error, quantified by the average
+(and std) of the spatial deviations between reprojections of revisits of a fixed
+ArUco marker (as visualized in Fig. 9).
+Configuration Reprojection Distance (m)
+SVIn2 0.53 (0.11)
+SVIn2 (loop-closure) 0.22 (0.11)
+SVIn-depth 0.29 (0.11)
+SVIn-dvl 0.52 (0.23)
+SVIn-Sonar 0.29 (0.15)
+SVIn+0.21 (0.08)
+E. Ablation study
+To evaluate the individual contribution of each sensor
+modality, we performed an incremental ablation study. First,
+we performed an evaluation with the Aqua2 going over a
+shallow area at fixed depth and following a lawnmower
+pattern for qualitative assessment. Fig. 8 compares the es-
+timated trajectories of baseline SVIn2 with DVL and Depth
+from water pressure sensor integration. The incorporation
+of DVL measurements effectively constrains drift in the
+x−yplane, while depth integration bounds verticalz-
+axis error. The tightly-coupled fusion of both the sensors
+(SVIn+Depth+DVL) achieves the lowest overall positional
+drift from start to end.
+To systematically isolate the contribution of each sensor
+modality, we evaluate five degraded configurations against
+our full system on the BajanQueen-01 dataset (Table I,
+and Figs. 9, 10), using the fixed marker in the environ-
+ment. Starting from the visual-inertial baseline (SVIn2, mean
+error: 0.53 m), the integration of the depth sensor alone
+(SVIn-depth) constrains vertical drift, reducing the mean
+deviation to 0.29 m (45.3% improvement). Fusing only
+the DVL (SVIn-dvl) provides bounded velocity constraints,
+yielding a mean error of 0.52 m with higher lateral consis-
+tency. The joint tightly-coupled integration of all modalities
+in SVIn+ yields the most accurate and geometrically con-
+sistent estimate (0.21 m, a 60.4% overall error reduction).
+Notably, the open-loop state estimation of SVIn+ (0.21 m
+PAGE 7
+Fig. 9: Visualization of accumulated drift utilizing an ArUco marker board. The return-to-origin error is quantified by evaluating the spatial deviation
+between the initial marker projection (1) and the projection recorded during the third revisit (3). Note that apparent variations in marker size are solely a
+result of perspective scaling due to varying distances from the camera.
+−2 0 2 4 6 8 10
+X [m]
+−2
+0
+2
+4
+6
+8
+10
+12
+Y [m]
+SVIn2
+SVIn2-loop
+SVIn-depth
+SVIn-dvl
+SVIn-sonar
+SVIn+
+Start
+End
+Fig. 10: Trajectory comparison of baseline SVIn with adding different sensor
+modalities.
+deviation) outperforms the baseline visual-inertial SLAM
+running with active loop closures (SVIn2-loop, 0.22 m).
+This highlights that multi-modal fusion can match the global
+accuracy of loop-closed systems without the risk of false
+loop acceptance. As shown in Figure 9, the reprojections
+from the three successive passes are concentrated within
+a noticeably tighter error radius, demonstrating enhanced
+geometric consistency.
+Furthermore, Fig. 11 illustrates the dense map constructed
+from 3D Sonar scans compared to the 3D points extracted
+from visual measurements. This highlights the advantage of
+3D Sonar: beyond enhancing localization, it generates rich
+environmental maps essential for subsequent path planning
+and execution of autonomous tasks.
+VI. LESSONSLEARNED ANDFUTUREWORK
+The stability and drift reduction achieved bySVIn+estab-
+lish a robust foundation for several future research directions:
+Robustness to sensor degeneracy: While the current factor
+graph manages uncertainty, extreme conditions can render
+specific modalities completely unreliable (e.g., sparse 3D
+sonar registration failures, as depicted in Figure 12). We plan
+to develop an adaptive switching mechanism for proactive
+failure detection and system resilience.
+Fig. 11: Comparison of (a) the 3D feature point cloud generated by the visual
+sensor and (b) the local map point cloud (green) constructed by registering
+3D sonar point scans (purple) from the BajanQueen-01 dataset.
+Global mapping and loop closure: To transition from con-
+tinuous odometry to a complete SLAM system for long-
+endurance missions, we will integrate multi-modal global
+place recognition. Leveraging both visual and acoustic sig-
+natures will ensure reliable re-localization and correct accu-
+mulated error.
+Online spatial calibration: Because unmodeled dynamic
+alignment variations (such as DVL misalignment) introduce
+systematic errors that offline calibration cannot fully resolve,
+we plan to implement an online extrinsic calibration backend
+to dynamically maximize trajectory accuracy.
+VII. CONCLUSIONS
+In this paper, we presented SVIn+, a robust multi-modal
+framework for underwater state estimation that integrates
+measurements from 3D acoustic sonar, visual-inertial sen-
+sors, a water-pressure sensor and a Doppler Velocity Log
+(DVL). To overcome the perceptual degradation common
+in underwater environments, such as light attenuation and
+turbidity, our tightly-coupled nonlinear optimization frame-
+work jointly optimizes these heterogeneous measurements
+within a local sliding window. To efficiently leverage the
+structural context of 3D sonars without compromising real-
+PAGE 8
+(a)
+ (b)
+(c)
+ (d)
+Fig. 12: Comparison of visual images and sonar point cloud scan(blue) for
+a successful registration (a) and representative failure cases, where points
+are very sparse or non-present (b) (c) (d).
+time performance, we introduced a hierarchical architecture
+that incorporates 6D relative pose factors from a decoupled
+KISS-ICP front-end. Extensive field experiments conducted
+with Aqua2 platform in complex environments, including
+a shipwreck and a coral reef, validate the effectiveness of
+our approach. Our evaluation demonstrates that the proposed
+multi-sensor fusion limits accumulated drift, outperform-
+ing the baseline SVIn2 framework and providing a robust
+foundation for future integration of global loop-closure and
+SLAM capabilities.
+REFERENCES
+[1] J. McConnell, I. Collado-Gonzalez, and B. Englot, “Perception for
+underwater robots,”Current Robotics Reports, 2022.
+[2] B. Joshi, S. Rahman, M. Kalaitzakis, B. Cain, J. Johnson, M. Xan-
+thidis, N. Karapetyan, A. Hernandez, A. Quattrini Li, N. Vitzilaios,
+and I. Rekleitis, “Experimental Comparison of Open Source Visual-
+Inertial-Based State Estimation Algorithms in the Underwater Do-
+main,” inProc. IROS, Macau, 2019, pp. 7221–7227.
+[3] C. Hu, S. Zhu, Y . Liang, Z. Mu, and W. Song, “Visual-pressure
+fusion for underwater robot localization with online initialization,”
+IEEE Robotics and Automation Letters, 2021.
+[4] L. Zhao, M. Zhou, and B. Loose, “Tightly-coupled visual- DVL-
+inertial odometry for robot-based ice-water boundary exploration,” in
+Proc. IROS, 2023.
+[5] E. Vargas, R. Scona, J. S. Willners, T. Luczynski, Y . Cao, S. Wang,
+and Y . R. Petillot, “Robust underwater visual SLAM fusing acoustic
+sensing,” inProc. ICRA, 2021.
+[6] S. Xu, K. Zhang, and S. Wang, “AQUA-SLAM: Tightly-coupled
+underwater acoustic-visual-inertial slam with sensor calibration,”IEEE
+Trans. Robot., 2025.
+[7] S. Archieri, A. Cinar, S. Pan, J. S. Willners, M. Grimald, I. Carlucho,
+and Y . Petillot, “InsSo3D: Inertial navigation system and 3D Sonar
+SLAM for turbid environment inspection,” inProc. ICRA, 2026.
+[8] S. Pan, S. Archieri, A. Cinar, J. S. Willners, I. Carlucho, and Y . Petillot,
+“VISO: Robust underwater visual-inertial-sonar SLAM with photo-
+metric rendering for dense 3D reconstruction,” inProc. ICRA, 2026.
+[9] C. Burgul, Y . Huang, M. Chatzispyrou, I. Rekleitis, A. Quattrini Li,
+and M. Xanthidis, “Underwater dense mapping with the first compact
+3d sonar,” inProc. ICRA, 2026.
+[10] J. C. Kinsey, R. M. Eustice, and L. L. Whitcomb, “A survey of
+underwater vehicle navigation: Recent advances and new challenges,”
+inIFAC conference of manoeuvering and control of marine craft, 2006.
+[11] Y . Yang and G. Huang, “Acoustic-inertial underwater navigation.” in
+Proc. ICRA, 2017.
+[12] P. Blondel and B. J. Murton,Handbook of seafloor sonar imagery.
+Wiley Chichester, 1997.
+[13] S. Negahdaripour, “On 3-d motion estimation from feature tracks in
+2-d fs sonar video,”IEEE Transactions on Robotics, 2013.
+[14] O. Pizarro, R. Eustice, and H. Singh, “Large area 3d reconstructions
+from underwater surveys,” inOceans’ 04 MTS/IEEE Techno-Ocean’04
+(IEEE Cat. No. 04CH37600), 2004.
+[15] A. Kim and R. M. Eustice, “Real-time visual SLAM for autonomous
+underwater hull inspection using visual saliency,”IEEE Transactions
+on Robotics, 2013.
+[16] F. Hidalgo, C. Kahlefendt, and T. Br ¨aunl, “Monocular ORB-SLAM
+application in underwater scenarios,” in2018 OCEANS-MTS/IEEE
+Kobe Techno-Oceans (OTO), 2018.
+[17] R. Mur-Artal, J. M. M. Montiel, and J. D. Tardos, “ORB-SLAM: A
+versatile and accurate monocular SLAM system,”IEEE Transactions
+on Robotics, 2015.
+[18] A. G. Chavez, Q. Xu, C. A. Mueller, S. Schwertfeger, and A. Birk,
+“Adaptive navigation scheme for optimal deep-sea localization using
+multimodal perception cues,” inProc. IROS, 2019.
+[19] S. Xu, T. Luczynski, J. S. Willners, Z. Hong, K. Zhang, Y . R. Petillot,
+and S. Wang, “Underwater visual acoustic SLAM with extrinsic
+calibration,” inProc. IROS, 2021.
+[20] M. Leonardi, A. Stahl, E. F. Brekke, and M. Ludvigsen, “UVS:
+underwater visual SLAM—a robust monocular visual SLAM system
+for lifelong underwater operations,”Autonomous Robots, 2023.
+[21] J. Song, O. Bagoren, R. Andigani, A. Sethuraman, and K. A. Skinner,
+“Turtlmap: Real-time localization and dense mapping of low-texture
+underwater environments with a low-cost unmanned underwater vehi-
+cle,” inProc. IROS, 2024.
+[22] S. Ding, T. Zhang, D. Jiang, and M. Lei, “Underwater visual-
+inertial-acoustic-depth SLAM with DVL preintegration for degraded
+environments,”arXiv preprint arXiv:2510.21215, 2025.
+[23] M. F. Fallon, J. Folkesson, H. McClelland, and J. J. Leonard, “Relo-
+cating underwater features autonomously using sonar-based SLAM,”
+IEEE Journal of Oceanic Engineering, 2013.
+[24] J. Li, M. Kaess, R. M. Eustice, and M. Johnson-Roberson, “Pose-graph
+SLAM using forward-looking sonar,”IEEE Robotics and Automation
+Letters, 2018.
+[25] J. Wang, S. Bai, and B. Englot, “Underwater localization and 3d
+mapping of submerged structures with a single-beam scanning sonar,”
+inProc. ICRA, 2017.
+[26] J. Wang, F. Chen, Y . Huang, J. McConnell, T. Shan, and B. Englot,
+“Virtual maps for autonomous exploration of cluttered underwater
+environments,”IEEE Journal of Oceanic Engineering, 2022.
+[27] S. Archieri, J. Drupt, A. Cinar, M. Grimaldi, I. Carlucho, J. S. Willners,
+and Y . R. Petillot, “3dssdf: Underwater 3d sonar reconstruction using
+signed distance functions,” inProc. ICRA, 2025.
+[28] S. Rahman, A. Quattrini Li, and I. Rekleitis, “SVIn2: A Multi-sensor
+Fusion-based Underwater SLAM System,”International Journal of
+Robotics Research, July 2022.
+[29] L. Chen, S. Wang, H. Hu, Y .-s. Ryuh, and G.-H. Yang, “3d mapping
+by a robotic fish with two mechanical scanning sonars,” inIntelligent
+Autonomous Systems (IAS), 2015.
+[30] A. Mallios, E. Vidal, R. Campos, and M. Carreras, “Underwater caves
+sonar data set,”International Journal of Robotics Research, 2017.
+[31] J. McConnell, I. Collado-Gonzalez, P. Szenher, and B. Englot, “Large-
+scale dense 3-d mapping using submaps derived from orthogonal
+imaging sonars,”IEEE Journal of Oceanic Engineering, 2024.
+[32] S. Leutenegger, S. Lynen, M. Bosse, R. Siegwart, and P. Furgale,
+“Keyframe-based visual–inertial odometry using nonlinear optimiza-
+tion,”International Journal of Robotics Research, vol. 34, no. 3, pp.
+314–334, 2015.
+[33] C. Forster, L. Carlone, F. Dellaert, and D. Scaramuzza, “On-manifold
+preintegration for real-time visual–inertial odometry,”IEEE Transac-
+tions on Robotics, 2016.
+[34] I. Vizzo, T. Guadagnino, B. Mersch, L. Wiesmann, J. Behley, and
+C. Stachniss, “KISS-ICP: In Defense of Point-to-Point ICP – Simple,
+Accurate, and Robust Registration If Done the Right Way,”IEEE
+Robotics and Automation Letters, vol. 8, no. 2, pp. 1029–1036, 2023.
+[35] P. Furgale, J. Rehder, and R. Siegwart, “Unified temporal and spatial
+calibration for multi-sensor systems,” inProc. IROS, 2013.
+[36] J. L. Schonberger and J.-M. Frahm, “Structure-from-motion revisited,”
+inProc. CVPR, 2016.

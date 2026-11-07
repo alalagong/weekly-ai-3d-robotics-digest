@@ -1,0 +1,211 @@
+{
+  "id": "2610.37000",
+  "version": 2,
+  "url": "https://arxiv.org/html/2610.37000v2",
+  "path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-2610.37000v2.html",
+  "char_count": 50984,
+  "headings": [
+    "Report GitHub Issue",
+    "GPA-VGGT: Geometry-Preserving Acceleration of VGGT",
+    "1 Introduction",
+    "2 Related Work",
+    "2.1 VGGT Acceleration",
+    "2.2 Token Merging",
+    "3 Analysis",
+    "3.1 Token Merging Disrupts Token-Specific Predictions and Attention Mass",
+    "3.2 Early Blocks Still Need Cross-Frame Context",
+    "4 GPA-VGGT",
+    "4.1 Query-Preserving K/V Merging with Token-Size Compensation",
+    "4.2 Pooled Cross-Frame Broadcast for Early Layers",
+    "4.3 Core-Block Sensitivity-Aware Merging",
+    "4.4 Gaussian Random Projection for Efficient Matching",
+    "4.5 Custom Kernels",
+    "5 Experiments",
+    "5.1 Experimental Setup",
+    "5.2 Camera Pose",
+    "5.3 Point-Map Reconstruction",
+    "5.4 Runtime",
+    "5.5 Ablation",
+    "6 Conclusion",
+    "References",
+    "Appendix A Custom Triton Kernels",
+    "A.1 Attention with a Per-Key Additive Bias",
+    "A.2 Memory-Efficient K/V Matching",
+    "Appendix B Peak VRAM Footprint",
+    "Appendix C Pooling for the Shared Cross-Frame K/V Set",
+    "Appendix D Merge-Operator Ablation",
+    "Appendix E Selection of the Core Blocks",
+    "Appendix F Matching Feature Dimension",
+    "Appendix G Comparison with AVGGT",
+    "Appendix H Transfer to Other Backbones",
+    "Appendix I Additional Qualitative Results"
+  ],
+  "figures": [
+    {
+      "id": "S1.F1",
+      "caption": "Figure 1: Accuracy and runtime scaling with the number of input frames. Although existing acceleration methods substantially reduce end-to-end runtime, they incur pronounced camera-pose degradation under the strict AUC@3 metric. GPA-VGGT achieves comparable runtime while maintaining camera-pose accuracy close to that of vanilla VGGT.",
+      "imgs": []
+    },
+    {
+      "id": "S3.F2",
+      "caption": "Figure 2: Two sources of accuracy degradation in existing token-merging methods. Top: Query merging collapses the block-12 outputs of 8383 tokens into 1212 shared outputs, whereas retaining all queries while merging only K/V preserves the output diversity of the unmerged model. Bottom: Omitting the +log⁡s+\\log s correction disproportionately allocates attention to the first frame. Restoring the correction recovers an attention distribution close to that of the unmerged model.",
+      "imgs": [
+        {
+          "src": "2610.37000v2/query.png",
+          "id": "S3.F2.g1",
+          "class": "ltx_graphics ltx_centering ltx_img_square",
+          "style": "aspect-ratio:685/708;",
+          "width": "685",
+          "height": "708",
+          "alt": "Refer to caption"
+        }
+      ]
+    },
+    {
+      "id": "S4.F3",
+      "caption": "Figure 3: Effect of cross-frame context in the early blocks. Top: Replacing global attention with frame attention substantially displaces the block-8 output field from the full-global-attention reference, whereas the shared cross-frame K/V set largely preserves it. Bottom: Pairwise alignment of per-frame drift directions. Cross-frame special tokens partially align the drift, and image-token summaries further reduce its variation, preserving a coherent geometric reference across views.",
+      "imgs": []
+    },
+    {
+      "id": "S4.F4",
+      "caption": "Figure 4: Overview of GPA-VGGT. Early blocks 00–88 replace global attention with frame attention augmented by a shared cross-frame K/V set containing special tokens and content-adaptive pooled image-token summaries. Later blocks 99–2323 preserve all queries and merge only K/V tokens, using a weaker merge ratio in the core blocks 1313–1616. (a) Pooled summaries are constructed by assigning patch tokens to stride-8 seeds according to cosine similarity and averaging the K/V tokens within each content-adaptive cluster; the summary size determines the +log⁡s+\\log s correction. (b) K/V matching is computed after a 128128-dimensional Gaussian projection, while all queries are retained for global attention.",
+      "imgs": [
+        {
+          "src": "2610.37000v2/GPA-VGGT_Figure.png",
+          "id": "S4.F4.g1",
+          "class": "ltx_graphics ltx_centering ltx_img_landscape",
+          "style": "aspect-ratio:685/363;",
+          "width": "685",
+          "height": "363",
+          "alt": "Refer to caption"
+        }
+      ]
+    },
+    {
+      "id": "S4.T1",
+      "caption": "CO3D RE10K AUC@3 AUC@5 AUC@10 AUC@30 AUC@3 AUC@5 AUC@10 AUC@30 vanilla VGGT 57.49 68.88 80.66 91.71 44.78 56.67 70.79 85.76 FastVGGT 41.56 55.97 72.61 88.38 37.56 50.52 66.38 83.69 FasterVGGT 16.05 33.80 60.00 83.91 22.00 34.09 51.47 73.85 AVGGT(2) 51.87 64.55 78.02 90.65 44.68 56.49 70.66 85.70 AVGGT(4) 47.08 60.75 75.72 89.72 42.53 54.78 69.50 85.21 GPA-VGGT 56.94 68.54 80.41 91.57 44.45 56.33 70.46 85.54 Table 1: Camera-pose accuracy on CO3D and RE10K, with ten frames per sequence and relative pose errors computed over all frame pairs. Bold and underline mark the best and second-best value in each column, excluding vanilla VGGT.",
+      "imgs": []
+    },
+    {
+      "id": "S4.F5",
+      "caption": "Figure 5: Qualitative reconstruction under estimated camera poses. Each column shows the point cloud produced by the corresponding method, and red boxes indicate the enlarged regions below. GPA-VGGT most closely matches the geometry reconstructed by vanilla VGGT.",
+      "imgs": [
+        {
+          "src": "2610.37000v2/broccoli.png",
+          "id": "S4.F5.g1",
+          "class": "ltx_graphics ltx_centering ltx_img_landscape",
+          "style": "aspect-ratio:685/465;",
+          "width": "685",
+          "height": "465",
+          "alt": "Refer to caption"
+        }
+      ]
+    },
+    {
+      "id": "S5.T2",
+      "caption": "AUC@3 ↑\\uparrow AUC@30 ↑\\uparrow 64 100 200 64 100 200 vanilla VGGT 62.57 62.45 61.47 92.58 92.59 92.42 FastVGGT 55.18 55.97 56.28 91.33 91.54 91.68 FasterVGGT 20.66 20.40 19.59 85.62 85.57 85.42 AVGGT(2) 58.49 58.59 57.71 91.94 92.03 91.85 AVGGT(4) 54.27 54.76 54.40 91.35 91.50 91.45 GPA-VGGT 62.61 62.55 61.43 92.57 92.59 92.41 Table 2: Camera-pose accuracy on CO3D at 6464, 100100, and 200200 input frames. Bold and underline mark the best and second-best value in each column, excluding vanilla VGGT.",
+      "imgs": []
+    },
+    {
+      "id": "S5.T3",
+      "caption": "NRGBD sparse NRGBD dense 7-Scenes sparse 7-Scenes dense Acc ↓\\downarrow Comp ↓\\downarrow NC ↑\\uparrow Acc ↓\\downarrow Comp ↓\\downarrow NC ↑\\uparrow Acc ↓\\downarrow Comp ↓\\downarrow NC ↑\\uparrow Acc ↓\\downarrow Comp ↓\\downarrow NC ↑\\uparrow vanilla VGGT 0.0510 0.0665 0.8843 0.0144 0.0152 0.8743 0.0432 0.0557 0.7337 0.0215 0.0259 0.6673 FastVGGT 0.0560 0.0819 0.8601 0.0308 0.0328 0.8302 0.0510 0.0696 0.7215 0.0195 0.0235 0.6646 FasterVGGT 0.1551 0.2173 0.7749 0.0759 0.0642 0.7988 0.0994 0.1527 0.6637 0.0246 0.0254 0.6695 AVGGT(2) 0.0355 0.0396 0.8981 0.0154 0.0157 0.8562 0.0613 0.0765 0.7115 0.0210 0.0257 0.6653 AVGGT(4) 0.0465 0.0554 0.8818 0.0207 0.0182 0.8466 0.0656 0.0866 0.7063 0.0218 0.0248 0.6665 GPA-VGGT 0.0414 0.0476 0.8941 0.0143 0.0151 0.8714 0.0474 0.0600 0.7309 0.0204 0.0253 0.6674 Table 3: Point-map reconstruction on NRGBD and 7-Scenes, under the sparse and dense frame samplings of π3\\pi^{3}. Bold and underline mark the best and second-best value in each column, excluding vanilla VGGT.",
+      "imgs": []
+    },
+    {
+      "id": "S5.T4",
+      "caption": "number of input frames time (s) ↓\\downarrow 10 32 64 100 200 500 vanilla VGGT 0.84 3.84 12.46 24.01 86.78 513.78 FastVGGT 0.85 2.81 6.46 11.71 33.91 169.43 FasterVGGT 0.78 2.66 6.18 11.29 32.27 OOM AVGGT(2) 0.78 2.76 6.70 12.66 37.02 184.03 AVGGT(4) 0.76 2.51 5.58 9.86 25.82 111.74 GPA-VGGT 0.78 2.76 6.49 11.92 33.65 158.63 Table 4: End-to-end runtime for the whole forward pass, camera and depth heads included, on a single A6000.",
+      "imgs": []
+    },
+    {
+      "id": "S5.T5",
+      "caption": "time ↓\\downarrow AUC@3 ↑\\uparrow 200200f CO3D RE10K vanilla VGGT 86.8 s 57.49 44.78 ++ frame attention in early blocks 59.1 s 54.43 44.45 ++ pooled cross-frame broadcast 59.8 s 57.25 45.20 ++ query-preserving K/V merging 40.1 s 57.13 44.45 on blocks 9–12 and 17–23 ++ random-projection matching 35.5 s 57.12 44.47 ++ sensitivity-aware core, 13–16 33.6 s 56.94 44.45 Table 5: Ablation of GPA-VGGT components. Each row adds one component to the row above it.",
+      "imgs": []
+    },
+    {
+      "id": "A2.T1",
+      "caption": "frames vanilla FastVGGT FasterVGGT AVGGT GPA-VGGT 10 4.58 4.58 4.58 4.58 4.58 32 5.12 5.12 5.12 5.12 5.12 64 6.08 6.85 7.48 6.08 6.08 100 8.27 9.48 10.50 8.27 8.28 200 14.37 16.78 19.46 14.37 14.38 300 20.47 24.08 29.43 20.47 20.48 400 26.57 31.38 40.29 26.57 26.58 500 32.67 38.69 OOM 32.68 32.69 Table S1: Peak GPU memory (GiB) during the full forward pass on a single A6000, measured using torch.cuda.max_memory_allocated() after warm-up. Vanilla denotes the VRAM-efficient VGGT implementation introduced by FastVGGT, and the AVGGT column covers both σ=2\\sigma=2 and σ=4\\sigma=4, which produced identical measurements at every length.",
+      "imgs": []
+    },
+    {
+      "id": "A3.T2",
+      "caption": "vanilla mean stride cluster cluster-h CO3D AUC@3 57.4957.49 56.4456.44 56.6156.61 56.9056.90 56.9456.94 Δ\\Delta vs. vanilla – −1.04-1.04 −0.88-0.88 −0.59-0.59 −0.55-0.55 Table S2: Pooling strategy for the shared cross-frame summaries on CO3D, using the same stride-88 seed grid and summary-token budget. Bold marks the adopted setting.",
+      "imgs": []
+    },
+    {
+      "id": "A3.T3",
+      "caption": "preserve +log⁡s+\\log s output CO3D Q bias error AUC@3 no merging – – – 57.25 (Pooled Cross-Frame Broadcast only) neither component – – 0.394 49.93 query preservation only ✓ – 0.374 51.09 +log⁡s+\\log s correction only – ✓ 0.112 55.36 both (adopted) ✓ ✓ 0.055 56.94 Table S3: Merge-operator components on CO3D, under a fixed merge window and merge ratio. Output error is the relative deviation of the merged attention output from unmerged attention on the same input. Bold marks the adopted operator.",
+      "imgs": []
+    },
+    {
+      "id": "A5.F1",
+      "caption": "Figure S1: Core-block selection on VGGT. Each point shows how much the final global-block output changes from the unmerged model when the indicated contiguous block set is protected from merging; lower values mean smaller changes. The criterion is computed without ground-truth annotations across four datasets. Blocks 1313–1616 consistently give the smallest change and are selected as the core-block set.",
+      "imgs": []
+    },
+    {
+      "id": "A6.T4",
+      "caption": "dimension 32 64 128 256 512 1024 matching (ms) 37 38 64 106 194 469 same destination (%) 54.4 67.1 76.6 82.8 87.9 100 similarity loss (%) 3.30 1.28 0.56 0.28 0.13 0 CO3D AUC@3 56.47 56.48 56.94 56.87 56.89 57.09 Table S4: Projected feature dimension for K/V matching, with matching cost measured at 200200 input frames and AUC@3 on CO3D. Same destination and similarity loss are both measured against the full 1,0241{,}024-dimensional metric. Bold marks the adopted dimension.",
+      "imgs": []
+    },
+    {
+      "id": "A7.T5",
+      "caption": "CO3D AUC@τ\\tau RE10K AUC@τ\\tau 200200 frames 33 55 1010 3030 33 55 1010 3030 time (s) speedup vanilla 58.0158.01 68.3668.36 79.1679.16 89.7189.71 50.9050.90 60.6760.67 72.4372.43 85.7485.74 65.565.5 1.00×1.00\\times ++ frame attention in early blocks 56.2556.25 67.0167.01 78.3578.35 89.3289.32 50.6450.64 60.3960.39 72.1872.18 85.6385.63 35.435.4 1.85×1.85\\times ++ pooled cross-frame broadcast 58.0658.06 68.4268.42 79.1879.18 89.6689.66 51.3451.34 60.8560.85 72.4272.42 85.6785.67 36.536.5 1.80×1.80\\times ++ query-preserving K/V merging, r=0.50r{=}0.50 57.29\\mathbf{57.29} 67.92\\mathbf{67.92} 78.97\\mathbf{78.97} 89.56\\mathbf{89.56} 51.04\\mathbf{51.04} 60.66\\mathbf{60.66} 72.35\\mathbf{72.35} 85.73\\mathbf{85.73} 27.7\\mathbf{27.7} 2.36×\\mathbf{2.36\\times} ++ query-preserving K/V merging, r=0.90r{=}0.90 56.4056.40 67.3467.34 78.5878.58 89.3589.35 49.8549.85 59.7159.71 71.7271.72 85.4585.45 23.823.8 2.75×2.75\\times Table S5: Ablation of the proposed design on π3\\pi^{3}. Bold marks the adopted configuration.",
+      "imgs": []
+    },
+    {
+      "id": "A7.T6",
+      "caption": "CO3D AUC@τ\\tau RE10K AUC@τ\\tau 200200 frames 33 55 1010 3030 33 55 1010 3030 time (s) speedup vanilla 54.6654.66 66.0966.09 77.9577.95 89.1489.14 63.2263.22 71.2671.26 80.5980.59 90.5890.58 41.541.5 1.00×1.00\\times ++ frame attention in early blocks 53.9853.98 65.5965.59 77.6277.62 88.9788.97 63.0163.01 71.0971.09 80.4780.47 90.5790.57 29.429.4 1.41×1.41\\times ++ pooled cross-frame broadcast 54.5654.56 66.0166.01 77.9077.90 89.1189.11 63.2163.21 71.2371.23 80.5980.59 90.6190.61 29.929.9 1.39×1.39\\times ++ query-preserving K/V merging, r=0.50r{=}0.50 53.84\\mathbf{53.84} 65.44\\mathbf{65.44} 77.52\\mathbf{77.52} 89.00\\mathbf{89.00} 62.95\\mathbf{62.95} 71.05\\mathbf{71.05} 80.50\\mathbf{80.50} 90.56\\mathbf{90.56} 22.5\\mathbf{22.5} 1.84×\\mathbf{1.84\\times} ++ query-preserving K/V merging, r=0.90r{=}0.90 52.9752.97 64.8164.81 77.0877.08 88.8188.81 62.6462.64 70.8270.82 80.3680.36 90.5290.52 19.219.2 2.17×2.17\\times Table S6: Ablation of the proposed design on VGGT-Ω\\Omega. Bold marks the adopted configuration.",
+      "imgs": []
+    },
+    {
+      "id": "A7.F2",
+      "caption": "Figure S2: Core-block selection on π3\\pi^{3} and VGGT-Ω\\Omega. Core blocks are selected using the same measurement as in Figure S1. The criterion selects blocks 1313–1515 on π3\\pi^{3} and raw blocks 1212, 1313, 1515, and 1616 on VGGT-Ω\\Omega, where raw block 1414 is a register block and is therefore excluded from merging.",
+      "imgs": []
+    },
+    {
+      "id": "A9.F3",
+      "caption": "Figure S3: A small-room scene from 7-Scenes (heads-seq-02#0).",
+      "imgs": [
+        {
+          "src": "2610.37000v2/supp_7scenes_heads2b.png",
+          "id": "A9.F3.g1",
+          "class": "ltx_graphics ltx_centering ltx_img_landscape",
+          "style": "aspect-ratio:685/465;",
+          "width": "685",
+          "height": "465",
+          "alt": "Refer to caption"
+        }
+      ]
+    },
+    {
+      "id": "A9.F4",
+      "caption": "Figure S4: A green-room scene from NRGBD (green_room#11).",
+      "imgs": [
+        {
+          "src": "2610.37000v2/supp_nrgbd_green11.png",
+          "id": "A9.F4.g1",
+          "class": "ltx_graphics ltx_centering ltx_img_landscape",
+          "style": "aspect-ratio:685/465;",
+          "width": "685",
+          "height": "465",
+          "alt": "Refer to caption"
+        }
+      ]
+    },
+    {
+      "id": "A9.F5",
+      "caption": "Figure S5: An outdoor scene from RealEstate10K (2c805f56d92a2e22).",
+      "imgs": [
+        {
+          "src": "2610.37000v2/supp_re10k_2c805.png",
+          "id": "A9.F5.g1",
+          "class": "ltx_graphics ltx_centering ltx_img_landscape",
+          "style": "aspect-ratio:685/465;",
+          "width": "685",
+          "height": "465",
+          "alt": "Refer to caption"
+        }
+      ]
+    }
+  ],
+  "retrieved_at": "2026-11-02T15:52:28.081919+00:00"
+}

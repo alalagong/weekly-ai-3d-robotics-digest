@@ -1,0 +1,523 @@
+{
+  "run_at": "2026-11-01T14:59:32Z",
+  "started_at": "2026-11-02T15:51:40Z",
+  "status": "complete",
+  "papers": [
+    {
+      "id": "2610.37602",
+      "version": 1,
+      "locked_url": "https://arxiv.org/html/2610.37602v1",
+      "attempts": [
+        {
+          "url": "https://arxiv.org/html/2610.37602v1",
+          "retrieved_at": "2026-11-02T15:51:45Z",
+          "bytes": 1039216,
+          "path": "core-deep-2610.37602v1.html",
+          "status": "success"
+        },
+        {
+          "url": "https://arxiv.org/pdf/2610.37602v1",
+          "retrieved_at": "2026-11-02T15:54:27Z",
+          "bytes": 29127434,
+          "path": "core-deep-2610.37602v1.pdf",
+          "status": "success"
+        }
+      ],
+      "read_sections": [
+        {
+          "id": null,
+          "text": "RESPLE2: Inertial-Informed Recursive Non-Uniform Spline Estimation for Multi-Sensor Odometry with Global Refinement"
+        },
+        {
+          "id": "S1",
+          "text": "I Introduction"
+        },
+        {
+          "id": "S1.SSx1",
+          "text": "Contributions"
+        },
+        {
+          "id": "S2",
+          "text": "II Related Work"
+        },
+        {
+          "id": "S2.SS1",
+          "text": "II-A Multi-Sensor Odometry"
+        },
+        {
+          "id": "S2.SS2",
+          "text": "II-B Continuous-Time Motion Estimation"
+        },
+        {
+          "id": "S3",
+          "text": "III Preliminaries"
+        },
+        {
+          "id": "S3.SS1",
+          "text": "III-A Notation Conventions"
+        },
+        {
+          "id": "S3.SS2",
+          "text": "III-B Non-Uniform B-Spline Motion Representation"
+        },
+        {
+          "id": "S3.SS3",
+          "text": "III-C Kinematic Interpolations"
+        },
+        {
+          "id": "S3.SS3.SSS1",
+          "text": "III-C 1 Positions"
+        },
+        {
+          "id": "S3.SS3.SSS2",
+          "text": "III-C 2 Orientations"
+        },
+        {
+          "id": "S3.SS4",
+          "text": "III-D Spline-State-Space Model for Recursive State Estimation"
+        },
+        {
+          "id": "S4",
+          "text": "IV System Overview"
+        },
+        {
+          "id": "S5",
+          "text": "V Generalized Spline State-Space Modeling with Multi-Sensor Measurements"
+        },
+        {
+          "id": "S5.SS1",
+          "text": "V-A Generalized Spline-State-Space Model"
+        },
+        {
+          "id": "S5.SS2",
+          "text": "V-B Process Model"
+        },
+        {
+          "id": "S5.SS2.SSS1",
+          "text": "V-B 1 Knot-Clamping Boundary Property"
+        },
+        {
+          "id": "S5.SS2.SSS2",
+          "text": "V-B 2 Exact Inertial-Informed RCP Propagation"
+        },
+        {
+          "id": "S5.SS3",
+          "text": "V-C Multi-Sensor Measurement Model"
+        },
+        {
+          "id": "S5.SS3.SSS1",
+          "text": "V-C 1 LiDAR Point-to-Plane Metric"
+        },
+        {
+          "id": "S5.SS3.SSS2",
+          "text": "V-C 2 IMU Metric"
+        },
+        {
+          "id": "S5.SS3.SSS3",
+          "text": "V-C 3 Visual Projection Metric"
+        },
+        {
+          "id": "S5.SS3.SSS4",
+          "text": "V-C 4 Legged Kinematics Metric"
+        },
+        {
+          "id": "S6",
+          "text": "VI Inertial-Informed Iterated Extended Kalman Filter on Non-Uniform B-Splines"
+        },
+        {
+          "id": "S6.SS1",
+          "text": "VI-A Inertial-Informed RCP Prediction"
+        },
+        {
+          "id": "S6.SS1.SSSx1",
+          "text": "Knot Extension"
+        },
+        {
+          "id": "S6.SS2",
+          "text": "VI-B RCP Reset for Unclamping"
+        },
+        {
+          "id": "S6.SS2.SSSx1",
+          "text": "Unclamping"
+        },
+        {
+          "id": "S6.SS2.SSSx2",
+          "text": "Position Reset"
+        },
+        {
+          "id": "S6.SS2.SSSx3",
+          "text": "Orientation Reset"
+        },
+        {
+          "id": "S6.SS2.SSSx4",
+          "text": "Covariance Reset"
+        },
+        {
+          "id": "S6.SS3",
+          "text": "VI-C Iterated Update"
+        },
+        {
+          "id": "S6.SS4",
+          "text": "VI-D Filter Setup"
+        },
+        {
+          "id": "S7",
+          "text": "VII Global Refinement"
+        },
+        {
+          "id": "S7.SS1",
+          "text": "VII-A Loop Closure Detection"
+        },
+        {
+          "id": "S7.SS2",
+          "text": "VII-B Global Spline Optimization"
+        },
+        {
+          "id": "S8",
+          "text": "VIII Evaluation"
+        },
+        {
+          "id": "S8.SS1",
+          "text": "VIII-A Implementation"
+        },
+        {
+          "id": "S8.SS2",
+          "text": "VIII-B Benchmarking Setup"
+        },
+        {
+          "id": "S8.SS3",
+          "text": "VIII-C Public Datasets"
+        },
+        {
+          "id": "S8.SS3.SSS1",
+          "text": "VIII-C 1 GrandTour"
+        },
+        {
+          "id": "S8.SS3.SSS2",
+          "text": "VIII-C 2 JEPLO"
+        },
+        {
+          "id": "S8.SS4",
+          "text": "VIII-D Experiments"
+        },
+        {
+          "id": "S8.SS4.SSS1",
+          "text": "VIII-D 1 PPS TV"
+        },
+        {
+          "id": "S8.SS4.SSS2",
+          "text": "VIII-D 2 HOPPER"
+        },
+        {
+          "id": "S8.SS4.SSS3",
+          "text": "VIII-D 3 HANDI"
+        },
+        {
+          "id": "S9",
+          "text": "IX Further Discussions"
+        },
+        {
+          "id": "S9.SS1",
+          "text": "IX-A Ablations"
+        },
+        {
+          "id": "S9.SS1.SSS1",
+          "text": "IX-A 1 Inertial-Informed Prediction"
+        },
+        {
+          "id": "S9.SS1.SSS2",
+          "text": "IX-A 2 Knot Placement"
+        },
+        {
+          "id": "S9.SS2",
+          "text": "IX-B Runtime and Computational Analysis"
+        },
+        {
+          "id": "S10",
+          "text": "X Conclusion"
+        },
+        {
+          "id": "Sx1",
+          "text": "ACKNOWLEDGMENT"
+        },
+        {
+          "id": "A0.SS1",
+          "text": "-A Derivation of the Knot-Clamping Boundary Property"
+        },
+        {
+          "id": "A0.SS2",
+          "text": "-B Derivation of the RCP Reset"
+        },
+        {
+          "id": "A0.SS2.SSS1",
+          "text": "-B 1 Position RCP Reset"
+        },
+        {
+          "id": "A0.SS2.SSS2",
+          "text": "-B 2 Orientation RCP Reset"
+        },
+        {
+          "id": "A0.SS2.SSS3",
+          "text": "-B 3 Covariance Reset"
+        }
+      ],
+      "figures_visually_confirmed": true,
+      "reading_level": "full_main_text_and_available_appendices",
+      "code_executed": false
+    },
+    {
+      "id": "2610.36853",
+      "version": 1,
+      "locked_url": "https://arxiv.org/html/2610.36853v1",
+      "attempts": [
+        {
+          "url": "https://arxiv.org/html/2610.36853v1",
+          "retrieved_at": "2026-11-02T15:51:42Z",
+          "bytes": 368418,
+          "path": "core-deep-2610.36853v1.html",
+          "status": "success"
+        },
+        {
+          "url": "https://arxiv.org/pdf/2610.36853v1",
+          "retrieved_at": "2026-11-02T15:52:14Z",
+          "bytes": 6325010,
+          "path": "core-deep-2610.36853v1.pdf",
+          "status": "success"
+        }
+      ],
+      "read_sections": [
+        {
+          "id": null,
+          "text": "LingGS: Decoupling Feed-Forward Geometry Prediction from Camera Tracking for High-Fidelity Gaussian SLAM"
+        },
+        {
+          "id": "S1",
+          "text": "1 Introduction"
+        },
+        {
+          "id": "S2",
+          "text": "2 Related Work"
+        },
+        {
+          "id": "S2.SS0.SSS0.Px1",
+          "text": "Visual tracking without depth prior."
+        },
+        {
+          "id": "S2.SS0.SSS0.Px2",
+          "text": "Learned geometry for tracking and mapping."
+        },
+        {
+          "id": "S3",
+          "text": "3 Method"
+        },
+        {
+          "id": "S3.SS1",
+          "text": "3.1 Geometry Solver"
+        },
+        {
+          "id": "S3.SS1.SSS0.Px1",
+          "text": "Camera pose estimation with a direct depth observation."
+        },
+        {
+          "id": "S3.SS2",
+          "text": "3.2 Gaussian Mapper"
+        },
+        {
+          "id": "S3.SS2.SSS0.Px1",
+          "text": "Laplacian-guided Gaussian insertion."
+        },
+        {
+          "id": "S3.SS2.SSS0.Px2",
+          "text": "Geometric initialization."
+        },
+        {
+          "id": "S3.SS2.SSS0.Px3",
+          "text": "Refinement with keyframe replay."
+        },
+        {
+          "id": "S4",
+          "text": "4 Experiment"
+        },
+        {
+          "id": "S4.SS1",
+          "text": "4.1 Setup and Evaluation"
+        },
+        {
+          "id": "S4.SS1.SSS0.Px1",
+          "text": "Datasets."
+        },
+        {
+          "id": "S4.SS1.SSS0.Px2",
+          "text": "Evaluation metrics."
+        },
+        {
+          "id": "S4.SS1.SSS0.Px3",
+          "text": "Baselines."
+        },
+        {
+          "id": "S4.SS2",
+          "text": "4.2 Novel View Synthesis and Tracking"
+        },
+        {
+          "id": "S4.SS3",
+          "text": "4.3 Ablation study"
+        },
+        {
+          "id": "S4.SS3.SSS0.Px1",
+          "text": "Ablation on camera tracking."
+        },
+        {
+          "id": "S4.SS3.SSS0.Px2",
+          "text": "Ablation on backbones."
+        },
+        {
+          "id": "S4.SS3.SSS0.Px3",
+          "text": "Ablation on mapping iterations."
+        },
+        {
+          "id": "S5",
+          "text": "5 Conclusion"
+        },
+        {
+          "id": "A1",
+          "text": "Appendix A Appendix"
+        },
+        {
+          "id": "A1.SS1",
+          "text": "A.1 Relation to ORB-SLAM3’s Virtual-Stereo Model"
+        },
+        {
+          "id": "A1.SS1.SSS0.Px1",
+          "text": "Calibrated stereo geometry and observations."
+        },
+        {
+          "id": "A1.SS1.SSS0.Px2",
+          "text": "Explicit weighting in pixel coordinates."
+        },
+        {
+          "id": "A1.SS1.SSS0.Px3",
+          "text": "RGB-D observations and the virtual right coordinate."
+        },
+        {
+          "id": "A1.SS1.SSS0.Px4",
+          "text": "Depth sensitivity induced by the residual."
+        },
+        {
+          "id": "A1.SS1.SSS0.Px5",
+          "text": "Comparison with direct-depth weighting."
+        },
+        {
+          "id": "A1.SSx1",
+          "text": "AI use statement"
+        },
+        {
+          "id": "A1.SSx2",
+          "text": "Ethics statement"
+        },
+        {
+          "id": "A1.SSx3",
+          "text": "Reproducibility statement"
+        },
+        {
+          "id": "Ax1",
+          "text": "Acknowledgements"
+        }
+      ],
+      "figures_visually_confirmed": true,
+      "reading_level": "full_main_text_and_available_appendices",
+      "code_executed": false
+    },
+    {
+      "id": "2610.36454",
+      "version": 1,
+      "locked_url": "https://arxiv.org/html/2610.36454v1",
+      "attempts": [
+        {
+          "url": "https://arxiv.org/html/2610.36454v1",
+          "retrieved_at": "2026-11-02T15:51:43Z",
+          "bytes": 208818,
+          "path": "core-deep-2610.36454v1.html",
+          "status": "success"
+        },
+        {
+          "url": "https://arxiv.org/pdf/2610.36454v1",
+          "retrieved_at": "2026-11-02T15:53:13Z",
+          "bytes": 8232682,
+          "path": "core-deep-2610.36454v1.pdf",
+          "status": "success"
+        }
+      ],
+      "read_sections": [
+        {
+          "id": null,
+          "text": "SVIn+: Multi-Modal Framework for Robust Underwater State Estimation using 3D Sonar, Visual-Inertial, Water-Pressure, and DVL"
+        },
+        {
+          "id": "S1",
+          "text": "I Introduction"
+        },
+        {
+          "id": "S2",
+          "text": "II Related Work"
+        },
+        {
+          "id": "S3",
+          "text": "III Preliminaries"
+        },
+        {
+          "id": "S4",
+          "text": "IV Multi Sensor Odometry"
+        },
+        {
+          "id": "S4.SS1",
+          "text": "IV-A Water-Pressure Sensor Fusion"
+        },
+        {
+          "id": "S4.SS2",
+          "text": "IV-B Doppler Velocity Log (DVL) Fusion"
+        },
+        {
+          "id": "S4.SS3",
+          "text": "IV-C 3D Sonar Fusion"
+        },
+        {
+          "id": "S5",
+          "text": "V Experimental Validation"
+        },
+        {
+          "id": "S5.SS1",
+          "text": "V-A Experimental Setup"
+        },
+        {
+          "id": "S5.SS2",
+          "text": "V-B Dataset Description"
+        },
+        {
+          "id": "S5.SS3",
+          "text": "V-C Evaluation of Return-to-Origin Trajectory"
+        },
+        {
+          "id": "S5.SS4",
+          "text": "V-D Evaluation on Long-Duration Field Sequences"
+        },
+        {
+          "id": "S5.SS5",
+          "text": "V-E Ablation study"
+        },
+        {
+          "id": "S6",
+          "text": "VI Lessons Learned and Future Work"
+        },
+        {
+          "id": "S7",
+          "text": "VII Conclusions"
+        }
+      ],
+      "figures_visually_confirmed": true,
+      "reading_level": "full_main_text_and_available_appendices",
+      "code_executed": false
+    }
+  ],
+  "updated_at": "2026-11-02T16:03:01.337024+00:00",
+  "output": "core-deep.json"
+}

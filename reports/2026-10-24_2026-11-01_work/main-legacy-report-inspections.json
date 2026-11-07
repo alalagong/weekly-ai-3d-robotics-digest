@@ -1,0 +1,80 @@
+[
+  {
+    "id": "2605.30488",
+    "current_version": 3,
+    "current_updated_utc": "2026-10-26T08:38:08Z",
+    "original_report": "reports/2026-05-29_2026-06-06_ScaRF-SLAM-ZipSplat-WAM-Nav.html",
+    "original_report_header": "每周行业进展报告 ScaRF-SLAM、ZipSplat、WAM-Nav 与 G-solver：几何基础模型进入 SLAM/导航闭环 覆盖时间：2026-05-29 至 2026-06-06（Asia/Shanghai）。上次本地报告生成于 2026-05-28 23:49；部分 arXiv UTC 2026-05-28 深夜条目折算为北京时间 2026-05-29，故纳入本期。2026-06-07 补充版：补入漏选的连续时间/分布式 SLAM 论文与开源 G-solver，并补充阅读覆盖说明。 论文入选17 篇；Top Papers 13 篇，补充跟踪 4 篇。 代码/项目入选10 个 GitHub 仓库或项目页；公开页面与可访问元数据交叉核验。 核心关键词SLAM、VIO、feed-forward 3D、3DGS、世界模型、VLA、导航。 可复现优先级ZipSplat、G-solver、minWM、WAM-Flow、SpatialVID、MoVieS 更完整；QVGGT/GAVIS/WAM-Nav 仍偏早期。",
+    "actual_legacy_entry_text": [
+      "CoMo3R-SLAMarXiv:2605.30488 · cs.RO · 2026-05-28 UTC / 2026-05-29 CST 户外多机器人 dense SLAM 依赖深度传感器；纯 monocular RGB 存在尺度、低重叠和重复结构匹配问题。 每个 agent 运行 prior-guided 前端做实时 tracking 和 local dense fusion；协调器做 dense pointmap matching、Sim(3) gauge synchronization、GPU global BA 和 segment-level depth optimization。 Tanks and Temples 与 Waymo；ATE、online speed。摘要称 Tanks and Temples 4 个场景中 3 个 ATE 最佳，Waymo 精度有竞争力，达到 online 8 FPS。 把 feed-forward 3D prior 放到跨 agent 验证和尺度同步，直击多机 monocular dense map 的痛点。 como3r-slam/como3r-slam.github.io 为项目页仓库，暂未确认实现代码。 Fig. 2 Overview of CoMo3R-SLAM；PDF p.4。",
+      "CoMo3R-SLAM"
+    ],
+    "inspection": "Original report entry read. Original unversioned mention is retained; never treated as evidence that current later version was processed. Current official revision timestamps are after original report coverage, and no exact current-version history record exists.",
+    "follow_up": "New-old body comparison has not been performed; do not call this a major revision."
+  },
+  {
+    "id": "2607.08115",
+    "current_version": 2,
+    "current_updated_utc": "2026-10-28T01:25:16Z",
+    "original_report": "reports/2026-06-27_2026-07-13_Wat3R-DIVO-Track2Map-SAF3R.html",
+    "original_report_header": "每周 SLAM / VIO / SfM / FeedForward 3D 进展报告 2026-06-27 至 2026-07-13：Wat3R、DIVO、Track2Map 与 SAF3R 覆盖时间：2026-06-27T16:34:55.8613171+08:00 至 2026-07-13T01:38:55.2887459+08:00（Asia/Shanghai）。本期按 .cache/slam-3d-state.json 上次覆盖结束时间继续推进，未截断为最近 7 天。 全文深读论文6 篇：Wat3R、DIVO、APVI-SLAM、Real-Time LiDAR GS SLAM、Track2Map、SAF3R。均读到 arXiv HTML 全文的 Introduction、Method、Experiments、Ablation/Limitations/Conclusion，并检查系统图。 摘要/元数据级跟踪13 个条目：PanoLOG、DeepCORD、RadLoc、HTO Dataset、DL-VINS-Factory、Sphere-VIO、MyGO-Splat、DL-SLAM、KiloGS-SLAM、VCS-SLAM、PL-LIT、ReCal3R、AdaptiveSplat。仅作为方向跟踪，不作为深度结论来源。 Repo 深读4 个仓库：Wat3R、Track2Map、LiDAR-GS-SLAM、DL-VINS-Factory-ROS2。检查 README、目录树、配置、入口脚本和近期 commit；未本地编译/运行。 访问限制未登录 GitHub、Google Drive、Hugging Face 或数据集站点；未下载大模型权重/数据集；DL-VINS 递归 tree API 返回 500，改用 README 与元数据；所有运行效果均未本地复现。",
+    "actual_legacy_entry_text": [
+      "RadLoc 雷达 global localization / multi-session SLAM spinning radar localization 往往只做 place recognition 或 pose estimation 的子模块。 1D CA-CFAR 预处理、近距主导 compact descriptor、hierarchical coarse-to-fine retrieval，加 phase correlation 做 3-DoF pose。 把 descriptor size、retrieval speed 和 3-DoF estimation 串成端到端 global localization module。 摘要称 15 sequences / 5 datasets 上 descriptor 最小且检索最快。 摘要级；后续看 supplementary/project 是否给出代码和 radar dataset 设置。",
+      "RadLoc arXiv"
+    ],
+    "inspection": "Original report entry read. Original unversioned mention is retained; never treated as evidence that current later version was processed. Current official revision timestamps are after original report coverage, and no exact current-version history record exists.",
+    "follow_up": "New-old body comparison has not been performed; do not call this a major revision."
+  },
+  {
+    "id": "2608.07267",
+    "current_version": 3,
+    "current_updated_utc": "2026-10-29T07:13:26Z",
+    "original_report": "reports/2026-08-01_2026-08-15_SLAMFormer-UniSim-SLAM-WNM-3D.html",
+    "original_report_header": "每周 SLAM / VIO / SfM / FeedForward 3D 进展报告 2026-08-01 至 2026-08-15：SLAMFormer-∞、UniSim-SLAM、WNM-3D 覆盖时间：2026-08-01 16:17:54 至 2026-08-15 21:51:44（Asia/Shanghai）。本期按 .cache/slam-3d-state.json 上次覆盖结束时间继续推进，共约 14.2 天，未截断为最近 7 天。 全文深读论文7 篇：SLAMFormer-∞、UniSim-SLAM、Stipple、InstanceSplat、FlexSplat、WNM-3D、HumanoidVLN。均读 arXiv HTML 全文并核对系统图。 摘要/元数据跟踪24 篇。每条至少读取 arXiv 摘要；实验数字仅在摘要明确给出时保留。 Repo 深读3 个：FlexSplat、InfiniSplat、PlayWorld。检查 README、完整 tree、配置、入口、核心模块、测试和近期提交；未进行 GPU 本地运行。 访问限制SLAMFormer-∞ 与 Map-Det3D 仓库目前只有 README/图片，UniSim-SLAM 仅占位；WNM-3D、Stipple、HumanoidVLN 未发现可核验训练代码。GitHub 数据为运行时公开快照。",
+    "actual_legacy_entry_text": [
+      "WNM-3DVLN世界模型 Fig. 1：3D 历史 token、视觉—动作 flow 与闭环执行；已视觉确认。 生成式 VLN 世界模型把历史压成 2D 帧，容易丢失跨视角几何；直接 RL 又可能在策略尚未稳定时破坏预训练生成能力。 以 DreamZero/Wan2.2 TI2V 5B 为视觉—动作 flow 主干；冻结 VGGT-Ω，训练 3D Scene-to-Token Adapter 生成历史前缀，block-causal attention 联合预测未来视觉与 4×8 个动作；闭环只执行第一动作块。 三阶段为 A* SFT、DAgger 在线纠偏、DanceGRPO。实验证明 curriculum 很重要：SFT 后直接 GRPO 反而下降，先用 DAgger 把分布拉回可学习区域再做策略优化更稳。 GN-Bench seen：NE 2.0、SR 81.3、SPL 78.3；unseen：4.4、46.8、43.5。相对 2D memory，seen SR/SPL +5.7/+5.4，unseen 仅 +0.9/+0.7。DAgger 将 seen SR 49.6→80.6，DanceGRPO 再至 81.3；直接 GRPO 为 39.4。 训练含 16k A* 任务，历史 K=33。未见场景增益小，说明 3D 记忆仍强依赖训练环境。flow/action 一致性只在近目标 XY/STOP 上评估，未覆盖 yaw 与整段未来。 全文级：读三阶段训练、GN-Bench 主表、3D/2D 消融、RL 顺序消融、附录一致性分析和结论；Fig. 1 核图。未核验训练代码。",
+      "WNM-3D"
+    ],
+    "inspection": "Original report entry read. Original unversioned mention is retained; never treated as evidence that current later version was processed. Current official revision timestamps are after original report coverage, and no exact current-version history record exists.",
+    "follow_up": "New-old body comparison has not been performed; do not call this a major revision."
+  },
+  {
+    "id": "2608.16499",
+    "current_version": 3,
+    "current_updated_utc": "2026-10-23T13:15:44Z",
+    "original_report": "reports/2026-08-15_2026-08-23_Scalix-GeoWeaver-Embodied-Navigator.html",
+    "original_report_header": "每周 SLAM / VIO / SfM / FeedForward 3D 进展报告 Scalix、GeoWeaver 与 Embodied-Navigator：学习先验开始接受几何系统约束 覆盖时间：2026-08-15T21:51:44.8400758+08:00 至 2026-08-23T12:31:42.2359885+08:00（Asia/Shanghai）。本期按 .cache/slam-3d-state.json 上次覆盖结束时间继续推进，实际覆盖约 7.61 天，未截断为最近 7 天。 全文深读论文6 篇：Scalix、GeoWeaver、GroupForward、Embodied-Navigator、OVIP-SG、Jetson-ORB-SLAM3。均阅读 arXiv HTML 的 Intro、Method、Experiments、Ablation/Analysis、Limitations/Conclusion，并检查系统图。 摘要/元数据跟踪20 个条目：Gaussian-JEPA、RoofGS、GS-CPE、LaGSplat、OccamView、SplatGuide、UniQuery4R、CondVLN、CoMVS-GS、Hydra-0、GS-VLA、DA-WAM 等；其中 Depth Anything V4 已撤稿。 Repo 深读3 个仓库：Jetson-ORB-SLAM3、Embodied-Omni / Embodied-Navigator、Gaussian-JEPA。检查 README、递归 tree、配置、入口脚本、核心模块与近期 commit；未本地运行。 访问限制arXiv API 返回内部错误，改用 Advanced Search 与论文 HTML；未登录 GitHub/Hugging Face，未下载数据、权重或执行 GPU/机器人实验。OVIP-SG 代码链接目前只有占位 README。",
+    "actual_legacy_entry_text": [
+      "OccamView机器人主动 3DGS纯几何 NBV 在有限 frame budget 下忽略物体遮挡后的局部空洞。开放词汇 object memory + RGB-D 测量附近的保守 hidden-region proxy；Geo-Floor 只对几何上有竞争力的候选做对象条件重排。不做 shape completion，只用观测支持的局部 occupancy proxy，避免凭空预测对象几何。摘要称 Replica/Matterport3D 五个预算下改善 Completion/Completion Ratio，低预算收益更明显。摘要级，未深读全文。 后续核验 proxy 误报、open-vocab detector 开销与路径成本。",
+      "OccamView"
+    ],
+    "inspection": "Original report entry read. Original unversioned mention is retained; never treated as evidence that current later version was processed. Current official revision timestamps are after original report coverage, and no exact current-version history record exists.",
+    "follow_up": "New-old body comparison has not been performed; do not call this a major revision."
+  },
+  {
+    "id": "2609.18465",
+    "current_version": 2,
+    "current_updated_utc": "2026-10-29T11:20:27Z",
+    "original_report": "reports/2026-09-12_2026-09-19_AMB3R-SLAM-RawSLAM-GeoCond.html",
+    "original_report_header": "每周 SLAM / VIO / SfM / FeedForward 3D 进展报告 AMB3R-SLAM、RawSLAM 与 GeoCond：几何后端、HDR 跟踪及可信前馈 覆盖时间：2026-09-12 16:26:52 至 2026-09-19 22:15:00（Asia/Shanghai）。本期按 .cache/slam-3d-state.json 上次覆盖结束时间继续推进，未截断为最近 7 天。 全文深读论文5 篇：AMB3R-SLAM、RawSLAM、GeoCond、PointZero、Astronex-World。已覆盖 Intro、Method、Experiments、Ablation/Analysis、Conclusion，并检查系统图。 摘要/元数据跟踪10 个条目：VGGT-GS SLAM、EliGSiR、PhGS、FAMOS、SemSafe-3DGS、SOL-SLAM、SLAMSqueezeBench、PerSeM、Universal Navigation Interface、SlugTrails。Supplemental 条目必须至少读摘要并按问题、方法、insight、数学、实验做压缩。 Repo 深读1 个仓库：WBench；另对 Astronex-World 做结构级审计。检查 README、tree、配置、入口脚本与核心模块，明确是否本地运行。 访问限制arXiv API 与图像/PDF 直连、本地 HTTPS 请求失败；论文 HTML 正文可读。图注已核对，原图像素未视觉核验；未运行仓库。",
+    "actual_legacy_entry_text": [
+      "GeoCond2026-09-16/17 · 2609.18465系统图原图（仅链接）caption 已查，像素未核验VGGT 一次前馈位姿缺少可信度；无条件 BA 在分布外场景可能显著恶化。冻结 VGGT；由视差、重叠、基线、相对旋转、相机头旋转/平移修正及置信度共七类几何线索预测误差/不确定度，输出 BA gate。教师可用帧序置换轨道方差、GT 位姿或无标签循环残差。AUSE 衡量排序后的位姿不确定度校准；条件式优化相当于估计 BA 的收益/风险再开关。移除相机头修正 OOD AUSE 0.209→0.273。OOD AUSE 原生 VGGT 0.32、GeoCond 单次 0.20、K=6 教师 0.16；室内 AUC@30 前馈 51.6、常开 BA 53.6、GeoCond 53.5；OOD 前馈 60.3、常开 BA 38.4、GeoCond 58.4。重点是避免 OOD BA 崩溃，并非保证超过原始前馈；教师多次推理有额外成本。应复核 gate 阈值与自有长序列标定。全文：Intro、Method、Experiments、Ablation、Limitations；图 2 caption/链接已查，图像未视觉核验。",
+      "GeoCond 论文"
+    ],
+    "inspection": "Original report entry read. Original unversioned mention is retained; never treated as evidence that current later version was processed. Current official revision timestamps are after original report coverage, and no exact current-version history record exists.",
+    "follow_up": "New-old body comparison has not been performed; do not call this a major revision."
+  },
+  {
+    "id": "2609.35032",
+    "current_version": 2,
+    "current_updated_utc": "2026-10-26T03:28:40Z",
+    "original_report": "reports/2026-09-28_2026-10-03_Pow3R-CLoSeR-Matisse.html",
+    "original_report_header": "每周 SLAM / VIO / SfM / FeedForward 3D 进展报告 闭环补齐前馈重建，任务风险开始进入地图表示 覆盖时间：2026-09-28 01:07:14 至 2026-10-03 16:16:46（Asia/Shanghai）。本期按 .cache/slam-3d-state.json 上次覆盖结束时间继续推进，实际覆盖约 5.63 天，未截断为“最近 7 天”。 全文深读论文6 篇：Pow3R-SLAM、CLoSeR、Matisse、GlassGuard、MVP-SLAM、EvolvingNav。逐篇覆盖 Intro、Method、Experiments、Ablation/Analysis、Limitations/Conclusion 与必要附录。 摘要级跟踪18 篇：StereoGaussians、MEOW、OTT3R、StreamRig、LBDU-VIO、DeCOD、ForVis、RRG-SLAM、All Roads Lead to Rome、CollisionSplatting、UniTrackPLA、AVERT-VLN、NavHarness、TRACE、Imagine3D-LLM、Yggdrasil、Multi-UAV Exploration、JRDB-AVR。 Repo 深读3 个仓库：CLoSeR、EvolvingNav、StreamRig。检查 README、tree、依赖、配置、入口、核心模块和测试；未下载权重或本地运行。 访问限制arXiv 正文与公开 GitHub 可访问；Pow3R-SLAM、Matisse、GlassGuard、MVP-SLAM 未见可核验代码入口。三仓库只做静态审计，权重、数据许可、端到端复现实测仍待确认。",
+    "actual_legacy_entry_text": [
+      "JRDB-AVR主动具身视觉推理 benchmark被动 benchmark 只评答案，无法区分“真正观察到证据”和猜对。代理按时间戳/视角请求有限观测，同时评最终答案与 grounded visual evidence；参考 agent 维护 observation-grounded graph world model。答案正确率与证据正确率必须解耦，主动感知预算是推理质量的一部分。摘要报告现有 VLM 存在 answer/evidence accuracy 显著缺口；未给具体数值。摘要级 + repo 元数据。 仓库目前仅 README/teaser/license，无实现文件；等待完整 benchmark/code。",
+      "JRDB-AVR · repo"
+    ],
+    "inspection": "Original report entry read. Original unversioned mention is retained; never treated as evidence that current later version was processed. Current official revision timestamps are after original report coverage, and no exact current-version history record exists.",
+    "follow_up": "New-old body comparison has not been performed; do not call this a major revision."
+  }
+]

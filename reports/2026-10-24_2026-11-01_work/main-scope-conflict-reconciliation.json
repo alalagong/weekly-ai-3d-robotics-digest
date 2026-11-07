@@ -1,0 +1,119 @@
+[
+  {
+    "id": "2610.35832",
+    "resolution": "supplemental",
+    "reason": "摘要确认与机器人世界模型/动作、三维感知/空间仿真、定位建图或具身导航直接相关。",
+    "records": [
+      {
+        "source": "extension-screened.json",
+        "disposition": "supplemental",
+        "reason": "摘要确认与机器人世界模型/动作、三维感知/空间仿真、定位建图或具身导航直接相关。"
+      },
+      {
+        "source": "main-offscope-decisions.json",
+        "disposition": "excluded",
+        "reason": "题名明确属于语言模型、软件与非具身代理；题名《Profiling a Frontier Agent with EBench: From Direct Control to Harness with Policy》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。"
+      },
+      {
+        "source": "review-all-dispositions.json",
+        "disposition": "excluded",
+        "reason": "题名明确属于语言模型、软件与非具身代理；题名《Profiling a Frontier Agent with EBench: From Direct Control to Harness with Policy》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。"
+      }
+    ]
+  },
+  {
+    "id": "2610.35576",
+    "resolution": "supplemental",
+    "reason": "摘要确认与机器人世界模型/动作、三维感知/空间仿真、定位建图或具身导航直接相关。",
+    "records": [
+      {
+        "source": "extension-screened.json",
+        "disposition": "supplemental",
+        "reason": "摘要确认与机器人世界模型/动作、三维感知/空间仿真、定位建图或具身导航直接相关。"
+      },
+      {
+        "source": "main-offscope-decisions.json",
+        "disposition": "excluded",
+        "reason": "题名明确属于语言模型、软件与非具身代理；题名《Preemptive Instruction Following with Resumption》所述研究对象与SLAM/VIO/SfM、几何基础模型/前馈3D及直接相关机器人建图导航/世界模型无直接关系。仅题名/官方元数据判定，不声称已读摘要。"
+      }
+    ]
+  },
+  {
+    "id": "2610.31466",
+    "resolution": "revision_tracking",
+    "reason": "摘要确认与机器人世界模型/动作、三维感知/空间仿真、定位建图或具身导航直接相关。",
+    "records": [
+      {
+        "source": "geometry-search.json",
+        "disposition": "excluded",
+        "reason": "2D游戏视频生成式渲染，无3D场景恢复/地图。"
+      },
+      {
+        "source": "extension-screened.json",
+        "disposition": "supplemental",
+        "reason": "摘要确认与机器人世界模型/动作、三维感知/空间仿真、定位建图或具身导航直接相关。"
+      },
+      {
+        "source": "review-all-dispositions.json",
+        "disposition": "existing_main_pool",
+        "reason": "独立检索命中已在主候选池，引用原集合后续纳排，不重复创建记录。"
+      }
+    ]
+  },
+  {
+    "id": "2610.39547",
+    "resolution": "supplemental",
+    "reason": "摘要确认与机器人世界模型/动作、三维感知/空间仿真、定位建图或具身导航直接相关。",
+    "records": [
+      {
+        "source": "geometry-search.json",
+        "disposition": "excluded",
+        "reason": "泛CPS保障议程，无直接视觉重建/导航或地图技术贡献。"
+      },
+      {
+        "source": "extension-screened.json",
+        "disposition": "supplemental",
+        "reason": "摘要确认与机器人世界模型/动作、三维感知/空间仿真、定位建图或具身导航直接相关。"
+      }
+    ]
+  },
+  {
+    "id": "2610.39076",
+    "resolution": "supplemental",
+    "reason": "摘要确认与机器人世界模型/动作、三维感知/空间仿真、定位建图或具身导航直接相关。",
+    "records": [
+      {
+        "source": "geometry-search.json",
+        "disposition": "excluded",
+        "reason": "手套传感硬件，无视觉几何重建或地图贡献。"
+      },
+      {
+        "source": "extension-screened.json",
+        "disposition": "supplemental",
+        "reason": "摘要确认与机器人世界模型/动作、三维感知/空间仿真、定位建图或具身导航直接相关。"
+      },
+      {
+        "source": "extension-search.json",
+        "disposition": "supplemental",
+        "reason": "摘要确认与机器人世界模型/动作、三维感知/空间仿真、定位建图或具身导航直接相关。"
+      }
+    ]
+  },
+  {
+    "id": "2610.31983",
+    "resolution": "supplemental",
+    "reason": "摘要确认与机器人世界模型/动作、三维感知/空间仿真、定位建图或具身导航直接相关。",
+    "records": [
+      {
+        "source": "geometry-search.json",
+        "disposition": "excluded",
+        "reason": "通用视频物理探针，无显式3D几何/状态重建。"
+      },
+      {
+        "source": "extension-screened.json",
+        "disposition": "supplemental",
+        "reason": "摘要确认与机器人世界模型/动作、三维感知/空间仿真、定位建图或具身导航直接相关。"
+      }
+    ]
+  }
+]

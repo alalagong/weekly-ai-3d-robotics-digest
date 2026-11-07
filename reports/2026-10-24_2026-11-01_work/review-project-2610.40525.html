@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="CrossWeave: Cross-Modal Scene and Instance Retrieval from Sparse 2D-3D Alignment">
+  <meta name="keywords"
+    content="CrossWeave, Cross-Modal Retrieval, 2D-3D Alignment, Scene Retrieval, Instance Retrieval">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CrossWeave: Cross-Modal Scene and Instance Retrieval from Sparse 2D-3D Alignment</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700|Noto+Sans|Castoro&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <!-- Only used for the arXiv icon, so load it without blocking rendering. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"></noscript>
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" type="image/png" href="./static/images/favicon.png">
+  <link rel="apple-touch-icon" href="./static/images/favicon.png">
+</head>
+
+<body>
+
+  <!-- Contents sidebar (wide screens only). -->
+  <nav class="page-toc" aria-label="Contents">
+    <p class="page-toc-title">Contents</p>
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#abstract">Abstract</a></li>
+      <li><a href="#method">Method</a></li>
+      <li><a href="#results">Results</a>
+        <ul>
+          <li><a href="#scene-retrieval">Scene Retrieval</a></li>
+          <li><a href="#instance-retrieval">Instance Retrieval</a></li>
+          <li><a href="#ablation">Ablation</a></li>
+        </ul>
+      </li>
+      <li><a href="#additional">Additional Experiments</a></li>
+      <li><a href="#BibTeX">BibTeX</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="overview">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title"><span class="title-name">CrossWeave:</span>
+              <span class="title-sub">Cross-Modal Scene and Instance Retrieval from Sparse 2D-3D
+                Alignment</span></h1>
+            <div class="publication-venue-line">
+              <strong>Advances in Neural Information Processing Systems (NeurIPS), 2026</strong>
+              <br><span class="venue-track">Main Track Poster 📌</span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://aadith-warrier.github.io">Aadith Warrier</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <span class="author-name">Gnana Prakash Punnavajhala</span><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=D17zVs8AAAAJ">Siddharth Tourani</a><sup>2</sup>,
+              </span>
+              <br class="is-hidden-touch">
+              <span class="author-block">
+                <a href="https://m-haris-khan.com/">Muhammad Haris Khan</a><sup>3</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://3dcomputervision.github.io/components/profile/avinash.html">Avinash
+                  Sharma</a><sup>4</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://madhavak-iiith.github.io/">Madhava Krishna</a><sup>1</sup>
+              </span>
+            </div>
+
+            <div class="publication-affiliations">
+              <span class="author-block"><sup>1</sup>IIIT Hyderabad, India</span>
+              <span class="author-block"><sup>2</sup>University of Heidelberg, Germany</span>
+              <span class="author-block"><sup>3</sup>MBZUAI, UAE</span>
+              <span class="author-block"><sup>4</sup>IIT Bombay, India</span>
+            </div>
+
+            <div class="affiliation-logos">
+              <img class="logo-iiit" src="./static/images/iiit_logo.png" width="311" height="160" decoding="async" alt="IIIT Hyderabad">
+              <img class="logo-rrc" src="./static/images/rrc_logo.png" width="262" height="112" decoding="async" alt="Robotics Research Center, IIIT Hyderabad">
+              <img class="logo-heidelberg" src="./static/images/heidelberg_logo.jpg" width="239" height="128" decoding="async" alt="University of Heidelberg">
+              <img class="logo-mbzuai" src="./static/images/mbzuai_logo.png" width="545" height="183" decoding="async" alt="MBZUAI">
+              <img class="logo-iitb" src="./static/images/iitb_logo.svg" width="475" height="463" decoding="async" alt="IIT Bombay">
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- TODO: add href (and drop `disabled`) once the poster is public. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2610.40525" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/crossweave3d/crossweave" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <svg class="svg-icon" style="width:0.9688em" viewBox="0 0 496 512" aria-hidden="true" focusable="false"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- NeurIPS virtual page. -->
+                <span class="link-block">
+                  <a href="https://neurips.cc/virtual/2026/loc/sydney/poster/152755" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img class="neurips-icon" src="./static/images/neurips_icon.svg" alt="">
+                    </span>
+                    <span>NeurIPS</span>
+                  </a>
+                </span>
+                <!-- Poster Link. -->
+                <span class="link-block has-tooltip" data-tooltip="Coming soon">
+                  <a class="external-link button is-normal is-rounded is-dark" disabled>
+                    <span class="icon">
+                      <svg class="svg-icon" style="width:0.75em" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><path d="M369.9 97.9L286 14C277 5 264.8-.1 252.1-.1H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V131.9c0-12.7-5.1-25-14.1-34zM332.1 128H256V51.9l76.1 76.1zM48 464V48h160v104c0 13.3 10.7 24 24 24h104v288H48zm32-48h224V288l-23.5-23.5c-4.7-4.7-12.3-4.7-17 0L176 352l-39.5-39.5c-4.7-4.7-12.3-4.7-17 0L80 352v64zm48-240c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48z"/></svg>
+                    </span>
+                    <span>Poster</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <video id="teaser" autoplay muted loop playsinline preload="auto" width="1440" height="760"
+          poster="./static/videos/hero_poster.webp">
+          <source src="./static/videos/hero.mp4" type="video/mp4">
+        </video>
+        <div class="tldr">
+          <p class="tldr-label">TL;DR</p>
+          <p>Instead of whole scenes or objects, CrossWeave trains on patch-point correspondences, the smallest unit
+            of alignment.</p>
+          <p>As a result, a single model can flexibly encode scene and object level embeddings, and sets the state
+            of the art on both benchmarks of cross-modal scene and instance retrieval.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="abstract">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Cross-modal scene and instance retrieval aims to retrieve a corresponding 3D environment or object given
+              query 2D images, serving as a foundational mechanism for spatial reasoning in robotics and AR/VR. Existing
+              methods achieve this by learning alignment only at the level of whole scenes or objects, which provides no
+              supervision for the fine-grained local structure within them. In this work, we show that supervision on
+              a set of sparse 2D-3D correspondences, without scene- or instance-level contrastive objectives, is
+              sufficient to train a single model for both scene- and instance-level retrieval. Specifically, we propose
+              <b>CrossWeave</b>, a novel framework for cross-modal retrieval that learns sparse patch-point alignment,
+              which alone outperforms existing methods. An optimal transport-based aggregator over the aligned
+              features gives further gains by clustering structurally redundant regions, freeing descriptor capacity
+              for semantically distinct local features. CrossWeave achieves state-of-the-art performance on both scene-
+              and instance-level retrieval on ScanNet and 3RScan with a <i>single model</i>, whereas existing methods
+              require separate models for each task. Our results suggest that whole-scene encoding is unnecessary for
+              cross-modal retrieval and that sparse local correspondence supervision is a more effective and flexible
+              alternative.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+    </div>
+  </section>
+
+
+  <section class="section" id="method">
+    <div class="container is-max-desktop">
+      <!-- Method. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Method</h2>
+          <figure class="method-figure">
+            <img src="./static/images/teaser.webp" width="2400" height="818" loading="lazy" decoding="async"
+              alt="CrossWeave overview: scene sampling, multimodal feature extraction and feature aggregation during training, and the shared pipeline used for scene and instance retrieval at inference">
+            <figcaption><b>Overview of CrossWeave.</b> Top: training from sparse patch-point pairs. Bottom: the same
+              model used for scene and instance retrieval at inference.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <div class="content has-text-justified method-text">
+            <p>
+              CrossWeave learns cross-modal retrieval representations from sparse image patch-3D point correspondences
+              rather than scene- or instance-level labels. Given calibrated RGB-D observations and a reconstructed 3D
+              map, visible patch-point pairs are obtained by projecting 3D points into the image plane, filtering
+              occluded points using rendered depth, quantizing valid pixels into DINOv2 patch tokens, and selecting a
+              compact semantically diverse subset using feature-space farthest point sampling. Frozen encoders extract
+              local patch and point features, which are projected by learnable projection matrices W<sup>patch</sup>
+              and W<sup>point</sup> into a shared embedding space. A shared SALAD aggregator then maps variable-sized
+              sets of local features into fixed-dimensional descriptors. Training combines a local patch-point
+              L<sub>p2p</sub> contrastive loss with an aggregated image-point-cloud contrastive loss
+              L<sub>i2pc</sub>, preserving fine-grained alignment while organizing local evidence into
+              retrieval-ready descriptors. At inference, the same encoders and projection heads serve both tasks:
+              SALAD descriptors are used for scene retrieval and mean-pooled local features for instance retrieval.
+            </p>
+            <ul>
+              <li><b>Sparse local supervision.</b> Training uses a compact, semantically diverse set of visible
+                patch-point pairs instead of whole scenes, with no scene- or instance-level labels.</li>
+              <li><b>Two contrastive losses.</b> L<sub>p2p</sub> aligns each image patch with its 3D point, and
+                L<sub>i2pc</sub> aligns the SALAD-aggregated image and point-cloud descriptors.</li>
+              <li><b>One model, two tasks.</b> The same trained network handles both scene and instance retrieval,
+                using SALAD descriptors for scenes and local features for instances.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!--/ Method. -->
+    </div>
+  </section>
+
+
+  <section class="section" id="results">
+    <div class="container is-max-desktop">
+      <!-- Results. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Results</h2>
+          <p class="results-legend"><b>Bold</b>: best, <u>underline</u>: second best.
+            <sup>†</sup> Trained on additional datasets (ArkitScenes + MultiScan).
+            CrossOver (Updated): CrossOver retrained with the same Utonia 3D backbone as CrossWeave.</p>
+
+          <h3 class="title is-5" id="scene-retrieval">Cross-Modal Scene Retrieval</h3>
+          <p class="results-text">CrossWeave outperforms all baselines on both datasets at every rank. On ScanNet it
+            reaches 61.54 Top-1 recall, 21.16 points above CrossOver (Updated). Since CrossOver (Updated) uses the same
+            Utonia backbone, this suggests that the gain comes from sparse patch-point supervision rather than a
+            stronger 3D encoder. On 3RScan, Top-1
+            recall rises from 23.57 to 46.50.</p>
+          <div class="table-container">
+            <table class="table is-narrow is-hoverable results-table">
+              <thead>
+                <tr>
+                  <th rowspan="2">Method</th>
+                  <th colspan="3">ScanNet</th>
+                  <th colspan="3">3RScan</th>
+                </tr>
+                <tr>
+                  <th>Top-1</th><th>Top-5</th><th>Top-10</th>
+                  <th>Top-1</th><th>Top-5</th><th>Top-10</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="https://arxiv.org/abs/2502.15011" target="_blank" rel="noopener">CrossOver</a></td>
+                  <td>22.44</td><td>61.86</td><td>75.32</td>
+                  <td>19.11</td><td>58.60</td><td>77.07</td>
+                </tr>
+                <tr>
+                  <td>CrossOver<sup>†</sup></td>
+                  <td>19.87</td><td>58.01</td><td>74.36</td>
+                  <td>17.83</td><td>51.59</td><td>73.25</td>
+                </tr>
+                <tr>
+                  <td>CrossOver (Updated)</td>
+                  <td><u>40.38</u></td><td><u>90.06</u></td><td><u>96.47</u></td>
+                  <td><u>23.57</u></td><td><u>66.88</u></td><td><u>84.71</u></td>
+                </tr>
+                <tr class="is-ours">
+                  <td>CrossWeave (Ours)</td>
+                  <td><b>61.54</b></td><td><b>99.36</b></td><td><b>100.0</b></td>
+                  <td><b>46.50</b></td><td><b>85.99</b></td><td><b>92.36</b></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <figure class="qualitative-figure">
+            <img src="./static/images/qualitative/result_plate_30_scene0699_00.jpg" width="2000" height="937" loading="lazy" decoding="async"
+              alt="Top-5 scene retrievals of CrossOver, CrossOver (Updated) and CrossWeave on ScanNet scene0699_00">
+            <figcaption>Qualitative comparison of cross-modal scene retrieval on ScanNet. Given a set of query RGB
+              images, each model retrieves the most similar 3D scenes from the database. The ground-truth scene is
+              shown on the left, and retrieved scenes are ordered by similarity from left to right. CrossOver and
+              CrossOver (Updated) fail to retrieve the correct scene within the top five results, while CrossWeave
+              retrieves it at rank 1. The remaining retrieved scenes are also semantically consistent, indicating
+              that CrossWeave learns descriptors that capture both local cross-modal correspondences and global
+              scene context.</figcaption>
+          </figure>
+
+          <figure class="qualitative-figure">
+            <img src="./static/images/qualitative/result_plate_11_4138585b-a238-2435-810b-9728fc989b2f.jpg" width="2000" height="990" decoding="async"
+              loading="lazy" alt="Top-5 scene retrievals of CrossOver, CrossOver (Updated) and CrossWeave on a 3RScan kitchen and dining scene">
+            <figcaption>Retrieval results on a 3RScan kitchen and dining scene. CrossWeave demonstrates superior
+              discriminative ability by retrieving the exact scene at rank 1 from highly localized query images,
+              whereas both baseline models completely fail to place the correct match within their top 5
+              retrievals.</figcaption>
+          </figure>
+
+          <h3 class="title is-5" id="instance-retrieval">Cross-Modal Instance Retrieval</h3>
+          <p class="results-text">Each query object is retrieved among the objects of its own scene. Top-k is computed
+            within each scene and averaged over scenes; R@k% is the percentage of scenes in which at least k% of the
+            objects are retrieved correctly at Top-1. The same single model gives the best instance retrieval: 78.77
+            Top-1 on ScanNet and 73.50 on 3RScan. The gap widens at stricter thresholds, with R@75% improving over
+            CrossOver (Updated) by 18.27 points on ScanNet and 14.65 points on 3RScan.</p>
+          <div class="table-container">
+            <table class="table is-narrow is-hoverable results-table">
+              <thead>
+                <tr>
+                  <th rowspan="3">Method</th>
+                  <th colspan="5">ScanNet</th>
+                  <th colspan="5">3RScan</th>
+                </tr>
+                <tr>
+                  <th colspan="2">Instance Retrieval</th><th colspan="3">Scene-Level Recall</th>
+                  <th colspan="2">Instance Retrieval</th><th colspan="3">Scene-Level Recall</th>
+                </tr>
+                <tr>
+                  <th>Top-1</th><th>Top-3</th><th>R@25%</th><th>R@50%</th><th>R@75%</th>
+                  <th>Top-1</th><th>Top-3</th><th>R@25%</th><th>R@50%</th><th>R@75%</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="https://arxiv.org/abs/2502.15011" target="_blank" rel="noopener">CrossOver</a></td>
+                  <td>63.58</td><td>88.71</td><td>96.79</td><td>80.77</td><td>31.09</td>
+                  <td>58.88</td><td>84.24</td><td>90.45</td><td>71.97</td><td>28.03</td>
+                </tr>
+                <tr>
+                  <td>CrossOver<sup>†</sup></td>
+                  <td>63.42</td><td>88.55</td><td>96.79</td><td>80.77</td><td>31.09</td>
+                  <td>57.09</td><td>84.58</td><td>89.81</td><td>63.06</td><td>24.84</td>
+                </tr>
+                <tr>
+                  <td>CrossOver (Updated)</td>
+                  <td><u>70.94</u></td><td><u>92.39</u></td><td><b>99.36</b></td><td><u>88.14</u></td><td><u>49.68</u></td>
+                  <td><u>66.80</u></td><td><u>90.85</u></td><td><u>97.45</u></td><td><u>87.90</u></td><td><u>35.03</u></td>
+                </tr>
+                <tr class="is-ours">
+                  <td>CrossWeave (Ours)</td>
+                  <td><b>78.77</b></td><td><b>94.05</b></td><td><u>98.40</u></td><td><b>88.78</b></td><td><b>67.95</b></td>
+                  <td><b>73.50</b></td><td><b>92.73</b></td><td><b>98.09</b></td><td><b>92.99</b></td><td><b>49.68</b></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <figure class="qualitative-figure">
+            <img src="./static/images/qualitative/instance_retrieval_scannet.webp" width="2160" height="930" loading="lazy" decoding="async"
+              alt="Instance retrieval on ScanNet: a masked television and a masked table are each matched at Top-1 among 16 and 26 candidate objects in their scenes">
+            <figcaption>Qualitative instance retrieval on ScanNet. For each query view with its instance mask (left),
+              CrossWeave ranks the instances of the same scene (middle) by cosine similarity. The Top-3 retrievals are
+              shown with their similarity scores, and the correct match is outlined in green.</figcaption>
+          </figure>
+
+          <h3 class="title is-5" id="ablation">Ablation: Training Losses</h3>
+          <p class="results-text">L<sub>p2p</sub> alone already gives strong instance retrieval but weak scene
+            retrieval. Adding L<sub>i2pc</sub> with mean pooling improves scene Top-1, and replacing mean pooling with
+            SALAD improves it further, so both the aggregation objective and the aggregation module matter for scenes.
+            Mean pooling with both losses gives the highest instance Top-1, but its scene Top-1 is 9.3 (ScanNet) and
+            15.9 (3RScan) points lower; the HYBRID model gives the best trade-off across both tasks.</p>
+          <div class="table-container">
+            <table class="table is-narrow is-hoverable results-table ablation-table">
+              <thead>
+                <tr>
+                  <th rowspan="2">Agg.</th>
+                  <th rowspan="2">L<sub>i2pc</sub></th>
+                  <th rowspan="2">L<sub>p2p</sub></th>
+                  <th rowspan="2">Feats</th>
+                  <th colspan="3">ScanNet</th>
+                  <th colspan="3">3RScan</th>
+                </tr>
+                <tr>
+                  <th>Scene Top-1</th><th>Inst. Top-1</th><th>Inst. R@75%</th>
+                  <th>Scene Top-1</th><th>Inst. Top-1</th><th>Inst. R@75%</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mean</td><td>&cross;</td><td>&check;</td><td>LOCAL</td>
+                  <td>47.12</td><td>78.96</td><td>70.51</td>
+                  <td>27.39</td><td>73.30</td><td>47.13</td>
+                </tr>
+                <tr>
+                  <td>Mean</td><td>&check;</td><td>&check;</td><td>LOCAL</td>
+                  <td>52.24</td><td><b>79.63</b></td><td><b>71.15</b></td>
+                  <td>30.57</td><td><b>73.62</b></td><td>49.04</td>
+                </tr>
+                <tr>
+                  <td>SALAD</td><td>&check;</td><td>&cross;</td><td>SALAD</td>
+                  <td>57.37</td><td>73.33</td><td>56.09</td>
+                  <td>43.95</td><td>66.98</td><td>38.22</td>
+                </tr>
+                <tr class="is-ours">
+                  <td>SALAD</td><td>&check;</td><td>&check;</td><td>HYBRID (CrossWeave)</td>
+                  <td><b>61.54</b></td><td>78.77</td><td>67.95</td>
+                  <td><b>46.50</b></td><td>73.50</td><td><b>49.68</b></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="title is-5">Ablation: Retrieval Features</h3>
+          <p class="results-text">Aggregated SALAD features work best for scene retrieval, while local features work
+            best for instance retrieval. CrossWeave therefore uses SALAD for scenes and local features for instances
+            (HYBRID).</p>
+          <div class="table-container">
+            <table class="table is-narrow is-hoverable results-table">
+              <thead>
+                <tr>
+                  <th rowspan="2">Feats</th>
+                  <th colspan="3">ScanNet</th>
+                  <th colspan="3">3RScan</th>
+                </tr>
+                <tr>
+                  <th>Scene Top-1</th><th>Inst. Top-1</th><th>Inst. R@75%</th>
+                  <th>Scene Top-1</th><th>Inst. Top-1</th><th>Inst. R@75%</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>SALAD</td>
+                  <td><b>61.54</b></td><td>77.04</td><td>66.67</td>
+                  <td><b>46.50</b></td><td>70.01</td><td>43.31</td>
+                </tr>
+                <tr>
+                  <td>LOCAL</td>
+                  <td>48.40</td><td><b>78.77</b></td><td><b>67.95</b></td>
+                  <td>28.66</td><td><b>73.50</b></td><td><b>49.68</b></td>
+                </tr>
+                <tr class="is-ours">
+                  <td>HYBRID (CrossWeave)</td>
+                  <td><b>61.54</b></td><td><b>78.77</b></td><td><b>67.95</b></td>
+                  <td><b>46.50</b></td><td><b>73.50</b></td><td><b>49.68</b></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="results-legend">Ablation tables mark only the best result in bold. Agg.: aggregation used during
+            training (mean pooling or SALAD). L<sub>i2pc</sub>:
+            image-point-cloud aggregation loss; L<sub>p2p</sub>: local patch-point alignment loss. Feats: SALAD
+            (aggregated), LOCAL (mean-pooled patch and point features), or HYBRID (SALAD for scene, LOCAL for instance).
+            The feature ablation uses CrossWeave trained with both losses.</p>
+        </div>
+      </div>
+      <!--/ Results. -->
+    </div>
+  </section>
+
+
+  <section class="section" id="additional">
+    <div class="container is-max-desktop">
+      <!-- Additional Experiments. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Additional Experiments</h2>
+
+          <h3 class="title is-5" id="scenegraphloc">Comparison with SceneGraphLoc</h3>
+          <p class="results-text">Following the SceneGraphLoc protocol, each query image is ranked against N candidate
+            scenes; Top-k is the percentage of queries with the correct scene in the top k.
+            <a href="https://arxiv.org/abs/2404.00469" target="_blank" rel="noopener">SceneGraphLoc</a> relies on
+            ground-truth scene graphs at inference, whereas CrossWeave needs only a single image and a raw point cloud.
+            CrossWeave still matches it at Top-1 with 10 candidates and exceeds it at Top-5 and Top-10 for both pool
+            sizes, trailing only at Top-1 with 50 candidates.</p>
+          <div class="table-container">
+            <table class="table is-narrow is-hoverable results-table">
+              <thead>
+                <tr>
+                  <th rowspan="2">Method</th>
+                  <th colspan="3">10 candidates</th>
+                  <th colspan="3">50 candidates</th>
+                </tr>
+                <tr>
+                  <th>Top-1</th><th>Top-5</th><th>Top-10</th>
+                  <th>Top-1</th><th>Top-5</th><th>Top-10</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="https://arxiv.org/abs/2404.00469" target="_blank" rel="noopener">SceneGraphLoc</a></td>
+                  <td><b>53.60</b></td><td>81.90</td><td>92.80</td>
+                  <td><b>30.20</b></td><td>50.20</td><td>61.20</td>
+                </tr>
+                <tr>
+                  <td><a href="https://arxiv.org/abs/2502.15011" target="_blank" rel="noopener">CrossOver</a></td>
+                  <td>46.00</td><td>77.97</td><td>90.58</td>
+                  <td>18.69</td><td>39.16</td><td>51.62</td>
+                </tr>
+                <tr class="is-ours">
+                  <td>CrossWeave (Ours)</td>
+                  <td><b>53.60</b></td><td><b>93.10</b></td><td><b>100.0</b></td>
+                  <td>27.50</td><td><b>60.20</b></td><td><b>76.50</b></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="title is-5" id="noisy-masks">Robustness to Noisy Instance Masks</h3>
+          <p class="results-text">We replace ground-truth instance masks with imperfect ones. 2D masks come from
+            MobileSAM prompted with a single click inside the object, keeping the prediction with the highest IoU to
+            the ground truth. 3D masks are corrupted with boundary bleed into neighboring background or objects and
+            contiguous chunk dropout, at a similar IoU degradation. Under combined 2D+3D noise, Top-1 drops by about
+            6.5 points on ScanNet and 12.2 points on 3RScan, with most of the loss at the stricter R@75% threshold.</p>
+          <div class="table-container">
+            <table class="table is-narrow is-hoverable results-table">
+              <thead>
+                <tr>
+                  <th rowspan="2">Masks</th>
+                  <th colspan="5">ScanNet</th>
+                  <th colspan="5">3RScan</th>
+                </tr>
+                <tr>
+                  <th>Top-1</th><th>Top-3</th><th>R@25%</th><th>R@50%</th><th>R@75%</th>
+                  <th>Top-1</th><th>Top-3</th><th>R@25%</th><th>R@50%</th><th>R@75%</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="is-ours">
+                  <td>Ground truth</td>
+                  <td>78.77</td><td>94.05</td><td>98.40</td><td>88.78</td><td>67.95</td>
+                  <td>73.50</td><td>92.73</td><td>98.09</td><td>92.99</td><td>49.68</td>
+                </tr>
+                <tr>
+                  <td>Noisy 2D</td>
+                  <td>75.75</td><td>93.02</td><td>97.44</td><td>88.14</td><td>62.50</td>
+                  <td>68.00</td><td>89.95</td><td>97.45</td><td>88.54</td><td>34.39</td>
+                </tr>
+                <tr>
+                  <td>Noisy 3D</td>
+                  <td>75.33</td><td>92.91</td><td>97.12</td><td>87.50</td><td>63.46</td>
+                  <td>65.65</td><td>88.79</td><td>96.82</td><td>84.08</td><td>32.48</td>
+                </tr>
+                <tr>
+                  <td>Noisy 2D + 3D</td>
+                  <td>72.29</td><td>91.86</td><td>97.12</td><td>85.90</td><td>55.45</td>
+                  <td>61.28</td><td>86.11</td><td>95.54</td><td>76.43</td><td>26.75</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="title is-5" id="query-views">Number of Query Views</h3>
+          <p class="results-text">Since CrossWeave aggregates any number of views, we sweep the number of query images
+            for scene retrieval. Most of the gain comes between 3 and 10 views; beyond 10 views, Top-1 recall still
+            improves by up to 2.56 points on ScanNet and 4.46 points on 3RScan. The main results use 10 views.</p>
+          <figure class="views-chart" id="views-chart" aria-label="Line chart of scene retrieval Top-1 recall against number of query views for ScanNet and 3RScan">
+            <div class="views-chart-legend">
+              <span><i style="background: var(--series-1)"></i>ScanNet</span>
+              <span><i style="background: var(--series-2)"></i>3RScan</span>
+            </div>
+            <div class="views-chart-plot">
+              <svg viewBox="0 0 640 300" role="img" aria-hidden="true"></svg>
+              <div class="views-chart-tooltip" hidden></div>
+            </div>
+          </figure>
+
+        </div>
+      </div>
+      <!--/ Additional Experiments. -->
+    </div>
+  </section>
+
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <!-- TODO: verify against the official NeurIPS BibTeX once proceedings are out. -->
+      <pre><code>@inproceedings{warrier2026crossweave,
+  author    = {Warrier, Aadith and Punnavajhala, Gnana Prakash and Tourani, Siddharth and Khan, Muhammad Haris and Sharma, Avinash and Krishna, Madhava},
+  title     = {CrossWeave: Cross-Modal Scene and Instance Retrieval from Sparse 2D-3D Alignment},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2026},
+}</code></pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered">
+            <p>
+              Website template from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    // Highlight the contents entry for the section currently in view.
+    (function () {
+      var links = Array.prototype.slice.call(document.querySelectorAll('.page-toc a'));
+      var targets = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+      function update() {
+        var current = -1;
+        targets.forEach(function (el, i) {
+          if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.3) current = i;
+        });
+        links.forEach(function (a, i) { a.classList.toggle('is-active', i === current); });
+      }
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    })();
+  </script>
+
+  <script>
+    // Line chart: scene retrieval Top-1 vs. number of query views (same data as the table below it).
+    (function () {
+      var root = document.getElementById('views-chart');
+      if (!root) return;
+      var svg = root.querySelector('svg');
+      var tip = root.querySelector('.views-chart-tooltip');
+      var NS = 'http://www.w3.org/2000/svg';
+      var views = [3, 5, 10, 15, 20, 25, 30];
+      var series = [
+        { name: 'ScanNet', color: 'var(--series-1)', values: [45.83, 53.53, 61.54, 60.58, 62.18, 63.46, 64.10] },
+        { name: '3RScan', color: 'var(--series-2)', values: [28.66, 38.22, 46.50, 49.04, 48.41, 50.96, 49.68] }
+      ];
+      var W = 640, H = 300, m = { top: 16, right: 92, bottom: 42, left: 44 };
+      var yMin = 20, yMax = 70;
+      function x(v) { return m.left + (v - 0) / 30 * (W - m.left - m.right); }
+      function y(v) { return m.top + (yMax - v) / (yMax - yMin) * (H - m.top - m.bottom); }
+      function el(tag, attrs, parent) {
+        var n = document.createElementNS(NS, tag);
+        for (var k in attrs) n.setAttribute(k, attrs[k]);
+        (parent || svg).appendChild(n);
+        return n;
+      }
+
+      // Grid and axes.
+      for (var t = yMin; t <= yMax; t += 10) {
+        el('line', { x1: m.left, x2: W - m.right, y1: y(t), y2: y(t), class: 'grid' });
+        el('text', { x: m.left - 8, y: y(t) + 4, 'text-anchor': 'end', class: 'tick' }).textContent = t;
+      }
+      views.forEach(function (v) {
+        el('text', { x: x(v), y: H - m.bottom + 18, 'text-anchor': 'middle', class: 'tick' }).textContent = v;
+      });
+      el('text', { x: (m.left + W - m.right) / 2, y: H - 4, 'text-anchor': 'middle', class: 'axis-label' })
+        .textContent = 'Number of query views';
+      el('text', { x: 12, y: (m.top + H - m.bottom) / 2, 'text-anchor': 'middle', class: 'axis-label',
+        transform: 'rotate(-90 12 ' + (m.top + H - m.bottom) / 2 + ')' }).textContent = 'Top-1 (%)';
+
+      var cross = el('line', { y1: m.top, y2: H - m.bottom, class: 'crosshair', visibility: 'hidden' });
+
+      // Lines, markers and end labels.
+      series.forEach(function (s) {
+        var d = s.values.map(function (v, i) { return (i ? 'L' : 'M') + x(views[i]) + ' ' + y(v); }).join(' ');
+        el('path', { d: d, class: 'line', style: 'stroke:' + s.color });
+        s.dots = s.values.map(function (v, i) {
+          return el('circle', { cx: x(views[i]), cy: y(v), r: 4, class: 'dot', style: 'fill:' + s.color });
+        });
+        var last = s.values.length - 1;
+        el('text', { x: x(views[last]) + 10, y: y(s.values[last]) + 4, class: 'end-label' })
+          .textContent = s.name + ' ' + s.values[last].toFixed(2);
+      });
+
+      // Hover: snap to the nearest view count and show both values.
+      var hit = el('rect', { x: m.left, y: m.top, width: W - m.left - m.right, height: H - m.top - m.bottom, class: 'hit' });
+      function show(evt) {
+        var box = svg.getBoundingClientRect();
+        var px = (evt.clientX - box.left) / box.width * W;
+        var i = 0;
+        views.forEach(function (v, j) { if (Math.abs(x(v) - px) < Math.abs(x(views[i]) - px)) i = j; });
+        cross.setAttribute('x1', x(views[i]));
+        cross.setAttribute('x2', x(views[i]));
+        cross.setAttribute('visibility', 'visible');
+        series.forEach(function (s) {
+          s.dots.forEach(function (dot, j) { dot.setAttribute('r', j === i ? 6 : 4); });
+        });
+        tip.innerHTML = '<b>' + views[i] + ' views</b>' + series.map(function (s) {
+          return '<div><i style="background:' + s.color + '"></i>' + s.name + '<span>' + s.values[i].toFixed(2) + '</span></div>';
+        }).join('');
+        tip.hidden = false;
+        var left = x(views[i]) / W * box.width;
+        tip.style.left = Math.min(left + 12, box.width - tip.offsetWidth) + 'px';
+        tip.style.top = '8px';
+      }
+      function hide() {
+        cross.setAttribute('visibility', 'hidden');
+        tip.hidden = true;
+        series.forEach(function (s) { s.dots.forEach(function (dot) { dot.setAttribute('r', 4); }); });
+      }
+      hit.addEventListener('pointermove', show);
+      hit.addEventListener('pointerleave', hide);
+    })();
+  </script>
+</body>
+
+</html>

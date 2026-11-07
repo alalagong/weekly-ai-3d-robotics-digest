@@ -1,0 +1,385 @@
+{
+  "id": "2610.36150",
+  "version": 1,
+  "url": "https://arxiv.org/html/2610.36150v1",
+  "path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-2610.36150v1.html",
+  "char_count": 107049,
+  "headings": [
+    "Report GitHub Issue",
+    "Any3R: Feedforward 3D Reconstruction from Any Camera Type",
+    "1 Introduction",
+    "2 Related Work",
+    "2.1 3D Geometry Foundation Models",
+    "2.2 3D Reconstruction for Different Camera Types",
+    "3 Method",
+    "3.1 Preliminary",
+    "3.2 Angular Coordinates",
+    "3.3 Solid-Angle Weighting",
+    "4 Experiments",
+    "4.1 Setup",
+    "4.2 Comparison with the State of the Art",
+    "Camera-aware methods.",
+    "Geometry foundation models.",
+    "4.3 Zero-Shot Real Lenses",
+    "4.4 Ablation",
+    "5 Conclusion",
+    "Acknowledgments",
+    "References",
+    "Appendix A Evaluation Details",
+    "Appendix B Further Results on the Eight Camera Models",
+    "Appendix C Camera-Aware Methods per Camera",
+    "Appendix D Per-Cell Accuracy on All Thirteen Cameras",
+    "Appendix E Per-Point Error",
+    "Appendix F The Ray Map Withdrawn",
+    "Appendix G The Camera Models and How Their Images Are Made",
+    "The narrow-pinhole limit.",
+    "Appendix H Accuracy Against Field of View",
+    "Appendix I Real Pinhole Imagery",
+    "Appendix J Matched Coverage",
+    "Appendix K Training Convergence",
+    "Appendix L The Frequency Split"
+  ],
+  "figures": [
+    {
+      "id": "S0.F1",
+      "caption": "Figure 1: Any3R is a feed-forward model that reconstructs a scene and its camera poses from views of any mix of central cameras.",
+      "imgs": []
+    },
+    {
+      "id": "S1.F2",
+      "caption": "Figure 2: Motivation. Read from the pixel grid (ii), a patch position stands for a different direction and a pixel for a different solid angle on every lens (i), and the ray field (iii) corrects both. In the bottom row the ray field is withheld, so the backbone reads every frame as a panorama and the reconstruction follows that reading, which is correct only at 360∘360^{\\circ}.",
+      "imgs": [
+        {
+          "src": "2610.36150v1/any3r_motivation.png",
+          "id": "S1.F2.g1",
+          "class": "ltx_graphics ltx_centering ltx_img_landscape",
+          "style": "aspect-ratio:685/249;",
+          "width": "685",
+          "height": "249",
+          "alt": "Refer to caption"
+        }
+      ]
+    },
+    {
+      "id": "S2.F3",
+      "caption": "Figure 3: Overview. The ray field 𝑹\\bm{R} of each view gives its patches angular coordinates for the rotary encoding in intra-frame attention, and the heads predict the camera poses and a radial distance dd per pixel, decoded as 𝑿=d​𝑹\\bm{X}=d\\bm{R}. In training, the point loss ℒpt\\mathcal{L}_{\\mathrm{pt}} compares 𝑿\\bm{X} with the ground truth 𝑿gt\\bm{X}^{\\mathrm{gt}}, and the solid angle d​Ω\\mathrm{d}\\Omega of the same 𝑹\\bm{R} weighs the error of each pixel, shown here on the panorama, where cells of equal pixel count cover unequal areas of the sphere.",
+      "imgs": [
+        {
+          "src": "2610.36150v1/any3r_method.png",
+          "id": "S2.F3.g1",
+          "class": "ltx_graphics ltx_centering ltx_img_landscape",
+          "style": "aspect-ratio:685/234;",
+          "width": "685",
+          "height": "234",
+          "alt": "Refer to caption"
+        }
+      ]
+    },
+    {
+      "id": "S3.T1",
+      "caption": "Table 1: Comparison with the methods built for other cameras on the eight camera models used in training. Acc↓\\downarrow (m) is the mean distance from a reconstructed point to its nearest ground-truth point, and AUC↑\\uparrow (%) is the area under the curve of the pairwise pose error up to 15∘15^{\\circ} and 30∘30^{\\circ}; every method fuses its views with its own predicted poses. Indoor averages Matterport3D and Stanford2D3DS, and outdoor is PanoCity. The cameras are pinhole (Pin.), Brown–Conrady (B–C), equidistant (Equi.), cropped equirectangular (ERP-C), MEI, KB4, double sphere (DS) and equirectangular (ERP), with their fields of view below them. OmniV and PanoV abbreviate OmniVGGT and PanoVGGT, Wid3R receives the true ray field, MapA-ray is MapAnything with the true ray field fed to its ray encoder, and – marks cameras a method cannot take. In all tables, best and second best are shaded. Indoor Outdoor Method Pin. B–C Equi. ERP-C MEI KB4 DS ERP Pin. B–C Equi. ERP-C MEI KB4 DS ERP 90∘90^{\\circ} 90∘90^{\\circ} 180∘180^{\\circ} 180∘180^{\\circ} 180∘180^{\\circ} 200∘200^{\\circ} 200∘200^{\\circ} 360∘360^{\\circ} 90∘90^{\\circ} 90∘90^{\\circ} 180∘180^{\\circ} 180∘180^{\\circ} 180∘180^{\\circ} 200∘200^{\\circ} 200∘200^{\\circ} 360∘360^{\\circ} Acc↓\\downarrow (m) OmniV [39] 0.250 0.201 0.326 0.318 0.329 0.355 0.350 0.406 2.875 2.676 3.313 2.804 3.703 3.941 3.670 1.479 Wid3R [22] 0.144 – 0.141 – 0.146 – – 0.101 2.278 – 2.121 – 2.252 – – 2.330 PanoV [18] 0.282 0.272 0.259 0.348 0.265 0.251 0.265 0.072 2.256 2.708 2.498 3.633 2.433 2.405 2.473 0.751 Argus [31] – – – – – – – 0.094 – – – – – – – 1.517 MapA-ray [25] 0.092 0.146 0.277 0.254 0.239 0.274 0.258 0.405 1.484 1.558 2.368 2.686 2.029 2.523 2.579 1.894 Any3R 0.076 0.091 0.058 0.052 0.059 0.056 0.060 0.054 1.160 1.243 0.866 0.811 0.854 0.863 0.901 0.663 AUC@15∘↑15^{\\circ}\\uparrow (%) OmniV [39] 6.3 1.8 1.9 12.1 0.6 0.9 2.9 0.7 1.9 0.7 3.7 8.5 3.2 3.1 5.4 4.2 Wid3R [22] 46.4 – 59.4 – 59.5 – – 85.3 8.1 – 25.5 – 22.9 – – 0.0 PanoV [18] 2.2 2.5 21.7 21.5 23.6 36.2 46.9 89.2 10.8 10.1 37.5 42.0 38.1 51.0 58.6 93.5 Argus [31] – – – – – – – 88.4 – – – – – – – 81.9 MapA-ray [25] 53.6 31.2 10.4 6.5 15.5 12.4 12.0 4.1 56.3 45.0 17.5 10.0 27.8 15.1 20.0 2.1 Any3R 74.8 64.8 90.6 86.0 90.5 81.2 80.5 94.5 61.5 51.0 85.0 87.4 85.2 79.5 81.0 97.2 AUC@30∘↑30^{\\circ}\\uparrow (%) OmniV [39] 13.9 5.4 6.6 26.2 5.4 4.8 7.0 4.1 9.6 4.8 9.0 19.3 9.3 10.2 13.2 6.1 Wid3R [22] 67.0 – 76.4 – 76.4 – – 89.0 22.8 – 47.9 – 42.6 – – 0.0 PanoV [18] 10.1 11.8 50.1 42.6 52.2 63.5 69.7 93.2 25.2 25.9 61.0 62.7 62.0 73.9 78.2 96.8 Argus [31] – – – – – – – 91.3 – – – – – – – 90.5 MapA-ray [25] 72.8 55.5 25.5 19.7 34.9 30.2 32.8 14.1 74.7 61.6 33.3 23.1 49.4 31.9 39.4 6.3 Any3R 85.0 78.3 93.9 91.6 94.6 89.6 88.5 96.6 80.7 74.2 92.5 93.7 92.6 89.4 90.5 98.6",
+      "imgs": []
+    },
+    {
+      "id": "S4.F4",
+      "caption": "Figure 4: Qualitative comparison with the camera-aware methods. One camera per row, every method fused with its own predicted poses and rendered from one viewpoint per row. Cells marked n/a are structural, since Argus accepts only full panoramas and Wid3R’s camera classes cannot represent the 200∘200^{\\circ} KB4 lens. MapA-ray is MapAnything given the true ray field, and PaGeR, which predicts no pose, is not shown.",
+      "imgs": [
+        {
+          "src": "2610.36150v1/any3r_rivals_qual.png",
+          "id": "S4.F4.g1",
+          "class": "ltx_graphics ltx_centering ltx_img_landscape",
+          "style": "aspect-ratio:685/214;",
+          "width": "685",
+          "height": "214",
+          "alt": "Refer to caption"
+        }
+      ]
+    },
+    {
+      "id": "S4.T2",
+      "caption": "Table 2: Zero-shot reconstruction and camera pose on real fisheye lenses. ScanNet++ is its DSLR fisheye on its validation split and FIORD the 200∘200^{\\circ} lens of its rig; neither is in Any3R’s training data. Measures and protocol as in Tab. 1; Any3R, MapA-ray and Wid3R receive the calibrated ray field, and – marks a lens a method cannot take. †Trained on ScanNet++. Any3R∗ is not ranked. ScanNet++ FIORD Method Acc↓\\downarrow @15↑\\uparrow @30↑\\uparrow Acc↓\\downarrow @15↑\\uparrow @30↑\\uparrow OmniV [39] 0.097 18.6 41.5 0.363 18.6 40.3 Wid3R† [22] 0.039 85.3 92.6 – – – PanoV [18] 0.277 1.8 9.7 0.511 29.4 51.2 MapA-ray [25] 0.093 18.5 43.6 0.396 19.4 36.5 π3\\pi^{3} [61] 0.086 20.6 46.6 0.378 15.7 36.7 MapA [25] 0.099 19.3 40.2 0.399 17.7 37.2 DA3 [34] 0.118 17.2 41.5 0.380 9.1 25.8 VGGT [57] 0.118 18.0 41.7 0.442 15.6 35.3 V-Ω\\Omega [58] 0.112 16.7 42.9 0.451 19.9 38.9 Any3R∗ 0.273 7.5 22.9 0.480 28.3 47.5 Any3R 0.055 62.7 79.7 0.274 63.8 78.4",
+      "imgs": []
+    },
+    {
+      "id": "S4.T3",
+      "caption": "Table 3: Comparison with geometry foundation models on the eight camera models used in training. Measures, domains and cameras are those of Tab. 1. MapA and V-Ω\\Omega abbreviate MapAnything and VGGT-Ω\\Omega, and Any3R∗ is Any3R without its ray map, which assumes an equirectangular grid, and is not ranked. Indoor Outdoor Method Pin. B–C Equi. ERP-C MEI KB4 DS ERP Pin. B–C Equi. ERP-C MEI KB4 DS ERP 90∘90^{\\circ} 90∘90^{\\circ} 180∘180^{\\circ} 180∘180^{\\circ} 180∘180^{\\circ} 200∘200^{\\circ} 200∘200^{\\circ} 360∘360^{\\circ} 90∘90^{\\circ} 90∘90^{\\circ} 180∘180^{\\circ} 180∘180^{\\circ} 180∘180^{\\circ} 200∘200^{\\circ} 200∘200^{\\circ} 360∘360^{\\circ} Acc↓\\downarrow (m) π3\\pi^{3} [61] 0.084 0.119 0.171 0.287 0.164 0.189 0.183 0.414 1.479 1.711 2.093 2.426 2.036 2.394 2.271 1.628 MapA [25] 0.092 0.149 0.273 0.269 0.267 0.283 0.294 0.386 1.485 1.633 2.066 2.861 2.236 3.297 2.789 1.833 DA3 [34] 0.313 0.294 0.361 0.288 0.363 0.396 0.379 0.402 4.360 5.689 6.656 2.717 6.844 6.463 6.477 3.149 VGGT [57] 0.270 0.282 0.361 0.274 0.379 0.356 0.374 0.398 4.153 3.940 6.296 3.078 6.886 6.623 6.430 1.902 V-Ω\\Omega [58] 0.149 0.161 0.252 0.265 0.250 0.281 0.302 0.403 1.711 1.572 2.162 2.455 2.490 2.680 2.544 1.876 Any3R∗ 0.282 0.283 0.274 0.278 0.278 0.279 0.298 0.054 2.079 2.525 2.370 3.324 2.463 2.420 2.552 0.663 Any3R 0.076 0.091 0.058 0.052 0.059 0.056 0.060 0.054 1.160 1.243 0.866 0.811 0.854 0.863 0.901 0.663 AUC@15∘↑15^{\\circ}\\uparrow (%) π3\\pi^{3} [61] 76.9 53.5 42.1 18.0 43.1 35.2 34.6 3.5 44.6 34.0 18.8 15.9 20.0 14.4 16.0 2.3 MapA [25] 53.6 28.5 13.2 9.0 10.8 8.8 8.4 6.4 56.5 20.6 19.6 10.6 17.1 16.9 13.8 0.1 DA3 [34] 7.8 2.7 0.9 22.1 1.2 0.4 0.7 7.0 4.8 3.0 6.4 7.7 4.9 3.4 4.6 5.5 VGGT [57] 23.3 9.9 5.2 14.2 5.3 5.0 2.9 3.3 15.1 2.6 3.7 9.5 6.5 5.5 7.3 0.9 V-Ω\\Omega [58] 63.5 50.4 31.3 15.0 29.6 24.0 19.5 6.9 45.5 44.4 15.8 8.1 15.6 13.8 8.8 3.9 Any3R∗ 24.0 43.8 48.3 41.7 48.2 55.0 58.5 94.5 20.1 36.0 45.0 29.9 47.3 48.8 50.1 97.2 Any3R 74.8 64.8 90.6 86.0 90.5 81.2 80.5 94.5 61.5 51.0 85.0 87.4 85.2 79.5 81.0 97.2 AUC@30∘↑30^{\\circ}\\uparrow (%) π3\\pi^{3} [61] 82.7 66.0 61.9 37.1 62.7 56.4 58.9 14.1 61.7 47.1 36.1 28.3 37.3 30.0 35.0 4.8 MapA [25] 72.8 52.3 31.3 23.2 29.6 27.6 24.8 16.2 74.8 36.1 41.9 25.0 39.7 34.2 30.1 3.1 DA3 [34] 17.8 10.3 5.7 46.2 7.2 5.5 5.1 16.8 13.6 11.5 14.8 22.1 10.2 9.8 10.6 11.3 VGGT [57] 50.0 25.6 18.8 32.2 16.6 16.4 13.9 10.6 32.8 11.0 8.8 24.3 13.9 13.2 17.3 3.5 V-Ω\\Omega [58] 76.9 69.7 53.8 34.6 52.3 47.1 42.0 17.8 55.3 54.7 33.8 23.6 34.8 31.4 24.4 8.5 Any3R∗ 47.5 66.2 71.3 65.8 72.0 75.9 77.5 96.6 38.9 58.3 67.7 53.7 69.6 72.3 72.2 98.6 Any3R 85.0 78.3 93.9 91.6 94.6 89.6 88.5 96.6 80.7 74.2 92.5 93.7 92.6 89.4 90.5 98.6",
+      "imgs": []
+    },
+    {
+      "id": "S4.F5",
+      "caption": "Figure 5: Zero-shot reconstruction on real fisheye lenses. Per dataset, the two samples from different scenes on which Any3R leads the zero-shot methods shown most (Wid3R† is trained on ScanNet++). Poses and alignment as in Tab. 2; the highest 30%30\\% of each cloud is removed so the room is seen from above.",
+      "imgs": [
+        {
+          "src": "2610.36150v1/any3r_zeroshot_qual.png",
+          "id": "S4.F5.g1",
+          "class": "ltx_graphics ltx_centering ltx_img_square",
+          "style": "aspect-ratio:685/645;",
+          "width": "685",
+          "height": "645",
+          "alt": "Refer to caption"
+        }
+      ]
+    },
+    {
+      "id": "S4.F6",
+      "caption": "Figure 6: Eight central camera models, seven methods, one scene per row. Every method fuses the same three native views with its own predicted poses and is placed in the ground-truth frame by one similarity transform, and the highest 30%30\\% of each indoor cloud is removed so the room is seen from above. Column MapAny. is MapAnything and Any3R∗ is Any3R without its ray map.",
+      "imgs": [
+        {
+          "src": "2610.36150v1/anycam_fig1_rgb.png",
+          "id": "S4.F6.g1",
+          "class": "ltx_graphics ltx_centering ltx_img_landscape",
+          "style": "aspect-ratio:685/328;",
+          "width": "685",
+          "height": "328",
+          "alt": "Refer to caption"
+        }
+      ]
+    },
+    {
+      "id": "S4.T4",
+      "caption": "Table 4: Module ablation on full sequences under the PanoVGGT protocol (Structured3D, with no multi-view overlap, is not reported). AUC at 15∘15^{\\circ} and R¯med\\overline{\\mathrm{R}}_{\\text{med}}, the per-sequence median rotation error averaged over sequences; the row marked ∗ has the warm-start architecture and is not directly comparable. Component M3D S2D3DS PanoCity Ang. Per- view Solid- ang. AUC↑\\uparrow R¯med↓\\overline{\\mathrm{R}}_{\\text{med}}\\downarrow AUC↑\\uparrow R¯med↓\\overline{\\mathrm{R}}_{\\text{med}}\\downarrow AUC↑\\uparrow R¯med↓\\overline{\\mathrm{R}}_{\\text{med}}\\downarrow – – ✓∗ 0.619 4.61 0.636 4.18 0.854 0.77 ✓ – – 0.364 9.26 0.381 8.94 0.653 1.88 ✓ – ✓ 0.380 8.25 0.395 8.50 0.686 1.72 ✓ ✓ – 0.488 6.36 0.527 6.44 0.633 1.41 ✓ ✓ ✓ 0.492 7.13 0.528 6.90 0.669 1.41",
+      "imgs": []
+    },
+    {
+      "id": "A2.T5",
+      "caption": "Table 5: Reconstruction accuracy on the Any3R benchmark. Acc↓\\downarrow (m) for each camera and dataset, every method with its own predicted poses. In all tables best and second best are shaded, and MapA, V-Ω\\Omega, PanoV, M3D, S2D3DS and S3D abbreviate MapAnything, VGGT-Ω\\Omega, PanoVGGT, Matterport3D, Stanford2D3DS and Structured3D. Matterport3D Stanford2D3DS Camera (FoV) Any3R π3\\pi^{3}[61] MapA[25] DA3[34] V-Ω\\Omega[58] VGGT[57] PanoV[18] Any3R π3\\pi^{3} MapA DA3 V-Ω\\Omega VGGT PanoV Pinhole (90∘) 0.069 0.109 0.089 0.300 0.161 0.288 0.281 0.083 0.059 0.095 0.325 0.138 0.252 0.284 Brown–C. (90∘) 0.096 0.117 0.150 0.284 0.139 0.320 0.261 0.085 0.120 0.149 0.303 0.184 0.243 0.284 Equidist. (180∘) 0.056 0.166 0.246 0.360 0.215 0.343 0.248 0.061 0.177 0.299 0.363 0.288 0.380 0.270 ERP-Cr. (180∘) 0.051 0.265 0.242 0.267 0.245 0.261 0.331 0.053 0.310 0.296 0.309 0.286 0.287 0.364 MEI (180∘) 0.054 0.163 0.245 0.361 0.212 0.371 0.250 0.064 0.165 0.289 0.365 0.288 0.387 0.281 KB4 (200∘) 0.050 0.175 0.246 0.388 0.243 0.344 0.240 0.061 0.203 0.320 0.404 0.320 0.368 0.261 Double-Sph. (200∘) 0.055 0.165 0.259 0.368 0.259 0.358 0.249 0.065 0.201 0.328 0.389 0.344 0.390 0.282 ERP (360∘) 0.045 0.419 0.342 0.390 0.386 0.401 0.077 0.064 0.408 0.430 0.415 0.421 0.395 0.066 Structured3D PanoCity Camera (FoV) Any3R π3\\pi^{3} MapA DA3 V-Ω\\Omega VGGT PanoV Any3R π3\\pi^{3} MapA DA3 V-Ω\\Omega VGGT PanoV Pinhole (90∘) 0.757 0.819 0.774 0.665 0.729 0.781 0.812 1.160 1.479 1.485 4.360 1.711 4.153 2.256 Brown–C. (90∘) 0.706 0.647 0.671 0.716 0.845 0.645 0.771 1.243 1.711 1.633 5.689 1.572 3.940 2.708 Equidist. (180∘) 0.443 0.531 0.773 0.539 0.693 0.623 0.542 0.866 2.093 2.066 6.656 2.162 6.296 2.498 ERP-Cr. (180∘) 0.428 0.611 0.555 0.610 0.622 0.513 0.601 0.811 2.426 2.861 2.717 2.455 3.078 3.633 MEI (180∘) 0.436 0.523 0.527 0.549 0.572 0.637 0.533 0.854 2.036 2.236 6.844 2.490 6.886 2.433 KB4 (200∘) 0.294 0.508 0.519 0.563 0.653 0.635 0.568 0.863 2.394 3.297 6.463 2.680 6.623 2.405 Double-Sph. (200∘) 0.340 0.543 0.502 0.624 0.602 0.597 0.596 0.901 2.271 2.789 6.477 2.544 6.430 2.473 ERP (360∘) 0.128 0.445 0.440 0.553 0.496 0.442 0.144 0.663 1.628 1.833 3.149 1.876 1.902 0.751",
+      "imgs": []
+    },
+    {
+      "id": "A2.T6",
+      "caption": "Table 6: Median accuracy. The median over scenes of the per-scene Acc↓\\downarrow (m), the statistic the verdicts of Tab. 5 are decided on. Matterport3D Stanford2D3DS Camera (FoV) Any3R π3\\pi^{3}[61] MapA[25] DA3[34] V-Ω\\Omega[58] VGGT[57] PanoV[18] Any3R π3\\pi^{3} MapA DA3 V-Ω\\Omega VGGT PanoV Pinhole (90∘) 0.052 0.041 0.069 0.261 0.101 0.252 0.266 0.053 0.041 0.062 0.312 0.087 0.239 0.259 Brown–C. (90∘) 0.063 0.072 0.151 0.259 0.126 0.274 0.253 0.069 0.068 0.121 0.297 0.122 0.247 0.287 Equidist. (180∘) 0.051 0.139 0.265 0.328 0.195 0.313 0.230 0.050 0.141 0.296 0.357 0.257 0.383 0.243 ERP-Cr. (180∘) 0.046 0.243 0.212 0.267 0.239 0.243 0.337 0.041 0.268 0.268 0.290 0.245 0.251 0.344 MEI (180∘) 0.048 0.139 0.249 0.302 0.201 0.332 0.236 0.051 0.130 0.268 0.343 0.258 0.376 0.260 KB4 (200∘) 0.049 0.146 0.239 0.337 0.231 0.339 0.231 0.052 0.150 0.287 0.397 0.317 0.366 0.241 Double-Sph. (200∘) 0.051 0.144 0.266 0.300 0.256 0.331 0.241 0.055 0.146 0.323 0.373 0.334 0.386 0.255 ERP (360∘) 0.045 0.374 0.347 0.388 0.351 0.348 0.065 0.042 0.382 0.428 0.404 0.392 0.388 0.051 Structured3D PanoCity Camera (FoV) Any3R π3\\pi^{3} MapA DA3 V-Ω\\Omega VGGT PanoV Any3R π3\\pi^{3} MapA DA3 V-Ω\\Omega VGGT PanoV Pinhole (90∘) 0.481 0.476 0.410 0.434 0.380 0.485 0.575 1.085 1.053 1.161 3.935 1.344 3.724 1.890 Brown–C. (90∘) 0.373 0.341 0.469 0.484 0.484 0.469 0.442 1.158 1.319 1.477 5.368 1.321 3.782 2.299 Equidist. (180∘) 0.344 0.355 0.427 0.434 0.484 0.497 0.398 0.831 2.000 2.023 6.635 2.184 5.861 2.290 ERP-Cr. (180∘) 0.326 0.546 0.480 0.418 0.511 0.443 0.477 0.765 2.509 3.031 3.062 2.694 3.072 3.485 MEI (180∘) 0.299 0.326 0.417 0.452 0.523 0.498 0.344 0.815 1.966 2.128 6.556 2.277 5.992 2.274 KB4 (200∘) 0.254 0.345 0.417 0.502 0.464 0.492 0.362 0.862 2.226 2.459 6.480 2.686 6.388 2.333 Double-Sph. (200∘) 0.200 0.398 0.414 0.554 0.442 0.451 0.444 0.891 2.141 2.390 6.529 2.387 6.047 2.359 ERP (360∘) 0.048 0.381 0.322 0.467 0.432 0.383 0.066 0.587 0.853 0.905 2.861 1.073 0.978 0.737",
+      "imgs": []
+    },
+    {
+      "id": "A2.T7",
+      "caption": "Table 7: Accuracy split by field of view. Acc↓\\downarrow (m), mean of the cell means of the 2 narrow (90∘90^{\\circ}) and the 6 wide (≥180∘\\geq 180^{\\circ}) cameras. Method Matterport3D Stanford2D3DS Structured3D PanoCity 90∘90^{\\circ} ≥180∘\\geq 180^{\\circ} 90∘90^{\\circ} ≥180∘\\geq 180^{\\circ} 90∘90^{\\circ} ≥180∘\\geq 180^{\\circ} 90∘90^{\\circ} ≥180∘\\geq 180^{\\circ} Any3R (ours) 0.0826 0.0517 0.0838 0.0614 0.7317 0.3449 1.2019 0.8265 π3\\pi^{3} [61] 0.1132 0.2253 0.0896 0.2439 0.7331 0.5266 1.5954 2.1415 MapAnything [25] 0.1196 0.2634 0.1221 0.3269 0.7226 0.5527 1.5591 2.5135 DA3 [34] 0.2922 0.3557 0.3139 0.3738 0.6907 0.5728 5.0245 5.3842 VGGT-Ω\\Omega [58] 0.1501 0.2601 0.1607 0.3243 0.7866 0.6062 1.6416 2.3678 VGGT [57] 0.3042 0.3464 0.2472 0.3678 0.7129 0.5744 4.0461 5.2024 PanoVGGT [18] 0.2709 0.2326 0.2838 0.2540 0.7917 0.4973 2.4818 2.3655",
+      "imgs": []
+    },
+    {
+      "id": "A2.T8",
+      "caption": "Table 8: Mixed cameras in one forward pass. Acc↓\\downarrow (m) when view kk of each scene comes from the kk-th camera listed, each view at its own size on one zero-padded canvas. Dataset Cameras Any3R π3\\pi^{3}[61] MapA[25] DA3[34] V-Ω\\Omega[58] VGGT[57] PanoV[18] Matterport3D Pinhole + KB4 + ERP 0.108 0.343 0.444 0.357 0.377 0.357 0.114 Matterport3D Brown–C. + Double-Sph. + ERP-Cr. 0.057 0.278 0.254 0.325 0.268 0.355 0.290 Stanford2D3DS Pinhole + KB4 + ERP 0.116 0.359 0.374 0.399 0.405 0.433 0.133 Stanford2D3DS Brown–C. + Double-Sph. + ERP-Cr. 0.064 0.244 0.306 0.358 0.341 0.395 0.329 PanoCity Pinhole + KB4 + ERP 1.282 1.821 1.438 3.242 1.791 2.538 1.085 PanoCity Brown–C. + Double-Sph. + ERP-Cr. 1.215 2.568 2.329 4.944 2.543 3.842 3.006",
+      "imgs": []
+    },
+    {
+      "id": "A2.T9",
+      "caption": "Table 9: Both inputs of the two-input baselines on mixed cameras. Median per-scene Acc↓\\downarrow (m); Tab. 8 uses the bold one. π3\\pi^{3} VGGT V-Ω\\Omega DA3 MapA Dataset Cameras nat. off. nat. off. nat. off. fixed canvas fixed canvas Matterport3D Pinhole + KB4 + ERP 0.345 0.328 0.314 0.324 0.354 0.348 0.315 0.351 0.344 0.315 Matterport3D Brown–C. + Double-Sph. + ERP-Cr. 0.249 0.256 0.313 0.362 0.244 0.251 0.335 0.251 0.233 0.260 Stanford2D3DS Pinhole + KB4 + ERP 0.378 0.357 0.447 0.424 0.401 0.433 0.378 0.410 0.422 0.379 Stanford2D3DS Brown–C. + Double-Sph. + ERP-Cr. 0.242 0.243 0.383 0.399 0.300 0.331 0.359 0.346 0.325 0.301 PanoCity Pinhole + KB4 + ERP 2.513 1.238 4.019 1.844 1.277 1.109 2.831 3.128 1.049 1.801 PanoCity Brown–C. + Double-Sph. + ERP-Cr. 3.004 2.830 3.890 3.329 2.616 2.716 5.053 5.014 2.852 2.304",
+      "imgs": []
+    },
+    {
+      "id": "A2.T10",
+      "caption": "Table 10: Relative pose of the methods in Tab. 5. R¯med↓\\overline{\\mathrm{R}}_{\\text{med}}\\downarrow (degrees), each scene’s median rotation error over its view pairs averaged over the scenes, with view pairs of ground-truth translation below 0.010.01 dropped as in the PanoVGGT code; this table is not ranked. Matterport3D Stanford2D3DS Camera (FoV) Any3R π3\\pi^{3}[61] MapA[25] DA3[34] V-Ω\\Omega[58] VGGT[57] PanoV[18] Any3R π3\\pi^{3} MapA DA3 V-Ω\\Omega VGGT PanoV Pinhole (90∘) 3.91 9.84 13.55 56.33 14.94 23.82 35.08 11.00 7.30 23.29 55.28 12.52 23.80 38.99 Brown–C. (90∘) 11.68 14.92 21.13 68.61 14.31 41.34 26.91 11.08 26.68 38.14 64.58 21.61 51.50 33.58 Equidist. (180∘) 8.61 12.20 33.63 55.00 18.92 47.20 13.11 4.82 18.93 43.03 67.73 34.08 49.77 18.56 ERP-Cr. (180∘) 8.40 24.13 36.10 22.10 26.86 30.50 16.66 5.23 33.80 52.67 21.25 35.16 41.16 22.83 MEI (180∘) 1.47 11.62 33.56 59.84 19.45 47.58 11.31 4.92 18.75 43.39 61.79 35.53 52.14 22.03 KB4 (200∘) 3.10 14.96 32.54 49.45 20.85 47.60 9.21 6.13 25.88 41.89 50.54 36.78 47.09 15.95 Double-Sph. (200∘) 9.99 12.77 37.66 55.73 22.79 46.71 8.44 6.11 17.77 44.65 62.40 36.46 47.91 10.83 ERP (360∘) 1.12 50.34 51.76 56.19 42.46 47.96 1.90 4.88 52.03 59.17 44.77 43.22 54.41 4.90 Structured3D PanoCity Camera (FoV) Any3R π3\\pi^{3} MapA DA3 V-Ω\\Omega VGGT PanoV Any3R π3\\pi^{3} MapA DA3 V-Ω\\Omega VGGT PanoV Pinhole (90∘) 70.02 64.23 49.02 92.82 45.28 45.78 60.91 6.89 39.65 13.84 51.53 33.01 39.13 35.32 Brown–C. (90∘) 71.91 59.20 52.76 98.18 45.03 68.74 43.66 8.55 53.79 49.55 61.55 45.35 73.91 39.09 Equidist. (180∘) 29.54 39.78 41.73 95.54 38.66 101.77 16.84 2.69 34.73 27.59 38.12 33.50 60.06 12.06 ERP-Cr. (180∘) 36.67 76.71 54.07 47.66 62.22 45.78 49.17 2.61 50.30 39.31 35.63 44.94 43.18 8.17 MEI (180∘) 28.13 43.08 46.78 86.50 37.23 100.93 18.17 2.75 32.62 26.79 40.40 32.61 48.48 11.83 KB4 (200∘) 12.72 37.52 49.66 96.91 40.27 115.44 30.47 3.49 37.06 41.86 38.78 39.31 55.71 7.45 Double-Sph. (200∘) 13.36 38.38 45.52 91.02 41.41 92.37 32.09 3.35 31.10 48.14 45.99 39.76 44.66 6.20 ERP (360∘) 1.26 60.96 77.63 63.73 74.99 45.36 1.87 0.51 83.70 85.15 55.74 79.83 79.65 1.37",
+      "imgs": []
+    },
+    {
+      "id": "A2.F7",
+      "caption": "Figure 7: One Matterport3D scene, all eight central camera models, all seven methods. Identical protocol to Fig. 6. The scene is fixed, so the vertical axis is field of view alone.",
+      "imgs": [
+        {
+          "src": "2610.36150v1/anycam_appendix_samescene.png",
+          "id": "A2.F7.g1",
+          "class": "ltx_graphics ltx_centering ltx_img_landscape",
+          "style": "aspect-ratio:685/512;",
+          "width": "685",
+          "height": "512",
+          "alt": "Refer to caption"
+        }
+      ]
+    },
+    {
+      "id": "A2.tab1",
+      "caption": "Table 11: Comparison with the wide-field-of-view specialist Wid3R [22]. Acc↓\\downarrow (m) on the four cameras its camera classes represent, with its ray field supplied (ray fld.) or predicted (pred.). Camera Method M3D S2D3DS S3D PanoCity Pinhole 90∘90^{\\circ} Any3R 0.069 0.083 0.757 1.160 Wid3R ray fld. 0.150 0.139 0.770 2.278 Wid3R pred. 0.199 0.183 0.818 2.182 Equidistant 180∘180^{\\circ} Any3R 0.056 0.061 0.443 0.866 Wid3R ray fld. 0.111 0.172 0.568 2.121 Wid3R pred. 0.124 0.184 0.608 2.100 MEI 180∘180^{\\circ} Any3R 0.054 0.064 0.436 0.854 Wid3R ray fld. 0.126 0.166 0.597 2.252 Wid3R pred. 0.138 0.188 0.607 2.274 ERP 360∘360^{\\circ} Any3R 0.045 0.064 0.128 0.663 Wid3R ray fld. 0.069 0.133 0.444 2.330 Wid3R pred. 0.070 0.134 0.448 3.878 Table 12: Comparison with the panoramic-only methods. Acc↓\\downarrow (m) on the equirectangular frames, Argus at its own 560×280560{\\times}280 input without the top and bottom 15%15\\%; PaGeR predicts no pose and is not shown, and – marks Argus on S3D, whose views share one orientation, so its rotation convention cannot be checked. Dataset Any3R Argus [31] PanoVGGT [18] Wid3R [22] M3D 0.045 0.094 0.077 0.069 S2D3DS 0.064 0.094 0.066 0.133 S3D 0.128 – 0.144 0.444 PanoCity 0.663 1.517 0.751 2.330 Table 13: Comparison with OmniVGGT [39], a backbone conditioned on intrinsics. Acc↓\\downarrow (m) with images alone as input; Omni. is OmniVGGT. M3D S2D3DS S3D PanoCity Camera Any3R Omni. Any3R Omni. Any3R Omni. Any3R Omni. Pinhole 90∘90^{\\circ} 0.069 0.263 0.083 0.237 0.757 0.764 1.160 2.875 Brown–C. 90∘90^{\\circ} 0.096 0.225 0.085 0.178 0.706 0.657 1.243 2.676 FOV/ATAN 150∘150^{\\circ} 0.051 0.311 0.053 0.288 0.522 0.723 0.929 2.898 Equidist. 180∘180^{\\circ} 0.056 0.308 0.061 0.343 0.443 0.530 0.866 3.313 Stereogr. 180∘180^{\\circ} 0.060 0.329 0.069 0.340 0.451 0.519 0.917 3.181 ERP-Cr. 180∘180^{\\circ} 0.051 0.302 0.053 0.333 0.428 0.594 0.811 2.804 MEI 180∘180^{\\circ} 0.054 0.311 0.064 0.347 0.436 0.516 0.854 3.703 KB4 200∘200^{\\circ} 0.050 0.338 0.061 0.371 0.294 0.447 0.863 3.941 Equisolid 200∘200^{\\circ} 0.056 0.329 0.055 0.352 0.310 0.506 0.893 3.425 Double-Sph. 200∘200^{\\circ} 0.055 0.339 0.065 0.362 0.340 0.531 0.901 3.670 EUCM 200∘200^{\\circ} 0.054 0.335 0.067 0.357 0.345 0.495 0.896 3.855 ERP 360∘360^{\\circ} 0.045 0.409 0.064 0.403 0.128 0.449 0.663 1.479 Cylind. 360∘360^{\\circ} 0.082 0.373 0.098 0.411 0.275 0.430 1.298 3.021 Table 14: MapAnything given the true ray field. Acc↓\\downarrow (m) of Any3R, MapAnything as in Tab. 5 (MapA: images alone, or a pinhole intrinsic matrix on the pinhole camera, the better per camera) and MapAnything with the true ray field fed to its ray encoder (MapA-ray), since its released preprocessing fits a pinhole intrinsic matrix to any ray map. M3D S2D3DS S3D PanoCity Camera Any3R MapA MapA-ray Any3R MapA MapA-ray Any3R MapA MapA-ray Any3R MapA MapA-ray Pinhole 90∘90^{\\circ} 0.069 0.089 0.089 0.083 0.095 0.095 0.757 0.774 0.675 1.160 1.485 1.484 Brown–C. 90∘90^{\\circ} 0.096 0.150 0.142 0.085 0.149 0.149 0.706 0.671 0.706 1.243 1.633 1.558 FOV/ATAN 150∘150^{\\circ} 0.051 0.229 0.262 0.053 0.243 0.270 0.522 0.533 0.548 0.929 1.930 2.201 Equidist. 180∘180^{\\circ} 0.056 0.246 0.271 0.061 0.299 0.282 0.443 0.773 0.496 0.866 2.066 2.368 Stereogr. 180∘180^{\\circ} 0.060 0.269 0.281 0.069 0.295 0.258 0.451 0.549 0.509 0.917 2.383 2.346 ERP-Cr. 180∘180^{\\circ} 0.051 0.242 0.241 0.053 0.296 0.268 0.428 0.555 0.522 0.811 2.861 2.686 MEI 180∘180^{\\circ} 0.054 0.245 0.226 0.064 0.289 0.251 0.436 0.527 0.425 0.854 2.236 2.029 KB4 200∘200^{\\circ} 0.050 0.246 0.256 0.061 0.320 0.292 0.294 0.519 0.500 0.863 3.297 2.523 Equisolid 200∘200^{\\circ} 0.056 0.226 0.255 0.055 0.291 0.281 0.310 0.624 0.495 0.893 2.268 2.525 Double-Sph. 200∘200^{\\circ} 0.055 0.259 0.237 0.065 0.328 0.278 0.340 0.502 0.572 0.901 2.789 2.579 EUCM 200∘200^{\\circ} 0.054 0.261 0.259 0.067 0.331 0.279 0.345 0.544 0.507 0.896 2.690 2.640 ERP 360∘360^{\\circ} 0.045 0.342 0.350 0.064 0.430 0.460 0.128 0.440 0.404 0.663 1.833 1.894 Cylind. 360∘360^{\\circ} 0.082 0.312 0.294 0.098 0.367 0.410 0.275 0.421 0.446 1.298 2.680 3.001",
+      "imgs": []
+    },
+    {
+      "id": "A2.fig1",
+      "caption": "Table 11: Comparison with the wide-field-of-view specialist Wid3R [22]. Acc↓\\downarrow (m) on the four cameras its camera classes represent, with its ray field supplied (ray fld.) or predicted (pred.). Camera Method M3D S2D3DS S3D PanoCity Pinhole 90∘90^{\\circ} Any3R 0.069 0.083 0.757 1.160 Wid3R ray fld. 0.150 0.139 0.770 2.278 Wid3R pred. 0.199 0.183 0.818 2.182 Equidistant 180∘180^{\\circ} Any3R 0.056 0.061 0.443 0.866 Wid3R ray fld. 0.111 0.172 0.568 2.121 Wid3R pred. 0.124 0.184 0.608 2.100 MEI 180∘180^{\\circ} Any3R 0.054 0.064 0.436 0.854 Wid3R ray fld. 0.126 0.166 0.597 2.252 Wid3R pred. 0.138 0.188 0.607 2.274 ERP 360∘360^{\\circ} Any3R 0.045 0.064 0.128 0.663 Wid3R ray fld. 0.069 0.133 0.444 2.330 Wid3R pred. 0.070 0.134 0.448 3.878 Table 12: Comparison with the panoramic-only methods. Acc↓\\downarrow (m) on the equirectangular frames, Argus at its own 560×280560{\\times}280 input without the top and bottom 15%15\\%; PaGeR predicts no pose and is not shown, and – marks Argus on S3D, whose views share one orientation, so its rotation convention cannot be checked. Dataset Any3R Argus [31] PanoVGGT [18] Wid3R [22] M3D 0.045 0.094 0.077 0.069 S2D3DS 0.064 0.094 0.066 0.133 S3D 0.128 – 0.144 0.444 PanoCity 0.663 1.517 0.751 2.330",
+      "imgs": []
+    },
+    {
+      "id": "A2.T11",
+      "caption": "Table 11: Comparison with the wide-field-of-view specialist Wid3R [22]. Acc↓\\downarrow (m) on the four cameras its camera classes represent, with its ray field supplied (ray fld.) or predicted (pred.). Camera Method M3D S2D3DS S3D PanoCity Pinhole 90∘90^{\\circ} Any3R 0.069 0.083 0.757 1.160 Wid3R ray fld. 0.150 0.139 0.770 2.278 Wid3R pred. 0.199 0.183 0.818 2.182 Equidistant 180∘180^{\\circ} Any3R 0.056 0.061 0.443 0.866 Wid3R ray fld. 0.111 0.172 0.568 2.121 Wid3R pred. 0.124 0.184 0.608 2.100 MEI 180∘180^{\\circ} Any3R 0.054 0.064 0.436 0.854 Wid3R ray fld. 0.126 0.166 0.597 2.252 Wid3R pred. 0.138 0.188 0.607 2.274 ERP 360∘360^{\\circ} Any3R 0.045 0.064 0.128 0.663 Wid3R ray fld. 0.069 0.133 0.444 2.330 Wid3R pred. 0.070 0.134 0.448 3.878",
+      "imgs": []
+    },
+    {
+      "id": "A2.T12",
+      "caption": "Table 12: Comparison with the panoramic-only methods. Acc↓\\downarrow (m) on the equirectangular frames, Argus at its own 560×280560{\\times}280 input without the top and bottom 15%15\\%; PaGeR predicts no pose and is not shown, and – marks Argus on S3D, whose views share one orientation, so its rotation convention cannot be checked. Dataset Any3R Argus [31] PanoVGGT [18] Wid3R [22] M3D 0.045 0.094 0.077 0.069 S2D3DS 0.064 0.094 0.066 0.133 S3D 0.128 – 0.144 0.444 PanoCity 0.663 1.517 0.751 2.330",
+      "imgs": []
+    },
+    {
+      "id": "A2.T13",
+      "caption": "Table 13: Comparison with OmniVGGT [39], a backbone conditioned on intrinsics. Acc↓\\downarrow (m) with images alone as input; Omni. is OmniVGGT. M3D S2D3DS S3D PanoCity Camera Any3R Omni. Any3R Omni. Any3R Omni. Any3R Omni. Pinhole 90∘90^{\\circ} 0.069 0.263 0.083 0.237 0.757 0.764 1.160 2.875 Brown–C. 90∘90^{\\circ} 0.096 0.225 0.085 0.178 0.706 0.657 1.243 2.676 FOV/ATAN 150∘150^{\\circ} 0.051 0.311 0.053 0.288 0.522 0.723 0.929 2.898 Equidist. 180∘180^{\\circ} 0.056 0.308 0.061 0.343 0.443 0.530 0.866 3.313 Stereogr. 180∘180^{\\circ} 0.060 0.329 0.069 0.340 0.451 0.519 0.917 3.181 ERP-Cr. 180∘180^{\\circ} 0.051 0.302 0.053 0.333 0.428 0.594 0.811 2.804 MEI 180∘180^{\\circ} 0.054 0.311 0.064 0.347 0.436 0.516 0.854 3.703 KB4 200∘200^{\\circ} 0.050 0.338 0.061 0.371 0.294 0.447 0.863 3.941 Equisolid 200∘200^{\\circ} 0.056 0.329 0.055 0.352 0.310 0.506 0.893 3.425 Double-Sph. 200∘200^{\\circ} 0.055 0.339 0.065 0.362 0.340 0.531 0.901 3.670 EUCM 200∘200^{\\circ} 0.054 0.335 0.067 0.357 0.345 0.495 0.896 3.855 ERP 360∘360^{\\circ} 0.045 0.409 0.064 0.403 0.128 0.449 0.663 1.479 Cylind. 360∘360^{\\circ} 0.082 0.373 0.098 0.411 0.275 0.430 1.298 3.021",
+      "imgs": []
+    },
+    {
+      "id": "A2.T14",
+      "caption": "Table 14: MapAnything given the true ray field. Acc↓\\downarrow (m) of Any3R, MapAnything as in Tab. 5 (MapA: images alone, or a pinhole intrinsic matrix on the pinhole camera, the better per camera) and MapAnything with the true ray field fed to its ray encoder (MapA-ray), since its released preprocessing fits a pinhole intrinsic matrix to any ray map. M3D S2D3DS S3D PanoCity Camera Any3R MapA MapA-ray Any3R MapA MapA-ray Any3R MapA MapA-ray Any3R MapA MapA-ray Pinhole 90∘90^{\\circ} 0.069 0.089 0.089 0.083 0.095 0.095 0.757 0.774 0.675 1.160 1.485 1.484 Brown–C. 90∘90^{\\circ} 0.096 0.150 0.142 0.085 0.149 0.149 0.706 0.671 0.706 1.243 1.633 1.558 FOV/ATAN 150∘150^{\\circ} 0.051 0.229 0.262 0.053 0.243 0.270 0.522 0.533 0.548 0.929 1.930 2.201 Equidist. 180∘180^{\\circ} 0.056 0.246 0.271 0.061 0.299 0.282 0.443 0.773 0.496 0.866 2.066 2.368 Stereogr. 180∘180^{\\circ} 0.060 0.269 0.281 0.069 0.295 0.258 0.451 0.549 0.509 0.917 2.383 2.346 ERP-Cr. 180∘180^{\\circ} 0.051 0.242 0.241 0.053 0.296 0.268 0.428 0.555 0.522 0.811 2.861 2.686 MEI 180∘180^{\\circ} 0.054 0.245 0.226 0.064 0.289 0.251 0.436 0.527 0.425 0.854 2.236 2.029 KB4 200∘200^{\\circ} 0.050 0.246 0.256 0.061 0.320 0.292 0.294 0.519 0.500 0.863 3.297 2.523 Equisolid 200∘200^{\\circ} 0.056 0.226 0.255 0.055 0.291 0.281 0.310 0.624 0.495 0.893 2.268 2.525 Double-Sph. 200∘200^{\\circ} 0.055 0.259 0.237 0.065 0.328 0.278 0.340 0.502 0.572 0.901 2.789 2.579 EUCM 200∘200^{\\circ} 0.054 0.261 0.259 0.067 0.331 0.279 0.345 0.544 0.507 0.896 2.690 2.640 ERP 360∘360^{\\circ} 0.045 0.342 0.350 0.064 0.430 0.460 0.128 0.440 0.404 0.663 1.833 1.894 Cylind. 360∘360^{\\circ} 0.082 0.312 0.294 0.098 0.367 0.410 0.275 0.421 0.446 1.298 2.680 3.001",
+      "imgs": []
+    },
+    {
+      "id": "A4.T15",
+      "caption": "Table 15: Accuracy by field of view on all thirteen cameras. Acc↓\\downarrow (m) averaged over the cameras of each field of view. Matterport3D Stanford2D3DS FoV Any3R DA3[34] VGGT[57] π3\\pi^{3}[61] V-Ω\\Omega[58] MapA[25] PanoV[18] Any3R DA3 VGGT π3\\pi^{3} V-Ω\\Omega MapA PanoV 90∘ 0.083 0.292 0.304 0.113 0.150 0.120 0.271 0.084 0.314 0.247 0.090 0.161 0.122 0.284 150∘ 0.051 0.330 0.331 0.139 0.176 0.229 0.259 0.053 0.309 0.344 0.133 0.261 0.243 0.281 180∘ 0.055 0.334 0.329 0.184 0.229 0.250 0.273 0.062 0.355 0.363 0.207 0.297 0.295 0.302 200∘ 0.054 0.376 0.361 0.177 0.261 0.248 0.242 0.062 0.381 0.378 0.203 0.328 0.317 0.265 360∘ 0.063 0.366 0.383 0.380 0.364 0.327 0.246 0.081 0.390 0.390 0.393 0.408 0.399 0.275 Structured3D PanoCity FoV Any3R DA3 VGGT π3\\pi^{3} V-Ω\\Omega MapA PanoV Any3R DA3 VGGT π3\\pi^{3} V-Ω\\Omega MapA PanoV 90∘ 0.732 0.691 0.713 0.733 0.787 0.723 0.792 1.202 5.024 4.046 1.595 1.642 1.559 2.482 150∘ 0.522 0.614 0.623 0.683 0.678 0.533 0.730 0.929 5.700 6.161 1.856 1.944 1.930 2.368 180∘ 0.440 0.578 0.602 0.562 0.631 0.601 0.573 0.862 5.654 5.486 2.136 2.433 2.387 2.766 200∘ 0.322 0.573 0.596 0.516 0.621 0.547 0.566 0.888 6.366 6.607 2.368 2.725 2.761 2.425 360∘ 0.201 0.510 0.456 0.457 0.486 0.431 0.340 0.980 3.654 2.780 2.207 2.490 2.256 2.484",
+      "imgs": []
+    },
+    {
+      "id": "A4.F8",
+      "caption": "Figure 8: Projection of the thirteen camera models of Tab. 16. Left of each pair, a section through the camera centre OO shows probe rays spaced 15∘15^{\\circ} apart in incidence angle θ\\theta, and 30∘30^{\\circ} apart for ERP, one colour per angle. Each travels from the scene to OO (solid) and on to its image point (dashed) on the image plane, a focal length ff behind OO, so the spacing of the dots is the model’s r⁡(θ)r(\\theta). ERP and ERP-Crop are seen from above, their image being the sphere of radius ff unrolled, and Cylindrical from the side, its image the cylinder wall a distance ff in front. Right of each pair, the same probes in 3D, from their image points through OO to the unit sphere, with the image’s rows and columns drawn on the sphere in grey. Here ϕ\\phi and λ\\lambda are azimuth and elevation, uu and vv image coordinates, ρ=tan⁡θ\\rho=\\tan\\theta and d=sin2⁡θ+(ξ+cos⁡θ)2d=\\sqrt{\\sin^{2}\\theta+(\\xi+\\cos\\theta)^{2}}. Every camera is built as in the benchmark, with the declared field of view reaching half the image height, k1=−0.18k_{1}=-0.18 and k2=0.02k_{2}=0.02 for Brown–Conrady together with the tangential terms p1=8×10−4p_{1}=8\\times 10^{-4} and p2=−6×10−4p_{2}=-6\\times 10^{-4}, ω=0.9\\omega=0.9 for FOV/ATAN, ξ=1.6\\xi=1.6 for MEI, (k1,k2,k3,k4)=(0.04,−0.01,0.002,−0.0003)(k_{1},k_{2},k_{3},k_{4})=(0.04,-0.01,0.002,-0.0003) for KB4, ξ=0.25\\xi=0.25 and α=0.55\\alpha=0.55 for Double-Sphere, α=0.55\\alpha=0.55 and β=1\\beta=1 for EUCM, and a vertical field of view of 90∘90^{\\circ} for ERP-Crop and Cylindrical.",
+      "imgs": [
+        {
+          "src": "2610.36150v1/any3r_camera_models.png",
+          "id": "A4.F8.g1",
+          "class": "ltx_graphics ltx_centering ltx_img_square",
+          "style": "aspect-ratio:651/691;",
+          "width": "651",
+          "height": "691",
+          "alt": "Refer to caption"
+        }
+      ]
+    },
+    {
+      "id": "A4.T16",
+      "caption": "Table 16: Accuracy on all 5252 cells. Acc↓\\downarrow (m) per camera, grouped by field of view; the five cameras marked †\\dagger each isolate one axis the original eight leave confounded. Matterport3D Stanford2D3DS Camera (FoV) Any3R DA3[34] VGGT[57] π3\\pi^{3}[61] V-Ω\\Omega[58] MapA[25] PanoV[18] Any3R DA3 VGGT π3\\pi^{3} V-Ω\\Omega MapA PanoV Pinhole (90∘) 0.069 0.300 0.288 0.109 0.161 0.089 0.281 0.083 0.325 0.252 0.059 0.138 0.095 0.284 Brown–C. (90∘) 0.096 0.284 0.320 0.117 0.139 0.150 0.261 0.085 0.303 0.243 0.120 0.184 0.149 0.284 FOV/ATAN† (150∘) 0.051 0.330 0.331 0.139 0.176 0.229 0.259 0.053 0.309 0.344 0.133 0.261 0.243 0.281 Equidist. (180∘) 0.056 0.360 0.343 0.166 0.215 0.246 0.248 0.061 0.363 0.380 0.177 0.288 0.299 0.270 Stereogr.† (180∘) 0.060 0.349 0.340 0.144 0.246 0.269 0.262 0.069 0.384 0.399 0.177 0.328 0.295 0.293 ERP-Cr. (180∘) 0.051 0.267 0.261 0.265 0.245 0.242 0.331 0.053 0.309 0.287 0.310 0.286 0.296 0.364 MEI (180∘) 0.054 0.361 0.371 0.163 0.212 0.245 0.250 0.064 0.365 0.387 0.165 0.288 0.289 0.281 KB4 (200∘) 0.050 0.388 0.344 0.175 0.243 0.246 0.240 0.061 0.404 0.368 0.203 0.320 0.320 0.261 Equisolid† (200∘) 0.056 0.382 0.371 0.201 0.254 0.226 0.233 0.055 0.364 0.362 0.213 0.305 0.291 0.250 Double-Sph. (200∘) 0.055 0.368 0.358 0.165 0.259 0.259 0.249 0.065 0.389 0.390 0.201 0.344 0.328 0.282 EUCM† (200∘) 0.054 0.364 0.370 0.168 0.286 0.261 0.244 0.067 0.369 0.392 0.196 0.344 0.331 0.267 ERP (360∘) 0.045 0.390 0.401 0.419 0.386 0.342 0.077 0.064 0.415 0.395 0.408 0.421 0.430 0.066 Cylind.† (360∘) 0.082 0.343 0.364 0.342 0.342 0.312 0.415 0.098 0.366 0.385 0.377 0.396 0.367 0.484 Structured3D PanoCity Camera (FoV) Any3R DA3 VGGT π3\\pi^{3} V-Ω\\Omega MapA PanoV Any3R DA3 VGGT π3\\pi^{3} V-Ω\\Omega MapA PanoV Pinhole (90∘) 0.757 0.665 0.781 0.819 0.729 0.774 0.812 1.160 4.360 4.153 1.479 1.711 1.485 2.256 Brown–C. (90∘) 0.706 0.716 0.645 0.647 0.845 0.671 0.771 1.243 5.689 3.940 1.711 1.572 1.633 2.708 FOV/ATAN† (150∘) 0.522 0.614 0.623 0.683 0.678 0.533 0.730 0.929 5.700 6.161 1.856 1.944 1.930 2.368 Equidist. (180∘) 0.443 0.539 0.623 0.531 0.693 0.773 0.542 0.866 6.656 6.296 2.093 2.162 2.066 2.498 Stereogr.† (180∘) 0.451 0.613 0.636 0.582 0.636 0.549 0.615 0.917 6.398 5.684 1.991 2.624 2.383 2.501 ERP-Cr. (180∘) 0.428 0.610 0.513 0.611 0.622 0.555 0.601 0.811 2.717 3.078 2.426 2.455 2.861 3.633 MEI (180∘) 0.436 0.549 0.637 0.523 0.572 0.527 0.533 0.854 6.844 6.886 2.036 2.490 2.236 2.433 KB4 (200∘) 0.294 0.563 0.635 0.508 0.653 0.519 0.568 0.863 6.463 6.623 2.394 2.680 3.297 2.405 Equisolid† (200∘) 0.310 0.519 0.541 0.467 0.643 0.624 0.512 0.893 6.336 6.280 2.425 3.065 2.268 2.316 Double-Sph. (200∘) 0.340 0.624 0.597 0.543 0.602 0.502 0.596 0.901 6.477 6.430 2.271 2.544 2.789 2.473 EUCM† (200∘) 0.345 0.587 0.612 0.545 0.587 0.544 0.586 0.896 6.189 7.097 2.381 2.613 2.690 2.504 ERP (360∘) 0.128 0.553 0.442 0.445 0.496 0.440 0.144 0.663 3.149 1.902 1.628 1.876 1.833 0.751 Cylind.† (360∘) 0.275 0.467 0.470 0.468 0.476 0.421 0.535 1.298 4.160 3.657 2.785 3.104 2.680 4.216",
+      "imgs": []
+    },
+    {
+      "id": "A4.T17",
+      "caption": "Table 17: Both inputs of the two-input baselines. Median per-scene Acc↓\\downarrow (m) for the native and the official input of π3\\pi^{3}, VGGT and VGGT-Ω\\Omega and for MapAnything without and with pinhole intrinsics; every other table uses the bold one. Matterport3D Stanford2D3DS π3\\pi^{3} VGGT V-Ω\\Omega MapA π3\\pi^{3} VGGT V-Ω\\Omega MapA Camera nat. off. nat. off. nat. off. −-K +K nat. off. nat. off. nat. off. −-K +K Pinhole (90∘) 0.050 0.041 0.279 0.252 0.128 0.101 0.125 0.069 0.045 0.041 0.291 0.239 0.118 0.087 0.119 0.062 Brown–C. (90∘) 0.080 0.072 0.295 0.274 0.175 0.126 0.151 – 0.071 0.068 0.338 0.247 0.177 0.122 0.121 – FOV/ATAN (150∘) 0.119 0.127 0.286 0.279 0.155 0.158 0.221 – 0.115 0.108 0.352 0.333 0.206 0.211 0.236 – Equidist. (180∘) 0.161 0.139 0.347 0.313 0.211 0.195 0.265 – 0.141 0.141 0.415 0.383 0.257 0.265 0.296 – Stereogr. (180∘) 0.121 0.118 0.332 0.333 0.249 0.245 0.272 – 0.131 0.152 0.406 0.397 0.295 0.304 0.296 – ERP-Cr. (180∘) 0.243 0.249 0.243 0.245 0.239 0.250 0.212 – 0.282 0.268 0.265 0.251 0.245 0.274 0.268 – MEI (180∘) 0.150 0.139 0.353 0.332 0.201 0.216 0.249 – 0.130 0.134 0.376 0.389 0.263 0.258 0.268 – KB4 (200∘) 0.180 0.146 0.351 0.339 0.231 0.240 0.239 – 0.150 0.151 0.389 0.366 0.317 0.323 0.287 – Equisolid (200∘) 0.218 0.187 0.335 0.336 0.231 0.262 0.221 – 0.178 0.163 0.370 0.353 0.294 0.327 0.272 – Double-Sph. (200∘) 0.151 0.144 0.353 0.331 0.256 0.268 0.266 – 0.146 0.153 0.386 0.397 0.334 0.335 0.323 – EUCM (200∘) 0.159 0.148 0.346 0.335 0.265 0.265 0.271 – 0.149 0.156 0.381 0.389 0.325 0.314 0.309 – ERP (360∘) 0.387 0.374 0.348 0.352 0.351 0.376 0.347 – 0.405 0.382 0.388 0.413 0.392 0.401 0.428 – Cylind. (360∘) 0.342 0.274 0.302 0.337 0.361 0.347 0.310 – 0.356 0.370 0.374 0.400 0.360 0.370 0.334 – Structured3D PanoCity π3\\pi^{3} VGGT V-Ω\\Omega MapA π3\\pi^{3} VGGT V-Ω\\Omega MapA Camera nat. off. nat. off. nat. off. −-K +K nat. off. nat. off. nat. off. −-K +K Pinhole (90∘) 0.476 0.595 0.485 0.575 0.380 0.531 0.410 0.522 1.053 1.078 4.222 3.724 1.553 1.344 1.532 1.161 Brown–C. (90∘) 0.419 0.341 0.469 0.532 0.484 0.515 0.469 – 1.339 1.319 3.782 3.976 2.054 1.321 1.477 – FOV/ATAN (150∘) 0.496 0.516 0.562 0.468 0.489 0.496 0.403 – 1.795 1.720 6.213 5.701 1.852 1.927 1.904 – Equidist. (180∘) 0.355 0.358 0.592 0.497 0.484 0.568 0.427 – 2.171 2.000 6.639 5.861 2.184 2.244 2.023 – Stereogr. (180∘) 0.456 0.521 0.451 0.490 0.487 0.479 0.432 – 1.893 1.765 5.925 5.615 2.386 2.190 2.300 – ERP-Cr. (180∘) 0.546 0.581 0.538 0.443 0.522 0.511 0.480 – 2.509 2.641 3.072 3.250 2.773 2.694 3.031 – MEI (180∘) 0.326 0.386 0.584 0.498 0.523 0.561 0.417 – 2.143 1.966 5.992 6.418 2.295 2.277 2.128 – KB4 (200∘) 0.345 0.356 0.492 0.511 0.464 0.469 0.417 – 2.781 2.226 7.146 6.388 2.686 2.708 2.459 – Equisolid (200∘) 0.326 0.334 0.463 0.459 0.433 0.524 0.412 – 2.229 3.054 6.697 6.098 2.984 3.244 2.179 – Double-Sph. (200∘) 0.398 0.409 0.463 0.451 0.449 0.442 0.414 – 2.519 2.141 6.047 6.218 2.387 2.531 2.390 – EUCM (200∘) 0.447 0.402 0.589 0.469 0.509 0.417 0.395 – 2.543 2.138 7.112 6.369 2.450 2.492 2.556 – ERP (360∘) 0.381 0.504 0.383 0.511 0.432 0.453 0.322 – 1.097 0.853 1.046 0.978 1.073 1.105 0.905 – Cylind. (360∘) 0.414 0.449 0.369 0.419 0.423 0.449 0.372 – 3.132 2.011 2.812 2.537 2.063 1.884 1.838 –",
+      "imgs": []
+    },
+    {
+      "id": "A4.T18",
+      "caption": "Table 18: Two radial mappings at the same field of view. Acc↓\\downarrow (m) of two camera pairs covering the same solid angle (KB4 and Equisolid at 200∘200^{\\circ}, Equidistant and Stereographic at 180∘180^{\\circ}), with the R¯med\\overline{\\mathrm{R}}_{\\text{med}} (degrees) of the same arms below, so a change of Acc can be read against its change of pose. Matterport3D Stanford2D3DS Structured3D PanoCity Method KB4 Eqs. Eqd. Str. KB4 Eqs. Eqd. Str. KB4 Eqs. Eqd. Str. KB4 Eqs. Eqd. Str. Acc↓\\downarrow (m) Any3R 0.050 0.056 0.056 0.060 0.061 0.055 0.061 0.069 0.294 0.310 0.443 0.451 0.863 0.893 0.866 0.917 DA3 [34] 0.388 0.382 0.360 0.349 0.404 0.364 0.363 0.384 0.563 0.519 0.539 0.613 6.463 6.336 6.656 6.398 VGGT [57] 0.344 0.371 0.343 0.340 0.368 0.362 0.380 0.399 0.635 0.541 0.623 0.636 6.623 6.280 6.296 5.684 π3\\pi^{3} [61] 0.175 0.201 0.166 0.144 0.203 0.213 0.177 0.177 0.508 0.467 0.531 0.582 2.394 2.425 2.093 1.991 VGGT-Ω\\Omega [58] 0.243 0.254 0.215 0.246 0.320 0.305 0.288 0.328 0.653 0.643 0.693 0.636 2.680 3.065 2.162 2.624 MapAnything [25] 0.246 0.226 0.246 0.269 0.320 0.291 0.299 0.295 0.519 0.624 0.773 0.549 3.297 2.268 2.066 2.383 PanoVGGT [18] 0.240 0.233 0.248 0.262 0.261 0.250 0.270 0.293 0.568 0.512 0.542 0.615 2.405 2.316 2.498 2.501 R¯med↓\\overline{\\mathrm{R}}_{\\text{med}}\\downarrow (∘) of the same arm Any3R 3.10 7.36 8.61 9.03 6.13 2.73 4.82 5.26 12.72 12.75 29.54 23.21 3.49 3.74 2.69 3.47 DA3 49.45 58.80 55.00 59.44 50.54 42.27 67.73 48.43 96.91 86.65 95.54 88.26 38.78 39.03 38.12 41.40 VGGT 47.60 60.52 47.20 36.31 47.09 52.73 49.77 40.01 115.44 91.15 101.77 81.11 55.71 47.36 60.06 52.56 π3\\pi^{3} 14.96 14.59 12.20 10.89 25.88 29.76 18.93 16.22 37.52 42.28 39.78 43.62 37.06 80.55 34.73 26.32 VGGT-Ω\\Omega 20.85 20.71 18.92 22.08 36.78 35.62 34.08 35.88 40.27 39.13 38.66 34.43 39.31 51.54 33.50 34.36 MapAnything 32.54 34.02 33.63 33.86 41.89 44.74 43.03 43.40 49.66 59.14 41.73 44.40 41.86 34.06 27.59 43.24 PanoVGGT 9.21 13.41 13.11 8.89 15.95 20.03 18.56 19.27 30.47 19.23 16.84 26.58 7.45 10.20 12.06 10.03",
+      "imgs": []
+    },
+    {
+      "id": "A5.F9",
+      "caption": "Figure 9: Per-point error on the eight camera models. Same cells and same viewpoints as Fig. 6, with colour giving each point’s distance to the ground truth as a fraction of the scene radius. The colour scale is shared across all cells.",
+      "imgs": [
+        {
+          "src": "2610.36150v1/any3r_supp_error.png",
+          "id": "A5.F9.g1",
+          "class": "ltx_graphics ltx_centering ltx_img_landscape",
+          "style": "aspect-ratio:685/412;",
+          "width": "685",
+          "height": "412",
+          "alt": "Refer to caption"
+        }
+      ]
+    },
+    {
+      "id": "A5.tab1",
+      "caption": "Table 19: One checkpoint under three ray fields. Acc↓\\downarrow (m) averaged over the eight cameras of Tab. 5; Ang. err. is the mean angle between the field used and the true one, measured on the earlier per-camera pool. Ray field Ang. err. M3D S2D3DS S3D PanoCity True 0.0∘0.0^{\\circ} 0.059 0.067 0.442 0.920 Predicted 7.9∘7.9^{\\circ} 0.192 0.278 0.621 3.378 ERP fallback 35.8∘35.8^{\\circ} 0.243 0.263 0.579 2.299 Table 20: Camera pose on DL3DV, 60 scenes of real perspective photographs at 3 views each. AUC of the pairwise pose error at 5∘5^{\\circ} and 30∘30^{\\circ}, and R¯med\\overline{\\mathrm{R}}_{\\text{med}}, the per-scene median rotation error averaged over scenes. Method AUC@5∘↑5^{\\circ}\\uparrow AUC@30∘↑30^{\\circ}\\uparrow R¯med↓\\overline{\\mathrm{R}}_{\\text{med}}\\downarrow DA3 [34] 0.9022 0.9543 3.32∘ MapAnything [25] 0.7567 0.9196 8.69∘ π3\\pi^{3} [61] 0.7400 0.9206 8.82∘ Any3R 0.7211 0.9313 3.00∘ VGGT [57] 0.7011 0.9300 3.06∘ VGGT-Ω\\Omega [58] 0.6011 0.9135 3.34∘ PanoVGGT [18] 0.0000 0.0515 51.18∘",
+      "imgs": []
+    },
+    {
+      "id": "A5.T19",
+      "caption": "Table 19: One checkpoint under three ray fields. Acc↓\\downarrow (m) averaged over the eight cameras of Tab. 5; Ang. err. is the mean angle between the field used and the true one, measured on the earlier per-camera pool. Ray field Ang. err. M3D S2D3DS S3D PanoCity True 0.0∘0.0^{\\circ} 0.059 0.067 0.442 0.920 Predicted 7.9∘7.9^{\\circ} 0.192 0.278 0.621 3.378 ERP fallback 35.8∘35.8^{\\circ} 0.243 0.263 0.579 2.299",
+      "imgs": []
+    },
+    {
+      "id": "A5.T20",
+      "caption": "Table 20: Camera pose on DL3DV, 60 scenes of real perspective photographs at 3 views each. AUC of the pairwise pose error at 5∘5^{\\circ} and 30∘30^{\\circ}, and R¯med\\overline{\\mathrm{R}}_{\\text{med}}, the per-scene median rotation error averaged over scenes. Method AUC@5∘↑5^{\\circ}\\uparrow AUC@30∘↑30^{\\circ}\\uparrow R¯med↓\\overline{\\mathrm{R}}_{\\text{med}}\\downarrow DA3 [34] 0.9022 0.9543 3.32∘ MapAnything [25] 0.7567 0.9196 8.69∘ π3\\pi^{3} [61] 0.7400 0.9206 8.82∘ Any3R 0.7211 0.9313 3.00∘ VGGT [57] 0.7011 0.9300 3.06∘ VGGT-Ω\\Omega [58] 0.6011 0.9135 3.34∘ PanoVGGT [18] 0.0000 0.0515 51.18∘",
+      "imgs": []
+    },
+    {
+      "id": "A6.F10",
+      "caption": "Figure 10: One checkpoint with and without the ray map. Ray map is the true ray field and Fallback is the equirectangular one the backbone assumes when none is supplied. Colour is distance to the ground truth as a fraction of the scene radius, on the scale of Fig. 9. Every camera degrades when the ray map is withdrawn except the equirectangular one in the last row, where the fallback coincides with the true field and nothing changes.",
+      "imgs": [
+        {
+          "src": "2610.36150v1/any3r_supp_calib.png",
+          "id": "A6.F10.g1",
+          "class": "ltx_graphics ltx_centering ltx_img_landscape",
+          "style": "aspect-ratio:685/366;",
+          "width": "685",
+          "height": "366",
+          "alt": "Refer to caption"
+        }
+      ]
+    },
+    {
+      "id": "A7.F11",
+      "caption": "Figure 11: The eight central camera models. The same 360∘360^{\\circ} panorama imaged through each lens, so every difference in distortion and in coverage comes from the camera model alone. Under each panel: field of view, then the fraction of the sphere that lens observes. Overlaid graticule: equator in red, prime meridian in teal, 45∘45^{\\circ} meridians and 30∘30^{\\circ} parallels in white, and the region outside the image circle in light grey.",
+      "imgs": [
+        {
+          "src": "2610.36150v1/any3r_supp_cameras.png",
+          "id": "A7.F11.g1",
+          "class": "ltx_graphics ltx_centering ltx_img_landscape",
+          "style": "aspect-ratio:685/422;",
+          "width": "685",
+          "height": "422",
+          "alt": "Refer to caption"
+        }
+      ]
+    },
+    {
+      "id": "A7.F12",
+      "caption": "Figure 12: From one panorama to a native camera frame. Top: the source panorama with the footprints of a 90∘90^{\\circ} pinhole and a 200∘200^{\\circ} fisheye marked. Middle: the ray map with direction shown as colour, the validity mask, and the resampled image. Bottom: the same panorama through all eight models. A fresh camera is drawn per view during training.",
+      "imgs": [
+        {
+          "src": "2610.36150v1/any3r_supp_pipeline.png",
+          "id": "A7.F12.g1",
+          "class": "ltx_graphics ltx_centering ltx_img_landscape",
+          "style": "aspect-ratio:685/424;",
+          "width": "685",
+          "height": "424",
+          "alt": "Refer to caption"
+        }
+      ]
+    },
+    {
+      "id": "A8.F13",
+      "caption": "Figure 13: Acc against field of view, each method normalised by its own 90∘90^{\\circ} value and averaged over the three datasets. The left panel shows all seven general-purpose methods and the right one Any3R and the three that degrade least, on a magnified scale. Below one means the wider lens is the easier one for that method.",
+      "imgs": []
+    },
+    {
+      "id": "A9.F14",
+      "caption": "Figure 14: Real pinhole imagery on three DL3DV scenes with three views each. Every method fuses its own per-view points with its own predicted poses, one similarity transform fitted on the tracks of the released structure-from-motion reconstruction places each cloud, and each row is rendered from one viewpoint. Sky pixels are found once per input image and removed from every method, and each cloud drops its own farthest 10%10\\% of points from its own cameras.",
+      "imgs": [
+        {
+          "src": "2610.36150v1/dl3dv_recon.png",
+          "id": "A9.F14.g1",
+          "class": "ltx_graphics ltx_centering ltx_img_landscape",
+          "style": "aspect-ratio:685/306;",
+          "width": "685",
+          "height": "306",
+          "alt": "Refer to caption"
+        }
+      ]
+    },
+    {
+      "id": "A10.T21",
+      "caption": "Table 21: Cropping every camera to a narrower field of view. Median Acc↓\\downarrow (m) over 10 scenes when each input is centre-cropped to half its angular radius and resized back, scored against the ground-truth points the crop can see. Dataset Camera (FoV after crop) Any3R π3\\pi^{3} [61] MapAnything [25] DA3 [34] VGGT-Ω\\Omega [58] VGGT [57] PanoVGGT [18] Matterport3D Pinhole (53∘) 0.0681 0.0619 0.0749 0.0669 0.0513 0.0927 0.2134 Brown–Conrady (53∘) 0.0574 0.0488 0.0778 0.0575 0.0509 0.0841 0.2412 Equidistant (90∘) 0.0622 0.0698 0.1332 0.0865 0.0872 0.1098 0.2178 KB4 (100∘) 0.0720 0.0793 0.1205 0.0890 0.0976 0.1222 0.2224 ERP (180∘) 0.0717 0.2182 0.2476 0.2890 0.2660 0.2512 0.2567 Stanford2D3DS Pinhole (53∘) 0.0521 0.0403 0.0485 0.0391 0.0364 0.0910 0.2362 Brown–Conrady (53∘) 0.0543 0.0413 0.1034 0.0481 0.0482 0.0794 0.2470 Equidistant (90∘) 0.0785 0.0826 0.1301 0.1058 0.1135 0.1092 0.2352 KB4 (100∘) 0.0780 0.0864 0.1426 0.1053 0.1216 0.1262 0.2475 ERP (180∘) 0.0593 0.2466 0.3474 0.2839 0.2982 0.2972 0.3294",
+      "imgs": []
+    },
+    {
+      "id": "A10.F15",
+      "caption": "Figure 15: One camera per row, one crop per column, on Matterport3D. The inset in each cell is the input that produced it, and the pair of numbers is its Acc and the field of view left after cropping. The viewpoint is shared along a row, so a row shows the field of view narrowing and the reconstruction shrinking together.",
+      "imgs": [
+        {
+          "src": "2610.36150v1/any3r_crop_qual.png",
+          "id": "A10.F15.g1",
+          "class": "ltx_graphics ltx_centering ltx_img_landscape",
+          "style": "aspect-ratio:685/378;",
+          "width": "685",
+          "height": "378",
+          "alt": "Refer to caption"
+        }
+      ]
+    },
+    {
+      "id": "A10.F16",
+      "caption": "Figure 16: Accuracy against field of view with the camera held fixed. Each input is centre-cropped to 1.001.00, 0.750.75, 0.500.50, 0.350.35 and 0.200.20 of its width and resized back, so only the field of view changes. Reading a curve right to left is reading what a narrower lens costs.",
+      "imgs": []
+    },
+    {
+      "id": "A11.F17",
+      "caption": "Figure 17: Convergence of an earlier full run. Forty epochs from the original initialisation on eight A100s, evaluated under the paper protocol at 518×1036518{\\times}1036 on equirectangular input. Dashed lines give the released panoramic baseline on the same protocol; the shaded band is the warm-up.",
+      "imgs": []
+    },
+    {
+      "id": "A12.T22",
+      "caption": "Table 22: Accuracy of the three rotary-frequency configurations. Acc↓\\downarrow (m) averaged over the cameras of Tab. 5 at each field of view, as the mean and as the median over the scenes of each cell. Matterport3D Stanford2D3DS Structured3D PanoCity FoV const. FoV split const. FoV split const. FoV split const. FoV split mean over scenes 90∘ 0.066 0.084 0.083 0.084 0.083 0.084 0.783 0.690 0.732 1.185 1.272 1.202 180∘ 0.042 0.054 0.053 0.049 0.065 0.059 0.334 0.431 0.436 0.734 0.839 0.844 200∘ 0.044 0.055 0.053 0.054 0.070 0.063 0.233 0.354 0.317 0.805 1.070 0.882 360∘ 0.047 0.045 0.045 0.069 0.053 0.064 0.126 0.197 0.128 0.645 0.760 0.663 median over scenes 90∘ 0.057 0.061 0.058 0.057 0.068 0.061 0.406 0.417 0.427 1.059 1.048 1.121 180∘ 0.039 0.051 0.048 0.038 0.047 0.047 0.151 0.293 0.323 0.657 0.803 0.804 200∘ 0.043 0.054 0.050 0.042 0.055 0.053 0.105 0.190 0.227 0.680 1.007 0.877 360∘ 0.044 0.045 0.045 0.042 0.043 0.042 0.046 0.086 0.048 0.600 0.648 0.587",
+      "imgs": []
+    }
+  ],
+  "retrieved_at": "2026-11-02T15:52:33.888036+00:00"
+}

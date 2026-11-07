@@ -1,0 +1,128 @@
+{
+  "id": "2610.35806",
+  "version": 1,
+  "url": "https://arxiv.org/html/2610.35806v1",
+  "path": "C:\\Users\\gongy\\Documents\\每周行业进展-fromAI\\reports\\2026-10-24_2026-11-01_work\\geometry-deep-2610.35806v1.html",
+  "char_count": 41005,
+  "headings": [
+    "Report GitHub Issue",
+    "Does VGGT Know What It Does Not Know?",
+    "1 Introduction",
+    "2 Related Work",
+    "Feed-forward 3D reconstruction.",
+    "Uncertainty of feed-forward reconstruction.",
+    "What 3D foundation models encode.",
+    "Probing, self-knowledge and failure prediction.",
+    "3 Method",
+    "Model and inputs.",
+    "3.1 Defining failure",
+    "Pairs without ground-truth poses (HardMatch).",
+    "Pairs with ground-truth poses (PhotoTourism, ScanNet-1500).",
+    "3.2 Probing for failure",
+    "Features.",
+    "Probe and protocol.",
+    "Baselines from VGGT’s own outputs.",
+    "4 Experiments",
+    "4.1 Setup",
+    "Protocol.",
+    "4.2 HardMatch: does VGGT encode its own failures?",
+    "The features know more than the outputs.",
+    "Robustness.",
+    "Where the signal emerges.",
+    "A second model: π3\\pi^{3}.",
+    "Confidently wrong predictions.",
+    "Per category.",
+    "Using the signal: selective prediction.",
+    "A negative result: routing to a matcher.",
+    "4.3 PhotoTourism: transfer to rotation failures",
+    "VGGT rarely fails on landmark photographs.",
+    "The HardMatch probe transfers.",
+    "It is not just co-visibility.",
+    "Multi-view graphs: no downstream gain.",
+    "More than two views.",
+    "4.4 ScanNet-1500: failure modes differ",
+    "VGGT’s indoor failures are translation failures.",
+    "Transfer depends on the failure mode.",
+    "5 Limitations",
+    "6 Conclusion",
+    "References"
+  ],
+  "figures": [
+    {
+      "id": "S0.F1",
+      "caption": "Figure 1: VGGT is confidently wrong, but its features know. Left: an aerial and a ground view of the same gate. VGGT is more confident on this pair than on 74%74\\% of HardMatch pairs, yet the epipolar lines implied by its predicted cameras miss the annotated points by 141141 px; a linear probe on its frozen features flags the failure. Right: ROC-AUC for predicting VGGT’s pose failures on held-out HardMatch categories, from VGGT’s own confidence and from the probe, on all pairs and on the half of the pairs VGGT is most confident about.",
+      "imgs": []
+    },
+    {
+      "id": "S4.T1",
+      "caption": "Table 1: Datasets. Ground truth (hand-annotated correspondences, about 1111 per pair, or poses), the failure definition used for each, and VGGT’s failure rate on image pairs. Dataset Pairs GT Failure Rate HardMatch [18] 903 corresp. epi. >50>50 px 34.9%34.9\\% PhotoTourism [10] 1,262 SfM eR>15∘e_{R}>15^{\\circ} 1.7%1.7\\% ScanNet-1500 [22] 1,500 RGB-D epose>15∘e_{\\text{pose}}>15^{\\circ} 7.7%7.7\\%",
+      "imgs": []
+    },
+    {
+      "id": "S4.F2",
+      "caption": "Figure 2: The probe catches failures VGGT is confident about. Top: first image with hand-annotated points. Bottom: second image with the epipolar lines implied by VGGT’s own predicted cameras (same colour as the point); for a correct pose each point lies on its line. “conf.”: percentile of VGGT’s point-map confidence among all pairs (higher = more confident); “probe”: out-of-fold failure probability. (a)–(c) VGGT is confident but wrong (aerial vs. ground view, large viewpoint change, photograph vs. drawing) and the probe flags it. (d) VGGT is unconfident but correct, and the probe does not flag it. (e) A miss: extreme zoom on a confidently wrong pair.",
+      "imgs": [
+        {
+          "src": "2610.35806v1/fig_qualitative.png",
+          "id": "S4.F2.g1",
+          "class": "ltx_graphics ltx_centering ltx_img_landscape",
+          "style": "aspect-ratio:685/308;",
+          "width": "685",
+          "height": "308",
+          "alt": "Refer to caption"
+        }
+      ]
+    },
+    {
+      "id": "S4.T2",
+      "caption": "Table 2: VGGT’s features know more about its failures than anything it outputs. Predicting VGGT’s pose failures on HardMatch (failure: median epipolar error >50>50 px). ROC-AUC (%) with 95%95\\% category-bootstrap CI, and average precision (AP, %). All learned rows use the same category-grouped cross-validation. Predictor ROC-AUC (%) AP (%) VGGT’s own outputs Point-map conf. (min of pair) 79.779.7 [76.6, 82.4] 60.460.4 Depth conf. (min of pair) 66.566.5 [62.8, 69.9] 47.547.5 Image sharpness (min) 57.757.7 [53.2, 62.1] 44.044.0 Predicted rel. rotation 62.962.9 [58.5, 67.1] 43.143.1 Predicted focal ratio 51.151.1 [46.6, 55.4] 37.137.1 Classifiers trained on VGGT’s outputs All confidence statistics 75.275.2 [71.9, 78.7] 58.458.4 All VGGT outputs 77.777.7 [73.8, 80.8] 59.559.5 Linear probes on frozen features ViT block 6 59.359.3 [54.6, 64.0] 43.843.8 ViT block 12 64.664.6 [59.9, 69.4] 48.748.7 ViT block 23 65.065.0 [60.3, 69.6] 48.348.3 Aggregator, last frame-attn 93.7\\mathbf{93.7} [92.0, 95.4] 88.488.4 Aggregator, last global-attn 93.5\\mathbf{93.5} [91.7, 95.2] 87.487.4 Camera token 93.293.2 [91.4, 94.9] 87.387.3 Camera trunk input 93.393.3 [91.4, 95.1] 88.5\\mathbf{88.5}",
+      "imgs": []
+    },
+    {
+      "id": "S4.T3",
+      "caption": "Table 3: The result is robust to the failure threshold and to every control we tried (HardMatch, ROC-AUC, %). Top: failure threshold. Bottom: controls and probe variants (global_last unless noted). Threshold Fail rate Probe Point conf. All outputs 1010 px 64%64\\% 91.1\\mathbf{91.1} 72.872.8 73.873.8 2020 px 51%51\\% 92.9\\mathbf{92.9} 76.076.0 76.676.6 5050 px 35%35\\% 93.5\\mathbf{93.5} 79.779.7 77.777.7 100100 px 25%25\\% 92.4\\mathbf{92.4} 77.877.8 76.976.9 Controls and probe variants Probe Shuffled labels (control) 51.651.6 Image size and aspect only (control) 49.849.8 5 folds / official test split only 93.493.4 / 93.793.7 Without 45 near-zero-baseline pairs 93.493.4 All seven layers / frame-attn + global-attn 93.293.2 / 93.493.4 Concatenated views / mean +|A−B|+\\,|A-B| 93.493.4 / 93.793.7 PCA 3232 / 6464 / 256256 dims 93.493.4 / 93.793.7 / 93.593.5 ViT blocks 6+12+23 combined 64.164.1",
+      "imgs": []
+    },
+    {
+      "id": "S4.F3",
+      "caption": "Figure 3: Failure awareness emerges abruptly in the middle of the network, in both models. ROC-AUC for predicting VGGT’s pose failures on HardMatch from every block of (a) VGGT and (b) π3\\pi^{3}, with a linear probe (blue) and with one training-free number, the cosine similarity between the two views’ pooled features (orange). Dashed: the model’s own confidence. Shaded: the per-image encoder. The probe is flat through the encoder and the first half of the cross-view layers, then rises within a few blocks; only in VGGT does the training-free similarity follow.",
+      "imgs": []
+    },
+    {
+      "id": "S4.T4",
+      "caption": "Table 4: A second model, π3\\pi^{3}, shows the same gap between its features and its confidence. HardMatch, same pairs, failure definition and protocol. ROC-AUC (%) unless stated; “most confident half”: the half of the pairs on which the model’s own confidence is highest. VGGT π3\\pi^{3} Failure rate (>50>50 px) 34.9%34.9\\% 34.6%34.6\\% mAA@10 px (test split) 19.919.9 18.418.4 Own confidence (min of pair) 79.779.7 62.262.2 All outputs (learned) 77.777.7 76.976.9 Probe, best of encoder blocks 6/12/23 65.065.0 66.366.3 Probe, last attention block 93.5\\mathbf{93.5} 91.7\\mathbf{91.7} Probe, camera head 93.293.2 88.788.7 Cross-view cosine, best block 83.783.7 68.768.7 Most confident half: failure rate 12.2%12.2\\% 27.3%27.3\\% own confidence 69.969.9 52.852.8 probe 90.0\\mathbf{90.0} 92.7\\mathbf{92.7}",
+      "imgs": []
+    },
+    {
+      "id": "S4.F4",
+      "caption": "Figure 4: Within each level of confidence, VGGT’s confidence is near chance; the probe is not. HardMatch pairs split into quartiles of VGGT’s point-map confidence. Bars: VGGT’s failure rate. Lines: ROC-AUC for predicting failure within each quartile.",
+      "imgs": []
+    },
+    {
+      "id": "S4.F5",
+      "caption": "Figure 5: The probe beats VGGT’s confidence in every HardMatch category but one. Bars: VGGT’s failure rate. Markers: AUC of the probe (filled) and of point-map confidence (open).",
+      "imgs": []
+    },
+    {
+      "id": "S4.F6",
+      "caption": "Figure 6: Abstaining on the pairs the probe distrusts removes most of VGGT’s failures. Keeping the pairs ranked most reliable by each score: failure rate (left) and mAA@10 px (right) of the kept pairs. Oracle: ranked by true error.",
+      "imgs": []
+    },
+    {
+      "id": "S4.T5",
+      "caption": "Table 5: The HardMatch probe transfers to rotation failures on PhotoTourism, beyond co-visibility. Top: VGGT’s rotation failures by co-visibility. Bottom: ROC-AUC (%) for rotation failures of the HardMatch probe (no retraining), VGGT’s confidence, ground-truth co-visibility (not available at test time) and a probe trained on PhotoTourism itself (scene-grouped CV). “low covis.”: pairs with co-visibility <0.02<0.02 only. Co-visibility <0.02<0.02 0.020.02–0.10.1 0.10.1–0.30.3 >0.3>0.3 Pairs 302 320 320 320 eR>15∘e_{R}>15^{\\circ} 6.6%6.6\\% 0.3%0.3\\% 0.0%0.0\\% 0.3%0.3\\% all pairs low covis. eR>10∘e_{R}>10^{\\circ} eR>15∘e_{R}>15^{\\circ} eR>10∘e_{R}>10^{\\circ} eR>15∘e_{R}>15^{\\circ} #failures 25 22 21 20 HardMatch probe 94.6\\mathbf{94.6} 97.5\\mathbf{97.5} 86.9\\mathbf{86.9} 89.5\\mathbf{89.5} VGGT confidence 88.588.5 90.690.6 79.579.5 79.279.2 GT co-visibility 87.087.0 89.889.8 74.374.3 75.775.7 In-domain probe 95.195.1 89.189.1 – –",
+      "imgs": []
+    },
+    {
+      "id": "S4.T6",
+      "caption": "Table 6: More views remove most failures; the few left are hard to rank for both the probe and confidence (PhotoTourism, 9696 sets of 1616 images). Top: failure rate of the same 2,3042{,}304 pairs when VGGT sees 22, 44, 88 or 1616 views per forward pass. Bottom: all pairs of each setting; ROC-AUC (%) for rotation errors above 5∘5^{\\circ} of the HardMatch probe (trained on two-view pairs, no retraining) and of VGGT’s confidence. With 2828–8383 failures per setting, the 95%95\\% confidence intervals span more than 4040 points. Views per forward pass 22 44 88 1616 Same pairs: eR>5∘e_{R}>5^{\\circ} 3.6%3.6\\% 1.4%1.4\\% 0.5%0.5\\% 0.3%0.3\\% Same pairs: eR>15∘e_{R}>15^{\\circ} 0.9%0.9\\% 0.3%0.3\\% 0.0%0.0\\% 0.0%0.0\\% All pairs 2,304 2,304 5,376 11,520 failures (eR>5∘e_{R}>5^{\\circ}) 83 33 28 35 HardMatch probe (2-view) 81.581.5 82.682.6 74.274.2 86.386.3 VGGT confidence 91.291.2 90.490.4 92.992.9 82.182.1",
+      "imgs": []
+    },
+    {
+      "id": "S4.T7",
+      "caption": "Table 7: On ScanNet, the probe transfers to rotation failures but not to short-baseline translation failures. Top: VGGT’s errors by true camera baseline; translation-direction errors dominate at short baselines. Bottom: ROC-AUC (%) of the HardMatch probe (no retraining), VGGT’s confidence and a probe trained on ScanNet itself (scene-grouped CV), by failure type. epose=max⁡(eR,et)e_{\\text{pose}}=\\max(e_{R},e_{t}). True baseline <10<10 cm 1010–2020 cm 2020–4040 cm >40>40 cm Pairs 83 173 292 952 et>15∘e_{t}>15^{\\circ} 47.0%47.0\\% 27.2%27.2\\% 6.8%6.8\\% 0.9%0.9\\% eR>5∘e_{R}>5^{\\circ} 0.0%0.0\\% 0.0%0.0\\% 0.3%0.3\\% 3.3%3.3\\% Failure #fail HM probe Confidence In-domain eR>5∘e_{R}>5^{\\circ} 32 79.579.5 58.758.7 82.3\\mathbf{82.3} epose>10∘e_{\\text{pose}}>10^{\\circ} 202 47.647.6 61.061.0 90.5\\mathbf{90.5} epose>15∘e_{\\text{pose}}>15^{\\circ} 115 44.244.2 63.663.6 91.0\\mathbf{91.0}",
+      "imgs": []
+    }
+  ],
+  "retrieved_at": "2026-11-02T15:52:26.493141+00:00"
+}

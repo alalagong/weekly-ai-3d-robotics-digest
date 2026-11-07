@@ -1,0 +1,10 @@
+{
+  "run_at": "2026-11-01T14:59:32Z",
+  "coverage_start_exclusive": "2026-10-24T08:17:58Z",
+  "coverage_end_inclusive": "2026-11-01T14:59:32Z",
+  "display_timezone": "Asia/Shanghai",
+  "initial_network_failure": "Sandbox urllib DNS getaddrinfo11001; approved read-only external fetch works",
+  "category_inventory_count": 1566,
+  "category_candidates": 296,
+  "audit_seed_count": 37
+}

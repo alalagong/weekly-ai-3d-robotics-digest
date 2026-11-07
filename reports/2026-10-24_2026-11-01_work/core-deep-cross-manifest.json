@@ -1,0 +1,77 @@
+{
+  "abs-2510.18991": {
+    "url": "https://arxiv.org/abs/2510.18991",
+    "retrieved_at": "2026-11-02T15:56:41Z",
+    "status": "success",
+    "bytes": 43065,
+    "path": "core-deep-cross-abs-2510.18991.html",
+    "history_raw": "Submission history From: Marios Xanthidis [ view email ] [v1] Tue, 21 Oct 2025 18:15:31 UTC (14,371 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2025-10-21T18:15:31Z"
+      }
+    ]
+  },
+  "abs-2604.14141": {
+    "url": "https://arxiv.org/abs/2604.14141",
+    "retrieved_at": "2026-11-02T15:56:41Z",
+    "status": "success",
+    "bytes": 43732,
+    "path": "core-deep-cross-abs-2604.14141.html",
+    "history_raw": "Submission history From: Yinghao Xu [ view email ] [v1] Wed, 15 Apr 2026 17:58:13 UTC (19,761 KB) [v2] Thu, 16 Apr 2026 16:44:56 UTC (19,762 KB) [v3] Tue, 8 Sep 2026 16:51:09 UTC (18,539 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2026-04-15T17:58:13Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-04-16T16:44:56Z"
+      },
+      {
+        "version": 3,
+        "utc": "2026-09-08T16:51:09Z"
+      }
+    ]
+  },
+  "abs-2504.06479": {
+    "url": "https://arxiv.org/abs/2504.06479",
+    "retrieved_at": "2026-11-02T15:56:41Z",
+    "status": "success",
+    "bytes": 46757,
+    "path": "core-deep-cross-abs-2504.06479.html",
+    "history_raw": "Submission history From: Julian Nubert [ view email ] [v1] Tue, 8 Apr 2025 22:54:52 UTC (33,832 KB) [v2] Thu, 16 Jul 2026 22:15:43 UTC (9,003 KB)",
+    "version_history": [
+      {
+        "version": 1,
+        "utc": "2025-04-08T22:54:52Z"
+      },
+      {
+        "version": 2,
+        "utc": "2026-07-16T22:15:43Z"
+      }
+    ]
+  },
+  "project-svin": {
+    "url": "https://cmburgul.github.io/projects/svin+/",
+    "retrieved_at": "2026-11-02T15:56:41Z",
+    "status": "success",
+    "bytes": 18155,
+    "path": "core-deep-cross-project-svin.html"
+  },
+  "project-svin-placeholder": {
+    "url": "https://dartmouthrobotics.github.io/svin-plus/",
+    "retrieved_at": "2026-11-02T15:56:41Z",
+    "status": "success",
+    "bytes": 1944,
+    "path": "core-deep-cross-project-svin-placeholder.html"
+  },
+  "api-cross": {
+    "url": "https://export.arxiv.org/api/query?id_list=2510.18991,2604.14141,2504.06479",
+    "retrieved_at": "2026-11-02T15:56:42Z",
+    "status": "success",
+    "bytes": 8949,
+    "path": "core-deep-cross-api-cross.xml"
+  }
+}

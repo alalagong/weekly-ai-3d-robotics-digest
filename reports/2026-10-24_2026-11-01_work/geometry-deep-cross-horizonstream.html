@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HorizonStream | NeurIPS 2026</title>
+    <meta
+      name="description"
+      content="HorizonStream: Long-Horizon Attention for Streaming 3D Reconstruction. Accepted to NeurIPS 2026."
+    />
+    <meta
+      name="keywords"
+      content="HorizonStream, streaming 3D reconstruction, visual geometry, long-horizon attention, geometric linear attention"
+    />
+    <meta name="theme-color" content="#f7f8fb" />
+    <meta property="og:title" content="HorizonStream | NeurIPS 2026" />
+    <meta
+      property="og:description"
+      content="NeurIPS 2026. A long-horizon Transformer for stable streaming 3D reconstruction with bounded memory and linear time."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./static/images/qualitative-geometry.png" />
+    <link rel="icon" href="./static/images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./static/css/index.css" />
+    <!-- Preload first scene videos for instant playback -->
+    <link rel="preload" as="video" href="./example/render/office/render.mp4" />
+    <link rel="preload" as="video" href="./example/render/office/rgb.mp4" />
+    <link rel="preload" as="video" href="./example/render/office/dpt.mp4" />
+    <link rel="preload" as="video" href="./example/render/office/minimap_h264.mp4" />
+    <script defer src="./static/js/index.js"></script>
+    <script type="module" src="./static/js/pointcloud-viewer.js"></script>
+  </head>
+  <body>
+    <canvas class="field-canvas" id="field-canvas" aria-hidden="true"></canvas>
+
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="HorizonStream home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>HorizonStream</span>
+      </a>
+      <nav class="nav" aria-label="Page navigation">
+        <a href="#gallery">Gallery</a>
+        <a href="#abstract">Abstract</a>
+        <a href="#method">Method</a>
+        <a href="#bibtex">BibTeX</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <h1>
+            HorizonStream
+            <span>Long-Horizon Attention for Streaming 3D Reconstruction</span>
+          </h1>
+
+          <p class="venue">NeurIPS 2026</p>
+
+          <div class="authors" aria-label="Authors">
+            <span>Chong Cheng<sup>1,2</sup></span>
+            <span>Peilin Tao<sup>2,3</sup></span>
+            <span>Nanjie Yao<sup>1</sup></span>
+            <span>Guanzhi Ding<sup>1</sup></span>
+            <span>Xianda Chen<sup>4</sup></span>
+            <span>Yuansen Du<sup>2</sup></span>
+            <span>Xiaoyang Guo<sup>2</sup></span>
+            <span>Wei Yin<sup>2</sup></span>
+            <span>Weiqiang Ren<sup>2</sup></span>
+            <span>Qian Zhang<sup>2</sup></span>
+            <span>Zhengqing Chen<sup>2,&Dagger;</sup></span>
+            <span>Hao Wang<sup>1,&dagger;</sup></span>
+          </div>
+
+          <div class="affiliations" aria-label="Affiliations">
+            <span><sup>1</sup>HKUST(GZ)</span>
+            <span><sup>2</sup>Horizon Robotics</span>
+            <span><sup>3</sup>CASIA</span>
+            <span><sup>4</sup>CSU</span>
+          </div>
+
+          <div class="actions" aria-label="Project links">
+            <a class="pill primary" href="./static/paper/HorizonStream.pdf" target="_blank" rel="noreferrer">
+              Paper
+            </a>
+            <a class="pill" href="https://arxiv.org/abs/2605.23889" target="_blank" rel="noreferrer">ArXiv</a>
+            <a class="pill" href="https://huggingface.co/NicolasCC/HorizonStream" target="_blank" rel="noreferrer">Model</a>
+            <a
+              class="pill primary"
+              href="https://github.com/3DAgentWorld/HorizonStream/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+            <a class="pill" href="https://huggingface.co/spaces/NicolasCC/HorizonStream_Demo" target="_blank" rel="noreferrer">Demo</a>
+          </div>
+        </div>
+
+        <section class="project-gallery" id="gallery" aria-label="Streaming reconstruction gallery">
+          <div class="gallery-stage">
+            <div class="gallery-loading" id="gallery-loading"><div class="spinner"></div></div>
+            <div class="input-stack">
+              <figure class="media-panel input-panel">
+                <video
+                  id="gallery-input"
+                  muted
+                  playsinline
+                  preload="auto"
+                  poster="./example/render/office/rgb_poster.jpg"
+                ></video>
+                <figcaption>RGB Stream</figcaption>
+              </figure>
+              <div class="instrument-strip" aria-label="Auxiliary visualizations">
+                <div class="instrument-tile minimap-tile">
+                  <span>Camera Pose</span>
+                  <video
+                    id="gallery-minimap"
+                    muted
+                    playsinline
+                    preload="auto"
+                    poster="./example/render/office/minimap_h264_poster.jpg"
+                  ></video>
+                </div>
+                <div class="instrument-tile depth-tile">
+                  <span>Depth</span>
+                  <video
+                    id="gallery-depth"
+                    muted
+                    playsinline
+                    preload="auto"
+                    poster="./example/render/office/dpt_poster.jpg"
+                  ></video>
+                </div>
+              </div>
+            </div>
+
+            <figure class="output-panel">
+              <div class="render-main">
+                <video
+                  id="gallery-render"
+                  muted
+                  playsinline
+                  preload="auto"
+                  poster="./example/render/office/render_poster.jpg"
+                ></video>
+                <figcaption>Point Cloud Render</figcaption>
+              </div>
+            </figure>
+          </div>
+
+          <div class="scene-rail" role="tablist" aria-label="Gallery scenes">
+            <button
+              class="scene-button active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              data-scene="Office"
+              data-distance="indoor sequence"
+              data-frames="rgb + render + depth"
+              data-mode="render set"
+              data-input="./example/render/office/rgb.mp4"
+              data-render="./example/render/office/render.mp4"
+              data-minimap="./example/render/office/minimap_h264.mp4"
+              data-depth="./example/render/office/dpt.mp4"
+              data-input-poster="./example/render/office/rgb_poster.jpg"
+              data-render-poster="./example/render/office/render_poster.jpg"
+              data-minimap-poster="./example/render/office/minimap_h264_poster.jpg"
+              data-depth-poster="./example/render/office/dpt_poster.jpg"
+            >
+              <video src="./example/render/office/rgb.mp4" autoplay muted loop playsinline preload="metadata"></video>
+              <strong>Office</strong>
+            </button>
+            <button
+              class="scene-button"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-scene="Cyberpunk"
+              data-distance="urban sequence"
+              data-frames="rgb + render + depth"
+              data-mode="render set"
+              data-input="./example/render/cyberpunk/rgb.mp4"
+              data-render="./example/render/cyberpunk/render.mp4"
+              data-minimap="./example/render/cyberpunk/minimap_h264.mp4"
+              data-depth="./example/render/cyberpunk/dpt.mp4"
+              data-input-poster="./example/render/cyberpunk/rgb_poster.jpg"
+              data-render-poster="./example/render/cyberpunk/render_poster.jpg"
+              data-minimap-poster="./example/render/cyberpunk/minimap_h264_poster.jpg"
+              data-depth-poster="./example/render/cyberpunk/dpt_poster.jpg"
+            >
+              <video src="./example/render/cyberpunk/rgb.mp4" autoplay muted loop playsinline preload="metadata"></video>
+              <strong>Cyberpunk</strong>
+            </button>
+            <button
+              class="scene-button"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-scene="KITTI 07"
+              data-distance="street sequence"
+              data-frames="rgb + render + depth"
+              data-mode="render set"
+              data-input="./example/render/kitti-07/rgb.mp4"
+              data-render="./example/render/kitti-07/render.mp4"
+              data-minimap="./example/render/kitti-07/minimap_h264.mp4"
+              data-depth="./example/render/kitti-07/dpt.mp4"
+              data-input-poster="./example/render/kitti-07/rgb_poster.jpg"
+              data-render-poster="./example/render/kitti-07/render_poster.jpg"
+              data-minimap-poster="./example/render/kitti-07/minimap_h264_poster.jpg"
+              data-depth-poster="./example/render/kitti-07/dpt_poster.jpg"
+            >
+              <video src="./example/render/kitti-07/rgb.mp4" autoplay muted loop playsinline preload="metadata"></video>
+              <strong>KITTI 07</strong>
+            </button>
+            <button
+              class="scene-button"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-scene="KITTI 09"
+              data-distance="street sequence"
+              data-frames="rgb + render + depth"
+              data-mode="render set"
+              data-input="./example/render/kitti-09/rgb.mp4"
+              data-render="./example/render/kitti-09/render.mp4"
+              data-minimap="./example/render/kitti-09/minimap_h264.mp4"
+              data-depth="./example/render/kitti-09/dpt.mp4"
+              data-input-poster="./example/render/kitti-09/rgb_poster.jpg"
+              data-render-poster="./example/render/kitti-09/render_poster.jpg"
+              data-minimap-poster="./example/render/kitti-09/minimap_h264_poster.jpg"
+              data-depth-poster="./example/render/kitti-09/dpt_poster.jpg"
+            >
+              <video src="./example/render/kitti-09/rgb.mp4" autoplay muted loop playsinline preload="metadata"></video>
+              <strong>KITTI 09</strong>
+            </button>
+            <button
+              class="scene-button"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-scene="Lab"
+              data-distance="indoor sequence"
+              data-frames="rgb + render + depth"
+              data-mode="render set"
+              data-input="./example/render/lab/rgb.mp4"
+              data-render="./example/render/lab/render.mp4"
+              data-minimap="./example/render/lab/minimap_h264.mp4"
+              data-depth="./example/render/lab/dpt.mp4"
+              data-input-poster="./example/render/lab/rgb_poster.jpg"
+              data-render-poster="./example/render/lab/render_poster.jpg"
+              data-minimap-poster="./example/render/lab/minimap_h264_poster.jpg"
+              data-depth-poster="./example/render/lab/dpt_poster.jpg"
+            >
+              <video src="./example/render/lab/rgb.mp4" autoplay muted loop playsinline preload="metadata"></video>
+              <strong>Lab</strong>
+            </button>
+            <button
+              class="scene-button"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-scene="Car Plant"
+              data-distance="industrial sequence"
+              data-frames="rgb + render + depth"
+              data-mode="render set"
+              data-input="./example/render/carplant/rgb.mp4"
+              data-render="./example/render/carplant/render.mp4"
+              data-minimap="./example/render/carplant/minimap_h264.mp4"
+              data-depth="./example/render/carplant/dpt.mp4"
+              data-input-poster="./example/render/carplant/rgb_poster.jpg"
+              data-render-poster="./example/render/carplant/render_poster.jpg"
+              data-minimap-poster="./example/render/carplant/minimap_h264_poster.jpg"
+              data-depth-poster="./example/render/carplant/dpt_poster.jpg"
+            >
+              <video src="./example/render/carplant/rgb.mp4" autoplay muted loop playsinline preload="metadata"></video>
+              <strong>Car Plant</strong>
+            </button>
+            <button
+              class="scene-button"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-scene="Oxford College"
+              data-distance="campus sequence"
+              data-frames="rgb + render + depth"
+              data-mode="render set"
+              data-input="./example/render/oxford-college/rgb.mp4"
+              data-render="./example/render/oxford-college/render.mp4"
+              data-minimap="./example/render/oxford-college/minimap_h264.mp4"
+              data-depth="./example/render/oxford-college/dpt.mp4"
+              data-input-poster="./example/render/oxford-college/rgb_poster.jpg"
+              data-render-poster="./example/render/oxford-college/render_poster.jpg"
+              data-minimap-poster="./example/render/oxford-college/minimap_h264_poster.jpg"
+              data-depth-poster="./example/render/oxford-college/dpt_poster.jpg"
+            >
+              <video src="./example/render/oxford-college/rgb.mp4" autoplay muted loop playsinline preload="metadata"></video>
+              <strong>Oxford College</strong>
+            </button>
+            <button
+              class="scene-button"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-scene="Oxford Quarter"
+              data-distance="campus sequence"
+              data-frames="rgb + render + depth"
+              data-mode="render set"
+              data-input="./example/render/oxford-quarter/rgb.mp4"
+              data-render="./example/render/oxford-quarter/render.mp4"
+              data-minimap="./example/render/oxford-quarter/minimap_h264.mp4"
+              data-depth="./example/render/oxford-quarter/dpt.mp4"
+              data-input-poster="./example/render/oxford-quarter/rgb_poster.jpg"
+              data-render-poster="./example/render/oxford-quarter/render_poster.jpg"
+              data-minimap-poster="./example/render/oxford-quarter/minimap_h264_poster.jpg"
+              data-depth-poster="./example/render/oxford-quarter/dpt_poster.jpg"
+            >
+              <video src="./example/render/oxford-quarter/rgb.mp4" autoplay muted loop playsinline preload="metadata"></video>
+              <strong>Oxford Quarter</strong>
+            </button>
+          </div>
+        </section>
+      </section>
+
+      <section class="section abstract-section" id="abstract">
+        <div class="section-head">
+          <p class="eyebrow">Abstract</p>
+          <h2>Stable 3D streaming beyond<span>10K frames, without reset.</span></h2>
+        </div>
+        <div class="abstract-grid">
+          <div class="abstract-text">
+            <p>
+              Online 3D reconstruction must estimate camera pose and scene geometry causally with a bounded state. Existing streaming methods often drift, jitter, or collapse on long sequences because their influence patterns mismatch the temporal heterogeneity of geometry: short-lived correspondences and persistent global scale must coexist, yet sliding windows impose hard cutoffs, while ungated recurrence and causal attention can saturate caches and form spike-like attention sinks.
+            </p>
+            <p>
+              We address this by formalizing geometric propagation as an <em>evidence influence kernel</em> and introducing HorizonStream, a long-horizon Transformer that explicitly factorizes it. Geometric Linear Attention learns channel-wise decay rates for bounded, multi-timescale temporal propagation; Gated Window Attention with Spatiotemporal RoPE performs reliable short-range 3D matching while suppressing attention sinks; and Metric Readout Tokens recover stable scale and rigid pose directly from the persistent geometric state. Extensive experiments show that HorizonStream, trained on only 48-frame clips, generalizes stably to sequences exceeding 10,000 frames with constant memory and linear time, achieving state-of-the-art streaming 3D reconstruction performance.
+            </p>
+          </div>
+          <div class="takeaways" aria-label="Key takeaways">
+            <article>
+              <span>01</span>
+              <p>Reveals why streaming methods fail on long sequences: <mark>hard cutoffs</mark>, <mark>KV-cache saturation</mark>, and <mark>attention sinks</mark>.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <p>Models geometric propagation as an <mark>evidence influence kernel</mark> with temporal, spatial, and metric factors.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <p>Separates <mark>long-horizon evidence</mark>, <mark>local 3D matching</mark>, and <mark>metric recovery</mark> instead of forcing one attention pattern to do all three.</p>
+            </article>
+            <article>
+              <span>04</span>
+              <p>Trains on only <mark>48-frame</mark> clips, then scales to <mark>10K+ frames</mark> with constant memory and linear time.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section comparison-section" id="comparison">
+        <div class="section-head">
+          <p class="eyebrow">Comparison</p>
+          <h2>Qualitative comparison.</h2>
+        </div>
+
+        <div class="comparison-layout">
+          <aside class="comparison-scenes" aria-label="Comparison scenes">
+            <button
+              class="comparison-scene active"
+              type="button"
+              data-compare-scene="kitti07"
+              data-title="KITTI 07"
+              data-note="GLB comparison across methods"
+              data-drift-glb="./example/qualitative/kitti07/longstream.glb"
+              data-local-glb="./example/qualitative/kitti07/lingbot-map.glb"
+              data-ours-glb="./example/qualitative/kitti07/ours.glb"
+              data-drift-pose="./example/qualitative/kitti07/pose_longstream.png"
+              data-local-pose="./example/qualitative/kitti07/pose_lingbot_map.png"
+              data-ours-pose="./example/qualitative/kitti07/pose_horizonstream.png"
+            >
+              <video
+                src="./example/render/kitti-07/rgb.mp4"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="metadata"
+              ></video>
+            </button>
+            <button
+              class="comparison-scene"
+              type="button"
+              data-compare-scene="kitti09"
+              data-title="KITTI 09"
+              data-note="GLB comparison across methods"
+              data-drift-glb="./example/qualitative/kitti09/longstream.glb"
+              data-local-glb="./example/qualitative/kitti09/lingbot-map.glb"
+              data-ours-glb="./example/qualitative/kitti09/ours.glb"
+              data-drift-pose="./example/qualitative/kitti09/pose_longstream.png"
+              data-local-pose="./example/qualitative/kitti09/pose_lingbot_map.png"
+              data-ours-pose="./example/qualitative/kitti09/pose_horizonstream.png"
+            >
+              <video
+                src="./example/render/kitti-09/rgb.mp4"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="metadata"
+              ></video>
+            </button>
+            <button
+              class="comparison-scene"
+              type="button"
+              data-compare-scene="oxford-college"
+              data-title="Oxford College"
+              data-note="GLB comparison across methods"
+              data-drift-glb="./example/qualitative/oxford-college/longstream.glb"
+              data-local-glb="./example/qualitative/oxford-college/lingbot-map.glb"
+              data-ours-glb="./example/qualitative/oxford-college/ours.glb"
+              data-drift-pose="./example/qualitative/oxford-college/pose_longstream.png"
+              data-local-pose="./example/qualitative/oxford-college/pose_lingbot_map.png"
+              data-ours-pose="./example/qualitative/oxford-college/pose_horizonstream.png"
+            >
+              <video
+                src="./example/render/oxford-college/rgb.mp4"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="metadata"
+              ></video>
+            </button>
+            <button
+              class="comparison-scene"
+              type="button"
+              data-compare-scene="oxford-quarter"
+              data-title="Oxford Quarter"
+              data-note="GLB comparison across methods"
+              data-drift-glb="./example/qualitative/oxford-quarter/longstream.glb"
+              data-local-glb="./example/qualitative/oxford-quarter/lingbot-map.glb"
+              data-ours-glb="./example/qualitative/oxford-quarter/ours.glb"
+              data-drift-pose="./example/qualitative/oxford-quarter/pose_longstream.png"
+              data-local-pose="./example/qualitative/oxford-quarter/pose_lingbot_map.png"
+              data-ours-pose="./example/qualitative/oxford-quarter/pose_horizonstream.png"
+            >
+              <video
+                src="./example/render/oxford-quarter/rgb.mp4"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="metadata"
+              ></video>
+            </button>
+          </aside>
+
+          <div class="comparison-main">
+            <div class="cloud-compare-grid" aria-label="Interactive point cloud comparison">
+              <article class="cloud-card">
+                <span class="cloud-method">LongStream</span>
+                <div id="compare-drift" class="compare-cloud" aria-label="LongStream point cloud"></div>
+              </article>
+              <article class="cloud-card">
+                <span class="cloud-method">LingBot-Map</span>
+                <div id="compare-local" class="compare-cloud" aria-label="LingBot-Map point cloud"></div>
+              </article>
+              <article class="cloud-card ours">
+                <span class="cloud-method">HorizonStream</span>
+                <div id="compare-ours" class="compare-cloud" aria-label="HorizonStream point cloud"></div>
+              </article>
+            </div>
+
+            <div class="cloud-compare-grid" aria-label="Trajectory comparison">
+              <article class="cloud-card">
+                <div class="pose-panel">
+                  <img id="pose-drift" alt="LongStream vs GT" />
+                </div>
+              </article>
+              <article class="cloud-card">
+                <div class="pose-panel">
+                  <img id="pose-local" alt="LingBot-Map vs GT" />
+                </div>
+              </article>
+              <article class="cloud-card ours">
+                <div class="pose-panel">
+                  <img id="pose-ours" alt="HorizonStream vs GT" />
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-compare-card" data-video-compare style="--split: 49.5%" aria-label="KITTI 07 video comparison">
+          <div class="video-compare-window" role="slider" tabindex="0" aria-valuemin="5" aria-valuemax="95" aria-valuenow="49.5" aria-label="Horizontal comparison split">
+            <video
+              class="video-compare-base"
+              src="./example/render/kitti-07/render.mp4"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster="./example/render/kitti-07/render_poster.jpg"
+            ></video>
+            <div class="video-compare-layer" aria-hidden="true">
+              <video
+                src="./example/render/kitti-07/lingbot_compare.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="./example/render/kitti-07/lingbot_compare_poster.jpg"
+              ></video>
+            </div>
+            <span class="video-compare-label left">LingBot-Map</span>
+            <span class="video-compare-label right">HorizonStream</span>
+            <span class="video-compare-divider" aria-hidden="true"></span>
+          </div>
+          <p class="video-compare-caption">LingBot-Map begins to lose accuracy and jitter as the input stream grows longer, while HorizonStream maintains stable accuracy under longer inputs.</p>
+        </div>
+      </section>
+
+      <section class="section method-section" id="method">
+        <div class="section-head">
+          <p class="eyebrow">Method</p>
+          <h2>Gated geometric propagation.</h2>
+        </div>
+        <div class="method-layout">
+          <div class="method-figure">
+            <img src="./static/images/framework.png" alt="Overview of the HorizonStream framework." />
+          </div>
+          <div class="method-steps">
+            <article>
+              <span>Channel-wise retention</span>
+              <h3>Geometric Linear Attention</h3>
+              <p>
+                Learns channel-wise gates to retain persistent geometry and discount stale evidence across windows.
+              </p>
+            </article>
+            <article>
+              <span>Head-wise reliability</span>
+              <h3>Gated Window Attention</h3>
+              <p>
+                Uses head-wise gates and spatiotemporal RoPE to suppress attention sinks and prevent stale
+                evidence from saturating the recurrent state.
+              </p>
+            </article>
+            <article>
+              <span>Metric consistency</span>
+              <h3>MRT + relative pose fusion</h3>
+              <p>
+                Aggregates metric-related information across the learned retention spectrum for scale recovery,
+                with relative pose fusion maintaining consistent camera poses across windows.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section bibtex-section" id="bibtex">
+        <div class="section-head">
+          <p class="eyebrow">Citation</p>
+          <h2>BibTeX</h2>
+        </div>
+        <div class="code-block">
+          <button class="copy-btn" type="button" id="copy-bibtex">Copy</button>
+          <pre><code id="bibtex-code">@misc{cheng2026horizonstreamlonghorizonattentionstreaming,
+  title         = {HorizonStream: Long-Horizon Attention for Streaming 3D Reconstruction},
+  author        = {Chong Cheng and Peilin Tao and Nanjie Yao and Guanzhi Ding and Xianda Chen and Yuansen Du and Xiaoyang Guo and Wei Yin and Weiqiang Ren and Qian Zhang and Zhengqing Chen and Hao Wang},
+  year          = {2026},
+  eprint        = {2605.23889},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2605.23889}
+}</code></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>HorizonStream</span>
+      <a href="#top">Back to top</a>
+    </footer>
+  </body>
+</html>

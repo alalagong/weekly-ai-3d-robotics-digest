@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- new favicon config and versions by realfavicongenerator.net -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/favicon-16x16.png">
+<link rel="manifest" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/site.webmanifest">
+<link rel="mask-icon" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/safari-pinned-tab.svg" color="#b31b1b">
+<link rel="shortcut icon" href="https://static.arxiv.org/static/base/1.0.0a5/images/icons/favicon.ico">
+<meta name="msapplication-TileColor" content="#b31b1b">
+<meta name="msapplication-config" content="images/icons/browserconfig.xml">
+<meta name="theme-color" content="#b31b1b">
+<!-- end favicon config -->
+<title>Advanced Search | arXiv e-print repository</title>
+<script defer src="https://static.arxiv.org/static/base/1.0.0a5/fontawesome-free-5.11.2-web/js/all.js"></script>
+<link rel="stylesheet" href="https://static.arxiv.org/static/base/1.0.0a5/css/arxivstyle.css" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    messageStyle: "none",
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true,
+      ignoreClass: '.*',
+      processClass: 'mathjax.*'
+    },
+    TeX: {
+        extensions: ["AMSmath.js", "AMSsymbols.js", "noErrors.js"],
+        noErrors: {
+          inlineDelimiters: ["$","$"],
+          multiLine: false,
+          style: {
+            "font-size": "normal",
+            "border": ""
+          }
+        }
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script src='//static.arxiv.org/MathJax-2.7.3/MathJax.js'></script>
+<script src="https://static.arxiv.org/static/base/1.0.0a5/js/notification.js"></script>
+
+    
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="https://static.arxiv.org/static/design-system/latest/design-system-components.css">
+<link rel="stylesheet" href="https://static.arxiv.org/static/design-system/latest/fonts.css">
+  <link rel="stylesheet" href="https://static.arxiv.org/static/search/0.5.6/css/bulma-tooltip.min.css" />
+  <link rel="stylesheet" href="https://static.arxiv.org/static/search/0.5.6/css/search.css" />
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+    crossorigin="anonymous"></script>
+
+  <script src="https://static.arxiv.org/static/search/0.5.6/js/fieldset.js"></script>
+  <style>
+  radio#cf-customfield_11400 {
+    display: none;
+  }
+  /* Render the spinout .ds-site-footer standalone / full-bleed. search extends the
+     legacy base, whose bare wrapping <footer> (in base/base.html, outside any
+     overridable block — so it can't be removed from here) is styled by
+     arxivstyle.css with a grey background (hsl(0,0%,95%)) + 1em 2em padding,
+     boxing our warm-wash footer inside a second grey band. display:contents drops
+     the wrapper's box entirely (cleaner than zeroing individual properties) so
+     .ds-site-footer renders in its place; it inherits flex-shrink:0 from the same
+     legacy `footer` rule, so the sticky footer still works. Search-specific
+     legacy-base integration; the shared chrome CSS stays byte-identical to the SSOT. */
+  body > footer {
+    display: contents;
+  }
+  </style>
+
+  </head>
+  <body>
+  
+  
+  <header><a href="#main-container" class="is-sr-only">Skip to main content</a>
+    
+
+<div id="ds-announcement"></div>
+
+<script src="https://static.arxiv.org/static/design-system/latest/chrome/banner.js" defer></script>
+<script src="https://static.arxiv.org/static/design-system/latest/chrome/header.js" defer></script>
+<header class="ds-site-header ">
+  <a aria-hidden="true" tabindex="-1" href="https://arxiv.org/IgnoreMe" class="is-sr-only"></a>
+  <a href="https://arxiv.org/" class="ds-site-header-logo" aria-label="archive home">
+    <img src="https://static.arxiv.org/static/design-system/latest/logos/arxiv-logo.svg" alt="archive">
+  </a>
+  
+  <a id="ds-search-toggle" class="ds-site-header-search-link" href="https://arxiv.org/search" aria-controls="ds-search-overlay" aria-expanded="false">
+    <svg class="ds-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <circle cx="11" cy="11" r="8"/>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    <span>Search</span>
+  </a>
+  
+  <button type="button" id="ds-nav-toggle" class="ds-site-header-nav-toggle"
+    aria-label="Open menu" aria-controls="ds-site-header-nav" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+  
+  <nav class="ds-site-header-nav" id="ds-site-header-nav" aria-label="Main navigation">
+    <a href="https://arxiv.org/submit">Submit</a>
+    <a href="https://info.arxiv.org/about/donate.html">Donate</a>
+    <span class="ds-site-header-divider" aria-hidden="true"></span>
+    
+    <a href="https://arxiv.org/login" class="ds-site-header-login">Log in</a>
+  </nav>
+  
+  
+</header>
+
+<div class="ds-search-overlay" id="ds-search-overlay" hidden>
+  <div class="ds-search-overlay-panel" role="search">
+    <form method="GET" action="https://arxiv.org/search">
+      <label for="ds-search-input" class="is-sr-only">Search arXiv</label>
+      <input type="text" name="query" id="ds-search-input" class="ds-input" autocomplete="off"
+        placeholder="Search papers by title, author, abstract, or ID...">
+      <input type="hidden" name="searchtype" value="all">
+      <input type="hidden" name="source" value="header">
+    </form>
+    <p class="ds-hint">
+      Press Enter to search &middot; <a href="https://arxiv.org/search/advanced">Advanced search</a>
+    </p>
+  </div>
+</div>
+
+
+  </header>
+  <main class="container" id="main-container">
+    
+
+
+    
+  <div class="level is-marginless">
+    <div class="level-left">
+      <h1 class="title is-clearfix">
+    
+        Showing 1&ndash;12 of 12 results
+    
+</h1>
+    </div>
+    <div class="level-right is-hidden-mobile">
+      <!-- feedback for mobile is moved to footer -->
+      <span class="help" style="display: inline-block;"><a href="https://github.com/arXiv/arxiv-search/releases">Search v0.5.6 released 2020-02-24</a>&nbsp;&nbsp;</span>
+    </div>
+  </div>
+    <div class="content">
+      
+  
+    
+
+    <div class="columns">
+      <div class="column is-two-thirds-tablet">
+        <p style="margin-bottom: .5em">Query: <a href="/search/advanced?classification-include_cross_list=include&amp;date-filter_by=date_range&amp;date-from_date=2026-10-22&amp;date-to_date=2026-11-01&amp;date-date_type=submitted_date_first&amp;abstracts=show&amp;size=200&amp;order=-submitted_date&amp;start=0&amp;terms-0-operator=AND&amp;terms-0-term=%22robot+localization%22&amp;terms-0-field=all&amp;terms-1-operator=OR&amp;terms-1-term=%22radar+localization%22&amp;terms-1-field=all&amp;terms-2-operator=OR&amp;terms-2-term=%22event+camera%22&amp;terms-2-field=all&amp;terms-3-operator=OR&amp;terms-3-term=%22endoscopic+reconstruction%22&amp;terms-3-field=all&amp;terms-4-operator=OR&amp;terms-4-term=%22underwater+reconstruction%22&amp;terms-4-field=all&amp;terms-5-operator=OR&amp;terms-5-term=%22visual+navigation%22&amp;terms-5-field=all">order: -submitted_date; size: 200; date_range: from 2026-10-22 to 2026-11-01; include_cross_list: True; terms: AND all=&#34;robot localization&#34;; OR all=&#34;radar localization&#34;; OR all=&#34;event camera&#34;; OR all=&#34;endoscopic reconstruction&#34;; OR all=&#34;underwater reconstruction&#34;; OR all=&#34;visual navigation&#34;</a></p>
+        <div class="buttons">
+          <a class="button is-link" href="/search/advanced?classification-include_cross_list=include&amp;date-filter_by=date_range&amp;date-from_date=2026-10-22&amp;date-to_date=2026-11-01&amp;date-date_type=submitted_date_first&amp;abstracts=show&amp;size=200&amp;order=-submitted_date&amp;start=0&amp;terms-0-operator=AND&amp;terms-0-term=%22robot+localization%22&amp;terms-0-field=all&amp;terms-1-operator=OR&amp;terms-1-term=%22radar+localization%22&amp;terms-1-field=all&amp;terms-2-operator=OR&amp;terms-2-term=%22event+camera%22&amp;terms-2-field=all&amp;terms-3-operator=OR&amp;terms-3-term=%22endoscopic+reconstruction%22&amp;terms-3-field=all&amp;terms-4-operator=OR&amp;terms-4-term=%22underwater+reconstruction%22&amp;terms-4-field=all&amp;terms-5-operator=OR&amp;terms-5-term=%22visual+navigation%22&amp;terms-5-field=all">Refine query</a><a class="button" href="/search/advanced">New search</a>
+        </div>
+      </div>
+      <div class="column is-one-third-tablet is-hidden-mobile">
+        <p class="has-text-right" style="margin-top: 1em">
+          
+          <a href="/search/?order=-submitted_date&amp;size=200">Simple Search</a>
+          
+        </p>
+      </div>
+    </div>
+
+    
+        
+<div class="level breathe-horizontal">
+  <div class="level-left">
+    <form method="GET" action="/search/advanced">
+      <div style="display: none;">
+        
+          
+            <input id="advanced" name="advanced" type="hidden" value="">
+          
+        
+          
+            <ul id="terms"><li><label for="terms-0">Terms-0</label> <table id="terms-0"><tr><th><label for="terms-0-term">Search term...</label></th><td><input id="terms-0-term" name="terms-0-term" type="text" value="&quot;robot localization&quot;"></td></tr><tr><th><label for="terms-0-operator">Operator</label></th><td><select id="terms-0-operator" name="terms-0-operator"><option selected value="AND">AND</option><option value="OR">OR</option><option value="NOT">NOT</option></select></td></tr><tr><th><label for="terms-0-field">Field</label></th><td><select id="terms-0-field" name="terms-0-field"><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="cross_list_category">Cross-list category</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="author_id">arXiv author ID</option><option selected value="all">All fields</option></select></td></tr></table></li><li><label for="terms-1">Terms-1</label> <table id="terms-1"><tr><th><label for="terms-1-term">Search term...</label></th><td><input id="terms-1-term" name="terms-1-term" type="text" value="&quot;radar localization&quot;"></td></tr><tr><th><label for="terms-1-operator">Operator</label></th><td><select id="terms-1-operator" name="terms-1-operator"><option value="AND">AND</option><option selected value="OR">OR</option><option value="NOT">NOT</option></select></td></tr><tr><th><label for="terms-1-field">Field</label></th><td><select id="terms-1-field" name="terms-1-field"><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="cross_list_category">Cross-list category</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="author_id">arXiv author ID</option><option selected value="all">All fields</option></select></td></tr></table></li><li><label for="terms-2">Terms-2</label> <table id="terms-2"><tr><th><label for="terms-2-term">Search term...</label></th><td><input id="terms-2-term" name="terms-2-term" type="text" value="&quot;event camera&quot;"></td></tr><tr><th><label for="terms-2-operator">Operator</label></th><td><select id="terms-2-operator" name="terms-2-operator"><option value="AND">AND</option><option selected value="OR">OR</option><option value="NOT">NOT</option></select></td></tr><tr><th><label for="terms-2-field">Field</label></th><td><select id="terms-2-field" name="terms-2-field"><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="cross_list_category">Cross-list category</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="author_id">arXiv author ID</option><option selected value="all">All fields</option></select></td></tr></table></li><li><label for="terms-3">Terms-3</label> <table id="terms-3"><tr><th><label for="terms-3-term">Search term...</label></th><td><input id="terms-3-term" name="terms-3-term" type="text" value="&quot;endoscopic reconstruction&quot;"></td></tr><tr><th><label for="terms-3-operator">Operator</label></th><td><select id="terms-3-operator" name="terms-3-operator"><option value="AND">AND</option><option selected value="OR">OR</option><option value="NOT">NOT</option></select></td></tr><tr><th><label for="terms-3-field">Field</label></th><td><select id="terms-3-field" name="terms-3-field"><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="cross_list_category">Cross-list category</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="author_id">arXiv author ID</option><option selected value="all">All fields</option></select></td></tr></table></li><li><label for="terms-4">Terms-4</label> <table id="terms-4"><tr><th><label for="terms-4-term">Search term...</label></th><td><input id="terms-4-term" name="terms-4-term" type="text" value="&quot;underwater reconstruction&quot;"></td></tr><tr><th><label for="terms-4-operator">Operator</label></th><td><select id="terms-4-operator" name="terms-4-operator"><option value="AND">AND</option><option selected value="OR">OR</option><option value="NOT">NOT</option></select></td></tr><tr><th><label for="terms-4-field">Field</label></th><td><select id="terms-4-field" name="terms-4-field"><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="cross_list_category">Cross-list category</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="author_id">arXiv author ID</option><option selected value="all">All fields</option></select></td></tr></table></li><li><label for="terms-5">Terms-5</label> <table id="terms-5"><tr><th><label for="terms-5-term">Search term...</label></th><td><input id="terms-5-term" name="terms-5-term" type="text" value="&quot;visual navigation&quot;"></td></tr><tr><th><label for="terms-5-operator">Operator</label></th><td><select id="terms-5-operator" name="terms-5-operator"><option value="AND">AND</option><option selected value="OR">OR</option><option value="NOT">NOT</option></select></td></tr><tr><th><label for="terms-5-field">Field</label></th><td><select id="terms-5-field" name="terms-5-field"><option value="title">Title</option><option value="author">Author(s)</option><option value="abstract">Abstract</option><option value="comments">Comments</option><option value="journal_ref">Journal reference</option><option value="acm_class">ACM classification</option><option value="msc_class">MSC classification</option><option value="report_num">Report number</option><option value="paper_id">arXiv identifier</option><option value="cross_list_category">Cross-list category</option><option value="doi">DOI</option><option value="orcid">ORCID</option><option value="author_id">arXiv author ID</option><option selected value="all">All fields</option></select></td></tr></table></li></ul>
+          
+        
+          
+            <table id="classification"><tr><th><label for="classification-computer_science">Computer Science (cs)</label></th><td><input id="classification-computer_science" name="classification-computer_science" type="checkbox" value="y"></td></tr><tr><th><label for="classification-economics">Economics (econ)</label></th><td><input id="classification-economics" name="classification-economics" type="checkbox" value="y"></td></tr><tr><th><label for="classification-eess">Electrical Engineering and Systems Science (eess)</label></th><td><input id="classification-eess" name="classification-eess" type="checkbox" value="y"></td></tr><tr><th><label for="classification-mathematics">Mathematics (math)</label></th><td><input id="classification-mathematics" name="classification-mathematics" type="checkbox" value="y"></td></tr><tr><th><label for="classification-physics">Physics</label></th><td><input id="classification-physics" name="classification-physics" type="checkbox" value="y"></td></tr><tr><th><label for="classification-physics_archives">Physics Archives</label></th><td><select id="classification-physics_archives" name="classification-physics_archives"><option selected value="all">all</option><option value="astro-ph">astro-ph</option><option value="cond-mat">cond-mat</option><option value="gr-qc">gr-qc</option><option value="hep-ex">hep-ex</option><option value="hep-lat">hep-lat</option><option value="hep-ph">hep-ph</option><option value="hep-th">hep-th</option><option value="math-ph">math-ph</option><option value="nlin">nlin</option><option value="nucl-ex">nucl-ex</option><option value="nucl-th">nucl-th</option><option value="physics">physics</option><option value="quant-ph">quant-ph</option></select></td></tr><tr><th><label for="classification-q_biology">Quantitative Biology (q-bio)</label></th><td><input id="classification-q_biology" name="classification-q_biology" type="checkbox" value="y"></td></tr><tr><th><label for="classification-q_finance">Quantitative Finance (q-fin)</label></th><td><input id="classification-q_finance" name="classification-q_finance" type="checkbox" value="y"></td></tr><tr><th><label for="classification-statistics">Statistics (stat)</label></th><td><input id="classification-statistics" name="classification-statistics" type="checkbox" value="y"></td></tr><tr><th><label for="classification-include_cross_list">Include cross-list</label></th><td><ul id="classification-include_cross_list"><li><input checked id="classification-include_cross_list-0" name="classification-include_cross_list" type="radio" value="include"> <label for="classification-include_cross_list-0">Include cross-listed papers</label></li><li><input id="classification-include_cross_list-1" name="classification-include_cross_list" type="radio" value="exclude"> <label for="classification-include_cross_list-1">Exclude cross-listed papers</label></li></ul></td></tr></table>
+          
+        
+          
+            <table id="date"><tr><th><label for="date-filter_by">Filter by</label></th><td><ul id="date-filter_by"><li><input id="date-filter_by-0" name="date-filter_by" type="radio" value="all_dates"> <label for="date-filter_by-0">All dates</label></li><li><input id="date-filter_by-1" name="date-filter_by" type="radio" value="past_12"> <label for="date-filter_by-1">Past 12 months</label></li><li><input id="date-filter_by-2" name="date-filter_by" type="radio" value="specific_year"> <label for="date-filter_by-2">Specific year</label></li><li><input checked id="date-filter_by-3" name="date-filter_by" type="radio" value="date_range"> <label for="date-filter_by-3">Date range</label></li></ul></td></tr><tr><th><label for="date-year">Year</label></th><td><input id="date-year" name="date-year" type="text" value=""></td></tr><tr><th><label for="date-from_date">From</label></th><td><input id="date-from_date" name="date-from_date" type="text" value="2026-10-22"></td></tr><tr><th><label for="date-to_date">to</label></th><td><input id="date-to_date" name="date-to_date" type="text" value="2026-11-01"></td></tr><tr><th><label for="date-date_type">Apply to</label></th><td><ul id="date-date_type"><li><input id="date-date_type-0" name="date-date_type" type="radio" value="submitted_date"> <label for="date-date_type-0">Submission date (most recent)</label></li><li><input checked id="date-date_type-1" name="date-date_type" type="radio" value="submitted_date_first"> <label for="date-date_type-1">Submission date (original)</label></li><li><input id="date-date_type-2" name="date-date_type" type="radio" value="announced_date_first"> <label for="date-date_type-2">Announcement date</label></li></ul></td></tr></table>
+          
+        
+          
+        
+          
+        
+          
+            <input id="include_older_versions" name="include_older_versions" type="checkbox" value="y">
+          
+        
+          
+            <ul id="abstracts"><li><input checked id="abstracts-0" name="abstracts" type="radio" value="show"> <label for="abstracts-0">Show abstracts</label></li><li><input id="abstracts-1" name="abstracts" type="radio" value="hide"> <label for="abstracts-1">Hide abstracts</label></li></ul>
+          
+        
+      </div>
+      <div class="box field is-grouped is-grouped-multiline level-item">
+        <div class="control">
+          <span class="select is-small">
+            <select id="size" name="size"><option value="25">25</option><option value="50">50</option><option value="100">100</option><option selected value="200">200</option></select>
+          </span>
+          <label for="size">results per page</label>.
+        </div>
+        <div class="control">
+          <label for="order">Sort results by</label>
+          <span class="select is-small">
+            <select id="order" name="order"><option value="-announced_date_first">Announcement date (newest first)</option><option value="announced_date_first">Announcement date (oldest first)</option><option selected value="-submitted_date">Submission date (newest first)</option><option value="submitted_date">Submission date (oldest first)</option><option value="">Relevance</option></select>
+          </span>
+        </div>
+        <div class="control">
+          <button class="button is-small is-link">Go</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+        
+
+
+
+
+<ol class="breathe-horizontal" start="1"> 
+
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.40166">arXiv:2610.40166</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.40166">pdf</a>, <a href="https://arxiv.org/ps/2610.40166">ps</a>, <a href="https://arxiv.org/format/2610.40166">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        EventSeeColor: Learning to Reconstruct Color from Monochrome Events
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Xu%2C+C">Chuanzhi Xu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Chen%2C+L">Langyi Chen</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhou%2C+H">Haoxian Zhou</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhang%2C+Z">Zelin Zhang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Chen%2C+H">Haodong Chen</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Qu%2C+Q">Qiang Qu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Chen%2C+X">Xiaoming Chen</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Cai%2C+W">Weidong Cai</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.40166v1-abstract-short" style="display: inline;">
+        <span class="search-hit mathjax">Event</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.40166v1-abstract-full').style.display = 'inline'; document.getElementById('2610.40166v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.40166v1-abstract-full" style="display: none;">
+        <span class="search-hit mathjax">Event</span> <span class="search-hit mathjax">cameras</span> capture visual brightness changes under challenging lighting conditions. However, traditional event-based image reconstruction targets grayscale intensity and produces images without scene color. Color distinguishes surfaces with similar intensity. Reconstructing color from events can reveal appearance differences that reconstructed grayscale images cannot express. Although monochrome <span class="search-hit mathjax">event</span> <span class="search-hit mathjax">cameras</span> do not directly measure color, their event-triggering patterns depend on surface reflectance, illumination, and the sensor&#39;s spectral response. These patterns may contain cues that support color reconstruction. In this paper, we present EventSeeColor, which uses event-reconstructed grayscale and aligned events to jointly guide a diffusion colorizer. Grayscale-derived semantic context supports color inference, while region-balanced chroma supervision and local RGB refinement improve color distribution, brightness, and texture. In the combined evaluation on two real event datasets, EventSeeColor achieves the best structural similarity, learned perceptual scores, and chromatic-region color difference among the external methods.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.40166v1-abstract-full').style.display = 'none'; document.getElementById('2610.40166v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 29 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.39708">arXiv:2610.39708</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.39708">pdf</a>, <a href="https://arxiv.org/ps/2610.39708">ps</a>, <a href="https://arxiv.org/format/2610.39708">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        AFast <span class="search-hit mathjax">Robot</span> <span class="search-hit mathjax">Localization</span> Method Based on Monte Carlo Sampling
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Zhaoqing%2C+H">He Zhaoqing</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Li%2C+H">Hang Li</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Pu%2C+X">Xian Pu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wang%2C+L">Li Wang</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.39708v1-abstract-short" style="display: inline;">
+        &hellip;that even in a maze where local regions are highly similar, the vehicle can still achieve relatively accurate localization, thereby providing a fast and effective approach for <span class="search-hit mathjax">robot</span> <span class="search-hit mathjax">localization</span> in complex environments.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.39708v1-abstract-full').style.display = 'inline'; document.getElementById('2610.39708v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.39708v1-abstract-full" style="display: none;">
+        Localization is an essential capability of intelligent robots. However, in real-world constrained environments, robots often cannot rely on external localization systems. Therefore, this paper proposes an online particle-filter localization method based on Monte Carlo sampling. The method is applied to the localization of a mobile robot in a maze environment and requires only four range sensors mounted on the front, rear, left, and right sides of the vehicle, without the need for any heading information. Simulation experiments demonstrate that even in a maze where local regions are highly similar, the vehicle can still achieve relatively accurate localization, thereby providing a fast and effective approach for <span class="search-hit mathjax">robot</span> <span class="search-hit mathjax">localization</span> in complex environments.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.39708v1-abstract-full').style.display = 'none'; document.getElementById('2610.39708v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 29 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.39676">arXiv:2610.39676</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.39676">pdf</a>, <a href="https://arxiv.org/ps/2610.39676">ps</a>, <a href="https://arxiv.org/format/2610.39676">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Machine Learning">cs.LG</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Artificial Intelligence">cs.AI</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Computation and Language">cs.CL</span>
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Event-SAMA: Language-Grounded Video Object Segmentation on Neuromorphic Event Streams
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Fedorchenko%2C+S">Sergei Fedorchenko</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zehnder%2C+M">Max Zehnder</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zubi%C4%87%2C+N">Nikola Zubić</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zou%2C+R">Rong Zou</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Scaramuzza%2C+D">Davide Scaramuzza</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.39676v1-abstract-short" style="display: inline;">
+        <span class="search-hit mathjax">Event</span> <span class="search-hit mathjax">cameras</span> offer microsecond temporal resolution, high dynamic range and no motion blur, but referring video object segmentation (RVOS) lacks event-stream datasets and models. We introduce Event-SAMA-239K, a synthetic-event conversion of the SAMA-239K grounded video-chat corpus and all additional SAMA training data:&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.39676v1-abstract-full').style.display = 'inline'; document.getElementById('2610.39676v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.39676v1-abstract-full" style="display: none;">
+        <span class="search-hit mathjax">Event</span> <span class="search-hit mathjax">cameras</span> offer microsecond temporal resolution, high dynamic range and no motion blur, but referring video object segmentation (RVOS) lacks event-stream datasets and models. We introduce Event-SAMA-239K, a synthetic-event conversion of the SAMA-239K grounded video-chat corpus and all additional SAMA training data: 30,650 video clips and 392,162 images. Optical-flow, FILM or saccade upsampling followed by a linear event generator preserves all mask, referring-expression and dialogue annotations. We also introduce Event-SAMA, adapting SAMA-4B with a two-channel polarity patch embedding initialised from pretrained RGB weights and a zero-initialised event adapter. End-to-end training yields 24.37 $\mathcal{J}\&amp;\mathcal{F}$ on MeViS valid_u and 22.33 $\mathcal{J}\&amp;\mathcal{F}$ on the converted ReVOS valid subset, establishing the first event-native RVOS baseline (RGB SAMA-4B: 55.4 on MeViS). Frozen RGB SAMA-4B with pseudo-RGB renderings or E2VID reconstructions of the same events scores 13.23 and 15.94 $\mathcal{J}\&amp;\mathcal{F}$. Without retraining, Event-SAMA works on real <span class="search-hit mathjax">event</span>-<span class="search-hit mathjax">camera</span> recordings when the accumulation window matches their event density. A seed-controlled ablation with a measured noise floor of 0.47 $\mathcal{J}\&amp;\mathcal{F}$ finds gains from diverse training sources over MeViS alone (+4.99), RGB-mean event-stem initialisation (+4.33), and a trainable SAM2 mask decoder (+2.76); the event adapter, partial ViT unfreezing and event polarity are within noise at this budget. An earlier, partially converted corpus snapshot trained with the identical recipe scores 1.38 $\mathcal{J}\&amp;\mathcal{F}$ higher on MeViS and 1.12 higher on ReVOS. Both are single runs that also differ in schedule length, so we draw no conclusion about corpus scale.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.39676v1-abstract-full').style.display = 'none'; document.getElementById('2610.39676v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 29 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">15 pages</span>
+    </p>
+    
+
+    
+
+    
+      <p class="comments is-size-7">
+        <span class="has-text-black-bis has-text-weight-semibold">Journal ref:</span>
+        Conference on Neural Information Processing Systems Workshops (NeurIPSW), 2026
+      </p>
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.38967">arXiv:2610.38967</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.38967">pdf</a>, <a href="https://arxiv.org/ps/2610.38967">ps</a>, <a href="https://arxiv.org/format/2610.38967">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Learning Event-based Obstacle Avoidance via Differentiable Simulation
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Shou%2C+C">Chenlu Shou</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ren%2C+Y">Yunfan Ren</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Xing%2C+J">Jiaxu Xing</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Scaramuzza%2C+D">Davide Scaramuzza</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.38967v1-abstract-short" style="display: inline;">
+        &hellip;for safe quadrotor flight in unknown environments, yet conventional frame-based cameras remain challenged by motion blur, limited dynamic range, and latency under fast motion. <span class="search-hit mathjax">Event</span> <span class="search-hit mathjax">cameras</span>, with sub-millisecond latency, high dynamic range, and negligible motion blur, offer a promising alternative, but leveraging them&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.38967v1-abstract-full').style.display = 'inline'; document.getElementById('2610.38967v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.38967v1-abstract-full" style="display: none;">
+        Reliable obstacle avoidance is essential for safe quadrotor flight in unknown environments, yet conventional frame-based cameras remain challenged by motion blur, limited dynamic range, and latency under fast motion. <span class="search-hit mathjax">Event</span> <span class="search-hit mathjax">cameras</span>, with sub-millisecond latency, high dynamic range, and negligible motion blur, offer a promising alternative, but leveraging them for closed-loop control remains difficult. Existing approaches either adopt cascaded architectures that first estimate depth and then map it to control commands, introducing error propagation, or achieve end-to-end control through costly offline pretraining before online fine-tuning can even begin. We address these challenges with a CUDA-based event simulator that exploits GPU parallelism to render events efficiently within the training loop, integrated into a differentiable simulation pipeline that enables direct gradient backpropagation through the differentiable physics model, improving sample efficiency. This allows us to train an end-to-end policy that maps event frames directly to control commands, without intermediate depth estimation. We validate our approach through zero-shot real-world deployment on a quadrotor, achieving robust obstacle avoidance in both odometry-assisted and odometry-free settings, including under low-light conditions where conventional cameras typically fail.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.38967v1-abstract-full').style.display = 'none'; document.getElementById('2610.38967v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 28 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.37823">arXiv:2610.37823</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.37823">pdf</a>, <a href="https://arxiv.org/ps/2610.37823">ps</a>, <a href="https://arxiv.org/format/2610.37823">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Machine Learning">cs.LG</span>
+        
+          
+            <span class="tag is-small is-grey tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+          
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Learning Without Clocks: Partition-Invariant Neural Network
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Wang%2C+H">Han Wang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Bao%2C+J">Jingyuan Bao</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Wu%2C+J">Juntao Wu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhou%2C+S">Saiao Zhou</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Nie%2C+Y">Yuman Nie</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.37823v1-abstract-short" style="display: inline;">
+        <span class="search-hit mathjax">Event</span> <span class="search-hit mathjax">cameras</span>, spiking cochleas and similar sensors emit asynchronous events, yet most learning systems first bin them into frames or packets, so the output depends on how the stream was sliced. Networks whose state is updated exactly at every event and evolves in closed form between events are invariant to this slicin&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.37823v1-abstract-full').style.display = 'inline'; document.getElementById('2610.37823v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.37823v1-abstract-full" style="display: none;">
+        <span class="search-hit mathjax">Event</span> <span class="search-hit mathjax">cameras</span>, spiking cochleas and similar sensors emit asynchronous events, yet most learning systems first bin them into frames or packets, so the output depends on how the stream was sliced. Networks whose state is updated exactly at every event and evolves in closed form between events are invariant to this slicing. We ask what more makes the output (i) independent of the processing order of simultaneous events and (ii) continuous in the time stamps, even when two events cross in time, while (iii) staying sensitive to temporal order. For arbitrary nonlinear event models we prove that (i) and (ii) are each equivalent to pairwise commutation of the event updates, and that once updates commute, all order dependence comes from their non-commutation with the inter-event dynamics and vanishes linearly in the time lag. This identifies a class of time-mediated non-commutative (TM) models and yields a resolution-robustness bound for any model. We construct the minimal TM layer, a learnable, provably Lipschitz generalization of the Hassenstein-Reichardt correlator; prove that no single additive layer can uniformly represent ordered pair interactions, whereas a three-dimensional TM state can; show that each TM layer adds two levels of temporal nesting versus one for additive layers; and give a single-layer higher-order construction (TM-k) and a stacking rule preserving all three properties. We instantiate these results as the Clock-Free Event (CFE) layer, linear in the number of events, give a topology-free variant for temporal point processes with closed-form likelihoods, and specify a preregistered clock-robustness protocol with a physical-time threat model for spike-retiming attacks. In preliminary development-set experiments, the TM state beats an otherwise identical additive state by 3.5-9.1 points on DVS128 Gesture and by 24.5 and 30.6 points on SHD and Speech Commands.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.37823v1-abstract-full').style.display = 'none'; document.getElementById('2610.37823v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 27 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.37543">arXiv:2610.37543</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.37543">pdf</a>, <a href="https://arxiv.org/ps/2610.37543">ps</a>, <a href="https://arxiv.org/format/2610.37543">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Rendering-Free Event Frame Simulation for Fast Reinforcement Learning of Autonomous Robot Navigation
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Ou%2C+D">Dequan Ou</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Lopez%2C+A">Austin Lopez</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Missinne%2C+Q">Quentin Missinne</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=De+Wagter%2C+C">Christophe De Wagter</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=de+Croon%2C+G+C+H+E">Guido C. H. E. de Croon</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.37543v1-abstract-short" style="display: inline;">
+        <span class="search-hit mathjax">Event</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.37543v1-abstract-full').style.display = 'inline'; document.getElementById('2610.37543v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.37543v1-abstract-full" style="display: none;">
+        <span class="search-hit mathjax">Event</span> <span class="search-hit mathjax">cameras</span> offer low latency, high dynamic range, and milliwatt-level power consumption, making them ideal for agile robots such as tiny drones navigating through cluttered environments. However, existing simulators generally render photorealistic images before converting them into events, making large-scale reinforcement learning prohibitively slow. We propose an analytic event simulator that exploits what <span class="search-hit mathjax">event</span> <span class="search-hit mathjax">cameras</span> fundamentally measure - moving contrast edges - to synthesize event streams directly from scene geometry and ego-motion without visual rendering. Our simulator generates a 64x64 event observation in 17 microseconds on a single GPU - over 400x faster than a state-of-the-art rendering pipeline - enabling end-to-end reinforcement learning for goal-directed obstacle avoidance to converge in under 30 minutes - three orders of magnitude faster than training on rendered events. Policies transfer zero-shot to physically based event simulations (ray-traced Isaac Sim). Our policy reaches 83% success in cluttered courses unseen during training (mid-difficulty, traversability probability approx. 0.57), at 2.4 m/s average goal velocity, and retains 70% in a simulated texture-dense indoor hall. Furthermore, we quantized the policy to a 1.2 MB int8 network running fully onboard a 56-gram Crazyflie equipped with a Prophesee GenX320 <span class="search-hit mathjax">event</span> <span class="search-hit mathjax">camera</span> and an OpenMV N6 microcontroller board. Without any fine-tuning, external processing, or positioning, the policy achieves an average success rate of 82% (5/5, 5/6, 4/6 flights) across three real-world obstacle courses of increasing difficulty. Code: https://github.com/tudelft/rendering-free-event-nav
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.37543v1-abstract-full').style.display = 'none'; document.getElementById('2610.37543v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 27 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.37309">arXiv:2610.37309</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.37309">pdf</a>, <a href="https://arxiv.org/ps/2610.37309">ps</a>, <a href="https://arxiv.org/format/2610.37309">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        </div>
+      
+        
+          <div class="is-inline-block" style="margin-left: 0.5rem">
+            <div class="tags has-addons">
+              <span class="tag is-dark is-size-7">doi</span>
+              <span class="tag is-light is-size-7"><a class="" href="https://doi.org/10.1109/TIP.2026.3726353">10.1109/TIP.2026.3726353 <i class="fa fa-external-link" aria-hidden="true"></i></a></span>
+            </div>
+          </div>
+        
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        MvT: Event-based Multi-view Projection for Multiple Object Tracking
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Zha%2C+M">Muxi Zha</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Guan%2C+B">Banglei Guan</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Liang%2C+M">Minzu Liang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Liu%2C+Z">Zibin Liu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Shang%2C+Y">Yang Shang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Yu%2C+Q">Qifeng Yu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Kneip%2C+L">Laurent Kneip</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.37309v1-abstract-short" style="display: inline;">
+        <span class="search-hit mathjax">Event</span> <span class="search-hit mathjax">cameras</span> are increasingly used for Multiple Object Tracking (MOT), but their asynchronous event output often requires specialized methods. Existing processing methods primarily follow two paradigms, pseudo-frames and event-by-event. The former is the prevailing approach since its data format aligns with images, ma&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.37309v1-abstract-full').style.display = 'inline'; document.getElementById('2610.37309v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.37309v1-abstract-full" style="display: none;">
+        <span class="search-hit mathjax">Event</span> <span class="search-hit mathjax">cameras</span> are increasingly used for Multiple Object Tracking (MOT), but their asynchronous event output often requires specialized methods. Existing processing methods primarily follow two paradigms, pseudo-frames and event-by-event. The former is the prevailing approach since its data format aligns with images, making image-based techniques applicable. However, it suffers from tracking failures when trajectories overlap or are spatially close on pseudo-frames. Facing this challenge, we propose a multi-view pipeline, Multi-view Tracking (MvT), which preserves the 2D data format to leverage image-based techniques directly while introducing additional spatio-temporal views to resolve tracking ambiguities in a single view. MvT comprises a Multi-view Projection (MvP) module and a Multi-view Fusion (MvF) stage. MvP encodes events into three complementary spatio-temporal views while mitigating the pattern discretization. Within MvF, multi-view results are unified into a 3D coordinate system, and tracklets are associated through an optimization model subject to specific criteria combination. Evaluations on four datasets, including our self-collected Small Objects Dataset (SOD), show that MvT seamlessly integrates image-based methods and outperforms existing non-learning and learning trackers in generalized scenarios, and effectively resolves the single-view tracking ambiguities. Being training-free, MvT is applicable when ground-truth annotation is infeasible, thereby highlighting its practical, data-efficient potential. Code is available at https://github.com/zhazhabiu/MvTracking.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.37309v1-abstract-full').style.display = 'none'; document.getElementById('2610.37309v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 27 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">16 pages, 20 figures, published to IEEE T-IP</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.36610">arXiv:2610.36610</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.36610">pdf</a>, <a href="https://arxiv.org/ps/2610.36610">ps</a>, <a href="https://arxiv.org/format/2610.36610">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        4D Reconstruction with Events &amp; RGB
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Weerakoon%2C+D">Dulanga Weerakoon</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Rathnayake%2C+D">Darshana Rathnayake</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Do%2C+V+M">Van Minh Do</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Sabbella%2C+H">Hemanth Sabbella</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhou%2C+K">Kaichen Zhou</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Zhan%2C+F">Fangneng Zhan</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Prakash%2C+A">Alok Prakash</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Sarma%2C+S+E">Sanjay E. Sarma</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Misra%2C+A">Archan Misra</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Liang%2C+P+P">Paul Pu Liang</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.36610v1-abstract-short" style="display: inline;">
+        &hellip;on RGB frames and therefore inherit the failure modes of conventional cameras, including motion blur and temporal aliasing under fast or non-uniform camera and object motion. <span class="search-hit mathjax">Event</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.36610v1-abstract-full').style.display = 'inline'; document.getElementById('2610.36610v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.36610v1-abstract-full" style="display: none;">
+        Reconstructing dynamic 3D scenes over time (4D reconstruction) from a single moving camera is central to robotics and AR/VR applications, yet state-of the-art feed-forward methods rely solely on RGB frames and therefore inherit the failure modes of conventional cameras, including motion blur and temporal aliasing under fast or non-uniform camera and object motion. <span class="search-hit mathjax">Event</span> <span class="search-hit mathjax">cameras</span> report per-pixel brightness changes asynchronously at microsecond resolution, offering a complementary signal that is largely immune to these artifacts, but whether this modality can be incorporated into existing RGB based 4D reconstruction pipelines without a full architectural redesign remains an open question. In this preliminary study, we investigate a minimal extension: we augment Monst3R, an existing RGB-only 4D reconstruction model, with an additional <span class="search-hit mathjax">event</span>-<span class="search-hit mathjax">camera</span> input branch, leaving the rest of the architecture unchanged. Across 3 benchmark datasets, this simple RGB-event fusion reduces Abs Rel by 3.4% on average relative to the RGB-only Monst3R baseline, and a sensitivity analysis shows that the improvement grows with the magnitude of camera and object motion, with the largest gains observed under high object motion conditions where RGB-only reconstruction degrades most. These early results suggest that even a lightweight, non-invasive fusion of event data can meaningfully improve 4D reconstruction robustness, motivating a more thorough architectural investigation in future work.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.36610v1-abstract-full').style.display = 'none'; document.getElementById('2610.36610v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 27 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">Accepted at NeVi 2026 workshop at the 19th European Conference on Computer Vision (ECCV 2026)</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.34034">arXiv:2610.34034</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.34034">pdf</a>, <a href="https://arxiv.org/ps/2610.34034">ps</a>, <a href="https://arxiv.org/format/2610.34034">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Enabling Motion-Induced WiFi-CSI Sensing in Multi-Robot Systems: A Simulation Framework
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Dijkstra%2C+B">Brendan Dijkstra</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Jadhav%2C+N">Ninad Jadhav</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Stoffijn%2C+M">Maurice Stoffijn</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Gil%2C+S">Stephanie Gil</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Haghighat%2C+B">Bahar Haghighat</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.34034v1-abstract-short" style="display: inline;">
+        &hellip;for robotic research. We validate our framework by comparing simulated and real-world experiments using TurtleBot3 robots, and demonstrate its use for bearing estimation and <span class="search-hit mathjax">robot</span> <span class="search-hit mathjax">localization</span>. This work lowers the barrier to entry for WiFi-CSI-based sensing in multi-robot systems and provides a foundation for integrat&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.34034v1-abstract-full').style.display = 'inline'; document.getElementById('2610.34034v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.34034v1-abstract-full" style="display: none;">
+        WiFi Channel State Information (CSI) enables fine-grained sensing of spatial relationships between wireless devices. The WiFi Sensor for Robotics (WSR) toolbox demonstrated that WiFi-CSI measurements collected during robot motion, combined with odometry, can be used to synthesize virtual antenna arrays, enabling motion-induced bearing estimation in multi-robot experiments. However, deploying the WSR approach has remained challenging due to its limited integration with standard robotics tools and reliance on deprecated WiFi-CSI acquisition hardware. This work presents an open-source simulation framework that integrates the WSR sensing pipeline within the robotic simulator Gazebo. The framework generates synthetic WiFi-CSI measurements with realistic physical signal properties and leverages realistic robot motion required for motion-induced sensing and downstream localization. It further supports processing both simulated and real WiFi-CSI data for direct comparison and validation. Our aim is to make WSR-style sensing accessible as a modular sensing modality for robotic research. We validate our framework by comparing simulated and real-world experiments using TurtleBot3 robots, and demonstrate its use for bearing estimation and <span class="search-hit mathjax">robot</span> <span class="search-hit mathjax">localization</span>. This work lowers the barrier to entry for WiFi-CSI-based sensing in multi-robot systems and provides a foundation for integrating WiFi-CSI sensing with multi-modal perception for localization and coordination. All code and experimental details are publicly available at https://github.com/baharhaghighat/DARS_2026_Dijkstra_et_al
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.34034v1-abstract-full').style.display = 'none'; document.getElementById('2610.34034v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 24 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.33356">arXiv:2610.33356</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.33356">pdf</a>, <a href="https://arxiv.org/ps/2610.33356">ps</a>, <a href="https://arxiv.org/format/2610.33356">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Computer Vision and Pattern Recognition">cs.CV</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Tight Learned Event-Inertial Odometry (TLEIO): a Transformer-Based Architecture for End-to-End Motion from Event Streams
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Cascone%2C+M">Matteo Cascone</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Jensen%2C+D">David Jensen</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Pirini%2C+A">Alessandro Pirini</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Stefanini%2C+A">Angelo Stefanini</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Ven%C3%A8%2C+P">Pietro Venè</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Gazulla%2C+M+T">Marta Tintoré Gazulla</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Carri%C3%B2%2C+J+H">Javier Hidalgo Carriò</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.33356v1-abstract-short" style="display: inline;">
+        <span class="search-hit mathjax">Event</span> <span class="search-hit mathjax">cameras</span> provide microsecond temporal resolution, high dynamic range, and sparse asynchronous measurements, making them compelling for odometry under fast motion and challenging illumination. Yet, accurate event-based state estimation remains difficult: existing systems often use events as a complement to frames o&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.33356v1-abstract-full').style.display = 'inline'; document.getElementById('2610.33356v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.33356v1-abstract-full" style="display: none;">
+        <span class="search-hit mathjax">Event</span> <span class="search-hit mathjax">cameras</span> provide microsecond temporal resolution, high dynamic range, and sparse asynchronous measurements, making them compelling for odometry under fast motion and challenging illumination. Yet, accurate event-based state estimation remains difficult: existing systems often use events as a complement to frames or rely on feature tracking, correspondence search, and optimization-heavy backends, limiting the efficiency promised by event sensing. We introduce Tight Learned Event-Inertial Odometry (TLEIO), a compact filter-based pipeline that learns short-window relative motion directly from voxelized event streams and tightly fuses the resulting constraints with IMU propagation. Its learned front-end, EventsFormer, predicts local displacements and per-axis uncertainty from event voxels in a single forward pass, while a stochastic-cloning EKF fuses these overlapping predictions with IMU propagation, producing metric trajectories without explicit feature tracks and pose optimization at inference time. The network is trained directly from pose displacements, without requiring event-flow labels. We evaluate TLEIO on the TartanAir/TartanEvent benchmark and on real DAVIS240c sequences. On TartanAir, TLEIO reduces average ATE from 2.26 m to 1.10 m over the IMU-only TLIO baseline, while achieving up to 48.9% lower runtime than optimization-based event odometry methods.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.33356v1-abstract-full').style.display = 'none'; document.getElementById('2610.33356v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 23 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">14 pages</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.31384">arXiv:2610.31384</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.31384">pdf</a>, <a href="https://arxiv.org/ps/2610.31384">ps</a>, <a href="https://arxiv.org/format/2610.31384">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        CoHelix: Event-Based Multi-Propeller Rotation-Rate Tracking with Shared Projective Geometry
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Spetlik%2C+R">Radim Spetlik</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Vinkl%C3%A1rek%2C+T">Tobiáš Vinklárek</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Klivan%2C+J">Jan Klivan</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Kest%C5%99%C3%A1nek%2C+T">Tomáš Kestřánek</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Vrba%2C+M">Matouš Vrba</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Matas%2C+J">Jiří Matas</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.31384v1-abstract-short" style="display: inline;">
+        Estimating propeller rates from a moving <span class="search-hit mathjax">event</span> <span class="search-hit mathjax">camera</span> requires separating blade rotation from the changing image geometry. Background activity mixes with blade events, while repeated blade appearances admit half- and double-rate ambiguities. We propose CoHelix, a recursive filter that estimates one shared homography an&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.31384v1-abstract-full').style.display = 'inline'; document.getElementById('2610.31384v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.31384v1-abstract-full" style="display: none;">
+        Estimating propeller rates from a moving <span class="search-hit mathjax">event</span> <span class="search-hit mathjax">camera</span> requires separating blade rotation from the changing image geometry. Background activity mixes with blade events, while repeated blade appearances admit half- and double-rate ambiguities. We propose CoHelix, a recursive filter that estimates one shared homography and separate rotation states for four rigidly mounted, coplanar propellers. Each admitted event updates its assigned rotation state, and its accepted geometry measurements correct the shared homography used to interpret later events from every propeller. We report lock, the fraction of evaluated time for which an estimate remains within 2% of synchronized ground truth, because mean error alone does not show how long a tracker follows the true rate. With fixed-rate initialization, leave-one-recording-out evaluation on moving-camera data gives CoHelix 62.9% lock, compared with 39.8% for HelixTrack and 22.2% for EventPro. With other settings fixed, allowing four geometry contributors instead of one raises lock from 3.4% to 62.9%. On a private target-follower dataset with a different target quadcopter, CoHelix retains the measurement settings selected on moving-camera data and uses a fixed initial rate. It reaches 95.9% lock, compared with 56.2% for HelixTrack and 61.1% for EventPro.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.31384v1-abstract-full').style.display = 'none'; document.getElementById('2610.31384v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 22 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+
+    
+
+    
+  </li>
+
+  <li class="arxiv-result">
+    <div class="is-marginless">
+      <p class="list-title is-inline-block"><a href="https://arxiv.org/abs/2610.31221">arXiv:2610.31221</a>
+        <span>&nbsp;[<a href="https://arxiv.org/pdf/2610.31221">pdf</a>, <a href="https://arxiv.org/ps/2610.31221">ps</a>, <a href="https://arxiv.org/format/2610.31221">other</a>]&nbsp;</span>
+      </p>
+      <div class="tags is-inline-block">
+        <span class="tag is-small is-link tooltip is-tooltip-top" data-tooltip="Robotics">cs.RO</span>
+        </div>
+      
+    </div>
+    
+    <p class="title is-5 mathjax">
+      
+        Consistent Distributed Invariant EKF SLAM with Point and Object Features
+      
+    </p>
+    <p class="authors">
+      <span class="has-text-black-bis has-text-weight-semibold">Authors:</span>
+      
+      <a href="/search/?searchtype=author&amp;query=Xu%2C+M">Mengya Xu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Yu%2C+X">Xianjia Yu</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Sier%2C+H">Ha Sier</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Huang%2C+S">Shoudong Huang</a>, 
+      
+      <a href="/search/?searchtype=author&amp;query=Westerlund%2C+T">Tomi Westerlund</a>
+      
+    </p>
+    
+    <p class="abstract mathjax">
+      <span class="has-text-black-bis has-text-weight-semibold">Abstract</span>:
+      <span class="abstract-short has-text-grey-dark mathjax" id="2610.31221v1-abstract-short" style="display: inline;">
+        &hellip;fused by CI directly. This paper presents Joint-CI, a unified fusion method for distributed RI-EKF SLAM with point, object, and mixed point--object maps. Using a neighboring <span class="search-hit mathjax">robot&#39;s</span>&hellip;
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.31221v1-abstract-full').style.display = 'inline'; document.getElementById('2610.31221v1-abstract-short').style.display = 'none';">&#9661; More</a>
+      </span>
+      <span class="abstract-full has-text-grey-dark mathjax" id="2610.31221v1-abstract-full" style="display: none;">
+        Multi-robot SLAM allows robots to improve their estimates by exchanging map information, but repeated exchanges create unknown correlations between local estimators. Covariance intersection (CI) can fuse estimates without tracking these correlations. In right-invariant extended Kalman filter (RI-EKF) SLAM, however, point features obtain their invariant errors through the robot rotation, so a neighbor&#39;s map estimate is expressed in its own error coordinates and is correlated with its pose, and cannot be fused by CI directly. This paper presents Joint-CI, a unified fusion method for distributed RI-EKF SLAM with point, object, and mixed point--object maps. Using a neighboring <span class="search-hit mathjax">robot&#39;s</span> <span class="search-hit mathjax">local</span> posterior and an inter-robot observation, a joint estimate of the receiving robot&#39;s pose and the common features is constructed in the receiving robot&#39;s error coordinates, retaining the robot--feature and feature--feature correlations. Partial-state CI then fuses this estimate with the receiving <span class="search-hit mathjax">robot&#39;s</span> <span class="search-hit mathjax">local</span> posterior. We show that the unified formulation and the fusion preserve the six unobservable directions associated with global rotation and translation, and that communication and fusion preserve first-order covariance consistency given consistent local posteriors. Monte Carlo simulations and a real-world dataset-derived experiment show that Joint-CI improves estimation accuracy while maintaining consistent, mildly conservative uncertainty.
+        <a class="is-size-7" style="white-space: nowrap;" onclick="document.getElementById('2610.31221v1-abstract-full').style.display = 'none'; document.getElementById('2610.31221v1-abstract-short').style.display = 'inline';">&#9651; Less</a>
+      </span>
+    </p>
+    
+
+    <p class="is-size-7"><span class="has-text-black-bis has-text-weight-semibold">Submitted</span> 22 October, 2026; 
+      <span class="has-text-black-bis has-text-weight-semibold">originally announced</span> October 2026.
+      
+    </p>
+    
+    <p class="comments is-size-7">
+      <span class="has-text-black-bis has-text-weight-semibold">Comments:</span>
+      <span class="has-text-grey-dark mathjax">Submitted to IEEE Robotics and Automation Letters (RA-L)</span>
+    </p>
+    
+
+    
+
+    
+  </li>
+
+</ol>
+
+
+    
+  
+
+      <div class="is-hidden-tablet">
+        <!-- feedback for mobile only -->
+        <span class="help" style="display: inline-block;"><a href="https://github.com/arXiv/arxiv-search/releases">Search v0.5.6 released 2020-02-24</a>&nbsp;&nbsp;</span>
+      </div>
+    </div>
+
+  </main>
+  <footer>
+    <footer class="ds-site-footer">
+  <div class="ds-site-footer-grid">
+    <div class="ds-site-footer-main">
+      <div class="ds-site-footer-ack">
+        We gratefully acknowledge support from our <a href="https://info.arxiv.org/about/major_funders.html"><strong>major funders</strong></a>,
+        <a href="https://info.arxiv.org/about/ourmembers.html"><strong>member institutions</strong></a><span class="ack-member-inline" hidden>, <strong></strong></span>,
+        and all contributors.
+      </div>
+      <nav class="ds-site-footer-links" aria-label="Site navigation">
+        <a href="https://info.arxiv.org/about">About</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help">Help</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/contact.html">Contact</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/subscribe.html">Subscribe</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/license/index.html">Copyright</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/policies/privacy_policy.html">Privacy</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/web_accessibility.html">Accessibility</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://status.arxiv.org/" target="_blank" rel="noopener noreferrer">Operational Status<span class="is-sr-only"> (opens in new tab)</span></a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+  </footer>
+  <script src="https://static.arxiv.org/static/base/1.0.0a5/js/member_acknowledgement.js"></script>
+  </body>
+</html>

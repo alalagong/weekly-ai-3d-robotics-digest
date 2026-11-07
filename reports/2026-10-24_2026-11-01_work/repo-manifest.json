@@ -1,0 +1,102 @@
+[
+  {
+    "family": "repo-public-rest-fallback",
+    "query": "SLAM created:2026-10-24..2026-11-01",
+    "url": "https://api.github.com/search/repositories?q=SLAM+created%3A2026-10-24..2026-11-01&per_page=100&page=1&sort=updated&order=desc",
+    "page": 1,
+    "per_page": 100,
+    "retrieved_at": "2026-11-01T15:09:05Z",
+    "exhausted": false,
+    "total": 253,
+    "returned": 100,
+    "fetched": 100,
+    "incomplete_results": false
+  },
+  {
+    "family": "repo-public-rest-fallback",
+    "query": "SLAM created:2026-10-24..2026-11-01",
+    "url": "https://api.github.com/search/repositories?q=SLAM+created%3A2026-10-24..2026-11-01&per_page=100&page=2&sort=updated&order=desc",
+    "page": 2,
+    "per_page": 100,
+    "retrieved_at": "2026-11-01T15:09:19Z",
+    "exhausted": false,
+    "total": 253,
+    "returned": 100,
+    "fetched": 200,
+    "incomplete_results": false
+  },
+  {
+    "family": "repo-public-rest-fallback",
+    "query": "SLAM created:2026-10-24..2026-11-01",
+    "url": "https://api.github.com/search/repositories?q=SLAM+created%3A2026-10-24..2026-11-01&per_page=100&page=3&sort=updated&order=desc",
+    "page": 3,
+    "per_page": 100,
+    "retrieved_at": "2026-11-01T15:09:36Z",
+    "exhausted": true,
+    "total": 253,
+    "returned": 53,
+    "fetched": 253,
+    "incomplete_results": false
+  },
+  {
+    "family": "repo-public-rest-fallback",
+    "query": "VGGT pushed:2026-10-24..2026-11-01",
+    "url": "https://api.github.com/search/repositories?q=VGGT+pushed%3A2026-10-24..2026-11-01&per_page=100&page=1&sort=updated&order=desc",
+    "page": 1,
+    "per_page": 100,
+    "retrieved_at": "2026-11-01T15:09:45Z",
+    "exhausted": true,
+    "total": 36,
+    "returned": 36,
+    "fetched": 36,
+    "incomplete_results": false
+  },
+  {
+    "family": "repo-public-rest-fallback",
+    "query": "odometry pushed:2026-10-24..2026-11-01",
+    "url": "https://api.github.com/search/repositories?q=odometry+pushed%3A2026-10-24..2026-11-01&per_page=100&page=1&sort=updated&order=desc",
+    "page": 1,
+    "per_page": 100,
+    "retrieved_at": "2026-11-01T15:09:53Z",
+    "exhausted": false,
+    "total": 156,
+    "returned": 100,
+    "fetched": 100,
+    "incomplete_results": false
+  },
+  {
+    "family": "repo-public-rest-fallback",
+    "query": "odometry pushed:2026-10-24..2026-11-01",
+    "url": "https://api.github.com/search/repositories?q=odometry+pushed%3A2026-10-24..2026-11-01&per_page=100&page=2&sort=updated&order=desc",
+    "page": 2,
+    "per_page": 100,
+    "retrieved_at": "2026-11-01T15:10:09Z",
+    "exhausted": true,
+    "total": 156,
+    "returned": 56,
+    "fetched": 156,
+    "incomplete_results": false
+  },
+  {
+    "family": "repo-public-rest-fallback",
+    "query": "\"3D reconstruction\" created:2026-10-24..2026-11-01",
+    "url": "https://api.github.com/search/repositories?q=%223D+reconstruction%22+created%3A2026-10-24..2026-11-01&per_page=100&page=1&sort=updated&order=desc",
+    "page": 1,
+    "per_page": 100,
+    "retrieved_at": "2026-11-01T15:10:18Z",
+    "exhausted": true,
+    "total": 47,
+    "returned": 47,
+    "fetched": 47,
+    "incomplete_results": false
+  },
+  {
+    "family": "repo-trending",
+    "url": "https://github.com/trending?since=weekly",
+    "retrieved_at": "2026-11-01T15:10:26Z",
+    "exhausted": false,
+    "scope": "GitHub weekly trending snapshot; no growth inference",
+    "status": 200,
+    "bytes": 605407
+  }
+]

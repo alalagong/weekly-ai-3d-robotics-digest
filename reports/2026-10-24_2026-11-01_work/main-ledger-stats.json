@@ -1,0 +1,27 @@
+{
+  "candidates": 2486,
+  "dispositions": {
+    "excluded": 2037,
+    "revision_tracking": 123,
+    "supplemental": 326
+  },
+  "included": 449,
+  "included_windows": {
+    "revised": 123,
+    "historical_backfill": 64,
+    "historical_revision_backfill": 10,
+    "new": 252
+  },
+  "abstracts_read_unique": 719,
+  "included_history_verified": 449,
+  "included_missing_history": [],
+  "unresolved_ids": [],
+  "legacy_mentions_need_inspection": [
+    "2605.30488",
+    "2607.08115",
+    "2608.07267",
+    "2608.16499",
+    "2609.18465",
+    "2609.35032"
+  ]
+}
