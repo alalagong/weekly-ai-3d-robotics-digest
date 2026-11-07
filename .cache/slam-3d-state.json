@@ -50,7 +50,9 @@
     "target": "origin/main",
     "report_run_at": "2026-11-01T14:59:32Z",
     "result_path": "reports/2026-10-24_2026-11-01_work/git-delivery.json",
-    "status": "pending_commit_push"
+    "status": "report_commit_pushed_and_verified",
+    "report_commit": "266452a527298fe290bd561bce8cc93ef08e4b39",
+    "note": "报告提交已推送并核对远端SHA；交付记录随后单独提交，文献覆盖状态不受此记录提交影响。"
   },
   "presentation_path": "reports/2026-10-24_2026-11-01_presentation.json"
 }

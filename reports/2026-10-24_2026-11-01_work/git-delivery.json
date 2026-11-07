@@ -1,0 +1,15 @@
+{
+  "report_commit": "266452a527298fe290bd561bce8cc93ef08e4b39",
+  "target": "origin/main",
+  "initial_attempt": "无输出等待后主动中止；只读ls-remote仍af635452",
+  "retry": "GIT_TERMINAL_PROMPT=0/GCM_INTERACTIVE=Never，非强制push，低速超时30s",
+  "literature_coverage_status": "complete_with_known_limits",
+  "report_validation": "24项通过；独立写前重新发现1404+写后17项通过",
+  "git_result": "pushed_and_remote_verified",
+  "observed_at": "2026-11-07T04:31:24.100392+00:00",
+  "remote_sha": "266452a527298fe290bd561bce8cc93ef08e4b39",
+  "push_exit_code": 0,
+  "ahead": 0,
+  "behind": 0,
+  "verified_at": "2026-11-07T04:32:31.380813+00:00"
+}
