@@ -30,6 +30,7 @@
 深读优先有实质方法或工程价值的核心SLAM/前馈3D，按重要性决定数量。读Intro、Method、Experiments、Ablation/Analysis、Limitations/Conclusion及必要附录，无相应章节则明说。列问题、结构、数学/insight、实验、复现和阅读证据；数值保留数据集、指标单位、baseline、硬件与协议边界。摘要/README不算全文。系统图只嵌经caption和视觉确认的原始overview/pipeline，放本篇图列；摘要条目不嵌图。
 摘要跟踪不设篇数上限，保留模板要求的方向、问题、方法、洞见、实验、证据与后续动作；缺数值写未提供，明确未深读。已有合格中文要点和详情直接复用，仅润色新增、实质变化或不合格项，不再次全量翻译。
 遵循 reports/templates/slam-3d-weekly-template.html 与 slam-3d-supplemental-guide.md，可复用 render_supplemental.py。保留9个section和header tiles；摘要按“分类→40–100字中文一句话→展开详情”展示，默认收起、真实计数；使用 SUPPLEMENTAL_CATEGORY_NAV/GROUPS，不用旧长表占位符。优先关注须有理由，不替代完整纳入或证据等级。
+深读版式以 2026-10-18_2026-10-24_BlazeVGGT-HiP3R-CAOS.html 为参照。每篇一行，每栏用简短中文概括，实验保留代表性结果、对照、单位和主要边界。完整章节清单、额外实验和来源链接放在表下按篇折叠的 DEEP_READ_EVIDENCE_DETAILS 或证据附件，保留逐篇入口。沿用模板列宽与表内滚动样式，避免全局强设最小列宽。渲染时检查桌面能扫读主表及窄屏可滚动、可展开证据。
 
 6. Repo与一次验收
 检索期内新项目/实质发布；已审仓库先比较commit/release，仅检查变化模块及必要上下文，不重读未变源码。重点仓库核README、tree、入口/配置/核心模块、近期commit/release/issue，列实际文件和固定SHA、依赖/硬件及stars/forks快照；区分作者声称、源码静态证据、实际运行。占位/README-only不计源码深读；未运行/未下载权重数据须注明。

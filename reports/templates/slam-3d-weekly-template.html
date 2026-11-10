@@ -30,9 +30,9 @@
       background: linear-gradient(180deg, #f8fbfd 0%, #fff 100%);
     }
     main {
-      max-width: 1280px;
+      max-width: 1720px;
       margin: 0 auto;
-      padding: 28px 7vw 60px;
+      padding: 28px clamp(20px, 4vw, 76px) 60px;
     }
     h1 {
       margin: 0 0 12px;
@@ -67,6 +67,15 @@
     }
     th { background: var(--soft); }
     tr:nth-child(even) td { background: #fcfdfe; }
+    .deep-table-scroll { overflow-x: auto; }
+    .deep-table-scroll table { min-width: 1080px; }
+    .deep-table-scroll th:nth-child(4) { width: 16%; }
+    .deep-table-scroll th:nth-child(6) { width: 20%; }
+    .deep-table-scroll td { overflow-wrap: anywhere; }
+    .deep-evidence details { margin: 8px 0; padding: 10px 14px; border: 1px solid var(--line); border-radius: 8px; }
+    .deep-evidence summary { cursor: pointer; font-weight: 600; }
+    .deep-evidence dd { margin: 0 0 8px; }
+    .deep-evidence { overflow-wrap: anywhere; }
     code {
       padding: 1px 5px;
       border-radius: 4px;
@@ -186,6 +195,7 @@
       header { padding: 28px 5vw 20px; }
       main { padding: 20px 5vw 44px; }
       table { display: block; overflow-x: auto; }
+      .deep-table-scroll table { display: table; }
       .links { columns: 1; }
     }
   </style>
@@ -214,6 +224,7 @@
 
     <section>
       <h2>Deep-read Papers</h2>
+      <div class="deep-table-scroll" role="region" aria-label="深读论文比较表" tabindex="0">
       <table>
         <thead>
           <tr>
@@ -231,6 +242,8 @@
           {{DEEP_READ_PAPER_ROWS}}
         </tbody>
       </table>
+      </div>
+      {{DEEP_READ_EVIDENCE_DETAILS}}
     </section>
 
     <section>
