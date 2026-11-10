@@ -2,21 +2,21 @@
 
 1. 连续覆盖与历史优先
 先读 AGENTS.md、memory 的最新运行摘要、.cache/slam-3d-state.json、HTML模板及 supplemental-guide.md。冻结 run_at，窗口为 (上次 coverage_end, run_at]；跨7天仍覆盖全部间隔。UTC精确判定、Asia/Shanghai展示，区分首次提交、版本更新和公告日期。
-用脚本加载 reports/paper-history.json 与最近ledger，先输出待处理ID和短统计，不把完整历史/ledger灌入上下文。已有审计种子仅程序核销；仅未知版本、未解决项或明确纠错项重新处理，不每周重读历史报告。历史无版本记录才定点回查原条目。
-每个候选在摘要阅读/派发前先查 ID+版本：同版已纳入且证据可用，记 excluded/already-covered 并引用原报告，不再读写；同版已排除且摘要/范围未变，复用排除理由；历史排除误判须明确纠错。新版本先核官方 Submission history，摘要未变时复用原分析并标“摘要未变，未比较新旧全文”，不重新撰写六项分析。只有内容变化、证据不足或明确全文升级才补读。
+用脚本加载 reports/paper-history.json 与最近ledger，输出待处理ID和短统计。已有审计种子仅程序核销。历史补漏仅处理有明确证据、从未纳入的历史漏项或纠错，单列并注明原始v1时间。
+新文以官方 Submission history 的v1时间为准。摘要阅读和派发前按基础ID查历史，任何版本已纳入则记 excluded/already-covered 并引用原报告。v1早于或等于coverage_end、仅因本期更新命中的候选记 excluded/revision-only，停止后续阅读。窗口内首次提交且随后修订的论文只纳入一次，摘要和正文均用v1，记录实际版本。无法确认v1时间的相关候选保留待核查。
 
 2. 检索：一个主渠道，按缺口补查
 范围A：SLAM/VIO/SfM、视觉/激光/雷达里程计、回环/重定位/配准、BA/pose graph、多传感融合。
 范围B：VGGT/OmniVGGT、DUSt3R/MASt3R、pi3、DA3、几何基础模型、前馈/流式/长序列3D、pointmap、3DGS及效率/尺度/不确定性；不限标题包含SLAM/VGGT。
 范围C：与三维感知、建图定位或机器人直接相关的导航/VLN、语义地图、世界预测/动作模型和特殊传感器应用。world model、memory、attention、simulation等泛词须与3D/几何/机器人锚词组合；排除仅通用语言、纯2D或无直接关联的工作。
-每族兼顾首次提交和期内修订，日期可向前重叠1–2天。每个日期谓词选择一个语义可靠的arXiv API或Advanced主渠道；不要默认把同一检索在两渠道再完整跑一遍。已知API lastUpdatedDate语义异常时直接用Advanced latest，不重复验证已知失败路径。官方分类列表、项目/作者页、GitHub和相关工作用于定点交叉发现/补缺口；备用渠道仅在失败、分页不明或发现具体遗漏时启用。
+各族只检索首次提交，选择arXiv API submittedDate或Advanced首次提交日期为主渠道，允许向前重叠1–2天后按精确v1时间归类。独立复核与补查也按v1窗口执行，停用更新日期查询。官方分类列表、项目/作者页、GitHub和相关工作用于定点交叉发现。备用渠道在失败、分页不明或发现具体遗漏时启用。
 记录查询式/字段/日期谓词、来源URL、执行时间、总数、页数/游标、取回数、失败与替代关系；命中上限必须分页或切日直到耗尽。零返回/访问失败不能当零论文。
 
 3. 逐层筛选与证据门槛
 历史去重后按“标题 → 关键词 → 摘要 → 正文”逐层处理。脚本可批量取回元数据并缓存摘要，模型每层只接收所需字段和仍待判断的候选。
 ① 标题：只排除研究对象明确与范围无关的条目。题意不清、缩写有歧义或可能涉及A/B/C的条目进入关键词层。
 ② 关键词：优先用作者关键词、官方分类和元数据中的术语线索。只有对象与目标明确不相关时才排除；关键词缺失、分类跨域或信号冲突时进入摘要层。未命中关键词、分类或标题中的SLAM/VGGT不构成排除理由。
-③ 摘要：对仍可能相关的候选读完整摘要，按任务、输入输出和技术贡献判定范围。相关条目保留摘要或修订跟踪，范围外记具体理由，摘要无法取得留待核查。用贡献实质和工程相关性选正文候选，优先需要核实的定量主张、可复现细节和有代表性的核心方法。
+③ 摘要：对仍可能相关的候选读完整摘要，按任务、输入输出和技术贡献判定范围。相关条目保留摘要跟踪，范围外记具体理由，摘要无法取得留待核查。用贡献实质和工程相关性选正文候选，优先需要核实的定量主张、可复现细节和有代表性的核心方法。
 ④ 正文：先定位方法、实验与限制，核实结构、指标、对照及适用条件，符合深读要求后再升级证据等级。保留其他相关条目的摘要跟踪。
 台账逐ID记录筛选停留阶段、依据、阅读等级和处置理由，汇总各层进入/排除/流转数。独立复核除换词发现外，定点抽查标题/关键词层的边界排除，优先看缩写歧义、跨域和旧排除；发现误筛则修正规则并复查受影响集合。各层按证据筛选，不设淘汰比例或篇数配额。
 
@@ -26,8 +26,8 @@
 独立漏项复核只做一轮：独立agent先用不同词/渠道针对A/B/C及主检索缺口重新发现，再用脚本与主池/history求差集，只补读未处置/有争议的候选。主池已读者引用现有结论。发现核心遗漏就定点补查并核销，不无故重开全域扫描。写后用脚本做集合、版本、计数、锚点和文件一致性校验，不再派一轮全量阅读。独立复核不可用则保存incomplete_review，不推进coverage_end。
 
 5. 阅读与展示
-全部in-scope候选必须落到 deep_read/supplemental/revision_tracking 或明确unresolved；排除须有理由。历史补漏、历史版本补跟踪、期内更新、新文分开。完整保留同前缀 paper-ledger.json、search-manifest.json 与逐ID presentation.json，字段沿用既有schema。计数必须满足候选=深读+摘要补充+修订跟踪+排除+未解决，presentation与摘要/修订ID一一对应。
-深读优先有实质方法或工程价值的核心SLAM/前馈3D，按重要性决定数量。读Intro、Method、Experiments、Ablation/Analysis、Limitations/Conclusion及必要附录，无相应章节则明说。列问题、结构、数学/insight、实验、复现和阅读证据；数值保留数据集、指标单位、baseline、硬件与协议边界。摘要/README不算全文；未比较新旧全文不称重大修订。系统图只嵌经caption和视觉确认的原始overview/pipeline，放本篇图列；摘要条目不嵌图。
+全部in-scope候选必须落到 deep_read/supplemental 或明确unresolved，排除须有理由。新文和历史补漏分开，revision_tracking及历史版本补跟踪停止新增。完整保留同前缀 paper-ledger.json、search-manifest.json 与逐ID presentation.json，字段沿用既有schema。计数必须满足候选=深读+摘要补充+排除+未解决，presentation与摘要ID一一对应。
+深读优先有实质方法或工程价值的核心SLAM/前馈3D，按重要性决定数量。读Intro、Method、Experiments、Ablation/Analysis、Limitations/Conclusion及必要附录，无相应章节则明说。列问题、结构、数学/insight、实验、复现和阅读证据；数值保留数据集、指标单位、baseline、硬件与协议边界。摘要/README不算全文。系统图只嵌经caption和视觉确认的原始overview/pipeline，放本篇图列；摘要条目不嵌图。
 摘要跟踪不设篇数上限，保留模板要求的方向、问题、方法、洞见、实验、证据与后续动作；缺数值写未提供，明确未深读。已有合格中文要点和详情直接复用，仅润色新增、实质变化或不合格项，不再次全量翻译。
 遵循 reports/templates/slam-3d-weekly-template.html 与 slam-3d-supplemental-guide.md，可复用 render_supplemental.py。保留9个section和header tiles；摘要按“分类→40–100字中文一句话→展开详情”展示，默认收起、真实计数；使用 SUPPLEMENTAL_CATEGORY_NAV/GROUPS，不用旧长表占位符。优先关注须有理由，不替代完整纳入或证据等级。
 
@@ -36,4 +36,4 @@
 输出 reports/YYYY-MM-DD_YYYY-MM-DD_主题.html 并更新index。用一个可复用脚本一次校验section、ID/版本集合、计数、日期归属、历史去重、本地链接/图片、presentation闭合；只对失败项重跑。能渲染时一次检查搜索/时间/优先关注/零结果/重置、分类计数、隐藏锚点展开、窄屏和无JS退化，未实测项明确限制。不要为不变模板重复开发验证器或做多轮逐篇人工验收。
 关键查询未耗尽、核心候选未判定或独立复核未通过则输出临时报告，coverage_end不跨缺口；其余访问/补读待办按ID持久保存。通过门槛后增量更新state/history，保留原字段与旧记录，不重新生成全历史。
 Windows原生，Git用 C:\Users\gongy\AppData\Local\Programs\Git\cmd\git.exe，不可用才WSL。只提交本轮报告/index/引用assets/ledger/manifest/presentation/history/state及必要审计摘要/可复现脚本；大量原始下载页/PDF留本地缓存，记录URL/hash/cache路径，不默认提交全部中间副本。暂存检查仅输出摘要/错误首段，原始源文件空白不触发全量巨大diff输出。commit“更新 YYYY-MM-DD 至 YYYY-MM-DD SLAM与3D视觉周报”，push origin/main不强推；推送独立于文献覆盖状态。网络/认证失败定点恢复，不重跑文献任务。
-最终简报给路径、精确窗口、深读/repo/摘要数、新文/修订/补漏数、候选/排除/未解决数、分页/独立复核及访问限制、commit/push。memory只追加运行摘要和下一步。续跑先读进度与未完成队列，仅执行剩余步骤。工具返回控制在必要片段，集合运算/分类计数/去重交给脚本；不打印完整历史、全文、ledger或成千上万行diff。
+最终简报给路径、精确窗口、深读/repo/摘要数、新文/补漏数、候选/排除/未解决数、分页/独立复核及访问限制、commit/push。memory只追加运行摘要和下一步。续跑先读进度与未完成队列，仅执行剩余步骤。工具返回控制在必要片段，集合运算/分类计数/去重交给脚本；不打印完整历史、全文、ledger或成千上万行diff。
