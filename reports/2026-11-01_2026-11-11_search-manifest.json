@@ -1,0 +1,2263 @@
+{
+  "schema_version": 2,
+  "run_at": "2026-11-10T18:10:23.7767297Z",
+  "coverage_start_exclusive": "2026-11-01T14:59:32Z",
+  "coverage_end_inclusive": "2026-11-10T18:10:23.7767297Z",
+  "query_sources": {
+    "primary": [
+      {
+        "name": "advanced-latest-A-backend",
+        "family": "A-backend",
+        "source": "https://arxiv.org/search/advanced",
+        "query": {
+          "advanced": "",
+          "classification-include_cross_list": "include",
+          "date-filter_by": "date_range",
+          "date-from_date": "2026-10-31",
+          "date-to_date": "2026-11-10",
+          "date-date_type": "submitted_date",
+          "abstracts": "hide",
+          "size": 200,
+          "order": "-submitted_date",
+          "terms-0-operator": "AND",
+          "terms-0-term": "\"loop closure\"",
+          "terms-0-field": "all",
+          "terms-1-operator": "OR",
+          "terms-1-term": "\"relocalization\"",
+          "terms-1-field": "all",
+          "terms-2-operator": "OR",
+          "terms-2-term": "\"relocalisation\"",
+          "terms-2-field": "all",
+          "terms-3-operator": "OR",
+          "terms-3-term": "\"bundle adjustment\"",
+          "terms-3-field": "all",
+          "terms-4-operator": "OR",
+          "terms-4-term": "\"pose graph\"",
+          "terms-4-field": "all",
+          "terms-5-operator": "OR",
+          "terms-5-term": "\"point cloud registration\"",
+          "terms-5-field": "all",
+          "terms-6-operator": "OR",
+          "terms-6-term": "\"scan matching\"",
+          "terms-6-field": "all",
+          "terms-7-operator": "OR",
+          "terms-7-term": "\"place recognition\"",
+          "terms-7-field": "all",
+          "terms-8-operator": "OR",
+          "terms-8-term": "\"LiDAR localization\"",
+          "terms-8-field": "all",
+          "terms-9-operator": "OR",
+          "terms-9-term": "\"radar localization\"",
+          "terms-9-field": "all",
+          "terms-10-operator": "OR",
+          "terms-10-term": "\"sensor fusion\"",
+          "terms-10-field": "all"
+        },
+        "date_predicate": "submitted_date (latest): 2026-10-31..2026-11-10",
+        "retrieved_at": "2026-11-10T18:12:32.548309Z",
+        "pages": [
+          {
+            "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-31&date-to_date=2026-11-10&date-date_type=submitted_date&abstracts=hide&size=200&order=-submitted_date&terms-0-operator=AND&terms-0-term=%22loop+closure%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22relocalization%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22relocalisation%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22bundle+adjustment%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22pose+graph%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22point+cloud+registration%22&terms-5-field=all&terms-6-operator=OR&terms-6-term=%22scan+matching%22&terms-6-field=all&terms-7-operator=OR&terms-7-term=%22place+recognition%22&terms-7-field=all&terms-8-operator=OR&terms-8-term=%22LiDAR+localization%22&terms-8-field=all&terms-9-operator=OR&terms-9-term=%22radar+localization%22&terms-9-field=all&terms-10-operator=OR&terms-10-term=%22sensor+fusion%22&terms-10-field=all&start=0",
+            "start": 0,
+            "returned": 58,
+            "retrieved_at": "2026-11-10T18:12:38.895412Z",
+            "raw_path": ".cache/slam-3d-20261111/advanced-latest-A-backend-0.html",
+            "sha256": "aa2a2070483fd03ba1a7301a6415e2974ae2988cd9cb63c8e92b72e477f6b3ec"
+          }
+        ],
+        "total": 58,
+        "fetched": 58,
+        "exhausted": true
+      },
+      {
+        "name": "advanced-latest-A-state",
+        "family": "A-state",
+        "source": "https://arxiv.org/search/advanced",
+        "query": {
+          "advanced": "",
+          "classification-include_cross_list": "include",
+          "date-filter_by": "date_range",
+          "date-from_date": "2026-10-31",
+          "date-to_date": "2026-11-10",
+          "date-date_type": "submitted_date",
+          "abstracts": "hide",
+          "size": 200,
+          "order": "-submitted_date",
+          "terms-0-operator": "AND",
+          "terms-0-term": "\"SLAM\"",
+          "terms-0-field": "all",
+          "terms-1-operator": "OR",
+          "terms-1-term": "\"simultaneous localization\"",
+          "terms-1-field": "all",
+          "terms-2-operator": "OR",
+          "terms-2-term": "\"simultaneous localisation\"",
+          "terms-2-field": "all",
+          "terms-3-operator": "OR",
+          "terms-3-term": "\"visual-inertial\"",
+          "terms-3-field": "all",
+          "terms-4-operator": "OR",
+          "terms-4-term": "\"odometry\"",
+          "terms-4-field": "all",
+          "terms-5-operator": "OR",
+          "terms-5-term": "\"structure from motion\"",
+          "terms-5-field": "all",
+          "terms-6-operator": "OR",
+          "terms-6-term": "\"SfM\"",
+          "terms-6-field": "all",
+          "terms-7-operator": "OR",
+          "terms-7-term": "\"VIO\"",
+          "terms-7-field": "all"
+        },
+        "date_predicate": "submitted_date (latest): 2026-10-31..2026-11-10",
+        "retrieved_at": "2026-11-10T18:12:31.762422Z",
+        "pages": [
+          {
+            "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-31&date-to_date=2026-11-10&date-date_type=submitted_date&abstracts=hide&size=200&order=-submitted_date&terms-0-operator=AND&terms-0-term=%22SLAM%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22simultaneous+localization%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22simultaneous+localisation%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22visual-inertial%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22odometry%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22structure+from+motion%22&terms-5-field=all&terms-6-operator=OR&terms-6-term=%22SfM%22&terms-6-field=all&terms-7-operator=OR&terms-7-term=%22VIO%22&terms-7-field=all&start=0",
+            "start": 0,
+            "returned": 66,
+            "retrieved_at": "2026-11-10T18:12:38.379680Z",
+            "raw_path": ".cache/slam-3d-20261111/advanced-latest-A-state-0.html",
+            "sha256": "d2d82004ecf4a6a0c61d82ddac6830da07193238bd3f7e1c8aebb3155c3387a2"
+          }
+        ],
+        "total": 66,
+        "fetched": 66,
+        "exhausted": true
+      },
+      {
+        "name": "advanced-latest-B-models",
+        "family": "B-models",
+        "source": "https://arxiv.org/search/advanced",
+        "query": {
+          "advanced": "",
+          "classification-include_cross_list": "include",
+          "date-filter_by": "date_range",
+          "date-from_date": "2026-10-31",
+          "date-to_date": "2026-11-10",
+          "date-date_type": "submitted_date",
+          "abstracts": "hide",
+          "size": 200,
+          "order": "-submitted_date",
+          "terms-0-operator": "AND",
+          "terms-0-term": "\"VGGT\"",
+          "terms-0-field": "all",
+          "terms-1-operator": "OR",
+          "terms-1-term": "\"OmniVGGT\"",
+          "terms-1-field": "all",
+          "terms-2-operator": "OR",
+          "terms-2-term": "\"DUSt3R\"",
+          "terms-2-field": "all",
+          "terms-3-operator": "OR",
+          "terms-3-term": "\"MASt3R\"",
+          "terms-3-field": "all",
+          "terms-4-operator": "OR",
+          "terms-4-term": "\"pi3\"",
+          "terms-4-field": "all",
+          "terms-5-operator": "OR",
+          "terms-5-term": "\"DA3\"",
+          "terms-5-field": "all",
+          "terms-6-operator": "OR",
+          "terms-6-term": "\"visual geometry\"",
+          "terms-6-field": "all",
+          "terms-7-operator": "OR",
+          "terms-7-term": "\"geometry foundation\"",
+          "terms-7-field": "all",
+          "terms-8-operator": "OR",
+          "terms-8-term": "\"Depth Anything\"",
+          "terms-8-field": "all",
+          "terms-9-operator": "OR",
+          "terms-9-term": "\"pointmap\"",
+          "terms-9-field": "all",
+          "terms-10-operator": "OR",
+          "terms-10-term": "\"feed-forward 3D\"",
+          "terms-10-field": "all",
+          "terms-11-operator": "OR",
+          "terms-11-term": "\"feedforward 3D\"",
+          "terms-11-field": "all",
+          "terms-12-operator": "OR",
+          "terms-12-term": "\"online 3D reconstruction\"",
+          "terms-12-field": "all",
+          "terms-13-operator": "OR",
+          "terms-13-term": "\"streaming 3D\"",
+          "terms-13-field": "all",
+          "terms-14-operator": "OR",
+          "terms-14-term": "\"long-sequence 3D\"",
+          "terms-14-field": "all"
+        },
+        "date_predicate": "submitted_date (latest): 2026-10-31..2026-11-10",
+        "retrieved_at": "2026-11-10T18:12:38.381684Z",
+        "pages": [
+          {
+            "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-31&date-to_date=2026-11-10&date-date_type=submitted_date&abstracts=hide&size=200&order=-submitted_date&terms-0-operator=AND&terms-0-term=%22VGGT%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22OmniVGGT%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22DUSt3R%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22MASt3R%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22pi3%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22DA3%22&terms-5-field=all&terms-6-operator=OR&terms-6-term=%22visual+geometry%22&terms-6-field=all&terms-7-operator=OR&terms-7-term=%22geometry+foundation%22&terms-7-field=all&terms-8-operator=OR&terms-8-term=%22Depth+Anything%22&terms-8-field=all&terms-9-operator=OR&terms-9-term=%22pointmap%22&terms-9-field=all&terms-10-operator=OR&terms-10-term=%22feed-forward+3D%22&terms-10-field=all&terms-11-operator=OR&terms-11-term=%22feedforward+3D%22&terms-11-field=all&terms-12-operator=OR&terms-12-term=%22online+3D+reconstruction%22&terms-12-field=all&terms-13-operator=OR&terms-13-term=%22streaming+3D%22&terms-13-field=all&terms-14-operator=OR&terms-14-term=%22long-sequence+3D%22&terms-14-field=all&start=0",
+            "start": 0,
+            "returned": 42,
+            "retrieved_at": "2026-11-10T18:12:43.446060Z",
+            "raw_path": ".cache/slam-3d-20261111/advanced-latest-B-models-0.html",
+            "sha256": "d5d219ce6894be9f63bdb14136ca0161d954619c70a3794707fc613bc43a41e5"
+          }
+        ],
+        "total": 42,
+        "fetched": 42,
+        "exhausted": true
+      },
+      {
+        "name": "advanced-latest-B-recon",
+        "family": "B-recon",
+        "source": "https://arxiv.org/search/advanced",
+        "query": {
+          "advanced": "",
+          "classification-include_cross_list": "include",
+          "date-filter_by": "date_range",
+          "date-from_date": "2026-10-31",
+          "date-to_date": "2026-11-10",
+          "date-date_type": "submitted_date",
+          "abstracts": "hide",
+          "size": 200,
+          "order": "-submitted_date",
+          "terms-0-operator": "AND",
+          "terms-0-term": "\"3D reconstruction\"",
+          "terms-0-field": "all",
+          "terms-1-operator": "OR",
+          "terms-1-term": "\"Gaussian splatting\"",
+          "terms-1-field": "all",
+          "terms-2-operator": "OR",
+          "terms-2-term": "\"3DGS\"",
+          "terms-2-field": "all",
+          "terms-3-operator": "OR",
+          "terms-3-term": "\"novel view synthesis\"",
+          "terms-3-field": "all",
+          "terms-4-operator": "OR",
+          "terms-4-term": "\"multi-view stereo\"",
+          "terms-4-field": "all",
+          "terms-5-operator": "OR",
+          "terms-5-term": "\"multi-view depth\"",
+          "terms-5-field": "all",
+          "terms-6-operator": "OR",
+          "terms-6-term": "\"camera pose estimation\"",
+          "terms-6-field": "all"
+        },
+        "date_predicate": "submitted_date (latest): 2026-10-31..2026-11-10",
+        "retrieved_at": "2026-11-10T18:12:38.896411Z",
+        "pages": [
+          {
+            "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-31&date-to_date=2026-11-10&date-date_type=submitted_date&abstracts=hide&size=200&order=-submitted_date&terms-0-operator=AND&terms-0-term=%223D+reconstruction%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22Gaussian+splatting%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%223DGS%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22novel+view+synthesis%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22multi-view+stereo%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22multi-view+depth%22&terms-5-field=all&terms-6-operator=OR&terms-6-term=%22camera+pose+estimation%22&terms-6-field=all&start=0",
+            "start": 0,
+            "returned": 123,
+            "retrieved_at": "2026-11-10T18:12:45.406172Z",
+            "raw_path": ".cache/slam-3d-20261111/advanced-latest-B-recon-0.html",
+            "sha256": "476df0eae5c97caa337ad39f993afab86e739570f491b84ff928d2f19c4d7458"
+          }
+        ],
+        "total": 123,
+        "fetched": 123,
+        "exhausted": true
+      },
+      {
+        "name": "advanced-latest-C-nav",
+        "family": "C-nav",
+        "source": "https://arxiv.org/search/advanced",
+        "query": {
+          "advanced": "",
+          "classification-include_cross_list": "include",
+          "date-filter_by": "date_range",
+          "date-from_date": "2026-10-31",
+          "date-to_date": "2026-11-10",
+          "date-date_type": "submitted_date",
+          "abstracts": "hide",
+          "size": 200,
+          "order": "-submitted_date",
+          "terms-0-operator": "AND",
+          "terms-0-term": "\"embodied navigation\"",
+          "terms-0-field": "all",
+          "terms-1-operator": "OR",
+          "terms-1-term": "\"visual navigation\"",
+          "terms-1-field": "all",
+          "terms-2-operator": "OR",
+          "terms-2-term": "\"robot navigation\"",
+          "terms-2-field": "all",
+          "terms-3-operator": "OR",
+          "terms-3-term": "\"vision-language navigation\"",
+          "terms-3-field": "all",
+          "terms-4-operator": "OR",
+          "terms-4-term": "\"VLN\"",
+          "terms-4-field": "all",
+          "terms-5-operator": "OR",
+          "terms-5-term": "\"semantic map\"",
+          "terms-5-field": "all",
+          "terms-6-operator": "OR",
+          "terms-6-term": "\"semantic mapping\"",
+          "terms-6-field": "all",
+          "terms-7-operator": "OR",
+          "terms-7-term": "\"open-vocabulary mapping\"",
+          "terms-7-field": "all",
+          "terms-8-operator": "OR",
+          "terms-8-term": "\"underwater localization\"",
+          "terms-8-field": "all",
+          "terms-9-operator": "OR",
+          "terms-9-term": "\"event camera odometry\"",
+          "terms-9-field": "all",
+          "terms-10-operator": "OR",
+          "terms-10-term": "\"endoscopic reconstruction\"",
+          "terms-10-field": "all",
+          "terms-11-operator": "OR",
+          "terms-11-term": "\"thermal localization\"",
+          "terms-11-field": "all"
+        },
+        "date_predicate": "submitted_date (latest): 2026-10-31..2026-11-10",
+        "retrieved_at": "2026-11-10T18:12:43.447618Z",
+        "pages": [
+          {
+            "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-31&date-to_date=2026-11-10&date-date_type=submitted_date&abstracts=hide&size=200&order=-submitted_date&terms-0-operator=AND&terms-0-term=%22embodied+navigation%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22visual+navigation%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22robot+navigation%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%22vision-language+navigation%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22VLN%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22semantic+map%22&terms-5-field=all&terms-6-operator=OR&terms-6-term=%22semantic+mapping%22&terms-6-field=all&terms-7-operator=OR&terms-7-term=%22open-vocabulary+mapping%22&terms-7-field=all&terms-8-operator=OR&terms-8-term=%22underwater+localization%22&terms-8-field=all&terms-9-operator=OR&terms-9-term=%22event+camera+odometry%22&terms-9-field=all&terms-10-operator=OR&terms-10-term=%22endoscopic+reconstruction%22&terms-10-field=all&terms-11-operator=OR&terms-11-term=%22thermal+localization%22&terms-11-field=all&start=0",
+            "start": 0,
+            "returned": 27,
+            "retrieved_at": "2026-11-10T18:12:48.616121Z",
+            "raw_path": ".cache/slam-3d-20261111/advanced-latest-C-nav-0.html",
+            "sha256": "8b5ad8d09652a312214663459f9e314fd2eac6eb6cbf3fe958a6bce9be30e205"
+          }
+        ],
+        "total": 27,
+        "fetched": 27,
+        "exhausted": true
+      },
+      {
+        "name": "advanced-latest-C-world",
+        "family": "C-world",
+        "source": "https://arxiv.org/search/advanced",
+        "query": {
+          "advanced": "",
+          "classification-include_cross_list": "include",
+          "date-filter_by": "date_range",
+          "date-from_date": "2026-10-31",
+          "date-to_date": "2026-11-10",
+          "date-date_type": "submitted_date",
+          "abstracts": "hide",
+          "size": 200,
+          "order": "-submitted_date",
+          "terms-0-operator": "AND",
+          "terms-0-term": "\"robot world model\"",
+          "terms-0-field": "all",
+          "terms-1-operator": "OR",
+          "terms-1-term": "\"robotic world model\"",
+          "terms-1-field": "all",
+          "terms-2-operator": "OR",
+          "terms-2-term": "\"world action model\"",
+          "terms-2-field": "all",
+          "terms-3-operator": "OR",
+          "terms-3-term": "\"3D world model\"",
+          "terms-3-field": "all",
+          "terms-4-operator": "OR",
+          "terms-4-term": "\"spatial world model\"",
+          "terms-4-field": "all",
+          "terms-5-operator": "OR",
+          "terms-5-term": "\"embodied world model\"",
+          "terms-5-field": "all",
+          "terms-6-operator": "OR",
+          "terms-6-term": "\"robot simulation\"",
+          "terms-6-field": "all",
+          "terms-7-operator": "OR",
+          "terms-7-term": "\"geometric world model\"",
+          "terms-7-field": "all",
+          "terms-8-operator": "OR",
+          "terms-8-term": "\"geometry-aware world model\"",
+          "terms-8-field": "all"
+        },
+        "date_predicate": "submitted_date (latest): 2026-10-31..2026-11-10",
+        "retrieved_at": "2026-11-10T18:12:45.407176Z",
+        "pages": [
+          {
+            "url": "https://arxiv.org/search/advanced?advanced=&classification-include_cross_list=include&date-filter_by=date_range&date-from_date=2026-10-31&date-to_date=2026-11-10&date-date_type=submitted_date&abstracts=hide&size=200&order=-submitted_date&terms-0-operator=AND&terms-0-term=%22robot+world+model%22&terms-0-field=all&terms-1-operator=OR&terms-1-term=%22robotic+world+model%22&terms-1-field=all&terms-2-operator=OR&terms-2-term=%22world+action+model%22&terms-2-field=all&terms-3-operator=OR&terms-3-term=%223D+world+model%22&terms-3-field=all&terms-4-operator=OR&terms-4-term=%22spatial+world+model%22&terms-4-field=all&terms-5-operator=OR&terms-5-term=%22embodied+world+model%22&terms-5-field=all&terms-6-operator=OR&terms-6-term=%22robot+simulation%22&terms-6-field=all&terms-7-operator=OR&terms-7-term=%22geometric+world+model%22&terms-7-field=all&terms-8-operator=OR&terms-8-term=%22geometry-aware+world+model%22&terms-8-field=all&start=0",
+            "start": 0,
+            "returned": 60,
+            "retrieved_at": "2026-11-10T18:12:50.505781Z",
+            "raw_path": ".cache/slam-3d-20261111/advanced-latest-C-world-0.html",
+            "sha256": "8659d22c348cad395fd6c33b701a00c3972a093221ed4b60889085d660a2fb35"
+          }
+        ],
+        "total": 60,
+        "fetched": 60,
+        "exhausted": true
+      },
+      {
+        "name": "atom-first-A-backend",
+        "family": "A-backend",
+        "source": "https://export.arxiv.org/api/query",
+        "query": {
+          "search_query": "(ti:\"loop closure\" OR abs:\"loop closure\" OR ti:\"relocalization\" OR abs:\"relocalization\" OR ti:\"relocalisation\" OR abs:\"relocalisation\" OR ti:\"bundle adjustment\" OR abs:\"bundle adjustment\" OR ti:\"pose graph\" OR abs:\"pose graph\" OR ti:\"point cloud registration\" OR abs:\"point cloud registration\" OR ti:\"scan matching\" OR abs:\"scan matching\" OR ti:\"place recognition\" OR abs:\"place recognition\" OR ti:\"LiDAR localization\" OR abs:\"LiDAR localization\" OR ti:\"radar localization\" OR abs:\"radar localization\" OR ti:\"sensor fusion\" OR abs:\"sensor fusion\") AND submittedDate:[202610310000 TO 202611101810]",
+          "max_results": 200,
+          "sortBy": "submittedDate",
+          "sortOrder": "descending"
+        },
+        "date_predicate": "submittedDate:[202610310000 TO 202611101810]",
+        "retrieved_at": "2026-11-10T18:12:19.843843Z",
+        "pages": [
+          {
+            "url": "https://export.arxiv.org/api/query?search_query=%28ti%3A%22loop+closure%22+OR+abs%3A%22loop+closure%22+OR+ti%3A%22relocalization%22+OR+abs%3A%22relocalization%22+OR+ti%3A%22relocalisation%22+OR+abs%3A%22relocalisation%22+OR+ti%3A%22bundle+adjustment%22+OR+abs%3A%22bundle+adjustment%22+OR+ti%3A%22pose+graph%22+OR+abs%3A%22pose+graph%22+OR+ti%3A%22point+cloud+registration%22+OR+abs%3A%22point+cloud+registration%22+OR+ti%3A%22scan+matching%22+OR+abs%3A%22scan+matching%22+OR+ti%3A%22place+recognition%22+OR+abs%3A%22place+recognition%22+OR+ti%3A%22LiDAR+localization%22+OR+abs%3A%22LiDAR+localization%22+OR+ti%3A%22radar+localization%22+OR+abs%3A%22radar+localization%22+OR+ti%3A%22sensor+fusion%22+OR+abs%3A%22sensor+fusion%22%29+AND+submittedDate%3A%5B202610310000+TO+202611101810%5D&max_results=200&sortBy=submittedDate&sortOrder=descending&start=0",
+            "start": 0,
+            "returned": 45,
+            "retrieved_at": "2026-11-10T18:12:23.993112Z",
+            "raw_path": ".cache/slam-3d-20261111/atom-first-A-backend-0.xml",
+            "sha256": "1efad25f64fdbff450b7fed81f767b577f1c0504b0ba741d2f8bc60977cd1c51"
+          }
+        ],
+        "total": 45,
+        "fetched": 45,
+        "exhausted": true
+      },
+      {
+        "name": "atom-first-A-state",
+        "family": "A-state",
+        "source": "https://export.arxiv.org/api/query",
+        "query": {
+          "search_query": "(ti:\"SLAM\" OR abs:\"SLAM\" OR ti:\"simultaneous localization\" OR abs:\"simultaneous localization\" OR ti:\"simultaneous localisation\" OR abs:\"simultaneous localisation\" OR ti:\"visual-inertial\" OR abs:\"visual-inertial\" OR ti:\"odometry\" OR abs:\"odometry\" OR ti:\"structure from motion\" OR abs:\"structure from motion\" OR ti:\"SfM\" OR abs:\"SfM\" OR ti:\"VIO\" OR abs:\"VIO\") AND submittedDate:[202610310000 TO 202611101810]",
+          "max_results": 200,
+          "sortBy": "submittedDate",
+          "sortOrder": "descending"
+        },
+        "date_predicate": "submittedDate:[202610310000 TO 202611101810]",
+        "retrieved_at": "2026-11-10T18:12:19.843843Z",
+        "pages": [
+          {
+            "url": "https://export.arxiv.org/api/query?search_query=%28ti%3A%22SLAM%22+OR+abs%3A%22SLAM%22+OR+ti%3A%22simultaneous+localization%22+OR+abs%3A%22simultaneous+localization%22+OR+ti%3A%22simultaneous+localisation%22+OR+abs%3A%22simultaneous+localisation%22+OR+ti%3A%22visual-inertial%22+OR+abs%3A%22visual-inertial%22+OR+ti%3A%22odometry%22+OR+abs%3A%22odometry%22+OR+ti%3A%22structure+from+motion%22+OR+abs%3A%22structure+from+motion%22+OR+ti%3A%22SfM%22+OR+abs%3A%22SfM%22+OR+ti%3A%22VIO%22+OR+abs%3A%22VIO%22%29+AND+submittedDate%3A%5B202610310000+TO+202611101810%5D&max_results=200&sortBy=submittedDate&sortOrder=descending&start=0",
+            "start": 0,
+            "returned": 44,
+            "retrieved_at": "2026-11-10T18:12:23.927803Z",
+            "raw_path": ".cache/slam-3d-20261111/atom-first-A-state-0.xml",
+            "sha256": "b1d14bedc1539deeb36b86bc18ce374f1642bc0afc5353612207bf59dc432015"
+          }
+        ],
+        "total": 44,
+        "fetched": 44,
+        "exhausted": true
+      },
+      {
+        "name": "atom-first-B-models",
+        "family": "B-models",
+        "source": "https://export.arxiv.org/api/query",
+        "query": {
+          "search_query": "(ti:\"VGGT\" OR abs:\"VGGT\" OR ti:\"OmniVGGT\" OR abs:\"OmniVGGT\" OR ti:\"DUSt3R\" OR abs:\"DUSt3R\" OR ti:\"MASt3R\" OR abs:\"MASt3R\" OR ti:\"pi3\" OR abs:\"pi3\" OR ti:\"DA3\" OR abs:\"DA3\" OR ti:\"visual geometry\" OR abs:\"visual geometry\" OR ti:\"geometry foundation\" OR abs:\"geometry foundation\" OR ti:\"Depth Anything\" OR abs:\"Depth Anything\" OR ti:\"pointmap\" OR abs:\"pointmap\" OR ti:\"feed-forward 3D\" OR abs:\"feed-forward 3D\" OR ti:\"feedforward 3D\" OR abs:\"feedforward 3D\" OR ti:\"online 3D reconstruction\" OR abs:\"online 3D reconstruction\" OR ti:\"streaming 3D\" OR abs:\"streaming 3D\" OR ti:\"long-sequence 3D\" OR abs:\"long-sequence 3D\") AND submittedDate:[202610310000 TO 202611101810]",
+          "max_results": 200,
+          "sortBy": "submittedDate",
+          "sortOrder": "descending"
+        },
+        "date_predicate": "submittedDate:[202610310000 TO 202611101810]",
+        "retrieved_at": "2026-11-10T18:12:23.930085Z",
+        "pages": [
+          {
+            "url": "https://export.arxiv.org/api/query?search_query=%28ti%3A%22VGGT%22+OR+abs%3A%22VGGT%22+OR+ti%3A%22OmniVGGT%22+OR+abs%3A%22OmniVGGT%22+OR+ti%3A%22DUSt3R%22+OR+abs%3A%22DUSt3R%22+OR+ti%3A%22MASt3R%22+OR+abs%3A%22MASt3R%22+OR+ti%3A%22pi3%22+OR+abs%3A%22pi3%22+OR+ti%3A%22DA3%22+OR+abs%3A%22DA3%22+OR+ti%3A%22visual+geometry%22+OR+abs%3A%22visual+geometry%22+OR+ti%3A%22geometry+foundation%22+OR+abs%3A%22geometry+foundation%22+OR+ti%3A%22Depth+Anything%22+OR+abs%3A%22Depth+Anything%22+OR+ti%3A%22pointmap%22+OR+abs%3A%22pointmap%22+OR+ti%3A%22feed-forward+3D%22+OR+abs%3A%22feed-forward+3D%22+OR+ti%3A%22feedforward+3D%22+OR+abs%3A%22feedforward+3D%22+OR+ti%3A%22online+3D+reconstruction%22+OR+abs%3A%22online+3D+reconstruction%22+OR+ti%3A%22streaming+3D%22+OR+abs%3A%22streaming+3D%22+OR+ti%3A%22long-sequence+3D%22+OR+abs%3A%22long-sequence+3D%22%29+AND+submittedDate%3A%5B202610310000+TO+202611101810%5D&max_results=200&sortBy=submittedDate&sortOrder=descending&start=0",
+            "start": 0,
+            "returned": 29,
+            "retrieved_at": "2026-11-10T18:12:27.927347Z",
+            "raw_path": ".cache/slam-3d-20261111/atom-first-B-models-0.xml",
+            "sha256": "d311d34628727ace8f4d27180aed6881377c3ed4b671f79df326fb489f998553"
+          }
+        ],
+        "total": 29,
+        "fetched": 29,
+        "exhausted": true
+      },
+      {
+        "name": "atom-first-B-recon",
+        "family": "B-recon",
+        "source": "https://export.arxiv.org/api/query",
+        "query": {
+          "search_query": "(ti:\"3D reconstruction\" OR abs:\"3D reconstruction\" OR ti:\"Gaussian splatting\" OR abs:\"Gaussian splatting\" OR ti:\"3DGS\" OR abs:\"3DGS\" OR ti:\"novel view synthesis\" OR abs:\"novel view synthesis\" OR ti:\"multi-view stereo\" OR abs:\"multi-view stereo\" OR ti:\"multi-view depth\" OR abs:\"multi-view depth\" OR ti:\"camera pose estimation\" OR abs:\"camera pose estimation\") AND submittedDate:[202610310000 TO 202611101810]",
+          "max_results": 200,
+          "sortBy": "submittedDate",
+          "sortOrder": "descending"
+        },
+        "date_predicate": "submittedDate:[202610310000 TO 202611101810]",
+        "retrieved_at": "2026-11-10T18:12:23.994663Z",
+        "pages": [
+          {
+            "url": "https://export.arxiv.org/api/query?search_query=%28ti%3A%223D+reconstruction%22+OR+abs%3A%223D+reconstruction%22+OR+ti%3A%22Gaussian+splatting%22+OR+abs%3A%22Gaussian+splatting%22+OR+ti%3A%223DGS%22+OR+abs%3A%223DGS%22+OR+ti%3A%22novel+view+synthesis%22+OR+abs%3A%22novel+view+synthesis%22+OR+ti%3A%22multi-view+stereo%22+OR+abs%3A%22multi-view+stereo%22+OR+ti%3A%22multi-view+depth%22+OR+abs%3A%22multi-view+depth%22+OR+ti%3A%22camera+pose+estimation%22+OR+abs%3A%22camera+pose+estimation%22%29+AND+submittedDate%3A%5B202610310000+TO+202611101810%5D&max_results=200&sortBy=submittedDate&sortOrder=descending&start=0",
+            "start": 0,
+            "returned": 78,
+            "retrieved_at": "2026-11-10T18:12:28.448937Z",
+            "raw_path": ".cache/slam-3d-20261111/atom-first-B-recon-0.xml",
+            "sha256": "824c05b37c50850da44c94abc35f3f4f3e4189d75525e303ba7b2f453eaed958"
+          }
+        ],
+        "total": 78,
+        "fetched": 78,
+        "exhausted": true
+      },
+      {
+        "name": "atom-first-C-nav",
+        "family": "C-nav",
+        "source": "https://export.arxiv.org/api/query",
+        "query": {
+          "search_query": "(ti:\"embodied navigation\" OR abs:\"embodied navigation\" OR ti:\"visual navigation\" OR abs:\"visual navigation\" OR ti:\"robot navigation\" OR abs:\"robot navigation\" OR ti:\"vision-language navigation\" OR abs:\"vision-language navigation\" OR ti:\"VLN\" OR abs:\"VLN\" OR ti:\"semantic map\" OR abs:\"semantic map\" OR ti:\"semantic mapping\" OR abs:\"semantic mapping\" OR ti:\"open-vocabulary mapping\" OR abs:\"open-vocabulary mapping\" OR ti:\"underwater localization\" OR abs:\"underwater localization\" OR ti:\"event camera odometry\" OR abs:\"event camera odometry\" OR ti:\"endoscopic reconstruction\" OR abs:\"endoscopic reconstruction\" OR ti:\"thermal localization\" OR abs:\"thermal localization\") AND submittedDate:[202610310000 TO 202611101810]",
+          "max_results": 200,
+          "sortBy": "submittedDate",
+          "sortOrder": "descending"
+        },
+        "date_predicate": "submittedDate:[202610310000 TO 202611101810]",
+        "retrieved_at": "2026-11-10T18:12:27.928293Z",
+        "pages": [
+          {
+            "url": "https://export.arxiv.org/api/query?search_query=%28ti%3A%22embodied+navigation%22+OR+abs%3A%22embodied+navigation%22+OR+ti%3A%22visual+navigation%22+OR+abs%3A%22visual+navigation%22+OR+ti%3A%22robot+navigation%22+OR+abs%3A%22robot+navigation%22+OR+ti%3A%22vision-language+navigation%22+OR+abs%3A%22vision-language+navigation%22+OR+ti%3A%22VLN%22+OR+abs%3A%22VLN%22+OR+ti%3A%22semantic+map%22+OR+abs%3A%22semantic+map%22+OR+ti%3A%22semantic+mapping%22+OR+abs%3A%22semantic+mapping%22+OR+ti%3A%22open-vocabulary+mapping%22+OR+abs%3A%22open-vocabulary+mapping%22+OR+ti%3A%22underwater+localization%22+OR+abs%3A%22underwater+localization%22+OR+ti%3A%22event+camera+odometry%22+OR+abs%3A%22event+camera+odometry%22+OR+ti%3A%22endoscopic+reconstruction%22+OR+abs%3A%22endoscopic+reconstruction%22+OR+ti%3A%22thermal+localization%22+OR+abs%3A%22thermal+localization%22%29+AND+submittedDate%3A%5B202610310000+TO+202611101810%5D&max_results=200&sortBy=submittedDate&sortOrder=descending&start=0",
+            "start": 0,
+            "returned": 15,
+            "retrieved_at": "2026-11-10T18:12:31.761415Z",
+            "raw_path": ".cache/slam-3d-20261111/atom-first-C-nav-0.xml",
+            "sha256": "815132f2012c26f0aedda8b7714176c8d9d6767ba47eafe33f81ea7f89eb963e"
+          }
+        ],
+        "total": 15,
+        "fetched": 15,
+        "exhausted": true
+      },
+      {
+        "name": "atom-first-C-world",
+        "family": "C-world",
+        "source": "https://export.arxiv.org/api/query",
+        "query": {
+          "search_query": "(ti:\"robot world model\" OR abs:\"robot world model\" OR ti:\"robotic world model\" OR abs:\"robotic world model\" OR ti:\"world action model\" OR abs:\"world action model\" OR ti:\"3D world model\" OR abs:\"3D world model\" OR ti:\"spatial world model\" OR abs:\"spatial world model\" OR ti:\"embodied world model\" OR abs:\"embodied world model\" OR ti:\"robot simulation\" OR abs:\"robot simulation\" OR ti:\"geometric world model\" OR abs:\"geometric world model\" OR ti:\"geometry-aware world model\" OR abs:\"geometry-aware world model\") AND submittedDate:[202610310000 TO 202611101810]",
+          "max_results": 200,
+          "sortBy": "submittedDate",
+          "sortOrder": "descending"
+        },
+        "date_predicate": "submittedDate:[202610310000 TO 202611101810]",
+        "retrieved_at": "2026-11-10T18:12:28.450681Z",
+        "pages": [
+          {
+            "url": "https://export.arxiv.org/api/query?search_query=%28ti%3A%22robot+world+model%22+OR+abs%3A%22robot+world+model%22+OR+ti%3A%22robotic+world+model%22+OR+abs%3A%22robotic+world+model%22+OR+ti%3A%22world+action+model%22+OR+abs%3A%22world+action+model%22+OR+ti%3A%223D+world+model%22+OR+abs%3A%223D+world+model%22+OR+ti%3A%22spatial+world+model%22+OR+abs%3A%22spatial+world+model%22+OR+ti%3A%22embodied+world+model%22+OR+abs%3A%22embodied+world+model%22+OR+ti%3A%22robot+simulation%22+OR+abs%3A%22robot+simulation%22+OR+ti%3A%22geometric+world+model%22+OR+abs%3A%22geometric+world+model%22+OR+ti%3A%22geometry-aware+world+model%22+OR+abs%3A%22geometry-aware+world+model%22%29+AND+submittedDate%3A%5B202610310000+TO+202611101810%5D&max_results=200&sortBy=submittedDate&sortOrder=descending&start=0",
+            "start": 0,
+            "returned": 38,
+            "retrieved_at": "2026-11-10T18:12:32.546695Z",
+            "raw_path": ".cache/slam-3d-20261111/atom-first-C-world-0.xml",
+            "sha256": "fbd3d31cfe7e5b06f21d776aad1e07e055243ff3049516999c04791819e77fef"
+          }
+        ],
+        "total": 38,
+        "fetched": 38,
+        "exhausted": true
+      }
+    ],
+    "independent_classifications": [
+      {
+        "category": "cs.AI",
+        "endpoint": "2026-11",
+        "advertised_total": 1878,
+        "retrieved": 1878,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/cs.AI/2026-11?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:32.176300+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/cs.AI/2026-11?show=2000&skip=0",
+            "last_modified": null,
+            "total": 1878,
+            "retrieved": 1878,
+            "sha256": "fe82902ba99f0d2e9ab7a92e55ed30cc97677dec1e6e0e4d6eb0b4f53939c1b4",
+            "headings": []
+          }
+        ],
+        "matching_rows": 47
+      },
+      {
+        "category": "cs.AI",
+        "endpoint": "new",
+        "advertised_total": 887,
+        "retrieved": 887,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/cs.AI/new?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:43.647642+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/cs.AI/new?show=2000&skip=0",
+            "last_modified": null,
+            "total": 887,
+            "retrieved": 887,
+            "sha256": "20d911212117fc3b36a46efb54b2051acd39268e8cfb92a5dee46b4c6b4d09a9",
+            "headings": [
+              "Showing new listings for Tuesday, 10 November 2026",
+              "New submissions (showing 166 of 166 entries)",
+              "Cross submissions (showing 314 of 314 entries)",
+              "Replacement submissions (showing 407 of 407 entries)"
+            ]
+          }
+        ],
+        "matching_rows": 15
+      },
+      {
+        "category": "cs.AI",
+        "endpoint": "recent",
+        "advertised_total": 1367,
+        "retrieved": 1367,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/cs.AI/recent?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:36.836930+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/cs.AI/recent?show=2000&skip=0",
+            "last_modified": null,
+            "total": 1367,
+            "retrieved": 1367,
+            "sha256": "c607989e747b0688e8dd4ac4a69bdf5fb95b42f5bf3d2c7739d7ba1777b53b57",
+            "headings": [
+              "Tue, 10 Nov 2026 (showing 480 of 480 entries )",
+              "Mon, 9 Nov 2026 (showing 220 of 220 entries )",
+              "Fri, 6 Nov 2026 (showing 198 of 198 entries )",
+              "Thu, 5 Nov 2026 (showing 217 of 217 entries )",
+              "Wed, 4 Nov 2026 (showing 252 of 252 entries )"
+            ]
+          }
+        ],
+        "matching_rows": 32
+      },
+      {
+        "category": "cs.CV",
+        "endpoint": "2026-10",
+        "advertised_total": 3940,
+        "retrieved": 3940,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/cs.CV/2026-10?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:45.313660+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/cs.CV/2026-10?show=2000&skip=0",
+            "last_modified": null,
+            "total": 3940,
+            "retrieved": 2000,
+            "sha256": "4f2994d9bcfa48dfb912294fe0fcda8817e7731cca909aab8a44718017247cf2",
+            "headings": []
+          },
+          {
+            "url": "https://arxiv.org/list/cs.CV/2026-10?show=2000&skip=2000",
+            "cursor": 2000,
+            "requested": "2026-11-10T18:14:54.538254+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/cs.CV/2026-10?show=2000&skip=2000",
+            "last_modified": null,
+            "total": 3940,
+            "retrieved": 1940,
+            "sha256": "eef0af8d1e3ab99deb60a35c18a40f10abae4ffbd58e50049f7137987d472671",
+            "headings": []
+          }
+        ],
+        "matching_rows": 22
+      },
+      {
+        "category": "cs.CV",
+        "endpoint": "2026-11",
+        "advertised_total": 1273,
+        "retrieved": 1273,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/cs.CV/2026-11?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:30.596115+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/cs.CV/2026-11?show=2000&skip=0",
+            "last_modified": null,
+            "total": 1273,
+            "retrieved": 1273,
+            "sha256": "ece6203e5166d33b8c8e44c6042d5f1f3bc7ec31b39af9afb29ce134ec55c1ad",
+            "headings": []
+          }
+        ],
+        "matching_rows": 154
+      },
+      {
+        "category": "cs.CV",
+        "endpoint": "new",
+        "advertised_total": 517,
+        "retrieved": 517,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/cs.CV/new?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:40.210265+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/cs.CV/new?show=2000&skip=0",
+            "last_modified": null,
+            "total": 517,
+            "retrieved": 517,
+            "sha256": "ea3ef7862fe1da5561aaccd5237ddb22f1964526c6fcf3b17f3b4eaf8977d8f7",
+            "headings": [
+              "Showing new listings for Tuesday, 10 November 2026",
+              "New submissions (showing 250 of 250 entries)",
+              "Cross submissions (showing 67 of 67 entries)",
+              "Replacement submissions (showing 200 of 200 entries)"
+            ]
+          }
+        ],
+        "matching_rows": 53
+      },
+      {
+        "category": "cs.CV",
+        "endpoint": "recent",
+        "advertised_total": 880,
+        "retrieved": 880,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/cs.CV/recent?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:35.030295+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/cs.CV/recent?show=2000&skip=0",
+            "last_modified": null,
+            "total": 880,
+            "retrieved": 880,
+            "sha256": "802624c6675ef8d31a0cc581a1026aec919a512cb082e88b2f98e0694a0a5cb0",
+            "headings": [
+              "Tue, 10 Nov 2026 (showing 317 of 317 entries )",
+              "Mon, 9 Nov 2026 (showing 117 of 117 entries )",
+              "Fri, 6 Nov 2026 (showing 138 of 138 entries )",
+              "Thu, 5 Nov 2026 (showing 148 of 148 entries )",
+              "Wed, 4 Nov 2026 (showing 160 of 160 entries )"
+            ]
+          }
+        ],
+        "matching_rows": 113
+      },
+      {
+        "category": "cs.GR",
+        "endpoint": "2026-10",
+        "advertised_total": 195,
+        "retrieved": 195,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/cs.GR/2026-10?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:48.262915+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/cs.GR/2026-10?show=2000&skip=0",
+            "last_modified": null,
+            "total": 195,
+            "retrieved": 195,
+            "sha256": "bfe63051821e56177b979aa55c2daf8a522ff705df286429c595f578472619b4",
+            "headings": []
+          }
+        ],
+        "matching_rows": 0
+      },
+      {
+        "category": "cs.GR",
+        "endpoint": "2026-11",
+        "advertised_total": 59,
+        "retrieved": 59,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/cs.GR/2026-11?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:30.596115+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/cs.GR/2026-11?show=2000&skip=0",
+            "last_modified": null,
+            "total": 59,
+            "retrieved": 59,
+            "sha256": "bd7a329ab3c837296cad54a0d87b57a4933e2d6b4e098557570e03d05d2a5228",
+            "headings": []
+          }
+        ],
+        "matching_rows": 15
+      },
+      {
+        "category": "cs.GR",
+        "endpoint": "new",
+        "advertised_total": 24,
+        "retrieved": 24,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/cs.GR/new?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:41.792416+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/cs.GR/new?show=2000&skip=0",
+            "last_modified": null,
+            "total": 24,
+            "retrieved": 24,
+            "sha256": "b9ee1e1700a03a771144d98ba1a30bc41dc15f9bad0744537f26a9497be2b5c9",
+            "headings": [
+              "Showing new listings for Tuesday, 10 November 2026",
+              "New submissions (showing 4 of 4 entries)",
+              "Cross submissions (showing 10 of 10 entries)",
+              "Replacement submissions (showing 10 of 10 entries)"
+            ]
+          }
+        ],
+        "matching_rows": 7
+      },
+      {
+        "category": "cs.GR",
+        "endpoint": "recent",
+        "advertised_total": 41,
+        "retrieved": 41,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/cs.GR/recent?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:35.092238+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/cs.GR/recent?show=2000&skip=0",
+            "last_modified": null,
+            "total": 41,
+            "retrieved": 41,
+            "sha256": "eb24a67897e5505c1a873fd02fda414f1043ff78f09cda76c60da7217feb6b95",
+            "headings": [
+              "Tue, 10 Nov 2026 (showing 14 of 14 entries )",
+              "Mon, 9 Nov 2026 (showing 7 of 7 entries )",
+              "Fri, 6 Nov 2026 (showing 11 of 11 entries )",
+              "Thu, 5 Nov 2026 (showing 7 of 7 entries )",
+              "Wed, 4 Nov 2026 (showing 2 of 2 entries )"
+            ]
+          }
+        ],
+        "matching_rows": 13
+      },
+      {
+        "category": "cs.MM",
+        "endpoint": "2026-11",
+        "advertised_total": 29,
+        "retrieved": 29,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/cs.MM/2026-11?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:33.150706+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/cs.MM/2026-11?show=2000&skip=0",
+            "last_modified": null,
+            "total": 29,
+            "retrieved": 29,
+            "sha256": "9a121b66db0fef222b0799c53e0f4be5a502ec4ab7157fb8252cf542c993aa41",
+            "headings": []
+          }
+        ],
+        "matching_rows": 3
+      },
+      {
+        "category": "cs.MM",
+        "endpoint": "new",
+        "advertised_total": 14,
+        "retrieved": 14,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/cs.MM/new?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:44.371092+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/cs.MM/new?show=2000&skip=0",
+            "last_modified": null,
+            "total": 14,
+            "retrieved": 14,
+            "sha256": "065d38ea2dcc8f15c737a9e375a3f136682f00f4bcb2edba14e056029ac3ee8b",
+            "headings": [
+              "Showing new listings for Tuesday, 10 November 2026",
+              "Cross submissions (showing 7 of 7 entries)",
+              "Replacement submissions (showing 7 of 7 entries)"
+            ]
+          }
+        ],
+        "matching_rows": 1
+      },
+      {
+        "category": "cs.MM",
+        "endpoint": "recent",
+        "advertised_total": 23,
+        "retrieved": 23,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/cs.MM/recent?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:38.223363+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/cs.MM/recent?show=2000&skip=0",
+            "last_modified": null,
+            "total": 23,
+            "retrieved": 23,
+            "sha256": "0febfdca31e130c673bbe01bee764c567eae9570545f9367db1c661c7b18527d",
+            "headings": [
+              "Tue, 10 Nov 2026 (showing 7 of 7 entries )",
+              "Mon, 9 Nov 2026 (showing 3 of 3 entries )",
+              "Fri, 6 Nov 2026 (showing 2 of 2 entries )",
+              "Thu, 5 Nov 2026 (showing 6 of 6 entries )",
+              "Wed, 4 Nov 2026 (showing 5 of 5 entries )"
+            ]
+          }
+        ],
+        "matching_rows": 3
+      },
+      {
+        "category": "cs.RO",
+        "endpoint": "2026-10",
+        "advertised_total": 2260,
+        "retrieved": 2260,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/cs.RO/2026-10?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:44.903674+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/cs.RO/2026-10?show=2000&skip=0",
+            "last_modified": null,
+            "total": 2260,
+            "retrieved": 2000,
+            "sha256": "36a3fd6494f22a8d93df579082792d6ce3372ab4d991df00b468b7d3607f62c2",
+            "headings": []
+          },
+          {
+            "url": "https://arxiv.org/list/cs.RO/2026-10?show=2000&skip=2000",
+            "cursor": 2000,
+            "requested": "2026-11-10T18:14:54.108951+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/cs.RO/2026-10?show=2000&skip=2000",
+            "last_modified": null,
+            "total": 2260,
+            "retrieved": 260,
+            "sha256": "ed86f82e4d59078103c8d470c621969a57b69f1a230937165ae004af669e0b30",
+            "headings": []
+          }
+        ],
+        "matching_rows": 13
+      },
+      {
+        "category": "cs.RO",
+        "endpoint": "2026-11",
+        "advertised_total": 587,
+        "retrieved": 587,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/cs.RO/2026-11?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:30.595597+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/cs.RO/2026-11?show=2000&skip=0",
+            "last_modified": null,
+            "total": 587,
+            "retrieved": 587,
+            "sha256": "5f22d53b70be682af221bd48201c666179df93709063c0f563a76953df059501",
+            "headings": []
+          }
+        ],
+        "matching_rows": 79
+      },
+      {
+        "category": "cs.RO",
+        "endpoint": "new",
+        "advertised_total": 241,
+        "retrieved": 241,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/cs.RO/new?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:39.153100+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/cs.RO/new?show=2000&skip=0",
+            "last_modified": null,
+            "total": 241,
+            "retrieved": 241,
+            "sha256": "dfa06f9e7d34545010411d7d6391b8c4a16af8585a115f1c14dc71a1483dad49",
+            "headings": [
+              "Showing new listings for Tuesday, 10 November 2026",
+              "New submissions (showing 128 of 128 entries)",
+              "Cross submissions (showing 37 of 37 entries)",
+              "Replacement submissions (showing 76 of 76 entries)"
+            ]
+          }
+        ],
+        "matching_rows": 33
+      },
+      {
+        "category": "cs.RO",
+        "endpoint": "recent",
+        "advertised_total": 440,
+        "retrieved": 440,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/cs.RO/recent?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:34.146239+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/cs.RO/recent?show=2000&skip=0",
+            "last_modified": null,
+            "total": 440,
+            "retrieved": 440,
+            "sha256": "c433da7aa973f39af8896a301b4223e921d1f50ad4b9c69b3a591ea3ae74da31",
+            "headings": [
+              "Tue, 10 Nov 2026 (showing 165 of 165 entries )",
+              "Mon, 9 Nov 2026 (showing 60 of 60 entries )",
+              "Fri, 6 Nov 2026 (showing 81 of 81 entries )",
+              "Thu, 5 Nov 2026 (showing 62 of 62 entries )",
+              "Wed, 4 Nov 2026 (showing 72 of 72 entries )"
+            ]
+          }
+        ],
+        "matching_rows": 55
+      },
+      {
+        "category": "eess.IV",
+        "endpoint": "2026-10",
+        "advertised_total": 241,
+        "retrieved": 241,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/eess.IV/2026-10?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:50.318275+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/eess.IV/2026-10?show=2000&skip=0",
+            "last_modified": null,
+            "total": 241,
+            "retrieved": 241,
+            "sha256": "e2e379a41dc7e7fe52f9abf1e7e4c9a89e8d88ffade7e46298b81893a5a63075",
+            "headings": []
+          }
+        ],
+        "matching_rows": 2
+      },
+      {
+        "category": "eess.IV",
+        "endpoint": "2026-11",
+        "advertised_total": 90,
+        "retrieved": 90,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/eess.IV/2026-11?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:30.596631+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/eess.IV/2026-11?show=2000&skip=0",
+            "last_modified": null,
+            "total": 90,
+            "retrieved": 90,
+            "sha256": "bc046da0eca7bbc5ff4bf00da795f74fe3ec21795bc9dc3ed8e1af7e33be6907",
+            "headings": []
+          }
+        ],
+        "matching_rows": 5
+      },
+      {
+        "category": "eess.IV",
+        "endpoint": "new",
+        "advertised_total": 20,
+        "retrieved": 20,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/eess.IV/new?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:43.037349+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/eess.IV/new?show=2000&skip=0",
+            "last_modified": null,
+            "total": 20,
+            "retrieved": 20,
+            "sha256": "28b04fa57f87a1c8ffa07ceb5a7b5f121e0aab6c88d4d879e70aaebc56d6cdb4",
+            "headings": [
+              "Showing new listings for Tuesday, 10 November 2026",
+              "New submissions (showing 11 of 11 entries)",
+              "Cross submissions (showing 2 of 2 entries)",
+              "Replacement submissions (showing 7 of 7 entries)"
+            ]
+          }
+        ],
+        "matching_rows": 1
+      },
+      {
+        "category": "eess.IV",
+        "endpoint": "recent",
+        "advertised_total": 57,
+        "retrieved": 57,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/eess.IV/recent?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:35.709751+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/eess.IV/recent?show=2000&skip=0",
+            "last_modified": null,
+            "total": 57,
+            "retrieved": 57,
+            "sha256": "9477eeae08014d84166e3426de32f51ba72ce3731f2a5f7d2a8240f5a374d63b",
+            "headings": [
+              "Tue, 10 Nov 2026 (showing 13 of 13 entries )",
+              "Mon, 9 Nov 2026 (showing 17 of 17 entries )",
+              "Fri, 6 Nov 2026 (showing 6 of 6 entries )",
+              "Thu, 5 Nov 2026 (showing 8 of 8 entries )",
+              "Wed, 4 Nov 2026 (showing 13 of 13 entries )"
+            ]
+          }
+        ],
+        "matching_rows": 5
+      },
+      {
+        "category": "eess.SP",
+        "endpoint": "2026-11",
+        "advertised_total": 257,
+        "retrieved": 257,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/eess.SP/2026-11?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:31.680186+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/eess.SP/2026-11?show=2000&skip=0",
+            "last_modified": null,
+            "total": 257,
+            "retrieved": 257,
+            "sha256": "e3f49df81bd33835dcf61d635a1b7975af792edeb4f161d1d5333b6c46998d20",
+            "headings": []
+          }
+        ],
+        "matching_rows": 13
+      },
+      {
+        "category": "eess.SP",
+        "endpoint": "new",
+        "advertised_total": 81,
+        "retrieved": 81,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/eess.SP/new?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:43.042291+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/eess.SP/new?show=2000&skip=0",
+            "last_modified": null,
+            "total": 81,
+            "retrieved": 81,
+            "sha256": "b7239551bfbd77e6d777d34fce924581b16c99a6354bf64c6a45b02009ef9b73",
+            "headings": [
+              "Showing new listings for Tuesday, 10 November 2026",
+              "New submissions (showing 36 of 36 entries)",
+              "Cross submissions (showing 16 of 16 entries)",
+              "Replacement submissions (showing 29 of 29 entries)"
+            ]
+          }
+        ],
+        "matching_rows": 4
+      },
+      {
+        "category": "eess.SP",
+        "endpoint": "recent",
+        "advertised_total": 175,
+        "retrieved": 175,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/eess.SP/recent?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:36.481418+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/eess.SP/recent?show=2000&skip=0",
+            "last_modified": null,
+            "total": 175,
+            "retrieved": 175,
+            "sha256": "4ef7d6d12227c1a6a208f9e857de6246678e69e3c6cf46474f406cf7b8282e23",
+            "headings": [
+              "Tue, 10 Nov 2026 (showing 52 of 52 entries )",
+              "Mon, 9 Nov 2026 (showing 30 of 30 entries )",
+              "Fri, 6 Nov 2026 (showing 30 of 30 entries )",
+              "Thu, 5 Nov 2026 (showing 36 of 36 entries )",
+              "Wed, 4 Nov 2026 (showing 27 of 27 entries )"
+            ]
+          }
+        ],
+        "matching_rows": 7
+      },
+      {
+        "category": "eess.SY",
+        "endpoint": "2026-11",
+        "advertised_total": 318,
+        "retrieved": 318,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/eess.SY/2026-11?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:33.104719+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/eess.SY/2026-11?show=2000&skip=0",
+            "last_modified": null,
+            "total": 318,
+            "retrieved": 318,
+            "sha256": "fed181f8e4d93773a3dd689c6175cc35c8cd3de8168abe8739a138806ff163c2",
+            "headings": []
+          }
+        ],
+        "matching_rows": 6
+      },
+      {
+        "category": "eess.SY",
+        "endpoint": "new",
+        "advertised_total": 125,
+        "retrieved": 125,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/eess.SY/new?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:44.300298+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/eess.SY/new?show=2000&skip=0",
+            "last_modified": null,
+            "total": 125,
+            "retrieved": 125,
+            "sha256": "a3872d8c5b683ce9554d48863b1e2d91186e61a9df8e565a5935a46637391cf2",
+            "headings": [
+              "Showing new listings for Tuesday, 10 November 2026",
+              "New submissions (showing 52 of 52 entries)",
+              "Cross submissions (showing 30 of 30 entries)",
+              "Replacement submissions (showing 43 of 43 entries)"
+            ]
+          }
+        ],
+        "matching_rows": 1
+      },
+      {
+        "category": "eess.SY",
+        "endpoint": "recent",
+        "advertised_total": 250,
+        "retrieved": 250,
+        "status": "exhausted",
+        "pages": [
+          {
+            "url": "https://arxiv.org/list/eess.SY/recent?show=2000&skip=0",
+            "cursor": 0,
+            "requested": "2026-11-10T18:14:37.990199+00:00",
+            "errors": [],
+            "http_status": 200,
+            "resolved_url": "https://arxiv.org/list/eess.SY/recent?show=2000&skip=0",
+            "last_modified": null,
+            "total": 250,
+            "retrieved": 250,
+            "sha256": "327ef45613e6748d7e7a04d42c56340ae3fe2c326a268fa22c170f95de1a7829",
+            "headings": [
+              "Tue, 10 Nov 2026 (showing 82 of 82 entries )",
+              "Mon, 9 Nov 2026 (showing 35 of 35 entries )",
+              "Fri, 6 Nov 2026 (showing 49 of 49 entries )",
+              "Thu, 5 Nov 2026 (showing 39 of 39 entries )",
+              "Wed, 4 Nov 2026 (showing 45 of 45 entries )"
+            ]
+          }
+        ],
+        "matching_rows": 3
+      }
+    ]
+  },
+  "independent_review": {
+    "status": "passed",
+    "count": 299,
+    "delta": 184,
+    "pending_ids": [],
+    "method": "All rows from official monthly November, last-five-announcement-day recent, and current new/cross/replacement listings for cs.RO/cs.CV/cs.GR/eess.IV/eess.SP/cs.AI/eess.SY/cs.MM; plus complete October listings for the four core classifications with title selection limited to 2610.40000+. Classification lists are announcements, not authoritative exact v1/latest timestamps.",
+    "counts": {
+      "source_endpoints": {
+        "exhausted": 28
+      },
+      "page_requests": 30,
+      "retrieved_rows_including_overlap": 16269,
+      "unique_candidates": 299,
+      "title_matches_by_group_overlapping": {
+        "C_maps_nav": 59,
+        "C_world": 45,
+        "B_splat_field": 45,
+        "B_geometry": 107,
+        "A_geometry": 23,
+        "A_sensor": 29,
+        "A_core": 32,
+        "B_family": 1
+      }
+    },
+    "limitations": [
+      "No abstracts, full texts, or submission histories read in this phase.",
+      "New listings expose only 10 November replacement announcements. Earlier replacements require main Advanced latest discovery.",
+      "Recent and monthly can disagree because publication snapshots differ; union used. Records can fall outside the UTC interval, and the optional HTML link version is a hint only."
+    ]
+  },
+  "locked_full_text": [
+    {
+      "name": "2611.12452",
+      "url": "https://arxiv.org/html/2611.12452v1",
+      "retrieved_at": "2026-11-10T18:14:45.531353Z",
+      "raw_path": ".cache/slam-3d-20261111/full-2611.12452.html",
+      "sha256": "5fca48a0de65838825ee4d5fda26ffb7003def1fe587ed21a7818720d9890b39",
+      "bytes": 183337
+    },
+    {
+      "name": "2611.11169",
+      "url": "https://arxiv.org/html/2611.11169v1",
+      "retrieved_at": "2026-11-10T18:14:45.531353Z",
+      "raw_path": ".cache/slam-3d-20261111/full-2611.11169.html",
+      "sha256": "136156263ee8cc87fa417359d6aea768b2f1499e152d8e5a0d7f3e3ebd4ca656",
+      "bytes": 342963
+    },
+    {
+      "name": "2611.10239",
+      "url": "https://arxiv.org/html/2611.10239v1",
+      "retrieved_at": "2026-11-10T18:14:45.532066Z",
+      "raw_path": ".cache/slam-3d-20261111/full-2611.10239.html",
+      "sha256": "5bffc9995f54cc5c28a1fe88e5ce7c9768a36c9cb32acdb0408d1e35f0bdfa3c",
+      "bytes": 263468
+    },
+    {
+      "name": "2611.07463",
+      "url": "https://arxiv.org/html/2611.07463v1",
+      "retrieved_at": "2026-11-10T18:14:49.981450Z",
+      "raw_path": ".cache/slam-3d-20261111/full-2611.07463.html",
+      "sha256": "191be1a7ece1ed2af4661bd09df4726898794e54cdc7c444a139ffeedcc3cd44",
+      "bytes": 202681
+    },
+    {
+      "name": "2611.06378",
+      "url": "https://arxiv.org/html/2611.06378v1",
+      "retrieved_at": "2026-11-10T18:14:50.296360Z",
+      "raw_path": ".cache/slam-3d-20261111/full-2611.06378.html",
+      "sha256": "988335ad1d2905da9698926cb2ce318f58573088cf13ef6f8093c229666104dd",
+      "bytes": 210306
+    },
+    {
+      "name": "2611.06308",
+      "url": "https://arxiv.org/html/2611.06308v1",
+      "retrieved_at": "2026-11-10T18:14:50.466524Z",
+      "raw_path": ".cache/slam-3d-20261111/full-2611.06308.html",
+      "sha256": "8bb66f61f41e94cfeb9dd5aacd2f62761519b794350dd81e85b6cbdb618f8960",
+      "bytes": 181918
+    },
+    {
+      "name": "2611.12875",
+      "url": "https://arxiv.org/html/2611.12875v1",
+      "retrieved_at": "2026-11-10T18:14:54.224528Z",
+      "raw_path": ".cache/slam-3d-20261111/full-2611.12875.html",
+      "sha256": "39f704ff607e08b56bc29f0ce9474a8ad62e42e1b2dc2b70fd6b35eeb01577c8",
+      "bytes": 522252
+    },
+    {
+      "name": "2611.08288",
+      "url": "https://arxiv.org/html/2611.08288v1",
+      "retrieved_at": "2026-11-10T18:14:54.600978Z",
+      "raw_path": ".cache/slam-3d-20261111/full-2611.08288.html",
+      "sha256": "db984086adf1b3face609e5106aa13f08b4a4d0fa50cc3086160f9d9974846cd",
+      "bytes": 956714
+    },
+    {
+      "name": "repo-odometry",
+      "url": "https://api.github.com/search/repositories?q=%28SLAM+OR+odometry%29+in%3Aname%2Cdescription+created%3A2026-11-01..2026-11-10&sort=stars&order=desc&per_page=100",
+      "retrieved_at": "2026-11-10T18:14:54.760660Z",
+      "raw_path": ".cache/slam-3d-20261111/repo-odometry.json",
+      "sha256": "851934e6cfa262fe1a5e1cbbeff48e100b3fee8587d62432bb0690b4de722faa",
+      "bytes": 566914,
+      "total": 246,
+      "returned": 100,
+      "incomplete_results": false,
+      "exhausted": false
+    },
+    {
+      "name": "repo-geometry",
+      "url": "https://api.github.com/search/repositories?q=%28VGGT+OR+%223D+reconstruction%22+OR+%22Gaussian+splatting%22%29+in%3Aname%2Cdescription+created%3A2026-11-01..2026-11-10&sort=stars&order=desc&per_page=100",
+      "retrieved_at": "2026-11-10T18:14:58.376792Z",
+      "raw_path": ".cache/slam-3d-20261111/repo-geometry.json",
+      "sha256": "4af480b8ee5b87b369a76c49bd22c9a783908272ebffbe97898f8ab0f0772a5f",
+      "bytes": 55,
+      "total": 0,
+      "returned": 0,
+      "incomplete_results": false,
+      "exhausted": true
+    },
+    {
+      "name": "repo-navigation",
+      "url": "https://api.github.com/search/repositories?q=%28%22robot+navigation%22+OR+%22semantic+mapping%22+OR+%22robot+world+model%22%29+in%3Aname%2Cdescription+created%3A2026-11-01..2026-11-10&sort=stars&order=desc&per_page=100",
+      "retrieved_at": "2026-11-10T18:15:00.011643Z",
+      "raw_path": ".cache/slam-3d-20261111/repo-navigation.json",
+      "sha256": "4af480b8ee5b87b369a76c49bd22c9a783908272ebffbe97898f8ab0f0772a5f",
+      "bytes": 55,
+      "total": 0,
+      "returned": 0,
+      "incomplete_results": false,
+      "exhausted": true
+    }
+  ],
+  "supplemental_sources": [
+    {
+      "name": "figure-Map2SLAM",
+      "url": "https://arxiv.org/html/2611.11169v1/pipeline.png",
+      "retrieved_at": "2026-11-10T18:16:02.901367Z",
+      "raw_path": ".cache/slam-3d-20261111/figure-map2slam.png",
+      "sha256": "3a1c1cde170d9fd52cbdb69deae21fcf331301f6903b1cf5b7a9779e7130a751",
+      "bytes": 248053
+    },
+    {
+      "name": "figure-FREE-LIVO",
+      "url": "https://arxiv.org/html/2611.07463v1/pipeline.png",
+      "retrieved_at": "2026-11-10T18:16:02.901367Z",
+      "raw_path": ".cache/slam-3d-20261111/figure-free-livo.png",
+      "sha256": "f0d2e208a72e091ebecc3f4adb55bb118f2df5aca98b737f7476b694ca43e5fa",
+      "bytes": 99568
+    },
+    {
+      "name": "figure-Click3R",
+      "url": "https://arxiv.org/html/2611.12875v1/click3r.png",
+      "retrieved_at": "2026-11-10T18:16:02.901367Z",
+      "raw_path": ".cache/slam-3d-20261111/figure-click3r.png",
+      "sha256": "5abb486c34dff996d238d6c8930e4d7c91685cb4a007ff8822eda6b4c9f4bf71",
+      "bytes": 177460
+    },
+    {
+      "name": "figure-SALAD",
+      "url": "https://arxiv.org/html/2611.06308v1/method_modules_vertical_compact.png",
+      "retrieved_at": "2026-11-10T18:16:06.597723Z",
+      "raw_path": ".cache/slam-3d-20261111/figure-salad.png",
+      "sha256": "ddb07dad00c39a33b31fcc578b1cefcd54f509d71420af2003226da9b968164f",
+      "bytes": 229098
+    },
+    {
+      "name": "project-Map2SLAM",
+      "url": "https://robbyant-research.github.io/Map2SLAM/",
+      "retrieved_at": "2026-11-10T18:16:06.660934Z",
+      "raw_path": ".cache/slam-3d-20261111/project-map2slam.html",
+      "sha256": "f0c148067a4bb60e7c12b50a996e79bb4c89b5493b72283984e19fe73cb7584a",
+      "bytes": 23413
+    },
+    {
+      "name": "project-Click3R",
+      "url": "https://uva-computer-vision-lab.github.io/click3r/",
+      "retrieved_at": "2026-11-10T18:16:06.667522Z",
+      "raw_path": ".cache/slam-3d-20261111/project-click3r.html",
+      "sha256": "7064b2db49745629d7b0439a04429acf7ecaea0dde91208200cef8227ffc78c6",
+      "bytes": 30195
+    },
+    {
+      "name": "repo-scale-direct",
+      "url": "https://api.github.com/repos/ziyijin81-afk/scale-anchor-slam",
+      "retrieved_at": "2026-11-10T18:16:10.256979Z",
+      "raw_path": ".cache/slam-3d-20261111/github-scale.json",
+      "sha256": "295833628da7044d4cce0cef88c403fefc4c28ce59becda019dd94f6d827d0b8",
+      "bytes": 5807,
+      "failure": "'total_count'"
+    },
+    {
+      "name": "repo-odometry-2",
+      "url": "https://api.github.com/search/repositories?q=%28SLAM+OR+odometry%29+in%3Aname%2Cdescription+created%3A2026-11-01..2026-11-10&sort=stars&order=desc&per_page=100&page=2",
+      "retrieved_at": "2026-11-10T18:16:10.485144Z",
+      "raw_path": ".cache/slam-3d-20261111/repo-odometry-2.json",
+      "sha256": "760673a3bf1aa6a6d2215d2191aaf6a98d48b568ad6f0b61ee11007d92ba211d",
+      "bytes": 579951,
+      "total": 246,
+      "returned": 100,
+      "incomplete_results": false,
+      "exhausted": false
+    },
+    {
+      "name": "repo-odometry-3",
+      "url": "https://api.github.com/search/repositories?q=%28SLAM+OR+odometry%29+in%3Aname%2Cdescription+created%3A2026-11-01..2026-11-10&sort=stars&order=desc&per_page=100&page=3",
+      "retrieved_at": "2026-11-10T18:16:10.517374Z",
+      "raw_path": ".cache/slam-3d-20261111/repo-odometry-3.json",
+      "sha256": "6cd9aec141ba3c42cf454b93d0778c0d8932534a508ea4becc46fec6260423a0",
+      "bytes": 274291,
+      "total": 246,
+      "returned": 46,
+      "incomplete_results": false,
+      "exhausted": false
+    },
+    {
+      "name": "repo-vggt",
+      "url": "https://api.github.com/search/repositories?q=%22VGGT%22+in%3Aname%2Cdescription+created%3A2026-11-01..2026-11-10&per_page=100&sort=stars",
+      "retrieved_at": "2026-11-10T18:16:14.060743Z",
+      "raw_path": ".cache/slam-3d-20261111/repo-vggt.json",
+      "sha256": "49b1fd030fc55be8a0916052a7cead375b008c56d651bd40acab504e4cadf0d8",
+      "bytes": 54977,
+      "total": 10,
+      "returned": 10,
+      "incomplete_results": false,
+      "exhausted": true
+    },
+    {
+      "name": "repo-reconstruction",
+      "url": "https://api.github.com/search/repositories?q=%223D+reconstruction%22+in%3Aname%2Cdescription+created%3A2026-11-01..2026-11-10&per_page=100&sort=stars",
+      "retrieved_at": "2026-11-10T18:16:16.403600Z",
+      "raw_path": ".cache/slam-3d-20261111/repo-reconstruction.json",
+      "sha256": "f1ff46996fa8245a48b034ab9dbd6fae80ab6c07ded54a307d3bd149575c90d8",
+      "bytes": 554325,
+      "total": 95,
+      "returned": 95,
+      "incomplete_results": false,
+      "exhausted": true
+    },
+    {
+      "name": "repo-splat",
+      "url": "https://api.github.com/search/repositories?q=%22Gaussian+splatting%22+in%3Aname%2Cdescription+created%3A2026-11-01..2026-11-10&per_page=100&sort=stars",
+      "retrieved_at": "2026-11-10T18:16:18.478710Z",
+      "failure": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+    },
+    {
+      "name": "repo-robotnav",
+      "url": "https://api.github.com/search/repositories?q=%22robot+navigation%22+in%3Aname%2Cdescription+created%3A2026-11-01..2026-11-10&per_page=100&sort=stars",
+      "retrieved_at": "2026-11-10T18:16:19.173871Z",
+      "raw_path": ".cache/slam-3d-20261111/repo-robotnav.json",
+      "sha256": "c232d6cc6411a418c60a933fd11aef632bbee09ccca0f164e3b0509238430ed4",
+      "bytes": 346583,
+      "total": 56,
+      "returned": 56,
+      "incomplete_results": false,
+      "exhausted": true
+    }
+  ],
+  "repositories": [
+    {
+      "name": "robbyant-research/Map2SLAM",
+      "meta": {
+        "full_name": "robbyant-research/Map2SLAM",
+        "description": "From streaming map prediction to real-time SLAM, powered by LingBot-Map.",
+        "html_url": "https://github.com/robbyant-research/Map2SLAM",
+        "stargazers_count": 3,
+        "forks_count": 0,
+        "created_at": "2026-11-06T13:21:35Z",
+        "pushed_at": "2026-11-10T06:29:57Z",
+        "default_branch": "main",
+        "sha": "dce46a4d640a8956f7712c0dd4ea0a1b51e3674b",
+        "tree_truncated": false,
+        "files": [
+          "README.md"
+        ]
+      },
+      "requests": [
+        {
+          "url": "https://api.github.com/repos/robbyant-research/Map2SLAM",
+          "retrieved_at": "2026-11-10T18:16:59.152870Z",
+          "raw_path": ".cache/slam-3d-20261111/github-map2slam.json",
+          "sha256": "405b85257ce8edd40f7956bf3d392cfdf0dc123fcaf273fc238c074b3bd41090"
+        },
+        {
+          "url": "https://api.github.com/repos/robbyant-research/Map2SLAM/commits?sha=main&per_page=5",
+          "retrieved_at": "2026-11-10T18:17:03.046934Z",
+          "raw_path": ".cache/slam-3d-20261111/github-map2slam-commits.json",
+          "sha256": "d729ec5fb5f9f1da0cd3766ea8d1a006b7807cc23b841353f3f3dc08daac75d5"
+        },
+        {
+          "url": "https://api.github.com/repos/robbyant-research/Map2SLAM/releases?per_page=5",
+          "retrieved_at": "2026-11-10T18:17:06.936117Z",
+          "raw_path": ".cache/slam-3d-20261111/github-map2slam-releases.json",
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "url": "https://api.github.com/repos/robbyant-research/Map2SLAM/issues?state=all&per_page=5",
+          "retrieved_at": "2026-11-10T18:17:10.721405Z",
+          "raw_path": ".cache/slam-3d-20261111/github-map2slam-issues.json",
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "url": "https://api.github.com/repos/robbyant-research/Map2SLAM/git/trees/99a542e174bb773566b203db6d84cf2e4bd913b8?recursive=1",
+          "retrieved_at": "2026-11-10T18:17:14.607455Z",
+          "raw_path": ".cache/slam-3d-20261111/github-map2slam-tree.json",
+          "sha256": "e87dd4c46c81aa7937dd01447fd5ed07e44d780ca8da6fe89d33e613f9256101"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "dce46a4d640a8956f7712c0dd4ea0a1b51e3674b",
+          "date": "2026-11-10T06:27:10Z",
+          "message": "docs: point paper link to arXiv"
+        },
+        {
+          "sha": "626acc1e508f6f5d837d8f59c6d1b50ae17c84b5",
+          "date": "2026-11-06T15:11:50Z",
+          "message": "docs: add Map2SLAM repository overview"
+        }
+      ],
+      "releases": [],
+      "issues": []
+    },
+    {
+      "name": "UVA-Computer-Vision-Lab/click3r",
+      "meta": {
+        "full_name": "UVA-Computer-Vision-Lab/click3r",
+        "description": "[NeurIPS 2026] Click3R: Interactive Stereo 3D Reconstruction with Sparse Correspondence Clicks",
+        "html_url": "https://github.com/UVA-Computer-Vision-Lab/click3r",
+        "stargazers_count": 7,
+        "forks_count": 0,
+        "created_at": "2026-11-03T19:57:31Z",
+        "pushed_at": "2026-11-10T14:29:40Z",
+        "default_branch": "main",
+        "sha": "b245b6a5ff6f509574ae0bb3708c9ca259d6bcb0",
+        "tree_truncated": false,
+        "files": [
+          ".gitattributes",
+          ".gitignore",
+          "LICENSE",
+          "README.md",
+          "assets/examples/bmvs_houses/view1.png",
+          "assets/examples/bmvs_houses/view2.png",
+          "assets/examples/bmvs_town/view1.png",
+          "assets/examples/bmvs_town/view2.png",
+          "assets/examples/bmvs_village/view1.png",
+          "assets/examples/bmvs_village/view2.png",
+          "assets/examples/breakfast/view1.png",
+          "assets/examples/breakfast/view2.png",
+          "assets/examples/co3d_cake/view1.png",
+          "assets/examples/co3d_cake/view2.png",
+          "assets/examples/co3d_cellphone/view1.png",
+          "assets/examples/co3d_cellphone/view2.png",
+          "assets/examples/co3d_handbag/view1.png",
+          "assets/examples/co3d_handbag/view2.png",
+          "assets/examples/co3d_smartphone/view1.png",
+          "assets/examples/co3d_smartphone/view2.png",
+          "assets/examples/co3d_suitcase/view1.png",
+          "assets/examples/co3d_suitcase/view2.png",
+          "assets/examples/co3d_teddybear/view1.png",
+          "assets/examples/co3d_teddybear/view2.png",
+          "assets/examples/co3d_toaster/view1.png",
+          "assets/examples/co3d_toaster/view2.png",
+          "assets/examples/co3d_toytruck/view1.png",
+          "assets/examples/co3d_toytruck/view2.png",
+          "assets/examples/co3d_umbrella/view1.png",
+          "assets/examples/co3d_umbrella/view2.png",
+          "assets/examples/dtu10/view1.png",
+          "assets/examples/dtu10/view2.png",
+          "assets/examples/dtu13/view1.png",
+          "assets/examples/dtu13/view2.png",
+          "assets/examples/dtu24/view1.png",
+          "assets/examples/dtu24/view2.png",
+          "assets/examples/dtu29/view1.png",
+          "assets/examples/dtu29/view2.png",
+          "assets/examples/dtu33/view1.png",
+          "assets/examples/dtu33/view2.png",
+          "assets/examples/eth3d_courtyard/view1.png",
+          "assets/examples/eth3d_courtyard/view2.png",
+          "assets/examples/eth3d_relief/view1.png",
+          "assets/examples/eth3d_relief/view2.png",
+          "assets/examples/manifest.json",
+          "assets/examples/paper_bicycle/view1.png",
+          "assets/examples/paper_bicycle/view2.png",
+          "assets/examples/paper_railing/view1.png",
+          "assets/examples/paper_railing/view2.png",
+          "assets/examples/wildrgbd_flowerpot/view1.png",
+          "assets/examples/wildrgbd_flowerpot/view2.png",
+          "assets/teaser.webp",
+          "click3r/__init__.py",
+          "click3r/configs/baseline_checkpoints.json",
+          "click3r/configs/checkpoints.json",
+          "click3r/configs/habitat/Habitat_100000_scenes_train.txt",
+          "click3r/configs/habitat/Habitat_10000_scenes_val.txt",
+          "click3r/configs/hard3dbench/categories.json",
+          "click3r/configs/hard3dbench/five_view_indist.json",
+          "click3r/configs/hard3dbench/five_view_ood.json",
+          "click3r/configs/hard3dbench/ood_checksums.json",
+          "click3r/configs/hard3dbench/reference.json",
+          "click3r/configs/hard3dbench/two_view_indist.json",
+          "click3r/configs/hard3dbench/two_view_ood.json",
+          "click3r/configs/table1/arkitscenes_pairs.npz",
+          "click3r/configs/table1/co3d_sequences.json",
+          "click3r/configs/table1/data_checksums.json",
+          "click3r/configs/table1/reference.json",
+          "click3r/configs/table1/samples/arkitscenes.json",
+          "click3r/configs/table1/samples/co3d.json",
+          "click3r/configs/table1/samples/scannetpp.json",
+          "click3r/configs/table1/scannetpp_pairs.npz",
+          "click3r/configs/train_click3r.json",
+          "click3r/configs/training_provenance.json",
+          "click3r/correspondence_adapter.py",
+          "click3r/correspondence_encoder.py",
+          "click3r/demo/__init__.py",
+          "click3r/demo/__main__.py",
+          "click3r/demo/app.py",
+          "click3r/demo/display.py",
+          "click3r/demo/results.py",
+          "click3r/demo/session.py",
+          "click3r/demo/viewer.js",
+          "click3r/demo/views.py",
+          "click3r/geometry.py",
+          "click3r/inference.py",
+          "click3r/metrics.py",
+          "click3r/model.py",
+          "click3r/train.py",
+          "click3r/training.py",
+          "demo.py",
+          "docs/datasets.md",
+          "docs/eval.md",
+          "docs/third_party.md",
+          "docs/train.md",
+          "evaluation/__init__.py",
+          "evaluation/baselines/__init__.py",
+          "evaluation/baselines/checkpoints.py",
+          "evaluation/baselines/loading.py",
+          "evaluation/baselines/pi3.py",
+          "evaluation/baselines/pi3x.py",
+          "evaluation/baselines/vggt.py",
+          "evaluation/benchmark.py",
+          "evaluation/data.py",
+          "evaluation/hard3dbench/__init__.py",
+          "evaluation/hard3dbench/baselines.py",
+          "evaluation/hard3dbench/common.py",
+          "evaluation/hard3dbench/data.py",
+          "evaluation/hard3dbench/five_view.py",
+          "evaluation/hard3dbench/labels.py",
+          "evaluation/hard3dbench/two_view.py",
+          "evaluation/multiview.py",
+          "evaluation/reproduce_table1.py",
+          "evaluation/summarize_table1.py",
+          "requirements.txt",
+          "scripts/audit_datasets.py",
+          "scripts/download_checkpoints.py",
+          "scripts/export_checkpoint.py",
+          "scripts/hard3dbench/LICENSE_SimpleRecon",
+          "scripts/hard3dbench/ood_7scenes.py",
+          "scripts/hard3dbench/ood_dtu.py",
+          "scripts/hard3dbench/ood_eth3d.py",
+          "scripts/hard3dbench/ood_nrgbd.py",
+          "scripts/hard3dbench/ood_scannetv2.py",
+          "scripts/hard3dbench/prepare_ood.py",
+          "scripts/launch.py",
+          "scripts/setup_environment.py",
+          "scripts/table1/prepare_data.py",
+          "third_party/README.md",
+          "third_party/dust3r/LICENSE",
+          "third_party/dust3r/NOTICE",
+          "third_party/dust3r/README.md",
+          "third_party/dust3r/croco/LICENSE",
+          "third_party/dust3r/croco/NOTICE",
+          "third_party/dust3r/croco/README.MD",
+          "third_party/dust3r/croco/models/blocks.py",
+          "third_party/dust3r/croco/models/criterion.py",
+          "third_party/dust3r/croco/models/croco.py",
+          "third_party/dust3r/croco/models/croco_downstream.py",
+          "third_party/dust3r/croco/models/curope/__init__.py",
+          "third_party/dust3r/croco/models/curope/curope.cpp",
+          "third_party/dust3r/croco/models/curope/curope2d.py",
+          "third_party/dust3r/croco/models/curope/kernels.cu",
+          "third_party/dust3r/croco/models/curope/setup.py",
+          "third_party/dust3r/croco/models/dpt_block.py",
+          "third_party/dust3r/croco/models/head_downstream.py",
+          "third_party/dust3r/croco/models/masking.py",
+          "third_party/dust3r/croco/models/pos_embed.py",
+          "third_party/dust3r/croco/utils/misc.py",
+          "third_party/dust3r/datasets_preprocess/habitat/README.md",
+          "third_party/dust3r/datasets_preprocess/habitat/find_scenes.py",
+          "third_party/dust3r/datasets_preprocess/habitat/habitat_renderer/__init__.py",
+          "third_party/dust3r/datasets_preprocess/habitat/habitat_renderer/habitat_sim_envmaps_renderer.py",
+          "third_party/dust3r/datasets_preprocess/habitat/habitat_renderer/multiview_crop_generator.py",
+          "third_party/dust3r/datasets_preprocess/habitat/habitat_renderer/projections.py",
+          "third_party/dust3r/datasets_preprocess/habitat/habitat_renderer/projections_conversions.py",
+          "third_party/dust3r/datasets_preprocess/habitat/preprocess_habitat.py",
+          "third_party/dust3r/datasets_preprocess/path_to_root.py",
+          "third_party/dust3r/datasets_preprocess/preprocess_arkitscenes.py",
+          "third_party/dust3r/datasets_preprocess/preprocess_blendedMVS.py",
+          "third_party/dust3r/datasets_preprocess/preprocess_co3d.py",
+          "third_party/dust3r/datasets_preprocess/preprocess_megadepth.py",
+          "third_party/dust3r/datasets_preprocess/preprocess_scannetpp.py",
+          "third_party/dust3r/datasets_preprocess/preprocess_staticthings3d.py",
+          "third_party/dust3r/datasets_preprocess/preprocess_waymo.py",
+          "third_party/dust3r/datasets_preprocess/preprocess_wildrgbd.py",
+          "third_party/dust3r/dust3r/__init__.py",
+          "third_party/dust3r/dust3r/cloud_opt/__init__.py",
+          "third_party/dust3r/dust3r/cloud_opt/base_opt.py",
+          "third_party/dust3r/dust3r/cloud_opt/commons.py",
+          "third_party/dust3r/dust3r/cloud_opt/init_im_poses.py",
+          "third_party/dust3r/dust3r/cloud_opt/modular_optimizer.py",
+          "third_party/dust3r/dust3r/cloud_opt/optimizer.py",
+          "third_party/dust3r/dust3r/cloud_opt/pair_viewer.py",
+          "third_party/dust3r/dust3r/datasets/__init__.py",
+          "third_party/dust3r/dust3r/datasets/arkitscenes.py",
+          "third_party/dust3r/dust3r/datasets/base/__init__.py",
+          "third_party/dust3r/dust3r/datasets/base/base_stereo_view_dataset.py",
+          "third_party/dust3r/dust3r/datasets/base/batched_sampler.py",
+          "third_party/dust3r/dust3r/datasets/base/easy_dataset.py",
+          "third_party/dust3r/dust3r/datasets/blendedmvs.py",
+          "third_party/dust3r/dust3r/datasets/co3d.py",
+          "third_party/dust3r/dust3r/datasets/habitat.py",
+          "third_party/dust3r/dust3r/datasets/megadepth.py",
+          "third_party/dust3r/dust3r/datasets/scannetpp.py",
+          "third_party/dust3r/dust3r/datasets/staticthings3d.py",
+          "third_party/dust3r/dust3r/datasets/utils/__init__.py",
+          "third_party/dust3r/dust3r/datasets/utils/cropping.py",
+          "third_party/dust3r/dust3r/datasets/utils/transforms.py",
+          "third_party/dust3r/dust3r/datasets/waymo.py",
+          "third_party/dust3r/dust3r/datasets/wildrgbd.py",
+          "third_party/dust3r/dust3r/demo.py",
+          "third_party/dust3r/dust3r/heads/__init__.py",
+          "third_party/dust3r/dust3r/heads/dpt_head.py",
+          "third_party/dust3r/dust3r/heads/linear_head.py",
+          "third_party/dust3r/dust3r/heads/postprocess.py",
+          "third_party/dust3r/dust3r/image_pairs.py",
+          "third_party/dust3r/dust3r/inference.py",
+          "third_party/dust3r/dust3r/losses.py",
+          "third_party/dust3r/dust3r/model.py",
+          "third_party/dust3r/dust3r/optim_factory.py",
+          "third_party/dust3r/dust3r/patch_embed.py",
+          "third_party/dust3r/dust3r/post_process.py",
+          "third_party/dust3r/dust3r/training.py",
+          "third_party/dust3r/dust3r/utils/__init__.py",
+          "third_party/dust3r/dust3r/utils/device.py",
+          "third_party/dust3r/dust3r/utils/geometry.py",
+          "third_party/dust3r/dust3r/utils/image.py",
+          "third_party/dust3r/dust3r/utils/misc.py",
+          "third_party/dust3r/dust3r/utils/parallel.py",
+          "third_party/dust3r/dust3r/utils/path_to_croco.py",
+          "third_party/dust3r/dust3r/viz.py",
+          "train.py"
+        ]
+      },
+      "requests": [
+        {
+          "url": "https://api.github.com/repos/UVA-Computer-Vision-Lab/click3r",
+          "retrieved_at": "2026-11-10T18:16:59.153390Z",
+          "raw_path": ".cache/slam-3d-20261111/github-click3r.json",
+          "sha256": "72ce42830d9768db5568ad2bdcb406c7a24a5b1cae15723d4aa8c0005e1bae45"
+        },
+        {
+          "url": "https://api.github.com/repos/UVA-Computer-Vision-Lab/click3r/commits?sha=main&per_page=5",
+          "retrieved_at": "2026-11-10T18:17:03.056073Z",
+          "raw_path": ".cache/slam-3d-20261111/github-click3r-commits.json",
+          "sha256": "5fcee2bf1f0e632257f1472aa66532199d0938745b08787cb2d4fb3499a88921"
+        },
+        {
+          "url": "https://api.github.com/repos/UVA-Computer-Vision-Lab/click3r/releases?per_page=5",
+          "retrieved_at": "2026-11-10T18:17:06.904354Z",
+          "raw_path": ".cache/slam-3d-20261111/github-click3r-releases.json",
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "url": "https://api.github.com/repos/UVA-Computer-Vision-Lab/click3r/issues?state=all&per_page=5",
+          "retrieved_at": "2026-11-10T18:17:10.757690Z",
+          "raw_path": ".cache/slam-3d-20261111/github-click3r-issues.json",
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "url": "https://api.github.com/repos/UVA-Computer-Vision-Lab/click3r/git/trees/d72faef2f979a64fde51486fd376b98e7dc93d17?recursive=1",
+          "retrieved_at": "2026-11-10T18:17:14.627070Z",
+          "raw_path": ".cache/slam-3d-20261111/github-click3r-tree.json",
+          "sha256": "588391fca0ffd3d2fccd7215c7db292c4f03c42194faf5c47e608a2504d3c7e1"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "b245b6a5ff6f509574ae0bb3708c9ca259d6bcb0",
+          "date": "2026-11-10T14:29:36Z",
+          "message": "Link the arXiv paper"
+        },
+        {
+          "sha": "f75bdf3a8a28d3e18b31133f920efcda4e56ef27",
+          "date": "2026-11-09T18:16:14Z",
+          "message": "Release Click3R\n\nCode for Click3R: Interactive Stereo 3D Reconstruction with Sparse Correspondence Clicks (NeurIPS 2026): model, training, Table 1 and Hard3DBench evaluation, data preparation and the interactive demo."
+        }
+      ],
+      "releases": [],
+      "issues": []
+    },
+    {
+      "name": "ziyijin81-afk/scale-anchor-slam",
+      "meta": {
+        "full_name": "ziyijin81-afk/scale-anchor-slam",
+        "description": null,
+        "html_url": "https://github.com/ziyijin81-afk/scale-anchor-slam",
+        "stargazers_count": 0,
+        "forks_count": 0,
+        "created_at": "2026-09-17T08:50:45Z",
+        "pushed_at": "2026-09-18T02:36:18Z",
+        "default_branch": "main",
+        "sha": "4ac0c12a2663ce58e383f1529cdfd8924b5b7af1",
+        "tree_truncated": false,
+        "files": [
+          ".gitignore",
+          "LICENSE",
+          "README.md",
+          "evals/__init__.py",
+          "evals/eval_tum.sh",
+          "evals/process_logs_tum.py",
+          "main.py",
+          "main_realtime.py",
+          "requirements.txt",
+          "setup.py",
+          "setup.sh",
+          "vggt_slam/__init__.py",
+          "vggt_slam/cameras.py",
+          "vggt_slam/frame_overlap.py",
+          "vggt_slam/graph.py",
+          "vggt_slam/loop_closure.py",
+          "vggt_slam/map.py",
+          "vggt_slam/project_paths.py",
+          "vggt_slam/scale_solver.py",
+          "vggt_slam/slam_utils.py",
+          "vggt_slam/solver.py",
+          "vggt_slam/submap.py",
+          "vggt_slam/submap_batching.py",
+          "vggt_slam/trajectory_evaluation.py",
+          "vggt_slam/viewer.py"
+        ]
+      },
+      "requests": [
+        {
+          "url": "https://api.github.com/repos/ziyijin81-afk/scale-anchor-slam",
+          "retrieved_at": "2026-11-10T18:16:59.153390Z",
+          "raw_path": ".cache/slam-3d-20261111/github-scale.json",
+          "sha256": "295833628da7044d4cce0cef88c403fefc4c28ce59becda019dd94f6d827d0b8"
+        },
+        {
+          "url": "https://api.github.com/repos/ziyijin81-afk/scale-anchor-slam/commits?sha=main&per_page=5",
+          "retrieved_at": "2026-11-10T18:16:59.153910Z",
+          "raw_path": ".cache/slam-3d-20261111/github-scale-commits.json",
+          "sha256": "9b5bc5c40ac90a3c3cfbfb245157c89a752304024e66fef357da93de24596044"
+        },
+        {
+          "url": "https://api.github.com/repos/ziyijin81-afk/scale-anchor-slam/releases?per_page=5",
+          "retrieved_at": "2026-11-10T18:17:03.113637Z",
+          "raw_path": ".cache/slam-3d-20261111/github-scale-releases.json",
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "url": "https://api.github.com/repos/ziyijin81-afk/scale-anchor-slam/issues?state=all&per_page=5",
+          "retrieved_at": "2026-11-10T18:17:06.905708Z",
+          "raw_path": ".cache/slam-3d-20261111/github-scale-issues.json",
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "url": "https://api.github.com/repos/ziyijin81-afk/scale-anchor-slam/git/trees/a4ae37ec5d4db95a67d0776d00543b061908714b?recursive=1",
+          "retrieved_at": "2026-11-10T18:17:10.754574Z",
+          "raw_path": ".cache/slam-3d-20261111/github-scale-tree.json",
+          "sha256": "ee3436fd9032e4206ec5969c064931623849c67ad0f298baa801825c4a369079"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "4ac0c12a2663ce58e383f1529cdfd8924b5b7af1",
+          "date": "2026-09-18T02:02:35Z",
+          "message": "Match upstream release layout"
+        },
+        {
+          "sha": "4d393132dc98d39a4fbbf63565d024cac59611f8",
+          "date": "2026-09-18T01:53:19Z",
+          "message": "Trim nonessential tests and evaluation scripts"
+        },
+        {
+          "sha": "1e32d168206d87179a634b5371e9ea40d43ef28b",
+          "date": "2026-09-17T10:43:56Z",
+          "message": "Initial anonymous release"
+        }
+      ],
+      "releases": [],
+      "issues": []
+    }
+  ],
+  "repository_files": [
+    {
+      "repo": "map2slam",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/robbyant-research/Map2SLAM/dce46a4d640a8956f7712c0dd4ea0a1b51e3674b/README.md",
+      "retrieved_at": "2026-11-10T18:19:11.006560Z",
+      "raw_path": ".cache/slam-3d-20261111/src-map2slam-README.md",
+      "sha256": "21e1b5617ba32fed16c6d3ab7cdfae795f8f74350c21a4435acdaf49b4747820"
+    },
+    {
+      "repo": "click3r",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/UVA-Computer-Vision-Lab/click3r/b245b6a5ff6f509574ae0bb3708c9ca259d6bcb0/README.md",
+      "retrieved_at": "2026-11-10T18:19:11.006560Z",
+      "raw_path": ".cache/slam-3d-20261111/src-click3r-README.md",
+      "sha256": "3e77c8cfb22f80c144a68e595aed98fbf4c1b8b86ff732c1ec4e9e96bbcddbe1"
+    },
+    {
+      "repo": "click3r",
+      "file": "requirements.txt",
+      "url": "https://raw.githubusercontent.com/UVA-Computer-Vision-Lab/click3r/b245b6a5ff6f509574ae0bb3708c9ca259d6bcb0/requirements.txt",
+      "retrieved_at": "2026-11-10T18:19:11.006560Z",
+      "raw_path": ".cache/slam-3d-20261111/src-click3r-requirements.txt",
+      "sha256": "377980d6e5ad531069450b139f23b6497e3df0a6621971d6a64680b1f1ad6f40"
+    },
+    {
+      "repo": "click3r",
+      "file": "demo.py",
+      "url": "https://raw.githubusercontent.com/UVA-Computer-Vision-Lab/click3r/b245b6a5ff6f509574ae0bb3708c9ca259d6bcb0/demo.py",
+      "retrieved_at": "2026-11-10T18:19:11.007567Z",
+      "raw_path": ".cache/slam-3d-20261111/src-click3r-demo.py",
+      "sha256": "cc03e5c37128bb8502d0cc0e243a17c90ca4cfc194ba3d732df6e7265c6679bb"
+    },
+    {
+      "repo": "click3r",
+      "file": "click3r/demo/__main__.py",
+      "url": "https://raw.githubusercontent.com/UVA-Computer-Vision-Lab/click3r/b245b6a5ff6f509574ae0bb3708c9ca259d6bcb0/click3r/demo/__main__.py",
+      "retrieved_at": "2026-11-10T18:19:14.740453Z",
+      "raw_path": ".cache/slam-3d-20261111/src-click3r-click3r__demo____main__.py",
+      "sha256": "5bf72b08d283e07464bad2af59890cb104ca8ad39bf1091f9eed361ff4e22ecd"
+    },
+    {
+      "repo": "click3r",
+      "file": "click3r/model.py",
+      "url": "https://raw.githubusercontent.com/UVA-Computer-Vision-Lab/click3r/b245b6a5ff6f509574ae0bb3708c9ca259d6bcb0/click3r/model.py",
+      "retrieved_at": "2026-11-10T18:19:14.747550Z",
+      "raw_path": ".cache/slam-3d-20261111/src-click3r-click3r__model.py",
+      "sha256": "5c18cd11ced6e7a9feaa893253b50ff375f6b1aabe351165092a958d8a5c413a"
+    },
+    {
+      "repo": "click3r",
+      "file": "click3r/correspondence_adapter.py",
+      "url": "https://raw.githubusercontent.com/UVA-Computer-Vision-Lab/click3r/b245b6a5ff6f509574ae0bb3708c9ca259d6bcb0/click3r/correspondence_adapter.py",
+      "retrieved_at": "2026-11-10T18:19:14.765338Z",
+      "raw_path": ".cache/slam-3d-20261111/src-click3r-click3r__correspondence_adapter.py",
+      "sha256": "b1bd6bc55e03c2085065857f4b138709b8b29f2829fe86f6ed36286e21e4a96d"
+    },
+    {
+      "repo": "click3r",
+      "file": "click3r/correspondence_encoder.py",
+      "url": "https://raw.githubusercontent.com/UVA-Computer-Vision-Lab/click3r/b245b6a5ff6f509574ae0bb3708c9ca259d6bcb0/click3r/correspondence_encoder.py",
+      "retrieved_at": "2026-11-10T18:19:14.777697Z",
+      "raw_path": ".cache/slam-3d-20261111/src-click3r-click3r__correspondence_encoder.py",
+      "sha256": "ba21e030077c28c4186d8c2dd08677704ab877e98f2a4e136a44c52ce3048924"
+    },
+    {
+      "repo": "click3r",
+      "file": "click3r/inference.py",
+      "url": "https://raw.githubusercontent.com/UVA-Computer-Vision-Lab/click3r/b245b6a5ff6f509574ae0bb3708c9ca259d6bcb0/click3r/inference.py",
+      "retrieved_at": "2026-11-10T18:19:18.480167Z",
+      "raw_path": ".cache/slam-3d-20261111/src-click3r-click3r__inference.py",
+      "sha256": "938db6d4cf12517785a062c6b35615ec0088900f18205fef0efe824591b01caf"
+    },
+    {
+      "repo": "click3r",
+      "file": "evaluation/hard3dbench/two_view.py",
+      "url": "https://raw.githubusercontent.com/UVA-Computer-Vision-Lab/click3r/b245b6a5ff6f509574ae0bb3708c9ca259d6bcb0/evaluation/hard3dbench/two_view.py",
+      "retrieved_at": "2026-11-10T18:19:18.488762Z",
+      "raw_path": ".cache/slam-3d-20261111/src-click3r-evaluation__hard3dbench__two_view.py",
+      "sha256": "cda4f6ca101db67760d39e2190d8ff278c3d87d4405ecc334581cdf646ebd399"
+    },
+    {
+      "repo": "click3r",
+      "file": "docs/train.md",
+      "url": "https://raw.githubusercontent.com/UVA-Computer-Vision-Lab/click3r/b245b6a5ff6f509574ae0bb3708c9ca259d6bcb0/docs/train.md",
+      "retrieved_at": "2026-11-10T18:19:18.489276Z",
+      "raw_path": ".cache/slam-3d-20261111/src-click3r-docs__train.md",
+      "sha256": "af6ea18073965db337e8866076ffad259b788b01cf1a2a6951875304d9eb6180"
+    },
+    {
+      "repo": "scale",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/ziyijin81-afk/scale-anchor-slam/4ac0c12a2663ce58e383f1529cdfd8924b5b7af1/README.md",
+      "retrieved_at": "2026-11-10T18:19:18.634222Z",
+      "raw_path": ".cache/slam-3d-20261111/src-scale-README.md",
+      "sha256": "50a09ba04c659b2d1a6bd198c894ac503b19d4cc1f03f11021ff7424c747be8f"
+    },
+    {
+      "repo": "scale",
+      "file": "requirements.txt",
+      "url": "https://raw.githubusercontent.com/ziyijin81-afk/scale-anchor-slam/4ac0c12a2663ce58e383f1529cdfd8924b5b7af1/requirements.txt",
+      "retrieved_at": "2026-11-10T18:19:22.184953Z",
+      "raw_path": ".cache/slam-3d-20261111/src-scale-requirements.txt",
+      "sha256": "19527fb57122aee8bd3f737b183ee8f14f10f26a996a1e417b824c26668737db"
+    },
+    {
+      "repo": "scale",
+      "file": "main.py",
+      "url": "https://raw.githubusercontent.com/ziyijin81-afk/scale-anchor-slam/4ac0c12a2663ce58e383f1529cdfd8924b5b7af1/main.py",
+      "retrieved_at": "2026-11-10T18:19:22.191972Z",
+      "raw_path": ".cache/slam-3d-20261111/src-scale-main.py",
+      "sha256": "3538e29124a133655feff3be0209dfcb9971a635c30782092478388a34b68b1d"
+    },
+    {
+      "repo": "scale",
+      "file": "main_realtime.py",
+      "url": "https://raw.githubusercontent.com/ziyijin81-afk/scale-anchor-slam/4ac0c12a2663ce58e383f1529cdfd8924b5b7af1/main_realtime.py",
+      "retrieved_at": "2026-11-10T18:19:22.208945Z",
+      "raw_path": ".cache/slam-3d-20261111/src-scale-main_realtime.py",
+      "sha256": "bcdd4dc9e2cfbb0c75d23ce9970ba4fc0eec8bea1276b2dabb2be353ec6d3979"
+    },
+    {
+      "repo": "scale",
+      "file": "vggt_slam/scale_solver.py",
+      "url": "https://raw.githubusercontent.com/ziyijin81-afk/scale-anchor-slam/4ac0c12a2663ce58e383f1529cdfd8924b5b7af1/vggt_slam/scale_solver.py",
+      "retrieved_at": "2026-11-10T18:19:22.331238Z",
+      "raw_path": ".cache/slam-3d-20261111/src-scale-vggt_slam__scale_solver.py",
+      "sha256": "f1377633d6d9401eee02b0e713b7876b126fdc97a010ca73830992ced57b8a1d"
+    },
+    {
+      "repo": "scale",
+      "file": "vggt_slam/solver.py",
+      "url": "https://raw.githubusercontent.com/ziyijin81-afk/scale-anchor-slam/4ac0c12a2663ce58e383f1529cdfd8924b5b7af1/vggt_slam/solver.py",
+      "retrieved_at": "2026-11-10T18:19:25.899200Z",
+      "raw_path": ".cache/slam-3d-20261111/src-scale-vggt_slam__solver.py",
+      "sha256": "0a72ca413caf3bbe2ec845cab67bb29e480e07648f8aa670ecc7dcd43da6f3c0"
+    },
+    {
+      "repo": "scale",
+      "file": "vggt_slam/graph.py",
+      "url": "https://raw.githubusercontent.com/ziyijin81-afk/scale-anchor-slam/4ac0c12a2663ce58e383f1529cdfd8924b5b7af1/vggt_slam/graph.py",
+      "retrieved_at": "2026-11-10T18:19:25.901208Z",
+      "raw_path": ".cache/slam-3d-20261111/src-scale-vggt_slam__graph.py",
+      "sha256": "65d3d4973dcaed06708078d8535cf5d56988a00f251cf08aa6b34db06a6e6130"
+    }
+  ],
+  "dates": {
+    "timezone_display": "Asia/Shanghai",
+    "comparison": "UTC (start,end]",
+    "announcement": "Official listing labels or Advanced month, kept separately from submission dates"
+  },
+  "repository_discovery": [
+    {
+      "name": "odometry",
+      "total": 246,
+      "fetched": 246,
+      "unique": 246,
+      "pages": [
+        {
+          "page": 1,
+          "url": "https://api.github.com/search/repositories?q=%28SLAM+OR+odometry%29+in%3Aname%2Cdescription+created%3A2026-11-01..2026-11-10&sort=stars&order=desc&per_page=100",
+          "returned": 100,
+          "total": 246,
+          "retrieved_at": "2026-11-10T18:28:32.514685Z",
+          "raw_path": ".cache/slam-3d-20261111/repo-odometry.json",
+          "sha256": "851934e6cfa262fe1a5e1cbbeff48e100b3fee8587d62432bb0690b4de722faa"
+        },
+        {
+          "page": 2,
+          "url": "https://api.github.com/search/repositories?q=%28SLAM+OR+odometry%29+in%3Aname%2Cdescription+created%3A2026-11-01..2026-11-10&sort=stars&order=desc&per_page=100&page=2",
+          "returned": 100,
+          "total": 246,
+          "retrieved_at": "2026-11-10T18:28:32.530117Z",
+          "raw_path": ".cache/slam-3d-20261111/repo-odometry-2.json",
+          "sha256": "760673a3bf1aa6a6d2215d2191aaf6a98d48b568ad6f0b61ee11007d92ba211d"
+        },
+        {
+          "page": 3,
+          "url": "https://api.github.com/search/repositories?q=%28SLAM+OR+odometry%29+in%3Aname%2Cdescription+created%3A2026-11-01..2026-11-10&sort=stars&order=desc&per_page=100&page=3",
+          "returned": 46,
+          "total": 246,
+          "retrieved_at": "2026-11-10T18:28:32.543610Z",
+          "raw_path": ".cache/slam-3d-20261111/repo-odometry-3.json",
+          "sha256": "6cd9aec141ba3c42cf454b93d0778c0d8932534a508ea4becc46fec6260423a0"
+        }
+      ],
+      "exhausted": true
+    },
+    {
+      "name": "vggt",
+      "total": 10,
+      "fetched": 10,
+      "unique": 10,
+      "pages": [
+        {
+          "page": 1,
+          "url": "https://api.github.com/search/repositories?q=%22VGGT%22+in%3Aname%2Cdescription+created%3A2026-11-01..2026-11-10&per_page=100&sort=stars",
+          "returned": 10,
+          "total": 10,
+          "retrieved_at": "2026-11-10T18:28:32.558741Z",
+          "raw_path": ".cache/slam-3d-20261111/repo-vggt.json",
+          "sha256": "49b1fd030fc55be8a0916052a7cead375b008c56d651bd40acab504e4cadf0d8"
+        }
+      ],
+      "exhausted": true
+    },
+    {
+      "name": "reconstruction",
+      "total": 95,
+      "fetched": 95,
+      "unique": 95,
+      "pages": [
+        {
+          "page": 1,
+          "url": "https://api.github.com/search/repositories?q=%223D+reconstruction%22+in%3Aname%2Cdescription+created%3A2026-11-01..2026-11-10&per_page=100&sort=stars",
+          "returned": 95,
+          "total": 95,
+          "retrieved_at": "2026-11-10T18:28:32.578983Z",
+          "raw_path": ".cache/slam-3d-20261111/repo-reconstruction.json",
+          "sha256": "f1ff46996fa8245a48b034ab9dbd6fae80ab6c07ded54a307d3bd149575c90d8"
+        }
+      ],
+      "exhausted": true
+    },
+    {
+      "name": "robot-navigation",
+      "total": 56,
+      "fetched": 56,
+      "unique": 56,
+      "pages": [
+        {
+          "page": 1,
+          "url": "https://api.github.com/search/repositories?q=%22robot+navigation%22+in%3Aname%2Cdescription+created%3A2026-11-01..2026-11-10&per_page=100&sort=stars",
+          "returned": 56,
+          "total": 56,
+          "retrieved_at": "2026-11-10T18:28:32.594528Z",
+          "raw_path": ".cache/slam-3d-20261111/repo-robotnav.json",
+          "sha256": "c232d6cc6411a418c60a933fd11aef632bbee09ccca0f164e3b0509238430ed4"
+        }
+      ],
+      "exhausted": true
+    },
+    {
+      "name": "gaussian-splatting",
+      "total": 146,
+      "fetched": 146,
+      "unique": 146,
+      "pages": [
+        {
+          "page": 1,
+          "url": "https://api.github.com/search/repositories?q=%22Gaussian+splatting%22+in%3Aname%2Cdescription+created%3A2026-11-01..2026-11-10&per_page=100&sort=stars&page=1",
+          "returned": 100,
+          "total": 146,
+          "retrieved_at": "2026-11-10T18:28:32.608011Z",
+          "raw_path": ".cache/slam-3d-20261111/repo-splat.json",
+          "sha256": "47a7b6eac7a09a5f537e5ecf4b1d11b01cbceaeabe019254111a0e9fc3da6243"
+        },
+        {
+          "page": 2,
+          "url": "https://api.github.com/search/repositories?q=%22Gaussian+splatting%22+in%3Aname%2Cdescription+created%3A2026-11-01..2026-11-10&per_page=100&sort=stars&page=2",
+          "returned": 46,
+          "total": 146,
+          "retrieved_at": "2026-11-10T18:28:32.618980Z",
+          "raw_path": ".cache/slam-3d-20261111/repo-splat-2.json",
+          "sha256": "09ef5f9cd79867a0fbde18ff974fe69768bfaa4f764eebc21102aebbbb11c3b1"
+        }
+      ],
+      "exhausted": true
+    }
+  ],
+  "repository_query_recovery": [
+    "GitHub OR 组合几何与导航查询返回零，分别改为 VGGT、3D reconstruction、Gaussian splatting、robot navigation。",
+    "Gaussian splatting 初次 TLS EOF；使用同一谓词重试并取第二页。"
+  ]
+}

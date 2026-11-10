@@ -1,0 +1,64 @@
+{
+  "run_at": "2026-11-10T18:10:23.7767297Z",
+  "validated_at": "2026-11-11T02:28:39.256589+08:00",
+  "checks": {
+    "nine_sections_and_header": true,
+    "no_placeholders": true,
+    "candidate_closure": true,
+    "window_count_closure": true,
+    "locked_versions_and_window": true,
+    "decision_evidence": true,
+    "history_dedupe": true,
+    "unique_paper_anchors": true,
+    "presentation_closure": true,
+    "tracking_details_and_categories": true,
+    "local_links_and_index": true,
+    "confirmed_images": true,
+    "primary_pagination": true,
+    "independent_closure": true,
+    "unresolved_queue": true,
+    "coverage_ready": true
+  },
+  "passed": true,
+  "failures": [],
+  "invalid_local_links": [],
+  "stats": {
+    "candidates": 499,
+    "dispositions": {
+      "excluded": 123,
+      "supplemental": 263,
+      "revision_tracking": 109,
+      "deep_read": 4
+    },
+    "included": 376,
+    "included_windows": {
+      "new": 218,
+      "revised": 100,
+      "historical_backfill": 49,
+      "historical_revision_backfill": 9
+    },
+    "abstracts_read_unique": 439,
+    "unresolved_ids": [],
+    "deep_read_count": 4,
+    "supplemental_tracking_count": 372,
+    "repo_deep_read_count": 2
+  },
+  "browser_checks": {
+    "status": "passed",
+    "checks": {
+      "default_collapsed": true,
+      "images_loaded": true,
+      "id_search": true,
+      "time_filter": true,
+      "priority_filter": true,
+      "category_counts": true,
+      "zero_state": true,
+      "hash_reopens_filtered_anchor": true,
+      "reset": true,
+      "narrow": true,
+      "nojs_details": true,
+      "no_page_errors": true
+    },
+    "errors": []
+  }
+}

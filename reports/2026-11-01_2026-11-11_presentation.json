@@ -1,0 +1,3027 @@
+{
+  "categories": [
+    {
+      "id": "slam-vio",
+      "label": "SLAM / VIO / 多传感里程计",
+      "description": "状态估计、回环和尺度"
+    },
+    {
+      "id": "multiview",
+      "label": "多视图几何、定位与配准",
+      "description": "对应、几何恢复、相机位姿与标定"
+    },
+    {
+      "id": "geometry-model",
+      "label": "几何基础模型与前馈 3D",
+      "description": "点图、深度和三维时序推理"
+    },
+    {
+      "id": "gaussian",
+      "label": "高斯表示与神经重建",
+      "description": "静态、动态与在线场景表达"
+    },
+    {
+      "id": "semantic-map",
+      "label": "语义地图与空间理解",
+      "description": "实体、持久地图和可查询空间记录"
+    },
+    {
+      "id": "navigation",
+      "label": "具身导航与可通行性",
+      "description": "探查、路线、目标和地形"
+    },
+    {
+      "id": "world-model",
+      "label": "空间与机器人世界模型",
+      "description": "物理预测、行动与模拟"
+    },
+    {
+      "id": "robot-manipulation",
+      "label": "机器人三维感知与操控",
+      "description": "具身操作、目标几何与动作表征"
+    },
+    {
+      "id": "sensors",
+      "label": "三维传感器与应用",
+      "description": "LiDAR、雷达、事件与特殊场景"
+    }
+  ],
+  "papers": [
+    {
+      "id": "2611.12452",
+      "version": 1,
+      "category": "semantic-map",
+      "takeaway": "前馈稠密建图用像素双向重投影和物体级空间对应共同验证回环，再以全局坐标中的同类三维连通性维护持久实例身份。",
+      "priority": true,
+      "priority_reason": "直接连接前馈 SLAM 的回环可信度和实例地图稳定性"
+    },
+    {
+      "id": "2611.11934",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "球面BA以双切向角残差优化鱼眼位姿，训练深度再为单目里程计提供尺度参考，作者报告跨相机模型的深度与轨迹收益。",
+      "priority": true,
+      "priority_reason": "鱼眼单目VO的球面误差建模和尺度机制值得核验。"
+    },
+    {
+      "id": "2611.11869",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "机器人剥削对照显示，表面相对动作坐标能改善反事实选择，但接触几何误差和厚度缺失会削弱跨空间配置泛化。",
+      "priority": true,
+      "priority_reason": "受控对照可区分坐标变化、观测信息缺失和执行偏差。"
+    },
+    {
+      "id": "2606.26092",
+      "version": 3,
+      "category": "gaussian",
+      "takeaway": "把可动高斯人体与背景点云做度量对齐，用显式代理约束任意相机轨迹下的试穿视频，并演示人物重新定位。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.11697",
+      "version": 1,
+      "category": "multiview",
+      "takeaway": "将未标定手术视频通过动态BA和全局细化转成含接触的伪尺度4D标注，覆盖52万帧和140万条点轨迹。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.10566",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "LiDAR注册点用贝叶斯预测对比判断几何漂移，异常点先报警再拦截写入地图，作者在14条实测序列区分全部9条损坏轨迹。",
+      "priority": true,
+      "priority_reason": "提供跨后端在线故障检测和真实飞行干预证据。"
+    },
+    {
+      "id": "2611.10547",
+      "version": 1,
+      "category": "semantic-map",
+      "takeaway": "把稳定家具实体与可失效的表面小物品假设分层存储，机器人可用局部观察重新验证目标，适应任务期间的物品搬移。",
+      "priority": true,
+      "priority_reason": "长期物体记忆显式失效和更新，并有针对性基准。"
+    },
+    {
+      "id": "2611.10347",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "通过留出渲染、实图查询和位姿图细化检验31个视觉模型检查点，作者发现2D预训练可隐含强弱不一的三维姿态结构。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.10263",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "为场景坐标回归专家加入多尺度全局语境，减少重复立面路由混淆，Cambridge Landmarks三种子平均场景中位平移误差13厘米。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.10239",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "把深度模型的米制预测通过共享关键帧深度比和阻尼传递到相邻子图，并把尺度同步应用于里程计、回环边和地图。",
+      "priority": true,
+      "priority_reason": "显式验证米制尺度，且覆盖退化野外场景"
+    },
+    {
+      "id": "2610.34590",
+      "version": 2,
+      "category": "multiview",
+      "takeaway": "让平方和证书的可微价值层在反向传播中复用前向求解的局部坐标和稀疏结构，减少稠密证书构造开销，以支持包括姿态图同步在内的认证学习。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2603.23975",
+      "version": 2,
+      "category": "sensors",
+      "takeaway": "先判别协同感知参与者的特征是否兼容，再选择中间或后期融合，后者通过锚导位姿图缓解定位偏差。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.08288",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "以可从软核过渡到近实心曲面的有界 beta 原语做在线重建，按多视深度置信度生成，再用误差搬移与层级合并提高效率。",
+      "priority": true,
+      "priority_reason": "对在线重建的优化预算、几何置信和渲染剪枝同时给出设计"
+    },
+    {
+      "id": "2604.19741",
+      "version": 3,
+      "category": "world-model",
+      "takeaway": "检索地理配准资料锚定真实地点，并用不同时刻的数据分离稳定场景和天气，作者演示分钟级路径与回环。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2607.26921",
+      "version": 2,
+      "category": "sensors",
+      "takeaway": "给现成关键点检测追加双变量预测分布以表达坐标置信，飞机跑道点的校准分布可用于视觉着陆的位置融合。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.07902",
+      "version": 1,
+      "category": "multiview",
+      "takeaway": "先将相机运动与非刚体形变拆为可给出证书的几何子问题，再初始化动态高斯细化，七个基准覆盖静态及动态场景。",
+      "priority": true,
+      "priority_reason": "几何优化的证书覆盖面值得检查"
+    },
+    {
+      "id": "2611.01536",
+      "version": 2,
+      "category": "multiview",
+      "takeaway": "按超声可见性为骨表面对应加权，并用模态适配器缓解采样差异，作者报告UltraBones100k配准RMSE为2.54毫米。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.06378",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "用一个预训练几何骨干的分层特征串起地点检索、候选跨视图几何验证和相对位姿估计，减少多套编码器重复计算。",
+      "priority": true,
+      "priority_reason": "给回环完整链路提供共享计算的工程设计"
+    },
+    {
+      "id": "2611.05818",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "综述从受限能见下船载视觉退化出发，梳理雷达、LiDAR和AIS视觉融合，并汇集面向安全导航的开放数据。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2510.01183",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "从单张全景图启动交互生成，再把前馈重建投到目标视点作为条件，以显式三维记忆维持长轨迹及回环一致性。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.05689",
+      "version": 1,
+      "category": "multiview",
+      "takeaway": "立体匹配根据粗视差不确定性挪动细层搜索窗，并用两阶段蒸馏减轻骨干负担，作者报告约50毫秒每图对。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.05286",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "视觉地点识别用冻结干净描述符约束对抗排序微调，验证干净召回成本五点内提升鲁棒性，更大扰动下仍有取舍。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.05084",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "在变化工地筛少量跨会话绝对锚点，经高斯特征场细化和位姿图注册整段轨迹，HILTI26上1米内召回94.4%。",
+      "priority": true,
+      "priority_reason": "同一工地跨时间实测能量化可靠锚点的注册贡献。"
+    },
+    {
+      "id": "2605.28048",
+      "version": 2,
+      "category": "slam-vio",
+      "takeaway": "冻结特征补丁验证跨条件回环，作者报告二十三个配置达成0.10目标误发现率，留一数据校准下覆盖有所下降。",
+      "priority": true,
+      "priority_reason": "报告条件移位、弃权与下游位姿图影响。"
+    },
+    {
+      "id": "2611.04591",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "用深度兼容图挑选固定数量的跨模态候选，再跳过重叠细匹配；单目预测深度先校准尺度或逆深度，传感深度可直接筛选。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.04255",
+      "version": 1,
+      "category": "semantic-map",
+      "takeaway": "手术室墙面与机器人头部相机共享对象场景状态，缩短目标搜寻；执行反馈还提升仿真成功率，实体完成十四次处置。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2602.06400",
+      "version": 3,
+      "category": "geometry-model",
+      "takeaway": "相机与激光融合用可变形的重尾超二次曲面表示复杂占据，以统一混合分布估计三维空间占据及语义。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.04034",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "集成十六个驾驶数据集比较RGB、红外和事件传感的骨干迁移，作者发现普通MultiMAE对未见实体模态已是强基线。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.03942",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "把雷达与激光点云投到相机前视域做早期融合，同时检测车辆和分割可通行区，作者在RADIal报告收益。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.02992",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "越野数据同时采集近远程三维观测、带速度的四维雷达点和车体动态，覆盖常光到无光条件以研究地形可通行性。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.02884",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "用共享三维重建和运动学约束联合标定腕部与固定相机，仿真结果跨三种骨干取平均，另有物理机器人验证。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.02857",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "循环Transformer用迭代无关算子共同更新已解和新增视图，复用已解视图键值，在同一模型内覆盖增量重建与重定位。",
+      "priority": true,
+      "priority_reason": "直接连接多视图前馈基础模型与迭代SfM及增量更新。"
+    },
+    {
+      "id": "2611.01558",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "事件相机地点识别用最优传输对齐事件和文本，并跨空间尺度与时间帧筛取线索，作者在两个基准验证。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.01543",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "让生成视频回到持久高斯地图做冲突过滤和跨块束调，摘要给出单步、三步和四百余帧离开再返回的验证。",
+      "priority": true,
+      "priority_reason": "闭环生成与地图冲突过滤"
+    },
+    {
+      "id": "2503.00972",
+      "version": 5,
+      "category": "multiview",
+      "takeaway": "用解剖语义约束ICP对应，并以线弹性能量正则控制点，有限元体模上作者由表面观测恢复86%内部位移。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.00671",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "综述梳理盲及低视力辅助导航从电子测距到边缘多传感融合的演进，指出室内外过渡和真实用户评估仍待完善。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2606.04853",
+      "version": 2,
+      "category": "slam-vio",
+      "takeaway": "利用RGB-D深度一致性和激光扫描统计识别透明或反射异常，拒收低可信扫描后退回经标定的轮里程。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2407.16151",
+      "version": 2,
+      "category": "slam-vio",
+      "takeaway": "统一建模点与线端点的图像噪声，先消偏再做一步高斯牛顿，在渐近条件下给出效率界并覆盖机器人定位。",
+      "priority": true,
+      "priority_reason": "点线统计效率与退化条件"
+    },
+    {
+      "id": "2611.12038",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "遮挡背景可以先用生成高斯占位，但位姿只用观测支持的地图约束，重见背景后再用真实图像独立重建该部分。",
+      "priority": true,
+      "priority_reason": "生成内容与定位证据隔离"
+    },
+    {
+      "id": "2504.17410",
+      "version": 2,
+      "category": "slam-vio",
+      "takeaway": "双目VO用带三角化不确定性的加权PnP抑制统计偏差，并持续更新当期三维点以减少相邻位姿误差关联。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.11845",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "无线辐射场用提议网络把稀疏采样集中到虚拟锚，并借多径SLAM整理几何先验，跨子载波共享场景结构。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.11825",
+      "version": 1,
+      "category": "multiview",
+      "takeaway": "冻结模块串行构建版本化四维点场，多假设跨窗关联保留缺失状态；作者报告RoboTAP平均Jaccard增量0.0610。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.11809",
+      "version": 1,
+      "category": "multiview",
+      "takeaway": "只用图像对应在线挑出有新信息且仍能配准的视图，在航空和海洋机器人数据上验证了保留SfM连接的选帧效果。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.11770",
+      "version": 1,
+      "category": "multiview",
+      "takeaway": "全局SfM先聚合内点匹配和相对旋转，再用多视角旋转重投影细化，最后以三元组约束恢复全局平移。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2609.00775",
+      "version": 2,
+      "category": "semantic-map",
+      "takeaway": "把不同视角的软标签累积到三维体素，证据充分后才确定实例，作者在ScanNet++报告现存类mIoU领先十点。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.11489",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "无人机把稠密几何限制在机体周边，稀疏记录保留远处待探索前沿，实测森林地图占用较点云树少92.67%。",
+      "priority": true,
+      "priority_reason": "对大范围3D探索的内存增长和跨区域任务保留均有量化。"
+    },
+    {
+      "id": "2611.10241",
+      "version": 1,
+      "category": "multiview",
+      "takeaway": "把多个重复隔间配准到共享坐标，用各实例的互补观测补齐缺面，真实办公扫描得到可分实例的水密度量模型。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.10137",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "把人和人形机器人的对应部位IMU映射到统一接口，模型零样本迁移至实体G1，作者报告速度误差0.099米每秒。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2606.16881",
+      "version": 3,
+      "category": "slam-vio",
+      "takeaway": "SGM-SLAM从彩色图像与激光雷达语义点云构建对象场景图，分阶段交换摘要并匹配、精炼和优化，以应对分布式SLAM的低重叠、外观变化及带宽限制。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.09584",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "在机体系用转子力矩辅助预测短时位移，再交给EKF与IMU融合，作者在四个公开集留出轨迹上均报告速度误差下降。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.00482",
+      "version": 2,
+      "category": "slam-vio",
+      "takeaway": "用图像无关匀速直线审计短轨迹，发现常规ATE在Sintel可偏爱直线，进而用朝向约束对齐并比较重投影。",
+      "priority": true,
+      "priority_reason": "常规ATE与方向误差脱钩"
+    },
+    {
+      "id": "2610.08220",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "便携双视录像用少量锚帧离线修正示范轨迹，再训练因果多时域运动表征供移动操作策略使用，区分离线监督和在线输入。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.09045",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "BIM与激光惯导融合先检验几何是否足以区分位姿和实建偏差，歧义方向暂缓校正，二维对照显示误归因下降。",
+      "priority": true,
+      "priority_reason": "定位异常与环境变化的不可辨识性有显式判据和可核验协议。"
+    },
+    {
+      "id": "2606.09355",
+      "version": 2,
+      "category": "slam-vio",
+      "takeaway": "把载体专家的速度和置信约束接入历史感知EKF，新域只学轻量残差，作者报告平均绝对轨迹误差下降40%。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2605.16981",
+      "version": 4,
+      "category": "geometry-model",
+      "takeaway": "在逐token门控上再加逐帧写入权重，用内部特征变化计算且保留每帧，摘要分别给出长轨迹与视频深度效果。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2606.30058",
+      "version": 2,
+      "category": "geometry-model",
+      "takeaway": "让真实视频的像素共同对应到一个无类别细节的粗网格，用SfM对齐引导学习跨实例三维坐标，省去手工姿态标注。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.08361",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "用配准的无线衰减图把接收功率转成绝对位姿信息，仿真中多机器人共同位置均方根误差由0.542米降至0.140米。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.08100",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "开源轮车堆栈把RGB-D SLAM、轮惯状态估计和路标导航接入ROS 2，三次现场任务演示了无人工运动指令返航。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.07687",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "弱纹理环境下无人机按VIO信息指标主动留标记，实体走廊由外部系统控飞，作者报告VIO位置均方根误差约降35%。",
+      "priority": true,
+      "priority_reason": "干预可观察性与估计器设计互补，实测控制边界明确。"
+    },
+    {
+      "id": "2611.07663",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "依据里程计与地图变化调节开放词汇检测频率，实体导航中降低设备平均功率和调用率，整任务能耗仍受时长影响。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.07498",
+      "version": 1,
+      "category": "multiview",
+      "takeaway": "SfM配对预算固定时用贪婪规则压低高覆盖节点边权，九个互联网图集的平均图像注册比例由0.776升至0.929。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.07437",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "把DINO自蒸馏用于惯性数据，通过运动与传感增强及频率感知编码，支持不定长输入和跨机器人本体里程计。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2606.29494",
+      "version": 3,
+      "category": "gaussian",
+      "takeaway": "语义高斯地图用可见性和射线冲突判断二维标签的几何可靠性，抑制遮挡更新和无表面支撑的标签渗漏。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2512.14189",
+      "version": 2,
+      "category": "slam-vio",
+      "takeaway": "在视觉惯导里按地标一致性有界调整量测信息，并用同线性化回放核验动作，作者未观察到普遍精度提升。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2604.24033",
+      "version": 3,
+      "category": "slam-vio",
+      "takeaway": "现有事件相机演示常限于正对平面抖动或纯旋转，不能代表激烈6DoF运动，EvSLAM提出多平台、极端光照和多运动模式的事件VO、VIO基准与工作极限指标。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.06020",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "利用室内语义尺寸恢复尺度，证据薄弱才调用MASt3R，激光参考评测同时报告了误差、接受覆盖率与回退开销。",
+      "priority": true,
+      "priority_reason": "选择性估计及域外尺度误差"
+    },
+    {
+      "id": "2611.05938",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "双目惯导以门控卡尔曼估地高，选择性去除地面以下倒影虚特征，作者在真实反光地板序列报告轨迹改善。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.05361",
+      "version": 1,
+      "category": "multiview",
+      "takeaway": "用已有多传感器定位数据生成植被场景可见点云参考，使前馈几何与传统SfM可在相同参考下比较密度和结构一致性。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.05172",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "利用墙方向和自由空间稀疏匹配平面图，滤波状态保持紧凑，作者在工地鱼眼序列验证无需重训定位后端。",
+      "priority": true,
+      "priority_reason": "传感器可替换，具有工地鱼眼及独立LiDAR评测。"
+    },
+    {
+      "id": "2609.14936",
+      "version": 2,
+      "category": "slam-vio",
+      "takeaway": "通过轨迹曲率对齐时间，再按行程归一漂移，评估协议显式分析采样、时钟和外参误差如何影响里程计比较。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2604.22507",
+      "version": 2,
+      "category": "navigation",
+      "takeaway": "铁路基准把单目里程计纳入五类感知挑战，同时以轨距设定线检测的物理阈值，摘要主要验证前三类任务。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.04397",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "相机与激光外参校正审计发现，多帧法改善旋转时仍可能损伤平移，固定保守策略在最终日志未采纳任何校正。",
+      "priority": true,
+      "priority_reason": "旋转和平移取舍与下游递归影响分开量化。"
+    },
+    {
+      "id": "2611.04358",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "利用实例掩膜分解残余运动，用静态高斯跟踪相机，并按大小和形变程度分配动态节点，配套离体手术语义数据。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.03932",
+      "version": 1,
+      "category": "multiview",
+      "takeaway": "半稠密匹配直接循环更新连续坐标并回归细化，作者称在嵌入式边缘设备上比Efficient LoFTR快逾十倍。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.03106",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "九磁力计联合IMU用局部磁场估短程运动、全局场纠漂，弱光室内手持离线测试报告水平闭合误差0.332米。",
+      "priority": true,
+      "priority_reason": "退化视觉下独立定位手段且明确闭合误差与垂向限制。"
+    },
+    {
+      "id": "2611.03098",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "场景坐标回归通过标定视线适配局部特征，并以稀疏SfM点跨相机锚定，让全景地图支持鱼眼和针孔查询。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.02937",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "社会导航基准用统一机器人、轨迹真值和八类互动场景完成三百二十次实测，评估局部规划的效率与舒适取舍。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2610.19431",
+      "version": 2,
+      "category": "semantic-map",
+      "takeaway": "在线SLAM积累对象、关系及前沿，再按目标裁剪决策证据，执行前回到完整记忆和当前几何独立核验。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2603.26638",
+      "version": 3,
+      "category": "geometry-model",
+      "takeaway": "对固定多相机拍摄的驶过车辆，以运动门控、车轮分流mask和原始畸变图稠密匹配结合rig约束全局SfM，重建干净车辆资产。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.02203",
+      "version": 1,
+      "category": "multiview",
+      "takeaway": "让单目深度模型在移动相机视角序列中接受检验，并用SfM尝试对齐度量深度，作者发现长时一致性仍有欠缺。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.02051",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "单目高斯SLAM将语义存入可溯源的独立体素，几何更新后能修订历史语义，语义再辅助滤除高斯和细化表面。",
+      "priority": true,
+      "priority_reason": "开放词汇语义有独立可修订表示和反馈路径。"
+    },
+    {
+      "id": "2611.01937",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "稀疏图像特征匹配为稠密自监督SLAM提供几何锚，作者称在无需深度及位姿真值下接近有监督方法的跟踪表现。",
+      "priority": true,
+      "priority_reason": "直接检验稀疏几何约束能否补足稠密光度自监督。"
+    },
+    {
+      "id": "2611.01491",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "毫米波模型显式分辨直达与多径并估计时延及双向角，作者在射线追踪数据报告无线SLAM位置误差降65%。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2410.22931",
+      "version": 6,
+      "category": "slam-vio",
+      "takeaway": "用三阶高斯过程统一两种连续时间位姿表示，闭式运动学和插值雅可比避免泰勒近似，便于复用定位与标定因子。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2403.05962",
+      "version": 3,
+      "category": "slam-vio",
+      "takeaway": "多机器人主动视觉SLAM先验证各自信念下的联合动作是否一致，仅有冲突才通信，并在实体平台作验证。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2609.26612",
+      "version": 2,
+      "category": "slam-vio",
+      "takeaway": "利用机体重力与单目视线导数构造六维速度重力观测器，无需显式估路标，扩展到IMU偏置后为局部稳定。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.12011",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "拆开流式状态更新的方向和强度，用局部历史纠偏并压低重复观测写入，摘要分别给出千帧位姿与五百帧重建结果。",
+      "priority": true,
+      "priority_reason": "历史纠偏直接针对状态漂移"
+    },
+    {
+      "id": "2605.11594",
+      "version": 2,
+      "category": "gaussian",
+      "takeaway": "在世界坐标中布置稀疏查询再融合多个相机和时刻，用场景图组织移动实例和三维框传播，减少像素对齐的分层。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.11964",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "以跨视图关系的检索、重连和细化做参数高效适配，在弱光、人体与场景联合重建以及测试时适配上比较效果。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.11140",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "以指定时空偏移为伪动作预测手术视频潜变量，再用补丁几何关系对齐，摘要报告十七项迁移基准上的下游感知结果。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2605.12938",
+      "version": 3,
+      "category": "world-model",
+      "takeaway": "用射线上深度感知分布向视频扩散注入鱼眼几何，还可从外部径向深度控制生成，摘要比较针孔及非针孔编码。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2605.23892",
+      "version": 2,
+      "category": "geometry-model",
+      "takeaway": "先以视图多样性保留场景覆盖，再根据注意力熵逐层删帧内冗余，摘要给出五百图输入下的速度和质量比较。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2601.09920",
+      "version": 3,
+      "category": "world-model",
+      "takeaway": "先用VGGT重建可复用的对象资产，再在线跟踪对象状态补全遮挡，真机轨迹由同步孪生中的避碰规划产生。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2607.19120",
+      "version": 2,
+      "category": "geometry-model",
+      "takeaway": "在几何骨干的归一化潜流形上做条件流匹配，使生成token可直接交给冻结解码器，并在两类预训练骨干验证。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.06849",
+      "version": 2,
+      "category": "geometry-model",
+      "takeaway": "用独立拍摄的网络照片测试对象三维恢复，按地点和物理实例区分难度，微调几何骨干后在独立野外数据上复核。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.08372",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "分别重建静态场景和被操作物体，并重定向配套动作，使移动操作的演示增广覆盖接触后的动态阶段和未见底座位姿。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.08330",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "用软轮廓带约束细手指边界，并按高斯渲染贡献保留已观测颜色，给出单图可动手部高斯的构建和渲染速度。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2510.24464",
+      "version": 3,
+      "category": "sensors",
+      "takeaway": "从非同步未标定RGB相机共同恢复畸变、人体与场景点图，用跨视点重投影一致性给恢复度量尺度的骨长加权。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.07955",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "先用判据识别量化时对全局预测影响过大的特殊token，再补差异校正，精度与显存数字对应不同位宽设定。",
+      "priority": true,
+      "priority_reason": "量化结构判据及实机边界"
+    },
+    {
+      "id": "2611.07575",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "把地面多视图与带地理坐标的卫星图送入同一模型，同时预测相机位姿、稠密点图和用于地理配准的场景变换。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.07555",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "给局部补丁优化加入单图度量深度软约束，并用冻结特征增强匹配，摘要单独给出已知内参下的速度和显存。",
+      "priority": true,
+      "priority_reason": "可交换尺度先验与长序列成本"
+    },
+    {
+      "id": "2610.20590",
+      "version": 2,
+      "category": "gaussian",
+      "takeaway": "发送多视图潜特征而非逐图元属性，让接收端按渲染预算生成高斯，摘要码率和速度对应先生成再压缩的链路。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.06593",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "用同一前馈模型按推理预算调制高斯属性，选择时同时约束空间覆盖与跨视图冗余，适合比较不同表示大小的渲染质量。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.06475",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "让后续评测条件取决于机器人此前动作，测试空间和过程记忆，基线控制器还按子目标查询VGGT-Omega几何。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.06273",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "从单次环视图重建时先定位缺少高斯支持的遮挡区域，再直接补三维高斯，摘要以驾驶数据的遮挡子区域评估收益。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.06258",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "对支持证据在键值投影前做覆盖路由，保留解码锚点；摘要分别报告融合环节和整条前馈重建管线的加速。",
+      "priority": true,
+      "priority_reason": "区分局部融合和整体推理加速"
+    },
+    {
+      "id": "2610.27616",
+      "version": 3,
+      "category": "navigation",
+      "takeaway": "从短RGB序列预测当前自车坐标下的局部占据，历史证据逐格选择写入，并分别报告仿真和轮式机器人的导航成功率。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.05874",
+      "version": 1,
+      "category": "semantic-map",
+      "takeaway": "从单图分割标注通过裁剪和几何变换构造伪多视图，再利用冻结几何特征学习跨视图分割，并检查开放词汇迁移。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2606.18439",
+      "version": 2,
+      "category": "geometry-model",
+      "takeaway": "按浅中深层的功能差异分配压缩，用相机token和空间覆盖保护位姿路径，速度对照为内存优化的VGGT。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.04491",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "校准量化时直接对齐浮点注意力分布，再吸收逐通道分布修正，摘要给出两个深度数据集上的四位量化误差变化。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2610.34033",
+      "version": 2,
+      "category": "geometry-model",
+      "takeaway": "以VGGT的几何预测误差定位V-JEPA的几何盲区，仅在需要的token和视频片段补入几何特征来识别相机运动。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.04221",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "用固定容量的辅助记忆扩展冻结递归骨干，长序列对照采用共同重置协议，机器人平台的速度来自记录数据离线回放。",
+      "priority": true,
+      "priority_reason": "固定显存的长序列协议"
+    },
+    {
+      "id": "2611.04025",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "把通用三维视觉编码和位姿解码适配到支气管镜，联合使用真实视频与CT虚拟视角训练，并比较深度和相机轨迹。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2610.07883",
+      "version": 2,
+      "category": "geometry-model",
+      "takeaway": "先把多次扰动重建稳健对齐到同一相似坐标系，再按逐点方差筛选，分别评估纯免标签和融合校准的收益。",
+      "priority": true,
+      "priority_reason": "不确定度与规范自由度"
+    },
+    {
+      "id": "2611.02306",
+      "version": 1,
+      "category": "semantic-map",
+      "takeaway": "让VGGT几何特征控制视觉语言特征的局部旋转，在三维定位、检测和空间推理中比较同一对象跨视点的语义稳定性。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.00756",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "先用等预算均匀写入检验门控贡献，再按已访问位姿半径选关键帧，多轮回访时只缓慢增加记忆。",
+      "priority": true,
+      "priority_reason": "覆盖数与写入预算控制"
+    },
+    {
+      "id": "2611.12739",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "借扩散模型生成单株植物的绕拍视图再拟合高斯，几何评估使用三维F-score，同时另测文本到植物模型。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.12716",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "用卷积后的曲线段取代独立点作为图元，在线状结构中恢复连续可仿真的长条，并在投影时保持接头合成一致。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.12319",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "先调度重瓦片并在需要时跨线程块切分，摘要中的加速仅对应高斯透明度混合阶段，且依赖瓦片负载偏斜程度。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.04804",
+      "version": 3,
+      "category": "gaussian",
+      "takeaway": "在读取完整高斯属性前由近存电路筛选活跃图元，再跨帧复用深度顺序，摘要数字来自校准模型与电路实现。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.11951",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "把带位姿的超声切片汇入固定体素支撑再前馈预测高斯，并将反射与衰减分开，以处理稀疏重叠和声学外观变化。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.11797",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "以环形及同轴照明覆盖陡坡和平面，再从聚焦序列恢复彩色表面，芯片和电路板验证主要适用于受控扫描。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.11602",
+      "version": 1,
+      "category": "multiview",
+      "takeaway": "对二十八个含透明和细结构的物体做可控高分辨率采集，并用属性掩膜拆解可见表面误差，可比较多类重建方法。",
+      "priority": true,
+      "priority_reason": "可控材料及亚毫米协议"
+    },
+    {
+      "id": "2611.11586",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "分离遍历和混合并让反向复用前向结果，在Vulkan实现高斯光追训练，摘要加速以3DGRT训练为基线。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.11304",
+      "version": 1,
+      "category": "multiview",
+      "takeaway": "从两张端点图生成过渡运动，用共享关节约束把视频先验转成显式可动部件，再融合两个状态所见的表面纹理。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2603.10801",
+      "version": 2,
+      "category": "gaussian",
+      "takeaway": "在高斯渲染中显式建模偏振反射，再用深度引导掩膜施加切空间一致性，以恢复反光表面的细节和法线。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.08264",
+      "version": 2,
+      "category": "gaussian",
+      "takeaway": "把归一化的参照量从全局径向距离换为图元邻域间距，降低相机配置变化对前馈高斯尺度监督的影响。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2610.30468",
+      "version": 2,
+      "category": "gaussian",
+      "takeaway": "从已复现的高斯基线自动变异插件，以实测和反例筛选候选，并要求稿件每个数字都关联到已记录的训练运行。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2610.24462",
+      "version": 2,
+      "category": "semantic-map",
+      "takeaway": "利用固定高斯参考图的线性渲染，将每帧变化证据递归写入图元，无需重访历史观测，并同时报告精度和帧率。",
+      "priority": true,
+      "priority_reason": "在线两标量递归替代历史回放"
+    },
+    {
+      "id": "2609.11894",
+      "version": 2,
+      "category": "sensors",
+      "takeaway": "直接从雷达方程构造带材料的复数点溅射，同一优化场景可输出多种雷达格式，并在户外留出视角做比较。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2505.05848",
+      "version": 4,
+      "category": "multiview",
+      "takeaway": "用含强折射、多种背景及复杂几何的实采和合成场景检验重建，并区分知道物体几何和折射率的参考算法。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2606.02956",
+      "version": 2,
+      "category": "sensors",
+      "takeaway": "把长距激光、成像雷达和全局快门相机与拓扑地图同步，提供在线建图和长距深度等四类城市驾驶任务。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.10699",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "以LiDAR和颜色拟合连续概率支架，用局部协方差约束渲染高斯贴近表面，并给出匹配容量下的比较。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2605.09586",
+      "version": 3,
+      "category": "world-model",
+      "takeaway": "从真实交互视频估可形变物体状态，将手部动作分配为柔顺致动器，再由物理演化驱动新动作下的四维渲染。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.10652",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "用同一高斯基础层逐级加入图元和球谐频带，按每字节预期收益分配预算，使高质量档位复用已解码表示。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.10379",
+      "version": 1,
+      "category": "semantic-map",
+      "takeaway": "从对象跟踪建立专属高斯，再用渲染掩膜反校跟踪并存多视角语义向量，同时以精确合成网格测对象几何。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.10370",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "共享平面高斯将几何合成和颜色透射分开，避免为显露玻璃后方画面而压低玻璃表面的几何权重。",
+      "priority": true,
+      "priority_reason": "透明材质的可测几何消融"
+    },
+    {
+      "id": "2611.10199",
+      "version": 1,
+      "category": "semantic-map",
+      "takeaway": "在训练前通过COLMAP投影投票固定对象身份，让掩膜只约束几何；摘要报告边界改善并演示免网格刚体交互。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2605.10707",
+      "version": 2,
+      "category": "navigation",
+      "takeaway": "把物体自遮挡、覆盖饱和与集合覆盖式规划难度分开，重测预算和可达性变化如何改变主动三维重建方法排名。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.00375",
+      "version": 2,
+      "category": "gaussian",
+      "takeaway": "只用已观测时间前缀建高斯，再按运动组和预测时距选择关键点预测专家，对不可靠外推回退到持续状态。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.09458",
+      "version": 1,
+      "category": "multiview",
+      "takeaway": "在迭代匹配的两个方向之间逐轮注入带符号的不一致残差，兼顾双眼深度融合，并以Booster测试透明和遮挡区域。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2604.08410",
+      "version": 3,
+      "category": "semantic-map",
+      "takeaway": "先把自然语言转成功能接触约束，再从层次高斯语义中定位三维关键点并转成腕部及手指命令，摘要包含真机测试。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.08665",
+      "version": 1,
+      "category": "multiview",
+      "takeaway": "给NanoVDB增加GPU端动态拓扑更新和活动体素线性遍历，三维重建用例用于验证操作效率，也覆盖仿真。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.07979",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "按局部外观需求分配高斯，先优化后绑定网格，编辑时同步更新中心与协方差以降低浮动伪影。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.07909",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "以合成失败样本训练扩散细化器，再把多个细化视图作伪目标回写同一高斯化身，使最终渲染无需逐帧运行扩散。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.07709",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "用随区域变化的仿射场纠正单目深度先验，并将校正结果同时约束高斯的深度和法线，针对全局对齐导致的形变。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2508.19204",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "结合可控的三维代理几何与二维生成先验，用地图布局约束驾驶场景，使同一显式表示可供后续新视角渲染。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2607.01164",
+      "version": 2,
+      "category": "gaussian",
+      "takeaway": "将高斯用于标量体积的空间查询，按相交图元加权采样并以误差增密，使非结构化体积压缩无需另外存网格。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2606.02937",
+      "version": 2,
+      "category": "gaussian",
+      "takeaway": "从少量已标定视图自监督预测动物高斯并分离背景，以留出视角和多视图姿态等任务检验几何特征。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2509.26455",
+      "version": 4,
+      "category": "gaussian",
+      "takeaway": "在单次前馈高斯重建中分离几何预测与跨视图风格注入，再用体素统计对齐风格，无需预先提供相机位姿。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2610.09173",
+      "version": 3,
+      "category": "gaussian",
+      "takeaway": "冻结几何骨干及原有输出，另训练渲染专用几何解码器，使新视角光度收益与已有度量深度和位姿并存。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.07081",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "从重叠驾驶相机前馈合成共同中心的分段透视宽图，用合成稠密真值和真实LiDAR投影分别评估。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.05359",
+      "version": 2,
+      "category": "gaussian",
+      "takeaway": "先稳定降维球谐时序属性，再把图元映射到更平滑的二维特征图，使标准视频编解码器可以压缩高斯序列。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2511.17747",
+      "version": 2,
+      "category": "gaussian",
+      "takeaway": "把身份遮蔽扰动写入高斯颜色系数，以黑盒模型和多个渲染视角测剩余身份泄漏，并比较化身的感知保真。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.10013",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "用含行人的仓库公开视频比较商业模型和本地高斯，留出帧排除人物像素计分，提供商未见区域外推未成功。",
+      "priority": true,
+      "priority_reason": "直接报告服务失败和稀疏视图代价"
+    },
+    {
+      "id": "2611.06974",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "先自适应调整三角面拓扑，再让每面纹理残差恢复细节，在可控面数预算下比较渲染与表示大小。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.06442",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "用高斯孪生和物理状态生成几何进度奖励，蒸馏后转到真机在线学习，摘要给出五项实验室任务的交互时间。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2610.28631",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "视频世界模型外观逼真却几何漂移，三维生成又常静态且不够真实，AEON训练同时预测4DGS和相机的重建解码器，并蒸馏视频潜变量到重建潜变量的域适配器。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.03114",
+      "version": 2,
+      "category": "gaussian",
+      "takeaway": "用连续神经场代替独立高斯颜色，并限制颜色变化与图元位移的比例，使图像细节对几何位置产生更多监督。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.05593",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "把高斯集合和相机射线直接解码成图像，显式提供投影足迹能提升质量，和同剪枝输入的光栅渲染仍有差距。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2606.03994",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "把重力模拟中的穿透和支撑失败变成反馈，驱动单图重建重新采样物体形状，输出可用于机器人仿真的场景。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2606.31585",
+      "version": 2,
+      "category": "geometry-model",
+      "takeaway": "把旋转和平移编码到不同的注意力维度，比较多视图模型长期训练是否更稳定，以及更多视角和放大时的表现。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.04755",
+      "version": 1,
+      "category": "multiview",
+      "takeaway": "让重建模型在一支内镜学习、另一支独立内镜评估，覆盖匹配、位姿、深度及动态新视图，避免把同轨插值视为泛化。",
+      "priority": true,
+      "priority_reason": "可区分插值与独立视角泛化"
+    },
+    {
+      "id": "2611.04666",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "把多相机帧按运动状态的语义相位配对，在人为错时、掉帧和冻结条件下验证动态高斯重建的恢复能力。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2603.07604",
+      "version": 3,
+      "category": "gaussian",
+      "takeaway": "用逐高斯嵌入取代三平面特征驱动语音表情，摘要报告笔记本GPU帧率，并评估嘴唇同步和动作一致性。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.04498",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "把高斯压缩视频按整体、几何和颜色分别做主观评分，评估器可在稀疏参考或无参考情况下给出三种质量分数。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.04493",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "从演示视频耦合高斯与可微粒子模拟反演材料参数，再检索这些物性条件驱动扩散操作策略，避免部署时反复仿真优化。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.04374",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "将天气共享的几何和材质线索与天气外观分开，再用跨天气冲突屏蔽不可靠教师图像，评估驾驶序列的时序一致性。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.02044",
+      "version": 2,
+      "category": "gaussian",
+      "takeaway": "以局部损失变化决定高斯分裂、复制和透明度衰减，让三类密度操作共享优化目标，并检查相同图元预算的渲染质量。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.04195",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "用高斯动态场清除暂态物体，并依据渲染深度不确定度识别持久变化，适用于物体在相机视野内移位后停留的序列。",
+      "priority": true,
+      "priority_reason": "区分暂态干扰和持久地图改动"
+    },
+    {
+      "id": "2607.18539",
+      "version": 2,
+      "category": "gaussian",
+      "takeaway": "在规范高斯场景上学习时变形变，通过反复渲染和视频细化扩展视点，并限制动态影响刚性背景的范围。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2605.05155",
+      "version": 5,
+      "category": "gaussian",
+      "takeaway": "从高斯图元直接预测场景审美得分，省去多视图渲染，标注和评价重点是构图与视觉吸引力等感知属性。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2508.13537",
+      "version": 2,
+      "category": "gaussian",
+      "takeaway": "用少量关键高斯影响附近图元的局部形变，并借生成几何先验约束头部结构，比较重建细节和表情可控性。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2511.20348",
+      "version": 4,
+      "category": "semantic-map",
+      "takeaway": "由相机多视图重建带材质标签的高斯网格，再赋物理参数用于传感模拟，以测试车激光观测验证反射率。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.02767",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "以带像素掩膜的八类局部伪影训练几何诊断器，再按类别选择增密、属性修正或裁剪，连接评测与定点改进。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2605.20290",
+      "version": 3,
+      "category": "world-model",
+      "takeaway": "把单图对象放入统一空间估计相互位置，再将模拟与渲染分离，支持多对象的物理控制及交互预览。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.02658",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "用冻结视觉基础模型构建分层八叉树，将高斯按局部复杂度加密，并将给定相机参数时的测试时优化单列。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.02631",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "在扩散训练中同时约束不同视角的潜变量与颜色法线的跨域关系，针对单图重建的视角不一致与纹理几何耦合。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2605.18599",
+      "version": 3,
+      "category": "geometry-model",
+      "takeaway": "让语义和射线分别由不同token承载，通过共享注意力交流，摘要比较两类前馈新视角模型的画质与延迟。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.02365",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "在代价体中按特征相似复用深度，并在生成前稀疏化高斯；摘要的速度和能效对应二十八纳米版图后设计。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2512.17541",
+      "version": 3,
+      "category": "semantic-map",
+      "takeaway": "让无位姿、未标定视图直接生成语义高斯，把语言嵌入留给少量语义图元，并与逐高斯密集嵌入比较保真。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.01939",
+      "version": 1,
+      "category": "semantic-map",
+      "takeaway": "在二维掩膜提升之外构建对象组场景图，组内降语义噪声、跨组补结构支撑，以改善室内对象高斯的完整性。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.01534",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "把高斯排序提前编码进八叉树盒，每帧只排可见盒和决定盒内读序，摘要给出与等量微调基线的画质损失。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2607.06699",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "用单张真实图重建可碰撞前景和高斯背景，分别服务机械交互与视觉渲染，并用真实任务验证仿真评价关联。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.01162",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "把水印写入四维高斯的规范球谐系数，再按高斯中心关联恢复，评估对象是模型文件在量化和剪枝后的验证。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2609.03639",
+      "version": 2,
+      "category": "geometry-model",
+      "takeaway": "将大角度相机运动切成多次扩散，固定同一轨道与采样位姿对照，摘要用极线误差和留出高斯重建衡量稳定性。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.00870",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "用人工参考与漫游车视角做跨重建比较，发现留出视图渲染分数不足以预测数字孪生质量，并试用几何覆盖分。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2509.10759",
+      "version": 3,
+      "category": "gaussian",
+      "takeaway": "先由多视图针孔视频重建动态高斯，再用指定光学或读出参数做物理光追，为视频生成提供带相机效应的训练数据。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.00658",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "把历史观测存成有语义重要度的三维记忆，生成新视角时同时检查几何可见性和内容相关性，以改善场景回访。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2606.04569",
+      "version": 2,
+      "category": "navigation",
+      "takeaway": "用真实铜矿测绘和LiDAR重建无卫星信号的巷道仿真，平面重合度0.9538，并以多种子强化学习测探索覆盖。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.12087",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "将单目稀疏关键帧与历史图结合以回溯近两分钟导航记忆，作者报告挑战回溯成功率从零升至58%。",
+      "priority": true,
+      "priority_reason": "开放世界长时记忆、跨载体数据及协议值得核验。"
+    },
+    {
+      "id": "2611.11510",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "无人机抵达地标后把地图轮廓投进当前画面定位相对目标，作者报告CityNav上两种最强基线成功率近翻倍。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.10366",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "用RGB-D可通行图约束运动候选，再共形校准视觉语言动作分数并保留回溯路径，作者报告实体导航成功率有提升。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2512.07976",
+      "version": 3,
+      "category": "navigation",
+      "takeaway": "把视觉距离估计与导航策略分开训练，按视角和图像重叠模拟距离误差，作者报告实体图像目标导航成功率88%。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.08911",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "利用室外短视频的跨帧天光偏振一致性联合标定镜头和检偏器，作者报告独立序列偏振角绝对误差0.466度。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2607.06724",
+      "version": 2,
+      "category": "navigation",
+      "takeaway": "从演示挖掘时序约束，先验证语言生成计划，再由代价地图落到路点并拦截违例，系统在实体轮式机器人演示。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.06453",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "把通道宽度和会车间隔分档，分别测导航代理是否尝试与能否无碰通过，以几何标签区分正确停车和碰撞硬闯。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2610.21450",
+      "version": 2,
+      "category": "navigation",
+      "takeaway": "通过恢复式示范覆盖策略执行中遇到的状态，把长段飞行控制与停止决策联合训练，缓解整段执行的分布偏移。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2605.21139",
+      "version": 4,
+      "category": "world-model",
+      "takeaway": "驾驶策略在动作条件的鸟瞰语义图上推演候选轨迹，从地图算安全奖励，并把语言意图蒸馏进感知编码器。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.05738",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "把物理模拟的三维气味扩散接入室内视觉导航，基准覆盖无形漏气和早期火源，策略结合时序气味与图像找源。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.05129",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "用网页路书和卫星图生成原子指令，再在机载图像预测局部轨迹，轮足机器人实测最长行进1.37公里。",
+      "priority": true,
+      "priority_reason": "提供较长实体户外路线和GNSS噪声对照。"
+    },
+    {
+      "id": "2611.04972",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "足式机器人把高层视觉语言指令转成受实时三维距离场约束的轨迹，避碰保证取决于文中声明的状态与感知假设。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2610.38318",
+      "version": 2,
+      "category": "semantic-map",
+      "takeaway": "将压缩视觉历史锚定到位姿，并保留任务状态与场景几何；移除时序记忆后，基准平均路径由16.9米增至39.1米。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2610.18321",
+      "version": 2,
+      "category": "semantic-map",
+      "takeaway": "在视觉语言嵌入空间校准开放类别集合，再以语义调整障碍安全间距，实体四足长期实测覆盖率90.73%。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.03189",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "复用姿态网络内部特征和骨架估计人物度量三维位置，作者报告JRDB误差较最强关键点基线约低23%。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2603.12696",
+      "version": 3,
+      "category": "navigation",
+      "takeaway": "用轻量楼层拓扑图给视觉语言导航分派局部任务，遇到临时障碍即暂停、标记相关连接失效并重新规划。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.12870",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "比较语言视频与动作监督如何共存，作者报告固定预算下混合第一人称视频和UMI改善泛化，实体三任务成功率40%。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2610.12468",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "先将动作轨迹几何校准到多视角视频，再用反事实接触和人标缺陷后训，AgiBot上人工评估交互缺陷降至6.25%。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.11500",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "用下一帧相对深度监督视频骨干的几何标记，部署只读当前图像一次前向，作者在九十次实体试验报告74.4%成功。",
+      "priority": true,
+      "priority_reason": "把未来几何监督与部署视频生成分离，给实体试验分母。"
+    },
+    {
+      "id": "2606.11187",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "把机器人视频监督扩展至多个后续时间块，由近及远传递预测状态，辅助模块在部署并行预测下一块以加速。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2608.00635",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "联合学习预测未来深度与连续无人机轨迹，部署只输出轨迹，作者报告机载平均推理10.2毫秒及户外峰值10米每秒。",
+      "priority": true,
+      "priority_reason": "将未来场景深度、轨迹运动学和实体机载时延连起来。"
+    },
+    {
+      "id": "2611.11166",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "用深度和运动学训练世界模型预测遮挡手指的三维运动，再将预测表征转入只用RGB与本体状态的灵巧策略。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.10967",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "用视觉条件连接动作和触觉潜变量，作者报告全手触觉缺失时重建误差降34.73%，未来预测依赖目标时刻图像。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2610.13740",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "用单步潜变量预测和网络剪层压缩世界动作模型，作者在A100报告每个动作块57毫秒，联合世界预测提高成功率。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.07658",
+      "version": 2,
+      "category": "geometry-model",
+      "takeaway": "两张不同关节状态的图像共同生成配对部件网格，再由刚体变换解析恢复URDF关节参数及运动范围。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.10632",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "用冻结几何先验和未来场景监督塑造驾驶世界潜变量，轨迹解码只采样一步，作者报告NAVSIM v2得分90.1。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2605.25829",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "把度量深度与视觉语言特征融合后预测相机坐标系的末端刚体轨迹，让动作解码直接获得有位姿监督的空间表征。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.09293",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "在扩散世界动作模型中联合学习视觉和触觉潜变量，用跨模态任务缓解表征坍塌，并在实体螺纹操作上验证。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2610.40748",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "对新操作任务只添加无动作视频即可提升成功率，每任务再补一条有动作演示后，作者报告成功率达到70.70%。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2610.30320",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "用真实未来图像特征监督一步去噪并加入历史观测，作者报告只在人类视频出现的任务中实体成功率50.0%。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2610.12407",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "在无需图像解码的联合嵌入世界模型中联合正向、反向、逆动作及策略学习，并在策略噪声空间执行滚动规划。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.08449",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "将整条三维轨迹坐标一次联合解码给世界动作模型，作者报告四组操作任务成功率从62.6%升至70.2%。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.06817",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "在五万小时第一人称视频上预训练手运动与语言先验，加入机器人数据后，作者报告随机场景成功率达到84.60%。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2610.31429",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "用历史条件物理预期逐窗对照生成视频，把评估从可能性判断延伸到违例定位，作者报告时间命中率最高77.4%。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.08156",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "紧凑策略在JEPA特征空间联合学习未来表征和动作，部署只生成动作，作者还纠正了LIBERO-Plus评测指令。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.08111",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "在驾驶世界动作模型后训练中，用几何上接近专家却有危险的轨迹作排斥样本，作者报告难集得分40.4。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.07912",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "把新驾驶目标写成采样中间轨迹的可微能量，三个冻结世界动作模型在NAVSIM难集得分均有提升。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.07881",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "用刚体接触切向光流近似触觉剪切，并与接触深度组合，真实触觉图像转到同一表征后部署于实体灵巧操作。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.07850",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "对同一动作序列采样多个未来，用成对语义偏好和视觉一致性共同后训，作者报告RT-1预测PSNR提高1.26分贝。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2603.23481",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "共用视觉骨干预测未来图像与触觉潜变量，训练动作时再加入触觉光流代理，作者在两种实体平台验证。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2605.15843",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "把静态生成世界拆成独立物体和背景，重建对齐的可操作网格并修补缺口，使同一场景支持碰撞约束操作。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.07229",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "为腕部鱼眼视频加入对齐的立体度量深度，联合预测场景和动作，作者报告载体与环境同时变化时成功率72.15%。",
+      "priority": true,
+      "priority_reason": "同时有深度消融及机器人本体与场景联合移位对照。"
+    },
+    {
+      "id": "2610.06598",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "把模拟器的时序运动变化蒸馏到真实视频世界模型，再随机丢弃模拟条件以降低模型对不准轨迹的依赖。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.02474",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "用像面位移和深度变化描述手与物体的四维相对运动，让动作在抓取释放等时刻聚焦交互，而非整幅视频。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.04527",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "将视频模型的未来特征蒸馏到只读当前画面的编码器，部署不生成未来视频，作者报告闭环控制频率11赫兹。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.05062",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "将三维场景流编码进预训练视频潜空间并预测动作，作者发现额外加入视频重建目标反而降低策略成功率。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.05023",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "分别以稀疏长时视频和稠密近时视频预测任务进展与局部交互，作者报告渐进推理提速2.93倍。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2610.41970",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "预注册审计发现多数候选结果相同，剪标记省下的计算未充分变成提速，重规划路径还暴露静默渲染故障。",
+      "priority": true,
+      "priority_reason": "检验搜索前提和评估软件污染，边界清楚。"
+    },
+    {
+      "id": "2611.04870",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "统一二十二个平台动作表征，用相机身份交错注意和层级记忆保持多视角模拟，作者报告运行速度每秒10.1帧。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.04839",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "人形机器人先预测候选关节和手部序列达到的视觉终点，再按任务进展选择执行前缀，作者报告未见配置成功率65.7%。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.04711",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "把动作到视频和视频到动作的转换接成可微闭环，让世界模型学习可互相推断的动作与视觉后果。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.04016",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "在动态迷宫中分开学习拓扑变化和动作物理后果，旧变化有预测力时减少路线纠正，拓扑正确仍需检验动力学。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.03585",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "为世界动作模型的候选同时检查动作规律、逆动力学和任务进展，四候选时作者报告RoboLab成功率升至24%。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2610.33941",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "限制动作解码读取的世界模型层，并按去噪状态调整融合权重，训练时另行平衡各层收到的动作监督。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2609.03602",
+      "version": 3,
+      "category": "world-model",
+      "takeaway": "六路环视保留侧向交通信息，用未来视频训练但部署只规划动作，另按车身角点与可行边界距离施加约束。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2610.40026",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "将机器人能力、训练及部署成本、本地研究价值和复现证据分维评价，使用固定归一化尺度并保留缺测，以支持不同预算下的模型选择。",
+      "priority": false,
+      "priority_reason": "保留相关方向的完整摘要跟踪；未据全文或本地复现提升优先级。"
+    },
+    {
+      "id": "2611.02699",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "机器人世界模型的集成分歧在百步能排序误差，但一倍标准差实际覆盖只有4.6%，作者还复现出评估缺陷。",
+      "priority": true,
+      "priority_reason": "量化排序与置信区间覆盖之间的脱钩。"
+    },
+    {
+      "id": "2611.02600",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "把视频扩散去噪的中间表征压缩后蒸馏进动作模型，部署移除视频模型，作者报告相对基线约快二十一倍。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.01677",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "先从跨时刻多相机观测前馈重建静动态高斯，再用渲染锚定流式生成的几何与外观，面向闭环驾驶和动作模型。",
+      "priority": true,
+      "priority_reason": "显式高斯重建与时序生成融合，需核验长期一致性。"
+    },
+    {
+      "id": "2611.01600",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "先重建遮挡物后的几何并记录阻挡关系，再用动作条件模型搜索候选，作者在实体杂乱货架验证操作。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2610.36624",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "用运动线索为动态区域分配更强噪声和重建监督，让机器人世界动作训练更关注交互主体；辅助预测分支仅在训练时使用。",
+      "priority": false,
+      "priority_reason": "保留相关方向的完整摘要跟踪；未据全文或本地复现提升优先级。"
+    },
+    {
+      "id": "2611.01039",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "逐项替换紧凑世界模型的候选和轨迹打分，作者在Push-T发现只换模拟器评分可使覆盖率提升12.2点。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2610.15166",
+      "version": 2,
+      "category": "geometry-model",
+      "takeaway": "用可执行代码构造三维世界，从机制、组合到意图生成分层测试，并单独评价外观无法反映的物理因果行为。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2510.20708",
+      "version": 2,
+      "category": "sensors",
+      "takeaway": "从旋转多束 LiDAR 点云反推生成距离图所需的束几何，不依赖出厂元数据，在 KITTI 和 DurLAR 测试中实现零丢点。",
+      "priority": true,
+      "priority_reason": "能把缺失束 ID 的旋转 LiDAR 点云转换为保真的距离图。"
+    },
+    {
+      "id": "2602.15400",
+      "version": 2,
+      "category": "navigation",
+      "takeaway": "把累积几何和行走历史整理为显式度量世界表示，供多模态大模型选择航点，再用新观测检验并纠正反事实分支的预测。",
+      "priority": true,
+      "priority_reason": "显式度量几何与语义规划解耦，并有跨三类机器人演示。"
+    },
+    {
+      "id": "2603.09541",
+      "version": 2,
+      "category": "navigation",
+      "takeaway": "在动态人群遮挡下以问题引导房间探索，用同一相关性信号决定何时补看和保留哪些视角，为具身问答压缩观测记忆。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2605.12297",
+      "version": 2,
+      "category": "sensors",
+      "takeaway": "把双目事件流的稀疏三维关节假设放入 KeypointBEV，以重投影迭代修正深度，在第一视角遮挡和低照度条件下跟踪双手。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2605.25326",
+      "version": 3,
+      "category": "geometry-model",
+      "takeaway": "由几何增强感知器初始化单图3D对象，再以离散平移、旋转、缩放策略逐步修正布局，结合监督轨迹和偏好优化满足物理空间约束。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2605.29761",
+      "version": 3,
+      "category": "geometry-model",
+      "takeaway": "给组合式多物体符号距离场增加可插拔硬约束，训练或后处理均可用，使网格物体穿透降到数值精度且保持重建质量。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2606.18634",
+      "version": 2,
+      "category": "navigation",
+      "takeaway": "融合深度与视觉语言线索选择物体目标导航的探索方向，在 HM3D、OVON 和实体机器人上验证，并扩展到有记忆的任务。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2607.22864",
+      "version": 2,
+      "category": "geometry-model",
+      "takeaway": "用模拟堆叠三维结构分解空间计数任务，按九个感知与认知子任务检查模型是否依赖遮挡推理，或通过捷径得到正确答案。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2608.09073",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "在冻结视觉编码器的潜在世界模型中约束扰动更大的动作序列代价更高，改善图像目标导航采样规划的候选排序。",
+      "priority": true,
+      "priority_reason": "直接优化规划代价的排序，并报告同编码器对比和零样本实体机器人实验。"
+    },
+    {
+      "id": "2608.09147",
+      "version": 2,
+      "category": "geometry-model",
+      "takeaway": "把单目三维检测的深度修正变为图像对齐，让视觉语言模型依据投影框大小偏差选择离散调整动作，以改善物体级深度。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2610.40539",
+      "version": 1,
+      "category": "semantic-map",
+      "takeaway": "在场景地图里为可动部件维护受力响应后验，用实测拉动证据更新相似部件，并让规划器在指定风险下查询动作可行性。",
+      "priority": true,
+      "priority_reason": "为机器人地图加入可查询的物理交互属性，并提供真实住宅拉动实验。"
+    },
+    {
+      "id": "2610.40754",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "先构建静态场景和逐帧可检查的三维关键姿态，再在相邻端点间生成局部运动，以减少长时四维动画中的物体穿透和失稳。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2610.40832",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "通过递归场景状态统一尺度和世界坐标，从第一视角单目视频在线预测相机运动、稠密几何、双手网格与逐顶点接触。",
+      "priority": true,
+      "priority_reason": "同一在线前馈网络联估相机、场景、手部和接触，直接关联机器人数据采集。"
+    },
+    {
+      "id": "2610.40921",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "用住宅试点比较配送机器人经过宠物时的直行和曲线避让，离散停转执行的外弧绕行在单犬观察中引发更明显压力。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2610.40935",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "先用激光雷达与雷达的三维投影筛掉图像图块，再把保留特征锚定到实测点预测未来位移，降低驾驶世界模型算力。",
+      "priority": true,
+      "priority_reason": "用实测三维几何筛 token，报告规划和算力的同基线对比。"
+    },
+    {
+      "id": "2610.40947",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "用雷达速度把占用位移拆为线性外推和时域残差，在轻量状态空间模型中搬运动态潜变量，改善远期快速目标预测。",
+      "priority": true,
+      "priority_reason": "雷达速度先验直接进入三维占用滚动预测，并给出硬件速度。"
+    },
+    {
+      "id": "2610.41011",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "从单曝光多视图恢复 HDR 高斯场景，将低动态范围基底与三维增益场分开建模，以缓解逐图伪 HDR 的跨视角冲突。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2610.41188",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "按制动与转向能力为不同机器人计算后备可恢复集合，再协调控制插值，使同一动作同时满足多个邻近机器人的避碰条件。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2610.41190",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "先粗解码单目深度，再以流匹配恢复细结构，训练仅用一个合成室内数据集，并在五个真实室内外数据集检验跨域表现。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2610.41330",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "通过相机自运动耦合跨机器人共享的世界模型与各自的可微动力学模板，让同一规划策略适应不同底盘和控制约束。",
+      "priority": true,
+      "priority_reason": "清晰区分共享视觉动态与本体控制，并报告仿真到实体机器人迁移。"
+    },
+    {
+      "id": "2610.41446",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "用地理空间先验缩小无人机视觉语言导航的目标范围，再主动搜索区分候选的位置证据，停止前交叉核查不同来源。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2610.41477",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "把机器人和障碍物的几何约束凸化后嵌入可微控制层，再用策略学习调节局部运动目标，以改善狭窄动态空间避碰。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2610.41602",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "先用点线联合追踪和共享重力推断室内结构面，再约束隐式高斯中心与法线，并按结构重要性分配高斯采样容量。",
+      "priority": true,
+      "priority_reason": "把室内方向结构显式传给隐式高斯地图，直接针对弱纹理和表面伪影。"
+    },
+    {
+      "id": "2610.41625",
+      "version": 1,
+      "category": "robot-manipulation",
+      "takeaway": "压缩多视角观测再生成异步动作块，在实体双臂平台测试闭环操作，INT16 的 RDK S600 达到 32.9 Hz。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2610.41671",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "开源视觉惯性里程计支持针孔、鱼眼和拼接全景图像，提供公开数据集对比，可进一步核查相机投影与后端接口。",
+      "priority": true,
+      "priority_reason": "MIT 许可与 360° 输入对多相机或全景机器人具直接工程价值。"
+    },
+    {
+      "id": "2610.41673",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "先从未标注挖掘机图像学习视觉表示，再以合成数据和少量标注微调，估计重型机器的骨架供运动感知使用。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2610.41688",
+      "version": 1,
+      "category": "semantic-map",
+      "takeaway": "按记忆需求与架构整理具身记忆方法，区分空间状态保持、进度记录与跨回合经验，并检查基准是否真正需要历史信息。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2610.41768",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "为差速轮编码器推导概率测量因子与雅可比，将轮速、惯性和 RGB-D 紧耦合，缓解急动或视觉特征短缺时的估计失败。",
+      "priority": true,
+      "priority_reason": "直接给编码器测量模型和优化导数，作者称发布传感数据。"
+    },
+    {
+      "id": "2610.41772",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "把施工区同步环视、激光雷达和 RTK 实采与法规驱动的合成变体结合，用于评测异常道路几何下的三维检测和规划。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2610.41833",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "把单张查询图直接对齐到紧凑平面地图，用几何 Transformer 前馈估计相机六自由度位姿，并测试未见场景。",
+      "priority": true,
+      "priority_reason": "前馈重定位只需结构平面原语，有地图压缩与部署价值。"
+    },
+    {
+      "id": "2610.42049",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "由旅行商规划轮椅的停靠顺序，再结合势场与采样或图搜索实时改道，在含静动态障碍的拥挤行人仿真中比较局部策略。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.00066",
+      "version": 1,
+      "category": "multiview",
+      "takeaway": "对比路口单目人体重建和多相机三角化，揭示覆盖范围、度量尺度与拥挤遮挡异常之间的差异，并用无真值指标评估。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.00177",
+      "version": 3,
+      "category": "world-model",
+      "takeaway": "跟踪用外部机器人操作视频合成第一视角训练数据的四维建模工作，公开摘要仅披露遮挡、稀疏视图和接触观测等问题。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.00344",
+      "version": 1,
+      "category": "semantic-map",
+      "takeaway": "用语义评判器定位具身记忆中的可疑区域，主动返回补拍并选择性更正条目，使问答能利用更小且更可靠的环境知识库。",
+      "priority": true,
+      "priority_reason": "把场景记忆误差变成主动复访任务，并与同预算未定向复访对照。"
+    },
+    {
+      "id": "2611.00499",
+      "version": 1,
+      "category": "semantic-map",
+      "takeaway": "把视觉语言模型的物体位置线索和几何占用融合成三维体素信念，让移动机器人据此决定换视角、探索或打开柜门。",
+      "priority": true,
+      "priority_reason": "空间信念直接连接真实移动机器人的主动观测和开柜操作。"
+    },
+    {
+      "id": "2611.00513",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "让视觉语言模型主动建模任务相关的物体、接触与关节运动，由几何规划器求全身轨迹，并用执行反馈修正世界模型。",
+      "priority": true,
+      "priority_reason": "显式运动学世界模型可由执行反馈修订，并跨操控与导航基准。"
+    },
+    {
+      "id": "2611.00527",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "把机械臂已知位姿下的激光超声扫描用于复数 NeRF 重建，以实部和虚部编码表面振速，并在留出视角比较保真度。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.00696",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "用三维建筑图预测卫星信号阴影和反射，合并最可能的两类接收条件所对应的位置集合，降低错分类导致的定位失败。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.00704",
+      "version": 1,
+      "category": "slam-vio",
+      "takeaway": "融合开放地理数据和地形模型成全景语义三维图，联合配准建筑与道路、植被、水域，给建筑稀少区域的航拍定位增加约束。",
+      "priority": true,
+      "priority_reason": "对无建筑区域的地图配准提出直接方案。"
+    },
+    {
+      "id": "2611.00718",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "用环境回报训练驾驶模型判断是否展开较长推理，以跨路由的优势差分配学习信号，减少例行场景中的推理开销。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.00734",
+      "version": 1,
+      "category": "robot-manipulation",
+      "takeaway": "把多视图历史压缩为记忆 token，并监督其记住物体状态改变和子任务进度，用于生成多阶段移动操控动作。",
+      "priority": true,
+      "priority_reason": "明确监督世界状态和任务进展，并给出相同视觉历史变体及实机对比。"
+    },
+    {
+      "id": "2611.01400",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "用毫米波通信设备的 OFDM 信道响应恢复射频三维点云，再以时空注意力与骨架约束估计遮挡下的人体姿态。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.01627",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "把单目深度、点轨迹和人体运动先验放入交替优化，以第一视角场景约束人体，再用人体约束相机轨迹、重力方向和尺度。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.01659",
+      "version": 1,
+      "category": "robot-manipulation",
+      "takeaway": "先用信念驱动的主动观测解除遮挡，再按点云可供性选择人形机器人站位与全身抓取，用动力学仿真剔除会失稳的样本。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.01759",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "用深度相机把二维人体关键点转换为三维关节角并驱动服务机器人，VR 提供远端视角，手腕偏航精度仍需验证。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.01844",
+      "version": 2,
+      "category": "world-model",
+      "takeaway": "用大规模无动作标签导航视频学习统一潜动作，再用带动作数据对齐物理运动，以扩大导航世界模型的场景和载体覆盖。",
+      "priority": true,
+      "priority_reason": "面向导航世界模型的数据瓶颈，给出可复用的无动作视频预训练路线。"
+    },
+    {
+      "id": "2611.01996",
+      "version": 1,
+      "category": "semantic-map",
+      "takeaway": "将道路影像的风险线索转换为车路云动态地图实体，再通过分步提示提供风险查询与驾驶建议，分别验证感知和问答。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.02026",
+      "version": 1,
+      "category": "multiview",
+      "takeaway": "让多模态模型从真实多视图预测共享相机坐标中的三维框，分开测相对结构和度量布局，并用地图注入诊断导航误差。",
+      "priority": true,
+      "priority_reason": "可分离空间理解、度量重建和规划误差的直接基准。"
+    },
+    {
+      "id": "2611.02034",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "用规范三角形集合和四元数形变网络重建单目内窥镜动态表面，借时空先验与初始化改进遮挡下的组织和工具交互。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.02147",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "同步采集路侧四维雷达与立体深度，用雷达聚类位置离散度做轻量车辆二分类，降低乘用车与摩托车的混淆。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.02171",
+      "version": 1,
+      "category": "robot-manipulation",
+      "takeaway": "把目标物体朝向交给目标图像描述，从 RGB 和本体感觉生成手内重定向动作，在重遮挡时省去中间显式位姿估计。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.02341",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "从单图和自然语言开始，以度量相机轨迹驱动分块视频生成，并按可见性和置信度维护空间记忆，使长时重访更一致。",
+      "priority": true,
+      "priority_reason": "世界状态和带几何空间记忆双向更新，直接针对长时重访一致性。"
+    },
+    {
+      "id": "2611.02929",
+      "version": 1,
+      "category": "multiview",
+      "takeaway": "用 Fit3D 同一协议比较单目升维与多视图三维姿态，分别控制二维检测输入和时序滤波，观察精度及动作平滑。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.02999",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "用连续时间运动学和稠密可微渲染，在一段机械臂轨迹中联合估计无标记手眼外参及传感时差，并测量补偿对控制的收益。",
+      "priority": true,
+      "priority_reason": "同时校准外参与时间差，跨多臂和传感器，给出策略成功率和置信区间。"
+    },
+    {
+      "id": "2611.03033",
+      "version": 1,
+      "category": "multiview",
+      "takeaway": "把多 RGB-D 融合到网格贴图的中间处理保留在 GPU，并为每台相机估计低频增益场，兼顾多视图接缝校正与实时重建。",
+      "priority": true,
+      "priority_reason": "GPU 常驻流程和曝光接缝处理直接影响实时三维采集部署。"
+    },
+    {
+      "id": "2611.03229",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "用上一阶段的三维检测预测补回旧类监督，再按查询蒸馏并加入时序一致性，在两套驾驶数据对比遗忘与新类学习。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.03283",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "用单张登记图生成带已知位姿的个性化虚拟锚点，结合多锚点旋转共识与实图 PnP，恢复度量六自由度头部姿态。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.03430",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "在真实嫦娥影像和地球类比集比较深度与法线增强，发现简单几何融合收益随种子波动，训练域选择对月面迁移影响更大。",
+      "priority": true,
+      "priority_reason": "跨真实月面数据的负结果可约束三维特征融合设计。"
+    },
+    {
+      "id": "2611.03440",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "利用低轨通信卫星的机会信号与多普勒频移做终端定位，并用射线追踪仿真评估城市多径和开阔场景中的可行性。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.03584",
+      "version": 1,
+      "category": "robot-manipulation",
+      "takeaway": "先用视觉语言模型生成含观测与操作的部分计划，再以经典搜索和几何约束补全参数，执行中持续更新机器人信念。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.03648",
+      "version": 1,
+      "category": "robot-manipulation",
+      "takeaway": "共同设计轮式人形平台、柔顺夹爪、人机示范接口和全身控制，使同一视觉运动策略能学习主动观察及移动操作。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.04080",
+      "version": 1,
+      "category": "robot-manipulation",
+      "takeaway": "在有位姿的 RGB-D 扫描上按指令临时解析物体，再根据机器人可达性选择底盘位姿，并用执行前后观测核查效果。",
+      "priority": true,
+      "priority_reason": "把已定位三维扫描用于任务条件语义解析，并公开摘要级实机失败分解。"
+    },
+    {
+      "id": "2611.04173",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "让动态驾驶场景重建和新轨迹图像生成反复互相约束，并用自适应地面模型修正几何，在偏移视角检验合成质量。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.04174",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "从已解码的点云占用层级直接构建稀疏卷积索引，并用对齐的前一帧提高压缩效率，在 Jetson Thor 测试实时性。",
+      "priority": true,
+      "priority_reason": "边缘算力和压缩收益给出同一硬件下的可核查指标。"
+    },
+    {
+      "id": "2611.04300",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "把补偿自运动的多帧雷达特征加入相机激光雷达候选重评分，近中距离有提升，远处缺失的激光雷达候选仍无法补回。",
+      "priority": true,
+      "priority_reason": "距离分桶显示雷达融合的实际增益与候选级融合的上限。"
+    },
+    {
+      "id": "2611.04452",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "先用几何残差与深度区分相机运动和物体运动，再融合语义修正动态目标分割，以减少阴影和反射造成的运动歧义。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.04492",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "混合粒子体素把视觉几何与触觉放入同一三维状态，动作更新后可渲染新视角，作者报告交互预测频率50赫兹。",
+      "priority": true,
+      "priority_reason": "显式三维动态结合触觉与跨视角渲染。"
+    },
+    {
+      "id": "2611.04604",
+      "version": 1,
+      "category": "multiview",
+      "takeaway": "从少量血管分割投影构建视觉外壳，再以无配对三维扩散先验修正，低对比八视角的连通性指标优于对照。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.04712",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "直接在任意头部网格顶点生成反照率和粗糙度，用多视图可见性约束被遮挡表面，避免固定UV接缝。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.04912",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "对照相机与激光检测框的投影一致性，累积变点证据以在线发现外参漂移，作者用实体失准数据验证。",
+      "priority": true,
+      "priority_reason": "和主池外参校正负结果形成互补的检测视角。"
+    },
+    {
+      "id": "2611.05072",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "候选轨迹直接在共享场景记忆中稀疏取样评分，训练时才读出未来语义，避免部署为每条轨迹单独生成未来。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.05197",
+      "version": 1,
+      "category": "multiview",
+      "takeaway": "从不完整激光点云聚类并合并细长导线片段，同一管线处理机载和移动数据，作者报告机载几何误差0.127米。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.05448",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "为每个驾驶动作预测周边车辆两秒内的运动，再把后果交给语言决策模型比较，仿真合流碰撞率降至2.4%。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.05569",
+      "version": 1,
+      "category": "semantic-map",
+      "takeaway": "比较把认识不确定性输入点云分割器或用于损失加权，作者在空间隔离测试中找回基线漏掉的小类别。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.05617",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "把前方多个凸安全区域合成连续走廊，并用可微安全场约束机器人，实体演示通过窄区和旧图未记录障碍。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.05847",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "冻结JEPA世界模型，只用轨迹三元组重学到达目标的时间度量，作者报告四个基准平均规划成功率升至63.0%。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.06040",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "用深度及空间排序问答训练水下视觉模型，再以先验门控修正受散射的特征，摘要报告的是问答评估。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.06061",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "生成视频同时接受相机移动与手部骨架控制，按块在线更新并显示物体响应，配套基准检查相机和手势协同。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.06121",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "设备用四个光敏点读取投影像素编码，再以PnP恢复空间位姿，作者报告延迟约八毫秒和位置误差19.2毫米。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.06282",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "训练用语言模型解释遮挡和深度，再让单目检测器从扰动中恢复这些几何线索，部署仍只需图像输入。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.07493",
+      "version": 1,
+      "category": "semantic-map",
+      "takeaway": "从带位姿的历史图像先召回候选再验证目标，把找不到物体也作为可测结果，并比较检测调用次数和真机运行。",
+      "priority": true,
+      "priority_reason": "将不存在特异度纳入机器人检索评测"
+    },
+    {
+      "id": "2611.07630",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "用相同闪烁频率下不同占空比识别LED，由双速率事件追踪维持二维到三维对应，并在无人机平台演示闭环引导。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.07730",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "训练时用两个世界模型判断动作未来的社会和语义后果，再把偏好蒸馏进单次前向导航策略，用留出人群场景评估。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.07867",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "把静态占据与实体三维状态保存在可写记忆中，由动作模型更新、独立渲染器观察，并在Doom中演示新地图迁移。",
+      "priority": true,
+      "priority_reason": "动作、几何状态和渲染分离"
+    },
+    {
+      "id": "2611.07873",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "用球面感知噪声及立方体投影时序分支适配透视深度模型，评估全景视频的深度一致性，并提供合成训练数据。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.08128",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "利用规划器给出的自车运动把占据预测变换到残余动态空间，只为高不确定体素求解连续流，并保留单次解码路径。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.08139",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "按层级传播新自由栅格导致的距离下降，为多机器人规划提供精确多对多距离，并把静态基准与在线速度分开。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.08342",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "从同步相机初始化显式运动点，再拟合复数雷达回波，摘要分别报告微多普勒重建相关性与真实雷达上的姿态误差。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.08368",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "在相同场景与轨迹下模拟多类传感器的原始读数和特有失效，提供同步室内数据用于比较机器人的多模态感知。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.08436",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "先从RGB视频预测动态场景几何，再在各像素对应的相机坐标系估运动，用另一时刻已标点位置监督未标运动。",
+      "priority": true,
+      "priority_reason": "明确区分相机与对象运动的表达"
+    },
+    {
+      "id": "2611.08731",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "训练时用与事件相机配准且经激光校准的图像深度作稠密监督，推理只用事件，并比较真实数据的度量深度和细节。",
+      "priority": false,
+      "priority_reason": ""
+    },
+    {
+      "id": "2611.08782",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "只以原始单扫激光训练度量深度补全，并把有激光支撑和覆盖外像素拆开评估，以检查单目先验的外推能力。",
+      "priority": true,
+      "priority_reason": "覆盖外几何单独评估"
+    },
+    {
+      "id": "2611.09270",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "用多尺度地形和轮地接触先验预测闭环轨迹的分布，把通行性定义为控制器能跟踪路径并取得进展的概率，供滚动规划使用。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.09524",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "通过标定几何把视觉教师的部位和体素语义投到毫米波雷达三维表示，并用关节和顶点约束细化人体网格。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.09661",
+      "version": 1,
+      "category": "semantic-map",
+      "takeaway": "以占据表征为中介，逐帧将当前实例的三维和外观证据与历史资产记录关联，形成可编辑的持久街景物体。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.09664",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "把稀疏卷积的局部体素特征与自注意力的长程特征并联融合，用于车载激光雷达的三维目标和鸟瞰检测。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.09717",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "在相同真实事件隐藏集上比较直接回归和关键点几何位姿恢复，分别显示旋转和平移优势，为组合估计器提供依据。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.09816",
+      "version": 1,
+      "category": "semantic-map",
+      "takeaway": "把带相机参数的 RGB-D 视频转换为可查询的米制鸟瞰记忆，按问题所需证据选择直接几何计算或回取视图。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.09959",
+      "version": 1,
+      "category": "gaussian",
+      "takeaway": "用四部手机同步拍摄机械臂驱动的柔性条并提供相机位姿与夹爪输入，使动态高斯重建可在实拍多视角下复核。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.10151",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "让视觉语言模型选取视点或空间变换，由世界模型在潜空间生成可复用证据，以额外模拟计算支持多步空间推理。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.10316",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "针对机器人世界模型反复展开的内存瓶颈，提出近存计算和低精度状态缓冲，并用热仿真估计功耗目标的效果。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.10353",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "为有标注源域到无标注目标域的点云补全加入几何感知递归特征、逐级解码和可见结构约束，抑制目标域不稳定。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.10435",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "提出用共享世界模型重评远程机器人队伍在部署条件变化后的多目标策略排序，并把预测与实际排序一致性作为验证重点。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.10518",
+      "version": 1,
+      "category": "multiview",
+      "takeaway": "为振动漂移后的双目系统估计统一虚拟相机，同时约束全图扭曲，使极线校正后的图像和计算深度的相机模型一致。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.10729",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "用冻结单目深度模型生成先验，通过稀疏量测估计平滑的局部尺度和平移场，再由多尺度特征传播补全米制深度。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.10806",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "以训练后的分层候选轨迹提案替代逐步梯度规划，冻结 JEPA 世界模型并保留它对候选动作展开的评分。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.11085",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "把全物体表面含遮挡区的三维轨迹作为世界模型目标，结合实拍与物理仿真监督，以服务刚性和可变形物体操作。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.11131",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "将异构激光雷达扫描转为距离图潜变量并跨传感器交互，在鸟瞰或三维框约束下续写几何一致的长序列。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.11516",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "以真实事故视频补足正常驾驶数据的安全结局偏差，再用动作条件预测比较候选自车轨迹的碰撞风险。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.11605",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "让四旋翼世界模型以在线深度扫描地图为记忆，用地图约束想象中的进度和碰撞，并惩罚超出相机视场的运动。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.11607",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "校正单目三维检测中将像框高度误当中心深度约束的偏差，用目标朝向和尺寸补偿可见前表面与中心的差异。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.11763",
+      "version": 1,
+      "category": "geometry-model",
+      "takeaway": "用图像中的场景概念先确定合适的米制深度区间，再以逐像素特征和置信门控恢复细节，减少室内外尺度漂移。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.11780",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "量化误差若跨迭代持续会被采样规划器放大，候选共享但逐迭代重抽的抖动可在相同位宽下恢复控制表现。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.11978",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "用距离衰减融合多视图语义证据抑制远距误判，并把目标检测和深度三维定位组合为有物理约束的停止规则。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.12099",
+      "version": 1,
+      "category": "navigation",
+      "takeaway": "让视频记忆中的历史观测与深度量得的坡度和粗糙度共同决定可通行分割，减少地图闪烁造成的路径中断。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.12113",
+      "version": 1,
+      "category": "semantic-map",
+      "takeaway": "让场景地图保存位置失效概率和开启所需力，把再观察、尝试和放弃等动作统一到任务成本与力限内选择。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.12129",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "从一次棋盘实测生成保留射线结构的训练增强，在反射率图检测标靶后恢复有效位姿，支持跨环境相机激光标定。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.12259",
+      "version": 1,
+      "category": "sensors",
+      "takeaway": "用头戴传感记录四个模拟现场，分别检查第一视角模型的房间级网格、空间语义和运行负载，保留缺真值的限制。",
+      "priority": false,
+      "priority_reason": null
+    },
+    {
+      "id": "2611.12732",
+      "version": 1,
+      "category": "world-model",
+      "takeaway": "在无显式解码的潜变量世界模型中加入反向动力学和逆动作预测，对状态嵌入施加结构约束并用于机器人规划。",
+      "priority": false,
+      "priority_reason": null
+    }
+  ]
+}

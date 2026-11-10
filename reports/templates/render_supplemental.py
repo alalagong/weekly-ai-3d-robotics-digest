@@ -72,7 +72,11 @@ def build(ledger, presentation, old_section=None):
             anchor = paper['report_anchor']
             prior = old_details.get(anchor)
             detail_fields = [paper.get(k, '') for k in ('direction', 'problem', 'method', 'insight_math', 'experiments')]
-            follow = '仅摘要；未深读全文、未运行。'+str(paper.get('follow_up') or '')
+            reused = paper.get('evidence_level') == 'reused_abstract'
+            evidence_badge = '摘要未变 · 复用原分析' if reused else '仅摘要 · 未深读全文'
+            follow = str(paper.get('follow_up') or '')
+            if not reused:
+                follow = '仅摘要；未深读全文、未运行。' + follow
             if paper.get('original_report'):
                 follow += ' 原报告：'+paper['original_report']+'。'+str(paper.get('legacy_report_inspection') or '')
             detail_fields.append(follow)
@@ -89,10 +93,15 @@ def build(ledger, presentation, old_section=None):
             else:
                 citation = prior[0] if prior else '<a href="'+escape(url)+'">原文 '+escape(paper['id'])+version_label+'</a><br>v1 '+escape(str(paper.get('v1_utc')))+' · updated '+escape(str(paper.get('updated_utc')))
                 values = prior[1:] if prior else [escape(str(value)) for value in detail_fields]
+                if reused and paper.get('original_report'):
+                    prior_path = Path(paper['original_report']).name
+                    prior_anchor = paper.get('original_report_anchor')
+                    href = './' + prior_path + ('#' + prior_anchor if prior_anchor else '')
+                    citation += ' · <a href="' + escape(href) + '">原报告</a>'
                 body = '<p>'+citation+'</p><dl>'+''.join('<dt>'+label+'</dt><dd>'+value+'</dd>' for label, value in zip(labels, values))+'</dl>'
             if note.get('priority'):
                 body += '<p class="small tracking-priority-reason">优先关注原因：'+escape(note.get('priority_reason', '与核心 SLAM/3D 研究问题直接相关'))+'；仍为摘要级证据。</p>' if 'tracking-priority-reason' not in body else ''
-            group += '<details class="tracking-paper" id="'+escape(anchor)+'" data-category="'+cid+'" data-window="'+paper['window_class']+'" data-priority="'+str(bool(note.get('priority'))).lower()+'"><summary><span class="tracking-paper-heading">'+escape(paper['title'])+'</span><span class="tracking-paper-takeaway">'+escape(note['takeaway'])+'</span><span class="tracking-paper-badges"><span class="tag">'+WINDOWS[paper['window_class']]+'</span><span class="tag">'+escape(paper['id'])+version_label+'</span><span class="tag">仅摘要 · 未深读全文</span>'+('<span class="tag priority-tag">优先关注</span>' if note.get('priority') else '')+'</span></summary><div class="tracking-paper-body">'+body+'</div></details>'
+            group += '<details class="tracking-paper" id="'+escape(anchor)+'" data-category="'+cid+'" data-window="'+paper['window_class']+'" data-priority="'+str(bool(note.get('priority'))).lower()+'"><summary><span class="tracking-paper-heading">'+escape(paper['title'])+'</span><span class="tracking-paper-takeaway">'+escape(note['takeaway'])+'</span><span class="tracking-paper-badges"><span class="tag">'+WINDOWS[paper['window_class']]+'</span><span class="tag">'+escape(paper['id'])+version_label+'</span><span class="tag">'+evidence_badge+'</span>'+('<span class="tag priority-tag">优先关注</span>' if note.get('priority') else '')+'</span></summary><div class="tracking-paper-body">'+body+'</div></details>'
         groups.append(group+'</details>')
     return nav, '\n'.join(groups), {'total': len(papers), 'categories': dict(totals), 'priority': sum(bool(n.get('priority')) for n in notes)}
 

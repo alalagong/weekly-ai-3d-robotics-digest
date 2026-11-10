@@ -1,29 +1,29 @@
 {
-  "run_at": "2026-11-01T14:59:32Z",
-  "coverage_start": "2026-10-24T08:17:58Z",
-  "coverage_end": "2026-11-01T14:59:32Z",
-  "report_path": "reports/2026-10-24_2026-11-01_RESPLE2-GPA-VGGT-OctWorld.html",
-  "previous_run_at": "2026-10-19T17:10:23.356Z",
+  "run_at": "2026-11-10T18:10:23.7767297Z",
+  "coverage_start": "2026-11-01T14:59:32Z",
+  "coverage_end": "2026-11-10T18:10:23.7767297Z",
+  "report_path": "reports/2026-11-01_2026-11-11_Map2SLAM-FREE-LIVO-Click3R.html",
+  "previous_run_at": "2026-11-01T14:59:32Z",
   "coverage_status": "complete_with_known_limits",
-  "last_refresh_at": "2026-11-07T04:24:15.893207+00:00",
+  "last_refresh_at": "2026-11-11T02:28:39.256589+08:00",
   "refresh_window": {
     "coverage_start": "2026-10-03T16:16:46.3538283+08:00",
     "coverage_end": "2026-10-18T21:52:39.8263257+08:00",
     "report_path": "reports/2026-10-03_2026-10-18_F2SLAM-SMoRe-Anchor3DGS.html"
   },
-  "ledger_path": "reports/2026-10-24_2026-11-01_paper-ledger.json",
-  "search_manifest_path": "reports/2026-10-24_2026-11-01_search-manifest.json",
+  "ledger_path": "reports/2026-11-01_2026-11-11_paper-ledger.json",
+  "search_manifest_path": "reports/2026-11-01_2026-11-11_search-manifest.json",
   "paper_history_path": "reports/paper-history.json",
   "backlog": {
     "unresolved_count": 0,
     "ids": [],
     "evidence_followups_path": "reports/paper-history.json",
     "access_limits": [
-      "未下载数据/权重或运行代码；441摘要条目保留全文待办。",
-      "SVIn+数据待发布、LingGS源码待发布；不计源码深读。",
-      "2610.37330官方abs/Atom摘要错配，使用同版本官方HTML摘要并保留原始冲突。"
+      "372 摘要及修订跟踪保留全文待办；摘要未变的修订复用历史分析。",
+      "仓库只做静态审计，未下载数据或权重；Map2SLAM 仅 README。",
+      "检索基于已公开版本；跨冻结时点的延迟公告由下期重叠核销。"
     ],
-    "independent_review_status": "独立重新发现1404并全处置，写后独立集合/数字复核通过；见work/review-final-check.json。"
+    "independent_review_status": "官方分类 30 页取尽，299 个候选与主池/history 核销，补处置 184 个差集。"
   },
   "coverage_history": [
     {
@@ -43,16 +43,31 @@
       "ledger_path": "reports/2026-10-18_2026-10-24_paper-ledger.json",
       "search_manifest_path": "reports/2026-10-18_2026-10-24_search-manifest.json",
       "coverage_status": "complete_with_known_limits"
+    },
+    {
+      "run_at": "2026-11-01T14:59:32Z",
+      "coverage_start": "2026-10-24T08:17:58Z",
+      "coverage_end": "2026-11-01T14:59:32Z",
+      "report_path": "reports/2026-10-24_2026-11-01_RESPLE2-GPA-VGGT-OctWorld.html",
+      "ledger_path": "reports/2026-10-24_2026-11-01_paper-ledger.json",
+      "search_manifest_path": "reports/2026-10-24_2026-11-01_search-manifest.json",
+      "coverage_status": "complete_with_known_limits",
+      "git_delivery": {
+        "target": "origin/main",
+        "report_run_at": "2026-11-01T14:59:32Z",
+        "result_path": "reports/2026-10-24_2026-11-01_work/git-delivery.json",
+        "status": "report_commit_pushed_and_verified",
+        "report_commit": "266452a527298fe290bd561bce8cc93ef08e4b39",
+        "note": "报告提交已推送并核对远端SHA；交付记录随后单独提交，文献覆盖状态不受此记录提交影响。"
+      }
     }
   ],
-  "validation_path": "reports/2026-10-24_2026-11-01_validation.json",
+  "validation_path": "reports/2026-11-01_2026-11-11_validation.json",
   "git_delivery": {
     "target": "origin/main",
-    "report_run_at": "2026-11-01T14:59:32Z",
-    "result_path": "reports/2026-10-24_2026-11-01_work/git-delivery.json",
-    "status": "report_commit_pushed_and_verified",
-    "report_commit": "266452a527298fe290bd561bce8cc93ef08e4b39",
-    "note": "报告提交已推送并核对远端SHA；交付记录随后单独提交，文献覆盖状态不受此记录提交影响。"
+    "report_run_at": "2026-11-10T18:10:23.7767297Z",
+    "status": "delivery_recorded_in_automation_memory",
+    "note": "Git 交付状态与文献覆盖状态独立；提交和远端复核见自动化记忆。"
   },
-  "presentation_path": "reports/2026-10-24_2026-11-01_presentation.json"
+  "presentation_path": "reports/2026-11-01_2026-11-11_presentation.json"
 }
