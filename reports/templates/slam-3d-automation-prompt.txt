@@ -35,6 +35,7 @@
 6. Repo与一次验收
 检索期内新项目/实质发布；已审仓库先比较commit/release，仅检查变化模块及必要上下文，不重读未变源码。重点仓库核README、tree、入口/配置/核心模块、近期commit/release/issue，列实际文件和固定SHA、依赖/硬件及stars/forks快照；区分作者声称、源码静态证据、实际运行。占位/README-only不计源码深读；未运行/未下载权重数据须注明。
 输出 reports/YYYY-MM-DD_YYYY-MM-DD_主题.html 并更新index。用一个可复用脚本一次校验section、ID/版本集合、计数、日期归属、历史去重、本地链接/图片、presentation闭合；只对失败项重跑。能渲染时一次检查搜索/时间/优先关注/零结果/重置、分类计数、隐藏锚点展开、窄屏和无JS退化，未实测项明确限制。不要为不变模板重复开发验证器或做多轮逐篇人工验收。
+正式发布前运行 `node reports/templates/validate_slam_3d_layout.cjs <报告HTML> <本轮layout-validation.json>`。使用本机 Chrome 与 Playwright，NODE_PATH 可指向 Codex runtime 的 dependencies/node/node_modules。脚本验证 1440px 桌面八列表格、缩略图、折叠与筛选，以及 390px 窄屏表内滚动。结果通过后发布正式HTML。渲染失败先修版式并复验；浏览器不可用时保留HTML预览稿和失败原因，待实测后再发布。论文检索与阅读成果继续保存，版式复验复用同一批数据。
 关键查询未耗尽、核心候选未判定或独立复核未通过则输出临时报告，coverage_end不跨缺口；其余访问/补读待办按ID持久保存。通过门槛后增量更新state/history，保留原字段与旧记录，不重新生成全历史。
 Windows原生，Git用 C:\Users\gongy\AppData\Local\Programs\Git\cmd\git.exe，不可用才WSL。只提交本轮报告/index/引用assets/ledger/manifest/presentation/history/state及必要审计摘要/可复现脚本；大量原始下载页/PDF留本地缓存，记录URL/hash/cache路径，不默认提交全部中间副本。暂存检查仅输出摘要/错误首段，原始源文件空白不触发全量巨大diff输出。commit“更新 YYYY-MM-DD 至 YYYY-MM-DD SLAM与3D视觉周报”，push origin/main不强推；推送独立于文献覆盖状态。网络/认证失败定点恢复，不重跑文献任务。
 最终简报给路径、精确窗口、深读/repo/摘要数、新文/补漏数、候选/排除/未解决数、分页/独立复核及访问限制、commit/push。memory只追加运行摘要和下一步。续跑先读进度与未完成队列，仅执行剩余步骤。工具返回控制在必要片段，集合运算/分类计数/去重交给脚本；不打印完整历史、全文、ledger或成千上万行diff。
